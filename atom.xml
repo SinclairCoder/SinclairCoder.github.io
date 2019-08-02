@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://sinclaircoder.top/"/>
   <updated>2019-03-08T14:47:21.266Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://sinclaircoder.top/</id>
   
   <author>
     <name>Sinclair Wang</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>读书计划（置顶）</title>
-    <link href="http://yoursite.com/2080/01/01/2080-01-01-%E8%AF%BB%E4%B9%A6%E8%AE%A1%E5%88%92/"/>
-    <id>http://yoursite.com/2080/01/01/2080-01-01-读书计划/</id>
+    <link href="https://sinclaircoder.top/2080/01/01/2080-01-01-%E8%AF%BB%E4%B9%A6%E8%AE%A1%E5%88%92/"/>
+    <id>https://sinclaircoder.top/2080/01/01/2080-01-01-读书计划/</id>
     <published>2079-12-31T16:00:00.000Z</published>
     <updated>2019-03-08T14:47:21.266Z</updated>
     
@@ -37,14 +37,14 @@
     </summary>
     
     
-      <category term="读书计划" scheme="http://yoursite.com/tags/%E8%AF%BB%E4%B9%A6%E8%AE%A1%E5%88%92/"/>
+      <category term="读书计划" scheme="https://sinclaircoder.top/tags/%E8%AF%BB%E4%B9%A6%E8%AE%A1%E5%88%92/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2019/08/01/hello-world/"/>
-    <id>http://yoursite.com/2019/08/01/hello-world/</id>
+    <link href="https://sinclaircoder.top/2019/08/01/hello-world/"/>
+    <id>https://sinclaircoder.top/2019/08/01/hello-world/</id>
     <published>2019-08-01T11:39:07.119Z</published>
     <updated>2019-08-02T07:00:42.236Z</updated>
     
@@ -62,8 +62,8 @@
   
   <entry>
     <title>一个小绿锁引发的问题</title>
-    <link href="http://yoursite.com/2019/03/08/2019-03-08-%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0SSL/"/>
-    <id>http://yoursite.com/2019/03/08/2019-03-08-博客添加SSL/</id>
+    <link href="https://sinclaircoder.top/2019/03/08/2019-03-08-%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0SSL/"/>
+    <id>https://sinclaircoder.top/2019/03/08/2019-03-08-博客添加SSL/</id>
     <published>2019-03-07T16:00:00.000Z</published>
     <updated>2019-08-02T07:00:01.253Z</updated>
     
@@ -83,14 +83,14 @@
     </summary>
     
     
-      <category term="博客" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="https://sinclaircoder.top/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
   <entry>
     <title>HDU2018母牛的故事</title>
-    <link href="http://yoursite.com/2019/03/03/2019-03-03-HDU2018%E6%AF%8D%E7%89%9B%E7%9A%84%E6%95%85%E4%BA%8B/"/>
-    <id>http://yoursite.com/2019/03/03/2019-03-03-HDU2018母牛的故事/</id>
+    <link href="https://sinclaircoder.top/2019/03/03/2019-03-03-HDU2018%E6%AF%8D%E7%89%9B%E7%9A%84%E6%95%85%E4%BA%8B/"/>
+    <id>https://sinclaircoder.top/2019/03/03/2019-03-03-HDU2018母牛的故事/</id>
     <published>2019-03-02T16:00:00.000Z</published>
     <updated>2019-08-02T06:59:43.171Z</updated>
     
@@ -111,14 +111,14 @@
     </summary>
     
     
-      <category term="ACM训练" scheme="http://yoursite.com/tags/ACM%E8%AE%AD%E7%BB%83/"/>
+      <category term="ACM训练" scheme="https://sinclaircoder.top/tags/ACM%E8%AE%AD%E7%BB%83/"/>
     
   </entry>
   
   <entry>
     <title>Python3字符串API之expandtabs()</title>
-    <link href="http://yoursite.com/2019/02/11/2019-02-11-Python3%E5%AD%97%E7%AC%A6%E4%B8%B2API%E4%B9%8Bexpandtabs()/"/>
-    <id>http://yoursite.com/2019/02/11/2019-02-11-Python3字符串API之expandtabs()/</id>
+    <link href="https://sinclaircoder.top/2019/02/11/2019-02-11-Python3%E5%AD%97%E7%AC%A6%E4%B8%B2API%E4%B9%8Bexpandtabs()/"/>
+    <id>https://sinclaircoder.top/2019/02/11/2019-02-11-Python3字符串API之expandtabs()/</id>
     <published>2019-02-10T16:00:00.000Z</published>
     <updated>2019-08-02T06:59:31.133Z</updated>
     
@@ -140,14 +140,14 @@
     </summary>
     
     
-      <category term="Python3" scheme="http://yoursite.com/tags/Python3/"/>
+      <category term="Python3" scheme="https://sinclaircoder.top/tags/Python3/"/>
     
   </entry>
   
   <entry>
     <title>Java中关于日期的printf格式化输出</title>
-    <link href="http://yoursite.com/2019/02/09/2019-02-09-Java%E4%B8%AD%E5%85%B3%E4%BA%8E%E6%97%A5%E6%9C%9F%E7%9A%84printf%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA/"/>
-    <id>http://yoursite.com/2019/02/09/2019-02-09-Java中关于日期的printf格式化输出/</id>
+    <link href="https://sinclaircoder.top/2019/02/09/2019-02-09-Java%E4%B8%AD%E5%85%B3%E4%BA%8E%E6%97%A5%E6%9C%9F%E7%9A%84printf%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA/"/>
+    <id>https://sinclaircoder.top/2019/02/09/2019-02-09-Java中关于日期的printf格式化输出/</id>
     <published>2019-02-08T16:00:00.000Z</published>
     <updated>2019-08-02T06:59:11.554Z</updated>
     
@@ -164,14 +164,14 @@
     </summary>
     
     
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+      <category term="Java" scheme="https://sinclaircoder.top/tags/Java/"/>
     
   </entry>
   
   <entry>
     <title>HDU2097Sky数</title>
-    <link href="http://yoursite.com/2019/01/09/2019-01-09-HDU%202097Sky%E6%95%B0/"/>
-    <id>http://yoursite.com/2019/01/09/2019-01-09-HDU 2097Sky数/</id>
+    <link href="https://sinclaircoder.top/2019/01/09/2019-01-09-HDU%202097Sky%E6%95%B0/"/>
+    <id>https://sinclaircoder.top/2019/01/09/2019-01-09-HDU 2097Sky数/</id>
     <published>2019-01-08T16:00:00.000Z</published>
     <updated>2019-08-02T06:57:44.625Z</updated>
     
@@ -195,16 +195,16 @@
     </summary>
     
     
-      <category term="数论" scheme="http://yoursite.com/tags/%E6%95%B0%E8%AE%BA/"/>
+      <category term="数论" scheme="https://sinclaircoder.top/tags/%E6%95%B0%E8%AE%BA/"/>
     
-      <category term="ACM训练" scheme="http://yoursite.com/tags/ACM%E8%AE%AD%E7%BB%83/"/>
+      <category term="ACM训练" scheme="https://sinclaircoder.top/tags/ACM%E8%AE%AD%E7%BB%83/"/>
     
   </entry>
   
   <entry>
     <title>HDU2099整除的尾数</title>
-    <link href="http://yoursite.com/2019/01/09/2019-01-09-HDU2099%E6%95%B4%E9%99%A4%E7%9A%84%E5%B0%BE%E6%95%B0/"/>
-    <id>http://yoursite.com/2019/01/09/2019-01-09-HDU2099整除的尾数/</id>
+    <link href="https://sinclaircoder.top/2019/01/09/2019-01-09-HDU2099%E6%95%B4%E9%99%A4%E7%9A%84%E5%B0%BE%E6%95%B0/"/>
+    <id>https://sinclaircoder.top/2019/01/09/2019-01-09-HDU2099整除的尾数/</id>
     <published>2019-01-08T16:00:00.000Z</published>
     <updated>2019-08-02T06:58:30.941Z</updated>
     
@@ -228,16 +228,16 @@
     </summary>
     
     
-      <category term="数论" scheme="http://yoursite.com/tags/%E6%95%B0%E8%AE%BA/"/>
+      <category term="数论" scheme="https://sinclaircoder.top/tags/%E6%95%B0%E8%AE%BA/"/>
     
-      <category term="ACM训练" scheme="http://yoursite.com/tags/ACM%E8%AE%AD%E7%BB%83/"/>
+      <category term="ACM训练" scheme="https://sinclaircoder.top/tags/ACM%E8%AE%AD%E7%BB%83/"/>
     
   </entry>
   
   <entry>
     <title>欧几里得算法</title>
-    <link href="http://yoursite.com/2019/01/09/2019-01-09-%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/"/>
-    <id>http://yoursite.com/2019/01/09/2019-01-09-欧几里得算法/</id>
+    <link href="https://sinclaircoder.top/2019/01/09/2019-01-09-%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/"/>
+    <id>https://sinclaircoder.top/2019/01/09/2019-01-09-欧几里得算法/</id>
     <published>2019-01-08T16:00:00.000Z</published>
     <updated>2019-08-02T06:58:46.193Z</updated>
     
@@ -258,9 +258,9 @@
     </summary>
     
     
-      <category term="数论" scheme="http://yoursite.com/tags/%E6%95%B0%E8%AE%BA/"/>
+      <category term="数论" scheme="https://sinclaircoder.top/tags/%E6%95%B0%E8%AE%BA/"/>
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://sinclaircoder.top/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
