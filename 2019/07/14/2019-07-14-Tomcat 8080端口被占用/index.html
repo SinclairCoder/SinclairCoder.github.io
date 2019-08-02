@@ -73,6 +73,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="SinclairWangのBlog" type="application/atom+xml">
 
@@ -81,21 +83,21 @@
 
 
 
-<meta name="description" content="最近在学习Spring Boot ，新建项目运行的时候出现了Tomcat 8080端口被占用的问题描述如下： 解决方法1.管理员身份打开cmd窗口2.使用命令 netstat -ano  查看当前端口信息 3.找到对应端口PID ，输入指令找到对应进程杀掉 4.重新运行程序">
+<meta name="description" content="最近在学习Spring Boot ，新建项目运行的时候出现了Tomcat 8080端口被占用的问题">
 <meta name="keywords" content="javaWeb">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tomcat 8080端口被占用">
 <meta property="og:url" content="https://sinclaircoder.top/2019/07/14/2019-07-14-Tomcat 8080端口被占用/index.html">
 <meta property="og:site_name" content="SinclairWangのBlog">
-<meta property="og:description" content="最近在学习Spring Boot ，新建项目运行的时候出现了Tomcat 8080端口被占用的问题描述如下： 解决方法1.管理员身份打开cmd窗口2.使用命令 netstat -ano  查看当前端口信息 3.找到对应端口PID ，输入指令找到对应进程杀掉 4.重新运行程序">
+<meta property="og:description" content="最近在学习Spring Boot ，新建项目运行的时候出现了Tomcat 8080端口被占用的问题">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190714211348895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190714211605497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190714211932668.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-08-02T15:21:59.486Z">
+<meta property="og:updated_time" content="2019-08-02T15:31:49.345Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tomcat 8080端口被占用">
-<meta name="twitter:description" content="最近在学习Spring Boot ，新建项目运行的时候出现了Tomcat 8080端口被占用的问题描述如下： 解决方法1.管理员身份打开cmd窗口2.使用命令 netstat -ano  查看当前端口信息 3.找到对应端口PID ，输入指令找到对应进程杀掉 4.重新运行程序">
+<meta name="twitter:description" content="最近在学习Spring Boot ，新建项目运行的时候出现了Tomcat 8080端口被占用的问题">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190714211348895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70">
 
 
@@ -398,7 +400,9 @@
       
 
       
-        <p>最近在学习Spring Boot ，新建项目运行的时候出现了Tomcat 8080端口被占用的问题<br>描述如下：<br><img src="https://img-blog.csdnimg.cn/20190714211348895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="Spring Boot 8080端口占用"></p>
+        <p>最近在学习Spring Boot ，新建项目运行的时候出现了Tomcat 8080端口被占用的问题</p>
+<a id="more"></a>
+<p>描述如下：<br><img src="https://img-blog.csdnimg.cn/20190714211348895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="Spring Boot 8080端口占用"></p>
 <h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="1-管理员身份打开cmd窗口"><a href="#1-管理员身份打开cmd窗口" class="headerlink" title="1.管理员身份打开cmd窗口"></a>1.管理员身份打开cmd窗口</h3><h3 id="2-使用命令-netstat-ano-查看当前端口信息"><a href="#2-使用命令-netstat-ano-查看当前端口信息" class="headerlink" title="2.使用命令 netstat -ano  查看当前端口信息"></a>2.使用命令 netstat -ano  查看当前端口信息</h3><p><img src="https://img-blog.csdnimg.cn/20190714211605497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="8080端口被占用"></p>
 <h3 id="3-找到对应端口PID-，输入指令找到对应进程杀掉"><a href="#3-找到对应端口PID-，输入指令找到对应进程杀掉" class="headerlink" title="3.找到对应端口PID ，输入指令找到对应进程杀掉"></a>3.找到对应端口PID ，输入指令找到对应进程杀掉</h3><p><img src="https://img-blog.csdnimg.cn/20190714211932668.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="杀掉占用8080端口的进程"></p>
 <h3 id="4-重新运行程序"><a href="#4-重新运行程序" class="headerlink" title="4.重新运行程序"></a>4.重新运行程序</h3>
@@ -431,8 +435,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/24/2019-06-24-JavaScript的prototype属性/" rel="next" title="JavaScript的prototype属性">
-                <i class="fa fa-chevron-left"></i> JavaScript的prototype属性
+              <a href="/2019/07/14/2019-07-14-一线爬虫工程师纪实/" rel="next" title="一线爬虫爬虫工程师纪实">
+                <i class="fa fa-chevron-left"></i> 一线爬虫爬虫工程师纪实
               </a>
             
           </div>
@@ -440,10 +444,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/14/2019-07-14-一线爬虫工程师纪实/" rel="prev" title="一线爬虫爬虫工程师纪实">
-                一线爬虫爬虫工程师纪实 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="今天写js代码的时候，看别的用prototype看的我云里雾里的，了解了一下：  prototype 是函数的属性，它的本质是函数的原型对象  可以以此执行一下如下代码，体会一下。 1234567&amp;lt;script&amp;gt;var ob = &amp;#123; &amp;#125;;//超级简单的空对象alert(JSON.stringify(ob.prototype));function func()&amp;#12">
+<meta name="description" content="今天写js代码的时候，看别的用prototype看的我云里雾里的，了解了一下：  prototype 是函数的属性，它的本质是函数的原型对象  可以以此执行一下如下代码，体会一下。">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript的prototype属性">
 <meta property="og:url" content="https://sinclaircoder.top/2019/06/24/2019-06-24-JavaScript的prototype属性/index.html">
 <meta property="og:site_name" content="SinclairWangのBlog">
-<meta property="og:description" content="今天写js代码的时候，看别的用prototype看的我云里雾里的，了解了一下：  prototype 是函数的属性，它的本质是函数的原型对象  可以以此执行一下如下代码，体会一下。 1234567&amp;lt;script&amp;gt;var ob = &amp;#123; &amp;#125;;//超级简单的空对象alert(JSON.stringify(ob.prototype));function func()&amp;#12">
+<meta property="og:description" content="今天写js代码的时候，看别的用prototype看的我云里雾里的，了解了一下：  prototype 是函数的属性，它的本质是函数的原型对象  可以以此执行一下如下代码，体会一下。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-02T15:23:00.587Z">
+<meta property="og:updated_time" content="2019-08-02T15:32:07.418Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript的prototype属性">
-<meta name="twitter:description" content="今天写js代码的时候，看别的用prototype看的我云里雾里的，了解了一下：  prototype 是函数的属性，它的本质是函数的原型对象  可以以此执行一下如下代码，体会一下。 1234567&amp;lt;script&amp;gt;var ob = &amp;#123; &amp;#125;;//超级简单的空对象alert(JSON.stringify(ob.prototype));function func()&amp;#12">
+<meta name="twitter:description" content="今天写js代码的时候，看别的用prototype看的我云里雾里的，了解了一下：  prototype 是函数的属性，它的本质是函数的原型对象  可以以此执行一下如下代码，体会一下。">
 
 
 
@@ -399,6 +399,7 @@
 <p>prototype 是函数的属性，它的本质是函数的原型对象</p>
 </blockquote>
 <p>可以以此执行一下如下代码，体会一下。</p>
+<a id="more"></a>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">var</span> ob = &#123; &#125;;<span class="comment">//超级简单的空对象</span></span><br><span class="line">alert(<span class="built_in">JSON</span>.stringify(ob.prototype));</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">alert(func.prototype);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">&#125;</span><br><span class="line">alert(<span class="built_in">JSON</span>.stringify(func.prototype));</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
@@ -448,8 +449,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/14/2019-07-14-Tomcat 8080端口被占用/" rel="prev" title="Tomcat 8080端口被占用">
-                Tomcat 8080端口被占用 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/14/2019-07-14-一线爬虫工程师纪实/" rel="prev" title="一线爬虫爬虫工程师纪实">
+                一线爬虫爬虫工程师纪实 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
