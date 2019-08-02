@@ -14,6 +14,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -417,6 +424,7 @@
     
     
     
+     
 
     
 
@@ -544,6 +552,7 @@
     
     
     
+     
 
     
 
@@ -675,6 +684,7 @@
     
     
     
+     
 
     
 
@@ -807,6 +817,7 @@
     
     
     
+     
 
     
 
@@ -940,6 +951,7 @@
     
     
     
+     
 
     
 
@@ -1068,6 +1080,7 @@
     
     
     
+     
 
     
 
@@ -1108,7 +1121,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/01/09/2019-01-09-HDU 2097Sky数/">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/01/09/2019-01-09-欧几里得算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sinclair Wang">
@@ -1127,7 +1140,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/09/2019-01-09-HDU 2097Sky数/" itemprop="url">HDU2097Sky数</a></h1>
+                <a class="post-title-link" href="/2019/01/09/2019-01-09-欧几里得算法/" itemprop="url">欧几里得算法</a></h1>
         
 
         <div class="post-meta">
@@ -1178,21 +1191,18 @@
 
       
         
-          <h1 id="Sky数"><a href="#Sky数" class="headerlink" title="Sky数"></a>Sky数</h1><blockquote>
-<p>My life didn’t please me, so I created my life.<br>我的生活不曾取悦于我，所以我创造了自己的生活               ——-Coco Chanel</p>
+          <h2 id="欧几里得算法求最大公约数"><a href="#欧几里得算法求最大公约数" class="headerlink" title="欧几里得算法求最大公约数"></a>欧几里得算法求最大公约数</h2><blockquote>
+<p>Sometimes your whole life boils down to one insane move.<br>        人这一辈子，有时就得靠一次疯狂的举动才能扭转乾坤。<br>                                                                 ——————《阿凡达》</p>
 </blockquote>
-<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><blockquote>
-<p>Sky从小喜欢奇特的东西，而且天生对数字特别敏感，一次偶然的机会，他发现了一个有趣的四位数2992，这个数它的十进制数表示，其四位数字之和为2+9+9+2=22，它的十六进制数BB0，其四位数字之和也为22，同时它的十二进制数表示1894，其四位数字之和也为22，啊哈，真是巧啊。Sky非常喜欢这种四位数，由于他的发现，所以这里我们命名其为Sky数。但是要判断这样的数还是有点麻烦啊，那么现在请你帮忙来判断任何一个十进制的四位数，是不是Sky数吧。</p>
-</blockquote>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><blockquote>
-<p>输入含有一些四位正整数，如果为0，则输入结束。</p>
-</blockquote>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><blockquote>
-<p>若n为Sky数，则输出“#n is a Sky Number.”，否则输出“#n is not a Sky Number.”。<br>每个结果占一行。注意：#n表示所读入的n值。</p>
-</blockquote>
+<p>@[toc]</p>
+<h2 id="一、介绍欧几里得"><a href="#一、介绍欧几里得" class="headerlink" title="一、介绍欧几里得"></a>一、介绍欧几里得</h2><hr>
+<p>&emsp;&emsp;像所有博客一样，出于尊重，介绍一下这位伟大的数学家欧几里得。</p>
+<p>&emsp;&emsp;欧几里得，古希腊人，数学家，主要成就：数学巨著《几何原本》、欧几里得算法、完全数。</p>
+<p>&emsp;&emsp;在柏拉图学派晚期导师普罗克洛斯（约410～485）的《几何学发展概要》中，就记载着这样一则故事，说的是数学在欧几里得的推动下，逐渐成为人们生活中的一个时髦话题(这与当今社会截然相反)，以至于当时亚里山大国王托勒密一世也想赶这一时髦，学点儿几何学。</p>
+<p>&emsp;&emsp;虽然这位国王见多识广，但欧氏几何却令他学的很吃力。于是，他问欧几里得“学习几何学有没有什么捷径可走？”，欧几里得笑道：“抱歉，陛下!学习数学和学习一切科学一样，是没有什么捷径可走的。学习数学，人人都得独立思考，就像种庄稼一样，不耕耘是不会有收获的。在这一方面，国王和普通老百姓是一样的。” 从此,“在几何学里,没有专为国王铺设的大道。”这句话成为千古传诵的学习箴言。<br>&emsp;&emsp;总之呢，任何事情都是这样，哪有这么多得捷径可走，天才往往都是天天积累成才。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/01/09/2019-01-09-HDU 2097Sky数/#more" rel="contents">
+            <a class="btn" href="/2019/01/09/2019-01-09-欧几里得算法/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1203,6 +1213,7 @@
     
     
     
+     
 
     
 
@@ -1338,6 +1349,7 @@
     
     
     
+     
 
     
 
@@ -1378,7 +1390,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/01/09/2019-01-09-欧几里得算法/">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/01/09/2019-01-09-HDU 2097Sky数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sinclair Wang">
@@ -1397,7 +1409,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/09/2019-01-09-欧几里得算法/" itemprop="url">欧几里得算法</a></h1>
+                <a class="post-title-link" href="/2019/01/09/2019-01-09-HDU 2097Sky数/" itemprop="url">HDU2097Sky数</a></h1>
         
 
         <div class="post-meta">
@@ -1448,18 +1460,21 @@
 
       
         
-          <h2 id="欧几里得算法求最大公约数"><a href="#欧几里得算法求最大公约数" class="headerlink" title="欧几里得算法求最大公约数"></a>欧几里得算法求最大公约数</h2><blockquote>
-<p>Sometimes your whole life boils down to one insane move.<br>        人这一辈子，有时就得靠一次疯狂的举动才能扭转乾坤。<br>                                                                 ——————《阿凡达》</p>
+          <h1 id="Sky数"><a href="#Sky数" class="headerlink" title="Sky数"></a>Sky数</h1><blockquote>
+<p>My life didn’t please me, so I created my life.<br>我的生活不曾取悦于我，所以我创造了自己的生活               ——-Coco Chanel</p>
 </blockquote>
-<p>@[toc]</p>
-<h2 id="一、介绍欧几里得"><a href="#一、介绍欧几里得" class="headerlink" title="一、介绍欧几里得"></a>一、介绍欧几里得</h2><hr>
-<p>&emsp;&emsp;像所有博客一样，出于尊重，介绍一下这位伟大的数学家欧几里得。</p>
-<p>&emsp;&emsp;欧几里得，古希腊人，数学家，主要成就：数学巨著《几何原本》、欧几里得算法、完全数。</p>
-<p>&emsp;&emsp;在柏拉图学派晚期导师普罗克洛斯（约410～485）的《几何学发展概要》中，就记载着这样一则故事，说的是数学在欧几里得的推动下，逐渐成为人们生活中的一个时髦话题(这与当今社会截然相反)，以至于当时亚里山大国王托勒密一世也想赶这一时髦，学点儿几何学。</p>
-<p>&emsp;&emsp;虽然这位国王见多识广，但欧氏几何却令他学的很吃力。于是，他问欧几里得“学习几何学有没有什么捷径可走？”，欧几里得笑道：“抱歉，陛下!学习数学和学习一切科学一样，是没有什么捷径可走的。学习数学，人人都得独立思考，就像种庄稼一样，不耕耘是不会有收获的。在这一方面，国王和普通老百姓是一样的。” 从此,“在几何学里,没有专为国王铺设的大道。”这句话成为千古传诵的学习箴言。<br>&emsp;&emsp;总之呢，任何事情都是这样，哪有这么多得捷径可走，天才往往都是天天积累成才。</p>
+<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><blockquote>
+<p>Sky从小喜欢奇特的东西，而且天生对数字特别敏感，一次偶然的机会，他发现了一个有趣的四位数2992，这个数它的十进制数表示，其四位数字之和为2+9+9+2=22，它的十六进制数BB0，其四位数字之和也为22，同时它的十二进制数表示1894，其四位数字之和也为22，啊哈，真是巧啊。Sky非常喜欢这种四位数，由于他的发现，所以这里我们命名其为Sky数。但是要判断这样的数还是有点麻烦啊，那么现在请你帮忙来判断任何一个十进制的四位数，是不是Sky数吧。</p>
+</blockquote>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><blockquote>
+<p>输入含有一些四位正整数，如果为0，则输入结束。</p>
+</blockquote>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><blockquote>
+<p>若n为Sky数，则输出“#n is a Sky Number.”，否则输出“#n is not a Sky Number.”。<br>每个结果占一行。注意：#n表示所读入的n值。</p>
+</blockquote>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/01/09/2019-01-09-欧几里得算法/#more" rel="contents">
+            <a class="btn" href="/2019/01/09/2019-01-09-HDU 2097Sky数/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1470,6 +1485,7 @@
     
     
     
+     
 
     
 
@@ -1662,7 +1678,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2019-08-03</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1687,21 +1703,22 @@
 
         
 <div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 
   
     <span class="site-uv">
-      <i class="fa fa-user"></i>
+      本站访客数
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
+      人次
     </span>
   
 
   
     <span class="site-pv">
-      <i class="fa fa-eye"></i>
+      本站总访问量
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
+      次
     </span>
   
 </div>
@@ -1880,6 +1897,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   
@@ -1911,6 +1943,30 @@
   
 
   
+
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js"></script>
+  <script>
+    function timer() {
+      var ages = moment.preciseDiff(moment(),moment(20190801,"YYYYMMDD"));
+      ages = ages.replace(/years?/, "年");
+      ages = ages.replace(/months?/, "月");
+      ages = ages.replace(/days?/, "天");
+      ages = ages.replace(/hours?/, "小时");
+      ages = ages.replace(/minutes?/, "分");
+      ages = ages.replace(/seconds?/, "秒");
+      ages = ages.replace(/\d+/g, '<span style="color:#1890ff">$&</span>');
+      div.innerHTML = `我已在此等候你 ${ages}`;
+    }
+    var div = document.createElement("div");
+    //插入到copyright之后
+    var copyright = document.querySelector(".copyright");
+    document.querySelector(".footer-inner").insertBefore(div, copyright.nextSibling);
+    timer();
+    setInterval("timer()",1000)
+  </script>
 
 </body>
 </html>
