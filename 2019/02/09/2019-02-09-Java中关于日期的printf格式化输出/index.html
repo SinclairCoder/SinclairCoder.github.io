@@ -32,7 +32,7 @@
 <meta property="og:site_name" content="SinclairWangのBlog">
 <meta property="og:description" content="If you believe in yourself enough and know what you want, you’re gonna make it happen.如果你足够自信，也知道自己想要什么，就一定会实现心中所想。—–Mariah Carey, “Make It Happen”  printf方法可以很轻易的格式化日期，用两个字母，以%t开头并以下面的其中一个字母结尾。转换符|说">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-08T14:25:47.501Z">
+<meta property="og:updated_time" content="2019-08-02T06:59:11.554Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java中关于日期的printf格式化输出">
 <meta name="twitter:description" content="If you believe in yourself enough and know what you want, you’re gonna make it happen.如果你足够自信，也知道自己想要什么，就一定会实现心中所想。—–Mariah Carey, “Make It Happen”  printf方法可以很轻易的格式化日期，用两个字母，以%t开头并以下面的其中一个字母结尾。转换符|说">
@@ -207,6 +207,7 @@
 <p>printf方法可以很轻易的格式化日期，用两个字母，以%t开头并以下面的其中一个字母结尾。<br>转换符|说明<br>—|—|—|—–<br>a|日期中星期简称<br>A|日期中星期全称<br>b|日期中月份的简称<br>B|日期中月份的全称<br>C|日期中年份的前两位数<br>y|日期中年份的后两位数<br>Y|日期中年份的完整表示<br>D|“年/月/日”格式<br>F|“年-月-日”格式<br>j|一年中的第几天<br>m|日期中的月份，两位数字表示，不足两位补零<br>d|日期中的日，两位数字表示，不足两位补零<br>e|日期中月份的日，不补零<br>T|“HH:MM:SS” 格式（24小时）<br>r|“HH:MM:SS PM”格式（12小时）<br>R|“HH:MM”格式（24小时）</p>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sinclair_java_20190122</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		Date date = <span class="keyword">new</span> Date();</span><br><span class="line">		String str = String.format(Locale.US,<span class="string">"英文月份简称：%tb"</span>,date);</span><br><span class="line">		System.out.println(str);</span><br><span class="line">		System.out.printf(<span class="string">"本地月份简称：%tb\n"</span>,date);</span><br><span class="line">		str = String.format(Locale.US, <span class="string">"英文月份全称：%tB"</span>,date);</span><br><span class="line">		System.out.println(str);</span><br><span class="line">		System.out.printf(<span class="string">"本地月份全称：%tB%n"</span>,date);</span><br><span class="line">		str = String.format(Locale.US, <span class="string">"英文星期简称：%ta"</span>,date);</span><br><span class="line">		System.out.println(str);</span><br><span class="line">		System.out.printf(<span class="string">"本地星期的全称：%tA%n"</span>,date);</span><br><span class="line">		System.out.printf(<span class="string">"本地星期的简称：%ta%n"</span>,date);</span><br><span class="line">		System.out.printf(<span class="string">"年的前两位数字：%tC%n"</span>,date);</span><br><span class="line">		System.out.printf(<span class="string">"年的后两位数字：%ty%n"</span>,date);</span><br><span class="line">		System.out.printf(<span class="string">"年的完整表示：%tY%n"</span>,date);</span><br><span class="line">		System.out.printf(<span class="string">"一年中的天数：%tj%n"</span>,date);</span><br><span class="line">		System.out.printf(<span class="string">"%s %tY-%&lt;tm-%&lt;td%n"</span>,<span class="string">"日期的完整表示："</span>,date);</span><br><span class="line">		System.out.printf(<span class="string">"在本月是第几天(不补零)：%te%n"</span>,date);</span><br><span class="line">		System.out.printf(<span class="string">"在本月是第几天(补零)：%td%n"</span>,date);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<a id="more"></a>
 <h3 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">英文月份简称：Feb</span><br><span class="line">本地月份简称：<span class="number">2</span>月</span><br><span class="line">英文月份全称：February</span><br><span class="line">本地月份全称：二月</span><br><span class="line">英文星期简称：Sat</span><br><span class="line">本地星期的全称：星期六</span><br><span class="line">本地星期的简称：周六</span><br><span class="line">年的前两位数字：<span class="number">20</span></span><br><span class="line">年的后两位数字：<span class="number">19</span></span><br><span class="line">年的完整表示：<span class="number">2019</span></span><br><span class="line">一年中的天数：<span class="number">040</span></span><br><span class="line">日期的完整表示： <span class="number">2019</span><span class="number">-02</span><span class="number">-09</span></span><br><span class="line">在本月是第几天(不补零)：<span class="number">9</span></span><br><span class="line">在本月是第几天(补零)：<span class="number">09</span></span><br></pre></td></tr></table></figure>
 
 <hr>
@@ -473,15 +474,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Python3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
