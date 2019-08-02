@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sinclaircoder.top/"/>
-  <updated>2019-08-02T15:31:49.345Z</updated>
+  <updated>2019-08-02T15:31:39.845Z</updated>
   <id>https://sinclaircoder.top/</id>
   
   <author>
@@ -15,26 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Tomcat 8080端口被占用</title>
-    <link href="https://sinclaircoder.top/2019/07/14/2019-07-14-Tomcat%208080%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/"/>
-    <id>https://sinclaircoder.top/2019/07/14/2019-07-14-Tomcat 8080端口被占用/</id>
-    <published>2019-07-13T16:00:00.000Z</published>
-    <updated>2019-08-02T15:31:49.345Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近在学习Spring Boot ，新建项目运行的时候出现了Tomcat 8080端口被占用的问题</p><a id="more"></a><p>描述如下：<br><img src="https://img-blog.csdnimg.cn/20190714211348895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="Spring Boot 8080端口占用"></p><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="1-管理员身份打开cmd窗口"><a href="#1-管理员身份打开cmd窗口" class="headerlink" title="1.管理员身份打开cmd窗口"></a>1.管理员身份打开cmd窗口</h3><h3 id="2-使用命令-netstat-ano-查看当前端口信息"><a href="#2-使用命令-netstat-ano-查看当前端口信息" class="headerlink" title="2.使用命令 netstat -ano  查看当前端口信息"></a>2.使用命令 netstat -ano  查看当前端口信息</h3><p><img src="https://img-blog.csdnimg.cn/20190714211605497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="8080端口被占用"></p><h3 id="3-找到对应端口PID-，输入指令找到对应进程杀掉"><a href="#3-找到对应端口PID-，输入指令找到对应进程杀掉" class="headerlink" title="3.找到对应端口PID ，输入指令找到对应进程杀掉"></a>3.找到对应端口PID ，输入指令找到对应进程杀掉</h3><p><img src="https://img-blog.csdnimg.cn/20190714211932668.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="杀掉占用8080端口的进程"></p><h3 id="4-重新运行程序"><a href="#4-重新运行程序" class="headerlink" title="4.重新运行程序"></a>4.重新运行程序</h3>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近在学习Spring Boot ，新建项目运行的时候出现了Tomcat 8080端口被占用的问题&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="javaWeb" scheme="https://sinclaircoder.top/tags/javaWeb/"/>
-    
-  </entry>
   
   <entry>
     <title>一线爬虫爬虫工程师纪实</title>
@@ -57,11 +37,31 @@
   </entry>
   
   <entry>
+    <title>Tomcat 8080端口被占用</title>
+    <link href="https://sinclaircoder.top/2019/07/14/2019-07-14-Tomcat%208080%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/"/>
+    <id>https://sinclaircoder.top/2019/07/14/2019-07-14-Tomcat 8080端口被占用/</id>
+    <published>2019-07-13T16:00:00.000Z</published>
+    <updated>2019-08-02T15:31:49.345Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在学习Spring Boot ，新建项目运行的时候出现了Tomcat 8080端口被占用的问题</p><a id="more"></a><p>描述如下：<br><img src="https://img-blog.csdnimg.cn/20190714211348895.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="Spring Boot 8080端口占用"></p><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="1-管理员身份打开cmd窗口"><a href="#1-管理员身份打开cmd窗口" class="headerlink" title="1.管理员身份打开cmd窗口"></a>1.管理员身份打开cmd窗口</h3><h3 id="2-使用命令-netstat-ano-查看当前端口信息"><a href="#2-使用命令-netstat-ano-查看当前端口信息" class="headerlink" title="2.使用命令 netstat -ano  查看当前端口信息"></a>2.使用命令 netstat -ano  查看当前端口信息</h3><p><img src="https://img-blog.csdnimg.cn/20190714211605497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="8080端口被占用"></p><h3 id="3-找到对应端口PID-，输入指令找到对应进程杀掉"><a href="#3-找到对应端口PID-，输入指令找到对应进程杀掉" class="headerlink" title="3.找到对应端口PID ，输入指令找到对应进程杀掉"></a>3.找到对应端口PID ，输入指令找到对应进程杀掉</h3><p><img src="https://img-blog.csdnimg.cn/20190714211932668.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="杀掉占用8080端口的进程"></p><h3 id="4-重新运行程序"><a href="#4-重新运行程序" class="headerlink" title="4.重新运行程序"></a>4.重新运行程序</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在学习Spring Boot ，新建项目运行的时候出现了Tomcat 8080端口被占用的问题&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="javaWeb" scheme="https://sinclaircoder.top/tags/javaWeb/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JavaScript的prototype属性</title>
     <link href="https://sinclaircoder.top/2019/06/24/2019-06-24-JavaScript%E7%9A%84prototype%E5%B1%9E%E6%80%A7/"/>
     <id>https://sinclaircoder.top/2019/06/24/2019-06-24-JavaScript的prototype属性/</id>
     <published>2019-06-23T16:00:00.000Z</published>
-    <updated>2019-08-02T15:32:07.418Z</updated>
+    <updated>2019-08-02T15:37:25.751Z</updated>
     
     <content type="html"><![CDATA[<p>今天写js代码的时候，看别的用prototype看的我云里雾里的，了解了一下：</p><blockquote><p>prototype 是函数的属性，它的本质是函数的原型对象</p></blockquote><p>可以以此执行一下如下代码，体会一下。</p><a id="more"></a><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">var</span> ob = &#123; &#125;;<span class="comment">//超级简单的空对象</span></span><br><span class="line">alert(<span class="built_in">JSON</span>.stringify(ob.prototype));</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">alert(func.prototype);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">&#125;</span><br><span class="line">alert(<span class="built_in">JSON</span>.stringify(func.prototype));</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">func.prototype.name =<span class="string">'prototype是函数的的属性，本质是函数的原型对象'</span>;</span><br><span class="line">alert(<span class="built_in">JSON</span>.stringify(func.prototype))</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//给函数的属性prototype赋予一个方法get</span></span><br><span class="line">func.prototype.get=<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line"><span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> ob1 = <span class="keyword">new</span> func;</span><br><span class="line"><span class="comment">//用func实例化出来的对象来调用get属性函数</span></span><br><span class="line">alert(ob1.get(<span class="string">'hello,prototype原型对象'</span>));</span><br><span class="line"><span class="keyword">var</span> ob2 = <span class="keyword">new</span> func;</span><br><span class="line"><span class="comment">//用func实例化出来的对象来调用get属性方法</span></span><br><span class="line">alert(ob2.get(<span class="string">'我依然是func实例化出来的对象'</span>));</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure><p>详情请见==&gt;<a href="https://blog.csdn.net/u011277123/article/details/53404180" target="_blank" rel="noopener">简单理解js的prototype属性</a></p>]]></content>
     
@@ -430,36 +430,6 @@
   </entry>
   
   <entry>
-    <title>欧几里得算法</title>
-    <link href="https://sinclaircoder.top/2019/01/09/2019-01-09-%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/"/>
-    <id>https://sinclaircoder.top/2019/01/09/2019-01-09-欧几里得算法/</id>
-    <published>2019-01-08T16:00:00.000Z</published>
-    <updated>2019-08-02T06:58:46.193Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="欧几里得算法求最大公约数"><a href="#欧几里得算法求最大公约数" class="headerlink" title="欧几里得算法求最大公约数"></a>欧几里得算法求最大公约数</h2><blockquote><p>Sometimes your whole life boils down to one insane move.<br>        人这一辈子，有时就得靠一次疯狂的举动才能扭转乾坤。<br>                                                                 ——————《阿凡达》</p></blockquote><p>@[toc]</p><h2 id="一、介绍欧几里得"><a href="#一、介绍欧几里得" class="headerlink" title="一、介绍欧几里得"></a>一、介绍欧几里得</h2><hr><p>&emsp;&emsp;像所有博客一样，出于尊重，介绍一下这位伟大的数学家欧几里得。</p><p>&emsp;&emsp;欧几里得，古希腊人，数学家，主要成就：数学巨著《几何原本》、欧几里得算法、完全数。</p><p>&emsp;&emsp;在柏拉图学派晚期导师普罗克洛斯（约410～485）的《几何学发展概要》中，就记载着这样一则故事，说的是数学在欧几里得的推动下，逐渐成为人们生活中的一个时髦话题(这与当今社会截然相反)，以至于当时亚里山大国王托勒密一世也想赶这一时髦，学点儿几何学。</p><p>&emsp;&emsp;虽然这位国王见多识广，但欧氏几何却令他学的很吃力。于是，他问欧几里得“学习几何学有没有什么捷径可走？”，欧几里得笑道：“抱歉，陛下!学习数学和学习一切科学一样，是没有什么捷径可走的。学习数学，人人都得独立思考，就像种庄稼一样，不耕耘是不会有收获的。在这一方面，国王和普通老百姓是一样的。” 从此,“在几何学里,没有专为国王铺设的大道。”这句话成为千古传诵的学习箴言。<br>&emsp;&emsp;总之呢，任何事情都是这样，哪有这么多得捷径可走，天才往往都是天天积累成才。</p><a id="more"></a><h2 id="二、实现思路"><a href="#二、实现思路" class="headerlink" title="二、实现思路"></a>二、实现思路</h2><hr><p>定义2.1：设m和n是两个不全为0的整数，称m与n的公因子中最大的为m与n的最大公因子，或最大公约数(greatest common divisor)，记作gcd(m,n)<br>定义2.2：设m和n是两个非零整数，称a与b最小的公倍数为m与n的最小公倍数(least common multiple)，记作lcm(m,n)</p><hr><blockquote><p>欧几里得算法又称辗转相除法<br>     s：设两个正整数m，n且m &gt; n ;<br>    s1：令r=m%n（%代表取余）；<br>    s2：若r=0(即n整除m)运算结束，n为结果 ；<br>    s3：否则令m=n，n=r并返回s1 ；</p></blockquote><h2 id="三、核心思想"><a href="#三、核心思想" class="headerlink" title="三、核心思想"></a>三、核心思想</h2><blockquote><p>gcd(m,n)=gcd(n,mod(m,n)<br>    lcm(m,n) = ab/gcd(m,n)</p></blockquote><p>证明：不妨设   m=k<sub>1</sub>d ,n=k<sub>2</sub>d , k<sub>3</sub> = m/n (整除)  则 r=m-k<sub>3</sub>n=k<sub>1</sub>d-k<sub>2</sub>k<sub>3</sub>d=(k<sub>1</sub>-                    k<sub>2</sub>k<sub>3</sub>)d<br>故r也是d的倍数，得证$\it gcd (m,n)=gcd(n,mod(m,n)$</p><h2 id="四、优点"><a href="#四、优点" class="headerlink" title="四、优点"></a>四、优点</h2><blockquote><p>一看相比于穷举法，效率也会高很多</p></blockquote><h2 id="五、核心代码"><a href="#五、核心代码" class="headerlink" title="五、核心代码"></a>五、核心代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">int gcd(int m,int n)</span><br><span class="line">&#123;</span><br><span class="line">int t,r;</span><br><span class="line"><span class="keyword">if</span>(m&lt;n)</span><br><span class="line">swap(m,n); <span class="comment">//交换二者的值</span></span><br><span class="line"><span class="keyword">while</span>(n!=<span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">r=m%n;</span><br><span class="line">m=n;</span><br><span class="line">n=r;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line">int gcd(int m,int n) <span class="comment">// 递归做法</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span>(m&lt;n)</span><br><span class="line">swap(m,n); <span class="comment">//交换二者的值</span></span><br><span class="line"><span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> m; </span><br><span class="line"><span class="keyword">return</span> gcd(n,m%n);</span><br><span class="line">&#125;</span><br><span class="line">int lcm(int gcd,int m,int n)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">return</span> m*n/gcd;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>参考来源：人物简介源自百度百科</p><p><strong><em>在CSDN上的第一篇文章，２０１９加油！</em></strong></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;欧几里得算法求最大公约数&quot;&gt;&lt;a href=&quot;#欧几里得算法求最大公约数&quot; class=&quot;headerlink&quot; title=&quot;欧几里得算法求最大公约数&quot;&gt;&lt;/a&gt;欧几里得算法求最大公约数&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Sometimes your whole life boils down to one insane move.&lt;br&gt;        人这一辈子，有时就得靠一次疯狂的举动才能扭转乾坤。&lt;br&gt;                                                                 ——————《阿凡达》&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;@[toc]&lt;/p&gt;
-&lt;h2 id=&quot;一、介绍欧几里得&quot;&gt;&lt;a href=&quot;#一、介绍欧几里得&quot; class=&quot;headerlink&quot; title=&quot;一、介绍欧几里得&quot;&gt;&lt;/a&gt;一、介绍欧几里得&lt;/h2&gt;&lt;hr&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;像所有博客一样，出于尊重，介绍一下这位伟大的数学家欧几里得。&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;欧几里得，古希腊人，数学家，主要成就：数学巨著《几何原本》、欧几里得算法、完全数。&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;在柏拉图学派晚期导师普罗克洛斯（约410～485）的《几何学发展概要》中，就记载着这样一则故事，说的是数学在欧几里得的推动下，逐渐成为人们生活中的一个时髦话题(这与当今社会截然相反)，以至于当时亚里山大国王托勒密一世也想赶这一时髦，学点儿几何学。&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;虽然这位国王见多识广，但欧氏几何却令他学的很吃力。于是，他问欧几里得“学习几何学有没有什么捷径可走？”，欧几里得笑道：“抱歉，陛下!学习数学和学习一切科学一样，是没有什么捷径可走的。学习数学，人人都得独立思考，就像种庄稼一样，不耕耘是不会有收获的。在这一方面，国王和普通老百姓是一样的。” 从此,“在几何学里,没有专为国王铺设的大道。”这句话成为千古传诵的学习箴言。&lt;br&gt;&amp;emsp;&amp;emsp;总之呢，任何事情都是这样，哪有这么多得捷径可走，天才往往都是天天积累成才。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="数论" scheme="https://sinclaircoder.top/tags/%E6%95%B0%E8%AE%BA/"/>
-    
-      <category term="算法" scheme="https://sinclaircoder.top/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
     <title>HDU2099整除的尾数</title>
     <link href="https://sinclaircoder.top/2019/01/09/2019-01-09-HDU2099%E6%95%B4%E9%99%A4%E7%9A%84%E5%B0%BE%E6%95%B0/"/>
     <id>https://sinclaircoder.top/2019/01/09/2019-01-09-HDU2099整除的尾数/</id>
@@ -489,6 +459,36 @@
       <category term="数论" scheme="https://sinclaircoder.top/tags/%E6%95%B0%E8%AE%BA/"/>
     
       <category term="ACM训练" scheme="https://sinclaircoder.top/tags/ACM%E8%AE%AD%E7%BB%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>欧几里得算法</title>
+    <link href="https://sinclaircoder.top/2019/01/09/2019-01-09-%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/"/>
+    <id>https://sinclaircoder.top/2019/01/09/2019-01-09-欧几里得算法/</id>
+    <published>2019-01-08T16:00:00.000Z</published>
+    <updated>2019-08-02T06:58:46.193Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="欧几里得算法求最大公约数"><a href="#欧几里得算法求最大公约数" class="headerlink" title="欧几里得算法求最大公约数"></a>欧几里得算法求最大公约数</h2><blockquote><p>Sometimes your whole life boils down to one insane move.<br>        人这一辈子，有时就得靠一次疯狂的举动才能扭转乾坤。<br>                                                                 ——————《阿凡达》</p></blockquote><p>@[toc]</p><h2 id="一、介绍欧几里得"><a href="#一、介绍欧几里得" class="headerlink" title="一、介绍欧几里得"></a>一、介绍欧几里得</h2><hr><p>&emsp;&emsp;像所有博客一样，出于尊重，介绍一下这位伟大的数学家欧几里得。</p><p>&emsp;&emsp;欧几里得，古希腊人，数学家，主要成就：数学巨著《几何原本》、欧几里得算法、完全数。</p><p>&emsp;&emsp;在柏拉图学派晚期导师普罗克洛斯（约410～485）的《几何学发展概要》中，就记载着这样一则故事，说的是数学在欧几里得的推动下，逐渐成为人们生活中的一个时髦话题(这与当今社会截然相反)，以至于当时亚里山大国王托勒密一世也想赶这一时髦，学点儿几何学。</p><p>&emsp;&emsp;虽然这位国王见多识广，但欧氏几何却令他学的很吃力。于是，他问欧几里得“学习几何学有没有什么捷径可走？”，欧几里得笑道：“抱歉，陛下!学习数学和学习一切科学一样，是没有什么捷径可走的。学习数学，人人都得独立思考，就像种庄稼一样，不耕耘是不会有收获的。在这一方面，国王和普通老百姓是一样的。” 从此,“在几何学里,没有专为国王铺设的大道。”这句话成为千古传诵的学习箴言。<br>&emsp;&emsp;总之呢，任何事情都是这样，哪有这么多得捷径可走，天才往往都是天天积累成才。</p><a id="more"></a><h2 id="二、实现思路"><a href="#二、实现思路" class="headerlink" title="二、实现思路"></a>二、实现思路</h2><hr><p>定义2.1：设m和n是两个不全为0的整数，称m与n的公因子中最大的为m与n的最大公因子，或最大公约数(greatest common divisor)，记作gcd(m,n)<br>定义2.2：设m和n是两个非零整数，称a与b最小的公倍数为m与n的最小公倍数(least common multiple)，记作lcm(m,n)</p><hr><blockquote><p>欧几里得算法又称辗转相除法<br>     s：设两个正整数m，n且m &gt; n ;<br>    s1：令r=m%n（%代表取余）；<br>    s2：若r=0(即n整除m)运算结束，n为结果 ；<br>    s3：否则令m=n，n=r并返回s1 ；</p></blockquote><h2 id="三、核心思想"><a href="#三、核心思想" class="headerlink" title="三、核心思想"></a>三、核心思想</h2><blockquote><p>gcd(m,n)=gcd(n,mod(m,n)<br>    lcm(m,n) = ab/gcd(m,n)</p></blockquote><p>证明：不妨设   m=k<sub>1</sub>d ,n=k<sub>2</sub>d , k<sub>3</sub> = m/n (整除)  则 r=m-k<sub>3</sub>n=k<sub>1</sub>d-k<sub>2</sub>k<sub>3</sub>d=(k<sub>1</sub>-                    k<sub>2</sub>k<sub>3</sub>)d<br>故r也是d的倍数，得证$\it gcd (m,n)=gcd(n,mod(m,n)$</p><h2 id="四、优点"><a href="#四、优点" class="headerlink" title="四、优点"></a>四、优点</h2><blockquote><p>一看相比于穷举法，效率也会高很多</p></blockquote><h2 id="五、核心代码"><a href="#五、核心代码" class="headerlink" title="五、核心代码"></a>五、核心代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">int gcd(int m,int n)</span><br><span class="line">&#123;</span><br><span class="line">int t,r;</span><br><span class="line"><span class="keyword">if</span>(m&lt;n)</span><br><span class="line">swap(m,n); <span class="comment">//交换二者的值</span></span><br><span class="line"><span class="keyword">while</span>(n!=<span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">r=m%n;</span><br><span class="line">m=n;</span><br><span class="line">n=r;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line">int gcd(int m,int n) <span class="comment">// 递归做法</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span>(m&lt;n)</span><br><span class="line">swap(m,n); <span class="comment">//交换二者的值</span></span><br><span class="line"><span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> m; </span><br><span class="line"><span class="keyword">return</span> gcd(n,m%n);</span><br><span class="line">&#125;</span><br><span class="line">int lcm(int gcd,int m,int n)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">return</span> m*n/gcd;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>参考来源：人物简介源自百度百科</p><p><strong><em>在CSDN上的第一篇文章，２０１９加油！</em></strong></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;欧几里得算法求最大公约数&quot;&gt;&lt;a href=&quot;#欧几里得算法求最大公约数&quot; class=&quot;headerlink&quot; title=&quot;欧几里得算法求最大公约数&quot;&gt;&lt;/a&gt;欧几里得算法求最大公约数&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Sometimes your whole life boils down to one insane move.&lt;br&gt;        人这一辈子，有时就得靠一次疯狂的举动才能扭转乾坤。&lt;br&gt;                                                                 ——————《阿凡达》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;@[toc]&lt;/p&gt;
+&lt;h2 id=&quot;一、介绍欧几里得&quot;&gt;&lt;a href=&quot;#一、介绍欧几里得&quot; class=&quot;headerlink&quot; title=&quot;一、介绍欧几里得&quot;&gt;&lt;/a&gt;一、介绍欧几里得&lt;/h2&gt;&lt;hr&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;像所有博客一样，出于尊重，介绍一下这位伟大的数学家欧几里得。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;欧几里得，古希腊人，数学家，主要成就：数学巨著《几何原本》、欧几里得算法、完全数。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;在柏拉图学派晚期导师普罗克洛斯（约410～485）的《几何学发展概要》中，就记载着这样一则故事，说的是数学在欧几里得的推动下，逐渐成为人们生活中的一个时髦话题(这与当今社会截然相反)，以至于当时亚里山大国王托勒密一世也想赶这一时髦，学点儿几何学。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;虽然这位国王见多识广，但欧氏几何却令他学的很吃力。于是，他问欧几里得“学习几何学有没有什么捷径可走？”，欧几里得笑道：“抱歉，陛下!学习数学和学习一切科学一样，是没有什么捷径可走的。学习数学，人人都得独立思考，就像种庄稼一样，不耕耘是不会有收获的。在这一方面，国王和普通老百姓是一样的。” 从此,“在几何学里,没有专为国王铺设的大道。”这句话成为千古传诵的学习箴言。&lt;br&gt;&amp;emsp;&amp;emsp;总之呢，任何事情都是这样，哪有这么多得捷径可走，天才往往都是天天积累成才。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="数论" scheme="https://sinclaircoder.top/tags/%E6%95%B0%E8%AE%BA/"/>
+    
+      <category term="算法" scheme="https://sinclaircoder.top/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
