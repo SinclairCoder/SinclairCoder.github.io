@@ -191,16 +191,6 @@ body {
   color: #555;
   background: #f5f7f9;
 }
-@media (max-width: 767px) {
-  body {
-    padding-right: 0 !important;
-  }
-}
-@media (min-width: 768px) and (max-width: 991px) {
-  body {
-    padding-right: 0 !important;
-  }
-}
 @media (min-width: 1600px) {
   body {
     font-size: 16px;
@@ -1831,7 +1821,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c6cd6c;
+  background: #ffff6a;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3132,4 +3122,13 @@ pre .javascript .function {
   .post-body {
     text-align: justify;
   }
+}
+.post-toc .nav .nav-level-1>.nav-child {
+  display: block;
+}
+.sidebar-toggle {
+  left: 30px;
+}
+.sidebar {
+  left: 0px;
 }
