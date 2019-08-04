@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[一线爬虫爬虫工程师纪实]]></title>
+    <url>%2F2019%2F07%2F14%2F2019-07-14-%E4%B8%80%E7%BA%BF%E7%88%AC%E8%99%AB%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%BA%AA%E5%AE%9E%2F</url>
+    <content type="text"><![CDATA[最近遇到了反爬虫 在CSDN上逛到了一篇很不错的博文Java 那些你不知道的爬虫反爬虫套路 一篇一线爬虫工程师的纪实~ ==注：侵删==]]></content>
+      <tags>
+        <tag>爬虫</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Tomcat 8080端口被占用]]></title>
     <url>%2F2019%2F07%2F14%2F2019-07-14-Tomcat%208080%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%2F</url>
     <content type="text"><![CDATA[最近在学习Spring Boot ，新建项目运行的时候出现了Tomcat 8080端口被占用的问题 描述如下： 解决方法1.管理员身份打开cmd窗口2.使用命令 netstat -ano 查看当前端口信息 3.找到对应端口PID ，输入指令找到对应进程杀掉 4.重新运行程序]]></content>
       <tags>
         <tag>工程项目</tag>
         <tag>javaWeb</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[一线爬虫爬虫工程师纪实]]></title>
-    <url>%2F2019%2F07%2F14%2F2019-07-14-%E4%B8%80%E7%BA%BF%E7%88%AC%E8%99%AB%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%BA%AA%E5%AE%9E%2F</url>
-    <content type="text"><![CDATA[最近遇到了反爬虫 在CSDN上逛到了一篇很不错的博文Java 那些你不知道的爬虫反爬虫套路 一篇一线爬虫工程师的纪实~ ==注：侵删==]]></content>
-      <tags>
-        <tag>爬虫</tag>
       </tags>
   </entry>
   <entry>
@@ -182,9 +182,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[HDU2099整除的尾数]]></title>
-    <url>%2F2019%2F01%2F09%2F2019-01-09-HDU2099%E6%95%B4%E9%99%A4%E7%9A%84%E5%B0%BE%E6%95%B0%2F</url>
-    <content type="text"><![CDATA[整除的尾数 You have to live spherically - in many directions.Never lose your childish enthusiasm and things will come your way.人要活得精彩，各个领域都要勇于尝试，永远保持童真般的热情，一切就会得偿所愿。 —-《托斯卡尼艳阳下》 Problem Description 一个整数，只知道前几位，不知道末二位，被另一个整数除尽了，那么该数的末二位该是什么呢？ Input 输入数据有若干组，每组数据包含二个整数a，b（0&lt;a&lt;10000, 10&lt;b&lt;100），若遇到0 0则处理结束。 Output 对应每组数据，将满足条件的所有尾数在一行内输出，格式见样本输出。同组数据的输出，其每个尾数之间空一格，行末没有空格。 Sample Input 200 401992 950 0 ##Sample Output 00 40 8015 一、思路 输入要判断是否为0，先将这个整数乘以100，然后利用0到99的穷举进行判断，输出时考虑到0的问题，用printf函数输出。 二、代码实现12345678910111213141516171819202122#include &lt;iostream&gt;using namespace std;int main() &#123; int a,b,count=0; while(cin&gt;&gt; a &gt;&gt; b &amp;&amp; a!=0 &amp;&amp; b!=0) &#123; a *= 100; for(int i=0;i&lt;=99;i++) &#123; if((a+i)%b == 0) &#123; count++; // 计数，用于空格的输出 if(count==1) printf("%02d",i); //输出空格的问题 else printf(" %02d",i); &#125; &#125; cout &lt;&lt; endl; count=0; //每一组整数的后两位判断完毕之后，count需清零，然后输出换行 &#125; return 0;&#125;]]></content>
+    <title><![CDATA[HDU2097Sky数]]></title>
+    <url>%2F2019%2F01%2F09%2F2019-01-09-HDU%202097Sky%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[Sky数 My life didn’t please me, so I created my life.我的生活不曾取悦于我，所以我创造了自己的生活 ——-Coco Chanel Problem Description Sky从小喜欢奇特的东西，而且天生对数字特别敏感，一次偶然的机会，他发现了一个有趣的四位数2992，这个数它的十进制数表示，其四位数字之和为2+9+9+2=22，它的十六进制数BB0，其四位数字之和也为22，同时它的十二进制数表示1894，其四位数字之和也为22，啊哈，真是巧啊。Sky非常喜欢这种四位数，由于他的发现，所以这里我们命名其为Sky数。但是要判断这样的数还是有点麻烦啊，那么现在请你帮忙来判断任何一个十进制的四位数，是不是Sky数吧。 Input 输入含有一些四位正整数，如果为0，则输入结束。 Output 若n为Sky数，则输出“#n is a Sky Number.”，否则输出“#n is not a Sky Number.”。每个结果占一行。注意：#n表示所读入的n值。 Sample Input 299212340 Sample Output 2992 is a Sky Number.1234 is not a Sky Number. 思路 输入一个四位整数，需要将其进制转换，而在进制转换的过程中又可以实现四位数各位相加，看似需要将数据转换成十六进制、十二进制（输入的便是十进制），实则，只需一个进制转换求和函数就可以实现，不妨设转换为n进制，在转换的过程中便可实现求和，先对n求模，再整除n，最后判断和是否相等即可。 代码1234567891011121314151617181920212223#include &lt;iostream&gt;using namespace std;int DBC(int a,int n) //将数字a转化为n进制，将其每位相加求和 &#123; int sum=0; while(a) &#123; sum += a%n; a /= n; &#125; return sum; &#125;int main() &#123; int a,b,sum=0; while(cin &gt;&gt; a &amp;&amp; a!=0) &#123; b=a; //个人认为，这里只要三者相等即可，不一定为22 if((DBC(b,10)==DBC(b,16)) &amp;&amp; (DBC(b,10)==DBC(b,12))) cout&lt;&lt; a &lt;&lt; " is a Sky Number." &lt;&lt; endl; else cout&lt;&lt; a &lt;&lt; " is not a Sky Number." &lt;&lt; endl; &#125; return 0;&#125;]]></content>
       <categories>
         <category>数据结构与算法</category>
         <category>刷题</category>
@@ -206,9 +206,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[HDU2097Sky数]]></title>
-    <url>%2F2019%2F01%2F09%2F2019-01-09-HDU%202097Sky%E6%95%B0%2F</url>
-    <content type="text"><![CDATA[Sky数 My life didn’t please me, so I created my life.我的生活不曾取悦于我，所以我创造了自己的生活 ——-Coco Chanel Problem Description Sky从小喜欢奇特的东西，而且天生对数字特别敏感，一次偶然的机会，他发现了一个有趣的四位数2992，这个数它的十进制数表示，其四位数字之和为2+9+9+2=22，它的十六进制数BB0，其四位数字之和也为22，同时它的十二进制数表示1894，其四位数字之和也为22，啊哈，真是巧啊。Sky非常喜欢这种四位数，由于他的发现，所以这里我们命名其为Sky数。但是要判断这样的数还是有点麻烦啊，那么现在请你帮忙来判断任何一个十进制的四位数，是不是Sky数吧。 Input 输入含有一些四位正整数，如果为0，则输入结束。 Output 若n为Sky数，则输出“#n is a Sky Number.”，否则输出“#n is not a Sky Number.”。每个结果占一行。注意：#n表示所读入的n值。 Sample Input 299212340 Sample Output 2992 is a Sky Number.1234 is not a Sky Number. 思路 输入一个四位整数，需要将其进制转换，而在进制转换的过程中又可以实现四位数各位相加，看似需要将数据转换成十六进制、十二进制（输入的便是十进制），实则，只需一个进制转换求和函数就可以实现，不妨设转换为n进制，在转换的过程中便可实现求和，先对n求模，再整除n，最后判断和是否相等即可。 代码1234567891011121314151617181920212223#include &lt;iostream&gt;using namespace std;int DBC(int a,int n) //将数字a转化为n进制，将其每位相加求和 &#123; int sum=0; while(a) &#123; sum += a%n; a /= n; &#125; return sum; &#125;int main() &#123; int a,b,sum=0; while(cin &gt;&gt; a &amp;&amp; a!=0) &#123; b=a; //个人认为，这里只要三者相等即可，不一定为22 if((DBC(b,10)==DBC(b,16)) &amp;&amp; (DBC(b,10)==DBC(b,12))) cout&lt;&lt; a &lt;&lt; " is a Sky Number." &lt;&lt; endl; else cout&lt;&lt; a &lt;&lt; " is not a Sky Number." &lt;&lt; endl; &#125; return 0;&#125;]]></content>
+    <title><![CDATA[HDU2099整除的尾数]]></title>
+    <url>%2F2019%2F01%2F09%2F2019-01-09-HDU2099%E6%95%B4%E9%99%A4%E7%9A%84%E5%B0%BE%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[整除的尾数 You have to live spherically - in many directions.Never lose your childish enthusiasm and things will come your way.人要活得精彩，各个领域都要勇于尝试，永远保持童真般的热情，一切就会得偿所愿。 —-《托斯卡尼艳阳下》 Problem Description 一个整数，只知道前几位，不知道末二位，被另一个整数除尽了，那么该数的末二位该是什么呢？ Input 输入数据有若干组，每组数据包含二个整数a，b（0&lt;a&lt;10000, 10&lt;b&lt;100），若遇到0 0则处理结束。 Output 对应每组数据，将满足条件的所有尾数在一行内输出，格式见样本输出。同组数据的输出，其每个尾数之间空一格，行末没有空格。 Sample Input 200 401992 950 0 ##Sample Output 00 40 8015 一、思路 输入要判断是否为0，先将这个整数乘以100，然后利用0到99的穷举进行判断，输出时考虑到0的问题，用printf函数输出。 二、代码实现12345678910111213141516171819202122#include &lt;iostream&gt;using namespace std;int main() &#123; int a,b,count=0; while(cin&gt;&gt; a &gt;&gt; b &amp;&amp; a!=0 &amp;&amp; b!=0) &#123; a *= 100; for(int i=0;i&lt;=99;i++) &#123; if((a+i)%b == 0) &#123; count++; // 计数，用于空格的输出 if(count==1) printf("%02d",i); //输出空格的问题 else printf(" %02d",i); &#125; &#125; cout &lt;&lt; endl; count=0; //每一组整数的后两位判断完毕之后，count需清零，然后输出换行 &#125; return 0;&#125;]]></content>
       <categories>
         <category>数据结构与算法</category>
         <category>刷题</category>
