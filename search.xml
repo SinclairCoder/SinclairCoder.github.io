@@ -182,18 +182,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[欧几里得算法]]></title>
-    <url>%2F2019%2F01%2F09%2F2019-01-09-%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[欧几里得算法求最大公约数 Sometimes your whole life boils down to one insane move. 人这一辈子，有时就得靠一次疯狂的举动才能扭转乾坤。 ——————《阿凡达》 @[toc] 一、介绍欧几里得 &emsp;&emsp;像所有博客一样，出于尊重，介绍一下这位伟大的数学家欧几里得。 &emsp;&emsp;欧几里得，古希腊人，数学家，主要成就：数学巨著《几何原本》、欧几里得算法、完全数。 &emsp;&emsp;在柏拉图学派晚期导师普罗克洛斯（约410～485）的《几何学发展概要》中，就记载着这样一则故事，说的是数学在欧几里得的推动下，逐渐成为人们生活中的一个时髦话题(这与当今社会截然相反)，以至于当时亚里山大国王托勒密一世也想赶这一时髦，学点儿几何学。 &emsp;&emsp;虽然这位国王见多识广，但欧氏几何却令他学的很吃力。于是，他问欧几里得“学习几何学有没有什么捷径可走？”，欧几里得笑道：“抱歉，陛下!学习数学和学习一切科学一样，是没有什么捷径可走的。学习数学，人人都得独立思考，就像种庄稼一样，不耕耘是不会有收获的。在这一方面，国王和普通老百姓是一样的。” 从此,“在几何学里,没有专为国王铺设的大道。”这句话成为千古传诵的学习箴言。&emsp;&emsp;总之呢，任何事情都是这样，哪有这么多得捷径可走，天才往往都是天天积累成才。 二、实现思路 定义2.1：设m和n是两个不全为0的整数，称m与n的公因子中最大的为m与n的最大公因子，或最大公约数(greatest common divisor)，记作gcd(m,n)定义2.2：设m和n是两个非零整数，称a与b最小的公倍数为m与n的最小公倍数(least common multiple)，记作lcm(m,n) 欧几里得算法又称辗转相除法 s：设两个正整数m，n且m &gt; n ; s1：令r=m%n（%代表取余）； s2：若r=0(即n整除m)运算结束，n为结果 ； s3：否则令m=n，n=r并返回s1 ； 三、核心思想 gcd(m,n)=gcd(n,mod(m,n) lcm(m,n) = ab/gcd(m,n) 证明：不妨设 m=k1d ,n=k2d , k3 = m/n (整除) 则 r=m-k3n=k1d-k2k3d=(k1- k2k3)d故r也是d的倍数，得证$\it gcd (m,n)=gcd(n,mod(m,n)$ 四、优点 一看相比于穷举法，效率也会高很多 五、核心代码123456789101112131415161718192021222324int gcd(int m,int n)&#123; int t,r; if(m&lt;n) swap(m,n); //交换二者的值 while(n!=0) &#123; r=m%n; m=n; n=r; &#125; return n;&#125;int gcd(int m,int n) // 递归做法&#123; if(m&lt;n) swap(m,n); //交换二者的值 if(n==0) return m; return gcd(n,m%n);&#125;int lcm(int gcd,int m,int n)&#123; return m*n/gcd;&#125; 参考来源：人物简介源自百度百科 在CSDN上的第一篇文章，２０１９加油！]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-        <category>知识</category>
-      </categories>
-      <tags>
-        <tag>算法训练</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[HDU2099整除的尾数]]></title>
     <url>%2F2019%2F01%2F09%2F2019-01-09-HDU2099%E6%95%B4%E9%99%A4%E7%9A%84%E5%B0%BE%E6%95%B0%2F</url>
     <content type="text"><![CDATA[整除的尾数 You have to live spherically - in many directions.Never lose your childish enthusiasm and things will come your way.人要活得精彩，各个领域都要勇于尝试，永远保持童真般的热情，一切就会得偿所愿。 —-《托斯卡尼艳阳下》 Problem Description 一个整数，只知道前几位，不知道末二位，被另一个整数除尽了，那么该数的末二位该是什么呢？ Input 输入数据有若干组，每组数据包含二个整数a，b（0&lt;a&lt;10000, 10&lt;b&lt;100），若遇到0 0则处理结束。 Output 对应每组数据，将满足条件的所有尾数在一行内输出，格式见样本输出。同组数据的输出，其每个尾数之间空一格，行末没有空格。 Sample Input 200 401992 950 0 ##Sample Output 00 40 8015 一、思路 输入要判断是否为0，先将这个整数乘以100，然后利用0到99的穷举进行判断，输出时考虑到0的问题，用printf函数输出。 二、代码实现12345678910111213141516171819202122#include &lt;iostream&gt;using namespace std;int main() &#123; int a,b,count=0; while(cin&gt;&gt; a &gt;&gt; b &amp;&amp; a!=0 &amp;&amp; b!=0) &#123; a *= 100; for(int i=0;i&lt;=99;i++) &#123; if((a+i)%b == 0) &#123; count++; // 计数，用于空格的输出 if(count==1) printf("%02d",i); //输出空格的问题 else printf(" %02d",i); &#125; &#125; cout &lt;&lt; endl; count=0; //每一组整数的后两位判断完毕之后，count需清零，然后输出换行 &#125; return 0;&#125;]]></content>
@@ -203,6 +191,18 @@
       </categories>
       <tags>
         <tag>数据结构与算法训练</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[欧几里得算法]]></title>
+    <url>%2F2019%2F01%2F09%2F2019-01-09-%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[欧几里得算法求最大公约数 Sometimes your whole life boils down to one insane move. 人这一辈子，有时就得靠一次疯狂的举动才能扭转乾坤。 ——————《阿凡达》 @[toc] 一、介绍欧几里得 &emsp;&emsp;像所有博客一样，出于尊重，介绍一下这位伟大的数学家欧几里得。 &emsp;&emsp;欧几里得，古希腊人，数学家，主要成就：数学巨著《几何原本》、欧几里得算法、完全数。 &emsp;&emsp;在柏拉图学派晚期导师普罗克洛斯（约410～485）的《几何学发展概要》中，就记载着这样一则故事，说的是数学在欧几里得的推动下，逐渐成为人们生活中的一个时髦话题(这与当今社会截然相反)，以至于当时亚里山大国王托勒密一世也想赶这一时髦，学点儿几何学。 &emsp;&emsp;虽然这位国王见多识广，但欧氏几何却令他学的很吃力。于是，他问欧几里得“学习几何学有没有什么捷径可走？”，欧几里得笑道：“抱歉，陛下!学习数学和学习一切科学一样，是没有什么捷径可走的。学习数学，人人都得独立思考，就像种庄稼一样，不耕耘是不会有收获的。在这一方面，国王和普通老百姓是一样的。” 从此,“在几何学里,没有专为国王铺设的大道。”这句话成为千古传诵的学习箴言。&emsp;&emsp;总之呢，任何事情都是这样，哪有这么多得捷径可走，天才往往都是天天积累成才。 二、实现思路 定义2.1：设m和n是两个不全为0的整数，称m与n的公因子中最大的为m与n的最大公因子，或最大公约数(greatest common divisor)，记作gcd(m,n)定义2.2：设m和n是两个非零整数，称a与b最小的公倍数为m与n的最小公倍数(least common multiple)，记作lcm(m,n) 欧几里得算法又称辗转相除法 s：设两个正整数m，n且m &gt; n ; s1：令r=m%n（%代表取余）； s2：若r=0(即n整除m)运算结束，n为结果 ； s3：否则令m=n，n=r并返回s1 ； 三、核心思想 gcd(m,n)=gcd(n,mod(m,n) lcm(m,n) = ab/gcd(m,n) 证明：不妨设 m=k1d ,n=k2d , k3 = m/n (整除) 则 r=m-k3n=k1d-k2k3d=(k1- k2k3)d故r也是d的倍数，得证$\it gcd (m,n)=gcd(n,mod(m,n)$ 四、优点 一看相比于穷举法，效率也会高很多 五、核心代码123456789101112131415161718192021222324int gcd(int m,int n)&#123; int t,r; if(m&lt;n) swap(m,n); //交换二者的值 while(n!=0) &#123; r=m%n; m=n; n=r; &#125; return n;&#125;int gcd(int m,int n) // 递归做法&#123; if(m&lt;n) swap(m,n); //交换二者的值 if(n==0) return m; return gcd(n,m%n);&#125;int lcm(int gcd,int m,int n)&#123; return m*n/gcd;&#125; 参考来源：人物简介源自百度百科 在CSDN上的第一篇文章，２０１９加油！]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+        <category>知识</category>
+      </categories>
+      <tags>
+        <tag>算法训练</tag>
       </tags>
   </entry>
   <entry>
@@ -216,25 +216,5 @@
       <tags>
         <tag>数据结构与算法训练</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[categories]]></title>
-    <url>%2Fcategories%2Findex.html</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[about]]></title>
-    <url>%2Fabout%2Findex.html</url>
-    <content type="text"><![CDATA[个人简介 00后学生党一枚 完美主义者，强迫症中期患者… 喜欢吃鱼，偶尔摸鱼，讨厌咸鱼 过于真实了 教育经历17级WIT本科SE在读 技术栈啊，好像啥也不会 目前在学 JavaWeb ML 关于本站本站建于2019年8月1日，托管与Github Pages，用于积累技术、记录生活等。 Powered by: Hexo: 基础博客框架 Next: 基于 Hexo 的博客主题 Tidio: 在线聊天通信 LeanCloud: 数据云存储与后端支持 Valine: 文章评论组件 Busuanzi 数据统计分析 Algolia 站内搜索服务 Baidu Analytics: 网站监测与数据分析 Google Analytics: 网站监测与数据分析 足足配置两天]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[tags]]></title>
-    <url>%2Ftags%2Findex.html</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
-    <title><![CDATA[top]]></title>
-    <url>%2Ftop%2Findex.html</url>
-    <content type="text"></content>
   </entry>
 </search>
