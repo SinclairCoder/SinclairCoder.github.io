@@ -182,18 +182,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[欧几里得算法]]></title>
-    <url>%2F2019%2F01%2F09%2F2019-01-09-%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[欧几里得算法求最大公约数 Sometimes your whole life boils down to one insane move. 人这一辈子，有时就得靠一次疯狂的举动才能扭转乾坤。 ——————《阿凡达》 @[toc] 一、介绍欧几里得 &emsp;&emsp;像所有博客一样，出于尊重，介绍一下这位伟大的数学家欧几里得。 &emsp;&emsp;欧几里得，古希腊人，数学家，主要成就：数学巨著《几何原本》、欧几里得算法、完全数。 &emsp;&emsp;在柏拉图学派晚期导师普罗克洛斯（约410～485）的《几何学发展概要》中，就记载着这样一则故事，说的是数学在欧几里得的推动下，逐渐成为人们生活中的一个时髦话题(这与当今社会截然相反)，以至于当时亚里山大国王托勒密一世也想赶这一时髦，学点儿几何学。 &emsp;&emsp;虽然这位国王见多识广，但欧氏几何却令他学的很吃力。于是，他问欧几里得“学习几何学有没有什么捷径可走？”，欧几里得笑道：“抱歉，陛下!学习数学和学习一切科学一样，是没有什么捷径可走的。学习数学，人人都得独立思考，就像种庄稼一样，不耕耘是不会有收获的。在这一方面，国王和普通老百姓是一样的。” 从此,“在几何学里,没有专为国王铺设的大道。”这句话成为千古传诵的学习箴言。&emsp;&emsp;总之呢，任何事情都是这样，哪有这么多得捷径可走，天才往往都是天天积累成才。 二、实现思路 定义2.1：设m和n是两个不全为0的整数，称m与n的公因子中最大的为m与n的最大公因子，或最大公约数(greatest common divisor)，记作gcd(m,n)定义2.2：设m和n是两个非零整数，称a与b最小的公倍数为m与n的最小公倍数(least common multiple)，记作lcm(m,n) 欧几里得算法又称辗转相除法 s：设两个正整数m，n且m &gt; n ; s1：令r=m%n（%代表取余）； s2：若r=0(即n整除m)运算结束，n为结果 ； s3：否则令m=n，n=r并返回s1 ； 三、核心思想 gcd(m,n)=gcd(n,mod(m,n) lcm(m,n) = ab/gcd(m,n) 证明：不妨设 m=k1d ,n=k2d , k3 = m/n (整除) 则 r=m-k3n=k1d-k2k3d=(k1- k2k3)d故r也是d的倍数，得证$\it gcd (m,n)=gcd(n,mod(m,n)$ 四、优点 一看相比于穷举法，效率也会高很多 五、核心代码123456789101112131415161718192021222324int gcd(int m,int n)&#123; int t,r; if(m&lt;n) swap(m,n); //交换二者的值 while(n!=0) &#123; r=m%n; m=n; n=r; &#125; return n;&#125;int gcd(int m,int n) // 递归做法&#123; if(m&lt;n) swap(m,n); //交换二者的值 if(n==0) return m; return gcd(n,m%n);&#125;int lcm(int gcd,int m,int n)&#123; return m*n/gcd;&#125; 参考来源：人物简介源自百度百科 在CSDN上的第一篇文章，２０１９加油！]]></content>
-      <categories>
-        <category>数据结构与算法</category>
-        <category>知识</category>
-      </categories>
-      <tags>
-        <tag>算法训练</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[HDU2097Sky数]]></title>
     <url>%2F2019%2F01%2F09%2F2019-01-09-HDU%202097Sky%E6%95%B0%2F</url>
     <content type="text"><![CDATA[Sky数 My life didn’t please me, so I created my life.我的生活不曾取悦于我，所以我创造了自己的生活 ——-Coco Chanel Problem Description Sky从小喜欢奇特的东西，而且天生对数字特别敏感，一次偶然的机会，他发现了一个有趣的四位数2992，这个数它的十进制数表示，其四位数字之和为2+9+9+2=22，它的十六进制数BB0，其四位数字之和也为22，同时它的十二进制数表示1894，其四位数字之和也为22，啊哈，真是巧啊。Sky非常喜欢这种四位数，由于他的发现，所以这里我们命名其为Sky数。但是要判断这样的数还是有点麻烦啊，那么现在请你帮忙来判断任何一个十进制的四位数，是不是Sky数吧。 Input 输入含有一些四位正整数，如果为0，则输入结束。 Output 若n为Sky数，则输出“#n is a Sky Number.”，否则输出“#n is not a Sky Number.”。每个结果占一行。注意：#n表示所读入的n值。 Sample Input 299212340 Sample Output 2992 is a Sky Number.1234 is not a Sky Number. 思路 输入一个四位整数，需要将其进制转换，而在进制转换的过程中又可以实现四位数各位相加，看似需要将数据转换成十六进制、十二进制（输入的便是十进制），实则，只需一个进制转换求和函数就可以实现，不妨设转换为n进制，在转换的过程中便可实现求和，先对n求模，再整除n，最后判断和是否相等即可。 代码1234567891011121314151617181920212223#include &lt;iostream&gt;using namespace std;int DBC(int a,int n) //将数字a转化为n进制，将其每位相加求和 &#123; int sum=0; while(a) &#123; sum += a%n; a /= n; &#125; return sum; &#125;int main() &#123; int a,b,sum=0; while(cin &gt;&gt; a &amp;&amp; a!=0) &#123; b=a; //个人认为，这里只要三者相等即可，不一定为22 if((DBC(b,10)==DBC(b,16)) &amp;&amp; (DBC(b,10)==DBC(b,12))) cout&lt;&lt; a &lt;&lt; " is a Sky Number." &lt;&lt; endl; else cout&lt;&lt; a &lt;&lt; " is not a Sky Number." &lt;&lt; endl; &#125; return 0;&#125;]]></content>
@@ -203,6 +191,18 @@
       </categories>
       <tags>
         <tag>数据结构与算法训练</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[欧几里得算法]]></title>
+    <url>%2F2019%2F01%2F09%2F2019-01-09-%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[欧几里得算法求最大公约数 Sometimes your whole life boils down to one insane move. 人这一辈子，有时就得靠一次疯狂的举动才能扭转乾坤。 ——————《阿凡达》 @[toc] 一、介绍欧几里得 &emsp;&emsp;像所有博客一样，出于尊重，介绍一下这位伟大的数学家欧几里得。 &emsp;&emsp;欧几里得，古希腊人，数学家，主要成就：数学巨著《几何原本》、欧几里得算法、完全数。 &emsp;&emsp;在柏拉图学派晚期导师普罗克洛斯（约410～485）的《几何学发展概要》中，就记载着这样一则故事，说的是数学在欧几里得的推动下，逐渐成为人们生活中的一个时髦话题(这与当今社会截然相反)，以至于当时亚里山大国王托勒密一世也想赶这一时髦，学点儿几何学。 &emsp;&emsp;虽然这位国王见多识广，但欧氏几何却令他学的很吃力。于是，他问欧几里得“学习几何学有没有什么捷径可走？”，欧几里得笑道：“抱歉，陛下!学习数学和学习一切科学一样，是没有什么捷径可走的。学习数学，人人都得独立思考，就像种庄稼一样，不耕耘是不会有收获的。在这一方面，国王和普通老百姓是一样的。” 从此,“在几何学里,没有专为国王铺设的大道。”这句话成为千古传诵的学习箴言。&emsp;&emsp;总之呢，任何事情都是这样，哪有这么多得捷径可走，天才往往都是天天积累成才。 二、实现思路 定义2.1：设m和n是两个不全为0的整数，称m与n的公因子中最大的为m与n的最大公因子，或最大公约数(greatest common divisor)，记作gcd(m,n)定义2.2：设m和n是两个非零整数，称a与b最小的公倍数为m与n的最小公倍数(least common multiple)，记作lcm(m,n) 欧几里得算法又称辗转相除法 s：设两个正整数m，n且m &gt; n ; s1：令r=m%n（%代表取余）； s2：若r=0(即n整除m)运算结束，n为结果 ； s3：否则令m=n，n=r并返回s1 ； 三、核心思想 gcd(m,n)=gcd(n,mod(m,n) lcm(m,n) = ab/gcd(m,n) 证明：不妨设 m=k1d ,n=k2d , k3 = m/n (整除) 则 r=m-k3n=k1d-k2k3d=(k1- k2k3)d故r也是d的倍数，得证$\it gcd (m,n)=gcd(n,mod(m,n)$ 四、优点 一看相比于穷举法，效率也会高很多 五、核心代码123456789101112131415161718192021222324int gcd(int m,int n)&#123; int t,r; if(m&lt;n) swap(m,n); //交换二者的值 while(n!=0) &#123; r=m%n; m=n; n=r; &#125; return n;&#125;int gcd(int m,int n) // 递归做法&#123; if(m&lt;n) swap(m,n); //交换二者的值 if(n==0) return m; return gcd(n,m%n);&#125;int lcm(int gcd,int m,int n)&#123; return m*n/gcd;&#125; 参考来源：人物简介源自百度百科 在CSDN上的第一篇文章，２０１９加油！]]></content>
+      <categories>
+        <category>数据结构与算法</category>
+        <category>知识</category>
+      </categories>
+      <tags>
+        <tag>算法训练</tag>
       </tags>
   </entry>
   <entry>
