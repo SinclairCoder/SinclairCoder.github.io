@@ -451,6 +451,38 @@
   </entry>
   
   <entry>
+    <title>欧几里得算法</title>
+    <link href="https://sinclaircoder.top/2019/01/09/2019-01-09-%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/"/>
+    <id>https://sinclaircoder.top/2019/01/09/2019-01-09-欧几里得算法/</id>
+    <published>2019-01-08T16:00:00.000Z</published>
+    <updated>2019-08-03T06:07:53.378Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="欧几里得算法求最大公约数"><a href="#欧几里得算法求最大公约数" class="headerlink" title="欧几里得算法求最大公约数"></a>欧几里得算法求最大公约数</h2><blockquote><p>Sometimes your whole life boils down to one insane move.<br>        人这一辈子，有时就得靠一次疯狂的举动才能扭转乾坤。<br>                                                                 ——————《阿凡达》</p></blockquote><p>@[toc]</p><h2 id="一、介绍欧几里得"><a href="#一、介绍欧几里得" class="headerlink" title="一、介绍欧几里得"></a>一、介绍欧几里得</h2><hr><p>&emsp;&emsp;像所有博客一样，出于尊重，介绍一下这位伟大的数学家欧几里得。</p><p>&emsp;&emsp;欧几里得，古希腊人，数学家，主要成就：数学巨著《几何原本》、欧几里得算法、完全数。</p><p>&emsp;&emsp;在柏拉图学派晚期导师普罗克洛斯（约410～485）的《几何学发展概要》中，就记载着这样一则故事，说的是数学在欧几里得的推动下，逐渐成为人们生活中的一个时髦话题(这与当今社会截然相反)，以至于当时亚里山大国王托勒密一世也想赶这一时髦，学点儿几何学。</p><p>&emsp;&emsp;虽然这位国王见多识广，但欧氏几何却令他学的很吃力。于是，他问欧几里得“学习几何学有没有什么捷径可走？”，欧几里得笑道：“抱歉，陛下!学习数学和学习一切科学一样，是没有什么捷径可走的。学习数学，人人都得独立思考，就像种庄稼一样，不耕耘是不会有收获的。在这一方面，国王和普通老百姓是一样的。” 从此,“在几何学里,没有专为国王铺设的大道。”这句话成为千古传诵的学习箴言。<br>&emsp;&emsp;总之呢，任何事情都是这样，哪有这么多得捷径可走，天才往往都是天天积累成才。</p><a id="more"></a><h2 id="二、实现思路"><a href="#二、实现思路" class="headerlink" title="二、实现思路"></a>二、实现思路</h2><hr><p>定义2.1：设m和n是两个不全为0的整数，称m与n的公因子中最大的为m与n的最大公因子，或最大公约数(greatest common divisor)，记作gcd(m,n)<br>定义2.2：设m和n是两个非零整数，称a与b最小的公倍数为m与n的最小公倍数(least common multiple)，记作lcm(m,n)</p><hr><blockquote><p>欧几里得算法又称辗转相除法<br>     s：设两个正整数m，n且m &gt; n ;<br>    s1：令r=m%n（%代表取余）；<br>    s2：若r=0(即n整除m)运算结束，n为结果 ；<br>    s3：否则令m=n，n=r并返回s1 ；</p></blockquote><h2 id="三、核心思想"><a href="#三、核心思想" class="headerlink" title="三、核心思想"></a>三、核心思想</h2><blockquote><p>gcd(m,n)=gcd(n,mod(m,n)<br>    lcm(m,n) = ab/gcd(m,n)</p></blockquote><p>证明：不妨设   m=k<sub>1</sub>d ,n=k<sub>2</sub>d , k<sub>3</sub> = m/n (整除)  则 r=m-k<sub>3</sub>n=k<sub>1</sub>d-k<sub>2</sub>k<sub>3</sub>d=(k<sub>1</sub>-                    k<sub>2</sub>k<sub>3</sub>)d<br>故r也是d的倍数，得证$\it gcd (m,n)=gcd(n,mod(m,n)$</p><h2 id="四、优点"><a href="#四、优点" class="headerlink" title="四、优点"></a>四、优点</h2><blockquote><p>一看相比于穷举法，效率也会高很多</p></blockquote><h2 id="五、核心代码"><a href="#五、核心代码" class="headerlink" title="五、核心代码"></a>五、核心代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">int gcd(int m,int n)</span><br><span class="line">&#123;</span><br><span class="line">int t,r;</span><br><span class="line"><span class="keyword">if</span>(m&lt;n)</span><br><span class="line">swap(m,n); <span class="comment">//交换二者的值</span></span><br><span class="line"><span class="keyword">while</span>(n!=<span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">r=m%n;</span><br><span class="line">m=n;</span><br><span class="line">n=r;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line">int gcd(int m,int n) <span class="comment">// 递归做法</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span>(m&lt;n)</span><br><span class="line">swap(m,n); <span class="comment">//交换二者的值</span></span><br><span class="line"><span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> m; </span><br><span class="line"><span class="keyword">return</span> gcd(n,m%n);</span><br><span class="line">&#125;</span><br><span class="line">int lcm(int gcd,int m,int n)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">return</span> m*n/gcd;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>参考来源：人物简介源自百度百科</p><p><strong><em>在CSDN上的第一篇文章，２０１９加油！</em></strong></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;欧几里得算法求最大公约数&quot;&gt;&lt;a href=&quot;#欧几里得算法求最大公约数&quot; class=&quot;headerlink&quot; title=&quot;欧几里得算法求最大公约数&quot;&gt;&lt;/a&gt;欧几里得算法求最大公约数&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Sometimes your whole life boils down to one insane move.&lt;br&gt;        人这一辈子，有时就得靠一次疯狂的举动才能扭转乾坤。&lt;br&gt;                                                                 ——————《阿凡达》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;@[toc]&lt;/p&gt;
+&lt;h2 id=&quot;一、介绍欧几里得&quot;&gt;&lt;a href=&quot;#一、介绍欧几里得&quot; class=&quot;headerlink&quot; title=&quot;一、介绍欧几里得&quot;&gt;&lt;/a&gt;一、介绍欧几里得&lt;/h2&gt;&lt;hr&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;像所有博客一样，出于尊重，介绍一下这位伟大的数学家欧几里得。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;欧几里得，古希腊人，数学家，主要成就：数学巨著《几何原本》、欧几里得算法、完全数。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;在柏拉图学派晚期导师普罗克洛斯（约410～485）的《几何学发展概要》中，就记载着这样一则故事，说的是数学在欧几里得的推动下，逐渐成为人们生活中的一个时髦话题(这与当今社会截然相反)，以至于当时亚里山大国王托勒密一世也想赶这一时髦，学点儿几何学。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;虽然这位国王见多识广，但欧氏几何却令他学的很吃力。于是，他问欧几里得“学习几何学有没有什么捷径可走？”，欧几里得笑道：“抱歉，陛下!学习数学和学习一切科学一样，是没有什么捷径可走的。学习数学，人人都得独立思考，就像种庄稼一样，不耕耘是不会有收获的。在这一方面，国王和普通老百姓是一样的。” 从此,“在几何学里,没有专为国王铺设的大道。”这句话成为千古传诵的学习箴言。&lt;br&gt;&amp;emsp;&amp;emsp;总之呢，任何事情都是这样，哪有这么多得捷径可走，天才往往都是天天积累成才。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数据结构与算法" scheme="https://sinclaircoder.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="知识" scheme="https://sinclaircoder.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E7%9F%A5%E8%AF%86/"/>
+    
+    
+      <category term="算法训练" scheme="https://sinclaircoder.top/tags/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83/"/>
+    
+  </entry>
+  
+  <entry>
     <title>HDU2097Sky数</title>
     <link href="https://sinclaircoder.top/2019/01/09/2019-01-09-HDU%202097Sky%E6%95%B0/"/>
     <id>https://sinclaircoder.top/2019/01/09/2019-01-09-HDU 2097Sky数/</id>
@@ -482,38 +514,6 @@
     
     
       <category term="数据结构与算法训练" scheme="https://sinclaircoder.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>欧几里得算法</title>
-    <link href="https://sinclaircoder.top/2019/01/09/2019-01-09-%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95/"/>
-    <id>https://sinclaircoder.top/2019/01/09/2019-01-09-欧几里得算法/</id>
-    <published>2019-01-08T16:00:00.000Z</published>
-    <updated>2019-08-03T06:07:53.378Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="欧几里得算法求最大公约数"><a href="#欧几里得算法求最大公约数" class="headerlink" title="欧几里得算法求最大公约数"></a>欧几里得算法求最大公约数</h2><blockquote><p>Sometimes your whole life boils down to one insane move.<br>        人这一辈子，有时就得靠一次疯狂的举动才能扭转乾坤。<br>                                                                 ——————《阿凡达》</p></blockquote><p>@[toc]</p><h2 id="一、介绍欧几里得"><a href="#一、介绍欧几里得" class="headerlink" title="一、介绍欧几里得"></a>一、介绍欧几里得</h2><hr><p>&emsp;&emsp;像所有博客一样，出于尊重，介绍一下这位伟大的数学家欧几里得。</p><p>&emsp;&emsp;欧几里得，古希腊人，数学家，主要成就：数学巨著《几何原本》、欧几里得算法、完全数。</p><p>&emsp;&emsp;在柏拉图学派晚期导师普罗克洛斯（约410～485）的《几何学发展概要》中，就记载着这样一则故事，说的是数学在欧几里得的推动下，逐渐成为人们生活中的一个时髦话题(这与当今社会截然相反)，以至于当时亚里山大国王托勒密一世也想赶这一时髦，学点儿几何学。</p><p>&emsp;&emsp;虽然这位国王见多识广，但欧氏几何却令他学的很吃力。于是，他问欧几里得“学习几何学有没有什么捷径可走？”，欧几里得笑道：“抱歉，陛下!学习数学和学习一切科学一样，是没有什么捷径可走的。学习数学，人人都得独立思考，就像种庄稼一样，不耕耘是不会有收获的。在这一方面，国王和普通老百姓是一样的。” 从此,“在几何学里,没有专为国王铺设的大道。”这句话成为千古传诵的学习箴言。<br>&emsp;&emsp;总之呢，任何事情都是这样，哪有这么多得捷径可走，天才往往都是天天积累成才。</p><a id="more"></a><h2 id="二、实现思路"><a href="#二、实现思路" class="headerlink" title="二、实现思路"></a>二、实现思路</h2><hr><p>定义2.1：设m和n是两个不全为0的整数，称m与n的公因子中最大的为m与n的最大公因子，或最大公约数(greatest common divisor)，记作gcd(m,n)<br>定义2.2：设m和n是两个非零整数，称a与b最小的公倍数为m与n的最小公倍数(least common multiple)，记作lcm(m,n)</p><hr><blockquote><p>欧几里得算法又称辗转相除法<br>     s：设两个正整数m，n且m &gt; n ;<br>    s1：令r=m%n（%代表取余）；<br>    s2：若r=0(即n整除m)运算结束，n为结果 ；<br>    s3：否则令m=n，n=r并返回s1 ；</p></blockquote><h2 id="三、核心思想"><a href="#三、核心思想" class="headerlink" title="三、核心思想"></a>三、核心思想</h2><blockquote><p>gcd(m,n)=gcd(n,mod(m,n)<br>    lcm(m,n) = ab/gcd(m,n)</p></blockquote><p>证明：不妨设   m=k<sub>1</sub>d ,n=k<sub>2</sub>d , k<sub>3</sub> = m/n (整除)  则 r=m-k<sub>3</sub>n=k<sub>1</sub>d-k<sub>2</sub>k<sub>3</sub>d=(k<sub>1</sub>-                    k<sub>2</sub>k<sub>3</sub>)d<br>故r也是d的倍数，得证$\it gcd (m,n)=gcd(n,mod(m,n)$</p><h2 id="四、优点"><a href="#四、优点" class="headerlink" title="四、优点"></a>四、优点</h2><blockquote><p>一看相比于穷举法，效率也会高很多</p></blockquote><h2 id="五、核心代码"><a href="#五、核心代码" class="headerlink" title="五、核心代码"></a>五、核心代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">int gcd(int m,int n)</span><br><span class="line">&#123;</span><br><span class="line">int t,r;</span><br><span class="line"><span class="keyword">if</span>(m&lt;n)</span><br><span class="line">swap(m,n); <span class="comment">//交换二者的值</span></span><br><span class="line"><span class="keyword">while</span>(n!=<span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line">r=m%n;</span><br><span class="line">m=n;</span><br><span class="line">n=r;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line">int gcd(int m,int n) <span class="comment">// 递归做法</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span>(m&lt;n)</span><br><span class="line">swap(m,n); <span class="comment">//交换二者的值</span></span><br><span class="line"><span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> m; </span><br><span class="line"><span class="keyword">return</span> gcd(n,m%n);</span><br><span class="line">&#125;</span><br><span class="line">int lcm(int gcd,int m,int n)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">return</span> m*n/gcd;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>参考来源：人物简介源自百度百科</p><p><strong><em>在CSDN上的第一篇文章，２０１９加油！</em></strong></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;欧几里得算法求最大公约数&quot;&gt;&lt;a href=&quot;#欧几里得算法求最大公约数&quot; class=&quot;headerlink&quot; title=&quot;欧几里得算法求最大公约数&quot;&gt;&lt;/a&gt;欧几里得算法求最大公约数&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Sometimes your whole life boils down to one insane move.&lt;br&gt;        人这一辈子，有时就得靠一次疯狂的举动才能扭转乾坤。&lt;br&gt;                                                                 ——————《阿凡达》&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;@[toc]&lt;/p&gt;
-&lt;h2 id=&quot;一、介绍欧几里得&quot;&gt;&lt;a href=&quot;#一、介绍欧几里得&quot; class=&quot;headerlink&quot; title=&quot;一、介绍欧几里得&quot;&gt;&lt;/a&gt;一、介绍欧几里得&lt;/h2&gt;&lt;hr&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;像所有博客一样，出于尊重，介绍一下这位伟大的数学家欧几里得。&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;欧几里得，古希腊人，数学家，主要成就：数学巨著《几何原本》、欧几里得算法、完全数。&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;在柏拉图学派晚期导师普罗克洛斯（约410～485）的《几何学发展概要》中，就记载着这样一则故事，说的是数学在欧几里得的推动下，逐渐成为人们生活中的一个时髦话题(这与当今社会截然相反)，以至于当时亚里山大国王托勒密一世也想赶这一时髦，学点儿几何学。&lt;/p&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;虽然这位国王见多识广，但欧氏几何却令他学的很吃力。于是，他问欧几里得“学习几何学有没有什么捷径可走？”，欧几里得笑道：“抱歉，陛下!学习数学和学习一切科学一样，是没有什么捷径可走的。学习数学，人人都得独立思考，就像种庄稼一样，不耕耘是不会有收获的。在这一方面，国王和普通老百姓是一样的。” 从此,“在几何学里,没有专为国王铺设的大道。”这句话成为千古传诵的学习箴言。&lt;br&gt;&amp;emsp;&amp;emsp;总之呢，任何事情都是这样，哪有这么多得捷径可走，天才往往都是天天积累成才。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="数据结构与算法" scheme="https://sinclaircoder.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="知识" scheme="https://sinclaircoder.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E7%9F%A5%E8%AF%86/"/>
-    
-    
-      <category term="算法训练" scheme="https://sinclaircoder.top/tags/%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83/"/>
     
   </entry>
   
