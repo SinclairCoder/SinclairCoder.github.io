@@ -1634,7 +1634,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #40ff33;
+  background: #ffe8ff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2455,8 +2455,4 @@ embed {
 .links-of-author a:before,
 .links-of-author .exturl:before {
   display: none;
-}
-.local-search-popup #local-search-result {
-  padding: 25px 40px;
-  height: calc(100% - 95px);
 }
