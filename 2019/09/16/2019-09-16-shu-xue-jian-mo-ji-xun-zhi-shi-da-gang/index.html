@@ -1,0 +1,1909 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="数学建模集训知识大纲, SinclairのBlog">
+    <meta name="description" content="评价算法简单加权法
+线性加权
+非线性加权
+
+逼近于理想解的排序法(TOPSIS算法)层次分析法主成分分析法模糊综合评价法聚类分析法秩和比法人工神经网络熵权法灰色关联度分析预测算法插值拟合
+小样本内部预测
+
+回归模型预测
+大样本内部预测
+
+灰">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>数学建模集训知识大纲 | SinclairのBlog</title>
+    <link rel="icon" type="image/jpeg" href="/favicon.jpg">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+    
+<link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">SinclairのBlog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">SinclairのBlog</div>
+        <div class="logo-desc">
+            
+            嚼得草根 做得大事
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">数学建模集训知识大纲</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/数学建模/">
+                                <span class="chip bg-color">数学建模</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/竞赛感悟/" class="post-category">
+                                竞赛感悟
+                            </a>
+                        
+                            <a href="/categories/竞赛感悟/数学建模/" class="post-category">
+                                数学建模
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2019-09-16
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2020-01-21
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    3.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    11 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="评价算法"><a href="#评价算法" class="headerlink" title="评价算法"></a>评价算法</h2><h3 id="简单加权法"><a href="#简单加权法" class="headerlink" title="简单加权法"></a>简单加权法</h3><ul>
+<li>线性加权</li>
+<li>非线性加权</li>
+</ul>
+<h3 id="逼近于理想解的排序法-TOPSIS算法"><a href="#逼近于理想解的排序法-TOPSIS算法" class="headerlink" title="逼近于理想解的排序法(TOPSIS算法)"></a>逼近于理想解的排序法(TOPSIS算法)</h3><h3 id="层次分析法"><a href="#层次分析法" class="headerlink" title="层次分析法"></a>层次分析法</h3><h3 id="主成分分析法"><a href="#主成分分析法" class="headerlink" title="主成分分析法"></a>主成分分析法</h3><h3 id="模糊综合评价法"><a href="#模糊综合评价法" class="headerlink" title="模糊综合评价法"></a>模糊综合评价法</h3><h3 id="聚类分析法"><a href="#聚类分析法" class="headerlink" title="聚类分析法"></a>聚类分析法</h3><h3 id="秩和比法"><a href="#秩和比法" class="headerlink" title="秩和比法"></a>秩和比法</h3><h3 id="人工神经网络"><a href="#人工神经网络" class="headerlink" title="人工神经网络"></a>人工神经网络</h3><h3 id="熵权法"><a href="#熵权法" class="headerlink" title="熵权法"></a>熵权法</h3><h3 id="灰色关联度分析"><a href="#灰色关联度分析" class="headerlink" title="灰色关联度分析"></a>灰色关联度分析</h3><h2 id="预测算法"><a href="#预测算法" class="headerlink" title="预测算法"></a>预测算法</h2><h3 id="插值拟合"><a href="#插值拟合" class="headerlink" title="插值拟合"></a>插值拟合</h3><ul>
+<li>小样本内部预测</li>
+</ul>
+<h3 id="回归模型预测"><a href="#回归模型预测" class="headerlink" title="回归模型预测"></a>回归模型预测</h3><ul>
+<li>大样本内部预测</li>
+</ul>
+<h3 id="灰色预测GM"><a href="#灰色预测GM" class="headerlink" title="灰色预测GM"></a>灰色预测GM</h3><ul>
+<li>小样本未来预测</li>
+</ul>
+<h3 id="时间序列"><a href="#时间序列" class="headerlink" title="时间序列"></a>时间序列</h3><ul>
+<li>大样本的随机因素或周期特征的未来预测</li>
+</ul>
+<h3 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h3><ul>
+<li>针对大样本的内部机理复杂的数据的未来预测</li>
+</ul>
+<h2 id="统计分析"><a href="#统计分析" class="headerlink" title="统计分析"></a>统计分析</h2><h3 id="方差分析"><a href="#方差分析" class="headerlink" title="方差分析"></a>方差分析</h3><ul>
+<li>分析因变量的总误差中，除开随机误差以外，是否有类别变量（自变量）造成的处理误差，有多少误差是自变量造成的</li>
+<li>分类<ul>
+<li>单自变量<ul>
+<li>单因素方差分析</li>
+</ul>
+</li>
+<li>两个自变量<ul>
+<li>无重复双因素分析：只考虑主效应，不考虑交互效应</li>
+<li>可重复双因素分析：考虑主效应，也考虑交互效应</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="回归分析"><a href="#回归分析" class="headerlink" title="回归分析"></a>回归分析</h3><h3 id="多元统计分析"><a href="#多元统计分析" class="headerlink" title="多元统计分析"></a>多元统计分析</h3><ul>
+<li>分类<ul>
+<li>聚类分析</li>
+<li>判别分析</li>
+</ul>
+</li>
+<li>综合评价<ul>
+<li>主成分分析<ul>
+<li>从原来的坐标系转换到新的坐标系，第一个新坐标轴选择的是原始数据中方差最大的方向，第二个坐标轴选择的是和第一个新坐标轴正交且具有最大方差的方向。该过程一直重复，重复次数为原始数据中特征的数目。</li>
+</ul>
+</li>
+<li>因子分析<ul>
+<li>隐变量和某些噪声的组合</li>
+</ul>
+</li>
+<li>典型相关分析</li>
+<li>偏最小二乘回归</li>
+</ul>
+</li>
+</ul>
+<h3 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h3><ul>
+<li>神经网络</li>
+<li>逻辑回归</li>
+<li>判别分析</li>
+<li>最邻近方法</li>
+<li>朴素贝叶斯</li>
+<li>支持向量机</li>
+<li>决策树</li>
+<li>集成学习</li>
+<li>ROC曲线</li>
+</ul>
+<h3 id="假设检验（非参数）"><a href="#假设检验（非参数）" class="headerlink" title="假设检验（非参数）"></a>假设检验（非参数）</h3><ul>
+<li>分布拟合检验</li>
+<li>秩和检验<ul>
+<li>如果两个样本来自两个独立的但非正态或形态不清的两总体，要检验两样本之间的差异是否显著，不应运用参数检验中的t检验，而需要采用之和检验</li>
+</ul>
+</li>
+<li>配对检验</li>
+<li>K-S 检验<ul>
+<li>K-S检验不仅能够检验单个总体是否服从某一理论分布，还能够检验两总体分布是否存在显著差异。其原假设是：两组独立样本来自的两总体的分布无显著差异。</li>
+</ul>
+</li>
+<li>Q-Q图<ul>
+<li>用变量数据分布的分位数与所指定分布的分位数之间的关系曲线来进行检验的</li>
+</ul>
+</li>
+<li>P-P图<ul>
+<li>根据变量的累积比例与指定分布的累积比例之间的关系所绘制的图形。通过P-P图可以检验数据是否符合指定的分布。当数据符合指定分布时，P-P图中各点近似呈一条直线。</li>
+</ul>
+</li>
+</ul>
+<h3 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h3><ul>
+<li>层次聚类</li>
+<li>划分聚类<ul>
+<li>K-means</li>
+</ul>
+</li>
+<li>网络聚类</li>
+<li>聚类评价<ul>
+<li>共表型相关系数<ul>
+<li>相似性矩阵</li>
+<li>共表矩阵</li>
+</ul>
+</li>
+<li>外部指标<ul>
+<li>相仪表</li>
+<li>调整兰德系数ARI</li>
+<li>互信息MI</li>
+</ul>
+</li>
+<li>自助</li>
+</ul>
+</li>
+</ul>
+<h2 id="最优化方法"><a href="#最优化方法" class="headerlink" title="最优化方法"></a>最优化方法</h2><h3 id="常用算法"><a href="#常用算法" class="headerlink" title="常用算法"></a>常用算法</h3><ul>
+<li>模拟退火</li>
+<li>神经网络</li>
+<li>遗传算法</li>
+</ul>
+<h3 id="无约束优化"><a href="#无约束优化" class="headerlink" title="无约束优化"></a>无约束优化</h3><ul>
+<li>基本算法<ul>
+<li>共轭梯度法<ul>
+<li>在最优化方法中占有重要地位，最速下降法的优点是工作量小，缺点是收敛慢，适用于寻优过程中前期迭代或作为间插步骤，当接近极值点时，宜选用别种收敛快的算法</li>
+</ul>
+</li>
+<li>牛顿法<ul>
+<li>如果f是对称正定矩阵A的二次函数，用牛顿法经过一次迭代就可到达最优点，如不是二次函数，则牛顿法不能一部达到极值点</li>
+<li>牛顿法收敛速度虽然快，但要求Hessian矩阵可逆，要计算二阶导数和逆矩阵，就加大了计算机计算量和存储量。</li>
+</ul>
+</li>
+<li>拟牛顿法<ul>
+<li>修改了牛顿方向</li>
+<li>两种算法<ul>
+<li>DFP</li>
+<li>BFGS</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="有约束优化"><a href="#有约束优化" class="headerlink" title="有约束优化"></a>有约束优化</h3><ul>
+<li>罚函数法<ul>
+<li>通过构造罚函数把约束问题转化为一系列无约束最优化问题，进而用无约束最优化方法求解，这类方法称为序列无约束最小化方法，简称SUMT法（分为SUMT外点法 其二为SUMT内点法）</li>
+</ul>
+</li>
+<li>近似规划法</li>
+</ul>
+<h3 id="二次规划"><a href="#二次规划" class="headerlink" title="二次规划"></a>二次规划</h3><ul>
+<li>quadprog</li>
+</ul>
+<h3 id="一般有约束非线性规划"><a href="#一般有约束非线性规划" class="headerlink" title="一般有约束非线性规划"></a>一般有约束非线性规划</h3><ul>
+<li>fmincon</li>
+</ul>
+<h2 id="计算机算法"><a href="#计算机算法" class="headerlink" title="计算机算法"></a>计算机算法</h2><h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><h3 id="回溯搜索"><a href="#回溯搜索" class="headerlink" title="回溯搜索"></a>回溯搜索</h3><h3 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h3><h3 id="贪心"><a href="#贪心" class="headerlink" title="贪心"></a>贪心</h3><h3 id="分枝定界"><a href="#分枝定界" class="headerlink" title="分枝定界"></a>分枝定界</h3><h2 id="图论与网络"><a href="#图论与网络" class="headerlink" title="图论与网络"></a>图论与网络</h2><h3 id="欧拉图"><a href="#欧拉图" class="headerlink" title="欧拉图"></a>欧拉图</h3><h3 id="二分图"><a href="#二分图" class="headerlink" title="二分图"></a>二分图</h3><ul>
+<li>匈牙利算法</li>
+</ul>
+<h3 id="网络流"><a href="#网络流" class="headerlink" title="网络流"></a>网络流</h3><ul>
+<li>最小费用最大流</li>
+</ul>
+<h3 id="最短路径"><a href="#最短路径" class="headerlink" title="最短路径"></a>最短路径</h3><h3 id="TSP问题"><a href="#TSP问题" class="headerlink" title="TSP问题"></a>TSP问题</h3><ul>
+<li>近似算法和启发式算法</li>
+<li>二边逐次修正法</li>
+</ul>
+<h3 id="P和NP问题"><a href="#P和NP问题" class="headerlink" title="P和NP问题"></a>P和NP问题</h3><h3 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h3><h3 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h3><ul>
+<li>Prime算法</li>
+<li>Kruskal算法</li>
+</ul>
+<h3 id="图的基本概念及其矩阵表示"><a href="#图的基本概念及其矩阵表示" class="headerlink" title="图的基本概念及其矩阵表示"></a>图的基本概念及其矩阵表示</h3><ul>
+<li>无向图</li>
+<li>有向图</li>
+<li>完全图</li>
+<li>二分图</li>
+<li>图与网络的数据结构表示方法<ul>
+<li>邻接矩阵表示法</li>
+<li>关联矩阵表示法</li>
+<li>弧表表示法</li>
+<li>邻接表表示法</li>
+<li>星形表示法</li>
+</ul>
+</li>
+</ul>
+<h3 id="常见的网络优化问题"><a href="#常见的网络优化问题" class="headerlink" title="常见的网络优化问题"></a>常见的网络优化问题</h3><ul>
+<li>最短路问题</li>
+<li>公路连接问题</li>
+<li>中国邮递员问题（欧拉图）</li>
+<li>旅行商问题TSP（哈密顿图）</li>
+<li>运输问题</li>
+</ul>
+<h2 id="图像处理"><a href="#图像处理" class="headerlink" title="图像处理"></a>图像处理</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul>
+<li>图像分类<ul>
+<li>离散图像<ul>
+<li>用一个数字序列表示的图像，0和1</li>
+</ul>
+</li>
+<li>连续图像<ul>
+<li>二维坐标系中具有连续变化的图像</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>矩阵中的元素称为像素，以256灰色等级的数字图像为例，一般由8位，即一个字节表示灰度值</li>
+<li>灰度值量化为对应灰度等级<ul>
+<li>等间隔量化（一般采用这个）</li>
+<li>非等间隔量化</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据类"><a href="#数据类" class="headerlink" title="数据类"></a>数据类</h3><ul>
+<li>数值数据类<ul>
+<li>double</li>
+<li>uint8</li>
+<li>uint16</li>
+<li>uint32</li>
+<li>int8</li>
+<li>int16</li>
+<li>int32</li>
+<li>single</li>
+<li>char</li>
+</ul>
+</li>
+<li>字符类（逻辑数据类）<ul>
+<li>logical</li>
+</ul>
+</li>
+</ul>
+<h3 id="图像类型"><a href="#图像类型" class="headerlink" title="图像类型"></a>图像类型</h3><ul>
+<li>二值图像<ul>
+<li>二维矩阵由０、１构成，０为黑色，１为白色</li>
+<li>通常用于OCR</li>
+<li>一般二值图像是逻辑数组，只有０和１的uint8类数组，并不会认为是二值图像，需要使用logical函数 B= logical(A);</li>
+</ul>
+</li>
+<li>灰度图像<ul>
+<li>即人们常说的256灰度图像，0表示纯黑色，255表示纯白色</li>
+<li>二值图像可以看成是灰度图像的一个特例</li>
+</ul>
+</li>
+<li>索引图像<ul>
+<li>有两个分量。即数据矩阵X和彩色映射矩阵map，矩阵map是一个大小为m*3且由范围在[0,1]之间的浮点值构成的double数组，map数组的长度同它所定义的颜色数目相等，map数组的每一行都定义单色的红绿蓝三个分量，X则是索引矩阵</li>
+</ul>
+</li>
+<li>真彩色RGB图像<ul>
+<li>是彩色像素的一个m<em>n</em>3数组，其中每一个彩色像素点，都是在特定空间位置的彩色图像相对应的红、绿、蓝三个分量</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据类之间转换"><a href="#数据类之间转换" class="headerlink" title="数据类之间转换"></a>数据类之间转换</h3><ul>
+<li>im2uint8</li>
+<li>im2uint16</li>
+<li>mat2gray：将输入转换为double，范围为[0,1]</li>
+<li>im2double</li>
+<li>im2bw</li>
+</ul>
+<h3 id="图像类型之间转换"><a href="#图像类型之间转换" class="headerlink" title="图像类型之间转换"></a>图像类型之间转换</h3><ul>
+<li>ind2fray</li>
+<li>gray2ind</li>
+<li>rgb2ind</li>
+<li>ind2rgb</li>
+<li>ntec2rgb</li>
+<li>rgb2ntsc</li>
+<li>使用imtool命令查看一个图像文件的信息</li>
+</ul>
+<h3 id="空间滤波器"><a href="#空间滤波器" class="headerlink" title="空间滤波器"></a>空间滤波器</h3><ul>
+<li>线性滤波器<ul>
+<li>使用拉普拉斯滤波器增强图像</li>
+<li>使用fspecial生成过滤器以及imfilter的使用</li>
+</ul>
+</li>
+<li>非线性滤波器<ul>
+<li>一个工具是ordfilt2函数，可以生成统计排序滤波器 g=ordfilt2(f,order,domain)</li>
+<li>ordfilt2函数生成图像g的方式：使用邻域的一组排序元素中的第order个元素来代替f中的每个元素，该淋雨则由domain中的非零元素指定</li>
+</ul>
+</li>
+<li>数字图像处理中最著名的统计排序滤波器是中值滤波器，对应第50个百分位，使用g=ordfilt2(f,median(1:m*n),ones(m,n));创建中值滤波器</li>
+<li>工具箱提供了二维中值滤波函数g=medfilt2(f,[m,n])</li>
+</ul>
+<h3 id="频域变换"><a href="#频域变换" class="headerlink" title="频域变换"></a>频域变换</h3><ul>
+<li>为了有效的对图像进行处理和分析，需要将原定义的图像空间的图像以某种形式转换到频域空间，利用频域空间的特有性质方便的进行一定的加工，最后转换回图像空间</li>
+<li>傅里叶变换<ul>
+<li>将图像从空域变换到频域</li>
+<li>二维连续傅里叶变换</li>
+<li>二维离散傅里叶变换（DFT）</li>
+<li>基于离散傅里叶变换的频域滤波</li>
+</ul>
+</li>
+<li>离散余弦变换DCT<ul>
+<li>图像处理中常用的变换算法，通过DCT变换，可以将图像空间域上的信息变换到频率域上</li>
+<li>两种实现<ul>
+<li>基于快速傅里叶变换FFT的算法，通过工具箱提供的dct2</li>
+<li>另一种是DCT变换矩阵，工具箱提供了dctmtx函数来计算变换矩阵</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>图像保真和质量<ul>
+<li>图像处理中为了增加压缩率有时会放弃图像细节或者其他不太重要的内容，为了衡量解码图像相对于原始图像的偏离程度，这些测度一般称为保真度准则</li>
+<li>主要准则<ul>
+<li>客观保真度准则<ul>
+<li>当所损失的信息量可用编码输入图与解码输出图的函数表示时，可以认为是基于客观保真度准则的</li>
+<li>均方根误差</li>
+<li>均方信噪比（SNR）</li>
+<li>均方根误差越小，峰值信噪比越大，处理的图像质量越好</li>
+</ul>
+</li>
+<li>主观保真度准则<ul>
+<li>用分数代表主观评价{很差，较差，相同，稍好，较好，很好}</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="数字图像的水印防伪"><a href="#数字图像的水印防伪" class="headerlink" title="数字图像的水印防伪"></a>数字图像的水印防伪</h3><ul>
+<li>内嵌水印的特点<ul>
+<li>透明性</li>
+<li>鲁棒性<ul>
+<li>能够承受施加于图像的变换操作，不会因变换处理而丢失</li>
+</ul>
+</li>
+<li>安全性</li>
+</ul>
+</li>
+<li>空间域水印<ul>
+<li>将水印信息嵌入到载体图像的空间域特性上</li>
+</ul>
+</li>
+<li>频率域水印<ul>
+<li>将水印信息嵌入到载体图像的变换域系数等特征上</li>
+</ul>
+</li>
+<li>基于矩阵奇异值分解的数字水印算法<ul>
+<li>奇异值分解定理</li>
+<li>Weyl定理<ul>
+<li>在原矩阵上加一个小小的扰动，看是否矩阵奇异值的变化是否会超过扰动矩阵的最大奇异值，从而判断稳定性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>水印嵌入</li>
+<li>水印提取<ul>
+<li>嵌入的逆过程</li>
+</ul>
+</li>
+<li>基于DCT变换的水印算法<ul>
+<li>DCT变换是实数域变换，对实系数处理更加方便，不会使相位信息发生变化，另外，DCT变换是有损图像压缩JPEG的核心，基于DCT变换的图像水印将兼容JPEG图像压缩</li>
+<li>水印嵌入算法</li>
+</ul>
+</li>
+<li>图像加密</li>
+<li>图像隐藏</li>
+</ul>
+<h2 id="规划问题"><a href="#规划问题" class="headerlink" title="规划问题"></a>规划问题</h2><h3 id="连续优化"><a href="#连续优化" class="headerlink" title="连续优化"></a>连续优化</h3><ul>
+<li>线性规划 LP</li>
+<li>非线性规划 NLP</li>
+<li>二次规划 QP</li>
+</ul>
+<h3 id="离散优化"><a href="#离散优化" class="headerlink" title="离散优化"></a>离散优化</h3><ul>
+<li>整数线性规划</li>
+<li>整数非线性规划</li>
+<li>纯整数规划</li>
+<li>混合整数规划</li>
+<li>一般整数规划</li>
+<li>0-1整数规划<ul>
+<li>整数规划的特殊情形，要求线性规划模型中的决策变量只能取值为0和1</li>
+</ul>
+</li>
+</ul>
+<h2 id="模拟和仿真"><a href="#模拟和仿真" class="headerlink" title="模拟和仿真"></a>模拟和仿真</h2><h3 id="模拟"><a href="#模拟" class="headerlink" title="模拟"></a>模拟</h3><ul>
+<li>拟合<ul>
+<li>非线性最小二乘法<ul>
+<li>Isqcurvefit</li>
+<li>Isqnonlin</li>
+</ul>
+</li>
+<li>拟合与统计回归<ul>
+<li>线性回归</li>
+<li>非线性回归<ul>
+<li>[beta,t,J]=nlinfit(x,y,’model’,beta0)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>常用解法：线性最小二乘法<ul>
+<li>a=polyfit(x,y,m)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>插值<ul>
+<li>一维插值<ul>
+<li>拉格朗日插值<ul>
+<li>yy=lagrange(x,y,xx)</li>
+</ul>
+</li>
+<li>分段插值<ul>
+<li>yy=interp1(x , y ,xx , ‘method’)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>- 三次样条插值
+
+    - yy=spline(x,y,xx)
+</code></pre><ul>
+<li><p>二维插值</p>
+<ul>
+<li>最邻近插值</li>
+<li>分片线性插值</li>
+<li>双线性插值</li>
+</ul>
+</li>
+</ul>
+<h3 id="仿真"><a href="#仿真" class="headerlink" title="仿真"></a>仿真</h3><ul>
+<li>动态仿真<ul>
+<li>连续系统仿真<ul>
+<li>时间步长法</li>
+</ul>
+</li>
+<li>离散系统仿真<ul>
+<li>事件步长法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>静态仿真<ul>
+<li>蒙特卡罗方法</li>
+</ul>
+</li>
+<li>随机数产生<ul>
+<li>均匀随机数</li>
+<li>其他方法<ul>
+<li>逆变换法</li>
+<li>舍选法</li>
+<li>近似抽样法</li>
+</ul>
+</li>
+<li>指数分布</li>
+<li>泊松分布</li>
+<li>标准正态分布</li>
+<li>正态分布</li>
+<li>二项分布</li>
+</ul>
+</li>
+<li>排队问题</li>
+<li>可靠性问题</li>
+<li>蒙特卡罗方法</li>
+<li>元胞自动机</li>
+</ul>
+<h2 id="数值计算"><a href="#数值计算" class="headerlink" title="数值计算"></a>数值计算</h2><h3 id="常微分方程数值解"><a href="#常微分方程数值解" class="headerlink" title="常微分方程数值解"></a>常微分方程数值解</h3><ul>
+<li>微分方程解析解<ul>
+<li>u=dsolve(‘Du=1+u^2’,’t’)</li>
+</ul>
+</li>
+<li>欧拉方法<ul>
+<li>向前欧拉公式</li>
+<li>向后欧拉公式</li>
+<li>梯形公式</li>
+</ul>
+</li>
+<li>龙格—库塔方法</li>
+<li>matlab求解</li>
+<li>高阶微分方程转一阶常微分方程</li>
+<li>刚性常微分方程与非刚性常微分方程</li>
+</ul>
+<h2 id="工具箱的使用"><a href="#工具箱的使用" class="headerlink" title="工具箱的使用"></a>工具箱的使用</h2><h3 id="统计工具箱"><a href="#统计工具箱" class="headerlink" title="统计工具箱"></a>统计工具箱</h3><h3 id="拟合工具箱"><a href="#拟合工具箱" class="headerlink" title="拟合工具箱"></a>拟合工具箱</h3><h3 id="神经网络工具箱"><a href="#神经网络工具箱" class="headerlink" title="神经网络工具箱"></a>神经网络工具箱</h3><h3 id="小波工具箱"><a href="#小波工具箱" class="headerlink" title="小波工具箱"></a>小波工具箱</h3><h3 id="并行计算工具箱"><a href="#并行计算工具箱" class="headerlink" title="并行计算工具箱"></a>并行计算工具箱</h3><h3 id="优化工具箱"><a href="#优化工具箱" class="headerlink" title="优化工具箱"></a>优化工具箱</h3><ul>
+<li>一元函数极小值<ul>
+<li>fminbnd</li>
+</ul>
+</li>
+<li>无约束极小<ul>
+<li>fminunc<ul>
+<li>为无约束优化提供了大型优化和中型优化算法 </li>
+<li>为中型优化算法的搜索方向提供了4种算法，由options中的HessUpdate控制，默认为bfgs（拟牛顿法的DFP公式） 另外，还有dfp（拟牛顿法的DFP公式），还有steepdesc（最速下降法）</li>
+<li>为中型优化算法的步长一维搜索提供了两种算法，由options中的参数LineSearchType控制，默认是quadcubic （缺省值，混合的二次和三次插值）另外还有cubicpoly（三次多项式插值）</li>
+</ul>
+</li>
+<li>fminsearch</li>
+</ul>
+</li>
+<li>线性规划<ul>
+<li>linprog</li>
+</ul>
+</li>
+<li>二次规划<ul>
+<li>quadprog</li>
+</ul>
+</li>
+<li>约束极小<ul>
+<li>fmincon</li>
+</ul>
+</li>
+<li>达到目标问题<ul>
+<li>fgoalattain</li>
+</ul>
+</li>
+<li>极小极大问题<ul>
+<li>fminimax</li>
+</ul>
+</li>
+</ul>
+<h3 id="全局优化工具箱"><a href="#全局优化工具箱" class="headerlink" title="全局优化工具箱"></a>全局优化工具箱</h3>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sinclaircoder.top" rel="external nofollow noreferrer">SinclairWang</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sinclaircoder.top/2019/09/16/2019-09-16-shu-xue-jian-mo-ji-xun-zhi-shi-da-gang/">https://sinclaircoder.top/2019/09/16/2019-09-16-shu-xue-jian-mo-ji-xun-zhi-shi-da-gang/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="https://sinclaircoder.top" target="_blank">SinclairWang</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/数学建模/">
+                                    <span class="chip bg-color">数学建模</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechatpay.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'ykMNaPlRQAthwgrFfHggAQ7f-gzGzoHsz',
+        appKey: 'neDtomoYnobT9QzrcHrQj71d',
+        notify: 'true' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'en',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2019/09/16/2019-09-16-2019-shu-xue-jian-mo-sai-hou-gan-wu-yi-ci-ling-hun-yu-rou-ti-de-jiao-zhi-yi-ci-can-sai-zhong-shen-shou-yi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="2019数学建模赛后感悟：一次灵魂与肉体的交织&&一次参赛终身收益">
+                        
+                        <span class="card-title">2019数学建模赛后感悟：一次灵魂与肉体的交织&&一次参赛终身收益</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+一年一度的全国大学生数学建模比赛（CUMCM）已接近尾声…
+
+SinclairWang 个人博客同步更新，欢迎关注相信每个参赛者都会有自己的感悟一句恰如其分的描述：一次灵魂与肉体的交织。下面是自己的一点感悟与思考。
+赛前
+最初听说，大概是
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-09-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/感悟/" class="post-category">
+                                    感悟
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/竞赛感悟/">
+                        <span class="chip bg-color">竞赛感悟</span>
+                    </a>
+                    
+                    <a href="/tags/数学建模/">
+                        <span class="chip bg-color">数学建模</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/09/09/2019-09-09-ji-yu-qi-yi-zhi-fen-jie-de-tu-xiang-ya-suo/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="基于奇异值分解的图像压缩">
+                        
+                        <span class="card-title">基于奇异值分解的图像压缩</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            理论：矩阵的奇异值分解变换是一种正交变换，它可以将矩阵对角化定理：设A是一个秩为$r$的$m*n$矩阵,则存在正交矩阵$U$和$V$,使得
+U^TAV= \begin{bmatrix} \Sigma & 0 \\ 0 & 0 \\ \end
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/图像处理/" class="post-category">
+                                    图像处理
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/图像处理/">
+                        <span class="chip bg-color">图像处理</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: SinclairのBlog<br />'
+            + 'Author: SinclairWang<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="https://sinclaircoder.top" target="_blank">SinclairWang</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/SinclairCoder" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:sinclaircoder@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/san-cun-jiu-cheng-qi-cun-zhi-nian-29# https://www.zhihu.com/xxx" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/san-cun-jiu-cheng-qi-cun-zhi-nian-29# https://www.zhihu.com/xxx" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+ 
+    <a href="https://blog.csdn.net/SinclairWang" class="tooltipped" target="_blank" data-tooltip="关注我的CSDN: https://blog.csdn.net/SinclairWang" data-position="top" data-delay="50"> 
+    <i class="fab fa-csdn">C</i> 
+    </a> 
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?ad3c73a898b555b5658e0609e7dd9dc6";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+        <script src="//code.tidio.co/u61uushntplpeuutujp42qmi0lj20uxa.js"></script>
+        <script> 
+            $(document).ready(function () {
+                setInterval(change_Tidio, 50);  
+                function change_Tidio() { 
+                    var tidio=$("#tidio-chat iframe");
+                    if(tidio.css("display")=="block"&& $(window).width()>977 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"85px":"20px";   
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";   
+                        document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    } 
+                    else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;   
+                        document.getElementById("tidio-chat-iframe").style.right="-15px"; 
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;   
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
+                        document.getElementById("tidio-chat-iframe").style.zIndex="998";
+                    }
+                } 
+            }); 
+        </script>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+
+</html>
