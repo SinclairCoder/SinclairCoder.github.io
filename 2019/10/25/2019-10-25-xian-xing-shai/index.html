@@ -5,13 +5,11 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="线性筛, SinclairのBlog">
-    <meta name="description" content="#include 
+    <meta name="description" content="#include &amp;lt;bits/stdc++.h&amp;gt;
 using namespace std;
 const int MAX_N = 3e7+2;
 typedef long long ll;
-int v[MAX_N],prime[MAX_N];
-
-void primes(in">
+int v[MAX_N],prime[MA">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -31,10 +29,9 @@ void primes(in">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -72,6 +69,17 @@ void primes(in">
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -169,6 +177,17 @@ void primes(in">
         
         <li class="m-nav-item">
 	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
@@ -239,7 +258,7 @@ void primes(in">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -305,7 +324,7 @@ void primes(in">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    72
+                    159
                 </div>
                 
 
@@ -328,7 +347,7 @@ void primes(in">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">#include <bits/stdc++.h>
+                <pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
 using namespace std;
 const int MAX_N = 3e7+2;
 typedef long long ll;
@@ -337,28 +356,28 @@ int v[MAX_N],prime[MAX_N];
 void primes(int n) {
     memset(v,0,sizeof(v));
     int m = 0;
-    for(int i=2;i<=n;i++){
+    for(int i=2;i&lt;=n;i++){
         if(v[i]==0){   // i 是质数 
             v[i] = i;
             prime[++m] = i;
         }
 
-        for(int j=1;j<=m;j++){
-            if(prime[j]>v[i]||prime[j]>n/i) break;
+        for(int j=1;j&lt;=m;j++){
+            if(prime[j]&gt;v[i]||prime[j]&gt;n/i) break;
             // prime[j]是是合数i*prime[j]的最小质因子
             v[i*prime[j]] = prime[j]; 
         }     
     } 
 // 打印1到n之间的素数
-//    for(int i=1;i<=m;i++){   
-//        cout << prime[i] << endl;
+//    for(int i=1;i&lt;=m;i++){   
+//        cout &lt;&lt; prime[i] &lt;&lt; endl;
 //    }
 // 打印1到n每个数的最小质因子
-//        for(int i=0;i<=n;i++){  
-//        cout << i << " " << v[i] << endl;
+//        for(int i=0;i&lt;=n;i++){  
+//        cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; v[i] &lt;&lt; endl;
 //    }
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 
             </div>
             <hr/>
@@ -856,23 +875,22 @@ void primes(int n) {
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2019/10/27/2019-10-27-ge-lei-ma/">
+                <a href="/2019/10/27/2019-10-27-leetcodeweeklycontest-160/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="格雷码">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="LeetCodeWeeklyContest-160">
                         
-                        <span class="card-title">格雷码</span>
+                        <span class="card-title">LeetCodeWeeklyContest-160</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            偶然间发现了一个很好的方法，详见Gray code
-下面是一个生成以start开始的格雷码的板子，n为二进制位的个数。
-vector getGray(int n, int start) {
-        vector res; 
-    
+                            题目传送门找出给定方程的正整数解签到题的新包装，我没有玩过的船新版本。
+class Solution {
+public:
+    vector&lt;vector&lt;int&gt;&gt; findSolution(CustomFunc
                         
                     </div>
                     <div class="publish-info">
@@ -883,8 +901,8 @@ vector getGray(int n, int start) {
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/数据结构与算法训练/" class="post-category">
-                                    数据结构与算法训练
+                            <a href="/categories/leetcode/" class="post-category">
+                                    leetcode
                                 </a>
                             
                             
@@ -894,12 +912,8 @@ vector getGray(int n, int start) {
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/位运算/">
-                        <span class="chip bg-color">位运算</span>
-                    </a>
-                    
-                    <a href="/tags/格雷码/">
-                        <span class="chip bg-color">格雷码</span>
+                    <a href="/tags/leetcode/">
+                        <span class="chip bg-color">leetcode</span>
                     </a>
                     
                 </div>
@@ -913,20 +927,19 @@ vector getGray(int n, int start) {
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/22/2019-10-22-fei-ma-xiao-ding-li/">
+                <a href="/2019/10/22/2019-10-22-pei-shu-ding-li-kuo-zhan-ou-ji-li-de-suan-fa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="费马小定理">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="裴蜀定理&&扩展欧几里得算法">
                         
-                        <span class="card-title">费马小定理</span>
+                        <span class="card-title">裴蜀定理&&扩展欧几里得算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            若p是质数，则对于任意整数a，有$a^p \equiv a  (mod \, p)$
-
+                            裴蜀定理也就是Bezout定理，对于任意整数a,b，存在一对整数x,y，满足$ax+by=gcd(a,b)$。在数论中，裴蜀定理是一个关于最大公约数（或最大公约式）的定理，裴蜀定理得名于法国数学家艾蒂安·裴蜀。裴蜀定理说明了对任何整数 a、
                         
                     </div>
                     <div class="publish-info">

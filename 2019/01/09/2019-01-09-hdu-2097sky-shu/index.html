@@ -28,10 +28,9 @@ Problem Descri">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -69,6 +68,17 @@ Problem Descri">
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -160,6 +170,17 @@ Problem Descri">
 			    <i class="fa-fw fas fa-tags"></i>
 			
 			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
 		</a>
           
         </li>
@@ -397,7 +418,7 @@ Problem Descri">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    513
+                    555
                 </div>
                 
 
@@ -442,7 +463,7 @@ Problem Descri">
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><blockquote>
 <p>输入一个四位整数，需要将其进制转换，而在进制转换的过程中又可以实现四位数各位相加，看似需要将数据转换成十六进制、十二进制（输入的便是十进制），实则，只需一个进制转换求和函数就可以实现，不妨设转换为n进制，在转换的过程中便可实现求和，先对n求模，再整除n，最后判断和是否相等即可。</p>
 </blockquote>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-lang-c"><code class="language-lang-c">#include <iostream>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code class="lang-c">#include &lt;iostream&gt;
 using namespace std;
 int DBC(int a,int n) //将数字a转化为n进制，将其每位相加求和 
 {
@@ -454,18 +475,18 @@ int DBC(int a,int n) //将数字a转化为n进制，将其每位相加求和
 int main() 
 {
     int a,b,sum=0;
-    while(cin >> a && a!=0)
+    while(cin &gt;&gt; a &amp;&amp; a!=0)
     {
         b=a;
         //个人认为，这里只要三者相等即可，不一定为22
 
-        if((DBC(b,10)==DBC(b,16)) && (DBC(b,10)==DBC(b,12))) 
-            cout<< a << " is a Sky Number." << endl;
-        else cout<< a << " is not a Sky Number." << endl;
+        if((DBC(b,10)==DBC(b,16)) &amp;&amp; (DBC(b,10)==DBC(b,12))) 
+            cout&lt;&lt; a &lt;&lt; &quot; is a Sky Number.&quot; &lt;&lt; endl;
+        else cout&lt;&lt; a &lt;&lt; &quot; is not a Sky Number.&quot; &lt;&lt; endl;
     }
    return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 
             </div>
             <hr/>
@@ -963,20 +984,20 @@ int main()
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2019/01/09/2019-01-09-ou-ji-li-de-suan-fa/">
+                <a href="/2019/01/09/2019-01-09-hdu2099-zheng-chu-de-wei-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="欧几里得算法">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="HDU2099整除的尾数">
                         
-                        <span class="card-title">欧几里得算法</span>
+                        <span class="card-title">HDU2099整除的尾数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            欧几里得算法求最大公约数
-Sometimes your whole life boils down to one insane move.        人这一辈子，有时就得靠一次疯狂的举动才能扭转乾坤。                  
+                            整除的尾数
+You have to live spherically - in many directions.Never lose your childish enthusiasm and things will come your wa
                         
                     </div>
                     <div class="publish-info">
@@ -987,8 +1008,8 @@ Sometimes your whole life boils down to one insane move.        人这一辈子�
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/数论/" class="post-category">
-                                    数论
+                            <a href="/categories/数据结构与算法训练/" class="post-category">
+                                    数据结构与算法训练
                                 </a>
                             
                             
@@ -998,8 +1019,8 @@ Sometimes your whole life boils down to one insane move.        人这一辈子�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/数论/">
-                        <span class="chip bg-color">数论</span>
+                    <a href="/tags/数据结构与算法训练/">
+                        <span class="chip bg-color">数据结构与算法训练</span>
                     </a>
                     
                 </div>
@@ -1010,23 +1031,25 @@ Sometimes your whole life boils down to one insane move.        人这一辈子�
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
+                Current&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2019/01/09/2019-01-09-hdu2099-zheng-chu-de-wei-shu/">
+                <a href="/2019/01/09/2019-01-09-hdu-2097sky-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="HDU2099整除的尾数">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="HDU2097Sky数">
                         
-                        <span class="card-title">HDU2099整除的尾数</span>
+                        <span class="card-title">HDU2097Sky数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            整除的尾数
-You have to live spherically - in many directions.Never lose your childish enthusiasm and things will come your wa
+                            Sky数
+My life didn’t please me, so I created my life.我的生活不曾取悦于我，所以我创造了自己的生活               ———-Coco Chanel
+
+Problem Descri
                         
                     </div>
                     <div class="publish-info">
@@ -1045,6 +1068,7 @@ You have to live spherically - in many directions.Never lose your childish enthu
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     

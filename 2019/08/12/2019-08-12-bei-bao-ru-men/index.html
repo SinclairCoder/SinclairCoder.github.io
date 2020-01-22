@@ -32,10 +32,9 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -73,6 +72,17 @@
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -164,6 +174,17 @@
 			    <i class="fa-fw fas fa-tags"></i>
 			
 			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
 		</a>
           
         </li>
@@ -314,14 +335,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    187
+                    921
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    4 Min
                 </div>
                 
 
@@ -376,24 +397,24 @@
 <p>思路大概是用蛮力法找出n的所有幂集,然后遍历一遍,找到最优解</p>
 <p><strong>复杂度为O(2<sup>n</sup>)</strong></p>
 </blockquote>
-<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">#include<iostream>
-#include<vector>
-#include<stdio.h>
-#include<map>
-#include<algorithm>
+<pre><code class="lang-cpp">#include&lt;iostream&gt;
+#include&lt;vector&gt;
+#include&lt;stdio.h&gt;
+#include&lt;map&gt;
+#include&lt;algorithm&gt;
 using namespace std;
 /**
     求解简单0/1背包问题
     2019-8-12 
 */
-vector<vector<int> > ps;
+vector&lt;vector&lt;int&gt; &gt; ps;
 void PSet(int n)  // 求1-n的幂集 
 {
-    vector<vector<int> > ps1;  // 子幂集 
-    vector<vector<int> >::iterator it;
-    vector<int> s;
+    vector&lt;vector&lt;int&gt; &gt; ps1;  // 子幂集 
+    vector&lt;vector&lt;int&gt; &gt;::iterator it;
+    vector&lt;int&gt; s;
     ps.push_back(s);    // 添加空集合元素
-    for(int i=1;i<=n;i++)
+    for(int i=1;i&lt;=n;i++)
     {
         ps1 = ps;
         for(it=ps1.begin();it!=ps1.end();it++)
@@ -408,41 +429,41 @@ void Knap(int w[],int v[], int W)
     int count = 0;
     int sumw,sumv;
     int maxi,maxsumw=0,maxsumv=0;
-    vector<vector<int> >::iterator it;
-    vector<int>::iterator sit;
-    printf(" 序号   选中物品     总重量    总价值     能否装入\n");
+    vector&lt;vector&lt;int&gt; &gt;::iterator it;
+    vector&lt;int&gt;::iterator sit;
+    printf(&quot; 序号   选中物品     总重量    总价值     能否装入\n&quot;);
     for(it=ps.begin();it!=ps.end();it++)
     {
-        printf(" %d\t",count++);
+        printf(&quot; %d\t&quot;,count++);
         sumw=sumv=0;
-        printf(" {");
+        printf(&quot; {&quot;);
         for(sit=(*it).begin();sit!=(*it).end();sit++)
         {
-            printf("%d ",*sit);
+            printf(&quot;%d &quot;,*sit);
             sumw += w[*sit-1];  
             sumv += v[*sit-1];
         } 
-        printf("}\t\t%d\t%d ",sumw,sumv);
-        if(sumw<=W)
+        printf(&quot;}\t\t%d\t%d &quot;,sumw,sumv);
+        if(sumw&lt;=W)
         {
-            printf("能\n");
-            if(sumv>maxsumv)
+            printf(&quot;能\n&quot;);
+            if(sumv&gt;maxsumv)
             {
                 maxsumw = sumw;
                 maxsumv = sumv;
                 maxi = count-1;    
             } 
         }
-        else cout << "否\n";
+        else cout &lt;&lt; &quot;否\n&quot;;
         //    count++;
     }
-    printf("最佳方案为：");
-    printf("选中物品");
-    printf("{ ");
+    printf(&quot;最佳方案为：&quot;);
+    printf(&quot;选中物品&quot;);
+    printf(&quot;{ &quot;);
     for(sit=ps[maxi].begin();sit!=ps[maxi].end();sit++)
-        printf("%d ",*sit);
-    printf("},");
-    printf("总重量：%d,总价值：%d\n",maxsumw,maxsumv);      
+        printf(&quot;%d &quot;,*sit);
+    printf(&quot;},&quot;);
+    printf(&quot;总重量：%d,总价值：%d\n&quot;,maxsumw,maxsumv);      
 }
 int main() 
 {
@@ -450,13 +471,13 @@ int main()
     int w[] = {5,3,2,1};
     int v[] = {4,4,3,1};
     PSet(n);
-    printf("0/1背包解决方案\n",n);
+    printf(&quot;0/1背包解决方案\n&quot;,n);
     Knap(w,v,W);
     return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="队列式分支界限法"><a href="#队列式分支界限法" class="headerlink" title="队列式分支界限法"></a>队列式分支界限法</h2><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">#include<iostream>
-#include<queue>
+</code></pre>
+<h2 id="队列式分支界限法"><a href="#队列式分支界限法" class="headerlink" title="队列式分支界限法"></a>队列式分支界限法</h2><pre><code class="lang-cpp">#include&lt;iostream&gt;
+#include&lt;queue&gt;
 using namespace std;
 #define MAXV 20
 int maxv = -9999; 
@@ -473,28 +494,28 @@ struct NodeType{
 int n =5,W = 6;
     int w[] = {0,5,3,2,1};
     int v[] = {0,4,4,3,1};
-void bound(NodeType &e){  // 计算分支结点e的上界 
+void bound(NodeType &amp;e){  // 计算分支结点e的上界 
     int i=e.i+1;
     int sumw = e.w;
     double sumv = e.v; 
-    while((sumw+w[i]<=W)&& i<=n){
+    while((sumw+w[i]&lt;=W)&amp;&amp; i&lt;=n){
         sumw += w[i];
         sumv += v[i];
         i++;
     }
-    if(i<=n)
+    if(i&lt;=n)
         e.ub = sumv+(W-sumw)*v[i]/w[i];
     else e.ub = sumv; 
 } 
 
-void EnQueue(NodeType e,queue<NodeType> &qu)
+void EnQueue(NodeType e,queue&lt;NodeType&gt; &amp;qu)
 {
     if(e.i==n)
     {
-        if(e.v>maxv)
+        if(e.v&gt;maxv)
         {
             maxv = e.v;
-            for(int j=1;j<=n;j++)
+            for(int j=1;j&lt;=n;j++)
                 bestx[j] = e.x[j];
         }
     }
@@ -504,12 +525,12 @@ void bfs()
 {
     int j;
     NodeType e,e1,e2;
-    queue<NodeType> qu;
+    queue&lt;NodeType&gt; qu;
     e.i = 0;
     e.w = 0;
     e.v = 0;
     e.num = total++;
-    for(j=1;j<=n;j++)
+    for(j=1;j&lt;=n;j++)
         e.x[j] = 0;
     bound(e);
     qu.push(e);
@@ -517,13 +538,13 @@ void bfs()
     {
         e = qu.front();
         qu.pop();
-        if(e.w+w[e.i+1]<=W)  // 剪枝：检查左孩子结点
+        if(e.w+w[e.i+1]&lt;=W)  // 剪枝：检查左孩子结点
         {
             e1.num = total++;
             e1.i = e.i+1;
             e1.w = e.w+w[e1.i];
             e1.v = e.v+v[e1.i];
-            for(j=1;j<=n;j++)
+            for(j=1;j&lt;=n;j++)
                 e1.x[j] = e.x[j];
             e1.x[e1.i] = 1;
             bound(e1);
@@ -533,11 +554,11 @@ void bfs()
         e2.i = e.i+1;
         e2.w = e.w; 
         e2.v = e.v;
-        for(j=2;j<=n;j++)
+        for(j=2;j&lt;=n;j++)
             e2.x[j] = e.x[j];
         e2.x[e2.i]= 0;
         bound(e2);
-        if(e2.ub>maxv)
+        if(e2.ub&gt;maxv)
             EnQueue(e2,qu); 
     }
 }
@@ -545,13 +566,13 @@ int main()
 {
 
     bfs();
-    printf("分支界限法求解0/1背包问题：\n X=[");
-    for(int i=1;i<=n;i++)
-        printf("%2d",bestx[i]);
-    printf("],装入总价值为%d\n",maxv); 
+    printf(&quot;分支界限法求解0/1背包问题：\n X=[&quot;);
+    for(int i=1;i&lt;=n;i++)
+        printf(&quot;%2d&quot;,bestx[i]);
+    printf(&quot;],装入总价值为%d\n&quot;,maxv); 
     return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>未完待续~~</p>
 <p>参考: 李春葆 .算法设计与分析(第二版)</p>
 
@@ -1063,7 +1084,7 @@ int main()
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="机器学习之线性回归">
+                        <img src="/medias/featureimages/27.jpg" class="responsive-img" alt="机器学习之线性回归">
                         
                         <span class="card-title">机器学习之线性回归</span>
                     </div>
@@ -1147,7 +1168,7 @@ int main()
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="一线爬虫爬虫工程师纪实">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="一线爬虫爬虫工程师纪实">
                         
                         <span class="card-title">一线爬虫爬虫工程师纪实</span>
                     </div>

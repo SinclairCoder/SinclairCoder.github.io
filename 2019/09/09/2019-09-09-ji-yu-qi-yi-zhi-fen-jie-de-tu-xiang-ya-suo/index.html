@@ -26,10 +26,9 @@ U^TAV= \begin{bmatrix} \Sigma &amp; 0 \\ 0 &amp; 0 \\ \end">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -67,6 +66,17 @@ U^TAV= \begin{bmatrix} \Sigma &amp; 0 \\ 0 &amp; 0 \\ \end">
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -164,6 +174,17 @@ U^TAV= \begin{bmatrix} \Sigma &amp; 0 \\ 0 &amp; 0 \\ \end">
         
         <li class="m-nav-item">
 	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
@@ -234,7 +255,7 @@ U^TAV= \begin{bmatrix} \Sigma &amp; 0 \\ 0 &amp; 0 \\ \end">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -300,7 +321,7 @@ U^TAV= \begin{bmatrix} \Sigma &amp; 0 \\ 0 &amp; 0 \\ \end">
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    582
+                    610
                 </div>
                 
 
@@ -336,19 +357,19 @@ U^TAV= \begin{bmatrix} \Sigma &amp; 0 \\ 0 &amp; 0 \\ \end">
 <li>打印图像（保存）</li>
 <li>修改k的值，重复以上步骤</li>
 </ul>
-<h2 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h2><pre class="line-numbers language-lang-matlab"><code class="language-lang-matlab">% 通过奇异值分解 进行图像压缩
+<h2 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h2><pre><code class="lang-matlab">% 通过奇异值分解 进行图像压缩
 clc;clear;
-I = imread('figure1.jpg');  % rgb图像为274KB
+I = imread(&#39;figure1.jpg&#39;);  % rgb图像为274KB
 [m,n,h] = size(I);
 % Igray = rgb2gray(I);
-% imwrite(Igray,'figure1grayByrgb2gray.png','png') % 灰度图像为993KB，文件变大了好几倍
+% imwrite(Igray,&#39;figure1grayByrgb2gray.png&#39;,&#39;png&#39;) % 灰度图像为993KB，文件变大了好几倍
 % 参考别人的博客，手写将rgb图像变成灰度图像
 for i=1:m
     for j=1:n
     Igray(i,j)=0.299*I(i,j,1)+0.587*I(i,j,2)+0.114*I(i,j,3);
     end
 end
-imwrite(Igray,'figure1grayBymyself.png','png') 
+imwrite(Igray,&#39;figure1grayBymyself.png&#39;,&#39;png&#39;) 
 k = 20;
 Igray = double(Igray);
 [U,S,V] = svd(Igray);
@@ -358,18 +379,18 @@ Smin = min(S);
 S1 = S;
 S1(k:end)=0;  %保留前ｋ个
 % S1 = diag(S1);  % 考虑不周到
-if m>=n  % 对于非方图形
+if m&gt;=n  % 对于非方图形
     S1 = [diag(S1);zeros(m-n,n)]; 
 else S1 = [diag(S1),zeros(m,n-m)]; 
 end
-g = U*S1*V'; % S1的奇异值分解
+g = U*S1*V&#39;; % S1的奇异值分解
 g = uint8(g);
 compressration = n^2/(k*(2*n+1));
-subplot(1,2,1),imshow(mat2gray(Igray)),title('soure');
-subplot(1,2,2),imshow(g),title(['k =',num2str(k),'  compress ratio =',num2str(compressration)]);
-imwrite(g,'figure1Compress20.png','png')
-figure,plot(S,'.','Color','k'); % 画出奇异值对应的点
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+subplot(1,2,1),imshow(mat2gray(Igray)),title(&#39;soure&#39;);
+subplot(1,2,2),imshow(g),title([&#39;k =&#39;,num2str(k),&#39;  compress ratio =&#39;,num2str(compressration)]);
+imwrite(g,&#39;figure1Compress20.png&#39;,&#39;png&#39;)
+figure,plot(S,&#39;.&#39;,&#39;Color&#39;,&#39;k&#39;); % 画出奇异值对应的点
+</code></pre>
 <ul>
 <li>原RGB图像：</li>
 </ul>
@@ -888,7 +909,7 @@ figure,plot(S,'.','Color','k'); % 画出奇异值对应的点
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="2019数学建模赛后感悟：一次灵魂与肉体的交织&&一次参赛终身收益">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="2019数学建模赛后感悟：一次灵魂与肉体的交织&&一次参赛终身收益">
                         
                         <span class="card-title">2019数学建模赛后感悟：一次灵魂与肉体的交织&&一次参赛终身收益</span>
                     </div>
@@ -946,7 +967,7 @@ SinclairWang 个人博客同步更新，欢迎关注相信每个参赛者都会�
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="软件体系结构笔记">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="软件体系结构笔记">
                         
                         <span class="card-title">软件体系结构笔记</span>
                     </div>

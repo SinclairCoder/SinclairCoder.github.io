@@ -27,10 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -68,6 +67,17 @@
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -165,6 +175,17 @@
         
         <li class="m-nav-item">
 	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
@@ -235,7 +256,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -301,14 +322,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    128
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    4 Min
                 </div>
                 
 
@@ -327,21 +348,21 @@
                 <p><a href="https://leetcode-cn.com/contest/weekly-contest-156/" target="_blank" rel="noopener">题目传送</a><br>写题解就像写博客一样真的有好处，尽管会多花点时间。</p>
 <h2 id="1-、独一无二的出现次数"><a href="#1-、独一无二的出现次数" class="headerlink" title="1 、独一无二的出现次数"></a>1 、独一无二的出现次数</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><p>给你一个整数数组 arr，请你帮忙统计数组中每个数的出现次数。<br>如果每个数的出现次数都是独一无二的，就返回 true；否则返回 false。</p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>统计出现次数，然后排序。有相同的为false，否则为true。</p>
-<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><pre class="line-numbers language-lang-c"><code class="language-lang-c"> bool uniqueOccurrences(vector<int>& arr) {
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-c"> bool uniqueOccurrences(vector&lt;int&gt;&amp; arr) {
         int a[2001]={0};
-        for(int i=0;i<arr.size();i++){
+        for(int i=0;i&lt;arr.size();i++){
             a[arr[i]+1000]++;
         }
         sort(a,a+2001);
-        for(int i=0;i<2000;i++){
-            if(a[i]==a[i+1]&&a[i]!=0){
+        for(int i=0;i&lt;2000;i++){
+            if(a[i]==a[i+1]&amp;&amp;a[i]!=0){
                 return false;
             }
         }
         return true;
 
     }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>时间复杂度：O(nlog<sub>2</sub>n)</p>
 <h2 id="2、尽可能使字符串相等"><a href="#2、尽可能使字符串相等" class="headerlink" title="2、尽可能使字符串相等"></a>2、尽可能使字符串相等</h2><h3 id="描述-1"><a href="#描述-1" class="headerlink" title="描述"></a>描述</h3><p>给你两个长度相同的字符串，s 和 t。<br>将 s 中的第 i 个字符变到 t 中的第 i 个字符需要 |s[i] - t[i]| 的开销（开销可能为 0），也就是两个字符的 ASCII 码值的差的绝对值。<br>用于变更字符串的最大预算是 maxCost。在转化字符串时，总开销应当小于等于该预算，这也意味着字符串的转化可能是不完全的。<br>如果你可以将 s 的子字符串转化为它在 t 中对应的子字符串，则返回可以转化的最大长度。<br>如果 s 中没有子字符串可以转化成 t 中对应的子字符串，则返回 0。</p>
 <h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p><strong>官方题解说这是本场比赛里面最好的题目了。</strong><br>使用滑动窗口思想。<br>一般使用滑动窗口思想，求解一个序列中连续k个数的最值问题</p>
@@ -404,17 +425,17 @@
 </table>
 </div>
 <p>分别使用left，right表示cost数组的左右索引。<br>left=0,right=0<br>只要curCost小于maxCost,就right++<br>当出现maxCost&lt;curCost时，则需要使left—，即向右整体滑动，貌似有点改进的kmp算法的感觉。<br>最大长度best = max(best,right-left+1);<br>只需滑动一次，即得最大值，对应的cost数组段为[9 0 3 10]</p>
-<h3 id="实现一"><a href="#实现一" class="headerlink" title="实现一"></a>实现一</h3><pre class="line-numbers language-lang-c"><code class="language-lang-c">class Solution {
+<h3 id="实现一"><a href="#实现一" class="headerlink" title="实现一"></a>实现一</h3><pre><code class="lang-c">class Solution {
 public:
     int equalSubstring(string s, string t, int maxCost) {
-        vector<int> c;
-        for(int i=0;i<s.size();i++){
+        vector&lt;int&gt; c;
+        for(int i=0;i&lt;s.size();i++){
             c.push_back(abs(s[i]-t[i]));
         }
         int curCost = 0,cnt=0;
-        for(int i=0,j=0;i<s.size();i++){
+        for(int i=0,j=0;i&lt;s.size();i++){
             curCost += c[i];
-            while(curCost>maxCost){
+            while(curCost&gt;maxCost){
                 curCost -= c[j];
                 j++;
             }
@@ -424,37 +445,37 @@ public:
 
     }
 };
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="实现二"><a href="#实现二" class="headerlink" title="实现二"></a>实现二</h3><pre class="line-numbers language-lang-c"><code class="language-lang-c">class Solution {
+</code></pre>
+<h3 id="实现二"><a href="#实现二" class="headerlink" title="实现二"></a>实现二</h3><pre><code class="lang-c">class Solution {
 public:
     int equalSubstring(string s, string t, int maxCost) {
-        vector<int> sumArr;
+        vector&lt;int&gt; sumArr;
         int ans =0;
         sumArr.push_back(ans); // 很关键的处理
-        for(int i=0;i<s.size();i++){
+        for(int i=0;i&lt;s.size();i++){
             ans += abs(s[i]-t[i]);
-            // cout << ans << endl;
+            // cout &lt;&lt; ans &lt;&lt; endl;
             sumArr.push_back(ans);
         }
         int curCost = 0,cnt=0;
-        for(int i=1,j=0;i<=s.size();i++){  // 注意这里的等号，仔细想想为甚麽？ 
-           for(;sumArr[i]-sumArr[j]>maxCost;j++);
+        for(int i=1,j=0;i&lt;=s.size();i++){  // 注意这里的等号，仔细想想为甚麽？ 
+           for(;sumArr[i]-sumArr[j]&gt;maxCost;j++);
             cnt = max(cnt,i-j);
         }
         return cnt;
 
     }
 };
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>时间复杂度：O(n)</p>
 <h2 id="3、删除字符串中的所有相邻重复项-II"><a href="#3、删除字符串中的所有相邻重复项-II" class="headerlink" title="3、删除字符串中的所有相邻重复项 II"></a>3、删除字符串中的所有相邻重复项 II</h2><h3 id="描述-2"><a href="#描述-2" class="headerlink" title="描述"></a>描述</h3><p>给你一个字符串 s，「k 倍重复项删除操作」将会从 s 中选择 k 个相邻且相等的字母，并删除它们，使被删去的字符串的左侧和右侧连在一起。<br>你需要对 s 重复进行无限次这样的删除操作，直到无法继续为止。<br>在执行完所有删除操作后，返回最终得到的字符串。<br>本题答案保证唯一。</p>
 <h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>参考官方题解，维护一个栈，栈元素类型为 pair<char,int> ，其中char类型为对应的字符串的s[i]，int类型为对应的个数，由于本题保证答案唯一，题目大大简化，所以最后个数等于k的字符一定可以被删掉。<br>扫描字符串s，使字符依次进栈，若栈顶的字母对应的个数等于k，便出栈k次。</char,int></p>
-<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">class Solution {
+<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
 public:
 
 string removeDuplicates(string s, int k) {
-        stack<pair<char,int> > st;
-        for(int i=0;i<s.size();i++){
+        stack&lt;pair&lt;char,int&gt; &gt; st;
+        for(int i=0;i&lt;s.size();i++){
             if(st.empty()) st.push(make_pair(s[i],1));
             else {
                 if(st.top().first==s[i]){
@@ -463,7 +484,7 @@ string removeDuplicates(string s, int k) {
                 else st.push(make_pair(s[i],1));
             }
             if(st.top().second==k){
-                for(int i=0;i<k;i++){
+                for(int i=0;i&lt;k;i++){
                     st.pop();
                 }
             }
@@ -480,7 +501,7 @@ string removeDuplicates(string s, int k) {
     }
 
 };
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>时间复杂度：O(n)</p>
 <h2 id="4、穿过迷宫的最少移动次数"><a href="#4、穿过迷宫的最少移动次数" class="headerlink" title="4、穿过迷宫的最少移动次数"></a>4、穿过迷宫的最少移动次数</h2><p>略</p>
 
@@ -980,71 +1001,11 @@ string removeDuplicates(string s, int k) {
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2019/10/04/2019-10-4-python-shu-ju-fen-xi-yu-ying-yong-fu-xian-bi-ji/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="《Python数据分析与应用》复现笔记">
-                        
-                        <span class="card-title">《Python数据分析与应用》复现笔记</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Numpy
-arr.ravel() 完成数组的展开工作
-
-arr.flatten()  展平数组，可以选择横向（’A’）或者纵向（’F’）展开
-
-np.hstack() 横向组合
-np.vstack() 纵向组合
-np.concatenat
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-10-04
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/数据分析/" class="post-category">
-                                    数据分析
-                                </a>
-                            
-                            <a href="/categories/数据分析/Python3/" class="post-category">
-                                    Python3
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/数据分析/">
-                        <span class="chip bg-color">数据分析</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/2019/10/02/2019-10-2-xiu-gai-jupyter-notebook-de-mo-ren-cun-chu-lu-jing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="修改Jupyter Notebook的默认存储路径">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="修改Jupyter Notebook的默认存储路径">
                         
                         <span class="card-title">修改Jupyter Notebook的默认存储路径</span>
                     </div>
@@ -1057,9 +1018,9 @@ step1进入Anaconda安装路径，一般来说都是 */Anaconda3/Scripts，比�
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-02
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-10-02
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1077,6 +1038,66 @@ step1进入Anaconda安装路径，一般来说都是 */Anaconda3/Scripts，比�
                     
                     <a href="/tags/JupyterNotebook/">
                         <span class="chip bg-color">JupyterNotebook</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/09/24/2019-09-24-she-ji-mo-shi-yi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="设计模式(一)">
+                        
+                        <span class="card-title">设计模式(一)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            简介
+软件模式
+软件开发中的重复出现的问题的解决方案，可认为是设计经验，在讨论问题的解决方案时，一种可交流的词汇
+
+
+设计模式
+简言之，就是可重复使用的设计经验，主要还是为了达到优化设计的目的
+
+
+软件开发中的几个模式
+业务领域模式
+分析模
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/软件工程/" class="post-category">
+                                    软件工程
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/设计模式/">
+                        <span class="chip bg-color">设计模式</span>
                     </a>
                     
                 </div>

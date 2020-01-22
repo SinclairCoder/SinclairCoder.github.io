@@ -25,10 +25,9 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -66,6 +65,17 @@
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -157,6 +167,17 @@
 			    <i class="fa-fw fas fa-tags"></i>
 			
 			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
 		</a>
           
         </li>
@@ -299,7 +320,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    384
+                    386
                 </div>
                 
 
@@ -340,7 +361,7 @@ gcd = a*y_1 + b*(x_1-(a/b)*y_1)
 <script type="math/tex; mode=display">\begin{cases}
 x=y_1  \\
 y = x_1-(a/b)*y_1 
-\end{cases}</script><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">int exgcd(int a,int b,int &x,int &y){
+\end{cases}</script><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">int exgcd(int a,int b,int &amp;x,int &amp;y){
     if(b==0){
         x = 1,y = 0;
         return a;
@@ -350,7 +371,7 @@ y = x_1-(a/b)*y_1
     y = x - (a/b)*z,x = z;
     return ans;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>上述程序求出的是一组特解$x_0,y_0$，并返回a,b的最大公约数d。</p>
 <p>未完，待续…</p>
 
@@ -850,25 +871,28 @@ y = x_1-(a/b)*y_1
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2019/10/22/2019-10-22-fei-ma-xiao-ding-li/">
+                <a href="/2019/10/25/2019-10-25-xian-xing-shai/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="费马小定理">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="线性筛">
                         
-                        <span class="card-title">费马小定理</span>
+                        <span class="card-title">线性筛</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            若p是质数，则对于任意整数a，有$a^p \equiv a  (mod \, p)$
-
+                            #include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int MAX_N = 3e7+2;
+typedef long long ll;
+int v[MAX_N],prime[MA
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-10-22
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-10-25
                         </span>
                         <span class="publish-author">
                             
@@ -900,36 +924,32 @@ y = x_1-(a/b)*y_1
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/21/2019-10-21-tong-ji-zi-fu/">
+                <a href="/2019/10/22/2019-10-22-fei-ma-xiao-ding-li/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="统计字符">
+                        <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="费马小定理">
                         
-                        <span class="card-title">统计字符</span>
+                        <span class="card-title">费马小定理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            输入一行字符，分别统计出其中英文字母、空格、数字和其他字符的个数。
-#include
-using namespace std;
-typedef long long ll;
-const int maxn = 2e5;
-# define mod
+                            若p是质数，则对于任意整数a，有$a^p \equiv a  (mod \, p)$
+
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/数据结构与算法训练/" class="post-category">
-                                    数据结构与算法训练
+                            <a href="/categories/数论/" class="post-category">
+                                    数论
                                 </a>
                             
                             
@@ -939,8 +959,8 @@ const int maxn = 2e5;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/字符串/">
-                        <span class="chip bg-color">字符串</span>
+                    <a href="/tags/数论/">
+                        <span class="chip bg-color">数论</span>
                     </a>
                     
                 </div>

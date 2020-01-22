@@ -1,0 +1,1451 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="2019蓝桥杯校内选拔赛题解, SinclairのBlog">
+    <meta name="description" content="题目传送A Perfect略
+B Common(Easy Version)详见Common(Easy、Middle 、Hard)
+C Common(Hard Version)详见Common(Easy、Middle 、Hard)
+D Tre">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>2019蓝桥杯校内选拔赛题解 | SinclairのBlog</title>
+    <link rel="icon" type="image/jpeg" href="/favicon.jpg">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+</head>
+
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">SinclairのBlog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">SinclairのBlog</div>
+        <div class="logo-desc">
+            
+            嚼得草根 做得大事
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">2019蓝桥杯校内选拔赛题解</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/蓝桥杯/">
+                                <span class="chip bg-color">蓝桥杯</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/蓝桥杯/" class="post-category">
+                                蓝桥杯
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2019-12-10
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2020-01-22
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    1.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    7 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="题目传送"><a href="#题目传送" class="headerlink" title="题目传送"></a><a href="https://witacm.com/contest_problemset.php?cid=1046" target="_blank" rel="noopener">题目传送</a></h1><h2 id="A-Perfect"><a href="#A-Perfect" class="headerlink" title="A Perfect"></a>A Perfect</h2><p>略</p>
+<h2 id="B-Common-Easy-Version"><a href="#B-Common-Easy-Version" class="headerlink" title="B Common(Easy Version)"></a>B Common(Easy Version)</h2><p>详见<a href="https://blog.csdn.net/SinclairWang/article/details/103428852" target="_blank" rel="noopener">Common(Easy、Middle 、Hard)</a></p>
+<h2 id="C-Common-Hard-Version"><a href="#C-Common-Hard-Version" class="headerlink" title="C Common(Hard Version)"></a>C Common(Hard Version)</h2><p>详见<a href="https://blog.csdn.net/SinclairWang/article/details/103428852" target="_blank" rel="noopener">Common(Easy、Middle 、Hard)</a></p>
+<h2 id="D-Treasure"><a href="#D-Treasure" class="headerlink" title="D Treasure"></a>D Treasure</h2><p>有一个 n 行 m 列的迷宫， 行数从上到下为 1 到 n, 列数从左到右为 1 到 m, 入口为 (1,1),<br>Reverie只能向上下左右四个方向行走。迷宫中有若干个宝箱。Reverie想知道，最少需要走多少步，才能找到一个宝箱。</p>
+<p>第一行两个正整数 n, m, 表示迷宫的行数和列数。<br>之后 n 行，每行 m 个字符, ‘.’ 表示该位置是空地, ‘*’ 表示该位置是障碍, ‘#’ 表示该位置有一个宝箱。<br>保证点 (1,1) 是空地，宝箱所在的格子可以通过。<br>$1≤n,m≤1000$<br>一行内输出一个整数表示答案，如果没有宝箱或者所有宝箱位置均不可达，输出 -1.</p>
+<p>BFS</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+
+using namespace std;
+typedef long long ll;
+#define mp make_pair
+#define pb push_back
+ll gcd(ll a,ll b) { return !b?a:gcd(b,a%b);}
+ll lcm(ll a,ll b){ return a/gcd(a,b)*b;}
+int dx[4]={-1,1,0,0},dy[4]={0,0,-1,1};
+int cnt = 0;
+int r[1000+5][1000+5];
+bool visited[1000+5][1000+5];
+int res[1000+5][1000+5];
+bool bfs(int i,int j){
+    queue&lt;pair&lt;int,int &gt; &gt; q;
+    q.push(mp(i,j));visited[i][j] = 1;
+    pair&lt;int,int&gt; t;
+    while(!q.empty()){
+        t = q.front();
+        i = t.first; j = t.second;
+        q.pop();
+        for(int k=0;k&lt;4;k++){
+            int cx = i+dx[k],cy = j+dy[k];
+            if(r[cx][cy]&amp;&amp;!visited[cx][cy]){
+                cnt = res[i][j]+1;
+                res[cx][cy] = cnt;
+                visited[cx][cy]=1;
+                if(r[cx][cy]==2) return true;
+                else q.push(mp(cx,cy));
+            }
+        }
+    }
+    return false;
+}
+int main(){
+    int n,m;
+    cin &gt;&gt; n &gt;&gt; m;
+    memset(visited,0,sizeof(visited));
+    memset(r,0,sizeof(r));
+    char c;
+    for(int i=1;i&lt;=n;i++)
+        for(int j=1;j&lt;=m;j++){
+            cin &gt;&gt; c;
+            if(c==&#39;.&#39;) r[i][j] = 1;
+            else if(c==&#39;#&#39;) r[i][j] = 2;
+        }        
+
+    if(bfs(1,1)) cout &lt;&lt; cnt &lt;&lt; endl;
+    else cout &lt;&lt; &quot;-1&quot; &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+<h2 id="E-Select"><a href="#E-Select" class="headerlink" title="E  Select"></a>E  Select</h2><p>$Reverie有一个长度为 n 的正整数数组 A, 她想从中挑出一些数字，$<br>$使得这些数字的和最大，选中的任意两个数字在原数组中不能相邻。$</p>
+<p>$第一行一个正整数 T, 代表测试的组数。$<br>$每组测试第一行一个正整数 n 表示数组的大小，第二行 n 个正整数表示数组里的数，以空格分隔。$<br>$1≤T≤100$<br>$1≤n≤1000$<br>$1≤A_i≤1000$</p>
+<p>状态转移方程：<br>$dp[0]=a[0],dp[1]=max(a[0],a[1])$<br>$dp[i]=max(dp[i-1],dp[i-2]+a[i])$</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+int main(){
+    int T;
+    cin &gt;&gt; T;
+    while(T--){
+        int n;
+        cin &gt;&gt; n;
+        int a[n],dp[n+2];
+        memset(dp,0,sizeof(dp));
+        for(int i=0;i&lt;n;i++)
+            cin &gt;&gt; a[i];
+        dp[0] = a[0];
+        dp[1] = max(a[0],a[1]);
+        for(int i=2;i&lt;n;i++)
+            dp[i] = max(dp[i-2]+a[i],dp[i-1]);
+        cout &lt;&lt; dp[n-1] &lt;&lt; endl;
+    } 
+    return 0;
+}
+</code></pre>
+<h2 id="F-Swap-Easy-Vesion"><a href="#F-Swap-Easy-Vesion" class="headerlink" title="F Swap(Easy Vesion)"></a>F Swap(Easy Vesion)</h2><p>$Reverie有一个字符串，她每次操作可以交换其中任意相邻两个字符的位置。$<br>$Reveire想知道，把这个字符串变成字典序最小至少需要多少次操作。$<br>$第一行一个正整数 T, 代表测试的组数。$<br>$每组测试，一行内给出一个仅包含小写字母的字符串 s。$<br>$1≤T≤10$<br>$1≤∣s∣≤1000$</p>
+<p>最小交换次数即逆序对数<br>下面使用两重循环暴力求解</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+
+ll res = 0 ; 
+char a[1000005];
+int main(){
+    int t;
+    cin &gt;&gt; t;
+    getchar();
+    while(t--){
+        res = 0;
+        scanf(&quot;%s&quot;,a);
+        int n = strlen(a); 
+        for(int i=0;i&lt;n;i++){
+            for(int j=0;j&lt;i;j++){
+                if(a[j]&gt;a[i]){
+                    res ++;
+                }
+            }
+        }
+        cout &lt;&lt; res &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+<h2 id="G-Swap-Hard-Vesion"><a href="#G-Swap-Hard-Vesion" class="headerlink" title="G Swap(Hard Vesion)"></a>G Swap(Hard Vesion)</h2><p>数据范围改变<br>$1≤T≤10$<br>$1≤∣s∣≤100000$<br>暴力不可行，会超时，使用归并排序求逆序对数</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+/*
+    归并排序求逆序对 
+*/ 
+
+ll res = 0 ; 
+char a[1000005];
+char b[1000005];
+void merge(char a[],int low,int mid,int high){
+    int i = low,j = mid +1,k = 0;
+    while(i&lt;=mid&amp;&amp;j&lt;=high){
+        if((a[i]-&#39;a&#39;)&lt;=(a[j]-&#39;a&#39;))    b[k++] = a[i++];
+        else {
+            b[k++] = a[j++];
+            res += (mid-i+1);  // 是mid-i+1 而非j-i 
+        }
+    }
+    while(i&lt;=mid){
+        b[k++] = a[i++];
+    }
+    while(j&lt;=high){
+        b[k++] = a[j++];
+    }
+    k = 0;
+    for(i=low;i&lt;=high;i++,k++){
+        a[i] = b[k];
+    }    
+}
+void merge_sort(char a[],int low, int high){
+    int mid;
+    if(low &lt; high){
+        mid = (low+high)/2;
+        merge_sort(a,low,mid);
+        merge_sort(a,mid+1,high);
+        merge(a,low,mid,high);
+    }
+}
+
+
+int main(){
+    int t;
+    cin &gt;&gt; t;
+    getchar();
+    while(t--){
+        res = 0;
+        scanf(&quot;%s&quot;,a); 
+        merge_sort(a,0,strlen(a)-1);
+        cout &lt;&lt; res &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+<h2 id="H-Operator"><a href="#H-Operator" class="headerlink" title="H Operator"></a>H Operator</h2><p>$Reverie有一个长度为n的整数数组A，她想在每两个数之间填入$<br>$‘+’ 或者 ‘-’, 使得最终运算结果尽可能接近给定的评估值 k.$</p>
+<p>$Input$<br>$第一行一个正整数 T, 代表测试的组数。$<br>$每组测试，第一行两个整数 n, k 分别表示数组的大小和给定的评估值，$<br>$第二行 n 个正整数表示数组里的数，以空格分隔。$</p>
+<p>$1≤T≤10$<br>$2≤n≤20$<br>$1≤k,A_i≤10^6$</p>
+<p>$Output$<br>$每组测试，一行内输出一个整数表示运算结果与 k 的差值的绝对值的最小值。$</p>
+<p>$Sample Input$</p>
+<blockquote>
+<p>2<br>3 7<br>3 6 9<br>4 6<br>1 2 3 4</p>
+</blockquote>
+<p>$Sample Output$</p>
+<blockquote>
+<p>1<br>0</p>
+</blockquote>
+<p>DFS即可</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+typedef long long ll;
+
+ll inf = 0x3f3f3f3f;
+const int maxn = 200;
+char best[maxn];
+void dfs(int a[],int n,int sum,int i,char op[],int tar){
+    if(i==n){
+        if(abs(sum-tar)&lt;abs(inf-tar)){
+            inf = sum;
+            for(int i=1;i&lt;n;i++)
+                best[i] = op[i];    
+        }
+        return ;
+    }
+    sum += a[i];
+    op[i] = &#39;+&#39;;
+    dfs(a,n,sum,i+1,op,tar);
+    sum -= a[i];
+
+    sum -= a[i];
+    op[i] = &#39;-&#39;;
+    dfs(a,n,sum,i+1,op,tar);
+    sum += a[i];
+} 
+int main(){
+    int t;
+    cin &gt;&gt; t;
+    getchar();
+    while(t--){
+        int n; cin &gt;&gt; n;
+        ll tar; cin &gt;&gt; tar;
+        int a[n];
+        for(int i=0;i&lt;n;i++)
+            cin &gt;&gt; a[i];
+        char op[n];
+        dfs(a,n,a[0],1,op,tar);
+        ll res = a[0];
+        for(int i=1;i&lt;n;i++){
+            if(best[i]==&#39;+&#39;)
+                res += a[i];
+            else if(best[i]==&#39;-&#39;)
+                res -= a[i];
+        }
+        cout &lt;&lt; abs(res-tar) &lt;&lt; endl;
+        inf = 0x3f3f3f3f;  // 记得修改inf的值 
+    }
+    return 0;
+}
+</code></pre>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sinclaircoder.top" rel="external nofollow noreferrer">SinclairWang</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sinclaircoder.top/2019/12/10/2019-12-10-2019-lan-qiao-bei-xiao-nei-xuan-ba-sai-ti-jie/">https://sinclaircoder.top/2019/12/10/2019-12-10-2019-lan-qiao-bei-xiao-nei-xuan-ba-sai-ti-jie/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="https://sinclaircoder.top" target="_blank">SinclairWang</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/蓝桥杯/">
+                                    <span class="chip bg-color">蓝桥杯</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechatpay.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'ykMNaPlRQAthwgrFfHggAQ7f-gzGzoHsz',
+        appKey: 'neDtomoYnobT9QzrcHrQj71d',
+        notify: 'true' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'en',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2020/01/01/2020-01-16-pta-qie-fen-biao-da-shi-xie-ge-tokenizer-ba/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="PTA切分表达式——写个tokenizer吧">
+                        
+                        <span class="card-title">PTA切分表达式——写个tokenizer吧</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            [先说点出题背景]这个题是为低年级同学、学C语言的同学准备的，因为，对这部分同学，这个题目编写起来略有一点复杂。如果是高年级、学过了正则表达式（Regular Expression）的同学或者学过了Java等OO语言的同学做这个题，应当发现
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/PTA/" class="post-category">
+                                    PTA
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/字符串/">
+                        <span class="chip bg-color">字符串</span>
+                    </a>
+                    
+                    <a href="/tags/PTA/">
+                        <span class="chip bg-color">PTA</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/12/06/2019-12-06-common-easy-middle-hard/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Common (Easy、Middle 、Hard)">
+                        
+                        <span class="card-title">Common (Easy、Middle 、Hard)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            一道题
+Easy Version题目描述$求区间 [l, r] 内是 a 或 b 的倍数的数的个数。$
+Input$第一行一个正整数 T, 代表测试的组数。$$之后 T 行，每行四个正整数 a, b, l, r, 以空格分隔，意义如题面所述
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/蓝桥杯/" class="post-category">
+                                    蓝桥杯
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/组合数学/">
+                        <span class="chip bg-color">组合数学</span>
+                    </a>
+                    
+                    <a href="/tags/暴力/">
+                        <span class="chip bg-color">暴力</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: SinclairのBlog<br />'
+            + 'Author: SinclairWang<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="https://sinclaircoder.top" target="_blank">SinclairWang</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/SinclairCoder" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:sinclaircoder@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/san-cun-jiu-cheng-qi-cun-zhi-nian-29# https://www.zhihu.com/xxx" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/san-cun-jiu-cheng-qi-cun-zhi-nian-29# https://www.zhihu.com/xxx" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+ 
+    <a href="https://blog.csdn.net/SinclairWang" class="tooltipped" target="_blank" data-tooltip="关注我的CSDN: https://blog.csdn.net/SinclairWang" data-position="top" data-delay="50"> 
+    <i class="fab fa-csdn">C</i> 
+    </a> 
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?ad3c73a898b555b5658e0609e7dd9dc6";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+        <script src="//code.tidio.co/u61uushntplpeuutujp42qmi0lj20uxa.js"></script>
+        <script> 
+            $(document).ready(function () {
+                setInterval(change_Tidio, 50);  
+                function change_Tidio() { 
+                    var tidio=$("#tidio-chat iframe");
+                    if(tidio.css("display")=="block"&& $(window).width()>977 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"85px":"20px";   
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";   
+                        document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    } 
+                    else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;   
+                        document.getElementById("tidio-chat-iframe").style.right="-15px"; 
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;   
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
+                        document.getElementById("tidio-chat-iframe").style.zIndex="998";
+                    }
+                } 
+            }); 
+        </script>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</body>
+
+</html>

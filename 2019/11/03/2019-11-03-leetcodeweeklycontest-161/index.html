@@ -28,10 +28,9 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -69,6 +68,17 @@
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -160,6 +170,17 @@
 			    <i class="fa-fw fas fa-tags"></i>
 			
 			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
 		</a>
           
         </li>
@@ -302,14 +323,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    410
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    4 Min
                 </div>
                 
 
@@ -341,39 +362,39 @@
 <li>x%2就是对应s1 = “xy”, s2 = “yx”组合的个数</li>
 <li>result = x/2+y/2+(x%2)*2</li>
 </ul>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">#define rep(i,m,n) for(int i=m;i<n;i++)
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">#define rep(i,m,n) for(int i=m;i&lt;n;i++)
 #define pb push_back
 class Solution {
 public:
     int minimumSwap(string s1, string s2) {
-        vector<char> ans;
+        vector&lt;char&gt; ans;
         rep(i,0,s1.length()){
             if(s1[i]!=s2[i])
                 ans.pb(s1[i]);
         }
         int x=0,y=0;
         rep(i,0,ans.size()){
-            if(ans[i]=='x')
+            if(ans[i]==&#39;x&#39;)
                 x++;
-            else if(ans[i]=='y')
+            else if(ans[i]==&#39;y&#39;)
                 y++;
-            cout << ans[i];
+            cout &lt;&lt; ans[i];
         }
         if((x+y)%2) return -1;
         else return x/2+y/2+(x%2)*2;
 
     }
 };
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h2 id="统计「优美子数组」"><a href="#统计「优美子数组」" class="headerlink" title="统计「优美子数组」"></a>统计「优美子数组」</h2><p>给你一个整数数组 nums 和一个整数 k。<br>如果某个子数组中恰好有 k 个奇数数字，我们就认为这个子数组是「优美子数组」。<br>请返回这个数组中「优美子数组」的数目。<br>示例：</p>
 <blockquote>
 <p>输入：nums = [1,1,2,1,1], k = 3<br>输出：2<br>解释：包含 3 个奇数的子数组是 [1,1,2,1] 和 [1,2,1,1] 。</p>
 </blockquote>
 <h2 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h2><p>暴力会超时。<br>主要还是做一个数组，统计从第一个元素开始到现在奇数的个数。然后使用upper_bound 和 lower_bound<br>更多解法请参考：<a href="https://leetcode.com/problems/count-number-of-nice-subarrays/discuss/?currentPage=1&amp;orderBy=hot&amp;query=" target="_blank" rel="noopener">1248. Count Number of Nice Subarrays</a></p>
-<h2 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h2><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">#define rep(i,m,n) for(int i=m;i<n;i++)
+<h2 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">#define rep(i,m,n) for(int i=m;i&lt;n;i++)
 class Solution {
 public:
-    int numberOfSubarrays(vector<int>& nums, int k) {
+    int numberOfSubarrays(vector&lt;int&gt;&amp; nums, int k) {
         int res = 0;
         int cnt[50005];
         memset(cnt,0,sizeof(cnt));
@@ -389,7 +410,7 @@ public:
         return res;
     }
 };
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>不过发现这种解法虽然运行没有问题，但是自己手动拿纸推的时候貌似样例过不去。<br>upper_bound 找的是范围内第一个大于x的位置<br> lower_bound找的是范围内第一个大于等于x的位置<br><strong>nums = [2,2,2,1,2,2,1,2,2,2], k = 2</strong>这个样例</p>
 <div class="table-container">
 <table>
@@ -471,24 +492,24 @@ public:
 <li>可以被写作 AB（A 连接 B）的字符串，其中 A 和 B 都是有效「括号字符串」</li>
 <li>可以被写作 (A) 的字符串，其中 A 是一个有效的「括号字符串」<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3>一开始的想法是用栈来做，可是无法记录该删去的字符的下标，想用stack<pair<char,int> &gt;来做，不知道为甚麽，好像是指针有问题。<br>其实用数组模拟就可以，第一遍先正向扫描，统计和记录‘)’，删去多余的‘)’，记录多余的’(‘的个数cnt<br>，然后此时可能’(‘的个数刚好和‘)’的个数配对，也可能有多的，此时需要再逆向扫描一遍字符串，然后去掉多余的前cnt个字符<h3 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h3></pair<char,int></li>
 </ul>
-<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">#define rep(i,m,n) for(int i=m;i<n;i++)
-#define rep1(i,m,n) for(int i=m;i>=n;i--)
+<pre><code class="lang-cpp">#define rep(i,m,n) for(int i=m;i&lt;n;i++)
+#define rep1(i,m,n) for(int i=m;i&gt;=n;i--)
 class Solution {
 public:
     string minRemoveToMakeValid(string s) {
        int cnt = 0;
-        string res="";
+        string res=&quot;&quot;;
         rep(i,0,s.length()){
-            if(s[i]=='(')
+            if(s[i]==&#39;(&#39;)
                 cnt++,res+=s[i];
-            else if(s[i]==')'){
+            else if(s[i]==&#39;)&#39;){
                 if(cnt) cnt--,res+=s[i];
             }
             else res += s[i];
         }   
-        string rres = "";
+        string rres = &quot;&quot;;
         rep1(i,res.length()-1,0){
-            if(cnt&&res[i]=='(')
+            if(cnt&amp;&amp;res[i]==&#39;(&#39;)
                 cnt--;
             else rres += res[i];
         }
@@ -497,18 +518,18 @@ public:
 
     }
 };
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h2 id="检查「好数组」"><a href="#检查「好数组」" class="headerlink" title="检查「好数组」"></a>检查「好数组」</h2><p>给你一个正整数数组 nums，你需要从中任选一些子集，然后将子集中每一个数乘以一个 任意整数，并求出他们的和。<br>假如该和结果为 1，那么原数组就是一个「好数组」，则返回 True；否则请返回 False。<br>示例：</p>
 <blockquote>
 <p>输入：nums = [12,5,7,23]<br>输出：true<br>解释：挑选数字 5 和 7。<br>5<em>3 + 7</em>(-2) = 1</p>
 </blockquote>
 <h3 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h3><p>虽然写题目的时候一眼就看出是欧几里得算法，只要数组里面存在若干个数互质即为好数组，也即gcd(a,b,c…)=1，后来越写越复杂，实现思路跑偏了…</p>
-<h3 id="实现-3"><a href="#实现-3" class="headerlink" title="实现"></a>实现</h3><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">class Solution {
+<h3 id="实现-3"><a href="#实现-3" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
 public:
     int gcd(int m,int n){
         return n ? gcd(n,m%n): m; 
     }
-    bool isGoodArray(vector<int>& nums) {
+    bool isGoodArray(vector&lt;int&gt;&amp; nums) {
         int res = nums[0];
         for(int a:nums){
             res = gcd(res,a);
@@ -517,7 +538,7 @@ public:
         else  return false;
     }
 };
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 
             </div>
             <hr/>
@@ -1011,51 +1032,48 @@ public:
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2019/11/03/2019-11-03-leetcodeweeklycontest-161/">
+                <a href="/2019/11/07/2019-11-07-fu-shu-si-ze-yun-suan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="LeetCodeWeeklyContest-161">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="PTA复数四则运算">
                         
-                        <span class="card-title">LeetCodeWeeklyContest-161</span>
+                        <span class="card-title">PTA复数四则运算</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            希望你还有诗和远方。
-
-
-传送门： 第 161 场周赛交换字符使得字符串相同有两个长度相同的字符串 s1 和 s2，且它们其中 只含有 字符 “x” 和 “y”，你需要通过「交换字符」的方式使这两个字符串相同。每次「交换字符」的时候，你都可
+                            本题要求编写程序，计算2个复数的和、差、积、商。
+输入格式：输入在一行中按照a1 b1 a2 b2的格式给出2个复数C1=a1+b1i和C2=a2+b2i的实部和虚部。题目保证C2不为0。
+输出格式：分别在4行中按照(a1+b1i) 运算符
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-03
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-07
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/leetcode/" class="post-category">
-                                    leetcode
+                            <a href="/categories/PTA/" class="post-category">
+                                    PTA
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
+                    <a href="/tags/PTA/">
+                        <span class="chip bg-color">PTA</span>
                     </a>
                     
                 </div>
@@ -1073,7 +1091,7 @@ public:
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="PTA字符串转换成十进制整数">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="PTA字符串转换成十进制整数">
                         
                         <span class="card-title">PTA字符串转换成十进制整数</span>
                     </div>

@@ -1,0 +1,1632 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="keywords" content="《大数据智能》阅读笔记, SinclairのBlog">
+    <meta name="description" content="
+博观而约取，厚积而薄发。                            　　　　　　　　　　——-苏轼
+
+尽管书的名字是《大数据智能》，实则内容则是互联网时代的机器学习和自然语言处理技术的综述。对于nlper，读一读受益匪浅。抑或">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>《大数据智能》阅读笔记 | SinclairのBlog</title>
+    <link rel="icon" type="image/jpeg" href="/favicon.jpg">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+</head>
+
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">SinclairのBlog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">SinclairのBlog</div>
+        <div class="logo-desc">
+            
+            嚼得草根 做得大事
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">《大数据智能》阅读笔记</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/前沿科普/">
+                                <span class="chip bg-color">前沿科普</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/阅读笔记/" class="post-category">
+                                阅读笔记
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2020-01-15
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
+                    2020-01-22
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
+                    2.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
+                    10 Min
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p>博观而约取，厚积而薄发。                            　　　　　　　　　　——-苏轼</p>
+</blockquote>
+<p>尽管书的名字是《大数据智能》，实则内容则是互联网时代的机器学习和自然语言处理技术的综述。对于nlper，读一读受益匪浅。抑或是仅仅当科普读物一读，也未尝不可。</p>
+<h2 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h2><h3 id="应用分类"><a href="#应用分类" class="headerlink" title="应用分类"></a>应用分类</h3><ul>
+<li>垃圾邮件过滤</li>
+<li>图像分类</li>
+</ul>
+<h3 id="结构分类"><a href="#结构分类" class="headerlink" title="结构分类"></a>结构分类</h3><ul>
+<li>句法分析</li>
+<li>情感分析</li>
+<li>机器翻译</li>
+</ul>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
+<li>语言模型也是一个特殊的回归任务</li>
+</ul>
+<h2 id="知识图谱"><a href="#知识图谱" class="headerlink" title="知识图谱"></a>知识图谱</h2><h3 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h3><ul>
+<li>大规模知识库</li>
+<li>互联网链接数据</li>
+<li>互联网网页文本数据</li>
+<li><p>多数据源的知识融合</p>
+<ul>
+<li>实体融合</li>
+<li>关系融合</li>
+<li>实例融合</li>
+</ul>
+</li>
+</ul>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><ul>
+<li>理解查询</li>
+<li><p>自动问答</p>
+<ul>
+<li>下一代的搜索引擎能直接回大人们提出的问题</li>
+</ul>
+</li>
+<li><p>文档表示</p>
+<ul>
+<li>最简单的方案：将文档表示为基于知识图谱的一个子图，即用改文档中出现或涉及的实体及其关系所构成的图表示该文档</li>
+</ul>
+</li>
+</ul>
+<h3 id="主要技术"><a href="#主要技术" class="headerlink" title="主要技术"></a>主要技术</h3><ul>
+<li><p>实体链指</p>
+<p>将互联网网页与实体之间建立链接关系。并不局限于实体与文本之间</p>
+<ul>
+<li><p>实体识别</p>
+<ul>
+<li>从文本中发现实体</li>
+</ul>
+</li>
+<li><p>实体消歧</p>
+</li>
+</ul>
+</li>
+<li><p>关系抽取</p>
+<p>从互联网网页文本中抽取实体</p>
+</li>
+<li><p>知识推理</p>
+</li>
+<li>知识表示：基础技术</li>
+</ul>
+<h3 id="前景与挑战"><a href="#前景与挑战" class="headerlink" title="前景与挑战"></a>前景与挑战</h3><ul>
+<li>知识的类型与表示</li>
+<li>知识获取</li>
+<li>知识融合</li>
+<li>知识应用</li>
+</ul>
+<h2 id="大数据系统"><a href="#大数据系统" class="headerlink" title="大数据系统"></a>大数据系统</h2><h3 id="高性能计算技术"><a href="#高性能计算技术" class="headerlink" title="高性能计算技术"></a>高性能计算技术</h3><ul>
+<li><p>超级计算机</p>
+<ul>
+<li>计算节点</li>
+<li>存储节点</li>
+<li>管理节点</li>
+</ul>
+</li>
+<li><p>并行计算的系统支持</p>
+<ul>
+<li><p>常见并行编程组件</p>
+<ul>
+<li>Pthreads</li>
+<li>OpenMP</li>
+<li>xdfc</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="虚拟化技术"><a href="#虚拟化技术" class="headerlink" title="虚拟化技术"></a>虚拟化技术</h3><ul>
+<li>虚拟化技术是指创建虚拟的事物，包括计算机硬件平台、操作系统、存储设备、计算机网络，是云计算的支撑技术</li>
+</ul>
+<h3 id="云计算技术"><a href="#云计算技术" class="headerlink" title="云计算技术"></a>云计算技术</h3><ul>
+<li>美国国家标准技术研究所认为：云计算是通过网络使得一组可配置的计算资源（网络、计算机、存储、应用程序、服务等）能够在任何地点方便地、按需地进行访问的模型，资源的提供和释放可以快速完成，管理开销低，与提供商的交互简便易行</li>
+<li><p>三种服务模型</p>
+<ul>
+<li><p>软件即服务 Software as a Service SaaS</p>
+<ul>
+<li>常见的有亚马逊的AWS、微软的Azure、阿里云</li>
+</ul>
+</li>
+<li><p>平台即服务 Platform as a Service PaaS</p>
+<ul>
+<li>常见的有Google App Engine（GAE）、新浪App Engine、RedHat的OpenShift等</li>
+<li>GAE给开发者提供了包括Python、Java、Go、php等多种语言的开发和运行环境，用于编写Web应用程序，开发者只需专注于应用程序的功能实现，部署到GAE后，应用程序的性能将由平台来保证</li>
+</ul>
+</li>
+<li><p>基础架构即服务 Infrastructure as a Service IaaS</p>
+</li>
+</ul>
+</li>
+<li><p>根据受众进行分类</p>
+<ul>
+<li>私有云</li>
+<li>社区云</li>
+<li>公有云</li>
+<li>混合云</li>
+</ul>
+</li>
+<li><p>常见的云服务</p>
+<ul>
+<li>Elastic Compute Cloud（EC2）虚拟云主机服务</li>
+<li>Simple Storage Service（S3）基于Web服务的存储</li>
+<li>Elastic Block Store（EBS）为EC2提供的持久化块存储</li>
+<li>DynamoDB 可扩展、可延迟的NoSQL数据库服务</li>
+<li>Relational Database Service（RDS）关系型数据库服务</li>
+<li>Route53 高可靠的域名系统服务（DNS）服务</li>
+<li>CloudFront 内容分发服务</li>
+<li>Elastic MapReduce (EMR) 在EC2和S3的基础上用Hadoop搭建的MapReduce</li>
+</ul>
+</li>
+</ul>
+<h3 id="基于分布式计算的大数据系统"><a href="#基于分布式计算的大数据系统" class="headerlink" title="基于分布式计算的大数据系统"></a>基于分布式计算的大数据系统</h3><ul>
+<li><p>Hadoop生态系统</p>
+<ul>
+<li><p>HDFS（Hadoop Distributed File System）</p>
+<ul>
+<li>分布式文件系统，将文件按一定大小切块，然后把每个块以多个副本的形式保存在不同的数据节点上</li>
+</ul>
+</li>
+<li><p>YARN（Yet Another Resource Negotiator）</p>
+<ul>
+<li>Hadoop的计算资源管理和调度系统，接受任务请求，并根据请求的需要来分配资源，调度任务的执行。</li>
+</ul>
+</li>
+<li><p>MapReduce</p>
+<ul>
+<li>Google提出的并行程序编程模型，适合对数据进行统计、分类等处理</li>
+</ul>
+</li>
+<li><p>HBase</p>
+<ul>
+<li>基于列的分布式存储，数据以表的形式组织，每个表可以有很多行，每行可以有若干列簇，每个列簇可以包含多个列</li>
+<li>HBase可作为数据仓库存储有一定结构的海量数据，数据可以发生修改，但不要很频繁，否则会影响效率</li>
+</ul>
+</li>
+<li><p>Hive、Pig</p>
+<ul>
+<li>能够让用户用较为简便的方式来查询保存在HDFS或HBase中的数据</li>
+</ul>
+</li>
+<li><p>ZooKeeper</p>
+<ul>
+<li>提供了编写分布式软件所需的常用工具</li>
+</ul>
+</li>
+<li><p>Tez</p>
+<ul>
+<li>比MapReduce更一般化的数据流编程框架</li>
+</ul>
+</li>
+<li><p>Storm、S4</p>
+<ul>
+<li>建立在Hadoop上的流式处理引擎</li>
+</ul>
+</li>
+<li><p>Mahout</p>
+<ul>
+<li>Hadoop实现的机器学习算法库，包括聚类、分类、推荐以及线性代数常用的算法</li>
+<li>新版本的Mapout主要用一种支持线性代数操作的领域特定语言（Domain Specific Language DSL）来实现</li>
+</ul>
+</li>
+<li><p>Giraph</p>
+<ul>
+<li>在Hadoop上实现了类似于Google的Pregel这样的图计算引擎，用于处理Web链接关系图、社交网络等类型的数据</li>
+</ul>
+</li>
+<li><p>Sqoop</p>
+<ul>
+<li>一个命令行工具，用于在Hadoop和传统的关系型数据库之间传输数据</li>
+</ul>
+</li>
+<li><p>三种安装模式</p>
+<ul>
+<li>单机模式</li>
+<li>伪分布模式</li>
+<li>全分布模式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Spark</p>
+<ul>
+<li>设计核心：一种叫做可靠分布式数据集（Resilient Distributed Dataset，RDD）的数据结构</li>
+<li>Spark SQL</li>
+<li><p>Spark Streaming</p>
+<ul>
+<li>提供流式处理的功能</li>
+</ul>
+</li>
+<li><p>MLlib</p>
+<ul>
+<li>机器学习算法库</li>
+</ul>
+</li>
+<li><p>GraphX</p>
+<ul>
+<li>Spark的图计算框架</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>典型的大数据基础架构</p>
+<ul>
+<li>GFS</li>
+<li>Cosmos</li>
+<li>SCOPE</li>
+</ul>
+</li>
+</ul>
+<h3 id="大规模图计算"><a href="#大规模图计算" class="headerlink" title="大规模图计算"></a>大规模图计算</h3><ul>
+<li><p>分布式图计算框架</p>
+<ul>
+<li>Pregel</li>
+<li>GraphLab</li>
+</ul>
+</li>
+<li><p>高效的单机图计算框架</p>
+<ul>
+<li>GraphChi</li>
+<li>X-Stream</li>
+<li>GridGraph</li>
+</ul>
+</li>
+</ul>
+<h3 id="NoSQL"><a href="#NoSQL" class="headerlink" title="NoSQL"></a>NoSQL</h3><ul>
+<li><p>分类</p>
+<ul>
+<li><p>基于列的存储</p>
+<ul>
+<li>常见的有HBase</li>
+</ul>
+</li>
+<li><p>基于文档的存储</p>
+<ul>
+<li>常见的有MongoDB、CouchDB</li>
+</ul>
+</li>
+<li><p>键值对存储</p>
+<ul>
+<li><p>单机内存型</p>
+<ul>
+<li>数据持久化在磁盘上，强调单机读写性能，数据一般按照键排序</li>
+<li>常见的有Berkeley DB、LevelDB</li>
+</ul>
+</li>
+<li><p>单机内存型</p>
+<ul>
+<li>数据主要存放在内存中，一般用作数据的缓存</li>
+<li>常见的有memcached、redis</li>
+</ul>
+</li>
+<li><p>分布式</p>
+<ul>
+<li>数据经划分后存放在不同的机器上，同一项数据可以在不同的机器上存有副本</li>
+<li>常见的有Dynamo、Riak</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>图数据库</p>
+<ul>
+<li>数据以图的形式组织，数据项是图中的顶点，每个顶点可以带属性，数据项之间的联系用边来表示，边上也可以带属性</li>
+<li>常见的有Neo4j</li>
+</ul>
+</li>
+<li><p>多模型</p>
+<ul>
+<li>同时支持上述若干模型，例如OrientDB、ArangoDB</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>NoSQL的理解</p>
+<ul>
+<li>一开始是No SQL 后来添加了对SQL的部分支持，变为Not only SQL</li>
+</ul>
+</li>
+<li><p>MongoDB</p>
+<ul>
+<li>基于文档的存储，数据以文档为单位组织</li>
+<li>存储的数据分为数据库、集合和文档三级，一个数据库可以包含若干集合，而一个集合可以包含若干个文档</li>
+<li>文档在表达上采用JSON格式</li>
+<li>基本操作包括文档的插入、更新、删除和查询，另外还可以单独对文档的某个属性进行修改，还可以进行增加、倍增这样的原子操作</li>
+<li>可以单机使用也可以在分布式的环境中使用</li>
+<li>还具有一定的数据分析能力，可以对数据进行统计</li>
+</ul>
+</li>
+</ul>
+<h2 id="智能问答"><a href="#智能问答" class="headerlink" title="智能问答"></a>智能问答</h2><h3 id="问答技术对于用户提出的问题予以理解，并找到答案回答给用户。经典案例：Siri等，人工智能的一个重要分支：专家系统"><a href="#问答技术对于用户提出的问题予以理解，并找到答案回答给用户。经典案例：Siri等，人工智能的一个重要分支：专家系统" class="headerlink" title="问答技术对于用户提出的问题予以理解，并找到答案回答给用户。经典案例：Siri等，人工智能的一个重要分支：专家系统"></a>问答技术对于用户提出的问题予以理解，并找到答案回答给用户。经典案例：Siri等，人工智能的一个重要分支：专家系统</h3><h3 id="问答系统的输入部分即问题更不容易被计算机理解，输出部分需要更准确，此外答案的来源更加——即知识也多种多样，既有结构化的信息也有非结构化的信息，因此问答系统的难度更大"><a href="#问答系统的输入部分即问题更不容易被计算机理解，输出部分需要更准确，此外答案的来源更加——即知识也多种多样，既有结构化的信息也有非结构化的信息，因此问答系统的难度更大" class="headerlink" title="问答系统的输入部分即问题更不容易被计算机理解，输出部分需要更准确，此外答案的来源更加——即知识也多种多样，既有结构化的信息也有非结构化的信息，因此问答系统的难度更大"></a>问答系统的输入部分即问题更不容易被计算机理解，输出部分需要更准确，此外答案的来源更加——即知识也多种多样，既有结构化的信息也有非结构化的信息，因此问答系统的难度更大</h3><h3 id="问答系统的组成"><a href="#问答系统的组成" class="headerlink" title="问答系统的组成"></a>问答系统的组成</h3><ul>
+<li><p>问题理解</p>
+<ul>
+<li>理解问题是什么，比如北京的温度是多少和太阳的温度是多少根本不是一个领域的问题</li>
+</ul>
+</li>
+<li><p>知识检索</p>
+</li>
+<li>答案生成</li>
+</ul>
+<h3 id="文本问答系统"><a href="#文本问答系统" class="headerlink" title="文本问答系统"></a>文本问答系统</h3><ul>
+<li>最基本的一类问答系统</li>
+<li><p>问题理解</p>
+<ul>
+<li><p>问题理解的内容</p>
+<ul>
+<li>常见分类体系：UIUC体系、Moldovan等人的分类体系、单层的平面分类和根据垂直领域的分类</li>
+</ul>
+</li>
+<li><p>问题理解的方法</p>
+<ul>
+<li>最直观的方法：模板匹配策略。优点在于逻辑清晰可见，易于理解和编写，缺点在于形式固定，对于千变万化的自然语言不容易灵活适应</li>
+<li>灵活的技术则要从词法、句法的分析入手，做词性标注，做句法分析，找出命名实体。</li>
+</ul>
+</li>
+<li><p>问题扩展</p>
+<ul>
+<li>同义词造成的多样性</li>
+<li>在词的级别上，可以借助《同义词词林》、知网（HowNet），这样的同义词词典及词语知识图谱可以扩展我们的词库</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>知识检索</p>
+<ul>
+<li><p>非结构化信息检索</p>
+<ul>
+<li>非结构化的信息，通常是指没有或很少标注的整篇文章组成的集合</li>
+<li>最直观的理解便是使用搜索引擎，提取出问题的关键词，查询索引，找出与这些关键词相关的文档，最后经过筛选和提取步骤，生成最终答案</li>
+<li>在挑选出的多篇文档的多个段落中，也需要找出更可能包含答案的段落或局部段落，也因此要对这些文本块排序</li>
+<li>问答系统中的经典做法是采用标准基数排序，排序指标的常见的三个因素：相同顺序的关键词数目、最远关键词间距和未命中关键词数</li>
+</ul>
+</li>
+<li><p>结构化知识检索</p>
+<ul>
+<li>主要侧重于一个实体的各个属性以及他们之间的关系</li>
+<li><p>结构化知识分类</p>
+<ul>
+<li>百科类知识</li>
+<li>关系类知识</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>答案生成</p>
+<ul>
+<li>可以考虑答案与问题的相似程度，如问题的关键词和答案词之间语义联系的远近，此外，答案与问题也可能存在句式的联系</li>
+</ul>
+</li>
+</ul>
+<h3 id="社区问答系统"><a href="#社区问答系统" class="headerlink" title="社区问答系统"></a>社区问答系统</h3><ul>
+<li>一些比较著名的有国外的Quora和国内的知乎、百度知道和搜狗问问等</li>
+<li><p>社区问答系统的结构</p>
+<ul>
+<li>问题理解</li>
+<li>答案生成</li>
+</ul>
+</li>
+<li><p>相似问题检索</p>
+<ul>
+<li>一般的问答系统是用问题检索，而社区问答中是用问题去找问题。问题的相似性问题与问题扩展所解决的问题是类似 的，同样需要词义的扩展、句式的扩展。</li>
+<li><p>问题相似性度量的几种方式</p>
+<ul>
+<li>模板匹配</li>
+<li>基于统计机器翻译</li>
+<li><p>基于词典的方法</p>
+<ul>
+<li>主要是基于同近义词的知识来扩展关键词，从而识别相似问句</li>
+</ul>
+</li>
+<li><p>基于信息距离</p>
+<ul>
+<li>可以借助信息论中的柯尔莫哥洛夫复杂性来定义一系列语义度量，来衡量两个问题语义的相似性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>答案过滤</p>
+<ul>
+<li>根据答案提供者的权威性选择答案</li>
+<li>根据答案内容本身评估质量</li>
+</ul>
+</li>
+</ul>
+<h3 id="多媒体问答系统（Multimedia-Question-Answering）"><a href="#多媒体问答系统（Multimedia-Question-Answering）" class="headerlink" title="多媒体问答系统（Multimedia Question Answering）"></a>多媒体问答系统（Multimedia Question Answering）</h3><ul>
+<li>问答的内容不仅仅限于纯文本内容，多媒体内容的表现力更强、更直观，易于理解</li>
+<li>需要计算机视觉、信号处理等多媒体技术，才能分析出多媒体所表达的内容，属于比较前沿的课题</li>
+</ul>
+<h3 id="体会"><a href="#体会" class="headerlink" title="体会"></a>体会</h3><ul>
+<li>对话系统比问答系统更难，问答系统涉及的技术较多，既包含语义分析，又有信息检索，还涉及到知识的挖掘与管理，若想成为全才，必须在方方面面都下功夫</li>
+</ul>
+<h2 id="自然语言处理"><a href="#自然语言处理" class="headerlink" title="自然语言处理"></a>自然语言处理</h2><h3 id="基本任务"><a href="#基本任务" class="headerlink" title="基本任务"></a>基本任务</h3><ul>
+<li>文档分类</li>
+<li>文档摘要</li>
+<li>关键词抽取</li>
+</ul>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sinclaircoder.top" rel="external nofollow noreferrer">SinclairWang</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://sinclaircoder.top/2020/01/15/2020-01-15-da-shu-ju-zhi-neng-yue-du-bi-ji/">https://sinclaircoder.top/2020/01/15/2020-01-15-da-shu-ju-zhi-neng-yue-du-bi-ji/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint polocy. If reproduced, please indicate source
+                    <a href="https://sinclaircoder.top" target="_blank">SinclairWang</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/前沿科普/">
+                                    <span class="chip bg-color">前沿科普</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechatpay.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'ykMNaPlRQAthwgrFfHggAQ7f-gzGzoHsz',
+        appKey: 'neDtomoYnobT9QzrcHrQj71d',
+        notify: 'true' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'en',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2020/01/16/2020-01-16-pta-qiu-qian-zhui-biao-da-shi-de-zhi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="PTA求前缀表达式的值">
+                        
+                        <span class="card-title">PTA求前缀表达式的值</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            算术表达式有前缀表示法、中缀表示法和后缀表示法等形式。前缀表达式指二元运算符位于两个运算数之前，例如2+3(7-4)+8/4的前缀表达式是：+ + 2  3 - 7 4 / 8 4。请设计程序计算前缀表达式的结果值。
+输入格式:输入在一行内
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-16
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/PTA/" class="post-category">
+                                    PTA
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/字符串/">
+                        <span class="chip bg-color">字符串</span>
+                    </a>
+                    
+                    <a href="/tags/PTA/">
+                        <span class="chip bg-color">PTA</span>
+                    </a>
+                    
+                    <a href="/tags/前缀表达式/">
+                        <span class="chip bg-color">前缀表达式</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/01/04/2020-01-04-pta-zheng-shu-fen-jie-wei-ruo-gan-xiang-zhi-he/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="PTA整数分解为若干项之和">
+                        
+                        <span class="card-title">PTA整数分解为若干项之和</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Problem将一个正整数N分解成几个正整数相加，可以有多种分解方法，例如7=6+1，7=5+2，7=5+1+1，…。编程求出正整数N的所有整数分解式子。
+输入格式：每个输入包含一个测试用例，即正整数N (0&lt;N≤30)。
+输出格式：
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/PTA/" class="post-category">
+                                    PTA
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/DFS/">
+                        <span class="chip bg-color">DFS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: SinclairのBlog<br />'
+            + 'Author: SinclairWang<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2019</span>
+            <a href="https://sinclaircoder.top" target="_blank">SinclairWang</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/SinclairCoder" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:sinclaircoder@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/san-cun-jiu-cheng-qi-cun-zhi-nian-29# https://www.zhihu.com/xxx" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/san-cun-jiu-cheng-qi-cun-zhi-nian-29# https://www.zhihu.com/xxx" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+ 
+    <a href="https://blog.csdn.net/SinclairWang" class="tooltipped" target="_blank" data-tooltip="关注我的CSDN: https://blog.csdn.net/SinclairWang" data-position="top" data-delay="50"> 
+    <i class="fab fa-csdn">C</i> 
+    </a> 
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?ad3c73a898b555b5658e0609e7dd9dc6";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+        <script src="//code.tidio.co/u61uushntplpeuutujp42qmi0lj20uxa.js"></script>
+        <script> 
+            $(document).ready(function () {
+                setInterval(change_Tidio, 50);  
+                function change_Tidio() { 
+                    var tidio=$("#tidio-chat iframe");
+                    if(tidio.css("display")=="block"&& $(window).width()>977 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"85px":"20px";   
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";   
+                        document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    } 
+                    else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;   
+                        document.getElementById("tidio-chat-iframe").style.right="-15px"; 
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;   
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
+                        document.getElementById("tidio-chat-iframe").style.zIndex="998";
+                    }
+                } 
+            }); 
+        </script>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</body>
+
+</html>

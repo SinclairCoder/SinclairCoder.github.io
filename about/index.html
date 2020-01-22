@@ -25,10 +25,9 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -66,6 +65,17 @@
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -163,6 +173,17 @@
         
         <li class="m-nav-item">
 	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
@@ -242,10 +263,10 @@
                     var typed = new Typed("#subtitle", {
                         strings: ['一钩足以明天下 何况清辉满十分.','Stand a little taller.'],
                         startDelay: 300,
-                        typeSpeed: 100,
+                        typeSpeed: 300,
                         loop: true,
                         backSpeed: 50,
-                        showCursor: true
+                        showCursor: false
                     });
                 </script>
                 
@@ -273,21 +294,21 @@
                     <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
                         
 <div class="statis">
-    <span class="count"><a href="/">45</a></span>
+    <span class="count"><a href="/">72</a></span>
     <span class="name">Posts</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">19</a></span>
+    <span class="count"><a href="/categories">23</a></span>
     <span class="name">Categories</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">31</a></span>
+    <span class="count"><a href="/tags">46</a></span>
     <span class="name">Tags</span>
 </div>
 
@@ -303,21 +324,21 @@
                                 <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
                                     
 <div class="statis">
-    <span class="count"><a href="/">45</a></span>
+    <span class="count"><a href="/">72</a></span>
     <span class="name">Posts</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">19</a></span>
+    <span class="count"><a href="/categories">23</a></span>
     <span class="name">Categories</span>
 </div>
 
 
 
 <div class="statis">
-    <span class="count"><a href="/tags">31</a></span>
+    <span class="count"><a href="/tags">46</a></span>
     <span class="name">Tags</span>
 </div>
 
@@ -475,7 +496,7 @@
                 name: 'Number of posts',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [3,2,4,0,4,4,2,2,9,13,2,0,0],
+                data: [3,2,4,0,4,4,2,2,8,13,15,2,13],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -517,7 +538,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"Java","value":1},{"name":"Python3","value":2},{"name":"数据结构与算法训练","value":13},{"name":"Blog","value":1},{"name":"感悟","value":3},{"name":"数论","value":4},{"name":"javascript","value":1},{"name":"动态规划","value":2},{"name":"工程项目","value":1},{"name":"搜索","value":1},{"name":"软件工程","value":2},{"name":"机器学习","value":1},{"name":"图像处理","value":1},{"name":"Linux","value":1},{"name":"leetcode","value":7},{"name":"数据分析","value":1},{"name":"Python3","value":1},{"name":"竞赛感悟","value":1},{"name":"数学建模","value":1}],
+                data: [{"name":"数据结构与算法训练","value":15},{"name":"数论","value":4},{"name":"Python3","value":2},{"name":"Java","value":1},{"name":"感悟","value":3},{"name":"Blog","value":1},{"name":"工程项目","value":1},{"name":"javascript","value":1},{"name":"动态规划","value":2},{"name":"机器学习","value":1},{"name":"软件工程","value":2},{"name":"图像处理","value":1},{"name":"leetcode","value":7},{"name":"Linux","value":1},{"name":"数据分析","value":1},{"name":"PTA","value":16},{"name":"DataBase","value":1},{"name":"蓝桥杯","value":7},{"name":"Python3","value":1},{"name":"搜索","value":1},{"name":"竞赛感悟","value":1},{"name":"数学建模","value":1},{"name":"阅读笔记","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -541,7 +562,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["数据结构与算法训练","leetcode","数论","竞赛感悟","图算法","数学建模","位运算","优先队列","HDU","Java"]
+                data: ["PTA","数据结构与算法训练","leetcode","蓝桥杯","数论","BFS","位运算","竞赛感悟","图算法","字符串"]
             }
         ],
         yAxis: [
@@ -554,7 +575,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [11,7,4,3,3,2,2,1,1,1],
+                data: [16,11,7,6,4,3,3,3,3,3],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -696,6 +717,16 @@
         <div class="tag-chips center-align">
             
             
+            <a href="/tags/数据结构与算法训练/">
+                <span class="chip center-align waves-effect waves-light chip-default">数据结构与算法训练</span>
+            </a>
+            
+            
+            
+            <a href="/tags/数论/">
+                <span class="chip center-align waves-effect waves-light chip-default">数论</span>
+            </a>
+            
             
             
             <a href="/tags/Python3/">
@@ -703,16 +734,6 @@
             </a>
             
             
-            
-            <a href="/tags/数据结构与算法训练/">
-                <span class="chip center-align waves-effect waves-light chip-default">数据结构与算法训练</span>
-            </a>
-            
-            
-            
-            <a href="/tags/Blog/">
-                <span class="chip center-align waves-effect waves-light chip-default">Blog</span>
-            </a>
             
             
             
@@ -728,8 +749,8 @@
             
             
             
-            <a href="/tags/数论/">
-                <span class="chip center-align waves-effect waves-light chip-default">数论</span>
+            <a href="/tags/Blog/">
+                <span class="chip center-align waves-effect waves-light chip-default">Blog</span>
             </a>
             
             
@@ -752,6 +773,18 @@
             
             
             
+            <a href="/tags/爬虫/">
+                <span class="chip center-align waves-effect waves-light chip-default">爬虫</span>
+            </a>
+            
+            
+            
+            <a href="/tags/javascript/">
+                <span class="chip center-align waves-effect waves-light chip-default">javascript</span>
+            </a>
+            
+            
+            
             <a href="/tags/Tomcat/">
                 <span class="chip center-align waves-effect waves-light chip-default">Tomcat</span>
             </a>
@@ -760,12 +793,6 @@
             
             <a href="/tags/SpringBoot/">
                 <span class="chip center-align waves-effect waves-light chip-default">SpringBoot</span>
-            </a>
-            
-            
-            
-            <a href="/tags/javascript/">
-                <span class="chip center-align waves-effect waves-light chip-default">javascript</span>
             </a>
             
             
@@ -782,14 +809,8 @@
             
             
             
-            <a href="/tags/爬虫/">
-                <span class="chip center-align waves-effect waves-light chip-default">爬虫</span>
-            </a>
-            
-            
-            
-            <a href="/tags/DFS/">
-                <span class="chip center-align waves-effect waves-light chip-default">DFS</span>
+            <a href="/tags/机器学习/">
+                <span class="chip center-align waves-effect waves-light chip-default">机器学习</span>
             </a>
             
             
@@ -800,26 +821,20 @@
             
             
             
-            <a href="/tags/机器学习/">
-                <span class="chip center-align waves-effect waves-light chip-default">机器学习</span>
-            </a>
-            
-            
-            
             <a href="/tags/图像处理/">
                 <span class="chip center-align waves-effect waves-light chip-default">图像处理</span>
             </a>
             
             
             
-            <a href="/tags/Ubuntu/">
-                <span class="chip center-align waves-effect waves-light chip-default">Ubuntu</span>
+            <a href="/tags/leetcode/">
+                <span class="chip center-align waves-effect waves-light chip-default">leetcode</span>
             </a>
             
             
             
-            <a href="/tags/leetcode/">
-                <span class="chip center-align waves-effect waves-light chip-default">leetcode</span>
+            <a href="/tags/Ubuntu/">
+                <span class="chip center-align waves-effect waves-light chip-default">Ubuntu</span>
             </a>
             
             
@@ -836,14 +851,14 @@
             
             
             
-            <a href="/tags/JupyterNotebook/">
-                <span class="chip center-align waves-effect waves-light chip-default">JupyterNotebook</span>
+            <a href="/tags/最长公共子序列/">
+                <span class="chip center-align waves-effect waves-light chip-default">最长公共子序列</span>
             </a>
             
             
             
-            <a href="/tags/最长公共子序列/">
-                <span class="chip center-align waves-effect waves-light chip-default">最长公共子序列</span>
+            <a href="/tags/JupyterNotebook/">
+                <span class="chip center-align waves-effect waves-light chip-default">JupyterNotebook</span>
             </a>
             
             
@@ -854,14 +869,14 @@
             
             
             
-            <a href="/tags/格雷码/">
-                <span class="chip center-align waves-effect waves-light chip-default">格雷码</span>
+            <a href="/tags/数据分析/">
+                <span class="chip center-align waves-effect waves-light chip-default">数据分析</span>
             </a>
             
             
             
-            <a href="/tags/数据分析/">
-                <span class="chip center-align waves-effect waves-light chip-default">数据分析</span>
+            <a href="/tags/格雷码/">
+                <span class="chip center-align waves-effect waves-light chip-default">格雷码</span>
             </a>
             
             
@@ -872,8 +887,104 @@
             
             
             
+            <a href="/tags/SQLServer/">
+                <span class="chip center-align waves-effect waves-light chip-default">SQLServer</span>
+            </a>
+            
+            
+            
+            <a href="/tags/BigInteger/">
+                <span class="chip center-align waves-effect waves-light chip-default">BigInteger</span>
+            </a>
+            
+            
+            
+            <a href="/tags/蓝桥杯/">
+                <span class="chip center-align waves-effect waves-light chip-default">蓝桥杯</span>
+            </a>
+            
+            
+            
+            <a href="/tags/回溯法/">
+                <span class="chip center-align waves-effect waves-light chip-default">回溯法</span>
+            </a>
+            
+            
+            
+            <a href="/tags/BigDecimal/">
+                <span class="chip center-align waves-effect waves-light chip-default">BigDecimal</span>
+            </a>
+            
+            
+            
+            <a href="/tags/数独/">
+                <span class="chip center-align waves-effect waves-light chip-default">数独</span>
+            </a>
+            
+            
+            
+            <a href="/tags/组合数学/">
+                <span class="chip center-align waves-effect waves-light chip-default">组合数学</span>
+            </a>
+            
+            
+            
+            <a href="/tags/暴力/">
+                <span class="chip center-align waves-effect waves-light chip-default">暴力</span>
+            </a>
+            
+            
+            
+            <a href="/tags/DFS/">
+                <span class="chip center-align waves-effect waves-light chip-default">DFS</span>
+            </a>
+            
+            
+            
+            <a href="/tags/前缀表达式/">
+                <span class="chip center-align waves-effect waves-light chip-default">前缀表达式</span>
+            </a>
+            
+            
+            
+            <a href="/tags/哈希表/">
+                <span class="chip center-align waves-effect waves-light chip-default">哈希表</span>
+            </a>
+            
+            
+            
+            <a href="/tags/BFS/">
+                <span class="chip center-align waves-effect waves-light chip-default">BFS</span>
+            </a>
+            
+            
+            
+            <a href="/tags/欧拉回路/">
+                <span class="chip center-align waves-effect waves-light chip-default">欧拉回路</span>
+            </a>
+            
+            
+            
+            <a href="/tags/并查集/">
+                <span class="chip center-align waves-effect waves-light chip-default">并查集</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Hamilton回路/">
+                <span class="chip center-align waves-effect waves-light chip-default">Hamilton回路</span>
+            </a>
+            
+            
+            
             <a href="/tags/数学建模/">
                 <span class="chip center-align waves-effect waves-light chip-default">数学建模</span>
+            </a>
+            
+            
+            
+            <a href="/tags/前沿科普/">
+                <span class="chip center-align waves-effect waves-light chip-default">前沿科普</span>
             </a>
             
             
@@ -885,47 +996,6 @@
 
                 
 
-                
-                
-<div id="myGallery" class="my-gallery">
-    <div class="title center-align" data-aos="zoom-in-up">
-        <i class="far fa-image"></i>&nbsp;&nbsp;Gallery
-    </div>
-    <div class="row">
-        
-        
-        <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/featureimages/0.jpg">
-                <img src="/medias/featureimages/0.jpg" class="responsive-img">
-            </div>
-        </div>
-        
-        <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/featureimages/1.jpg">
-                <img src="/medias/featureimages/1.jpg" class="responsive-img">
-            </div>
-        </div>
-        
-        <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/featureimages/2.jpg">
-                <img src="/medias/featureimages/2.jpg" class="responsive-img">
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-<script>
-    $(function () {
-        let animateClass = 'animated pulse';
-        $('#myGallery .photo').hover(function () {
-            $(this).addClass(animateClass);
-        }, function () {
-            $(this).removeClass(animateClass);
-        });
-    });
-</script>
                 
 
             </div>

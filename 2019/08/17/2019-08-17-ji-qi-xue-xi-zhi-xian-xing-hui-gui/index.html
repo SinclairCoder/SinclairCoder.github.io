@@ -60,10 +60,9 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -101,6 +100,17 @@
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -198,6 +208,17 @@
         
         <li class="m-nav-item">
 	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
@@ -268,7 +289,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/27.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -334,7 +355,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    555
+                    569
                 </div>
                 
 
@@ -411,16 +432,16 @@
 </table>
 </div>
 <p>首先，我们可以先把数据可视化，画个散点图出来。<br><img src="https://img-blog.csdnimg.cn/20190816215147426.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="温度产率线性回归散点图"><br>根据散点图可知，数据基本上都在一条直线上，我们可以用一条直线去拟合。</p>
-<h2 id="正规方程求解"><a href="#正规方程求解" class="headerlink" title="正规方程求解"></a>正规方程求解</h2><script type="math/tex; mode=display">\theta=(X^TX)^{-1}X^TY</script><pre class="line-numbers language-lang-matlab"><code class="language-lang-matlab">function [ theta ] = linearReg( )
+<h2 id="正规方程求解"><a href="#正规方程求解" class="headerlink" title="正规方程求解"></a>正规方程求解</h2><script type="math/tex; mode=display">\theta=(X^TX)^{-1}X^TY</script><pre><code class="lang-matlab">function [ theta ] = linearReg( )
 % 线性回归正规方程求解
 % 用130、190作为测试集
 train = 8;
 X = [1 100;1  110;1  120;1  140;1  150;1  160;1  170;1  180;] 
 Y = [45; 51 ;54 ;66; 70; 74 ;78; 85];
-A = inv(X'*X);
-theta = A*X'*Y;
+A = inv(X&#39;*X);
+theta = A*X&#39;*Y;
 end
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>解得：</p>
 <script type="math/tex; mode=display">\theta=\begin{pmatrix} -3.1507 \\  0.4851 \end{pmatrix}</script><p>散点图拟合情况如下：<br><img src="https://img-blog.csdnimg.cn/20190817145220145.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="正规方程求解"></p>
 <blockquote>
@@ -429,13 +450,13 @@ end
 <h2 id="梯度下降求解"><a href="#梯度下降求解" class="headerlink" title="梯度下降求解"></a>梯度下降求解</h2><p>假设函数：<script type="math/tex">h_\theta(x)=\theta_0+\theta_1x</script><br>代价函数：</p>
 <script type="math/tex; mode=display">J(\theta_0 ,\theta_1)= \frac{1} {2m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2</script><p>梯度下降：(同步更新)</p>
 <script type="math/tex; mode=display">temp_0 = \theta_0- \alpha \frac{\partial} {\partial \theta_0}J(\theta_0 ,\theta_1)</script><script type="math/tex; mode=display">temp_1 = \theta_1- \alpha \frac{\partial} {\partial \theta_1}J(\theta_0 ,\theta_1)</script><script type="math/tex; mode=display">\theta_0 = temp_0</script><script type="math/tex; mode=display">\theta_1 = temp_1</script><p>假设函数</p>
-<pre class="line-numbers language-lang-matlab"><code class="language-lang-matlab">function [ res ] = h_func(inputx,theta )
+<pre><code class="lang-matlab">function [ res ] = h_func(inputx,theta )
 % 预测函数
 res = theta(1)+theta(2)*inputx;
 end
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>代价函数</p>
-<pre class="line-numbers language-lang-matlab"><code class="language-lang-matlab">function [ jVal,gradient ] = costFunction2( theta )
+<pre><code class="lang-matlab">function [ jVal,gradient ] = costFunction2( theta )
 % jVal 为 代价值 gradient为梯度
 % cost function
 % 用130、190作为测试集
@@ -448,19 +469,19 @@ jVal= sum(delta.^2);  % 损失函数
 gradient(1) = sum(delta)/m;
 gradient(2) = sum(delta.*x)/m;
 end
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>梯度下降</p>
-<pre class="line-numbers language-lang-matlab"><code class="language-lang-matlab">function [ optTheta,functionVal,exitFlag ] = Gradient_descent()
+<pre><code class="lang-matlab">function [ optTheta,functionVal,exitFlag ] = Gradient_descent()
 % 梯度下降
 % fminunc 非线性优化
 % 找到min f(x) 的 x f(x)是一个返回值为标量的函数，x是一个向量或矩阵 
-% options 配置选项，'GradObj' 'on'  表示使用自定义的梯度下降函数，'MaxIter',1000 表示最大迭代次数
-options = optimset('GradObj','on','MaxIter',1000);
+% options 配置选项，&#39;GradObj&#39; &#39;on&#39;  表示使用自定义的梯度下降函数，&#39;MaxIter&#39;,1000 表示最大迭代次数
+options = optimset(&#39;GradObj&#39;,&#39;on&#39;,&#39;MaxIter&#39;,1000);
 % 需要返回的参数， 需要初始化
 initialTheta = zeros(2,1);
 [optTheta,functionVal,exitFlag] = fminunc(@costFunction2,initialTheta,options); 
 end
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>运行结果：</p>
 <script type="math/tex; mode=display">optTheta = \begin{pmatrix} -3.1507 \\0.4851  \end{pmatrix}</script><script type="math/tex; mode=display">functionVal = 6.1996</script><p>可见利用正规方程和梯度下降求解出来的参数一样<br><img src="https://img-blog.csdnimg.cn/20190817154210865.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="梯度下降"><br>未完，待续…</p>
 
@@ -960,32 +981,50 @@ end
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2019/09/01/00/">
+                <a href="/2019/09/02/2019-09-02-ruan-jian-ti-xi-jie-gou-bi-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="软件体系结构笔记">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">软件体系结构笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
                             
+传说中的软件体系结构与设计模式课程中的软件体系结构部分就结束了，好短，6个学时，匆匆掠过，走马观花，根据老师讲的内容写了份笔记，日后慢慢补充…
+
+概念
+具有一定形式的结构化元素，即构件的集合
+处理构件：处理函数
+数据构件：存储数据 （Ja
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-09-01
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-09-02
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            SinclairWang
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/软件工程/" class="post-category">
+                                    软件工程
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/软件体系结构/">
+                        <span class="chip bg-color">软件体系结构</span>
+                    </a>
+                    
                 </div>
                 
             </div>

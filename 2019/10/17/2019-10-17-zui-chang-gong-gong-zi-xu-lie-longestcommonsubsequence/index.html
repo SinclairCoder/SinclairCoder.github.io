@@ -26,10 +26,9 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -67,6 +66,17 @@
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -164,6 +174,17 @@
         
         <li class="m-nav-item">
 	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
@@ -234,7 +255,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -300,7 +321,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    161
+                    265
                 </div>
                 
 
@@ -325,20 +346,20 @@
             <div id="articleContent">
                 <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>求两个长度分别为m和n的字符串A、B的最长公共子序列。<br>A：a<sub>0</sub>a<sub>1</sub>a<sub>2</sub>…a<sub>m-1</sub><br>B：b<sub>0</sub>b<sub>1</sub>b<sub>2</sub>…b<sub>n-1</sub></p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>构造一个大小为(m+1)*(n+1)的二维数组dp<br>dp[i][j] 表示a<sub>0</sub>a<sub>1</sub>a<sub>2</sub>…a<sub>i-1</sub> 和 b<sub>0</sub>b<sub>1</sub>b<sub>2</sub>…b<sub>j-1</sub> 两个字符串的最大公共子序列</p>
-<h3 id="状态转移方程"><a href="#状态转移方程" class="headerlink" title="状态转移方程"></a>状态转移方程</h3><script type="math/tex; mode=display">dp[i][j]= \begin{cases}0  & \text {if  i=0 or j=0} \\ dp[i-1][j-1]+1   & \text{if a[i-1]=b[j-1] }   \\ max(dp[i-1][j],dp[i][j-1])  &\text{if a[i-1]!=b[j-1]}\end{cases}</script><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">int dp[MAXN][MAXN]={0};
-vector<char> subs;
-vector<char> longestCommonSubsequence(string s1, string s2) {
+<h3 id="状态转移方程"><a href="#状态转移方程" class="headerlink" title="状态转移方程"></a>状态转移方程</h3><script type="math/tex; mode=display">dp[i][j]= \begin{cases}0  & \text {if  i=0 or j=0} \\ dp[i-1][j-1]+1   & \text{if a[i-1]=b[j-1] }   \\ max(dp[i-1][j],dp[i][j-1])  &\text{if a[i-1]!=b[j-1]}\end{cases}</script><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">int dp[MAXN][MAXN]={0};
+vector&lt;char&gt; subs;
+vector&lt;char&gt; longestCommonSubsequence(string s1, string s2) {
     memset(dp,0,sizeof(dp));
     int m = s1.length(),n = s2.length();
-    for(int i=1;i<=m;i++){
-        for(int j=1;j<=n;j++){
+    for(int i=1;i&lt;=m;i++){
+        for(int j=1;j&lt;=n;j++){
             if(s1[i-1]==s2[j-1])
                 dp[i][j] = dp[i-1][j-1]+1;
             else dp[i][j] = max(dp[i-1][j],dp[i][j-1]); 
         }
     }
     int k = dp[m][n],i=m,j=n;
-    while(k>0){
+    while(k&gt;0){
         if(dp[i][j]==dp[i-1][j])
             i--;
         else if(dp[i][j]==dp[i][j-1])
@@ -350,7 +371,7 @@ vector<char> longestCommonSubsequence(string s1, string s2) {
     }
     return subs;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>来道板子题试试：<a href="https://leetcode-cn.com/problems/longest-common-subsequence/submissions/" target="_blank" rel="noopener">1143. 最长公共子序列</a></p>
 
             </div>
@@ -853,7 +874,7 @@ vector<char> longestCommonSubsequence(string s1, string s2) {
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="LeetCodeWeeklyContest-159">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="LeetCodeWeeklyContest-159">
                         
                         <span class="card-title">LeetCodeWeeklyContest-159</span>
                     </div>
@@ -903,7 +924,7 @@ vector<char> longestCommonSubsequence(string s1, string s2) {
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="LeetCodeWeeklyContest-158">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="LeetCodeWeeklyContest-158">
                         
                         <span class="card-title">LeetCodeWeeklyContest-158</span>
                     </div>

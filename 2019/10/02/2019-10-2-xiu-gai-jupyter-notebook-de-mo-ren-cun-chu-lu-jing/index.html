@@ -26,10 +26,9 @@ step1进入Anaconda安装路径，一般来说都是 */Anaconda3/Scripts，比�
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -67,6 +66,17 @@ step1进入Anaconda安装路径，一般来说都是 */Anaconda3/Scripts，比�
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -164,6 +174,17 @@ step1进入Anaconda安装路径，一般来说都是 */Anaconda3/Scripts，比�
         
         <li class="m-nav-item">
 	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
@@ -234,7 +255,7 @@ step1进入Anaconda安装路径，一般来说都是 */Anaconda3/Scripts，比�
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -300,7 +321,7 @@ step1进入Anaconda安装路径，一般来说都是 */Anaconda3/Scripts，比�
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    372
+                    380
                 </div>
                 
 
@@ -325,19 +346,19 @@ step1进入Anaconda安装路径，一般来说都是 */Anaconda3/Scripts，比�
             <div id="articleContent">
                 <p>最近在复现数据分析，发现JupyterNotebook默认存储路径在C盘 /user/.jupyter里面<br>想改一下默认存储路径。</p>
 <h2 id="step1"><a href="#step1" class="headerlink" title="step1"></a>step1</h2><p>进入Anaconda安装路径，一般来说都是 <em>*</em>/Anaconda3/Scripts，比如我的就是在 E:\Python\Anaconda\INSTALL\Scripts这个路径下，在cmd中将路径转到该路径下，这样替换代码如下，其中路径替换成自己的。</p>
-<pre class="line-numbers language-lang-bash"><code class="language-lang-bash">>> cd E:\Python\Anaconda\INSTALL\Scripts
->> e:
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code class="lang-bash">&gt;&gt; cd E:\Python\Anaconda\INSTALL\Scripts
+&gt;&gt; e:
+</code></pre>
 <h2 id="step2"><a href="#step2" class="headerlink" title="step2"></a>step2</h2><p>在cmd中输入命令：</p>
-<pre class="line-numbers language-lang-bash"><code class="language-lang-bash">jupyter notebook --generate-config
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code class="lang-bash">jupyter notebook --generate-config
+</code></pre>
 <p>然后就会在C盘用户路径（例如我的路径是：C:\Users\三寸旧城七寸执念\.jupyter）下生成jupyter_notebook_config.py文件，使用文本编辑器（VS Code等）打开该文件。</p>
 <h2 id="step3"><a href="#step3" class="headerlink" title="step3"></a>step3</h2><p>定位到第246行</p>
-<pre class="line-numbers language-lang-bash"><code class="language-lang-bash">#c.NotebookApp.notebook_dir = ''
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code class="lang-bash">#c.NotebookApp.notebook_dir = &#39;&#39;
+</code></pre>
 <p>替换为</p>
-<pre class="line-numbers language-lang-bash"><code class="language-lang-bash">c.NotebookApp.notebook_dir = 'E:/CodeCache/JupyterNotebook'
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code class="lang-bash">c.NotebookApp.notebook_dir = &#39;E:/CodeCache/JupyterNotebook&#39;
+</code></pre>
 <h2 id="step4"><a href="#step4" class="headerlink" title="step4"></a>step4</h2><p>右击JupyterNotebook的快捷方式点击属性，将目标那一栏里的%USERPROFILE%删掉，应该就可以了。</p>
 <p>重启Jupyter Notebook。</p>
 <p>另外，需要给Jupyter NoteBook 换主题，换字体，字号，以及代码自动补全<br>可参考<br><a href="https://blog.csdn.net/Jerry_xzj/article/details/89931165" target="_blank" rel="noopener">使用 Jupyter Themes 修改 Jupyter Notebook 的主题、字体、字号</a><br><a href="https://blog.csdn.net/az9996/article/details/88621028#_24" target="_blank" rel="noopener">Jupyter Notebook 更换主题、设置字体(jupyterthemes的使用)、代码自动补全、变更工作目录（默认目录）</a></p>
@@ -839,11 +860,71 @@ step1进入Anaconda安装路径，一般来说都是 */Anaconda3/Scripts，比�
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
+                <a href="/2019/10/04/2019-10-4-python-shu-ju-fen-xi-yu-ying-yong-fu-xian-bi-ji/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="《Python数据分析与应用》复现笔记">
+                        
+                        <span class="card-title">《Python数据分析与应用》复现笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Numpy
+arr.ravel() 完成数组的展开工作
+
+arr.flatten()  展平数组，可以选择横向（’A’）或者纵向（’F’）展开
+
+np.hstack() 横向组合
+np.vstack() 纵向组合
+np.concatenat
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-10-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/数据分析/" class="post-category">
+                                    数据分析
+                                </a>
+                            
+                            <a href="/categories/数据分析/Python3/" class="post-category">
+                                    Python3
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/数据分析/">
+                        <span class="chip bg-color">数据分析</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2019/10/02/2019-10-2-leetcodeweeklycontest-156/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="LeetCodeWeeklyContest-156">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="LeetCodeWeeklyContest-156">
                         
                         <span class="card-title">LeetCodeWeeklyContest-156</span>
                     </div>
@@ -857,9 +938,9 @@ step1进入Anaconda安装路径，一般来说都是 */Anaconda3/Scripts，比�
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-10-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -877,66 +958,6 @@ step1进入Anaconda安装路径，一般来说都是 */Anaconda3/Scripts，比�
                     
                     <a href="/tags/leetcode/">
                         <span class="chip bg-color">leetcode</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/09/24/2019-09-24-she-ji-mo-shi-yi/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="设计模式(一)">
-                        
-                        <span class="card-title">设计模式(一)</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            简介
-软件模式
-软件开发中的重复出现的问题的解决方案，可认为是设计经验，在讨论问题的解决方案时，一种可交流的词汇
-
-
-设计模式
-简言之，就是可重复使用的设计经验，主要还是为了达到优化设计的目的
-
-
-软件开发中的几个模式
-业务领域模式
-分析模
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-24
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/软件工程/" class="post-category">
-                                    软件工程
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/设计模式/">
-                        <span class="chip bg-color">设计模式</span>
                     </a>
                     
                 </div>

@@ -26,10 +26,9 @@ Challenges make you discover things about yourself that you never really knew.�
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -67,6 +66,17 @@ Challenges make you discover things about yourself that you never really knew.�
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -164,6 +174,17 @@ Challenges make you discover things about yourself that you never really knew.�
         
         <li class="m-nav-item">
 	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
@@ -234,7 +255,7 @@ Challenges make you discover things about yourself that you never really knew.�
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -395,7 +416,7 @@ Challenges make you discover things about yourself that you never really knew.�
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    373
+                    387
                 </div>
                 
 
@@ -421,13 +442,13 @@ Challenges make you discover things about yourself that you never really knew.�
                 <blockquote>
 <p>Challenges make you discover things about yourself that you never really knew.<br>挑战能让你发现自己都不曾了解过的一面。        ——-Cicely Tyson</p>
 </blockquote>
-<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><pre class="line-numbers language-lang-python3"><code class="language-lang-python3">        def expandtabs(self, *args, **kwargs):  # real signature unknown**
-        """
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><pre><code class="lang-python3">        def expandtabs(self, *args, **kwargs):  # real signature unknown**
+        &quot;&quot;&quot;
         Return a copy where all tab characters are expanded using spaces.
         If tabsize is not given, a tab size of 8 characters is assumed.
-        """
+        &quot;&quot;&quot;
         pass
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <hr>
 <blockquote>
 <p>返回字符串的一个拷贝，该拷贝中把字符串中的<strong>tab</strong> (即’\t‘)转换为指定的<strong>tabsize</strong>数量的空格，其中若<strong>tabsize</strong>未给出则默认为8.</p>
@@ -438,20 +459,20 @@ Challenges make you discover things about yourself that you never really knew.�
 <p>str.expandtabs(tabsize = 8);</p>
 </blockquote>
 <h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>其实还是例子更直观</p>
-<pre class="line-numbers language-lang-python3"><code class="language-lang-python3"> # 代码段
-print("第一行为基准")
-print("123456789012345678901")
-s1 = "123456\t7890\t123"
+<pre><code class="lang-python3"> # 代码段
+print(&quot;第一行为基准&quot;)
+print(&quot;123456789012345678901&quot;)
+s1 = &quot;123456\t7890\t123&quot;
 print(s1)
 print(s1.expandtabs(6))
 print(s1.expandtabs(7))
 print(s1.expandtabs(8))
 print(s1.expandtabs(9))
-s2 = "\t12\t345678\t123"
+s2 = &quot;\t12\t345678\t123&quot;
 print(s2)
 print(s2.expandtabs())
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-lang-python3"><code class="language-lang-python3"> # 结果显示
+</code></pre>
+<pre><code class="lang-python3"> # 结果显示
 第一行为基准
 123456789012345678901
 123456    7890    123
@@ -461,7 +482,7 @@ print(s2.expandtabs())
 123456   7890     123
     12    345678    123
         12      345678  123
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
 <p>&emsp;&emsp;<strong>expandtabs()</strong> 方法是把字符串中的’\t’转换为空格。<br> &emsp;&emsp;下面首先来说说’\t’，在Python3中 <strong>‘\t’</strong> 是补4的整数倍个空格，假如’\t’在字符串首，则会补<strong>4</strong>个空格，当在串中时要看’\t’前面的字符，距离<strong>4</strong>的整数倍差多少补多少空格。<br> &emsp;&emsp;下面再说一下这个 <strong>expandtabs()</strong> 方法就是在 <strong>‘\t’</strong> 处补指定长度<strong>tabsize</strong>的空格，可以自定指定，也可以使用默认的补<strong>8</strong>个空格，即看前面的字符串然后将其补到<strong>tabsize</strong>的整数倍，假如’\t’在串首则直接补<strong>tabsize</strong>数量的空格。</p>
 </blockquote>
@@ -966,7 +987,7 @@ print(s2.expandtabs())
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="HDU2018母牛的故事">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="HDU2018母牛的故事">
                         
                         <span class="card-title">HDU2018母牛的故事</span>
                     </div>
@@ -1019,7 +1040,7 @@ Input
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Java中关于日期的printf格式化输出">
+                        <img src="/medias/featureimages/27.jpg" class="responsive-img" alt="Java中关于日期的printf格式化输出">
                         
                         <span class="card-title">Java中关于日期的printf格式化输出</span>
                     </div>

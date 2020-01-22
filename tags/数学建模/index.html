@@ -25,10 +25,9 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -66,6 +65,17 @@
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -163,6 +173,17 @@
         
         <li class="m-nav-item">
 	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
@@ -235,10 +256,10 @@
                     var typed = new Typed("#subtitle", {
                         strings: ['一钩足以明天下 何况清辉满十分.','Stand a little taller.'],
                         startDelay: 300,
-                        typeSpeed: 100,
+                        typeSpeed: 300,
                         loop: true,
                         backSpeed: 50,
-                        showCursor: true
+                        showCursor: false
                     });
                 </script>
                 
@@ -270,11 +291,20 @@
             <div class="tag-chips">
                 
                 
-                <a href="/tags/Java/" title="Java: 1">
+                <a href="/tags/数据结构与算法训练/" title="数据结构与算法训练: 11">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Java" style="background-color: #F9EBEA;">Java
-                        <span class="tag-length">1</span>
+                            data-tagname="数据结构与算法训练" style="background-color: #F9EBEA;">数据结构与算法训练
+                        <span class="tag-length">11</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/数论/" title="数论: 4">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="数论" style="background-color: #F5EEF8;">数论
+                        <span class="tag-length">4</span>
                     </span>
                 </a>
                 
@@ -282,25 +312,16 @@
                 <a href="/tags/Python3/" title="Python3: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Python3" style="background-color: #F5EEF8;">Python3
+                            data-tagname="Python3" style="background-color: #D5F5E3;">Python3
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/数据结构与算法训练/" title="数据结构与算法训练: 11">
+                <a href="/tags/Java/" title="Java: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="数据结构与算法训练" style="background-color: #D5F5E3;">数据结构与算法训练
-                        <span class="tag-length">11</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Blog/" title="Blog: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Blog" style="background-color: #E8F8F5;">Blog
+                            data-tagname="Java" style="background-color: #E8F8F5;">Java
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -324,11 +345,11 @@
                 </a>
                 
                 
-                <a href="/tags/数论/" title="数论: 4">
+                <a href="/tags/Blog/" title="Blog: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="数论" style="background-color: #82E0AA;">数论
-                        <span class="tag-length">4</span>
+                            data-tagname="Blog" style="background-color: #82E0AA;">Blog
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -342,11 +363,11 @@
                 </a>
                 
                 
-                <a href="/tags/位运算/" title="位运算: 2">
+                <a href="/tags/位运算/" title="位运算: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="位运算" style="background-color: #A3E4D7;">位运算
-                        <span class="tag-length">2</span>
+                        <span class="tag-length">3</span>
                     </span>
                 </a>
                 
@@ -360,10 +381,28 @@
                 </a>
                 
                 
+                <a href="/tags/爬虫/" title="爬虫: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="爬虫" style="background-color: #F8C471;">爬虫
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/javascript/" title="javascript: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="javascript" style="background-color: #F9E79F;">javascript
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/tags/Tomcat/" title="Tomcat: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Tomcat" style="background-color: #F8C471;">Tomcat
+                            data-tagname="Tomcat" style="background-color: #D5F5E3;">Tomcat
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -373,15 +412,6 @@
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="SpringBoot" style="background-color: #F9E79F;">SpringBoot
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/javascript/" title="javascript: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="javascript" style="background-color: #FFF;">javascript
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -405,19 +435,10 @@
                 </a>
                 
                 
-                <a href="/tags/爬虫/" title="爬虫: 1">
+                <a href="/tags/机器学习/" title="机器学习: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="爬虫" style="background-color: #D7BDE2;">爬虫
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/DFS/" title="DFS: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="DFS" style="background-color: #F5EEF8;">DFS
+                            data-tagname="机器学习" style="background-color: #E8F8F5;">机器学习
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -432,28 +453,10 @@
                 </a>
                 
                 
-                <a href="/tags/机器学习/" title="机器学习: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="机器学习" style="background-color: #E8F8F5;">机器学习
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/tags/图像处理/" title="图像处理: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="图像处理" style="background-color: #85C1E9;">图像处理
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Ubuntu/" title="Ubuntu: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Ubuntu" style="background-color: #FEF9E7;">Ubuntu
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -468,11 +471,20 @@
                 </a>
                 
                 
-                <a href="/tags/幂集问题/" title="幂集问题: 1">
+                <a href="/tags/Ubuntu/" title="Ubuntu: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Ubuntu" style="background-color: #FEF9E7;">Ubuntu
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/幂集问题/" title="幂集问题: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="幂集问题" style="background-color: #F8F9F9;">幂集问题
-                        <span class="tag-length">1</span>
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
@@ -481,15 +493,6 @@
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="设计模式" style="background-color: #85C1E9;">设计模式
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/JupyterNotebook/" title="JupyterNotebook: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="JupyterNotebook" style="background-color: #FFF;">JupyterNotebook
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -504,10 +507,28 @@
                 </a>
                 
                 
-                <a href="/tags/字符串/" title="字符串: 1">
+                <a href="/tags/JupyterNotebook/" title="JupyterNotebook: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="JupyterNotebook" style="background-color: #FFF;">JupyterNotebook
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/字符串/" title="字符串: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="字符串" style="background-color: #D7BDE2;">字符串
+                        <span class="tag-length">3</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/数据分析/" title="数据分析: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="数据分析" style="background-color: #F9E79F;">数据分析
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -522,19 +543,145 @@
                 </a>
                 
                 
-                <a href="/tags/数据分析/" title="数据分析: 1">
+                <a href="/tags/PTA/" title="PTA: 16">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="数据分析" style="background-color: #F9E79F;">数据分析
+                            data-tagname="PTA" style="background-color: #D5F5E3;">PTA
+                        <span class="tag-length">16</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/SQLServer/" title="SQLServer: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="SQLServer" style="background-color: #F8C471;">SQLServer
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/PTA/" title="PTA: 1">
+                <a href="/tags/BigInteger/" title="BigInteger: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="PTA" style="background-color: #D5F5E3;">PTA
+                            data-tagname="BigInteger" style="background-color: #FFF;">BigInteger
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/蓝桥杯/" title="蓝桥杯: 6">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="蓝桥杯" style="background-color: #FEF9E7;">蓝桥杯
+                        <span class="tag-length">6</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/回溯法/" title="回溯法: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="回溯法" style="background-color: #A3E4D7;">回溯法
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/BigDecimal/" title="BigDecimal: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="BigDecimal" style="background-color: #E8F8F5;">BigDecimal
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/数独/" title="数独: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="数独" style="background-color: #F8C471;">数独
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/组合数学/" title="组合数学: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="组合数学" style="background-color: #E8F8F5;">组合数学
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/暴力/" title="暴力: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="暴力" style="background-color: #F9EBEA;">暴力
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/DFS/" title="DFS: 3">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="DFS" style="background-color: #F5EEF8;">DFS
+                        <span class="tag-length">3</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/前缀表达式/" title="前缀表达式: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="前缀表达式" style="background-color: #D7BDE2;">前缀表达式
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/哈希表/" title="哈希表: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="哈希表" style="background-color: #A3E4D7;">哈希表
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/BFS/" title="BFS: 3">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="BFS" style="background-color: #E8F8F5;">BFS
+                        <span class="tag-length">3</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/欧拉回路/" title="欧拉回路: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="欧拉回路" style="background-color: #F8F9F9;">欧拉回路
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/并查集/" title="并查集: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="并查集" style="background-color: #D7BDE2;">并查集
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Hamilton回路/" title="Hamilton回路: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Hamilton回路" style="background-color: #85C1E9;">Hamilton回路
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -545,6 +692,15 @@
                              chip-active "
                             data-tagname="数学建模" style="background-color: #FFF;">数学建模
                         <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/前沿科普/" title="前沿科普: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="前沿科普" style="background-color: #F8F9F9;">前沿科普
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -559,13 +715,45 @@
         <div class="row tags-posts">
             
             
+            <div class="article tag-post col s12 m6 l4" data-tags="竞赛感悟, 数学建模" data-aos="fade-up">
+                <div class="card">
+                    <a href="/2019/09/16/2019-09-16-2019-shu-xue-jian-mo-sai-hou-gan-wu-yi-ci-ling-hun-yu-rou-ti-de-jiao-zhi-yi-ci-can-sai-zhong-shen-shou-yi/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="2019数学建模赛后感悟：一次灵魂与肉体的交织&&一次参赛终身收益">
+                            
+                            <span class="card-title">2019数学建模赛后感悟：一次灵魂与肉体的交织&&一次参赛终身收益</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-16
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/感悟/" class="post-category">
+                                感悟
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
             <div class="article tag-post col s12 m6 l4" data-tags="数学建模" data-aos="fade-up">
                 <div class="card">
                     <a href="/2019/09/16/2019-09-16-shu-xue-jian-mo-ji-xun-zhi-shi-da-gang/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="数学建模集训知识大纲">
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="数学建模集训知识大纲">
                             
                             <span class="card-title">数学建模集训知识大纲</span>
                         </div>
@@ -585,38 +773,6 @@
                                 
                                 <a href="/categories/竞赛感悟/数学建模/" class="post-category">
                                 数学建模
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="竞赛感悟, 数学建模" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2019/09/16/2019-09-16-2019-shu-xue-jian-mo-sai-hou-gan-wu-yi-ci-ling-hun-yu-rou-ti-de-jiao-zhi-yi-ci-can-sai-zhong-shen-shou-yi/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="2019数学建模赛后感悟：一次灵魂与肉体的交织&&一次参赛终身收益">
-                            
-                            <span class="card-title">2019数学建模赛后感悟：一次灵魂与肉体的交织&&一次参赛终身收益</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/感悟/" class="post-category">
-                                感悟
                                 </a>
                                 
                                 

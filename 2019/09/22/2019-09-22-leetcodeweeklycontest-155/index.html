@@ -32,10 +32,9 @@ Problem1 最小绝对差
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -73,6 +72,17 @@ Problem1 最小绝对差
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -170,6 +180,17 @@ Problem1 最小绝对差
         
         <li class="m-nav-item">
 	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
@@ -240,7 +261,7 @@ Problem1 最小绝对差
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -306,14 +327,14 @@ Problem1 最小绝对差
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    161
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    6 Min
                 </div>
                 
 
@@ -344,19 +365,19 @@ Problem1 最小绝对差
 <li>遍历，边找边push，只需一遍</li>
 </ul>
 <p><del>貌似代码写复杂了</del></p>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">#include<bits/stdc++.h>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
 using namespace std;
 /*
     LeetCode WeeklyContest-155
 */
-vector<vector<int> > minimumAbsDifference(vector<int>& arr) {
+vector&lt;vector&lt;int&gt; &gt; minimumAbsDifference(vector&lt;int&gt;&amp; arr) {
    sort(arr.begin(),arr.end());
    int n=arr.size();
-   vector<vector<int> > result; 
+   vector&lt;vector&lt;int&gt; &gt; result; 
    int min = arr[1]-arr[0];
-   vector<int> tmp;
-   for(int i=0;i<n-1;i++){
-           if(arr[i+1]-arr[i] < min){
+   vector&lt;int&gt; tmp;
+   for(int i=0;i&lt;n-1;i++){
+           if(arr[i+1]-arr[i] &lt; min){
                min = arr[i+1]-arr[i];
                result.clear();
                tmp.push_back(arr[i]);
@@ -378,26 +399,26 @@ vector<vector<int> > minimumAbsDifference(vector<int>& arr) {
 // 测试下
 int main()
 {
-    vector<int> v;
+    vector&lt;int&gt; v;
     v.push_back(-20);        
     v.push_back(11);        
     v.push_back(26);    
     v.push_back(27);
     v.push_back(40);    
-    vector<vector<int> > result = minimumAbsDifference(v);
-    vector<vector<int> >::iterator rIt;
-    vector<int>::iterator it;
+    vector&lt;vector&lt;int&gt; &gt; result = minimumAbsDifference(v);
+    vector&lt;vector&lt;int&gt; &gt;::iterator rIt;
+    vector&lt;int&gt;::iterator it;
     for(rIt = result.begin();rIt!=result.end();rIt++){
         for(it = (*rIt).begin();it!=(*rIt).end();it++){
-            cout << *it << " ";
+            cout &lt;&lt; *it &lt;&lt; &quot; &quot;;
         }
-        cout << endl;
+        cout &lt;&lt; endl;
     }
 
 
     return 0;
  }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h2 id="Problem-2-丑数-III"><a href="#Problem-2-丑数-III" class="headerlink" title="Problem 2 丑数 III"></a>Problem 2 丑数 III</h2><h3 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h3><blockquote>
 <p>请你帮忙设计一个程序，用来找出第 n 个丑数。<br>丑数是可以被 a 或 b 或 c 整除的 正整数。<br>1 &lt;= n, a, b, c &lt;= 10^9<br>1 &lt;= a <em> b </em> c &lt;= 10^18<br>本题结果在 [1, 2 * 10^9] 的范围内</p>
 </blockquote>
@@ -409,16 +430,16 @@ int main()
 </ul>
 <p>以上都是不可取的<br>**计算1~m之间有多少丑数，设为cnt，然后从n开始折半查找，判断cnt与n的关系，最后直接定位到第n个丑数。<br>另外，如何判断1~m之间有多少丑数？公式如下：</p>
 <script type="math/tex; mode=display">cnt = m/a + m/b + m/c  - m/lcm(a,b)- m/lcm(b,c) - m/lcm(a,c) + m/lcm(lcm(a,b),c)</script><p>其中$lcm(a,b)$是a、b的最小公倍数。**</p>
-<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">/*
+<h3 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h3><pre><code class="lang-cpp">/*
     LeetCode WeeklyContest-155
 */
 
-#include<bits/stdc++.h> 
+#include&lt;bits/stdc++.h&gt; 
 using namespace std;
 typedef long long ll;
 // 避免超范围 ，不妨都写成ll
 ll gcd(int x, int y){
-    if(x>y) swap(x,y);
+    if(x&gt;y) swap(x,y);
     int r = y%x;
     if(r==1) return 1;
     while(r){
@@ -435,11 +456,11 @@ bool countLessN(ll m,int a,int b,int c,int n){
     int cnt = m/a + m/b + m/c
      - m/lcm(a,b) - m/lcm(b,c) - m/lcm(a,c) 
      + m/lcm(lcm(a,b),c);
-     return cnt >= n;
+     return cnt &gt;= n;
 }
 int nthUglyNumber(int n, int a, int b, int c) {
     ll begin =1,end=2e10+5;
-    while(begin+1<end){  // 注意是begin+1<end
+    while(begin+1&lt;end){  // 注意是begin+1&lt;end
         int mid = (begin+end)/2;
         if(countLessN(mid,a,b,c,n))
             end = mid;
@@ -454,10 +475,10 @@ int main()
 {
     int n,a,b,c;
     n = 1000000000, a = 2, b = 217983653, c = 336916467;
-    cout << nthUglyNumber(n,a,b,c);
+    cout &lt;&lt; nthUglyNumber(n,a,b,c);
      return 0; 
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h2 id="Problem3"><a href="#Problem3" class="headerlink" title="Problem3"></a>Problem3</h2><h3 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h3><blockquote>
 <p>给你一个字符串 s，以及该字符串中的一些「索引对」数组 pairs，其中 pairs[i] = [a, b] 表示字符串中的两个索引（编号从 0 开始）。<br>你可以 任意多次交换 在 pairs 中任意一对索引处的字符。<br>返回在经过若干次交换后，s 可以变成的按字典序最小的字符串。</p>
 </blockquote>
@@ -465,26 +486,26 @@ int main()
 <li>难度：Medium</li>
 </ul>
 <h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>先根据索引对建立并查集，构成若干个连通分量，每个连通分量内部排序，使其排成最小字典序，然后再将排完序的连通分量复原，就可以得到最小字典序的字符串了。</p>
-<h3 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h3><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">#include<bits/stdc++.h>
+<h3 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h3><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
 using namespace std;
-vector<int> father,sz;
+vector&lt;int&gt; father,sz;
 int find(int x){  // 并查集  查
     return father[x]==x?x:father[x] = find(father[x]);
 }
-string smallestStringWithSwaps(string s,vector<vector<int> > pairs){
+string smallestStringWithSwaps(string s,vector&lt;vector&lt;int&gt; &gt; pairs){
     int n=s.size();
     father.resize(n);
     sz.resize(n); 
-    for(int i=0;i<n;i++){  // 初始化 
+    for(int i=0;i&lt;n;i++){  // 初始化 
         father[i] = i;
         sz[i] = 1;
     }
     int n1 = pairs.size();
-    for(int i=0;i<n1;i++){
-        vector<int> tmp = pairs[i];
+    for(int i=0;i&lt;n1;i++){
+        vector&lt;int&gt; tmp = pairs[i];
         int f1 = find(tmp[0]),f2=find(tmp[1]);
         if(f1!=f2){
-            if(sz[f1]<sz[f2]){
+            if(sz[f1]&lt;sz[f2]){
                 father[f1] = f2;
                 sz[f2] += sz[f1];
             }
@@ -494,21 +515,21 @@ string smallestStringWithSwaps(string s,vector<vector<int> > pairs){
             }
         }
     }
-    vector<vector<char> > charArr(n);  
-    vector<vector<int> > posArr(n);
+    vector&lt;vector&lt;char&gt; &gt; charArr(n);  
+    vector&lt;vector&lt;int&gt; &gt; posArr(n);
     // 并查集发挥作用 
-    for(int i=0;i<n;i++){
+    for(int i=0;i&lt;n;i++){
         charArr[find(i)].push_back(s[i]);
         posArr[find(i)].push_back(i);    
     }
     // char数组排序 
-    for(int i=0;i<charArr.size();i++){
+    for(int i=0;i&lt;charArr.size();i++){
         sort(charArr[i].begin(),charArr[i].end());
     }
     // 把排完序的联通块，合到一起 
-    string s1(n,'\0');
-    for(int i=0;i<n;i++){
-        for(int j=0;j<charArr[i].size();j++){
+    string s1(n,&#39;\0&#39;);
+    for(int i=0;i&lt;n;i++){
+        for(int j=0;j&lt;charArr[i].size();j++){
             s1[posArr[i][j]] = charArr[i][j];
         }
     }
@@ -518,18 +539,18 @@ string smallestStringWithSwaps(string s,vector<vector<int> > pairs){
 // 测试下
 int main()
 {
-    string s="cba";
-    vector<vector<int> > v;
-    vector<int> s1,s2;
+    string s=&quot;cba&quot;;
+    vector&lt;vector&lt;int&gt; &gt; v;
+    vector&lt;int&gt; s1,s2;
     s1.push_back(0);
     s1.push_back(1);
     s2.push_back(1);
     s2.push_back(2);
     v.push_back(s1),v.push_back(s2);
-    cout << smallestStringWithSwaps(s,v) << endl; 
+    cout &lt;&lt; smallestStringWithSwaps(s,v) &lt;&lt; endl; 
     return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h2 id="Problem4-项目管理"><a href="#Problem4-项目管理" class="headerlink" title="Problem4 项目管理"></a>Problem4 项目管理</h2><p>略</p>
 
             </div>
@@ -1032,7 +1053,7 @@ int main()
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="蛮力法求解幂集问题">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="蛮力法求解幂集问题">
                         
                         <span class="card-title">蛮力法求解幂集问题</span>
                     </div>
@@ -1088,7 +1109,7 @@ int main()
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="联想Y7000装Ubuntu双系统路上的坑">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="联想Y7000装Ubuntu双系统路上的坑">
                         
                         <span class="card-title">联想Y7000装Ubuntu双系统路上的坑</span>
                     </div>

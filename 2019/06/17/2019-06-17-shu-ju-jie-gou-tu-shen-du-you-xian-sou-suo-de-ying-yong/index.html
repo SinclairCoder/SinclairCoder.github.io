@@ -7,11 +7,9 @@
     <meta name="keywords" content="数据结构-图-深度优先搜索的应用, SinclairのBlog">
     <meta name="description" content="@[toc]之前还写过一篇关于DFS的题解入门学习文章，详情见DFS入门学习
 深度优先搜索的应用头文件声明即图的基本运算，详情见数据结构-图-基本运算
-#include&#34;Graph.cpp&#34;
+#include&amp;quot;Graph.cpp&amp;quot;
 
-顶点u到顶点v是否有简单路径
-/*
- 顶点u到">
+顶点u到顶点v是否有简单路">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -31,10 +29,9 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -72,6 +69,17 @@
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -169,6 +177,17 @@
         
         <li class="m-nav-item">
 	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
@@ -239,7 +258,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/24.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -397,21 +416,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-01-21
+                    2020-01-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    506
+                    827
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    2 Min
+                    4 Min
                 </div>
                 
 
@@ -429,14 +448,14 @@
             <div id="articleContent">
                 <p>@[toc]<br>之前还写过一篇关于DFS的题解入门学习文章，详情见<a href="https://blog.csdn.net/SinclairWang/article/details/90346900" target="_blank" rel="noopener">DFS入门学习</a></p>
 <h1 id="深度优先搜索的应用"><a href="#深度优先搜索的应用" class="headerlink" title="深度优先搜索的应用"></a>深度优先搜索的应用</h1><h2 id="头文件声明"><a href="#头文件声明" class="headerlink" title="头文件声明"></a>头文件声明</h2><p>即图的基本运算，详情见<a href="https://blog.csdn.net/SinclairWang/article/details/92407493" target="_blank" rel="noopener">数据结构-图-基本运算</a></p>
-<pre class="line-numbers language-lang-c"><code class="language-lang-c">#include"Graph.cpp"
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre><code class="lang-c">#include&quot;Graph.cpp&quot;
+</code></pre>
 <h2 id="顶点u到顶点v是否有简单路径"><a href="#顶点u到顶点v是否有简单路径" class="headerlink" title="顶点u到顶点v是否有简单路径"></a>顶点u到顶点v是否有简单路径</h2><a id="more"></a>
-<pre class="line-numbers language-lang-c"><code class="language-lang-c">/*
+<pre><code class="lang-c">/*
  顶点u到顶点v是否有简单路径，has表示是否存在 
  典型的DFS 
 */
-void ExistPath(AdjGraph *G,int u, int v, bool &has)
+void ExistPath(AdjGraph *G,int u, int v, bool &amp;has)
 {
     int w;
     ArcNode *p;
@@ -446,17 +465,17 @@ void ExistPath(AdjGraph *G,int u, int v, bool &has)
         has = true;
         return ;
     }
-    p = G->adjlist[u].firstarc;
+    p = G-&gt;adjlist[u].firstarc;
     while(p!=NULL)
     {
-        w = p->adjvex;
+        w = p-&gt;adjvex;
         if(visited[w] == 0)
             ExistPath(G,w,v,has);
-        p = p->nextarc; 
+        p = p-&gt;nextarc; 
     }
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="输出图G中从定点u到v的一条简单路径"><a href="#输出图G中从定点u到v的一条简单路径" class="headerlink" title="输出图G中从定点u到v的一条简单路径"></a>输出图G中从定点u到v的一条简单路径</h2><pre class="line-numbers language-lang-c"><code class="language-lang-c">/*
+</code></pre>
+<h2 id="输出图G中从定点u到v的一条简单路径"><a href="#输出图G中从定点u到v的一条简单路径" class="headerlink" title="输出图G中从定点u到v的一条简单路径"></a>输出图G中从定点u到v的一条简单路径</h2><pre><code class="lang-c">/*
     输出图G中从定点u到v的一条简单路径
     典型的DFS 
 */ 
@@ -470,22 +489,22 @@ void FindPath(AdjGraph *G, int u, int v,int path[], int d)
     path[d] = u; 
     if(u==v)  // 出口 
     {
-        for(int i=0;i<=d;i++)
-            printf("%2d",path[i]);    
-        cout << endl;
+        for(int i=0;i&lt;=d;i++)
+            printf(&quot;%2d&quot;,path[i]);    
+        cout &lt;&lt; endl;
         return ; 
     }    
-    p = G->adjlist[u].firstarc;
+    p = G-&gt;adjlist[u].firstarc;
     while(p!=NULL)
     {
-        w = p->adjvex;
+        w = p-&gt;adjvex;
         if(visited[w]==0)
             FindPath(G,w,v,path,d);
-        p = p->nextarc; 
+        p = p-&gt;nextarc; 
     } 
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="输出图G中从定点u到v的所有简单路径"><a href="#输出图G中从定点u到v的所有简单路径" class="headerlink" title="输出图G中从定点u到v的所有简单路径"></a>输出图G中从定点u到v的所有简单路径</h2><pre class="line-numbers language-lang-c"><code class="language-lang-c">/*
+</code></pre>
+<h2 id="输出图G中从定点u到v的所有简单路径"><a href="#输出图G中从定点u到v的所有简单路径" class="headerlink" title="输出图G中从定点u到v的所有简单路径"></a>输出图G中从定点u到v的所有简单路径</h2><pre><code class="lang-c">/*
     输出图G中从定点u到v的所有简单路径
     典型的DFS 需要额外写一个恢复 
 */ 
@@ -496,24 +515,24 @@ void FindAllPath(AdjGraph *G, int u, int v,int path[], int d)
     visited[u] = 1;
     d++;
     path[d] = u;
-    if(u == v && d>=0) // 出口 
+    if(u == v &amp;&amp; d&gt;=0) // 出口 
     {
-        for(int i=0;i<=d;i++)
-            printf("%2d",path[i]);
-        cout << endl;    
+        for(int i=0;i&lt;=d;i++)
+            printf(&quot;%2d&quot;,path[i]);
+        cout &lt;&lt; endl;    
     } 
-    p = G->adjlist[u].firstarc;
+    p = G-&gt;adjlist[u].firstarc;
     while(p!=NULL)
     {
-        w = p->adjvex;
+        w = p-&gt;adjvex;
         if(visited[w]==0)
             FindAllPath(G,w,v,path,d);
-        p = p->nextarc;
+        p = p-&gt;nextarc;
     }
     visited[u] = 0; // 恢复，该顶点可重复使用 
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="求图G中所有从顶点u到v的长度为l的简单路径"><a href="#求图G中所有从顶点u到v的长度为l的简单路径" class="headerlink" title="求图G中所有从顶点u到v的长度为l的简单路径"></a>求图G中所有从顶点u到v的长度为l的简单路径</h2><pre class="line-numbers language-lang-c"><code class="language-lang-c">/*
+</code></pre>
+<h2 id="求图G中所有从顶点u到v的长度为l的简单路径"><a href="#求图G中所有从顶点u到v的长度为l的简单路径" class="headerlink" title="求图G中所有从顶点u到v的长度为l的简单路径"></a>求图G中所有从顶点u到v的长度为l的简单路径</h2><pre><code class="lang-c">/*
     求图G中所有从顶点u到v的长度为l的简单路径
     典型DFS 
 */
@@ -524,25 +543,25 @@ void  PathlenAll(AdjGraph *G, int u, int v, int l, int path[], int d)
     visited[u] = 1;
     d++;
     path[d] = u;
-    if(u == v&& d==l)
+    if(u == v&amp;&amp; d==l)
     {
-        printf(" ");
-        for(int i=0;i<=d;i++)
-            printf("%2d",path[i]);
-        cout << endl;
+        printf(&quot; &quot;);
+        for(int i=0;i&lt;=d;i++)
+            printf(&quot;%2d&quot;,path[i]);
+        cout &lt;&lt; endl;
     }
-    p = G->adjlist[u].firstarc;
+    p = G-&gt;adjlist[u].firstarc;
     while(p!=NULL)
     {
-         w = p->adjvex;
+         w = p-&gt;adjvex;
         if(visited[w]==0)
             PathlenAll(G,w,v,l,path,d);
-        p = p->nextarc;    
+        p = p-&gt;nextarc;    
     }
     visited[u] = 0;  // 恢复 
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="主函数测试"><a href="#主函数测试" class="headerlink" title="主函数测试"></a>主函数测试</h2><pre class="line-numbers language-lang-c"><code class="language-lang-c">int main()
+</code></pre>
+<h2 id="主函数测试"><a href="#主函数测试" class="headerlink" title="主函数测试"></a>主函数测试</h2><pre><code class="lang-c">int main()
 {
     int path[MAXV];
     int u=1,v=4,l=3;
@@ -551,33 +570,33 @@ void  PathlenAll(AdjGraph *G, int u, int v, int l, int path[], int d)
 
     AdjGraph *G;
     CreateAdj(G,A,n,e);
-    for(int i=0;i<n;i++)
+    for(int i=0;i&lt;n;i++)
         visited[i] = 0;
-    cout << "图G的邻接表：";
+    cout &lt;&lt; &quot;图G的邻接表：&quot;;
     DispAdj(G);
-    cout << "顶点1到4之间是否有简单路径：";
+    cout &lt;&lt; &quot;顶点1到4之间是否有简单路径：&quot;;
     bool has;
     ExistPath(G,1,4,has);
-    cout << has << endl;
+    cout &lt;&lt; has &lt;&lt; endl;
     memset(visited,0,sizeof(visited));
-    cout << "输出一条顶点1到4之间的简单路径：";
+    cout &lt;&lt; &quot;输出一条顶点1到4之间的简单路径：&quot;;
     FindPath(G,1,4,path,-1);
-    cout << endl;
+    cout &lt;&lt; endl;
     memset(visited,0,sizeof(visited));
-    cout << "输出所有顶点1到4之间的简单路径：" << endl;
+    cout &lt;&lt; &quot;输出所有顶点1到4之间的简单路径：&quot; &lt;&lt; endl;
     memset(path,-1,sizeof(path));
     FindAllPath(G,1,4,path,-1); 
-    cout << "输出所有顶点1到4之间长度为4的简单路径：" << endl;
+    cout &lt;&lt; &quot;输出所有顶点1到4之间长度为4的简单路径：&quot; &lt;&lt; endl;
     memset(visited,0,sizeof(visited));
     memset(path,-1,sizeof(path));
     PathlenAll(G,1,4,4,path,-1);
-    cout << "输出所有顶点1到4之间长度为3的简单路径：" << endl;
+    cout &lt;&lt; &quot;输出所有顶点1到4之间长度为3的简单路径：&quot; &lt;&lt; endl;
     memset(visited,0,sizeof(visited));
     memset(path,-1,sizeof(path));
     PathlenAll(G,1,4,3,path,-1);
     return 0;
  }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><img src="https://img-blog.csdnimg.cn/20190617001056832.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="DFS应用"></p>
 <p>写于2019/6/17 00:37  坚持很酷~</p>
 
@@ -1085,7 +1104,7 @@ void  PathlenAll(AdjGraph *G, int u, int v, int l, int path[], int d)
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="JavaScript的prototype属性">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="JavaScript的prototype属性">
                         
                         <span class="card-title">JavaScript的prototype属性</span>
                     </div>
@@ -1098,9 +1117,8 @@ void  PathlenAll(AdjGraph *G, int u, int v, int l, int path[], int d)
 prototype 是函数的属性，它的本质是函数的原型对象
 
 可以以此执行一下如下代码，体会一下。
-
-var ob = { };//超级简单的空对象
-aler
+&lt;script&gt;
+var ob = { };/
                         
                     </div>
                     <div class="publish-info">
@@ -1151,15 +1169,14 @@ aler
                         
                             定义
 图G由两个集合V和E组成，记为G=(V,E)，其中V是顶点的有限集合，记为V(G), E是连接V中两个不同顶点（顶点对）的边的有限集合，记为E(G)
-存储结构
 
+存储结构
 邻接矩阵
 邻接表
 十字链表
 邻接多重表
 
-结构体定义#include
-#
+结构体定义#include&l
                         
                     </div>
                     <div class="publish-info">

@@ -7,8 +7,7 @@
     <meta name="keywords" content="DFS入门学习, SinclairのBlog">
     <meta name="description" content="学习DFS看了很多篇博客慢慢入门，感谢我看过的所有博客，我把其中做过的题目汇总起来，里面有很多是大神的代码，与大家分享。@[toc]
 计蒜客A1601全排列 计蒜客A1601全排列找的是全排列中，排列结果互不相同的个数
-#include 
-">
+#include &amp;">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -28,10 +27,9 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -69,6 +67,17 @@
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -166,6 +175,17 @@
         
         <li class="m-nav-item">
 	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
@@ -236,7 +256,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -401,14 +421,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    304
+                    2.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    12 Min
                 </div>
                 
 
@@ -426,26 +446,26 @@
             <div id="articleContent">
                 <p>学习DFS看了很多篇博客慢慢入门，感谢我看过的所有博客，我把其中做过的题目汇总起来，里面有很多是大神的代码，与大家分享。<br><a id="more"></a><br>@[toc]</p>
 <h2 id="计蒜客A1601全排列"><a href="#计蒜客A1601全排列" class="headerlink" title="计蒜客A1601全排列"></a>计蒜客A1601全排列</h2><p> <a href="https://nanti.jisuanke.com/t/A1601" target="_blank" rel="noopener">计蒜客A1601全排列</a><br>找的是全排列中，排列结果互不相同的个数</p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <iostream>
-#include <algorithm>
+<pre><code class="lang-java">#include &lt;cstdio&gt;
+#include &lt;cstdlib&gt;
+#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+#include &lt;algorithm&gt;
 using namespace std;
 const int N=1e3;
 char str[N], buf[N];//buffer
 int vis[N], total, len;
 void arrange(int num) {
     if (num == len){
-        printf("%s\n", buf);
+        printf(&quot;%s\n&quot;, buf);
         total++;
         return;
     }
-    for (int i = 0; i < len; ++i) {
+    for (int i = 0; i &lt; len; ++i) {
         if (!vis[i]) {
             int j;
-            for (j = i + 1; j < len; ++j) {
-                if (vis[j]&&str[i] == str[j]) {
+            for (j = i + 1; j &lt; len; ++j) {
+                if (vis[j]&amp;&amp;str[i] == str[j]) {
                     break;
                 }
             }
@@ -459,33 +479,33 @@ void arrange(int num) {
     }
 }
 int main() {
-    while (~scanf("%s",str)) {
+    while (~scanf(&quot;%s&quot;,str)) {
         len = strlen(str);
         sort(str, str + len);
         total = 0;
-        buf[len] = '\0';
+        buf[len] = &#39;\0&#39;;
         arrange(0);
-        printf("Total %d\n", total);
+        printf(&quot;Total %d\n&quot;, total);
     }
     return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h2 id="计蒜客A1636素数个数"><a href="#计蒜客A1636素数个数" class="headerlink" title="计蒜客A1636素数个数"></a>计蒜客A1636素数个数</h2><p> <a href="https://nanti.jisuanke.com/t/A1636" target="_blank" rel="noopener">计蒜客A1636素数个数</a><br> 题目大致是求0~7的全排列组成的数字（首位不为0）中素数的个数，该题可理解为在全排列的基础上进行了条件限制</p>
 <ol>
-<li>DFS+判断  答案：2668<pre class="line-numbers language-lang-java"><code class="language-lang-java">#include<iostream>
-#include<cstring>
-#include<cmath>
-#include<cstdlib>
+<li>DFS+判断  答案：2668<pre><code class="lang-java">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;cmath&gt;
+#include&lt;cstdlib&gt;
 using namespace std;
 typedef unsigned long long ll;
 int isPrime1(ll s)
 {
 if(s==2||s==3)
     return 1;
-if(s%6!=1&&s%6!=5)
+if(s%6!=1&amp;&amp;s%6!=5)
     return 0;
 int t = sqrt(s);
-for(int i=5;i<=t;i++)
+for(int i=5;i&lt;=t;i++)
 {
     if(s%i==0||s%(i+2)==0)
         return 0;
@@ -494,7 +514,7 @@ return 1;
 }
 int isPrime2(ll s)
 {
-for(int i=2;i*i<=s;i++)
+for(int i=2;i*i&lt;=s;i++)
     {
         if(s%i==0) return 0 ;
     }
@@ -509,18 +529,18 @@ void dfs(int x)
 if(x == n)
 {
     int s = 0;
-    for(int i=0;i<n;i++)
+    for(int i=0;i&lt;n;i++)
         s += (a[i]*pow(10,x-1-i));
     if(isPrime1(s))
     {
-        //cout << s << endl;
+        //cout &lt;&lt; s &lt;&lt; endl;
         cnt++;
     }
     return ;
 }
-for(int i=0;i<n;i++)
+for(int i=0;i&lt;n;i++)
 {
-    if(i==0&&a[i]==0)
+    if(i==0&amp;&amp;a[i]==0)
         continue;
     if(vis[i] ==false)
     {
@@ -533,31 +553,31 @@ for(int i=0;i<n;i++)
 }
 int main()
 {
-//cin >> n;
+//cin &gt;&gt; n;
 n = 8;
 cnt = 0;
 dfs(0); //从0开始搜
-cout << cnt;
+cout &lt;&lt; cnt;
 return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 2.调用现成的排列函数next_permutation(a,a+8)<br>P.S：其实一开始把它给忘了，一直在想怎末用DFS来实现\捂脸=_=，记得这个函数如果n较大会很耗时间，但是用这个函数可以减少代码量，刚好这个题是填空题</li>
 </ol>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">#include<iostream>
-#include<cstring>
-#include<cmath>
-#include<cstdlib>
-#include<algorithm>
+<pre><code class="lang-java">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;cmath&gt;
+#include&lt;cstdlib&gt;
+#include&lt;algorithm&gt;
 using namespace std;
 typedef unsigned long long ll;
 int isPrime1(ll s)
 {
     if(s==2||s==3)
         return 1;
-    if(s%6!=1&&s%6!=5)
+    if(s%6!=1&amp;&amp;s%6!=5)
         return 0;
     int t = sqrt(s);
-    for(int i=5;i<=t;i++)
+    for(int i=5;i&lt;=t;i++)
     {
         if(s%i==0||s%(i+2)==0)
             return 0;
@@ -566,7 +586,7 @@ int isPrime1(ll s)
 }
 int isPrime2(ll s)
 {
-    for(int i=2;i*i<=s;i++)
+    for(int i=2;i*i&lt;=s;i++)
         {
             if(s%i==0) return 0 ;
         }
@@ -588,32 +608,32 @@ int main()
                 t++;
           }
       }while(next_permutation(a,a+8));//C++中的全排列函数 
-    cout<<t;
+    cout&lt;&lt;t;
     return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h2 id="计蒜客A1146补全等式"><a href="#计蒜客A1146补全等式" class="headerlink" title="计蒜客A1146补全等式"></a>计蒜客A1146补全等式</h2><p><a href="https://nanti.jisuanke.com/t/A1146" target="_blank" rel="noopener">计蒜客A1146补全等式</a><br>1.暴力解法：全排列+判断 时间稍长预计需要172.4s  答案：122368</p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">//
-#include<stdio.h>
-#include<iostream>
-#include<algorithm>
+<pre><code class="lang-java">//
+#include&lt;stdio.h&gt;
+#include&lt;iostream&gt;
+#include&lt;algorithm&gt;
 using namespace std;
 int main() {
     int a[13];
-    for(int i=0;i<13;i++)
+    for(int i=0;i&lt;13;i++)
     {
         a[i] = i+1;
     }
     int cnt =0;
     do{
-        if(a[0]*a[1]+a[2]*a[3] == a[4]*a[5]&&
+        if(a[0]*a[1]+a[2]*a[3] == a[4]*a[5]&amp;&amp;
         a[6]*a[7]-a[8]*a[9] == a[10]*a[11])
         cnt ++;
     }while(next_permutation(a,a+13));
-    cout << cnt;
+    cout &lt;&lt; cnt;
     return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <ol>
 <li>DFS+剪枝 0.88s<br>```java</li>
 </ol>
@@ -659,8 +679,8 @@ int main()
     cout &lt;&lt; num;
     return 0;
 }
-</code></pre><h2 id="实现全排列（可单调递增）"><a href="#实现全排列（可单调递增）" class="headerlink" title="实现全排列（可单调递增）"></a>实现全排列（可单调递增）</h2><pre class="line-numbers language-lang-java"><code class="language-lang-java">#include<iostream>
-#include<string.h>
+</code></pre><h2 id="实现全排列（可单调递增）"><a href="#实现全排列（可单调递增）" class="headerlink" title="实现全排列（可单调递增）"></a>实现全排列（可单调递增）</h2><pre><code class="lang-java">#include&lt;iostream&gt;
+#include&lt;string.h&gt;
 using namespace std;
 int p[10]= {0};
 bool vis[10] = {false};
@@ -669,14 +689,14 @@ void dfs(int x)
 {
     if(x == n+1)
     {
-        for(int i=1;i<=n;i++)
-            cout << p[i] << " ";
-        cout << endl;
+        for(int i=1;i&lt;=n;i++)
+            cout &lt;&lt; p[i] &lt;&lt; &quot; &quot;;
+        cout &lt;&lt; endl;
     }
-    for(int i=1;i<=n;i++)
+    for(int i=1;i&lt;=n;i++)
     {
         //if(vis[i]==false)
-        if(vis[i]==false&&i>p[x-1]) /*如若实现单调递增的全排列 */ 
+        if(vis[i]==false&amp;&amp;i&gt;p[x-1]) /*如若实现单调递增的全排列 */ 
         {
             p[x] = i;
             vis[i] = true;
@@ -687,7 +707,7 @@ void dfs(int x)
 }
 int main()
 {
-    while(cin >> n)
+    while(cin &gt;&gt; n)
     {
         dfs(1);
         memset(p,0,sizeof(p));
@@ -696,16 +716,16 @@ int main()
 
     return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h2 id="1-n求所有可能的出栈序列（序列个数）"><a href="#1-n求所有可能的出栈序列（序列个数）" class="headerlink" title="1~n求所有可能的出栈序列（序列个数）"></a>1~n求所有可能的出栈序列（序列个数）</h2><p>首先先考虑序列个数有两种解法<br>1.卡特兰树$\tbinom{n}{2n}$/(n+1)</p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">#include<iostream>
-#include<string.h>
+<pre><code class="lang-java">#include&lt;iostream&gt;
+#include&lt;string.h&gt;
 using namespace std;
 int n;
 int fun(int n) //当然这里n不能过大，过大的话会爆，需要另当别论
 {
     int s = 1;
-    for(int i=2*n,j=1;i>=n+1,j<=n;i--,j++)
+    for(int i=2*n,j=1;i&gt;=n+1,j&lt;=n;i--,j++)
     {
         s = s*i/j;
     }
@@ -713,14 +733,14 @@ int fun(int n) //当然这里n不能过大，过大的话会爆，需要另当�
 }
 int main()
 {
-    cin >> n;
-    cout << fun(n)/(n+1);
+    cin &gt;&gt; n;
+    cout &lt;&lt; fun(n)/(n+1);
     return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>2.DFS思想，用三个变量，num表示栈内元素个数，假如想进栈出栈n个元素对应的需要进栈n次出栈n次，用push表示所需进栈次数，pop表示所需出栈次数</p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">#include<iostream>
-#include<string.h>
+<pre><code class="lang-java">#include&lt;iostream&gt;
+#include&lt;string.h&gt;
 using namespace std;
 int n;
 int p[10]={0};
@@ -728,28 +748,28 @@ bool vis[10] = {false};
 int count;
 void dfs(int num, int pop, int push)
 {
-    if(pop==0&&push==0)
+    if(pop==0&amp;&amp;push==0)
     {
         count++;
         return ;
     }
-    if(push>0)
+    if(push&gt;0)
         dfs(num+1,pop,push-1);
-    if(pop>0&&num>0)
+    if(pop&gt;0&amp;&amp;num&gt;0)
         dfs(num-1,pop-1,push);
 }
 int main()
 {
-    cin >> n;
+    cin &gt;&gt; n;
     count = 0;
     dfs(0,n,n);
-    cout << count;
+    cout &lt;&lt; count;
     return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h2 id="【递归入门】n皇后-问题（原始的8皇后问题）"><a href="#【递归入门】n皇后-问题（原始的8皇后问题）" class="headerlink" title="【递归入门】n皇后 问题（原始的8皇后问题）"></a>【递归入门】n皇后 问题（原始的8皇后问题）</h2><p><a href="http://codeup.cn/problem.php?cid=100000608&amp;pid=3" target="_blank" rel="noopener">【递归入门】n皇后 问题（原始的8皇后问题）</a></p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">#include<iostream>
-#include<cmath>
+<pre><code class="lang-java">#include&lt;iostream&gt;
+#include&lt;cmath&gt;
 using namespace std;
 const int maxn = 25;
 int c = 0,Data[maxn] = {0};//c代表解的个数
@@ -757,22 +777,22 @@ bool hashTable[maxn] = {0};
 
 void dfs(int n, int k) // 在n行n列的棋盘上在第k行放置皇后，进行尝试 
 {
-    if(k > n)
+    if(k &gt; n)
     {
-        for(int i=1;i<=n;i++)
+        for(int i=1;i&lt;=n;i++)
         {
-            cout << Data[i];
-            if(i<n) cout << " ";
+            cout &lt;&lt; Data[i];
+            if(i&lt;n) cout &lt;&lt; &quot; &quot;;
         }    
-        cout << endl;
+        cout &lt;&lt; endl;
         c++;
     } 
-    for(int i=1;i<=n;i++)
+    for(int i=1;i&lt;=n;i++)
     {
         if(hashTable[i] == false)
         {
             bool isvalid = true;
-            for(int j =1;j<k;j++) 
+            for(int j =1;j&lt;k;j++) 
             {
                 if(k-j == abs(i-Data[j]))  // (k,i) 与 (j,Data[j]) 
                 {
@@ -794,25 +814,25 @@ void dfs(int n, int k) // 在n行n列的棋盘上在第k行放置皇后，进行
 int main()
 {
     int n;
-    cin >> n;
+    cin &gt;&gt; n;
     c = 0;
     dfs(n,1);
-    if(c==0) cout << "no solute!"<< endl;
-    cout << "total:" << c << endl;
+    if(c==0) cout &lt;&lt; &quot;no solute!&quot;&lt;&lt; endl;
+    cout &lt;&lt; &quot;total:&quot; &lt;&lt; c &lt;&lt; endl;
     return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h2 id="HDU2553-N皇后问题"><a href="#HDU2553-N皇后问题" class="headerlink" title="HDU2553 N皇后问题"></a>HDU2553 N皇后问题</h2><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=2553" target="_blank" rel="noopener">HDU2553 N皇后问题</a><br>DFS+打表<br>打表很重要，不然很可能超时，来个TLE！</p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">#include<iostream>
-#include<string.h>
-#include<math.h>
+<pre><code class="lang-java">#include&lt;iostream&gt;
+#include&lt;string.h&gt;
+#include&lt;math.h&gt;
 using namespace std;
 int sum,n;
 int x[15],y[15]={0};
 int place(int k)
 {
     int i;
-    for(i=1;i<k;i++)
+    for(i=1;i&lt;k;i++)
     {
         if(abs(k-i)==abs(x[k]-x[i])||x[k]==x[i])
         {
@@ -824,13 +844,13 @@ int place(int k)
 void dfs(int a)
 {
     int i;
-    if(a>n)
+    if(a&gt;n)
     {
         sum++;
         return ;
     }
     else
-    for(i=1;i<=n;i++)
+    for(i=1;i&lt;=n;i++)
     {
         x[a] = i;
         if(place(a))
@@ -841,49 +861,49 @@ void dfs(int a)
 int main()
 {
     int i,j,n1;
-    for(int i=1;i<=10;i++)
+    for(int i=1;i&lt;=10;i++)
     {
         n = i;
         sum = 0;
         dfs(1);
         y[i] = sum;
     }
-    while(cin >> n1 &&n1)
+    while(cin &gt;&gt; n1 &amp;&amp;n1)
     {
-        cout << y[n1] << endl;
+        cout &lt;&lt; y[n1] &lt;&lt; endl;
     }
     return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h2 id="激光样式"><a href="#激光样式" class="headerlink" title="激光样式"></a>激光样式</h2><blockquote>
 <p>这是一道2018蓝桥B组国赛题目</p>
 <p>大概是就是有三十盏灯，排成一排，相邻两盏灯不能同时打开，问有多少种打开方式？当然全都不打开也算一种。<br>1.位运算    2.433s<br>偶然间看到一位大神的解法，觉得位运算是真的厉害，大概思想是用一个整型x来表示排列情况，将x左移一位，然后在于x本身相与，假如结果为0，就表明这是一种正确的排列方式，然后计数，代码真的是太简单了</p>
 </blockquote>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">#include<iostream>
-#include<string.h>
-#include<algorithm>
+<pre><code class="lang-java">#include&lt;iostream&gt;
+#include&lt;string.h&gt;
+#include&lt;algorithm&gt;
 using namespace std;
 bool get(int x)
 {
-    if(x&(x<<1)) return false;
+    if(x&amp;(x&lt;&lt;1)) return false;
     else return true;
 }
 int main()
 {
     int ans = 0;
-    for(int i=0;i<1<<30;i++)
+    for(int i=0;i&lt;1&lt;&lt;30;i++)
     {
         if(get(i)){
                 ans++;
         }    
     }
-    cout << ans << endl;
+    cout &lt;&lt; ans &lt;&lt; endl;
     return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>2.DFS<br>不过说起来还是深搜快，零点几秒，反正这是个填空题，能做出来就行呗。</p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">#include<iostream>
-#include<string.h>
+<pre><code class="lang-java">#include&lt;iostream&gt;
+#include&lt;string.h&gt;
 using namespace std;
 typedef long long ll;
 ll ans;
@@ -906,12 +926,12 @@ void dfs(int x)
 int main()
 {
     dfs(1);
-    cout << ans << endl;
+    cout &lt;&lt; ans &lt;&lt; endl;
     return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h2 id="【递归入门】走迷宫"><a href="#【递归入门】走迷宫" class="headerlink" title="【递归入门】走迷宫"></a>【递归入门】走迷宫</h2><p><a href="http://codeup.cn/problem.php?id=5978" target="_blank" rel="noopener">Codeup5978【递归入门】走迷宫</a></p>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">#include<iostream>
+<pre><code class="lang-java">#include&lt;iostream&gt;
 using namespace std;
 int a[20][20], endx, endy, m, n;
 bool no = true;
@@ -924,20 +944,20 @@ struct Route {
 
 void DFS(int x, int y, int num) 
 {
-    if (x == endx&&y == endy) 
+    if (x == endx&amp;&amp;y == endy) 
     {
-        for (int i = 0; i < num; i++) 
+        for (int i = 0; i &lt; num; i++) 
         {
-            printf("(%d,%d)->",route[i].x,route[i].y);
+            printf(&quot;(%d,%d)-&gt;&quot;,route[i].x,route[i].y);
         }
-        printf("(%d,%d)\n",x,y);
+        printf(&quot;(%d,%d)\n&quot;,x,y);
         no = false;
         return;
     }
     route[num].x = x, route[num].y = y;
-    for (int i = 0; i < 4; i++) 
+    for (int i = 0; i &lt; 4; i++) 
     {
-        if (a[x + dx[i]][y + dy[i]] == 1 && 1 <= x + dx[i] <= m && 1 <= y + dy[i] <= n) 
+        if (a[x + dx[i]][y + dy[i]] == 1 &amp;&amp; 1 &lt;= x + dx[i] &lt;= m &amp;&amp; 1 &lt;= y + dy[i] &lt;= n) 
         {
             a[x][y] = 0;
             DFS(x + dx[i], y + dy[i], num + 1);
@@ -948,23 +968,23 @@ void DFS(int x, int y, int num)
 }
 
 int main() {
-    while (cin >> m >> n) 
+    while (cin &gt;&gt; m &gt;&gt; n) 
     {
-        for (int i = 1; i <= m; i++) 
+        for (int i = 1; i &lt;= m; i++) 
         {
-            for (int j = 1; j <= n; j++) 
+            for (int j = 1; j &lt;= n; j++) 
             {
-                cin >> a[i][j];
+                cin &gt;&gt; a[i][j];
             }
         }
         int startx, starty;
-        cin >> startx >> starty >> endx >> endy;
+        cin &gt;&gt; startx &gt;&gt; starty &gt;&gt; endx &gt;&gt; endy;
         DFS(startx, starty, 0);
-        if (no) cout << -1 << endl;
+        if (no) cout &lt;&lt; -1 &lt;&lt; endl;
     }
     return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 
             </div>
             <hr/>
@@ -1470,7 +1490,7 @@ int main() {
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="最妙不过位运算">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="最妙不过位运算">
                         
                         <span class="card-title">最妙不过位运算</span>
                     </div>
@@ -1526,7 +1546,7 @@ int main() {
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="7-29 修理牧场">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="7-29 修理牧场">
                         
                         <span class="card-title">7-29 修理牧场</span>
                     </div>

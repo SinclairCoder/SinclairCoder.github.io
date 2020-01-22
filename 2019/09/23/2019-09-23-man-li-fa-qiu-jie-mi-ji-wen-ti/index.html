@@ -32,10 +32,9 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -73,6 +72,17 @@
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -170,6 +180,17 @@
         
         <li class="m-nav-item">
 	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
@@ -240,7 +261,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -306,14 +327,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    199
+                    555
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    2 Min
                 </div>
                 
 
@@ -385,7 +406,7 @@
 </table>
 </div>
 <p>算法复杂度:   $O(n*2^n)$</p>
-<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><pre class="line-numbers language-lang-c"><code class="language-lang-c">#include<bits/stdc++.h>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><pre><code class="lang-c">#include&lt;bits/stdc++.h&gt;
 using namespace std;
 /*
     Alogorithm Design
@@ -396,7 +417,7 @@ using namespace std;
  // 将b表示的二进制加1  
     // b数组下表从小到大对应从低到高位 
 int inc(int b[],int n){
-    for(int i=0;i<n;i++){
+    for(int i=0;i&lt;n;i++){
         if(b[i])    b[i]=0;
         else{
             b[i] = 1;
@@ -407,42 +428,42 @@ int inc(int b[],int n){
 
 void PSet(int a[],int b[],int n){
     int pw = (int)pow(2,n);
-    printf("1到%d的幂集为：\n",n);
-    for(int i=0;i<pw;i++){
-        cout << "{";
-        for(int i=0;i<n;i++){
+    printf(&quot;1到%d的幂集为：\n&quot;,n);
+    for(int i=0;i&lt;pw;i++){
+        cout &lt;&lt; &quot;{&quot;;
+        for(int i=0;i&lt;n;i++){
             if(b[i])
-                printf(" %d ",a[i]);
+                printf(&quot; %d &quot;,a[i]);
         }
-        cout << "}";
+        cout &lt;&lt; &quot;}&quot;;
         inc(b,n);
     }
-    cout << endl;
+    cout &lt;&lt; endl;
 }
 int main()
 {
     int n=3;
     int a[10],b[10];
-    for(int i=0;i<n;i++){
+    for(int i=0;i&lt;n;i++){
         a[i] = i+1;
         b[i] = 0;
     }
     PSet(a,b,n);
     return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h3 id="解法二-枚举增量法"><a href="#解法二-枚举增量法" class="headerlink" title="解法二 枚举增量法"></a>解法二 枚举增量法</h3><h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p>从最初的空集开始，往里面加第一个元素，将得到的子幂集与原来的幂集合并，就得到了新的子幂集，然后再重复以上操作。<br>算法复杂度:   $O(2^n)$</p>
-<h4 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h4><pre class="line-numbers language-lang-c"><code class="language-lang-c">#include<bits/stdc++.h>
+<h4 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h4><pre><code class="lang-c">#include&lt;bits/stdc++.h&gt;
 using namespace std;
-vector<vector<int> > PSet;  // 全局变量 存放幂集 
+vector&lt;vector&lt;int&gt; &gt; PSet;  // 全局变量 存放幂集 
 
 void PSetSolve(int n){
-    vector<vector<int> > tmp;  // 子幂集 
-    vector<int> v;
+    vector&lt;vector&lt;int&gt; &gt; tmp;  // 子幂集 
+    vector&lt;int&gt; v;
     PSet.push_back(v);
-    vector<vector<int> >::iterator pit;
-    vector<int>::iterator it;
-    for(int i=1;i<=n;i++){
+    vector&lt;vector&lt;int&gt; &gt;::iterator pit;
+    vector&lt;int&gt;::iterator it;
+    for(int i=1;i&lt;=n;i++){
         tmp = PSet;
         for(pit=tmp.begin();pit!=tmp.end();pit++){
             (*pit).push_back(i);
@@ -455,13 +476,13 @@ void PSetSolve(int n){
 }
 // 打印幂集 
 void disp(int n){
-    printf("1到%d的幂集为：\n",n);
-    for(int i=0;i<pow(2,n);i++){
-        vector<int> v = PSet[i];
-        cout << "{";
-        for(int j=0;j<v.size();j++)
-            printf(" %d ",v[j]);
-        cout << "}"; 
+    printf(&quot;1到%d的幂集为：\n&quot;,n);
+    for(int i=0;i&lt;pow(2,n);i++){
+        vector&lt;int&gt; v = PSet[i];
+        cout &lt;&lt; &quot;{&quot;;
+        for(int j=0;j&lt;v.size();j++)
+            printf(&quot; %d &quot;,v[j]);
+        cout &lt;&lt; &quot;}&quot;; 
     }
 }
 int main()
@@ -471,7 +492,7 @@ int main()
     disp(n);
     return 0;    
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 
             </div>
             <hr/>
@@ -973,7 +994,7 @@ int main()
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="设计模式(一)">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="设计模式(一)">
                         
                         <span class="card-title">设计模式(一)</span>
                     </div>
@@ -1033,7 +1054,7 @@ int main()
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="LeetCodeWeeklyContest-155">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="LeetCodeWeeklyContest-155">
                         
                         <span class="card-title">LeetCodeWeeklyContest-155</span>
                     </div>

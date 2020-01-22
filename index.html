@@ -25,10 +25,9 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -66,6 +65,17 @@
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -157,6 +167,17 @@
 			    <i class="fa-fw fas fa-tags"></i>
 			
 			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
 		</a>
           
         </li>
@@ -289,10 +310,10 @@
                     var typed = new Typed("#subtitle", {
                         strings: ['一钩足以明天下 何况清辉满十分.','Stand a little taller.'],
                         startDelay: 300,
-                        typeSpeed: 100,
+                        typeSpeed: 300,
                         loop: true,
                         backSpeed: 50,
-                        showCursor: true
+                        showCursor: false
                     });
                 </script>
                 
@@ -364,7 +385,56 @@
         
             
             <div class="carousel-item amber white-text carousel-post bg-cover"
-                 style="background-image: url('/medias/featureimages/2.jpg');">
+                 style="background-image: url('/medias/featureimages/1.jpg');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s10 offset-s1">
+                            <div class="title center-align">《大数据智能》阅读笔记</div>
+                            <div class="description center-align">
+                                
+                                    
+博观而约取，厚积而薄发。                            　　　　　　　　　　——-苏轼
+
+尽管书的名字是《大数据智能》，实则内容则是互联网时代的机器学习和自然语言处理技术的综述。对于nlper，读一读受益匪浅。抑或
+                                
+                            </div>
+                            <div class="cover-btns">
+                                <a href="/2020/01/15/2020-01-15-da-shu-ju-zhi-neng-yue-du-bi-ji/" class="waves-effect waves-light btn" target="_blank">
+                                    <i class="icon fa fa-eye fa-fw"></i>Read more
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="carousel-item amber white-text carousel-post bg-cover"
+                 style="background-image: url('/medias/featureimages/4.jpg');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s10 offset-s1">
+                            <div class="title center-align">Common (Easy、Middle 、Hard)</div>
+                            <div class="description center-align">
+                                
+                                    一道题
+Easy Version题目描述$求区间 [l, r] 内是 a 或 b 的倍数的数的个数。$
+Input$第一行一个正整数 T, 代表测试的组数。$$之后 T 行，每行四个正整数 a, b, l, r, 以空格分隔，意义如题面所述
+                                
+                            </div>
+                            <div class="cover-btns">
+                                <a href="/2019/12/06/2019-12-06-common-easy-middle-hard/" class="waves-effect waves-light btn" target="_blank">
+                                    <i class="icon fa fa-eye fa-fw"></i>Read more
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="carousel-item amber white-text carousel-post bg-cover"
+                 style="background-image: url('/medias/featureimages/10.jpg');">
                 <div class="container">
                     <div class="row">
                         <div class="col s10 offset-s1">
@@ -425,7 +495,7 @@ SinclairWang 个人博客同步更新，欢迎关注相信每个参赛者都会�
     $(function () {
         let coverSlider = $('.carousel');
         coverSlider.carousel({
-            duration: Number('120'),
+            duration: Number('100'),
             fullWidth: true,
             indicators: 'true' === 'true'
         });
@@ -436,7 +506,7 @@ SinclairWang 个人博客同步更新，欢迎关注相信每个参赛者都会�
         let autoCarousel = function() {
             carouselIntervalId = setInterval(function () {
                 coverSlider.carousel('next');
-            }, 5000);
+            }, 3000);
         };
         autoCarousel();
         
@@ -514,7 +584,7 @@ $(function () {
         loop: 'all',
         order: 'random',
         preload: 'auto',
-        volume: Number('0.7'),
+        volume: Number('0.5'),
         listFolded: 'false' === 'true',
         listMaxHeight: '',
         audio: eval([{"name":"那女孩对我说","artist":"戴羽彤","url":"http://music.163.com/song/media/outer/url?id=1396568325.mp3","cover":"https://cn.bing.com/th?id=OIP.kiLw-v0q2PijuwPRLOPgfQHaJQ&pid=Api&rs=1"},{"name":"光年之外","artist":"邓紫棋","url":"http://mp32.9ku.com/upload/2017/04/26/861243.m4a","cover":"https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D500/sign=60b1cfbacc5c1038207ecec28210931c/91ef76c6a7efce1b14f7076aa551f3deb58f65b6.jpg"},{"name":"不再犹豫 (Live)+体面 (Live)","artist":"于文文","url":"http://music.163.com/song/media/outer/url?id=1407757605.mp3","cover":"https://tse3-mm.cn.bing.net/th/id/OIP.zqB7IpOMTOmqubbzcVNUfQAAAA?w=212&h=212&c=7&o=5&dpr=1.25&pid=1.7"},{"name":"何为永恒","artist":"胡夏","url":"http://music.163.com/song/media/outer/url?id=1348548038.mp3","cover":"http://pic.qingting.fm/channel/2019/03/18/85c54729e9a890f5d97c9c6af2001d1b.jpg!200"},{"name":"梦幻诛仙","artist":"张碧晨","url":"http://music.163.com/song/media/outer/url?id=438456232.mp3","cover":"http://img5.iqilu.com/c/u/2016/1101/1477975989160.jpg"},{"name":"萧琴合奏","artist":"许昊珂","url":"http://music.163.com/song/media/outer/url?id=1351449586.mp3","cover":"http://pic.qingting.fm/channel/2019/03/18/85c54729e9a890f5d97c9c6af2001d1b.jpg!200"},{"name":"慢慢喜欢你","artist":"莫文蔚","url":"http://music.163.com/song/media/outer/url?id=541687281.mp3","cover":"http://imge.kugou.com/stdmusic/20180524/20180524001021751841.jpg"},{"name":"大雨将至","artist":"徐佳莹","url":"http://music.163.com/song/media/outer/url?id=29774430.mp3","cover":"https://cn.bing.com/th?id=OIP.xH0Jw0bAPnqGcN0tUalPAwHaG9&pid=Api&rs=1"}])
@@ -566,7 +636,7 @@ $(function () {
     
     
     <div class="col s12 m6" >
-        <div class="post-card" style="background-image: url('/medias/featureimages/20.jpg')">
+        <div class="post-card" style="background-image: url('/medias/featureimages/4.jpg')">
             <div class="post-body">
                 <div class="post-categories">
                     
@@ -664,7 +734,7 @@ $(function () {
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="软件体系结构笔记">
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="软件体系结构笔记">
                             
                             <span class="card-title">软件体系结构笔记</span>
                         </div>
@@ -713,35 +783,32 @@ $(function () {
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/11/03/2019-11-03-leetcodeweeklycontest-161/">
+                    <a href="/2020/01/20/2020-01-20-pta-peng-you-quan-bing-cha-ji/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="LeetCodeWeeklyContest-161">
+                            <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="PTA朋友圈(并查集)">
                             
-                            <span class="card-title">LeetCodeWeeklyContest-161</span>
+                            <span class="card-title">PTA朋友圈(并查集)</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                希望你还有诗和远方。
-
-
-传送门： 第 161 场周赛交换字符使得字符串相同有两个长度相同的字符串 s1 和 s2，且它们其中 只含有 字符 “x” 和 “y”，你需要通过「交换字符」的方式使这两个字符串相同。每次「交换字符」的时候，你都可
+                                某学校有N个学生，形成M个俱乐部。每个俱乐部里的学生有着一定相似的兴趣爱好，形成一个朋友圈。一个学生可以同时属于若干个不同的俱乐部。根据“我的朋友的朋友也是我的朋友”这个推论可以得出，如果A和B是朋友，且B和C是朋友，则A和C也是朋友。请编
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-20
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/leetcode/" class="post-category">
-                                    leetcode
+                                <a href="/categories/PTA/" class="post-category">
+                                    PTA
                                 </a>
                                 
                                 
@@ -752,8 +819,12 @@ $(function () {
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/leetcode/">
-                            <span class="chip bg-color">leetcode</span>
+                        <a href="/tags/PTA/">
+                            <span class="chip bg-color">PTA</span>
+                        </a>
+                        
+                        <a href="/tags/并查集/">
+                            <span class="chip bg-color">并查集</span>
                         </a>
                         
                     </div>
@@ -763,37 +834,299 @@ $(function () {
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/11/01/2019-11-1-pta-zi-fu-chuan-zhuan-huan-cheng-shi-jin-zhi-zheng-shu/">
+                    <a href="/2020/01/20/2020-01-20-pta-lie-chu-lian-tong-ji-dfs-bfs/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="PTA字符串转换成十进制整数">
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="PTA列出连通集(DFS+BFS)">
                             
-                            <span class="card-title">PTA字符串转换成十进制整数</span>
+                            <span class="card-title">PTA列出连通集(DFS+BFS)</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-初闻不知曲中意，再闻已是曲中人
-
-去年此时正被这套PTA题目折磨，一年之后再写这些题目，记忆尤新，经历的酸楚自然是值得的。
-
-题目描述输入一个以#结束的字符串，本题要求滤去所有的非十六进制字符（不分大小写），组成一个新的表示十六进制数字的
+                                给定一个有N个顶点和E条边的无向图，请用DFS和BFS分别列出其所有的连通集。假设顶点从0到N−1编号。进行搜索时，假设我们总是从编号最小的顶点出发，按编号递增的顺序访问邻接点。
+输入格式:输入第1行给出2个整数N(0&lt;N≤10)和E
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-20
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/数据结构与算法训练/" class="post-category">
-                                    数据结构与算法训练
+                                <a href="/categories/PTA/" class="post-category">
+                                    PTA
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/PTA/">
+                            <span class="chip bg-color">PTA</span>
+                        </a>
+                        
+                        <a href="/tags/DFS/">
+                            <span class="chip bg-color">DFS</span>
+                        </a>
+                        
+                        <a href="/tags/BFS/">
+                            <span class="chip bg-color">BFS</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/01/19/2020-01-19-pta-han-mi-er-dun-hui-lu/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="PTA汉密尔顿回路">
+                            
+                            <span class="card-title">PTA汉密尔顿回路</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                著名的“汉密尔顿（Hamilton）回路问题”是要找一个能遍历图中所有顶点的简单回路（即每个顶点只访问 1 次）。本题就要求你判断任一给定的回路是否汉密尔顿回路。
+输入格式：首先第一行给出两个正整数：无向图中顶点数 N（2&lt;N≤200
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/PTA/" class="post-category">
+                                    PTA
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/PTA/">
+                            <span class="chip bg-color">PTA</span>
+                        </a>
+                        
+                        <a href="/tags/Hamilton回路/">
+                            <span class="chip bg-color">Hamilton回路</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/01/19/2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）">
+                            
+                            <span class="card-title">PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                哥尼斯堡是位于普累格河上的一座城市，它包含两个岛屿及连接它们的七座桥，可否走过这样的七座桥，而且每桥只走过一次？瑞士数学家欧拉(Leonhard Euler，1707—1783)最终解决了这个问题，并由此创立了拓扑学。这个问题如今可以描述为
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/PTA/" class="post-category">
+                                    PTA
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/PTA/">
+                            <span class="chip bg-color">PTA</span>
+                        </a>
+                        
+                        <a href="/tags/欧拉回路/">
+                            <span class="chip bg-color">欧拉回路</span>
+                        </a>
+                        
+                        <a href="/tags/并查集/">
+                            <span class="chip bg-color">并查集</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="PTA小字辈（BFS）">
+                            
+                            <span class="card-title">PTA小字辈（BFS）</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                本题给定一个庞大家族的家谱，要请你给出最小一辈的名单。
+输入格式：输入在第一行给出家族人口总数 N（不超过 100 000 的正整数） —— 简单起见，我们把家族成员从 1 到 N 编号。随后第二行给出 N 个编号，其中第 i 个编号对应第
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/PTA/" class="post-category">
+                                    PTA
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/PTA/">
+                            <span class="chip bg-color">PTA</span>
+                        </a>
+                        
+                        <a href="/tags/BFS/">
+                            <span class="chip bg-color">BFS</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/01/18/2020-01-18-pta-da-yin-xue-sheng-xuan-ke-qing-dan-ha-xi-biao/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="PTA打印学生选课清单(哈希表)">
+                            
+                            <span class="card-title">PTA打印学生选课清单(哈希表)</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                假设全校有最多40000名学生和最多2500门课程。现给出每门课的选课学生名单，要求输出每个前来查询的学生的选课清单。
+输入格式:输入的第一行是两个正整数：N（≤40000），为前来查询课表的学生总数；K（≤2500），为总课程数。此后顺序
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/PTA/" class="post-category">
+                                    PTA
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/PTA/">
+                            <span class="chip bg-color">PTA</span>
+                        </a>
+                        
+                        <a href="/tags/哈希表/">
+                            <span class="chip bg-color">哈希表</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/01/17/2020-01-17-pta-lie-che-diao-du/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="PTA列车调度">
+                            
+                            <span class="card-title">PTA列车调度</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                两端分别是一条入口（Entrance）轨道和一条出口（Exit）轨道，它们之间有N条平行的轨道。每趟列车从入口可以选择任意一条轨道进入，最后从出口离开。在图中有9趟列车，在入口处按照{8，4，2，5，3，9，1，6，7}的顺序排队等待进入。
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-17
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/PTA/" class="post-category">
+                                    PTA
                                 </a>
                                 
                                 
@@ -815,292 +1148,33 @@ $(function () {
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2019/10/27/2019-10-27-leetcodeweeklycontest-160/">
+                    <a href="/2020/01/16/2020-01-16-pta-qiu-qian-zhui-biao-da-shi-de-zhi/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="LeetCodeWeeklyContest-160">
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="PTA求前缀表达式的值">
                             
-                            <span class="card-title">LeetCodeWeeklyContest-160</span>
+                            <span class="card-title">PTA求前缀表达式的值</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                题目传送门找出给定方程的正整数解签到题的新包装，我没有玩过的船新版本。
-class Solution {
-public:
-    vector findSolution(CustomFunction& c, int z) {
-       
+                                算术表达式有前缀表示法、中缀表示法和后缀表示法等形式。前缀表达式指二元运算符位于两个运算数之前，例如2+3(7-4)+8/4的前缀表达式是：+ + 2  3 - 7 4 / 8 4。请设计程序计算前缀表达式的结果值。
+输入格式:输入在一行内
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-16
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/leetcode/" class="post-category">
-                                    leetcode
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/leetcode/">
-                            <span class="chip bg-color">leetcode</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/10/27/2019-10-27-ge-lei-ma/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="格雷码">
-                            
-                            <span class="card-title">格雷码</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                偶然间发现了一个很好的方法，详见Gray code
-下面是一个生成以start开始的格雷码的板子，n为二进制位的个数。
-vector getGray(int n, int start) {
-        vector res; 
-    
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/数据结构与算法训练/" class="post-category">
-                                    数据结构与算法训练
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/位运算/">
-                            <span class="chip bg-color">位运算</span>
-                        </a>
-                        
-                        <a href="/tags/格雷码/">
-                            <span class="chip bg-color">格雷码</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/10/25/2019-10-25-xian-xing-shai/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="线性筛">
-                            
-                            <span class="card-title">线性筛</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                #include 
-using namespace std;
-const int MAX_N = 3e7+2;
-typedef long long ll;
-int v[MAX_N],prime[MAX_N];
-
-void primes(in
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-25
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/数论/" class="post-category">
-                                    数论
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/数论/">
-                            <span class="chip bg-color">数论</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/10/22/2019-10-22-fei-ma-xiao-ding-li/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="费马小定理">
-                            
-                            <span class="card-title">费马小定理</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                若p是质数，则对于任意整数a，有$a^p \equiv a  (mod \, p)$
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-22
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/数论/" class="post-category">
-                                    数论
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/数论/">
-                            <span class="chip bg-color">数论</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/10/21/2019-10-21-leetcodeweeklycontest-159/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="LeetCodeWeeklyContest-159">
-                            
-                            <span class="card-title">LeetCodeWeeklyContest-159</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                最近看了篇文章，文章里说 希望你身边能有个比你聪明五倍，但却比你还努力十倍的人。倍数虽然有些夸张，但是这个思想还是能get到的。
-5230. 缀点成线在一个 XY 坐标系中有一些点，我们用数组 coordinates 来分别记录它们的坐标，
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/leetcode/" class="post-category">
-                                    leetcode
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/leetcode/">
-                            <span class="chip bg-color">leetcode</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/10/21/2019-10-21-tong-ji-zi-fu/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="统计字符">
-                            
-                            <span class="card-title">统计字符</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                输入一行字符，分别统计出其中英文字母、空格、数字和其他字符的个数。
-#include
-using namespace std;
-typedef long long ll;
-const int maxn = 2e5;
-# define mod
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/数据结构与算法训练/" class="post-category">
-                                    数据结构与算法训练
+                                <a href="/categories/PTA/" class="post-category">
+                                    PTA
                                 </a>
                                 
                                 
@@ -1113,6 +1187,14 @@ const int maxn = 2e5;
                         
                         <a href="/tags/字符串/">
                             <span class="chip bg-color">字符串</span>
+                        </a>
+                        
+                        <a href="/tags/PTA/">
+                            <span class="chip bg-color">PTA</span>
+                        </a>
+                        
+                        <a href="/tags/前缀表达式/">
+                            <span class="chip bg-color">前缀表达式</span>
                         </a>
                         
                     </div>
@@ -1136,7 +1218,7 @@ const int maxn = 2e5;
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">1 / 5</div>
+            <div class="center-align b-text-gray">1 / 8</div>
         </div>
         <div class="col s6 m4 l4">
             

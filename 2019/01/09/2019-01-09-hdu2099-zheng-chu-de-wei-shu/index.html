@@ -26,10 +26,9 @@ You have to live spherically - in many directions.Never lose your childish enthu
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -67,6 +66,17 @@ You have to live spherically - in many directions.Never lose your childish enthu
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -164,6 +174,17 @@ You have to live spherically - in many directions.Never lose your childish enthu
         
         <li class="m-nav-item">
 	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
@@ -234,7 +255,7 @@ You have to live spherically - in many directions.Never lose your childish enthu
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -395,7 +416,7 @@ You have to live spherically - in many directions.Never lose your childish enthu
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    291
+                    374
                 </div>
                 
 
@@ -439,29 +460,29 @@ You have to live spherically - in many directions.Never lose your childish enthu
 <h2 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h2><blockquote>
 <p>输入要判断是否为0，先将这个整数乘以100，然后利用0到99的穷举进行判断，输出时考虑到0的问题，用printf函数输出。</p>
 </blockquote>
-<h2 id="二、代码实现"><a href="#二、代码实现" class="headerlink" title="二、代码实现"></a>二、代码实现</h2><pre class="line-numbers language-lang-javascript"><code class="language-lang-javascript">#include <iostream>
+<h2 id="二、代码实现"><a href="#二、代码实现" class="headerlink" title="二、代码实现"></a>二、代码实现</h2><pre><code class="lang-javascript">#include &lt;iostream&gt;
 using namespace std;
 int main() 
 {
     int a,b,count=0;
-    while(cin>> a >> b && a!=0 && b!=0)
+    while(cin&gt;&gt; a &gt;&gt; b &amp;&amp; a!=0 &amp;&amp; b!=0)
     {
         a *= 100;
-        for(int i=0;i<=99;i++)
+        for(int i=0;i&lt;=99;i++)
         {
             if((a+i)%b == 0)
             {
                 count++; // 计数，用于空格的输出
-                if(count==1) printf("%02d",i);  //输出空格的问题
-                else printf(" %02d",i);
+                if(count==1) printf(&quot;%02d&quot;,i);  //输出空格的问题
+                else printf(&quot; %02d&quot;,i);
             }
         }
-        cout << endl;
+        cout &lt;&lt; endl;
         count=0;   //每一组整数的后两位判断完毕之后，count需清零，然后输出换行
     }
     return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 
             </div>
             <hr/>
@@ -959,6 +980,56 @@ int main()
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
+                <a href="/2019/01/09/2019-01-09-ou-ji-li-de-suan-fa/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="欧几里得算法">
+                        
+                        <span class="card-title">欧几里得算法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            欧几里得算法求最大公约数
+Sometimes your whole life boils down to one insane move.        人这一辈子，有时就得靠一次疯狂的举动才能扭转乾坤。                  
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-01-09
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/数论/" class="post-category">
+                                    数论
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/数论/">
+                        <span class="chip bg-color">数论</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2019/01/09/2019-01-09-hdu-2097sky-shu/">
                     <div class="card-image">
                         
@@ -978,56 +1049,6 @@ Problem Descri
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-01-09
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/数据结构与算法训练/" class="post-category">
-                                    数据结构与算法训练
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/数据结构与算法训练/">
-                        <span class="chip bg-color">数据结构与算法训练</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/01/09/2019-01-09-hdu2099-zheng-chu-de-wei-shu/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="HDU2099整除的尾数">
-                        
-                        <span class="card-title">HDU2099整除的尾数</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            整除的尾数
-You have to live spherically - in many directions.Never lose your childish enthusiasm and things will come your wa
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2019-01-09
                             </span>
@@ -1043,7 +1064,6 @@ You have to live spherically - in many directions.Never lose your childish enthu
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     

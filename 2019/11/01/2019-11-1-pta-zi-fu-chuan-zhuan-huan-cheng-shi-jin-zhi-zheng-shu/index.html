@@ -30,10 +30,9 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -71,6 +70,17 @@
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -168,6 +178,17 @@
         
         <li class="m-nav-item">
 	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
@@ -238,7 +259,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -304,14 +325,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    344
+                    568
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    2 Min
                 </div>
                 
 
@@ -338,27 +359,27 @@
 <h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><p>+-P-xf4+-1!#</p>
 <h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><p>-3905</p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>重点在字符串的清洗上，只保留第一个负号，保留数字和十六进制字符，其余洗掉。<br>然后进行进制转换</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">#include <iostream>
-#include <cmath>
-#include <string.h>
-#include <vector>
-#include <algorithm>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">#include&lt;iostream&gt;
+#include&lt;cmath&gt;
+#include&lt;string.h&gt;
+#include&lt;vector&gt;
+#include&lt;algorithm&gt;
 using namespace std;
 typedef long long ll;
 
-#define For1(i,m,n) for(int i=m;i<n;i++)
-#define For2(i,m,n) for(int i=m;i>=n;i--)
+#define For1(i,m,n) for(int i=m;i&lt;n;i++)
+#define For2(i,m,n) for(int i=m;i&gt;=n;i--)
 
 // 清洗输入的字符串
-vector<char> convert(string s){
-    vector<char> v;
+vector&lt;char&gt; convert(string s){
+    vector&lt;char&gt; v;
     int cnt = 0;
     bool first = true;
     For1(i,0,s.length()){
-        if(s[i]>='0'&&s[i]<='9'||s[i]>='a'&&s[i]<='f'||s[i]>='A'&&s[i]<='F'){
+        if(s[i]&gt;=&#39;0&#39;&amp;&amp;s[i]&lt;=&#39;9&#39;||s[i]&gt;=&#39;a&#39;&amp;&amp;s[i]&lt;=&#39;f&#39;||s[i]&gt;=&#39;A&#39;&amp;&amp;s[i]&lt;=&#39;F&#39;){
             v.push_back(s[i]);
         }
-        else if(s[i]=='-'&&first==true){
+        else if(s[i]==&#39;-&#39;&amp;&amp;first==true){
             v.push_back(s[i]);
             first = false;
         }
@@ -367,18 +388,18 @@ vector<char> convert(string s){
     return v;
 }
 // 进制转换
-ll convertres(vector<char> v){
+ll convertres(vector&lt;char&gt; v){
     ll res = 0,cnt=0;
     For2(i,v.size()-1,0){
-        if(v[i]>='0'&&v[i]<='9'){
-            res += (v[i]-'0')*pow(16,cnt);
+        if(v[i]&gt;=&#39;0&#39;&amp;&amp;v[i]&lt;=&#39;9&#39;){
+            res += (v[i]-&#39;0&#39;)*pow(16,cnt);
             cnt++;
-        }else if(v[i]>='a'&&v[i]<='f'){
-            res += (v[i]-'a'+10)*pow(16,cnt);
+        }else if(v[i]&gt;=&#39;a&#39;&amp;&amp;v[i]&lt;=&#39;f&#39;){
+            res += (v[i]-&#39;a&#39;+10)*pow(16,cnt);
             cnt++;
         }
-        else if(v[i]>='A'&&v[i]<='F'){
-             res += (v[i]-'A'+10)*pow(16,cnt);
+        else if(v[i]&gt;=&#39;A&#39;&amp;&amp;v[i]&lt;=&#39;F&#39;){
+             res += (v[i]-&#39;A&#39;+10)*pow(16,cnt);
              cnt++;
         }
         else ;
@@ -388,22 +409,22 @@ ll convertres(vector<char> v){
 int main(){
     bool postive = true;
     string s;
-    cin >> s;
-    vector<char> v = convert(s);
-    if(v[0]=='-') postive = false;
+    cin &gt;&gt; s;
+    vector&lt;char&gt; v = convert(s);
+    if(v[0]==&#39;-&#39;) postive = false;
 
     // print
 //    For1(i,0,v.size()){
-//        cout << v[i];
+//        cout &lt;&lt; v[i];
 //    }
-//    cout << endl;
+//    cout &lt;&lt; endl;
 
     ll res =  convertres(v);
     if(!postive) res *= -1;
-    cout << res << endl;
+    cout &lt;&lt; res &lt;&lt; endl;
     return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 
             </div>
             <hr/>
@@ -953,23 +974,22 @@ int main(){
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/27/2019-10-27-leetcodeweeklycontest-160/">
+                <a href="/2019/10/27/2019-10-27-ge-lei-ma/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="LeetCodeWeeklyContest-160">
+                        <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="格雷码">
                         
-                        <span class="card-title">LeetCodeWeeklyContest-160</span>
+                        <span class="card-title">格雷码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            题目传送门找出给定方程的正整数解签到题的新包装，我没有玩过的船新版本。
-class Solution {
-public:
-    vector findSolution(CustomFunction& c, int z) {
-       
+                            偶然间发现了一个很好的方法，详见Gray code
+下面是一个生成以start开始的格雷码的板子，n为二进制位的个数。
+vector&lt;int&gt; getGray(int n, int start) {
+        vector
                         
                     </div>
                     <div class="publish-info">
@@ -980,8 +1000,8 @@ public:
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/leetcode/" class="post-category">
-                                    leetcode
+                            <a href="/categories/数据结构与算法训练/" class="post-category">
+                                    数据结构与算法训练
                                 </a>
                             
                             
@@ -991,8 +1011,12 @@ public:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode/">
-                        <span class="chip bg-color">leetcode</span>
+                    <a href="/tags/位运算/">
+                        <span class="chip bg-color">位运算</span>
+                    </a>
+                    
+                    <a href="/tags/格雷码/">
+                        <span class="chip bg-color">格雷码</span>
                     </a>
                     
                 </div>

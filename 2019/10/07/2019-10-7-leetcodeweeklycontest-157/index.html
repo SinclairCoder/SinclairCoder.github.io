@@ -26,10 +26,9 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -67,6 +66,17 @@
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -164,6 +174,17 @@
         
         <li class="m-nav-item">
 	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
@@ -234,7 +255,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -300,14 +321,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    959
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    3 Min
+                    9 Min
                 </div>
                 
 
@@ -326,20 +347,20 @@
                 <p>秋意寂寥，国庆假期归来，”百废待兴”。<br>路漫漫其修远兮，吾将上下而求索。</p>
 <h2 id="题目传送"><a href="#题目传送" class="headerlink" title="题目传送"></a><a href="https://leetcode-cn.com/contest/weekly-contest-157/" target="_blank" rel="noopener">题目传送</a></h2><h2 id="玩筹码"><a href="#玩筹码" class="headerlink" title="玩筹码"></a>玩筹码</h2><p>数轴上放置了一些筹码，每个筹码的位置存在数组 chips 当中。<br>你可以对 任何筹码 执行下面两种操作之一（不限操作次数，0 次也可以）：<br>将第 i 个筹码向左或者右移动 2 个单位，代价为 0。<br>将第 i 个筹码向左或者右移动 1 个单位，代价为 1。<br>最开始的时候，同一位置上也可能放着两个或者更多的筹码。<br>返回将所有筹码移动到同一位置（任意位置）上所需要的最小代价。</p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>做的时候看了半天，不会写，后来发现题目理解错了，chips上存放的是筹码的位置，偶数位置跳到偶数位置代价为0，偶数位置跳到奇数位置代价为1，奇数位置跳到奇数位置代价为0，奇数位置跳到偶数位置代价为1，假设奇数位置的筹码数量为 evenN，偶数位置的筹码数量为 oldN，最小代价即为 min(evenN,oldN)</p>
-<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">int minCostToMoveChips(vector<int>& chips) {
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">int minCostToMoveChips(vector&lt;int&gt;&amp; chips) {
         int even=0,odd=0;
-        for(int &i:chips){
+        for(int &amp;i:chips){
             if(i%2==0) odd++;
             else even++;
         }
         return min(even,odd);
 
     }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h2 id="最长定差子序列"><a href="#最长定差子序列" class="headerlink" title="最长定差子序列"></a>最长定差子序列</h2><p>给你一个整数数组 arr 和一个整数 difference，请你找出 arr 中所有相邻元素之间的差等于给定 difference 的等差子序列，并返回其中最长的等差子序列的长度。<br>举个栗子<br>输入：arr = [1,5,7,8,5,3,4,2,1], difference = -2<br>输出：4<br>解释：最长的等差子序列是 [7,5,3,1]。</p>
 <h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>经典dp问题，不过我的dp确实不熟。<br>首先打个表dp，用arr[i]作为dp的索引，dp[j]表示到j为止存在的等差子序列长度的最大值。<br>状态转移方程如下：dp[arr[i]] = dp[arr[i]-d] + 1</p>
-<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">int longestSubsequence(vector<int>& arr, int difference) {
-        map<int,int> dp;
+<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">int longestSubsequence(vector&lt;int&gt;&amp; arr, int difference) {
+        map&lt;int,int&gt; dp;
         int ans=0;
         for(int i:arr){
             dp[i] = dp[i-difference] + 1;
@@ -347,34 +368,34 @@
         }
         return ans;
     }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>没有冗长的代码，真的爱上了这种感觉，写起来真的既轻松又愉快。</p>
 <h2 id="黄金矿工"><a href="#黄金矿工" class="headerlink" title="黄金矿工"></a>黄金矿工</h2><p>你要开发一座金矿，地质勘测学家已经探明了这座金矿中的资源分布，并用大小为 m * n 的网格 grid 进行了标注。每个单元格中的整数就表示这一单元格中的黄金数量；如果该单元格是空的，那么就是 0。<br>为了使收益最大化，矿工需要按以下规则来开采黄金：<br>每当矿工进入一个单元，就会收集该单元格中的所有黄金。<br>矿工每次可以从当前位置向上下左右四个方向走。<br>每个单元格只能被开采（进入）一次。<br>不得开采（进入）黄金数目为 0 的单元格。<br>矿工可以从网格中 任意一个 有黄金的单元格出发或者是停止。</p>
 <h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>DFS，其实这里面还是有很多问题要注意一下的，比如dfs函数里的参数tmp不能传引用，而value、visit要传引用，tmp是每次的中间值，每次与value进行比较，用两者的最大值去更新value。<br>另外，leetcode支持c++11，故此代码里用了很多新特性，比如类的属性定义时初始化，vector初始化等，如果要在Dev上跑的话，在文件首部加上下面这一行：</p>
-<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">#pragma GCC diagnostic error "-std=c++11"
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h3><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">class Solution {
+<pre><code class="lang-cpp">#pragma GCC diagnostic error &quot;-std=c++11&quot;
+</code></pre>
+<h3 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
 public:
     int dx[4]={0,0,-1,1},dy[4]={-1,1,0,0};
-    void dfs(vector<vector<int>>& grid, int x, int y, int tmp, int& value, vector<vector<bool>>& visit){  // tmp 不能加引用
+    void dfs(vector&lt;vector&lt;int&gt;&gt;&amp; grid, int x, int y, int tmp, int&amp; value, vector&lt;vector&lt;bool&gt;&gt;&amp; visit){  // tmp 不能加引用
         if(grid[x][y]==0) return ;
         value = max(value,tmp += grid[x][y]);
         visit[x][y] = true;
 
-        for(int i=0;i<4;i++){
+        for(int i=0;i&lt;4;i++){
             int tmpx = x+dx[i],tmpy = y+dy[i];
-            if(tmpx<0||tmpx>=grid.size()||tmpy<0||tmpy>=grid[0].size()) continue; // 注意等号
+            if(tmpx&lt;0||tmpx&gt;=grid.size()||tmpy&lt;0||tmpy&gt;=grid[0].size()) continue; // 注意等号
             if(grid[tmpx][tmpy]==0||visit[tmpx][tmpy]) continue;
             dfs(grid,tmpx,tmpy,tmp,value,visit);
         }
         visit[x][y] = false;
     }
-    int getMaximumGold(vector<vector<int>>& grid) {
+    int getMaximumGold(vector&lt;vector&lt;int&gt;&gt;&amp; grid) {
         int m=grid.size(), n=grid[0].size(), result = 0;
         // bool visit[m][n]={0};
-        vector<vector<bool>> visit(m,vector<bool>(n,false)); // init
-        for(int i=0;i<m;i++){
-            for(int j=0;j<n;j++){
+        vector&lt;vector&lt;bool&gt;&gt; visit(m,vector&lt;bool&gt;(n,false)); // init
+        for(int i=0;i&lt;m;i++){
+            for(int j=0;j&lt;n;j++){
                 if(grid[i][j]!=0){
                     dfs(grid,i,j,0,result,visit);
                 }
@@ -383,36 +404,36 @@ public:
         return result;
     }
 };
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h2 id="统计元音字母序列的数目"><a href="#统计元音字母序列的数目" class="headerlink" title="统计元音字母序列的数目"></a>统计元音字母序列的数目</h2><p>给你一个整数 n，请你帮忙统计一下我们可以按下述规则形成多少个长度为 n 的字符串：<br>字符串中的每个字符都应当是小写元音字母（’a’, ‘e’, ‘i’, ‘o’, ‘u’）<br>每个元音 ‘a’ 后面都只能跟着 ‘e’<br>每个元音 ‘e’ 后面只能跟着 ‘a’ 或者是 ‘i’<br>每个元音 ‘i’ 后面 不能 再跟着另一个 ‘i’<br>每个元音 ‘o’ 后面只能跟着 ‘i’ 或者是 ‘u’<br>每个元音 ‘u’ 后面只能跟着 ‘a’<br>由于答案可能会很大，所以请你返回 模 10^9 + 7 之后的结果。</p>
 <h2 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h2><p>其实就是一个状态转移方程？<br>用dp来记录a,e,i,o,u开头的固定长度的字符串对应的方案个数。<br>初始时dp[i]=1, 其中0&lt;=i&lt;5<br>进行n次循环的ndp状态数组用来记录此时对应的方案个数<br>最重要的是根据题目中的字符串相邻规则，找到状态转移方程。<br><strong>ndp[0] = dp[1];<br>ndp[1] = (dp[0]+dp[2])%mod;<br>ndp[2] = (dp[0]+dp[1]+dp[3]+dp[4])%mod;<br>ndp[3] = (dp[2]+dp[4])%mod;<br>ndp[4] = dp[0];</strong><br>具体实现看实现一，其中数据类型要用long long ，用int会爆掉。</p>
-<h2 id="实现一"><a href="#实现一" class="headerlink" title="实现一"></a>实现一</h2><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">class Solution {
+<h2 id="实现一"><a href="#实现一" class="headerlink" title="实现一"></a>实现一</h2><pre><code class="lang-cpp">class Solution {
 public:
     typedef long long ll;
        const int mod = 1e9 + 7;
     int countVowelPermutation(int n) {
        ll dp[5]={1,1,1,1,1};
         ll ndp[5]={0};
-        for(int i=1;i<n;i++){
+        for(int i=1;i&lt;n;i++){
             ndp[0] = dp[1];
             ndp[1] = (dp[0]+dp[2])%mod;
             ndp[2] = (dp[0]+dp[1]+dp[3]+dp[4])%mod;
             ndp[3] = (dp[2]+dp[4])%mod;
             ndp[4] = dp[0];
-            for(int j=0;j<5;j++) dp[j] = ndp[j];
+            for(int j=0;j&lt;5;j++) dp[j] = ndp[j];
         }
         ll ans = 0;
-        for(int i=0;i<5;i++) ans += dp[i];
+        for(int i=0;i&lt;5;i++) ans += dp[i];
         return ans%mod;
     }
 };
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h2 id="思路二"><a href="#思路二" class="headerlink" title="思路二"></a>思路二</h2><p>在力扣讨论区看到这样一句话</p>
 <blockquote>
 <p>这个题数据量再大一些就应该采用 矩阵来做运算，并可以通过矩阵快速幂来加速运算</p>
 </blockquote>
 <p>我的第一反应是根据题目中的字符串相邻规则构造一个邻接矩阵，这个时候离散数学就应该派上用场了，思考邻接矩阵的n次幂的意义为何？实际上，求长度为n的字符串实际上就是求邻接矩阵的n-1次幂，这里需要用到矩阵的幂运算，这个时候就可以使用矩阵的快速幂，网上找了个板子，改了改，没想到就过掉了。</p>
-<h2 id="实现二"><a href="#实现二" class="headerlink" title="实现二"></a>实现二</h2><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">const int N=5;
+<h2 id="实现二"><a href="#实现二" class="headerlink" title="实现二"></a>实现二</h2><pre><code class="lang-cpp">const int N=5;
 typedef long long ll;
 class Matrix{    //矩阵结构体 
     public:
@@ -422,18 +443,18 @@ class Solution {
 public:
    const int mod = 1e9 + 7;
     //初始化为单位矩阵 
-   void init(Matrix &res){
+   void init(Matrix &amp;res){
         memset(res.matrix,0,sizeof(res.matrix));
-        for(int i=0;i<N;i++)
+        for(int i=0;i&lt;N;i++)
             res.matrix[i][i]=1;
     }
     //矩阵乘法
     Matrix multiplicative(Matrix a,Matrix b){
         Matrix res;
         memset(res.matrix,0,sizeof(res.matrix));
-        for(int i = 0 ; i < N ; i++){
-            for(int j = 0 ; j < N ; j++){
-                for(int k = 0 ; k < N ; k++){
+        for(int i = 0 ; i &lt; N ; i++){
+            for(int j = 0 ; j &lt; N ; j++){
+                for(int k = 0 ; k &lt; N ; k++){
                     res.matrix[i][j] += a.matrix[i][k]*b.matrix[k][j];
                     res.matrix[i][j] %= mod;
                 }
@@ -446,10 +467,10 @@ public:
         Matrix res,base=mx;
         init(res);
         while(m){
-            if(m&1)
+            if(m&amp;1)
             res=multiplicative(res,base);
             base=multiplicative(base,base);
-            m>>=1;
+            m&gt;&gt;=1;
         }
         return res;
     }
@@ -466,18 +487,18 @@ public:
         mat.matrix[4][0]=1;
         Matrix result = Pow(mat,n-1);
         int ans = 0;
-        for(int i=0;i<N;i++){
-            for(int j=0;j<N;j++){
+        for(int i=0;i&lt;N;i++){
+            for(int j=0;j&lt;N;j++){
                 ans += result.matrix[i][j];
                 ans = ans%MOD;  // 这里要取一次余，不然会爆范围
-                // cout << result.matrix[i][j] << " ";
+                // cout &lt;&lt; result.matrix[i][j] &lt;&lt; &quot; &quot;;
             }
-            cout << endl;
+            cout &lt;&lt; endl;
         }
         return ans%MOD;    
     }
 };
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <h2 id="感悟"><a href="#感悟" class="headerlink" title="感悟"></a>感悟</h2><p>每写一次周赛题解，都会去看很多大神的代码，学到很多东西，总觉得我的coding水平好像又进步了？ 坏了，是错觉…</p>
 
             </div>
@@ -980,7 +1001,7 @@ public:
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="LeetCodeWeeklyContest-158">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="LeetCodeWeeklyContest-158">
                         
                         <span class="card-title">LeetCodeWeeklyContest-158</span>
                     </div>

@@ -6,11 +6,10 @@
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="统计字符, SinclairのBlog">
     <meta name="description" content="输入一行字符，分别统计出其中英文字母、空格、数字和其他字符的个数。
-#include
+#include&amp;lt;bits/stdc++.h&amp;gt;
 using namespace std;
 typedef long long ll;
-const int maxn = 2e5;
-# define mod">
+const int max">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -30,10 +29,9 @@ const int maxn = 2e5;
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -71,6 +69,17 @@ const int maxn = 2e5;
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -168,6 +177,17 @@ const int maxn = 2e5;
         
         <li class="m-nav-item">
 	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
@@ -238,7 +258,7 @@ const int maxn = 2e5;
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -304,7 +324,7 @@ const int maxn = 2e5;
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    67
+                    193
                 </div>
                 
 
@@ -328,7 +348,7 @@ const int maxn = 2e5;
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p><strong>输入一行字符，分别统计出其中英文字母、空格、数字和其他字符的个数。</strong></p>
-<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">#include<bits/stdc++.h>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
 using namespace std;
 typedef long long ll;
 const int maxn = 2e5;
@@ -338,21 +358,21 @@ int main(){
     char ch;
     int count[4]={0};
     while(cin.get(ch)){
-        if(ch>='a'&&ch<='z'||ch>='A'&&ch<='Z')
+        if(ch&gt;=&#39;a&#39;&amp;&amp;ch&lt;=&#39;z&#39;||ch&gt;=&#39;A&#39;&amp;&amp;ch&lt;=&#39;Z&#39;)
             count[0]++;
-        else if(ch==' ')
+        else if(ch==&#39; &#39;)
             count[1]++;
-        else if(ch>='0'&&ch<='9')
+        else if(ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;)
             count[2]++;
-        else if(ch=='\n') break;
+        else if(ch==&#39;\n&#39;) break;
         else count[3]++;
     }
-    cout << count[0] << " " << count[2] << " " << count[1] << " " << count[3] ;
+    cout &lt;&lt; count[0] &lt;&lt; &quot; &quot; &lt;&lt; count[2] &lt;&lt; &quot; &quot; &lt;&lt; count[1] &lt;&lt; &quot; &quot; &lt;&lt; count[3] ;
 
 
     return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <p>题目虽然简单，注意点是统计空格需要用<strong>cin.get(ch)</strong>，输入时会在行末多输入一个回车，注意处理。</p>
 
             </div>
@@ -851,19 +871,20 @@ int main(){
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2019/10/22/2019-10-22-pei-shu-ding-li-kuo-zhan-ou-ji-li-de-suan-fa/">
+                <a href="/2019/10/22/2019-10-22-fei-ma-xiao-ding-li/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="裴蜀定理&&扩展欧几里得算法">
+                        <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="费马小定理">
                         
-                        <span class="card-title">裴蜀定理&&扩展欧几里得算法</span>
+                        <span class="card-title">费马小定理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            裴蜀定理也就是Bezout定理，对于任意整数a,b，存在一对整数x,y，满足$ax+by=gcd(a,b)$。在数论中，裴蜀定理是一个关于最大公约数（或最大公约式）的定理，裴蜀定理得名于法国数学家艾蒂安·裴蜀。裴蜀定理说明了对任何整数 a、
+                            若p是质数，则对于任意整数a，有$a^p \equiv a  (mod \, p)$
+
                         
                     </div>
                     <div class="publish-info">
@@ -904,7 +925,7 @@ int main(){
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="LeetCodeWeeklyContest-159">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="LeetCodeWeeklyContest-159">
                         
                         <span class="card-title">LeetCodeWeeklyContest-159</span>
                     </div>

@@ -29,10 +29,9 @@ Input
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -70,6 +69,17 @@ Input
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -167,6 +177,17 @@ Input
         
         <li class="m-nav-item">
 	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
@@ -237,7 +258,7 @@ Input
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -398,7 +419,7 @@ Input
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    295
+                    379
                 </div>
                 
 
@@ -536,41 +557,41 @@ Input
 <blockquote>
 <p>f<sub>n</sub> = f<sub>n-1</sub>   + f<sub>n-3</sub> </p>
 </blockquote>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><pre class="line-numbers language-lang-c"><code class="language-lang-c">//解法1
-#include<iostream>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><pre><code class="lang-c">//解法1
+#include&lt;iostream&gt;
 using namespace std;
 int main() 
 {    
     int n;
-    while(cin>>n&&n!=0)
+    while(cin&gt;&gt;n&amp;&amp;n!=0)
     {
         int a[56];
         a[0] = 1;a[1] = 2;a[2] = 3;a[3] = 4;
-        for(int i=4;i<56;i++)
+        for(int i=4;i&lt;56;i++)
             a[i] = a[i-1] + a[i-3];    
-        cout << a[n-1] << endl;    
+        cout &lt;&lt; a[n-1] &lt;&lt; endl;    
     } 
      return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-lang-c"><code class="language-lang-c">//解法2—递归实现
-#include <iostream>
+</code></pre>
+<pre><code class="lang-c">//解法2—递归实现
+#include &lt;iostream&gt;
 using namespace std;
 int fun(int n)
 {
-    if(n<5) return n;
+    if(n&lt;5) return n;
     else return fun(n-1)+fun(n-3);
 }
 int main() 
 {    
     int n;
-    while(cin>>n&&n!=0)
+    while(cin&gt;&gt;n&amp;&amp;n!=0)
     {
-        cout << fun(n) << endl;
+        cout &lt;&lt; fun(n) &lt;&lt; endl;
     } 
      return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 
             </div>
             <hr/>
@@ -1072,7 +1093,7 @@ int main()
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="一个小绿锁引发的问题">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="一个小绿锁引发的问题">
                         
                         <span class="card-title">一个小绿锁引发的问题</span>
                     </div>
@@ -1123,7 +1144,7 @@ int main()
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Python3字符串API之expandtabs()">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Python3字符串API之expandtabs()">
                         
                         <span class="card-title">Python3字符串API之expandtabs()</span>
                     </div>

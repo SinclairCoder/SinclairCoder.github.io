@@ -26,10 +26,9 @@ If you believe in yourself enough and know what you want, you’re gonna make it
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -67,6 +66,17 @@ If you believe in yourself enough and know what you want, you’re gonna make it
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -164,6 +174,17 @@ If you believe in yourself enough and know what you want, you’re gonna make it
         
         <li class="m-nav-item">
 	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
@@ -234,7 +255,7 @@ If you believe in yourself enough and know what you want, you’re gonna make it
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/27.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -395,14 +416,14 @@ If you believe in yourself enough and know what you want, you’re gonna make it
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    423
+                    624
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    2 Min
                 </div>
                 
 
@@ -422,33 +443,33 @@ If you believe in yourself enough and know what you want, you’re gonna make it
 <p>If you believe in yourself enough and know what you want, you’re gonna make it happen.<br>如果你足够自信，也知道自己想要什么，就一定会实现心中所想。<br>——-Mariah Carey, “Make It Happen”</p>
 </blockquote>
 <p>printf方法可以很轻易的格式化日期，用两个字母，以%t开头并以下面的其中一个字母结尾。<br>转换符|说明<br>—-|—-|—-|——-<br>a|日期中星期简称<br>A|日期中星期全称<br>b|日期中月份的简称<br>B|日期中月份的全称<br>C|日期中年份的前两位数<br>y|日期中年份的后两位数<br>Y|日期中年份的完整表示<br>D|“年/月/日”格式<br>F|“年-月-日”格式<br>j|一年中的第几天<br>m|日期中的月份，两位数字表示，不足两位补零<br>d|日期中的日，两位数字表示，不足两位补零<br>e|日期中月份的日，不补零<br>T|“HH:MM:SS” 格式（24小时）<br>r|“HH:MM:SS PM”格式（12小时）<br>R|“HH:MM”格式（24小时）</p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><pre class="line-numbers language-lang-java"><code class="language-lang-java">public class Sinclair_java_20190122
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><pre><code class="lang-java">public class Sinclair_java_20190122
 {
     public static void main(String[] args) 
     {
         Date date = new Date();
-        String str = String.format(Locale.US,"英文月份简称：%tb",date);
+        String str = String.format(Locale.US,&quot;英文月份简称：%tb&quot;,date);
         System.out.println(str);
-        System.out.printf("本地月份简称：%tb\n",date);
-        str = String.format(Locale.US, "英文月份全称：%tB",date);
+        System.out.printf(&quot;本地月份简称：%tb\n&quot;,date);
+        str = String.format(Locale.US, &quot;英文月份全称：%tB&quot;,date);
         System.out.println(str);
-        System.out.printf("本地月份全称：%tB%n",date);
-        str = String.format(Locale.US, "英文星期简称：%ta",date);
+        System.out.printf(&quot;本地月份全称：%tB%n&quot;,date);
+        str = String.format(Locale.US, &quot;英文星期简称：%ta&quot;,date);
         System.out.println(str);
-        System.out.printf("本地星期的全称：%tA%n",date);
-        System.out.printf("本地星期的简称：%ta%n",date);
-        System.out.printf("年的前两位数字：%tC%n",date);
-        System.out.printf("年的后两位数字：%ty%n",date);
-        System.out.printf("年的完整表示：%tY%n",date);
-        System.out.printf("一年中的天数：%tj%n",date);
-        System.out.printf("%s %tY-%<tm-%<td%n","日期的完整表示：",date);
-        System.out.printf("在本月是第几天(不补零)：%te%n",date);
-        System.out.printf("在本月是第几天(补零)：%td%n",date);
+        System.out.printf(&quot;本地星期的全称：%tA%n&quot;,date);
+        System.out.printf(&quot;本地星期的简称：%ta%n&quot;,date);
+        System.out.printf(&quot;年的前两位数字：%tC%n&quot;,date);
+        System.out.printf(&quot;年的后两位数字：%ty%n&quot;,date);
+        System.out.printf(&quot;年的完整表示：%tY%n&quot;,date);
+        System.out.printf(&quot;一年中的天数：%tj%n&quot;,date);
+        System.out.printf(&quot;%s %tY-%&lt;tm-%&lt;td%n&quot;,&quot;日期的完整表示：&quot;,date);
+        System.out.printf(&quot;在本月是第几天(不补零)：%te%n&quot;,date);
+        System.out.printf(&quot;在本月是第几天(补零)：%td%n&quot;,date);
     }
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <a id="more"></a>
-<h3 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h3><pre class="line-numbers language-lang-c++"><code class="language-lang-c++">英文月份简称：Feb
+<h3 id="测试结果"><a href="#测试结果" class="headerlink" title="测试结果"></a>测试结果</h3><pre><code class="lang-c++">英文月份简称：Feb
 本地月份简称：2月
 英文月份全称：February
 本地月份全称：二月
@@ -462,7 +483,7 @@ If you believe in yourself enough and know what you want, you’re gonna make it
 日期的完整表示： 2019-02-09
 在本月是第几天(不补零)：9
 在本月是第几天(补零)：09
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <hr>
 <p>大家新年好哇！</p>
 <hr>
@@ -967,7 +988,7 @@ If you believe in yourself enough and know what you want, you’re gonna make it
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Python3字符串API之expandtabs()">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Python3字符串API之expandtabs()">
                         
                         <span class="card-title">Python3字符串API之expandtabs()</span>
                     </div>
@@ -1017,7 +1038,7 @@ Challenges make you discover things about yourself that you never really knew.�
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="欧几里得算法">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="欧几里得算法">
                         
                         <span class="card-title">欧几里得算法</span>
                     </div>

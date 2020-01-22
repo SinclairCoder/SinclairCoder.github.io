@@ -4,8 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="SinclairのBlog">
-    <meta name="description" content="SinclairのBlog">
+    <meta name="keywords" content="SQLServer配置管理器打开SQLServer服务&amp;&amp;远程过程调用失败问题, SinclairのBlog">
+    <meta name="description" content="打开SQL Server配置管理器在Windows 10中，SQL Server 配置管理器不显示为一个应用程序。如果想找到配置管理器一般在下面这个路径里
+C:\Windows\SysWOW64
+
+里面文件很多，然后搜索SQLServerM">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>SinclairのBlog</title>
+    <title>SQLServer配置管理器打开SQLServer服务&amp;&amp;远程过程调用失败问题 | SinclairのBlog</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -25,10 +28,9 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -66,6 +68,17 @@
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -163,6 +176,17 @@
         
         <li class="m-nav-item">
 	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
@@ -233,12 +257,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">SQLServer配置管理器打开SQLServer服务&amp;&amp;远程过程调用失败问题</h1>
                 </div>
             </div>
         </div>
@@ -258,12 +282,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/SQLServer/">
+                                <span class="chip bg-color">SQLServer</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/DataBase/" class="post-category">
+                                DataBase
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -272,21 +309,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-09-01
+                    2019-11-19
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-01-21
+                    2020-01-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    0
+                    184
                 </div>
                 
 
@@ -309,7 +346,13 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="打开SQL-Server配置管理器"><a href="#打开SQL-Server配置管理器" class="headerlink" title="打开SQL Server配置管理器"></a>打开SQL Server配置管理器</h2><p>在Windows 10中，SQL Server 配置管理器不显示为一个应用程序。<br>如果想找到配置管理器一般在下面这个路径里</p>
+<pre><code class="lang-bash">C:\Windows\SysWOW64
+</code></pre>
+<p>里面文件很多，然后搜索SQLServerManager<br><img src="https://img-blog.csdnimg.cn/20191119132859931.png" alt="搜索SQLServerManager"><br>可能版本不一样，只要是这个就可以，然后双击打开。<br><img src="https://img-blog.csdnimg.cn/20191119133753870.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="配置管理器"></p>
+<h2 id="远程过程调用失败问题"><a href="#远程过程调用失败问题" class="headerlink" title="远程过程调用失败问题"></a>远程过程调用失败问题</h2><p>打开服务的时候可能会遇到无法连接到 WMI 提供程序的问题<br><img src="https://img-blog.csdnimg.cn/20191119134055201.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="无法连接到 WMI 提供程序的问题"></p>
+<p>八成是因为之前装过VS，然后装上了Microsoft SQL Server 201* Express LocalDB（版本可能不一样），可以去控制面板添加或卸载程序 里面搜索Microsoft SQL Server 就可以看到，然后卸载掉应该就可以了。</p>
+
             </div>
             <hr/>
 
@@ -334,7 +377,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sinclaircoder.top/2019/09/01/00/">https://sinclaircoder.top/2019/09/01/00/</a>
+                    <a href="https://sinclaircoder.top/2019/11/19/2019-11-19-sqlserver-pei-zhi-guan-li-qi-da-kai-sqlserver-fu-wu-yuan-cheng-guo-cheng-diao-yong-shi-bai-wen-ti/">https://sinclaircoder.top/2019/11/19/2019-11-19-sqlserver-pei-zhi-guan-li-qi-da-kai-sqlserver-fu-wu-yuan-cheng-guo-cheng-diao-yong-shi-bai-wen-ti/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -371,7 +414,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/SQLServer/">
+                                    <span class="chip bg-color">SQLServer</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -802,37 +849,33 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2019/09/02/2019-09-02-ruan-jian-ti-xi-jie-gou-bi-ji/">
+                <a href="/2019/11/19/2019-11-19-pta-shan-chu-zi-fu-chuan-zhong-de-zi-chuan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="软件体系结构笔记">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="PTA-删除字符串中的子串">
                         
-                        <span class="card-title">软件体系结构笔记</span>
+                        <span class="card-title">PTA-删除字符串中的子串</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-传说中的软件体系结构与设计模式课程中的软件体系结构部分就结束了，好短，6个学时，匆匆掠过，走马观花，根据老师讲的内容写了份笔记，日后慢慢补充…
-
-概念
-具有一定形式的结构化元素，即构件的集合
-处理构件：处理函数
-数据构件：存储数据 （Ja
+                            题目描述输入2个字符串S1和S2，要求删除字符串S1中出现的所有子串S2，即结果字符串中不能包含S2。
+输入格式：输入在2行中分别给出不超过80个字符长度的、以回车结束的2个非空字符串，对应S1和S2。
+输出格式：在一行中输出删除字符串S1
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-09-02
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-19
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/软件工程/" class="post-category">
-                                    软件工程
+                            <a href="/categories/PTA/" class="post-category">
+                                    PTA
                                 </a>
                             
                             
@@ -842,8 +885,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/软件体系结构/">
-                        <span class="chip bg-color">软件体系结构</span>
+                    <a href="/tags/PTA/">
+                        <span class="chip bg-color">PTA</span>
                     </a>
                     
                 </div>
@@ -857,66 +900,32 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/08/17/2019-08-17-ji-qi-xue-xi-zhi-xian-xing-hui-gui/">
+                <a href="/2019/11/15/2019-11-15-pta-shuo-fan-hua-jia-qiang-ban/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="机器学习之线性回归">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="PTA-说反话-加强版">
                         
-                        <span class="card-title">机器学习之线性回归</span>
+                        <span class="card-title">PTA-说反话-加强版</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            简单的线性回归以某产品的温度和产率关系为例，其中产率(y)是温度(x)的函数。请构建模型预测产品产率。
-
-
-
-
-温度
-产率
-
-
-
-
-100
-45
-
-
-110
-51
-
-
-120
-54
-
-
-130
-61
-
-
-140
-66
-
-
-150
-70
-
-
-
+                            给定一句英语，要求你编写程序，将句中所有单词的顺序颠倒输出。
+输入格式：测试输入包含一个测试用例，在一行内给出总长度不超过500 000的字符串。字符串由若干单词和若干空格组成，其中单词是由英文字母（大小写有区分）组成的字符串，单词之间用若
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/机器学习/" class="post-category">
-                                    机器学习
+                            <a href="/categories/PTA/" class="post-category">
+                                    PTA
                                 </a>
                             
                             
@@ -926,8 +935,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/机器学习/">
-                        <span class="chip bg-color">机器学习</span>
+                    <a href="/tags/PTA/">
+                        <span class="chip bg-color">PTA</span>
                     </a>
                     
                 </div>

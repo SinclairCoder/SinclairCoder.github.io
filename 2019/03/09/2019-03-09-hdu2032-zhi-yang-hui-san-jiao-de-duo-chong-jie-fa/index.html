@@ -30,10 +30,9 @@
     <link rel="stylesheet" type="text/css" href="/css/my.css">
     
     <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> -->
+    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
-<link rel="stylesheet" href="/css/prism.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+</head>
 
 
 <body>
@@ -71,6 +70,17 @@
       <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
     </a>
     
   </li>
@@ -168,6 +178,17 @@
         
         <li class="m-nav-item">
 	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
@@ -238,7 +259,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/26.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -403,14 +424,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    102
+                    504
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    1 Min
+                    2 Min
                 </div>
                 
 
@@ -431,28 +452,28 @@
 </blockquote>
 <p>即元素值等于肩上的两个元素之和，每行第一个跟最后一个都为１。</p>
 <a id="more"></a>
-<pre class="line-numbers language-lang-java"><code class="language-lang-java">//解法１、二维数组
+<pre><code class="lang-java">//解法１、二维数组
 int main() 
 {
     int n,a[30][30]={0};
-    while(cin>> n)
+    while(cin&gt;&gt; n)
     {
-        for(int i=0;i<n;i++)
+        for(int i=0;i&lt;n;i++)
         {
             a[i][0]=1;a[i][i]=1;
         }
-        for(int i=0;i<n;i++)
+        for(int i=0;i&lt;n;i++)
         {
-            for(int j=0;j<=i;j++)
+            for(int j=0;j&lt;=i;j++)
             {
-                if(j>0)
+                if(j&gt;0)
                     a[i][j] = a[i-1][j] + a[i-1][j-1];
-                cout << a[i][j];
-                if(j<i) cout << " ";
+                cout &lt;&lt; a[i][j];
+                if(j&lt;i) cout &lt;&lt; &quot; &quot;;
             }
-            cout << endl;
+            cout &lt;&lt; endl;
         }
-        cout << endl;
+        cout &lt;&lt; endl;
     }
      return 0;
 }
@@ -461,25 +482,25 @@ int main()
 int main() 
 {
     int n;    
-    while(cin>>n)
+    while(cin&gt;&gt;n)
     {
         int a[40]={0},b[40]={0}; //此处会涉及到初始化问题，故须放到while循环里面
         a[1]=1;b[1]=1;
-        for(int i=1;i<=n;i++) // 此处索引从1开始
+        for(int i=1;i&lt;=n;i++) // 此处索引从1开始
         {
-            for(int j=1;j<=i;j++)
+            for(int j=1;j&lt;=i;j++)
             {
                 a[j]=b[j]+b[j-1];     
             }
-            for(int j=1;j<=i;j++)
+            for(int j=1;j&lt;=i;j++)
             {
                 b[j] = a[j] ; 
-                cout<< b[j] ;
-                if(j<i) cout << " ";
+                cout&lt;&lt; b[j] ;
+                if(j&lt;i) cout &lt;&lt; &quot; &quot;;
             }    
-            cout << endl;
+            cout &lt;&lt; endl;
         }
-        cout << endl;
+        cout &lt;&lt; endl;
 
     }
      return 0;
@@ -489,7 +510,7 @@ int main()
 int fun(int n,int m)
 {
     int s1=1,j=1;
-    for(int i=n;i>n-m;i--)
+    for(int i=n;i&gt;n-m;i--)
     {
         s1 =s1*i/j;
         j++;
@@ -499,18 +520,18 @@ int fun(int n,int m)
 int main() 
 {
     int n;
-    while(cin>> n)
+    while(cin&gt;&gt; n)
     {
-        for(int i=0;i<n;i++)
+        for(int i=0;i&lt;n;i++)
         {
-            for(int j=0;j<=i;j++)
+            for(int j=0;j&lt;=i;j++)
             {
-                cout << fun(i,j);
-                if(j<i)cout << " ";
+                cout &lt;&lt; fun(i,j);
+                if(j&lt;i)cout &lt;&lt; &quot; &quot;;
             }
-            cout << endl;
+            cout &lt;&lt; endl;
         } 
-        cout << endl;
+        cout &lt;&lt; endl;
     }
      return 0;
 }
@@ -519,26 +540,26 @@ int main()
 int main() 
 {
     int n;    
-    while(cin>>n)
+    while(cin&gt;&gt;n)
     {
-        for(int i=1;i<=n;i++)
+        for(int i=1;i&lt;=n;i++)
         {
             int b=1;
-            for(int j=1;j<=i;j++)
+            for(int j=1;j&lt;=i;j++)
             {
-                cout << b;
+                cout &lt;&lt; b;
                 b = b*(i-j)/j;  // 下一个元素值=上一个*(行数-列数)/列数 
-                if(j<i) cout << " ";
+                if(j&lt;i) cout &lt;&lt; &quot; &quot;;
 
             }
-            cout << endl;
+            cout &lt;&lt; endl;
         }
-        cout << endl;
+        cout &lt;&lt; endl;
 
     }
      return 0;
 }
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</code></pre>
 <blockquote>
 <p>本该大一学会的，现在才学会，我干了什么？我究竟用时间换来了什么？</p>
 </blockquote>
@@ -1047,7 +1068,7 @@ int main()
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="第一次参加蓝桥杯(第十届)感怀">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="第一次参加蓝桥杯(第十届)感怀">
                         
                         <span class="card-title">第一次参加蓝桥杯(第十届)感怀</span>
                     </div>
@@ -1097,7 +1118,7 @@ int main()
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="一个小绿锁引发的问题">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="一个小绿锁引发的问题">
                         
                         <span class="card-title">一个小绿锁引发的问题</span>
                     </div>
