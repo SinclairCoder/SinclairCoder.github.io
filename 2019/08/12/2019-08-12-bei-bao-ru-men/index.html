@@ -307,14 +307,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-01-21
+                    2020-01-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    147
+                    187
                 </div>
                 
 
@@ -374,16 +374,89 @@
 </div>
 <h2 id="蛮力法—求幂集搜索"><a href="#蛮力法—求幂集搜索" class="headerlink" title="蛮力法—求幂集搜索"></a>蛮力法—求幂集搜索</h2><blockquote>
 <p>思路大概是用蛮力法找出n的所有幂集,然后遍历一遍,找到最优解</p>
-<p><strong>复杂度为O(2<sup>n</sup>)</strong><br>```c</p>
-<h1 id="include"><a href="#include" class="headerlink" title="include"></a>include<iostream></iostream></h1><h1 id="include-1"><a href="#include-1" class="headerlink" title="include"></a>include<vector></vector></h1><h1 id="include-2"><a href="#include-2" class="headerlink" title="include"></a>include<stdio.h></stdio.h></h1><h1 id="include-3"><a href="#include-3" class="headerlink" title="include"></a>include<map></map></h1><h1 id="include-4"><a href="#include-4" class="headerlink" title="include"></a>include<algorithm></algorithm></h1><p>using namespace std;<br>/<em>*<br>    求解简单0/1背包问题<br>    2019-8-12 
-</em>/<br>vector<vector<int> &gt; ps;<br>void PSet(int n)  // 求1-n的幂集<br>{<br>    vector<vector<int> &gt; ps1;  // 子幂集<br>    vector<vector<int> &gt;::iterator it;<br>    vector<int> s;<br>    ps.push_back(s);    // 添加空集合元素<br>    for(int i=1;i&lt;=n;i++)<br>    {<br>        ps1 = ps;<br>        for(it=ps1.begin();it!=ps1.end();it++)<br>            (<em>it).push_back(i);<br>        for(it=ps1.begin();it!=ps1.end();it++)<br>            ps.push_back(</em>it);<br>    }<br>} </int></vector<int></vector<int></vector<int></p>
+<p><strong>复杂度为O(2<sup>n</sup>)</strong></p>
 </blockquote>
-<p>void Knap(int w[],int v[], int W)<br>{<br>    int count = 0;<br>    int sumw,sumv;<br>    int maxi,maxsumw=0,maxsumv=0;<br>    vector<vector<int> &gt;::iterator it;<br>    vector<int>::iterator sit;<br>    printf(“ 序号   选中物品     总重量    总价值     能否装入\n”);<br>    for(it=ps.begin();it!=ps.end();it++)<br>    {<br>        printf(“ %d\t”,count++);<br>        sumw=sumv=0;<br>        printf(“ {“);<br>        for(sit=(<em>it).begin();sit!=(</em>it).end();sit++)<br>        {<br>            printf(“%d “,<em>sit);<br>            sumw += w[</em>sit-1];<br>            sumv += v[<em>sit-1];<br>        }<br>        printf(“}\t\t%d\t%d “,sumw,sumv);<br>        if(sumw&lt;=W)<br>        {<br>            printf(“能\n”);<br>            if(sumv&gt;maxsumv)<br>            {<br>                maxsumw = sumw;<br>                maxsumv = sumv;<br>                maxi = count-1;<br>            }<br>        }<br>        else cout &lt;&lt; “否\n”;<br>        //    count++;<br>    }<br>    printf(“最佳方案为：”);<br>    printf(“选中物品”);<br>    printf(“{ “);<br>    for(sit=ps[maxi].begin();sit!=ps[maxi].end();sit++)<br>        printf(“%d “,</em>sit);<br>    printf(“},”);<br>    printf(“总重量：%d,总价值：%d\n”,maxsumw,maxsumv);<br>}<br>int main()<br>{<br>    int n = 4, W = 6;<br>    int w[] = {5,3,2,1};<br>    int v[] = {4,4,3,1};<br>    PSet(n);<br>    printf(“0/1背包解决方案\n”,n);<br>    Knap(w,v,W);<br>    return 0;<br>}</int></vector<int></p>
-<pre><code>
-## 队列式分支界限法
-```c
-#include&lt;iostream&gt;
-#include&lt;queue&gt;
+<pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">#include<iostream>
+#include<vector>
+#include<stdio.h>
+#include<map>
+#include<algorithm>
+using namespace std;
+/**
+    求解简单0/1背包问题
+    2019-8-12 
+*/
+vector<vector<int> > ps;
+void PSet(int n)  // 求1-n的幂集 
+{
+    vector<vector<int> > ps1;  // 子幂集 
+    vector<vector<int> >::iterator it;
+    vector<int> s;
+    ps.push_back(s);    // 添加空集合元素
+    for(int i=1;i<=n;i++)
+    {
+        ps1 = ps;
+        for(it=ps1.begin();it!=ps1.end();it++)
+            (*it).push_back(i);
+        for(it=ps1.begin();it!=ps1.end();it++)
+            ps.push_back(*it);    
+    } 
+} 
+
+void Knap(int w[],int v[], int W)
+{
+    int count = 0;
+    int sumw,sumv;
+    int maxi,maxsumw=0,maxsumv=0;
+    vector<vector<int> >::iterator it;
+    vector<int>::iterator sit;
+    printf(" 序号   选中物品     总重量    总价值     能否装入\n");
+    for(it=ps.begin();it!=ps.end();it++)
+    {
+        printf(" %d\t",count++);
+        sumw=sumv=0;
+        printf(" {");
+        for(sit=(*it).begin();sit!=(*it).end();sit++)
+        {
+            printf("%d ",*sit);
+            sumw += w[*sit-1];  
+            sumv += v[*sit-1];
+        } 
+        printf("}\t\t%d\t%d ",sumw,sumv);
+        if(sumw<=W)
+        {
+            printf("能\n");
+            if(sumv>maxsumv)
+            {
+                maxsumw = sumw;
+                maxsumv = sumv;
+                maxi = count-1;    
+            } 
+        }
+        else cout << "否\n";
+        //    count++;
+    }
+    printf("最佳方案为：");
+    printf("选中物品");
+    printf("{ ");
+    for(sit=ps[maxi].begin();sit!=ps[maxi].end();sit++)
+        printf("%d ",*sit);
+    printf("},");
+    printf("总重量：%d,总价值：%d\n",maxsumw,maxsumv);      
+}
+int main() 
+{
+    int n = 4, W = 6;
+    int w[] = {5,3,2,1};
+    int v[] = {4,4,3,1};
+    PSet(n);
+    printf("0/1背包解决方案\n",n);
+    Knap(w,v,W);
+    return 0;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="队列式分支界限法"><a href="#队列式分支界限法" class="headerlink" title="队列式分支界限法"></a>队列式分支界限法</h2><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">#include<iostream>
+#include<queue>
 using namespace std;
 #define MAXV 20
 int maxv = -9999; 
@@ -400,28 +473,28 @@ struct NodeType{
 int n =5,W = 6;
     int w[] = {0,5,3,2,1};
     int v[] = {0,4,4,3,1};
-void bound(NodeType &amp;e){  // 计算分支结点e的上界 
+void bound(NodeType &e){  // 计算分支结点e的上界 
     int i=e.i+1;
     int sumw = e.w;
     double sumv = e.v; 
-    while((sumw+w[i]&lt;=W)&amp;&amp; i&lt;=n){
+    while((sumw+w[i]<=W)&& i<=n){
         sumw += w[i];
         sumv += v[i];
         i++;
     }
-    if(i&lt;=n)
+    if(i<=n)
         e.ub = sumv+(W-sumw)*v[i]/w[i];
     else e.ub = sumv; 
 } 
 
-void EnQueue(NodeType e,queue&lt;NodeType&gt; &amp;qu)
+void EnQueue(NodeType e,queue<NodeType> &qu)
 {
     if(e.i==n)
     {
-        if(e.v&gt;maxv)
+        if(e.v>maxv)
         {
             maxv = e.v;
-            for(int j=1;j&lt;=n;j++)
+            for(int j=1;j<=n;j++)
                 bestx[j] = e.x[j];
         }
     }
@@ -431,12 +504,12 @@ void bfs()
 {
     int j;
     NodeType e,e1,e2;
-    queue&lt;NodeType&gt; qu;
+    queue<NodeType> qu;
     e.i = 0;
     e.w = 0;
     e.v = 0;
     e.num = total++;
-    for(j=1;j&lt;=n;j++)
+    for(j=1;j<=n;j++)
         e.x[j] = 0;
     bound(e);
     qu.push(e);
@@ -444,13 +517,13 @@ void bfs()
     {
         e = qu.front();
         qu.pop();
-        if(e.w+w[e.i+1]&lt;=W)  // 剪枝：检查左孩子结点
+        if(e.w+w[e.i+1]<=W)  // 剪枝：检查左孩子结点
         {
             e1.num = total++;
             e1.i = e.i+1;
             e1.w = e.w+w[e1.i];
             e1.v = e.v+v[e1.i];
-            for(j=1;j&lt;=n;j++)
+            for(j=1;j<=n;j++)
                 e1.x[j] = e.x[j];
             e1.x[e1.i] = 1;
             bound(e1);
@@ -460,11 +533,11 @@ void bfs()
         e2.i = e.i+1;
         e2.w = e.w; 
         e2.v = e.v;
-        for(j=2;j&lt;=n;j++)
+        for(j=2;j<=n;j++)
             e2.x[j] = e.x[j];
         e2.x[e2.i]= 0;
         bound(e2);
-        if(e2.ub&gt;maxv)
+        if(e2.ub>maxv)
             EnQueue(e2,qu); 
     }
 }
@@ -472,15 +545,14 @@ int main()
 {
 
     bfs();
-    printf(&quot;分支界限法求解0/1背包问题：\n X=[&quot;);
-    for(int i=1;i&lt;=n;i++)
-        printf(&quot;%2d&quot;,bestx[i]);
-    printf(&quot;],装入总价值为%d\n&quot;,maxv); 
-
-
+    printf("分支界限法求解0/1背包问题：\n X=[");
+    for(int i=1;i<=n;i++)
+        printf("%2d",bestx[i]);
+    printf("],装入总价值为%d\n",maxv); 
     return 0;
 }
-</code></pre><p>未完待续~~</p>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>未完待续~~</p>
 <p>参考: 李春葆 .算法设计与分析(第二版)</p>
 
             </div>
