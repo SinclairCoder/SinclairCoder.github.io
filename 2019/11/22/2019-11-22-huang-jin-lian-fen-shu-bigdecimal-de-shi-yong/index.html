@@ -360,7 +360,7 @@
 <li>写出精确到小数点后100位精度的黄金分割数</li>
 </ul>
 <script type="math/tex; mode=display">\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+}}}}}}</script><p>当然黄金分割数是$\frac{\sqrt5-1}{2}$,可以直接算，但是Windows下的计算器的求解只能到小数点之后32位</p>
-<p><img src="https://img-blog.csdnimg.cn/20191122163245826.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20191122163245826.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="windows下计算器计算结果"></p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>当然这是一道填空题，只需要结果，假如你懂一点点java，又刚好知道BigDecimal这个类，那你就可以打开桌面的Eclipse轻松求解这个题目。</p>
 <pre><code class="lang-java">import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -896,37 +896,36 @@ b1.negate();    //相反数，求BigDecimal类型数据的相反数。
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2019/11/29/2019-11-29-hui-su-suan-fa-qiu-jie-shu-du-wen-ti-c-di-gui-fei-di-gui/">
+                <a href="/2019/11/22/2019-11-22-lan-qiao-bei-ji-xun-bi-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="回溯算法求解数独问题(C++ 递归/非递归)">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="蓝桥杯集训笔记">
                         
-                        <span class="card-title">回溯算法求解数独问题(C++ 递归/非递归)</span>
+                        <span class="card-title">蓝桥杯集训笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            如何使用求解上述数独?
-递归实现#include&lt;bits/stdc++.h&gt;
+                            数学建模的思想几道题目
 
-using namespace std;
+熊怪吃核桃—二进制的使用
+切面条余数的使用余数运算对于加法、减法和乘法封闭，常用于循环队列等使用，也可以利用余数的性质大幅度简化编码常用场合：递推法，倒推法有很多经典的题目，比如猴子吃桃..猜字母（待补..）
 
-int sudoku[9][9];
-int dx[9]= {-1,-1,-1,0,0,0,1,1,1}
+统
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-29
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-11-22
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/数据结构与算法训练/" class="post-category">
-                                    数据结构与算法训练
+                            <a href="/categories/蓝桥杯/" class="post-category">
+                                    蓝桥杯
                                 </a>
                             
                             
@@ -936,12 +935,8 @@ int dx[9]= {-1,-1,-1,0,0,0,1,1,1}
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/回溯法/">
-                        <span class="chip bg-color">回溯法</span>
-                    </a>
-                    
-                    <a href="/tags/数独/">
-                        <span class="chip bg-color">数独</span>
+                    <a href="/tags/蓝桥杯/">
+                        <span class="chip bg-color">蓝桥杯</span>
                     </a>
                     
                 </div>
@@ -1071,6 +1066,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
     <footer class="page-footer bg-color">
