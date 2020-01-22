@@ -26,19 +26,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）]]></title>
-    <url>%2F2020%2F01%2F19%2F2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji%2F</url>
-    <content type="text"><![CDATA[哥尼斯堡是位于普累格河上的一座城市，它包含两个岛屿及连接它们的七座桥，可否走过这样的七座桥，而且每桥只走过一次？瑞士数学家欧拉(Leonhard Euler，1707—1783)最终解决了这个问题，并由此创立了拓扑学。这个问题如今可以描述为判断欧拉回路是否存在的问题。欧拉回路是指不令笔离开纸面，可画过图中每条边仅一次，且可以回到起点的一条回路。现给定一个无向图，问是否存在欧拉回路？ 输入格式:输入第一行给出两个正整数，分别是节点数N (1≤N≤1000)和边数M；随后的M行对应M条边，每行给出一对正整数，分别是该条边直接连通的两个节点的编号（节点从1到N编号）。 输出格式:若欧拉回路存在则输出1，否则输出0。 输入样例1: 6 101 22 33 14 55 66 41 41 63 43 6 输出样例1:1 输入样例2: 5 81 21 32 32 42 55 35 43 4 输出样例2: 0 思路：如果欧拉通路的起点与终点一样，则成为欧拉回路， 连通的多重图具有欧拉回路当且仅当它的每个顶点都有偶数度则欧拉回路的条件： 图是连通的，没有孤立节点 无向图的每个节点的度数都是偶数度，有向图每个节点的入度等于出度 使用并查集统计连通分量个数，使用degree数组奇偶数判断是否全为偶数。 #include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;vector&gt; #include&lt;algorithm&gt; #include&lt;stack&gt; #include&lt;queue&gt; #include&lt;map&gt; #include&lt;list&gt; #include&lt;set&gt; #include&lt;cmath&gt; using namespace std; typedef long long ll; int fa[1005]; int father(int x){ if(fa[x]==x) return x; return fa[x] = father(fa[x]); } int main(){ int n,m,x,y; cin &gt;&gt; n &gt;&gt; m; int degree[n+1]; for(int i=1;i&lt;=n;i++) fa[i] = i; memset(degree,0,sizeof(degree)); for(int i=0;i&lt;m;i++){ cin &gt;&gt; x &gt;&gt; y; int rootx = father(x),rooty = father(y); if(rootx!=rooty){ fa[rooty] = rootx; } // fa[father(y)] = father(x); 这样写竟然会超时！！！！ // 不要问我咋知道的 degree[x]++; degree[y]++; } int exist=1,root = fa[1],connectcnt = 0; for(int i=1;i&lt;=n;i++){ if(fa[i]==i) connectcnt++; } if(connectcnt&gt;1) exist = 0; for(int i=1;i&lt;=n;i++){ if(degree[i]%2){ exist = 0;break; } } cout &lt;&lt; exist &lt;&lt; endl; return 0; }]]></content>
-      <categories>
-        <category>PTA</category>
-      </categories>
-      <tags>
-        <tag>PTA</tag>
-        <tag>欧拉回路</tag>
-        <tag>并查集</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[PTA汉密尔顿回路]]></title>
     <url>%2F2020%2F01%2F19%2F2020-01-19-pta-han-mi-er-dun-hui-lu%2F</url>
     <content type="text"><![CDATA[著名的“汉密尔顿（Hamilton）回路问题”是要找一个能遍历图中所有顶点的简单回路（即每个顶点只访问 1 次）。本题就要求你判断任一给定的回路是否汉密尔顿回路。 输入格式：首先第一行给出两个正整数：无向图中顶点数 N（2&lt;N≤200）和边数 M。随后 M 行，每行给出一条边的两个端点，格式为“顶点1 顶点2”，其中顶点从 1 到N 编号。再下一行给出一个正整数 K，是待检验的回路的条数。随后 K 行，每行给出一条待检回路，格式为：$n\quad V_1\quad V_2⋯ V_​n$ 其中 n 是回路中的顶点数，$V_i$是路径上的顶点编号。 输出格式：对每条待检回路，如果是汉密尔顿回路，就在一行中输出”YES”，否则输出”NO”。 输入样例： 6 106 23 41 52 53 14 11 66 31 24 567 5 1 4 3 6 2 56 5 1 4 3 6 29 6 2 1 6 3 4 5 2 64 1 2 5 17 6 1 3 4 5 2 67 6 1 2 5 4 3 1 输出样例： YESNONONOYESNO 思路：将边用数组存储起来，判断回路里两条边之前是否连通并且除出发点外其余点只出现一次。如果给定的回路里点的个数不等于n+1，直接NO #include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;vector&gt; #include&lt;algorithm&gt; #include&lt;stack&gt; #include&lt;queue&gt; #include&lt;map&gt; #include&lt;list&gt; #include&lt;set&gt; #include&lt;cmath&gt; using namespace std; typedef long long ll; #define N 205 int edge[N][N]; int main(){ int n,m,x,y; cin &gt;&gt; n &gt;&gt; m; memset(edge,0,sizeof(edge)); for(int i=0;i&lt;m;i++){ cin &gt;&gt; x &gt;&gt; y; edge[x][y] = 1; edge[y][x] = 1; } int t,vis[n+1]; memset(vis,0,sizeof(vis)); cin &gt;&gt; t; while(t--){ int cnt,pre,flag=1,start; cin &gt;&gt; cnt; cin &gt;&gt; start; vis[start]=1;pre = start; for(int j=1;j&lt;cnt;j++){ cin &gt;&gt; x; if(!edge[pre][x]) flag = 0; // 判定条件要注意 if(vis[x]&amp;&amp;(j&lt;cnt-1||x!=start)) flag = 0; // if(vis[x]&amp;&amp;x!=start||!edge[pre][x]) flag = 0; vis[x]=1; pre = x; } if(cnt!=n+1) flag = 0; if(flag) cout&lt;&lt; &quot;YES&quot; &lt;&lt; endl; else cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl; memset(vis,0,sizeof(vis)); } return 0; }]]></content>
@@ -60,6 +47,19 @@
       <tags>
         <tag>PTA</tag>
         <tag>BFS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）]]></title>
+    <url>%2F2020%2F01%2F19%2F2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji%2F</url>
+    <content type="text"><![CDATA[哥尼斯堡是位于普累格河上的一座城市，它包含两个岛屿及连接它们的七座桥，可否走过这样的七座桥，而且每桥只走过一次？瑞士数学家欧拉(Leonhard Euler，1707—1783)最终解决了这个问题，并由此创立了拓扑学。这个问题如今可以描述为判断欧拉回路是否存在的问题。欧拉回路是指不令笔离开纸面，可画过图中每条边仅一次，且可以回到起点的一条回路。现给定一个无向图，问是否存在欧拉回路？ 输入格式:输入第一行给出两个正整数，分别是节点数N (1≤N≤1000)和边数M；随后的M行对应M条边，每行给出一对正整数，分别是该条边直接连通的两个节点的编号（节点从1到N编号）。 输出格式:若欧拉回路存在则输出1，否则输出0。 输入样例1: 6 101 22 33 14 55 66 41 41 63 43 6 输出样例1:1 输入样例2: 5 81 21 32 32 42 55 35 43 4 输出样例2: 0 思路：如果欧拉通路的起点与终点一样，则成为欧拉回路， 连通的多重图具有欧拉回路当且仅当它的每个顶点都有偶数度则欧拉回路的条件： 图是连通的，没有孤立节点 无向图的每个节点的度数都是偶数度，有向图每个节点的入度等于出度 使用并查集统计连通分量个数，使用degree数组奇偶数判断是否全为偶数。 #include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;vector&gt; #include&lt;algorithm&gt; #include&lt;stack&gt; #include&lt;queue&gt; #include&lt;map&gt; #include&lt;list&gt; #include&lt;set&gt; #include&lt;cmath&gt; using namespace std; typedef long long ll; int fa[1005]; int father(int x){ if(fa[x]==x) return x; return fa[x] = father(fa[x]); } int main(){ int n,m,x,y; cin &gt;&gt; n &gt;&gt; m; int degree[n+1]; for(int i=1;i&lt;=n;i++) fa[i] = i; memset(degree,0,sizeof(degree)); for(int i=0;i&lt;m;i++){ cin &gt;&gt; x &gt;&gt; y; int rootx = father(x),rooty = father(y); if(rootx!=rooty){ fa[rooty] = rootx; } // fa[father(y)] = father(x); 这样写竟然会超时！！！！ // 不要问我咋知道的 degree[x]++; degree[y]++; } int exist=1,root = fa[1],connectcnt = 0; for(int i=1;i&lt;=n;i++){ if(fa[i]==i) connectcnt++; } if(connectcnt&gt;1) exist = 0; for(int i=1;i&lt;=n;i++){ if(degree[i]%2){ exist = 0;break; } } cout &lt;&lt; exist &lt;&lt; endl; return 0; }]]></content>
+      <categories>
+        <category>PTA</category>
+      </categories>
+      <tags>
+        <tag>PTA</tag>
+        <tag>欧拉回路</tag>
+        <tag>并查集</tag>
       </tags>
   </entry>
   <entry>
@@ -121,6 +121,11 @@
       </tags>
   </entry>
   <entry>
+    <title></title>
+    <url>%2F2020%2F01%2F01%2F00%2F</url>
+    <content type="text"><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[PTA列出叶结点(BFS)]]></title>
     <url>%2F2020%2F01%2F01%2F2020-01-19-pta-lie-chu-xie-jie-dian-bfs%2F</url>
     <content type="text"><![CDATA[对于给定的二叉树，本题要求你按从上到下、从左到右的顺序输出其所有叶节点。 输入格式：首先第一行给出一个正整数 N（≤10），为树中结点总数。树中的结点从 0 到 N−1 编号。随后 N 行，每行给出一个对应结点左右孩子的编号。如果某个孩子不存在，则在对应位置给出 “-“。编号间以 1 个空格分隔。 输出格式：在一行中按规定顺序输出叶节点的编号。编号间以 1 个空格分隔，行首尾不得有多余空格。 输入样例：8 1 - - - 0 - 2 7 - - - - 5 - 4 6 输出样例： 4 1 5 实现：题意理解了半天… 开个标记数组，在叶子左右孩子节点中出现过的就进行标记。剩下的那一个就是root，然后在进行BFS #include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;vector&gt; #include&lt;algorithm&gt; #include&lt;stack&gt; #include&lt;queue&gt; #include&lt;map&gt; #include&lt;list&gt; #include&lt;set&gt; #include&lt;cmath&gt; using namespace std; typedef long long ll; struct node{ int leaf ; int right; }q[15]; queue&lt;int&gt; qu; int res[15],top=0; void bfs(){ while(qu.size()){ int num = qu.front(); qu.pop(); if(q[num].leaf==-1&amp;&amp;q[num].right==-1) res[top++] = num; if(q[num].leaf!=-1) qu.push(q[num].leaf); if(q[num].right!=-1) qu.push(q[num].right); } } int main(){ int n,root; cin &gt;&gt; n; getchar(); int flag[n]; char a,b; memset(q,0,sizeof(q)); memset(flag,0,sizeof(flag)); for(int i=0;i&lt;n;i++){ scanf(&quot;%c %c&quot;,&amp;a,&amp;b); getchar(); if(a==&#39;-&#39;) q[i].leaf=-1; else { q[i].leaf = a-&#39;0&#39;;flag[q[i].leaf] = 1; } if(b==&#39;-&#39;) q[i].right=-1; else { q[i].right = b-&#39;0&#39;;flag[q[i].right] = 1; } } for(int i=0;i&lt;n;i++){ if(flag[i]==0){ root = i; break; } } qu.push(root); bfs(); cout &lt;&lt; res[0]; for(int i=1;i&lt;top;i++){ cout &lt;&lt; &quot; &quot; &lt;&lt; res[i]; } return 0; }]]></content>
@@ -131,11 +136,6 @@
         <tag>PTA</tag>
         <tag>BFS</tag>
       </tags>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2020%2F01%2F01%2F00%2F</url>
-    <content type="text"><![CDATA[]]></content>
   </entry>
   <entry>
     <title><![CDATA[PTA切分表达式——写个tokenizer吧]]></title>
@@ -197,13 +197,26 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[切面条]]></title>
-    <url>%2F2019%2F11%2F22%2F2019-11-22-qie-mian-tiao%2F</url>
-    <content type="text"><![CDATA[一道2014蓝桥杯省赛试题切面条 一根高筋拉面，中间切一刀，可以得到2根面条。 如果先对折1次，中间切一刀，可以得到3根面条。 如果连续对折2次，中间切一刀，可以得到5根面条。 那么，连续对折10次，中间切一刀，会得到多少面条呢？ 不切的话，一根面条原本有两个端点对折0次，中间切一刀，会产生1个端点，一共3个端点，会产生2根面条对折1次，中间切一刀，会产生2个端点，一共4个端点，会产生3根面条对折2次，中间切一刀，会产生4个端点，一共6个端点，会产生5根面条对折3次，中间切一刀，会产生8个端点，一共10个端点，会产生9根面条……假设对折n次，则中间切一刀，会产生$2^n$个端点，加上原来的两个，一共$2^n+2$个端点，会产生$2^n+2-1$根面条，也即产生的面条数等于端点数减一。即result = 2^n+1（证明略..）当n=10时，result = 1025]]></content>
+    <title><![CDATA[大数乘法 java BigInteger的使用]]></title>
+    <url>%2F2019%2F11%2F22%2F2019-11-22-da-shu-cheng-fa-java-biginteger-de-shi-yong%2F</url>
+    <content type="text"><![CDATA[找个大数乘法的题目练习一下 BigInterger的使用 当两个比较大的整数相乘时，可能会出现数据溢出的情形。为避免溢出，可以采用字符串的方法来实现两个大数之间的乘法。具体来说，首先以字符串的形式输入两个整数，每个整数的长度不会超过8位，然后把它们相乘的结果存储在另一个字符串当中（长度不会超过16位），最后把这个字符串打印出来。例如，假设用户输入为：62773417和12345678，则输出结果为：774980393241726. 输入： 62773417 12345678 输出： 774980393241726 代码实现 import java.math.BigInteger; import java.util.Scanner; public class Main { public static void main(String[] args) { Scanner input = new Scanner(System.in); String str1 = input.next(),str2 = input.next(); BigInteger num1 = new BigInteger(str1); BigInteger num2 = new BigInteger(str2); BigInteger res = num1.multiply(num2); System.out.println(res.toString()); input.close(); } } 比C/C++实现起来爽很多。一般来说BigInteger是使用String类型进行构造，传入两个个数字字符串，然后进行加减乘除。java中并没有重载运算符这种操作，只能另外实现封装成新的函数。 一些常用API请参考java基础-BigInteger的使用]]></content>
       <categories>
         <category>蓝桥杯</category>
       </categories>
       <tags>
+        <tag>蓝桥杯</tag>
+        <tag>BigInteger</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[熊怪吃核桃--二进制的使用]]></title>
+    <url>%2F2019%2F11%2F22%2F2019-11-22-xiong-guai-chi-he-tao-er-jin-zhi-de-shi-yong%2F</url>
+    <content type="text"><![CDATA[一道2015年蓝桥杯省赛试题熊怪吃核桃 森林里有一只熊怪，很爱吃核桃。 不过它有个习惯，每次都把找到的核桃分成相等的两份，吃掉一份，留一份。 如果不能等分，熊怪就会扔掉一个核桃再分。 第二天再继续这个过程，直到最后剩一个核桃了，直接丢掉。 有一天，熊怪发现了1543个核桃，请问，它在吃这些核桃的过程中，一共要丢掉多少个核桃。 思路思路就是每次判读一下是奇数还是偶数，奇数的话就减1然后除以2，偶数的话就直接除以2。用C/C++实现写起来其实很简单，其实还有一种更妙的思路，这个过程其实就是一个除2的过程，也就类似于十进制转二进制的过程，所以直接在Windows下利用计算器输入1543转成二进制，然后数一数二进制里面有几个1即可。 1543对应的二进制是110 0000 0111，里面有5个1。 顺便放一个代码实现吧 #include&lt;iostream&gt; using namespace std; int main(){ int n = 1543,cnt = 0; while(n){ if(n&amp;1){ n--;cnt++; n /= 2; } else n /= 2; } cout &lt;&lt; cnt &lt;&lt; endl; return 0; }]]></content>
+      <categories>
+        <category>蓝桥杯</category>
+      </categories>
+      <tags>
+        <tag>位运算</tag>
         <tag>蓝桥杯</tag>
       </tags>
   </entry>
@@ -220,6 +233,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[切面条]]></title>
+    <url>%2F2019%2F11%2F22%2F2019-11-22-qie-mian-tiao%2F</url>
+    <content type="text"><![CDATA[一道2014蓝桥杯省赛试题切面条 一根高筋拉面，中间切一刀，可以得到2根面条。 如果先对折1次，中间切一刀，可以得到3根面条。 如果连续对折2次，中间切一刀，可以得到5根面条。 那么，连续对折10次，中间切一刀，会得到多少面条呢？ 不切的话，一根面条原本有两个端点对折0次，中间切一刀，会产生1个端点，一共3个端点，会产生2根面条对折1次，中间切一刀，会产生2个端点，一共4个端点，会产生3根面条对折2次，中间切一刀，会产生4个端点，一共6个端点，会产生5根面条对折3次，中间切一刀，会产生8个端点，一共10个端点，会产生9根面条……假设对折n次，则中间切一刀，会产生$2^n$个端点，加上原来的两个，一共$2^n+2$个端点，会产生$2^n+2-1$根面条，也即产生的面条数等于端点数减一。即result = 2^n+1（证明略..）当n=10时，result = 1025]]></content>
+      <categories>
+        <category>蓝桥杯</category>
+      </categories>
+      <tags>
+        <tag>蓝桥杯</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[蓝桥杯集训笔记]]></title>
     <url>%2F2019%2F11%2F22%2F2019-11-22-lan-qiao-bei-ji-xun-bi-ji%2F</url>
     <content type="text"><![CDATA[数学建模的思想几道题目 熊怪吃核桃—二进制的使用 切面条余数的使用余数运算对于加法、减法和乘法封闭，常用于循环队列等使用，也可以利用余数的性质大幅度简化编码常用场合：递推法，倒推法有很多经典的题目，比如猴子吃桃..猜字母（待补..） 统计某种运算的结果末尾0的个数统计因子中能被2和5整除的个数分别为n1,n2 result = min(n1,n2)毕达哥拉斯定理（勾股定理）可以直接利用$x^2+y^2=z^2$在正整数域构造基础解系 \begin{cases}x=2k+1\\y=2k^2+2k\\ z = 2k^2+2k+1 \\ k = 1,2,3,... \end{cases}另一种解系： \begin{cases}x=st\\y=\frac{t^2-s^2}{2}\\ z =\frac{t^2+s^2}{2} \\ s =1,3,5,7.. \\ gcd(t,s)=1 \end{cases}超长位数的处理 存储方式：字符串、整数数组（甚至采用整型数组紧缩存放，即数组中一个元素存放多位，输出的时候使用printf(“%nd”,x[i]); 存储格式：把低位放在前，高位放在后面，符号位和小数位单独处理，可使用标志变量 运算方式 C/C++使用数组模拟进行加减乘除，及时取余进位操作，小心溢出 java 中里面提供了两个类BigInteger，BigDecimal分别对应大整数、高精度小数的处理 。 tips：尽管是C/C++选手，假如遇到了大数运算的题目，又刚好是个填空题，不妨简单学下Java里面的这个两个类，甚至Date类（日期计算），求结果多快好省，何乐而不为？ 两个往年题目练习一下BigInteger，BigDecimal的使用 大数乘法 java BigInteger的使用 黄金连分数—BigDecimal的使用 RSA对应2019省赛A组题目RSA解密涉及的知识点如下 逆元 欧拉函数 快速幂 素数筛 扩展欧几里得算法 （待补..）]]></content>
@@ -228,30 +252,6 @@
       </categories>
       <tags>
         <tag>蓝桥杯</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[熊怪吃核桃--二进制的使用]]></title>
-    <url>%2F2019%2F11%2F22%2F2019-11-22-xiong-guai-chi-he-tao-er-jin-zhi-de-shi-yong%2F</url>
-    <content type="text"><![CDATA[一道2015年蓝桥杯省赛试题熊怪吃核桃 森林里有一只熊怪，很爱吃核桃。 不过它有个习惯，每次都把找到的核桃分成相等的两份，吃掉一份，留一份。 如果不能等分，熊怪就会扔掉一个核桃再分。 第二天再继续这个过程，直到最后剩一个核桃了，直接丢掉。 有一天，熊怪发现了1543个核桃，请问，它在吃这些核桃的过程中，一共要丢掉多少个核桃。 思路思路就是每次判读一下是奇数还是偶数，奇数的话就减1然后除以2，偶数的话就直接除以2。用C/C++实现写起来其实很简单，其实还有一种更妙的思路，这个过程其实就是一个除2的过程，也就类似于十进制转二进制的过程，所以直接在Windows下利用计算器输入1543转成二进制，然后数一数二进制里面有几个1即可。 1543对应的二进制是110 0000 0111，里面有5个1。 顺便放一个代码实现吧 #include&lt;iostream&gt; using namespace std; int main(){ int n = 1543,cnt = 0; while(n){ if(n&amp;1){ n--;cnt++; n /= 2; } else n /= 2; } cout &lt;&lt; cnt &lt;&lt; endl; return 0; }]]></content>
-      <categories>
-        <category>蓝桥杯</category>
-      </categories>
-      <tags>
-        <tag>位运算</tag>
-        <tag>蓝桥杯</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[大数乘法 java BigInteger的使用]]></title>
-    <url>%2F2019%2F11%2F22%2F2019-11-22-da-shu-cheng-fa-java-biginteger-de-shi-yong%2F</url>
-    <content type="text"><![CDATA[找个大数乘法的题目练习一下 BigInterger的使用 当两个比较大的整数相乘时，可能会出现数据溢出的情形。为避免溢出，可以采用字符串的方法来实现两个大数之间的乘法。具体来说，首先以字符串的形式输入两个整数，每个整数的长度不会超过8位，然后把它们相乘的结果存储在另一个字符串当中（长度不会超过16位），最后把这个字符串打印出来。例如，假设用户输入为：62773417和12345678，则输出结果为：774980393241726. 输入： 62773417 12345678 输出： 774980393241726 代码实现 import java.math.BigInteger; import java.util.Scanner; public class Main { public static void main(String[] args) { Scanner input = new Scanner(System.in); String str1 = input.next(),str2 = input.next(); BigInteger num1 = new BigInteger(str1); BigInteger num2 = new BigInteger(str2); BigInteger res = num1.multiply(num2); System.out.println(res.toString()); input.close(); } } 比C/C++实现起来爽很多。一般来说BigInteger是使用String类型进行构造，传入两个个数字字符串，然后进行加减乘除。java中并没有重载运算符这种操作，只能另外实现封装成新的函数。 一些常用API请参考java基础-BigInteger的使用]]></content>
-      <categories>
-        <category>蓝桥杯</category>
-      </categories>
-      <tags>
-        <tag>蓝桥杯</tag>
-        <tag>BigInteger</tag>
       </tags>
   </entry>
   <entry>
@@ -510,17 +510,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[联想Y7000装Ubuntu双系统路上的坑]]></title>
-    <url>%2F2019%2F09%2F22%2F2019-09-22-lian-xiang-y7000-zhuang-ubuntu-shuang-xi-tong-lu-shang-de-keng%2F</url>
-    <content type="text"><![CDATA[三言两语道不尽心酸，一句两句说不尽心酸一个Ubuntu装了2天，装的无比心酸一直报ACPI错误，后来加上nomodeset才搞定后来专门搜了一下联想Y7000装Ubuntu的教程才知道这是联想显卡的问题。而且最好装Ubuntu 16.04.5 下面是一些参考文章：关于在联想Y7000上安装ubuntu和win10双系统的卡死坑 y7000安装ubuntu和一些小tips ubuntu 添加中文拼音输入法 Ubuntu16.04系统查看已安装的python版本，及其配置 其实装上Ubuntu之后，还有很多事情要做，很多环境要配，显卡要修改，就不一一列出了，主要是前面进入开机界面太艰难了，写篇博客记录下。 2019年9月30日更新 windows休眠，没有彻底关闭Ubuntu 无法访问windows下的磁盘的解决方法Ubuntu系统打不开windows磁盘文件]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[LeetCodeWeeklyContest-155]]></title>
     <url>%2F2019%2F09%2F22%2F2019-09-22-leetcodeweeklycontest-155%2F</url>
     <content type="text"><![CDATA[操千曲而晓声,观千剑而后识器 —— 《文心雕龙》 力扣的周赛自闭了，好久没写了，丢掉的改捡了。 题目传送个人博客同步更新 Problem1 最小绝对差 难度：Easy题目 给你个整数数组 arr，其中每个元素都 不相同。请你找到所有具有最小绝对差的元素对，并且按升序的顺序返回。 思路 遍历，边找边push，只需一遍 貌似代码写复杂了 题解#include&lt;bits/stdc++.h&gt; using namespace std; /* LeetCode WeeklyContest-155 */ vector&lt;vector&lt;int&gt; &gt; minimumAbsDifference(vector&lt;int&gt;&amp; arr) { sort(arr.begin(),arr.end()); int n=arr.size(); vector&lt;vector&lt;int&gt; &gt; result; int min = arr[1]-arr[0]; vector&lt;int&gt; tmp; for(int i=0;i&lt;n-1;i++){ if(arr[i+1]-arr[i] &lt; min){ min = arr[i+1]-arr[i]; result.clear(); tmp.push_back(arr[i]); tmp.push_back(arr[i+1]); result.push_back(tmp); tmp.clear(); } else if(arr[i+1]-arr[i] == min){ tmp.push_back(arr[i]); tmp.push_back(arr[i+1]); result.push_back(tmp); tmp.clear(); } else ; } return result; } // 测试下 int main() { vector&lt;int&gt; v; v.push_back(-20); v.push_back(11); v.push_back(26); v.push_back(27); v.push_back(40); vector&lt;vector&lt;int&gt; &gt; result = minimumAbsDifference(v); vector&lt;vector&lt;int&gt; &gt;::iterator rIt; vector&lt;int&gt;::iterator it; for(rIt = result.begin();rIt!=result.end();rIt++){ for(it = (*rIt).begin();it!=(*rIt).end();it++){ cout &lt;&lt; *it &lt;&lt; &quot; &quot;; } cout &lt;&lt; endl; } return 0; } Problem 2 丑数 III题目 请你帮忙设计一个程序，用来找出第 n 个丑数。丑数是可以被 a 或 b 或 c 整除的 正整数。1 &lt;= n, a, b, c &lt;= 10^91 &lt;= a b c &lt;= 10^18本题结果在 [1, 2 * 10^9] 的范围内 难度：Medium 思路 无脑暴力$1到\min(na,nb,n*c)$ 超时。 无脑开个数组，把 $ia、ib、i*c$ 其中$i=1…n$,然后写个sort(),直接取第n个数，内存爆掉。 以上都是不可取的**计算1~m之间有多少丑数，设为cnt，然后从n开始折半查找，判断cnt与n的关系，最后直接定位到第n个丑数。另外，如何判断1~m之间有多少丑数？公式如下： cnt = m/a + m/b + m/c - m/lcm(a,b)- m/lcm(b,c) - m/lcm(a,c) + m/lcm(lcm(a,b),c)其中$lcm(a,b)$是a、b的最小公倍数。** 题解/* LeetCode WeeklyContest-155 */ #include&lt;bits/stdc++.h&gt; using namespace std; typedef long long ll; // 避免超范围 ，不妨都写成ll ll gcd(int x, int y){ if(x&gt;y) swap(x,y); int r = y%x; if(r==1) return 1; while(r){ y = x; x = r; r = y%x; } return x; } ll lcm(int x, int y){ return x/gcd(x,y)*y; } bool countLessN(ll m,int a,int b,int c,int n){ int cnt = m/a + m/b + m/c - m/lcm(a,b) - m/lcm(b,c) - m/lcm(a,c) + m/lcm(lcm(a,b),c); return cnt &gt;= n; } int nthUglyNumber(int n, int a, int b, int c) { ll begin =1,end=2e10+5; while(begin+1&lt;end){ // 注意是begin+1&lt;end int mid = (begin+end)/2; if(countLessN(mid,a,b,c,n)) end = mid; else begin=mid; } return end; } // 测试下 int main() { int n,a,b,c; n = 1000000000, a = 2, b = 217983653, c = 336916467; cout &lt;&lt; nthUglyNumber(n,a,b,c); return 0; } Problem3题目 给你一个字符串 s，以及该字符串中的一些「索引对」数组 pairs，其中 pairs[i] = [a, b] 表示字符串中的两个索引（编号从 0 开始）。你可以 任意多次交换 在 pairs 中任意一对索引处的字符。返回在经过若干次交换后，s 可以变成的按字典序最小的字符串。 难度：Medium 思路先根据索引对建立并查集，构成若干个连通分量，每个连通分量内部排序，使其排成最小字典序，然后再将排完序的连通分量复原，就可以得到最小字典序的字符串了。 题解#include&lt;bits/stdc++.h&gt; using namespace std; vector&lt;int&gt; father,sz; int find(int x){ // 并查集 查 return father[x]==x?x:father[x] = find(father[x]); } string smallestStringWithSwaps(string s,vector&lt;vector&lt;int&gt; &gt; pairs){ int n=s.size(); father.resize(n); sz.resize(n); for(int i=0;i&lt;n;i++){ // 初始化 father[i] = i; sz[i] = 1; } int n1 = pairs.size(); for(int i=0;i&lt;n1;i++){ vector&lt;int&gt; tmp = pairs[i]; int f1 = find(tmp[0]),f2=find(tmp[1]); if(f1!=f2){ if(sz[f1]&lt;sz[f2]){ father[f1] = f2; sz[f2] += sz[f1]; } else{ father[f2] = f1; sz[f1] += sz[f2]; } } } vector&lt;vector&lt;char&gt; &gt; charArr(n); vector&lt;vector&lt;int&gt; &gt; posArr(n); // 并查集发挥作用 for(int i=0;i&lt;n;i++){ charArr[find(i)].push_back(s[i]); posArr[find(i)].push_back(i); } // char数组排序 for(int i=0;i&lt;charArr.size();i++){ sort(charArr[i].begin(),charArr[i].end()); } // 把排完序的联通块，合到一起 string s1(n,&#39;\0&#39;); for(int i=0;i&lt;n;i++){ for(int j=0;j&lt;charArr[i].size();j++){ s1[posArr[i][j]] = charArr[i][j]; } } return s1; } // 测试下 int main() { string s=&quot;cba&quot;; vector&lt;vector&lt;int&gt; &gt; v; vector&lt;int&gt; s1,s2; s1.push_back(0); s1.push_back(1); s2.push_back(1); s2.push_back(2); v.push_back(s1),v.push_back(s2); cout &lt;&lt; smallestStringWithSwaps(s,v) &lt;&lt; endl; return 0; } Problem4 项目管理略]]></content>
@@ -532,15 +521,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[2019数学建模赛后感悟：一次灵魂与肉体的交织&&一次参赛终身收益]]></title>
-    <url>%2F2019%2F09%2F16%2F2019-09-16-2019-shu-xue-jian-mo-sai-hou-gan-wu-yi-ci-ling-hun-yu-rou-ti-de-jiao-zhi-yi-ci-can-sai-zhong-shen-shou-yi%2F</url>
-    <content type="text"><![CDATA[一年一度的全国大学生数学建模比赛（CUMCM）已接近尾声… SinclairWang 个人博客同步更新，欢迎关注相信每个参赛者都会有自己的感悟一句恰如其分的描述：一次灵魂与肉体的交织。下面是自己的一点感悟与思考。 赛前 最初听说，大概是在一年前，决定参加比赛是在今年5月份，暑假有两个选择，要么参加8月份的建模集训，要么实验室打杂，综合考虑了一下，看到培训大纲上的东西，可能对日后专业方向走向有益，遂放弃了锻炼编码能力的时间，毅然决定参加去参加集训。 集训8月1日份开始，9月5日结束，9月12日比赛开始，9月15日比赛结束。 一个多月的集训，每天上午8点半到12点，可能下午还要加课，一个老师讲一个专题3天，理学院的老师轮流来，每人一个模块，每三天一个专题，智能计算、统计分析、数值计算、图与网络、模拟仿真、分类与聚类、组合优化、图像处理、历年赛题与优秀论文讲评。 老师们每天讲课，一个上午动辄上百页PPT，所以这一个月的日常就是上午上课，下午看老师讲的PPT、理解原理和复现程序。CUMCM涉及层面广而多，虽说深度欠缺，但是对于本科生来说，掌握这些知识，也是不易。 集训的过程，也曾想过放弃，不是畏难，而是有一段时间觉得自己做的可能没有自己想象中的有意义，正如本专业同学那句话 “或许当初没有选择数学建模，这一个月的时间，可能已经足够可以在专业上走的很远了…” 我也认同，可是大家还是选择坚持了下来，一直坚持到了最后。 一场集训下来，我也学到了很多东西，虽不知不觉，却也潜移默化，老师们讲的n个专题，不敢说全部掌握了，但可以说学了个大概，而且学的知识对日后专业方向走向极其有益，虽然理论深度掌握不够，但也相当于在自己的方向相关领域，在自己的学习进程上写了一句HelloWorld，其实集训之前本来想着老师们每讲一个专题，就跟着写一篇Blog，事实上，集训时每天的知识都消化不了，更不要说写博客了，这件事仔细想想，也并非完全不能做到，只是决心不够。虽然专题博客没跟上，但是将老师讲的专题总结成思维导图，形成数学建模集训的整个知识框架，这是不难做到的，思维导图是用xmind做的，用markdown文本导出，我放到了博客上，总结了一下建模期间的博客，不算这篇的话，还有一篇关于的图像处理的,当初看图像处理的时候觉得很有意思,就没忍住写了一篇。 数学建模集训知识大纲 基于奇异值分解的图像压缩 除此之外,我也从队友身上学到了很多,我们队人员组成是2计算机专业(一个SE，一个CS)+数学专业。我从队友身上看到了高效,其实一直很想写一篇关于效率与时间管理的文章,不过时间安排上没提上日程,一个人只有把效率提上去,才能做到自己想做的。之前知乎上有篇高赞文章,是讲*人是怎么废掉的,没想到其中有一条是瞎忙,除了没方向之外,更重要的是低效率,忙了一天不知道在忙什么,忙了点啥,就好比泡图书馆学习,一泡就是一天,到了晚上应该正确评估白天的效率如何,而不应该单纯陷在因为短暂的长时间学习而产生的自我感动上,只有走出了这个误区才能有所进步。经此,我也有了新的认知。另外,我也认识到了学习方式的不足,也有专业大环境的原因,认真专注听课反倒成为了一个大难题,另外,上课认真听课,下课才能用更少的时间去复习,节省出更多的时间去做自己想做的事情。 赛中 9月12日 进驻机房,晚上6点钟放题目,一开始略卡。下载到题目之后,A、B、C任选一题。读题： A题精确计算 有一定的专业知识背景，否则题意不好理解 B题 物理题目？果断放弃 C题 开放性题目 只有大概思路，具体思路没有 估计找数据会劝退一拨人 综合评估，我的答案是选C，队友讨论了一晚上A题，但是我给不出说服他们选C题的东西。没过多久，我找到了数据。但是模型没具体思路。晚上11点半回寝室休息 第二天一早队友们想选C题，其实我内心有点欣喜~然后就开始了建模…建模全靠队友，其中有个神奇的男人，中午小憩都能想到idea，上趟厕所模型都能被改进，回来说“我知道了…应该这样做…”。太神奇了…赛期说好的写论文的队友，最后却在编程，说好了写程序的队友，比赛的时候却开始写起了论文，只有我始终打杂，凭实力打杂。 “我要的折线图你画了没？” “我需要你画个直方图。” “决策树画好了没？” “给你说个思路，你看能实现吗？#$#%#^*@#” “数据处理好了吗？” “打点的图发我了没？” “附录整理好没？” “支撑材料打包了没？” 终于我成了全队无可替代的凭实力打杂的选手！ 到了最后一天，进度有点慢，14日晚上觉得得通宵了，一夜爆肝，那一晚仿佛大家都没回去，都在通宵做模型，计算，一双双熬红的双眼，其实熬夜或许不是最难的，最难的是建不出模，算不出来。那晚的月亮格外美，格外的圆。 那晚队友们几乎都没怎么睡，我凌晨5点撑不住了，睡到了7点多。 起来，洗把脸，下楼吃了东西，队友们赶进度顾不上了… 然后就开始了最刺激压力最大的一天 题目只做了一半，四问只做了两问，晚上8点就要截止了。 到了中午重新改思路，我编程计算，队友们将思路写到论文，完善前面的部分。 高压下编程或许是最考验编程能力的… 到了下午5点半初稿还没出来,还有很多格式要调整，公式要编辑…. 晚上7点40多交了初稿… 没过多久就到8点了，就剩下最后一次交的机会了… 终于能略微喘口气了 但是，还有一次机会，不能放弃 于是，接着完善，修改摘要，修改正文… 终于9点39分交上了这最后一次… 如释重负… 三个人都笑了… 欣喜若狂~ 这一天没吃饭，没水喝，压力大，睡眠不足 但是还是撑了下来，队内也没有发生矛盾，互相理解，合作愉快。 最后一起等到了10点，把参赛作品交了上去 然后离开了机房，嘴上都说着“我再也不想听到’数学建模‘这四个字”… 虽然数学建模门槛低，有人说这不是数学建模，是面向写作和美术的建模，最终看的是论文。但是我还是觉得我参加数学建模是一个无比正确的决定，无论结果如何，它教会了很多东西，我学了很多数学知识，也掌握了很多能力，比如快速学习的能力，随便甩给你个200多页PPT，两天内就能看完，让我更加专注，变得更加有毅力和耐心去学习，比赛教给我团队协作的重要性，一个人可以走的很快，但一群人能走的更远，你终究能走多远，可能不只是跟你自己有关系，还跟你身边的人有关系，别人会影响你，会改变你。我觉得或许自己跟顶尖名校的同龄人的差距或许不只是软硬件实力配置的差距，而是身边有没有一群这样的一群人：大家有着共同的想法，热衷眼前的事情，能全身心的投入，走在一起去实现这个想法的路上。这是我思考了很久得出的结论，也是从数学建模中收获的，尽管这有些难以置信。比赛的时候，我看到一群人通宵建模，尽管很累但都还在撑着，就像何凯文说的那样，“你有多久没有认真过了？”感悟喷涌，能写出来的寥寥数语总归显得苍白无力，只要经历过的全身心投入的人总归会懂得。 赛后好好休息了一下 还了借的参考书籍 今天周一，投入到了新的学习征程中，仿佛又是个崭新的开始。 哦，对了我还写了一篇参赛感悟，正如你所看到的… 后来 2019年9月25日更被抽中答辩，心中自是欣喜万分，同样，无形的压力扑面而来。 2019年9月28日更答辩结束，无论结果如何，石头落地了，尽人事，听天命，一切终于结束了。 准备答辩的过程中，听说了一句话叫做 一次参赛，终身收益 后来才知道这是建模组委会的口号，也越发觉得这句话真的很贴切，参赛经历和比赛的魅力或许已经远远超过了奖项本身了，无论是心智，还是毅力，还是个人能力，都得到了很好的锻炼，参赛期间高压下编程、高压下写作和高压下的团队合作对每个参赛选手都是一次很好的磨练。另外，我觉得答辩期间的压力也是不亚于竞赛期间的，压力反而更大，从准备到答辩结束，需要自己重新审视自己的作品，正确认识作品的缺点，勇于承认或许这才是最重要的。另外，参加一次省级甚至是国家级别的学术答辩，无论结果如何，这都是很好的锻炼。此时，一个累的打字都快打不动了的蒟蒻，还在拖着疲惫的身躯码着自己的切身体会，一般来说，能写出来的文字总归苍白无力。用两句话结个尾吧，给2019CUMCM画上个句号。星光不负赶路人，时光不负有心人。一次参赛，终身收益。]]></content>
+    <title><![CDATA[联想Y7000装Ubuntu双系统路上的坑]]></title>
+    <url>%2F2019%2F09%2F22%2F2019-09-22-lian-xiang-y7000-zhuang-ubuntu-shuang-xi-tong-lu-shang-de-keng%2F</url>
+    <content type="text"><![CDATA[三言两语道不尽心酸，一句两句说不尽心酸一个Ubuntu装了2天，装的无比心酸一直报ACPI错误，后来加上nomodeset才搞定后来专门搜了一下联想Y7000装Ubuntu的教程才知道这是联想显卡的问题。而且最好装Ubuntu 16.04.5 下面是一些参考文章：关于在联想Y7000上安装ubuntu和win10双系统的卡死坑 y7000安装ubuntu和一些小tips ubuntu 添加中文拼音输入法 Ubuntu16.04系统查看已安装的python版本，及其配置 其实装上Ubuntu之后，还有很多事情要做，很多环境要配，显卡要修改，就不一一列出了，主要是前面进入开机界面太艰难了，写篇博客记录下。 2019年9月30日更新 windows休眠，没有彻底关闭Ubuntu 无法访问windows下的磁盘的解决方法Ubuntu系统打不开windows磁盘文件]]></content>
       <categories>
-        <category>感悟</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>竞赛感悟</tag>
-        <tag>数学建模</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -552,6 +540,18 @@
         <category>数学建模</category>
       </categories>
       <tags>
+        <tag>数学建模</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2019数学建模赛后感悟：一次灵魂与肉体的交织&&一次参赛终身收益]]></title>
+    <url>%2F2019%2F09%2F16%2F2019-09-16-2019-shu-xue-jian-mo-sai-hou-gan-wu-yi-ci-ling-hun-yu-rou-ti-de-jiao-zhi-yi-ci-can-sai-zhong-shen-shou-yi%2F</url>
+    <content type="text"><![CDATA[一年一度的全国大学生数学建模比赛（CUMCM）已接近尾声… SinclairWang 个人博客同步更新，欢迎关注相信每个参赛者都会有自己的感悟一句恰如其分的描述：一次灵魂与肉体的交织。下面是自己的一点感悟与思考。 赛前 最初听说，大概是在一年前，决定参加比赛是在今年5月份，暑假有两个选择，要么参加8月份的建模集训，要么实验室打杂，综合考虑了一下，看到培训大纲上的东西，可能对日后专业方向走向有益，遂放弃了锻炼编码能力的时间，毅然决定参加去参加集训。 集训8月1日份开始，9月5日结束，9月12日比赛开始，9月15日比赛结束。 一个多月的集训，每天上午8点半到12点，可能下午还要加课，一个老师讲一个专题3天，理学院的老师轮流来，每人一个模块，每三天一个专题，智能计算、统计分析、数值计算、图与网络、模拟仿真、分类与聚类、组合优化、图像处理、历年赛题与优秀论文讲评。 老师们每天讲课，一个上午动辄上百页PPT，所以这一个月的日常就是上午上课，下午看老师讲的PPT、理解原理和复现程序。CUMCM涉及层面广而多，虽说深度欠缺，但是对于本科生来说，掌握这些知识，也是不易。 集训的过程，也曾想过放弃，不是畏难，而是有一段时间觉得自己做的可能没有自己想象中的有意义，正如本专业同学那句话 “或许当初没有选择数学建模，这一个月的时间，可能已经足够可以在专业上走的很远了…” 我也认同，可是大家还是选择坚持了下来，一直坚持到了最后。 一场集训下来，我也学到了很多东西，虽不知不觉，却也潜移默化，老师们讲的n个专题，不敢说全部掌握了，但可以说学了个大概，而且学的知识对日后专业方向走向极其有益，虽然理论深度掌握不够，但也相当于在自己的方向相关领域，在自己的学习进程上写了一句HelloWorld，其实集训之前本来想着老师们每讲一个专题，就跟着写一篇Blog，事实上，集训时每天的知识都消化不了，更不要说写博客了，这件事仔细想想，也并非完全不能做到，只是决心不够。虽然专题博客没跟上，但是将老师讲的专题总结成思维导图，形成数学建模集训的整个知识框架，这是不难做到的，思维导图是用xmind做的，用markdown文本导出，我放到了博客上，总结了一下建模期间的博客，不算这篇的话，还有一篇关于的图像处理的,当初看图像处理的时候觉得很有意思,就没忍住写了一篇。 数学建模集训知识大纲 基于奇异值分解的图像压缩 除此之外,我也从队友身上学到了很多,我们队人员组成是2计算机专业(一个SE，一个CS)+数学专业。我从队友身上看到了高效,其实一直很想写一篇关于效率与时间管理的文章,不过时间安排上没提上日程,一个人只有把效率提上去,才能做到自己想做的。之前知乎上有篇高赞文章,是讲*人是怎么废掉的,没想到其中有一条是瞎忙,除了没方向之外,更重要的是低效率,忙了一天不知道在忙什么,忙了点啥,就好比泡图书馆学习,一泡就是一天,到了晚上应该正确评估白天的效率如何,而不应该单纯陷在因为短暂的长时间学习而产生的自我感动上,只有走出了这个误区才能有所进步。经此,我也有了新的认知。另外,我也认识到了学习方式的不足,也有专业大环境的原因,认真专注听课反倒成为了一个大难题,另外,上课认真听课,下课才能用更少的时间去复习,节省出更多的时间去做自己想做的事情。 赛中 9月12日 进驻机房,晚上6点钟放题目,一开始略卡。下载到题目之后,A、B、C任选一题。读题： A题精确计算 有一定的专业知识背景，否则题意不好理解 B题 物理题目？果断放弃 C题 开放性题目 只有大概思路，具体思路没有 估计找数据会劝退一拨人 综合评估，我的答案是选C，队友讨论了一晚上A题，但是我给不出说服他们选C题的东西。没过多久，我找到了数据。但是模型没具体思路。晚上11点半回寝室休息 第二天一早队友们想选C题，其实我内心有点欣喜~然后就开始了建模…建模全靠队友，其中有个神奇的男人，中午小憩都能想到idea，上趟厕所模型都能被改进，回来说“我知道了…应该这样做…”。太神奇了…赛期说好的写论文的队友，最后却在编程，说好了写程序的队友，比赛的时候却开始写起了论文，只有我始终打杂，凭实力打杂。 “我要的折线图你画了没？” “我需要你画个直方图。” “决策树画好了没？” “给你说个思路，你看能实现吗？#$#%#^*@#” “数据处理好了吗？” “打点的图发我了没？” “附录整理好没？” “支撑材料打包了没？” 终于我成了全队无可替代的凭实力打杂的选手！ 到了最后一天，进度有点慢，14日晚上觉得得通宵了，一夜爆肝，那一晚仿佛大家都没回去，都在通宵做模型，计算，一双双熬红的双眼，其实熬夜或许不是最难的，最难的是建不出模，算不出来。那晚的月亮格外美，格外的圆。 那晚队友们几乎都没怎么睡，我凌晨5点撑不住了，睡到了7点多。 起来，洗把脸，下楼吃了东西，队友们赶进度顾不上了… 然后就开始了最刺激压力最大的一天 题目只做了一半，四问只做了两问，晚上8点就要截止了。 到了中午重新改思路，我编程计算，队友们将思路写到论文，完善前面的部分。 高压下编程或许是最考验编程能力的… 到了下午5点半初稿还没出来,还有很多格式要调整，公式要编辑…. 晚上7点40多交了初稿… 没过多久就到8点了，就剩下最后一次交的机会了… 终于能略微喘口气了 但是，还有一次机会，不能放弃 于是，接着完善，修改摘要，修改正文… 终于9点39分交上了这最后一次… 如释重负… 三个人都笑了… 欣喜若狂~ 这一天没吃饭，没水喝，压力大，睡眠不足 但是还是撑了下来，队内也没有发生矛盾，互相理解，合作愉快。 最后一起等到了10点，把参赛作品交了上去 然后离开了机房，嘴上都说着“我再也不想听到’数学建模‘这四个字”… 虽然数学建模门槛低，有人说这不是数学建模，是面向写作和美术的建模，最终看的是论文。但是我还是觉得我参加数学建模是一个无比正确的决定，无论结果如何，它教会了很多东西，我学了很多数学知识，也掌握了很多能力，比如快速学习的能力，随便甩给你个200多页PPT，两天内就能看完，让我更加专注，变得更加有毅力和耐心去学习，比赛教给我团队协作的重要性，一个人可以走的很快，但一群人能走的更远，你终究能走多远，可能不只是跟你自己有关系，还跟你身边的人有关系，别人会影响你，会改变你。我觉得或许自己跟顶尖名校的同龄人的差距或许不只是软硬件实力配置的差距，而是身边有没有一群这样的一群人：大家有着共同的想法，热衷眼前的事情，能全身心的投入，走在一起去实现这个想法的路上。这是我思考了很久得出的结论，也是从数学建模中收获的，尽管这有些难以置信。比赛的时候，我看到一群人通宵建模，尽管很累但都还在撑着，就像何凯文说的那样，“你有多久没有认真过了？”感悟喷涌，能写出来的寥寥数语总归显得苍白无力，只要经历过的全身心投入的人总归会懂得。 赛后好好休息了一下 还了借的参考书籍 今天周一，投入到了新的学习征程中，仿佛又是个崭新的开始。 哦，对了我还写了一篇参赛感悟，正如你所看到的… 后来 2019年9月25日更被抽中答辩，心中自是欣喜万分，同样，无形的压力扑面而来。 2019年9月28日更答辩结束，无论结果如何，石头落地了，尽人事，听天命，一切终于结束了。 准备答辩的过程中，听说了一句话叫做 一次参赛，终身收益 后来才知道这是建模组委会的口号，也越发觉得这句话真的很贴切，参赛经历和比赛的魅力或许已经远远超过了奖项本身了，无论是心智，还是毅力，还是个人能力，都得到了很好的锻炼，参赛期间高压下编程、高压下写作和高压下的团队合作对每个参赛选手都是一次很好的磨练。另外，我觉得答辩期间的压力也是不亚于竞赛期间的，压力反而更大，从准备到答辩结束，需要自己重新审视自己的作品，正确认识作品的缺点，勇于承认或许这才是最重要的。另外，参加一次省级甚至是国家级别的学术答辩，无论结果如何，这都是很好的锻炼。此时，一个累的打字都快打不动了的蒟蒻，还在拖着疲惫的身躯码着自己的切身体会，一般来说，能写出来的文字总归苍白无力。用两句话结个尾吧，给2019CUMCM画上个句号。星光不负赶路人，时光不负有心人。一次参赛，终身收益。]]></content>
+      <categories>
+        <category>感悟</category>
+      </categories>
+      <tags>
+        <tag>竞赛感悟</tag>
         <tag>数学建模</tag>
       </tags>
   </entry>
@@ -783,17 +783,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[欧几里得算法]]></title>
-    <url>%2F2019%2F01%2F09%2F2019-01-09-ou-ji-li-de-suan-fa%2F</url>
-    <content type="text"><![CDATA[欧几里得算法求最大公约数 Sometimes your whole life boils down to one insane move. 人这一辈子，有时就得靠一次疯狂的举动才能扭转乾坤。 —————————《阿凡达》 @[toc] 一、介绍欧几里得 &emsp;&emsp;像所有博客一样，出于尊重，介绍一下这位伟大的数学家欧几里得。 &emsp;&emsp;欧几里得，古希腊人，数学家，主要成就：数学巨著《几何原本》、欧几里得算法、完全数。 &emsp;&emsp;在柏拉图学派晚期导师普罗克洛斯（约410～485）的《几何学发展概要》中，就记载着这样一则故事，说的是数学在欧几里得的推动下，逐渐成为人们生活中的一个时髦话题(这与当今社会截然相反)，以至于当时亚里山大国王托勒密一世也想赶这一时髦，学点儿几何学。 &emsp;&emsp;虽然这位国王见多识广，但欧氏几何却令他学的很吃力。于是，他问欧几里得“学习几何学有没有什么捷径可走？”，欧几里得笑道：“抱歉，陛下!学习数学和学习一切科学一样，是没有什么捷径可走的。学习数学，人人都得独立思考，就像种庄稼一样，不耕耘是不会有收获的。在这一方面，国王和普通老百姓是一样的。” 从此,“在几何学里,没有专为国王铺设的大道。”这句话成为千古传诵的学习箴言。&emsp;&emsp;总之呢，任何事情都是这样，哪有这么多得捷径可走，天才往往都是天天积累成才。 二、实现思路 定义2.1：设m和n是两个不全为0的整数，称m与n的公因子中最大的为m与n的最大公因子，或最大公约数(greatest common divisor)，记作gcd(m,n)定义2.2：设m和n是两个非零整数，称a与b最小的公倍数为m与n的最小公倍数(least common multiple)，记作lcm(m,n) 欧几里得算法又称辗转相除法 s：设两个正整数m，n且m &gt; n ; s1：令r=m%n（%代表取余）； s2：若r=0(即n整除m)运算结束，n为结果 ； s3：否则令m=n，n=r并返回s1 ； 三、核心思想gcd(m,n)=gcd(n,mod(m,n) lcm(m,n) = ab/gcd(m,n) 证明：不妨设 m=k1d ,n=k2d , k3 = m/n (整除) 则 r=m-k3n=k1d-k2k3d=(k1- k2k3)d故r也是d的倍数，得证$\it gcd (m,n)=gcd(n,mod(m,n)$ 四、优点 一看相比于穷举法，效率也会高很多 五、核心代码 int gcd(int m,int n) { int t,r; if(m&lt;n) swap(m,n); //交换二者的值 while(n!=0) { r=m%n; m=n; n=r; } return n; } int gcd(int m,int n) // 递归做法 { if(m&lt;n) swap(m,n); //交换二者的值 if(n==0) return m; return gcd(n,m%n); } int lcm(int gcd,int m,int n) { return m*n/gcd; } 参考来源：人物简介源自百度百科 在CSDN上的第一篇文章，２０１９加油！]]></content>
-      <categories>
-        <category>数论</category>
-      </categories>
-      <tags>
-        <tag>数论</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[HDU2099整除的尾数]]></title>
     <url>%2F2019%2F01%2F09%2F2019-01-09-hdu2099-zheng-chu-de-wei-shu%2F</url>
     <content type="text"><![CDATA[整除的尾数 You have to live spherically - in many directions.Never lose your childish enthusiasm and things will come your way.人要活得精彩，各个领域都要勇于尝试，永远保持童真般的热情，一切就会得偿所愿。 ——《托斯卡尼艳阳下》 Problem Description 一个整数，只知道前几位，不知道末二位，被另一个整数除尽了，那么该数的末二位该是什么呢？ Input 输入数据有若干组，每组数据包含二个整数a，b（0&lt;a&lt;10000, 10&lt;b&lt;100），若遇到0 0则处理结束。 Output 对应每组数据，将满足条件的所有尾数在一行内输出，格式见样本输出。同组数据的输出，其每个尾数之间空一格，行末没有空格。 Sample Input 200 401992 950 0 Sample Output 00 40 8015 一、思路 输入要判断是否为0，先将这个整数乘以100，然后利用0到99的穷举进行判断，输出时考虑到0的问题，用printf函数输出。 二、代码实现#include &lt;iostream&gt; using namespace std; int main() { int a,b,count=0; while(cin&gt;&gt; a &gt;&gt; b &amp;&amp; a!=0 &amp;&amp; b!=0) { a *= 100; for(int i=0;i&lt;=99;i++) { if((a+i)%b == 0) { count++; // 计数，用于空格的输出 if(count==1) printf(&quot;%02d&quot;,i); //输出空格的问题 else printf(&quot; %02d&quot;,i); } } cout &lt;&lt; endl; count=0; //每一组整数的后两位判断完毕之后，count需清零，然后输出换行 } return 0; }]]></content>
@@ -813,6 +802,17 @@
       </categories>
       <tags>
         <tag>数据结构与算法训练</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[欧几里得算法]]></title>
+    <url>%2F2019%2F01%2F09%2F2019-01-09-ou-ji-li-de-suan-fa%2F</url>
+    <content type="text"><![CDATA[欧几里得算法求最大公约数 Sometimes your whole life boils down to one insane move. 人这一辈子，有时就得靠一次疯狂的举动才能扭转乾坤。 —————————《阿凡达》 @[toc] 一、介绍欧几里得 &emsp;&emsp;像所有博客一样，出于尊重，介绍一下这位伟大的数学家欧几里得。 &emsp;&emsp;欧几里得，古希腊人，数学家，主要成就：数学巨著《几何原本》、欧几里得算法、完全数。 &emsp;&emsp;在柏拉图学派晚期导师普罗克洛斯（约410～485）的《几何学发展概要》中，就记载着这样一则故事，说的是数学在欧几里得的推动下，逐渐成为人们生活中的一个时髦话题(这与当今社会截然相反)，以至于当时亚里山大国王托勒密一世也想赶这一时髦，学点儿几何学。 &emsp;&emsp;虽然这位国王见多识广，但欧氏几何却令他学的很吃力。于是，他问欧几里得“学习几何学有没有什么捷径可走？”，欧几里得笑道：“抱歉，陛下!学习数学和学习一切科学一样，是没有什么捷径可走的。学习数学，人人都得独立思考，就像种庄稼一样，不耕耘是不会有收获的。在这一方面，国王和普通老百姓是一样的。” 从此,“在几何学里,没有专为国王铺设的大道。”这句话成为千古传诵的学习箴言。&emsp;&emsp;总之呢，任何事情都是这样，哪有这么多得捷径可走，天才往往都是天天积累成才。 二、实现思路 定义2.1：设m和n是两个不全为0的整数，称m与n的公因子中最大的为m与n的最大公因子，或最大公约数(greatest common divisor)，记作gcd(m,n)定义2.2：设m和n是两个非零整数，称a与b最小的公倍数为m与n的最小公倍数(least common multiple)，记作lcm(m,n) 欧几里得算法又称辗转相除法 s：设两个正整数m，n且m &gt; n ; s1：令r=m%n（%代表取余）； s2：若r=0(即n整除m)运算结束，n为结果 ； s3：否则令m=n，n=r并返回s1 ； 三、核心思想gcd(m,n)=gcd(n,mod(m,n) lcm(m,n) = ab/gcd(m,n) 证明：不妨设 m=k1d ,n=k2d , k3 = m/n (整除) 则 r=m-k3n=k1d-k2k3d=(k1- k2k3)d故r也是d的倍数，得证$\it gcd (m,n)=gcd(n,mod(m,n)$ 四、优点 一看相比于穷举法，效率也会高很多 五、核心代码 int gcd(int m,int n) { int t,r; if(m&lt;n) swap(m,n); //交换二者的值 while(n!=0) { r=m%n; m=n; n=r; } return n; } int gcd(int m,int n) // 递归做法 { if(m&lt;n) swap(m,n); //交换二者的值 if(n==0) return m; return gcd(n,m%n); } int lcm(int gcd,int m,int n) { return m*n/gcd; } 参考来源：人物简介源自百度百科 在CSDN上的第一篇文章，２０１９加油！]]></content>
+      <categories>
+        <category>数论</category>
+      </categories>
+      <tags>
+        <tag>数论</tag>
       </tags>
   </entry>
 </search>
