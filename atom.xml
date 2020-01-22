@@ -64,22 +64,22 @@
       <category term="PTA" scheme="https://sinclaircoder.top/categories/PTA/"/>
     
     
-      <category term="DFS" scheme="https://sinclaircoder.top/tags/DFS/"/>
-    
       <category term="PTA" scheme="https://sinclaircoder.top/tags/PTA/"/>
+    
+      <category term="DFS" scheme="https://sinclaircoder.top/tags/DFS/"/>
     
       <category term="BFS" scheme="https://sinclaircoder.top/tags/BFS/"/>
     
   </entry>
   
   <entry>
-    <title>PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）</title>
-    <link href="https://sinclaircoder.top/2020/01/19/2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji/"/>
-    <id>https://sinclaircoder.top/2020/01/19/2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji/</id>
+    <title>PTA小字辈（BFS）</title>
+    <link href="https://sinclaircoder.top/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/"/>
+    <id>https://sinclaircoder.top/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/</id>
     <published>2020-01-18T16:00:00.000Z</published>
-    <updated>2020-01-22T04:33:34.535Z</updated>
+    <updated>2020-01-22T04:32:14.073Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>哥尼斯堡是位于普累格河上的一座城市，它包含两个岛屿及连接它们的七座桥，<br>可否走过这样的七座桥，而且每桥只走过一次？瑞士数学家欧拉(Leonhard Euler，1707—1783)最终解决了这个问题，并由此创立了拓扑学。<br>这个问题如今可以描述为判断欧拉回路是否存在的问题。欧拉回路是指不令笔离开纸面，可画过图中每条边仅一次，且可以回到起点的一条回路。现给定一个无向图，问是否存在欧拉回路？</p><h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入第一行给出两个正整数，分别是节点数N (1≤N≤1000)和边数M；随后的M行对应M条边，每行给出一对正整数，分别是该条边直接连通的两个节点的编号（节点从1到N编号）。</p><h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>若欧拉回路存在则输出1，否则输出0。</p><h2 id="输入样例1"><a href="#输入样例1" class="headerlink" title="输入样例1:"></a>输入样例1:</h2><blockquote><p>6 10<br>1 2<br>2 3<br>3 1<br>4 5<br>5 6<br>6 4<br>1 4<br>1 6<br>3 4<br>3 6    </p><h2 id="输出样例1"><a href="#输出样例1" class="headerlink" title="输出样例1:"></a>输出样例1:</h2><p>1</p></blockquote><h2 id="输入样例2"><a href="#输入样例2" class="headerlink" title="输入样例2:"></a>输入样例2:</h2><blockquote><p>5 8<br>1 2<br>1 3<br>2 3<br>2 4<br>2 5<br>5 3<br>5 4<br>3 4</p></blockquote><h2 id="输出样例2"><a href="#输出样例2" class="headerlink" title="输出样例2:"></a>输出样例2:</h2><blockquote><p>0</p></blockquote><p><br><br>思路：<br><br>如果欧拉通路的起点与终点一样，则成为欧拉回路， 连通的多重图具有欧拉回路当且仅当它的每个顶点都有偶数度<br>则欧拉回路的条件：</p><ul><li>图是连通的，没有孤立节点</li><li>无向图的每个节点的度数都是偶数度，有向图每个节点的入度等于出度</li></ul><p>使用并查集统计连通分量个数，使用degree数组奇偶数判断是否全为偶数。<br><br></p><pre><code class="lang-cpp">#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;int fa[1005];int father(int x){    if(fa[x]==x) return x;    return fa[x] = father(fa[x]);} int main(){    int n,m,x,y;    cin &gt;&gt; n &gt;&gt; m;    int degree[n+1];    for(int i=1;i&lt;=n;i++)  fa[i] = i;    memset(degree,0,sizeof(degree));    for(int i=0;i&lt;m;i++){        cin &gt;&gt; x &gt;&gt; y;        int rootx = father(x),rooty = father(y);        if(rootx!=rooty){            fa[rooty] = rootx;        }        // fa[father(y)] = father(x);  这样写竟然会超时！！！！        // 不要问我咋知道的        degree[x]++;        degree[y]++;    }    int exist=1,root = fa[1],connectcnt = 0;    for(int i=1;i&lt;=n;i++){        if(fa[i]==i) connectcnt++;    }    if(connectcnt&gt;1) exist = 0;    for(int i=1;i&lt;=n;i++){        if(degree[i]%2){            exist = 0;break;        }    }     cout &lt;&lt; exist &lt;&lt; endl;        return 0;}</code></pre>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本题给定一个庞大家族的家谱，要请你给出最小一辈的名单。</p><h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>输入在第一行给出家族人口总数 N（不超过 100 000 的正整数） —— 简单起见，我们把家族成员从 1 到 N 编号。随后第二行给出 N 个编号，其中第 i 个编号对应第 i 位成员的父/母。家谱中辈分最高的老祖宗对应的父/母编号为 -1。一行中的数字间以空格分隔。</p><h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>首先输出最小的辈分（老祖宗的辈分为 1，以下逐级递增）。然后在第二行按递增顺序输出辈分最小的成员的编号。编号间以一个空格分隔，行首尾不得有多余空格。</p><h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><blockquote><p>9<br>2 6 5 5 -1 5 6 4 7</p></blockquote><h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote><p>4<br>1 9</p></blockquote><p>其实主要是存储的数据结构的设计。<br><br></p><pre><code class="lang-cpp">#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;struct node{    int father;    vector&lt;int&gt; child;}family[100005];queue&lt;int&gt; qu;vector&lt;int&gt; level;int maxh = 1;void bfs(int root){    qu.push(root);    level[root] = 1;    while(qu.size()){        int index = qu.front();        qu.pop();        vector&lt;int&gt; tmp = family[index].child;        for(int i=0;i&lt;tmp.size();i++){            level[tmp[i]] = level[index]+1;            maxh = max(level[tmp[i]],maxh);            qu.push(family[index].child[i]);         }    }}int main(){    int n,x,root;    cin &gt;&gt; n;    level.resize(n+1);    for(int i=1;i&lt;=n;i++){        cin &gt;&gt; family[i].father;        if(family[i].father==-1) root = i;        else {            family[family[i].father].child.push_back(i);        }    }    bfs(root);    cout &lt;&lt; maxh &lt;&lt; endl;    int first = 1;    for(int i=1;i&lt;=n;i++){        if(level[i]==maxh){            if(first) {                cout &lt;&lt; i ; first = 0;            }            else cout &lt;&lt; &quot; &quot; &lt;&lt; i ;         }    }    return 0;}</code></pre>]]></content>
     
     <summary type="html">
     
@@ -95,9 +95,7 @@
     
       <category term="PTA" scheme="https://sinclaircoder.top/tags/PTA/"/>
     
-      <category term="欧拉回路" scheme="https://sinclaircoder.top/tags/%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF/"/>
-    
-      <category term="并查集" scheme="https://sinclaircoder.top/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
+      <category term="BFS" scheme="https://sinclaircoder.top/tags/BFS/"/>
     
   </entry>
   
@@ -129,13 +127,13 @@
   </entry>
   
   <entry>
-    <title>PTA小字辈（BFS）</title>
-    <link href="https://sinclaircoder.top/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/"/>
-    <id>https://sinclaircoder.top/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/</id>
+    <title>PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）</title>
+    <link href="https://sinclaircoder.top/2020/01/19/2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji/"/>
+    <id>https://sinclaircoder.top/2020/01/19/2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji/</id>
     <published>2020-01-18T16:00:00.000Z</published>
-    <updated>2020-01-22T04:32:14.073Z</updated>
+    <updated>2020-01-22T04:33:34.535Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本题给定一个庞大家族的家谱，要请你给出最小一辈的名单。</p><h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>输入在第一行给出家族人口总数 N（不超过 100 000 的正整数） —— 简单起见，我们把家族成员从 1 到 N 编号。随后第二行给出 N 个编号，其中第 i 个编号对应第 i 位成员的父/母。家谱中辈分最高的老祖宗对应的父/母编号为 -1。一行中的数字间以空格分隔。</p><h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>首先输出最小的辈分（老祖宗的辈分为 1，以下逐级递增）。然后在第二行按递增顺序输出辈分最小的成员的编号。编号间以一个空格分隔，行首尾不得有多余空格。</p><h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><blockquote><p>9<br>2 6 5 5 -1 5 6 4 7</p></blockquote><h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote><p>4<br>1 9</p></blockquote><p>其实主要是存储的数据结构的设计。<br><br></p><pre><code class="lang-cpp">#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;struct node{    int father;    vector&lt;int&gt; child;}family[100005];queue&lt;int&gt; qu;vector&lt;int&gt; level;int maxh = 1;void bfs(int root){    qu.push(root);    level[root] = 1;    while(qu.size()){        int index = qu.front();        qu.pop();        vector&lt;int&gt; tmp = family[index].child;        for(int i=0;i&lt;tmp.size();i++){            level[tmp[i]] = level[index]+1;            maxh = max(level[tmp[i]],maxh);            qu.push(family[index].child[i]);         }    }}int main(){    int n,x,root;    cin &gt;&gt; n;    level.resize(n+1);    for(int i=1;i&lt;=n;i++){        cin &gt;&gt; family[i].father;        if(family[i].father==-1) root = i;        else {            family[family[i].father].child.push_back(i);        }    }    bfs(root);    cout &lt;&lt; maxh &lt;&lt; endl;    int first = 1;    for(int i=1;i&lt;=n;i++){        if(level[i]==maxh){            if(first) {                cout &lt;&lt; i ; first = 0;            }            else cout &lt;&lt; &quot; &quot; &lt;&lt; i ;         }    }    return 0;}</code></pre>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>哥尼斯堡是位于普累格河上的一座城市，它包含两个岛屿及连接它们的七座桥，<br>可否走过这样的七座桥，而且每桥只走过一次？瑞士数学家欧拉(Leonhard Euler，1707—1783)最终解决了这个问题，并由此创立了拓扑学。<br>这个问题如今可以描述为判断欧拉回路是否存在的问题。欧拉回路是指不令笔离开纸面，可画过图中每条边仅一次，且可以回到起点的一条回路。现给定一个无向图，问是否存在欧拉回路？</p><h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入第一行给出两个正整数，分别是节点数N (1≤N≤1000)和边数M；随后的M行对应M条边，每行给出一对正整数，分别是该条边直接连通的两个节点的编号（节点从1到N编号）。</p><h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>若欧拉回路存在则输出1，否则输出0。</p><h2 id="输入样例1"><a href="#输入样例1" class="headerlink" title="输入样例1:"></a>输入样例1:</h2><blockquote><p>6 10<br>1 2<br>2 3<br>3 1<br>4 5<br>5 6<br>6 4<br>1 4<br>1 6<br>3 4<br>3 6    </p><h2 id="输出样例1"><a href="#输出样例1" class="headerlink" title="输出样例1:"></a>输出样例1:</h2><p>1</p></blockquote><h2 id="输入样例2"><a href="#输入样例2" class="headerlink" title="输入样例2:"></a>输入样例2:</h2><blockquote><p>5 8<br>1 2<br>1 3<br>2 3<br>2 4<br>2 5<br>5 3<br>5 4<br>3 4</p></blockquote><h2 id="输出样例2"><a href="#输出样例2" class="headerlink" title="输出样例2:"></a>输出样例2:</h2><blockquote><p>0</p></blockquote><p><br><br>思路：<br><br>如果欧拉通路的起点与终点一样，则成为欧拉回路， 连通的多重图具有欧拉回路当且仅当它的每个顶点都有偶数度<br>则欧拉回路的条件：</p><ul><li>图是连通的，没有孤立节点</li><li>无向图的每个节点的度数都是偶数度，有向图每个节点的入度等于出度</li></ul><p>使用并查集统计连通分量个数，使用degree数组奇偶数判断是否全为偶数。<br><br></p><pre><code class="lang-cpp">#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;int fa[1005];int father(int x){    if(fa[x]==x) return x;    return fa[x] = father(fa[x]);} int main(){    int n,m,x,y;    cin &gt;&gt; n &gt;&gt; m;    int degree[n+1];    for(int i=1;i&lt;=n;i++)  fa[i] = i;    memset(degree,0,sizeof(degree));    for(int i=0;i&lt;m;i++){        cin &gt;&gt; x &gt;&gt; y;        int rootx = father(x),rooty = father(y);        if(rootx!=rooty){            fa[rooty] = rootx;        }        // fa[father(y)] = father(x);  这样写竟然会超时！！！！        // 不要问我咋知道的        degree[x]++;        degree[y]++;    }    int exist=1,root = fa[1],connectcnt = 0;    for(int i=1;i&lt;=n;i++){        if(fa[i]==i) connectcnt++;    }    if(connectcnt&gt;1) exist = 0;    for(int i=1;i&lt;=n;i++){        if(degree[i]%2){            exist = 0;break;        }    }     cout &lt;&lt; exist &lt;&lt; endl;        return 0;}</code></pre>]]></content>
     
     <summary type="html">
     
@@ -151,7 +149,9 @@
     
       <category term="PTA" scheme="https://sinclaircoder.top/tags/PTA/"/>
     
-      <category term="BFS" scheme="https://sinclaircoder.top/tags/BFS/"/>
+      <category term="欧拉回路" scheme="https://sinclaircoder.top/tags/%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF/"/>
+    
+      <category term="并查集" scheme="https://sinclaircoder.top/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
     
   </entry>
   
@@ -287,13 +287,13 @@
   </entry>
   
   <entry>
-    <title>PTA列出叶结点(BFS)</title>
-    <link href="https://sinclaircoder.top/2020/01/01/2020-01-19-pta-lie-chu-xie-jie-dian-bfs/"/>
-    <id>https://sinclaircoder.top/2020/01/01/2020-01-19-pta-lie-chu-xie-jie-dian-bfs/</id>
+    <title></title>
+    <link href="https://sinclaircoder.top/2020/01/01/00/"/>
+    <id>https://sinclaircoder.top/2020/01/01/00/</id>
     <published>2019-12-31T16:00:00.000Z</published>
-    <updated>2020-01-22T04:30:39.298Z</updated>
+    <updated>2020-01-22T04:39:02.412Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>对于给定的二叉树，本题要求你按从上到下、从左到右的顺序输出其所有叶节点。</p><h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>首先第一行给出一个正整数 N（≤10），为树中结点总数。树中的结点从 0 到 N−1 编号。随后 N 行，每行给出一个对应结点左右孩子的编号。如果某个孩子不存在，则在对应位置给出 “-“。编号间以 1 个空格分隔。</p><h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>在一行中按规定顺序输出叶节点的编号。编号间以 1 个空格分隔，行首尾不得有多余空格。</p><h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><pre><code>81 -- -0 -2 7- -- -5 -4 6</code></pre><h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote><p>4 1 5</p></blockquote><p>实现：<br>题意理解了半天… 开个标记数组，在叶子左右孩子节点中出现过的就进行标记。剩下的那一个就是root，然后在进行BFS</p><pre><code class="lang-cpp">#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;struct node{    int leaf ;    int right;}q[15]; queue&lt;int&gt; qu; int res[15],top=0;void bfs(){    while(qu.size()){        int num = qu.front();        qu.pop();        if(q[num].leaf==-1&amp;&amp;q[num].right==-1) res[top++] = num;        if(q[num].leaf!=-1) qu.push(q[num].leaf);        if(q[num].right!=-1) qu.push(q[num].right);    }}int main(){    int n,root;    cin &gt;&gt; n;    getchar();    int flag[n];    char a,b;    memset(q,0,sizeof(q));    memset(flag,0,sizeof(flag));    for(int i=0;i&lt;n;i++){        scanf(&quot;%c %c&quot;,&amp;a,&amp;b);        getchar();        if(a==&#39;-&#39;) q[i].leaf=-1;        else {            q[i].leaf = a-&#39;0&#39;;flag[q[i].leaf] = 1;        }         if(b==&#39;-&#39;) q[i].right=-1;        else {            q[i].right = b-&#39;0&#39;;flag[q[i].right] = 1;        }         }    for(int i=0;i&lt;n;i++){        if(flag[i]==0){            root = i;            break;        }    }    qu.push(root);    bfs();    cout &lt;&lt; res[0];    for(int i=1;i&lt;top;i++){        cout &lt;&lt; &quot; &quot; &lt;&lt; res[i];    }    return 0;}</code></pre>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
     
     <summary type="html">
     
@@ -304,12 +304,6 @@
     
     </summary>
     
-      <category term="PTA" scheme="https://sinclaircoder.top/categories/PTA/"/>
-    
-    
-      <category term="PTA" scheme="https://sinclaircoder.top/tags/PTA/"/>
-    
-      <category term="BFS" scheme="https://sinclaircoder.top/tags/BFS/"/>
     
   </entry>
   
@@ -341,13 +335,13 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://sinclaircoder.top/2020/01/01/00/"/>
-    <id>https://sinclaircoder.top/2020/01/01/00/</id>
+    <title>PTA列出叶结点(BFS)</title>
+    <link href="https://sinclaircoder.top/2020/01/01/2020-01-19-pta-lie-chu-xie-jie-dian-bfs/"/>
+    <id>https://sinclaircoder.top/2020/01/01/2020-01-19-pta-lie-chu-xie-jie-dian-bfs/</id>
     <published>2019-12-31T16:00:00.000Z</published>
-    <updated>2020-01-22T04:39:02.412Z</updated>
+    <updated>2020-01-22T04:30:39.298Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>对于给定的二叉树，本题要求你按从上到下、从左到右的顺序输出其所有叶节点。</p><h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>首先第一行给出一个正整数 N（≤10），为树中结点总数。树中的结点从 0 到 N−1 编号。随后 N 行，每行给出一个对应结点左右孩子的编号。如果某个孩子不存在，则在对应位置给出 “-“。编号间以 1 个空格分隔。</p><h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>在一行中按规定顺序输出叶节点的编号。编号间以 1 个空格分隔，行首尾不得有多余空格。</p><h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><pre><code>81 -- -0 -2 7- -- -5 -4 6</code></pre><h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote><p>4 1 5</p></blockquote><p>实现：<br>题意理解了半天… 开个标记数组，在叶子左右孩子节点中出现过的就进行标记。剩下的那一个就是root，然后在进行BFS</p><pre><code class="lang-cpp">#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;struct node{    int leaf ;    int right;}q[15]; queue&lt;int&gt; qu; int res[15],top=0;void bfs(){    while(qu.size()){        int num = qu.front();        qu.pop();        if(q[num].leaf==-1&amp;&amp;q[num].right==-1) res[top++] = num;        if(q[num].leaf!=-1) qu.push(q[num].leaf);        if(q[num].right!=-1) qu.push(q[num].right);    }}int main(){    int n,root;    cin &gt;&gt; n;    getchar();    int flag[n];    char a,b;    memset(q,0,sizeof(q));    memset(flag,0,sizeof(flag));    for(int i=0;i&lt;n;i++){        scanf(&quot;%c %c&quot;,&amp;a,&amp;b);        getchar();        if(a==&#39;-&#39;) q[i].leaf=-1;        else {            q[i].leaf = a-&#39;0&#39;;flag[q[i].leaf] = 1;        }         if(b==&#39;-&#39;) q[i].right=-1;        else {            q[i].right = b-&#39;0&#39;;flag[q[i].right] = 1;        }         }    for(int i=0;i&lt;n;i++){        if(flag[i]==0){            root = i;            break;        }    }    qu.push(root);    bfs();    cout &lt;&lt; res[0];    for(int i=1;i&lt;top;i++){        cout &lt;&lt; &quot; &quot; &lt;&lt; res[i];    }    return 0;}</code></pre>]]></content>
     
     <summary type="html">
     
@@ -358,6 +352,12 @@
     
     </summary>
     
+      <category term="PTA" scheme="https://sinclaircoder.top/categories/PTA/"/>
+    
+    
+      <category term="PTA" scheme="https://sinclaircoder.top/tags/PTA/"/>
+    
+      <category term="BFS" scheme="https://sinclaircoder.top/tags/BFS/"/>
     
   </entry>
   
@@ -495,13 +495,13 @@
   </entry>
   
   <entry>
-    <title>大数乘法 java BigInteger的使用</title>
-    <link href="https://sinclaircoder.top/2019/11/22/2019-11-22-da-shu-cheng-fa-java-biginteger-de-shi-yong/"/>
-    <id>https://sinclaircoder.top/2019/11/22/2019-11-22-da-shu-cheng-fa-java-biginteger-de-shi-yong/</id>
+    <title>切面条</title>
+    <link href="https://sinclaircoder.top/2019/11/22/2019-11-22-qie-mian-tiao/"/>
+    <id>https://sinclaircoder.top/2019/11/22/2019-11-22-qie-mian-tiao/</id>
     <published>2019-11-21T16:00:00.000Z</published>
-    <updated>2020-01-22T03:58:51.898Z</updated>
+    <updated>2020-01-22T03:59:55.874Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>找个大数乘法的题目练习一下 BigInterger的使用</p><blockquote><p>当两个比较大的整数相乘时，可能会出现数据溢出的情形。为避免溢出，可以采用字符串的方法来实现两个大数之间的乘法。具体来说，首先以字符串的形式输入两个整数，每个整数的长度不会超过8位，然后把它们相乘的结果存储在另一个字符串当中（长度不会超过16位），最后把这个字符串打印出来。例如，假设用户输入为：62773417和12345678，则输出结果为：774980393241726.</p></blockquote><p>输入：</p><blockquote><p>62773417 12345678</p></blockquote><p>输出：</p><blockquote><p>774980393241726</p></blockquote><p>代码实现</p><pre><code class="lang-java">import java.math.BigInteger;import java.util.Scanner;public class Main {    public static void main(String[] args) {        Scanner input = new Scanner(System.in);        String str1 = input.next(),str2 = input.next();        BigInteger num1 = new BigInteger(str1);        BigInteger num2 = new BigInteger(str2);        BigInteger res = num1.multiply(num2);        System.out.println(res.toString());        input.close();    }}</code></pre><p>比C/C++实现起来爽很多。<br>一般来说BigInteger是使用String类型进行构造，传入两个个数字字符串，然后进行加减乘除。<br>java中并没有重载运算符这种操作，只能另外实现封装成新的函数。</p><p>一些常用API请参考<a href="https://blog.csdn.net/suyebiubiu/article/details/78511556" target="_blank" rel="noopener">java基础-BigInteger的使用</a></p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一道2014蓝桥杯省赛试题<br><strong>切面条</strong><br> 一根高筋拉面，中间切一刀，可以得到2根面条。<br>    如果先对折1次，中间切一刀，可以得到3根面条。<br>    如果连续对折2次，中间切一刀，可以得到5根面条。<br>    那么，连续对折10次，中间切一刀，会得到多少面条呢？  </p><p>不切的话，一根面条原本有两个端点<br>对折0次，中间切一刀，会产生1个端点，一共3个端点，会产生2根面条<br>对折1次，中间切一刀，会产生2个端点，一共4个端点，会产生3根面条<br>对折2次，中间切一刀，会产生4个端点，一共6个端点，会产生5根面条<br>对折3次，中间切一刀，会产生8个端点，一共10个端点，会产生9根面条<br>…<br>…<br>假设对折n次，则中间切一刀，会产生$2^n$个端点，加上原来的两个，一共$2^n+2$个端点，会产生$2^n+2-1$根面条，也即产生的面条数等于端点数减一。<br>即<script type="math/tex">result = 2^n+1</script><br>（证明略..）<br>当n=10时，result = 1025</p>]]></content>
     
     <summary type="html">
     
@@ -516,8 +516,6 @@
     
     
       <category term="蓝桥杯" scheme="https://sinclaircoder.top/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
-    
-      <category term="BigInteger" scheme="https://sinclaircoder.top/tags/BigInteger/"/>
     
   </entry>
   
