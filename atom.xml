@@ -64,22 +64,22 @@
       <category term="PTA" scheme="https://sinclaircoder.top/categories/PTA/"/>
     
     
-      <category term="DFS" scheme="https://sinclaircoder.top/tags/DFS/"/>
-    
       <category term="PTA" scheme="https://sinclaircoder.top/tags/PTA/"/>
+    
+      <category term="DFS" scheme="https://sinclaircoder.top/tags/DFS/"/>
     
       <category term="BFS" scheme="https://sinclaircoder.top/tags/BFS/"/>
     
   </entry>
   
   <entry>
-    <title>PTA小字辈（BFS）</title>
-    <link href="https://sinclaircoder.top/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/"/>
-    <id>https://sinclaircoder.top/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/</id>
+    <title>PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）</title>
+    <link href="https://sinclaircoder.top/2020/01/19/2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji/"/>
+    <id>https://sinclaircoder.top/2020/01/19/2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji/</id>
     <published>2020-01-18T16:00:00.000Z</published>
-    <updated>2020-01-22T04:32:14.073Z</updated>
+    <updated>2020-01-22T04:33:34.535Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本题给定一个庞大家族的家谱，要请你给出最小一辈的名单。</p><h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>输入在第一行给出家族人口总数 N（不超过 100 000 的正整数） —— 简单起见，我们把家族成员从 1 到 N 编号。随后第二行给出 N 个编号，其中第 i 个编号对应第 i 位成员的父/母。家谱中辈分最高的老祖宗对应的父/母编号为 -1。一行中的数字间以空格分隔。</p><h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>首先输出最小的辈分（老祖宗的辈分为 1，以下逐级递增）。然后在第二行按递增顺序输出辈分最小的成员的编号。编号间以一个空格分隔，行首尾不得有多余空格。</p><h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><blockquote><p>9<br>2 6 5 5 -1 5 6 4 7</p></blockquote><h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote><p>4<br>1 9</p></blockquote><p>其实主要是存储的数据结构的设计。<br><br></p><pre><code class="lang-cpp">#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;struct node{    int father;    vector&lt;int&gt; child;}family[100005];queue&lt;int&gt; qu;vector&lt;int&gt; level;int maxh = 1;void bfs(int root){    qu.push(root);    level[root] = 1;    while(qu.size()){        int index = qu.front();        qu.pop();        vector&lt;int&gt; tmp = family[index].child;        for(int i=0;i&lt;tmp.size();i++){            level[tmp[i]] = level[index]+1;            maxh = max(level[tmp[i]],maxh);            qu.push(family[index].child[i]);         }    }}int main(){    int n,x,root;    cin &gt;&gt; n;    level.resize(n+1);    for(int i=1;i&lt;=n;i++){        cin &gt;&gt; family[i].father;        if(family[i].father==-1) root = i;        else {            family[family[i].father].child.push_back(i);        }    }    bfs(root);    cout &lt;&lt; maxh &lt;&lt; endl;    int first = 1;    for(int i=1;i&lt;=n;i++){        if(level[i]==maxh){            if(first) {                cout &lt;&lt; i ; first = 0;            }            else cout &lt;&lt; &quot; &quot; &lt;&lt; i ;         }    }    return 0;}</code></pre>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>哥尼斯堡是位于普累格河上的一座城市，它包含两个岛屿及连接它们的七座桥，<br>可否走过这样的七座桥，而且每桥只走过一次？瑞士数学家欧拉(Leonhard Euler，1707—1783)最终解决了这个问题，并由此创立了拓扑学。<br>这个问题如今可以描述为判断欧拉回路是否存在的问题。欧拉回路是指不令笔离开纸面，可画过图中每条边仅一次，且可以回到起点的一条回路。现给定一个无向图，问是否存在欧拉回路？</p><h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入第一行给出两个正整数，分别是节点数N (1≤N≤1000)和边数M；随后的M行对应M条边，每行给出一对正整数，分别是该条边直接连通的两个节点的编号（节点从1到N编号）。</p><h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>若欧拉回路存在则输出1，否则输出0。</p><h2 id="输入样例1"><a href="#输入样例1" class="headerlink" title="输入样例1:"></a>输入样例1:</h2><blockquote><p>6 10<br>1 2<br>2 3<br>3 1<br>4 5<br>5 6<br>6 4<br>1 4<br>1 6<br>3 4<br>3 6    </p><h2 id="输出样例1"><a href="#输出样例1" class="headerlink" title="输出样例1:"></a>输出样例1:</h2><p>1</p></blockquote><h2 id="输入样例2"><a href="#输入样例2" class="headerlink" title="输入样例2:"></a>输入样例2:</h2><blockquote><p>5 8<br>1 2<br>1 3<br>2 3<br>2 4<br>2 5<br>5 3<br>5 4<br>3 4</p></blockquote><h2 id="输出样例2"><a href="#输出样例2" class="headerlink" title="输出样例2:"></a>输出样例2:</h2><blockquote><p>0</p></blockquote><p><br><br>思路：<br><br>如果欧拉通路的起点与终点一样，则成为欧拉回路， 连通的多重图具有欧拉回路当且仅当它的每个顶点都有偶数度<br>则欧拉回路的条件：</p><ul><li>图是连通的，没有孤立节点</li><li>无向图的每个节点的度数都是偶数度，有向图每个节点的入度等于出度</li></ul><p>使用并查集统计连通分量个数，使用degree数组奇偶数判断是否全为偶数。<br><br></p><pre><code class="lang-cpp">#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;int fa[1005];int father(int x){    if(fa[x]==x) return x;    return fa[x] = father(fa[x]);} int main(){    int n,m,x,y;    cin &gt;&gt; n &gt;&gt; m;    int degree[n+1];    for(int i=1;i&lt;=n;i++)  fa[i] = i;    memset(degree,0,sizeof(degree));    for(int i=0;i&lt;m;i++){        cin &gt;&gt; x &gt;&gt; y;        int rootx = father(x),rooty = father(y);        if(rootx!=rooty){            fa[rooty] = rootx;        }        // fa[father(y)] = father(x);  这样写竟然会超时！！！！        // 不要问我咋知道的        degree[x]++;        degree[y]++;    }    int exist=1,root = fa[1],connectcnt = 0;    for(int i=1;i&lt;=n;i++){        if(fa[i]==i) connectcnt++;    }    if(connectcnt&gt;1) exist = 0;    for(int i=1;i&lt;=n;i++){        if(degree[i]%2){            exist = 0;break;        }    }     cout &lt;&lt; exist &lt;&lt; endl;        return 0;}</code></pre>]]></content>
     
     <summary type="html">
     
@@ -95,7 +95,9 @@
     
       <category term="PTA" scheme="https://sinclaircoder.top/tags/PTA/"/>
     
-      <category term="BFS" scheme="https://sinclaircoder.top/tags/BFS/"/>
+      <category term="欧拉回路" scheme="https://sinclaircoder.top/tags/%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF/"/>
+    
+      <category term="并查集" scheme="https://sinclaircoder.top/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
     
   </entry>
   
@@ -127,13 +129,13 @@
   </entry>
   
   <entry>
-    <title>PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）</title>
-    <link href="https://sinclaircoder.top/2020/01/19/2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji/"/>
-    <id>https://sinclaircoder.top/2020/01/19/2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji/</id>
+    <title>PTA小字辈（BFS）</title>
+    <link href="https://sinclaircoder.top/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/"/>
+    <id>https://sinclaircoder.top/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/</id>
     <published>2020-01-18T16:00:00.000Z</published>
-    <updated>2020-01-22T04:33:34.535Z</updated>
+    <updated>2020-01-22T04:32:14.073Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>哥尼斯堡是位于普累格河上的一座城市，它包含两个岛屿及连接它们的七座桥，<br>可否走过这样的七座桥，而且每桥只走过一次？瑞士数学家欧拉(Leonhard Euler，1707—1783)最终解决了这个问题，并由此创立了拓扑学。<br>这个问题如今可以描述为判断欧拉回路是否存在的问题。欧拉回路是指不令笔离开纸面，可画过图中每条边仅一次，且可以回到起点的一条回路。现给定一个无向图，问是否存在欧拉回路？</p><h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入第一行给出两个正整数，分别是节点数N (1≤N≤1000)和边数M；随后的M行对应M条边，每行给出一对正整数，分别是该条边直接连通的两个节点的编号（节点从1到N编号）。</p><h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>若欧拉回路存在则输出1，否则输出0。</p><h2 id="输入样例1"><a href="#输入样例1" class="headerlink" title="输入样例1:"></a>输入样例1:</h2><blockquote><p>6 10<br>1 2<br>2 3<br>3 1<br>4 5<br>5 6<br>6 4<br>1 4<br>1 6<br>3 4<br>3 6    </p><h2 id="输出样例1"><a href="#输出样例1" class="headerlink" title="输出样例1:"></a>输出样例1:</h2><p>1</p></blockquote><h2 id="输入样例2"><a href="#输入样例2" class="headerlink" title="输入样例2:"></a>输入样例2:</h2><blockquote><p>5 8<br>1 2<br>1 3<br>2 3<br>2 4<br>2 5<br>5 3<br>5 4<br>3 4</p></blockquote><h2 id="输出样例2"><a href="#输出样例2" class="headerlink" title="输出样例2:"></a>输出样例2:</h2><blockquote><p>0</p></blockquote><p><br><br>思路：<br><br>如果欧拉通路的起点与终点一样，则成为欧拉回路， 连通的多重图具有欧拉回路当且仅当它的每个顶点都有偶数度<br>则欧拉回路的条件：</p><ul><li>图是连通的，没有孤立节点</li><li>无向图的每个节点的度数都是偶数度，有向图每个节点的入度等于出度</li></ul><p>使用并查集统计连通分量个数，使用degree数组奇偶数判断是否全为偶数。<br><br></p><pre><code class="lang-cpp">#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;int fa[1005];int father(int x){    if(fa[x]==x) return x;    return fa[x] = father(fa[x]);} int main(){    int n,m,x,y;    cin &gt;&gt; n &gt;&gt; m;    int degree[n+1];    for(int i=1;i&lt;=n;i++)  fa[i] = i;    memset(degree,0,sizeof(degree));    for(int i=0;i&lt;m;i++){        cin &gt;&gt; x &gt;&gt; y;        int rootx = father(x),rooty = father(y);        if(rootx!=rooty){            fa[rooty] = rootx;        }        // fa[father(y)] = father(x);  这样写竟然会超时！！！！        // 不要问我咋知道的        degree[x]++;        degree[y]++;    }    int exist=1,root = fa[1],connectcnt = 0;    for(int i=1;i&lt;=n;i++){        if(fa[i]==i) connectcnt++;    }    if(connectcnt&gt;1) exist = 0;    for(int i=1;i&lt;=n;i++){        if(degree[i]%2){            exist = 0;break;        }    }     cout &lt;&lt; exist &lt;&lt; endl;        return 0;}</code></pre>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本题给定一个庞大家族的家谱，要请你给出最小一辈的名单。</p><h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>输入在第一行给出家族人口总数 N（不超过 100 000 的正整数） —— 简单起见，我们把家族成员从 1 到 N 编号。随后第二行给出 N 个编号，其中第 i 个编号对应第 i 位成员的父/母。家谱中辈分最高的老祖宗对应的父/母编号为 -1。一行中的数字间以空格分隔。</p><h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>首先输出最小的辈分（老祖宗的辈分为 1，以下逐级递增）。然后在第二行按递增顺序输出辈分最小的成员的编号。编号间以一个空格分隔，行首尾不得有多余空格。</p><h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><blockquote><p>9<br>2 6 5 5 -1 5 6 4 7</p></blockquote><h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote><p>4<br>1 9</p></blockquote><p>其实主要是存储的数据结构的设计。<br><br></p><pre><code class="lang-cpp">#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;struct node{    int father;    vector&lt;int&gt; child;}family[100005];queue&lt;int&gt; qu;vector&lt;int&gt; level;int maxh = 1;void bfs(int root){    qu.push(root);    level[root] = 1;    while(qu.size()){        int index = qu.front();        qu.pop();        vector&lt;int&gt; tmp = family[index].child;        for(int i=0;i&lt;tmp.size();i++){            level[tmp[i]] = level[index]+1;            maxh = max(level[tmp[i]],maxh);            qu.push(family[index].child[i]);         }    }}int main(){    int n,x,root;    cin &gt;&gt; n;    level.resize(n+1);    for(int i=1;i&lt;=n;i++){        cin &gt;&gt; family[i].father;        if(family[i].father==-1) root = i;        else {            family[family[i].father].child.push_back(i);        }    }    bfs(root);    cout &lt;&lt; maxh &lt;&lt; endl;    int first = 1;    for(int i=1;i&lt;=n;i++){        if(level[i]==maxh){            if(first) {                cout &lt;&lt; i ; first = 0;            }            else cout &lt;&lt; &quot; &quot; &lt;&lt; i ;         }    }    return 0;}</code></pre>]]></content>
     
     <summary type="html">
     
@@ -149,9 +151,7 @@
     
       <category term="PTA" scheme="https://sinclaircoder.top/tags/PTA/"/>
     
-      <category term="欧拉回路" scheme="https://sinclaircoder.top/tags/%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF/"/>
-    
-      <category term="并查集" scheme="https://sinclaircoder.top/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
+      <category term="BFS" scheme="https://sinclaircoder.top/tags/BFS/"/>
     
   </entry>
   
@@ -308,33 +308,6 @@
   </entry>
   
   <entry>
-    <title>PTA切分表达式——写个tokenizer吧</title>
-    <link href="https://sinclaircoder.top/2020/01/01/2020-01-16-pta-qie-fen-biao-da-shi-xie-ge-tokenizer-ba/"/>
-    <id>https://sinclaircoder.top/2020/01/01/2020-01-16-pta-qie-fen-biao-da-shi-xie-ge-tokenizer-ba/</id>
-    <published>2019-12-31T16:00:00.000Z</published>
-    <updated>2020-01-22T04:31:05.514Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="先说点出题背景"><a href="#先说点出题背景" class="headerlink" title="[先说点出题背景]"></a>[先说点出题背景]</h2><p>这个题是为低年级同学、学C语言的同学准备的，因为，对这部分同学，这个题目编写起来略有一点复杂。如果是高年级、学过了正则表达式（Regular Expression）的同学或者学过了Java等OO语言的同学做这个题，应当发现这题比较简单吧。哦，对了，什么是tokenizer？请自行查询解决。反正在此处不应翻译成“令牌解析器”。</p><h2 id="正题"><a href="#正题" class="headerlink" title="[正题]"></a>[正题]</h2><p>四则运算表达式由运算数（必定包含数字，可能包含正或负符号、小数点）、运算符（包括+、-、*、/）以及小括号（(和)）组成，每个运算数、运算符和括号都是一个token（标记）。现在，对于给定的一个四则运算表达式，请把她的每个token切分出来。题目保证给定的表达式是正确的，不需要做有效性检查。<br>输入格式:<br>在一行中给出长度不超过40个字符的表达式，其中没有空格，仅由上文中token的字符组成</p><h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>依次输出表达式中的tokens，每个token占一行。</p><h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h2><blockquote><p>32*((2-2)+5)/(-15)   </p><h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例:"></a>输出样例:</h2><p>```<br>32<br>*<br>(<br>(<br>2<br>-<br>2<br>)<br>+<br>5<br>)<br>/<br>(<br>-15<br>)</p></blockquote><pre><code>## 实现```cpp#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;#define N 205int main(){    char s[N],ch;    int flag = 0;    scanf(&quot;%s&quot;,s);    printf(&quot;%c&quot;,s[0]);    for(int i=1;i&lt;strlen(s);i++){        if(s[i]&gt;=&#39;0&#39;&amp;&amp;s[i]&lt;=&#39;9&#39;||s[i]==&#39;.&#39;){            if(flag)  cout &lt;&lt; endl;            printf(&quot;%c&quot;,s[i]);            flag = 0;        }        else {            if(s[i-1]==&#39;(&#39;&amp;&amp;s[i]==&#39;-&#39;){                printf(&quot;\n%c&quot;,s[i]);                flag = 0;            }            else {                printf(&quot;\n%c&quot;,s[i]);                flag = 1;            }        }    }    return 0;}</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="PTA" scheme="https://sinclaircoder.top/categories/PTA/"/>
-    
-    
-      <category term="字符串" scheme="https://sinclaircoder.top/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
-      <category term="PTA" scheme="https://sinclaircoder.top/tags/PTA/"/>
-    
-  </entry>
-  
-  <entry>
     <title>PTA列出叶结点(BFS)</title>
     <link href="https://sinclaircoder.top/2020/01/01/2020-01-19-pta-lie-chu-xie-jie-dian-bfs/"/>
     <id>https://sinclaircoder.top/2020/01/01/2020-01-19-pta-lie-chu-xie-jie-dian-bfs/</id>
@@ -358,6 +331,33 @@
       <category term="PTA" scheme="https://sinclaircoder.top/tags/PTA/"/>
     
       <category term="BFS" scheme="https://sinclaircoder.top/tags/BFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PTA切分表达式——写个tokenizer吧</title>
+    <link href="https://sinclaircoder.top/2020/01/01/2020-01-16-pta-qie-fen-biao-da-shi-xie-ge-tokenizer-ba/"/>
+    <id>https://sinclaircoder.top/2020/01/01/2020-01-16-pta-qie-fen-biao-da-shi-xie-ge-tokenizer-ba/</id>
+    <published>2019-12-31T16:00:00.000Z</published>
+    <updated>2020-01-22T04:31:05.514Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="先说点出题背景"><a href="#先说点出题背景" class="headerlink" title="[先说点出题背景]"></a>[先说点出题背景]</h2><p>这个题是为低年级同学、学C语言的同学准备的，因为，对这部分同学，这个题目编写起来略有一点复杂。如果是高年级、学过了正则表达式（Regular Expression）的同学或者学过了Java等OO语言的同学做这个题，应当发现这题比较简单吧。哦，对了，什么是tokenizer？请自行查询解决。反正在此处不应翻译成“令牌解析器”。</p><h2 id="正题"><a href="#正题" class="headerlink" title="[正题]"></a>[正题]</h2><p>四则运算表达式由运算数（必定包含数字，可能包含正或负符号、小数点）、运算符（包括+、-、*、/）以及小括号（(和)）组成，每个运算数、运算符和括号都是一个token（标记）。现在，对于给定的一个四则运算表达式，请把她的每个token切分出来。题目保证给定的表达式是正确的，不需要做有效性检查。<br>输入格式:<br>在一行中给出长度不超过40个字符的表达式，其中没有空格，仅由上文中token的字符组成</p><h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>依次输出表达式中的tokens，每个token占一行。</p><h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h2><blockquote><p>32*((2-2)+5)/(-15)   </p><h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例:"></a>输出样例:</h2><p>```<br>32<br>*<br>(<br>(<br>2<br>-<br>2<br>)<br>+<br>5<br>)<br>/<br>(<br>-15<br>)</p></blockquote><pre><code>## 实现```cpp#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;#define N 205int main(){    char s[N],ch;    int flag = 0;    scanf(&quot;%s&quot;,s);    printf(&quot;%c&quot;,s[0]);    for(int i=1;i&lt;strlen(s);i++){        if(s[i]&gt;=&#39;0&#39;&amp;&amp;s[i]&lt;=&#39;9&#39;||s[i]==&#39;.&#39;){            if(flag)  cout &lt;&lt; endl;            printf(&quot;%c&quot;,s[i]);            flag = 0;        }        else {            if(s[i-1]==&#39;(&#39;&amp;&amp;s[i]==&#39;-&#39;){                printf(&quot;\n%c&quot;,s[i]);                flag = 0;            }            else {                printf(&quot;\n%c&quot;,s[i]);                flag = 1;            }        }    }    return 0;}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="PTA" scheme="https://sinclaircoder.top/categories/PTA/"/>
+    
+    
+      <category term="字符串" scheme="https://sinclaircoder.top/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    
+      <category term="PTA" scheme="https://sinclaircoder.top/tags/PTA/"/>
     
   </entry>
   
@@ -391,7 +391,7 @@
     <link href="https://sinclaircoder.top/2019/12/06/2019-12-06-common-easy-middle-hard/"/>
     <id>https://sinclaircoder.top/2019/12/06/2019-12-06-common-easy-middle-hard/</id>
     <published>2019-12-05T16:00:00.000Z</published>
-    <updated>2020-01-22T04:15:30.165Z</updated>
+    <updated>2020-01-22T08:33:59.135Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一道题</p><h1 id="Easy-Version"><a href="#Easy-Version" class="headerlink" title="Easy Version"></a>Easy Version</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>$求区间 [l, r] 内是 a 或 b 的倍数的数的个数。$</p><h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>$第一行一个正整数 T, 代表测试的组数。$<br>$之后 T 行，每行四个正整数 a, b, l, r, 以空格分隔，意义如题面所述。$<br>$1≤T≤100$<br>$1≤a,b≤10^5$<br>$1≤l≤r≤10^5$</p><h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>$对于每组测试，一行内输出一个整数表示答案。$</p><h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><blockquote><p>3<br>2 3 1 100<br>4 6 1 100<br>5 10 1 100</p></blockquote><h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><blockquote><p>67<br>33<br>20</p></blockquote><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;using namespace std;int main(){    int l,r,a,b;    int n;    cin &gt;&gt; n;    while(n--){        cin &gt;&gt; a &gt;&gt; b;        cin &gt;&gt; l &gt;&gt; r;        int res = 0;        for(int i=l;i&lt;=r;i++){            if(i%a==0||i%b==0) res ++;        }        cout &lt;&lt; res &lt;&lt; endl;        }    return 0;}</code></pre><h1 id="Middle-Version"><a href="#Middle-Version" class="headerlink" title="Middle Version"></a>Middle Version</h1><p>数据范围改变<br>$1≤T≤100$<br>$1≤a,b≤10^9$<br>$1≤l≤r≤10^9$<br>需要优化</p><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;using namespace std;typedef long long ll;ll gcd(ll a,ll b) { return !b?a:gcd(b,a%b);}ll lcm(ll a,ll b){ return a/gcd(a,b)*b;}int main(){    int n;    cin &gt;&gt; n;    while(n--){        ll a,b,l,r;        cin &gt;&gt; a &gt;&gt; b;        cin &gt;&gt; l &gt;&gt; r;        ll res = 0;        ll t = lcm(a,b);        res += r/a+r/b-r/t-(l/a+l/b-l/t);        if(l%a==0||l%b==0){            res ++;            }        cout &lt;&lt; res &lt;&lt; endl;        }    return 0;}</code></pre><h2 id="Hard-Version"><a href="#Hard-Version" class="headerlink" title="Hard Version"></a>Hard Version</h2><p>$区间[l,r]内, 是a或b倍数的数的和是多少?$<br>$1≤a,b≤10^9$<br>$1≤l≤r≤10^9$</p><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;using namespace std;typedef long long ll;ll gcd(ll a,ll b) { return !b?a:gcd(b,a%b);}ll lcm(ll a,ll b){ return a/gcd(a,b)*b;}int main(){        ll a,b,l,r;        cin &gt;&gt; a &gt;&gt; b;        cin &gt;&gt; l &gt;&gt; r;        ll res = 0;        ll t = lcm(a,b);        ll c1 = r/a,c2 = r/b,c3 = r/t;        ll c4 = (l-1)/a,c5 = (l-1)/b,c6 = (l-1)/t;        res += (a+c1*a)*c1/2+(b+c2*b)*c2/2-(t+c3*t)*c3/2;        res -= (a+c4*a)*c4/2+(b+c5*b)*c5/2-(t+c6*t)*c6/2;        cout &lt;&lt; res &lt;&lt; endl;        return 0;}</code></pre>]]></content>
     
@@ -495,33 +495,6 @@
   </entry>
   
   <entry>
-    <title>黄金连分数--BigDecimal的使用</title>
-    <link href="https://sinclaircoder.top/2019/11/22/2019-11-22-huang-jin-lian-fen-shu-bigdecimal-de-shi-yong/"/>
-    <id>https://sinclaircoder.top/2019/11/22/2019-11-22-huang-jin-lian-fen-shu-bigdecimal-de-shi-yong/</id>
-    <published>2019-11-21T16:00:00.000Z</published>
-    <updated>2020-01-22T08:03:14.335Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一道2013蓝桥杯省赛试题</p><p><strong>黄金连分数</strong></p><ul><li>黄金分割数是0.61803是一个无理数，…</li><li>写出精确到小数点后100位精度的黄金分割数</li></ul><script type="math/tex; mode=display">\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+}}}}}}</script><p>当然黄金分割数是$\frac{\sqrt5-1}{2}$,可以直接算，但是Windows下的计算器的求解只能到小数点之后32位</p><p><img src="https://img-blog.csdnimg.cn/20191122163245826.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="windows下计算器计算结果"></p><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>当然这是一道填空题，只需要结果，假如你懂一点点java，又刚好知道BigDecimal这个类，那你就可以打开桌面的Eclipse轻松求解这个题目。</p><pre><code class="lang-java">import java.math.BigDecimal;import java.math.BigInteger;import java.util.Scanner;public class BigDecimalLearning {    public static void main(String[] args) {        BigDecimal res = new BigDecimal(1); // 没有 new BigDecimal(BigDecimal.ONE); 这种构造方法        for(int i=0;i&lt;100;i++) {            res = res.add(BigDecimal.ONE);            res = BigDecimal.ONE.divide(res,105,BigDecimal.ROUND_HALF_UP);        }        String str = res.toString().substring(2, 102);        System.out.println(str);//        System.out.println(str.length());    }}</code></pre><p>结果：</p><pre><code class="lang-java">6180339887498948482045868343656381177203096998094118264936291294152016354093729191617385189497190563</code></pre><p><br></p><h2 id="简单介绍一下BigDecimal"><a href="#简单介绍一下BigDecimal" class="headerlink" title="简单介绍一下BigDecimal"></a>简单介绍一下BigDecimal</h2><p>Java在java.math包中提供了BigDecimal类，用来对超过16位有效位的数进行精确的运算。双精度浮点型变量double可以处理16位有效数。在实际应用中，需要对更大或者更小的数进行运算和处理。float和double只能用来做科学计算或者是工程计算，在商业计算中要用java.math.BigDecimal。<br>常用方法如下：</p><pre><code class="lang-java">BigDecimal b1 = new BigDecimal(&quot;20&quot;);BigDecimal b2 = new BigDecimal(&quot;30&quot;);b1.add(b2)          //加法，求两个BigDecimal类型数据的和。b1.subtract(b2);     //减法，求两个BigDecimal类型数据的差。b1.multiply(b2);     //乘法，求两个BigDecimal类型数据的积。b1.remainder(b2);    //求余数，求b1除以b2的余数。b1.max(b2);        //最大数，求两个BigDecimal类型数据的最大值b1.min(b2);       //最小数，求两个BigDecimal类型数据的最小值。bi.abs();      //绝对值，求BigDecimal类型数据的绝对值。b1.negate();    //相反数，求BigDecimal类型数据的相反数。</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="蓝桥杯" scheme="https://sinclaircoder.top/categories/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
-    
-    
-      <category term="蓝桥杯" scheme="https://sinclaircoder.top/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
-    
-      <category term="BigDecimal" scheme="https://sinclaircoder.top/tags/BigDecimal/"/>
-    
-  </entry>
-  
-  <entry>
     <title>蓝桥杯集训笔记</title>
     <link href="https://sinclaircoder.top/2019/11/22/2019-11-22-lan-qiao-bei-ji-xun-bi-ji/"/>
     <id>https://sinclaircoder.top/2019/11/22/2019-11-22-lan-qiao-bei-ji-xun-bi-ji/</id>
@@ -541,6 +514,33 @@
     
       <category term="蓝桥杯" scheme="https://sinclaircoder.top/categories/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
     
+    
+      <category term="蓝桥杯" scheme="https://sinclaircoder.top/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>熊怪吃核桃--二进制的使用</title>
+    <link href="https://sinclaircoder.top/2019/11/22/2019-11-22-xiong-guai-chi-he-tao-er-jin-zhi-de-shi-yong/"/>
+    <id>https://sinclaircoder.top/2019/11/22/2019-11-22-xiong-guai-chi-he-tao-er-jin-zhi-de-shi-yong/</id>
+    <published>2019-11-21T16:00:00.000Z</published>
+    <updated>2020-01-22T03:59:04.091Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一道2015年蓝桥杯省赛试题<br><strong>熊怪吃核桃</strong></p><ul><li>森林里有一只熊怪，很爱吃核桃。</li><li>不过它有个习惯，每次都把找到的核桃分成相等的两份，吃掉一份，留一份。</li><li>如果不能等分，熊怪就会扔掉一个核桃再分。</li><li>第二天再继续这个过程，直到最后剩一个核桃了，直接丢掉。</li><li>有一天，熊怪发现了1543个核桃，请问，它在吃这些核桃的过程中，一共要丢掉多少个核桃。</li></ul><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>思路就是每次判读一下是奇数还是偶数，奇数的话就减1然后除以2，偶数的话就直接除以2。用C/C++实现写起来其实很简单，其实还有一种更妙的思路，这个过程其实就是一个除2的过程，也就类似于十进制转二进制的过程，所以直接在Windows下利用计算器输入1543转成二进制，然后数一数二进制里面有几个1即可。</p><ul><li>1543对应的二进制是110 0000 0111，里面有5个1。</li></ul><p>顺便放一个代码实现吧</p><pre><code class="lang-cpp">#include&lt;iostream&gt;using namespace std;int main(){    int n = 1543,cnt = 0;    while(n){        if(n&amp;1){            n--;cnt++;            n /= 2;        }        else n /= 2;    }    cout &lt;&lt; cnt &lt;&lt; endl;    return 0;}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="蓝桥杯" scheme="https://sinclaircoder.top/categories/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
+    
+    
+      <category term="位运算" scheme="https://sinclaircoder.top/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
     
       <category term="蓝桥杯" scheme="https://sinclaircoder.top/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
     
