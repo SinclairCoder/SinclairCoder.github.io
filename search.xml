@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[PTA朋友圈(并查集)]]></title>
+    <url>%2F2020%2F01%2F20%2F2020-01-20-pta-peng-you-quan-bing-cha-ji%2F</url>
+    <content type="text"><![CDATA[某学校有N个学生，形成M个俱乐部。每个俱乐部里的学生有着一定相似的兴趣爱好，形成一个朋友圈。一个学生可以同时属于若干个不同的俱乐部。根据“我的朋友的朋友也是我的朋友”这个推论可以得出，如果A和B是朋友，且B和C是朋友，则A和C也是朋友。请编写程序计算最大朋友圈中有多少人。 输入格式:输入的第一行包含两个正整数N（≤30000）和M（≤1000），分别代表学校的学生总数和俱乐部的个数。后面的M行每行按以下格式给出1个俱乐部的信息，其中学生从1~N编号： 第i个俱乐部的人数Mi（空格）学生1（空格）学生2 … 学生Mi 输出格式:输出给出一个整数，表示在最大朋友圈中有多少人。 输入样例: 7 43 1 2 32 1 43 5 6 71 6 输出样例: 4 #include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;vector&gt; #include&lt;algorithm&gt; #include&lt;stack&gt; #include&lt;queue&gt; #include&lt;map&gt; #include&lt;list&gt; #include&lt;set&gt; #include&lt;cmath&gt; using namespace std; typedef long long ll; #define N 30005 int fa[N],num[N]; int find(int x){ if(x==fa[x]) return x; return fa[x] = find(fa[x]); } void Union(int x,int y){ int rootx = find(x),rooty = find(y); if(rootx!=rooty){ fa[rooty] = rootx; num[rootx] += num[rooty]; } } int main(){ int n,m; cin &gt;&gt; n &gt;&gt; m; for(int i=1;i&lt;=n;i++) { fa[i] = i;num[i]=1; } for(int i=0;i&lt;m;i++){ int cnt,root,x; cin &gt;&gt; cnt; cin &gt;&gt; root; for(int j=1;j&lt;cnt;j++) { cin &gt;&gt; x; Union(root,x); } } int res=1; for(int i=1;i&lt;=n;i++){ res = max(res,num[fa[i]]); } cout &lt;&lt; res &lt;&lt; endl; return 0; }]]></content>
+      <categories>
+        <category>PTA</category>
+      </categories>
+      <tags>
+        <tag>PTA</tag>
+        <tag>并查集</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[PTA列出连通集(DFS+BFS)]]></title>
     <url>%2F2020%2F01%2F20%2F2020-01-20-pta-lie-chu-lian-tong-ji-dfs-bfs%2F</url>
     <content type="text"><![CDATA[给定一个有N个顶点和E条边的无向图，请用DFS和BFS分别列出其所有的连通集。假设顶点从0到N−1编号。进行搜索时，假设我们总是从编号最小的顶点出发，按编号递增的顺序访问邻接点。 输入格式:输入第1行给出2个整数N(0&lt;N≤10)和E，分别是图的顶点数和边数。随后E行，每行给出一条边的两个端点。每行中的数字之间用1空格分隔。 输出格式:按照”{ v​1 v​2​​ … v​k​​ }”的格式，每行输出一个连通集。先输出DFS的结果，再输出BFS的结果。 输入样例: 8 60 70 12 04 12 43 5 输出样例: { 0 1 4 2 7 }{ 3 5 }{ 6 }{ 0 1 2 7 4 }{ 3 5 }{ 6 } #include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;vector&gt; #include&lt;algorithm&gt; #include&lt;stack&gt; #include&lt;queue&gt; #include&lt;map&gt; #include&lt;list&gt; #include&lt;set&gt; #include&lt;cmath&gt; using namespace std; typedef long long ll; #define N 15 int edge[N][N],vis[N]; queue&lt;int&gt; qu; void dfs(int x,int n){ vis[x] = 1; cout &lt;&lt; &quot; &quot; &lt;&lt; x; for(int i=0;i&lt;n;i++){ if(edge[x][i]&amp;&amp;!vis[i]) dfs(i,n); } } void bfs(int x,int n){ qu.push(x); vis[x] = 1; while(!qu.empty()){ int root = qu.front(); cout &lt;&lt; &quot; &quot; &lt;&lt; root; qu.pop(); for(int i=0;i&lt;n;i++){ if(edge[root][i]&amp;&amp;!vis[i]){ qu.push(i); vis[i] = 1; } } } } int main(){ int n,e,x,y; cin &gt;&gt; n &gt;&gt; e; for(int i=1;i&lt;=n;i++) { edge[i][i] = 1; } for(int i=0;i&lt;e;i++){ cin &gt;&gt; x &gt;&gt;y; edge[x][y] = 1; edge[y][x] = 1; } for(int i=0;i&lt;n;i++) { if(!vis[i]){ cout &lt;&lt; &quot;{&quot;; dfs(i,n); cout &lt;&lt; &quot; }&quot; &lt;&lt; endl; } } memset(vis,0,sizeof(vis)); for(int i=0;i&lt;n;i++){ if(!vis[i]) { cout &lt;&lt; &quot;{&quot;; bfs(i,n); cout &lt;&lt; &quot; }&quot; &lt;&lt; endl; } } return 0; }]]></content>
@@ -11,18 +23,6 @@
         <tag>PTA</tag>
         <tag>DFS</tag>
         <tag>BFS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[PTA朋友圈(并查集)]]></title>
-    <url>%2F2020%2F01%2F20%2F2020-01-20-pta-peng-you-quan-bing-cha-ji%2F</url>
-    <content type="text"><![CDATA[某学校有N个学生，形成M个俱乐部。每个俱乐部里的学生有着一定相似的兴趣爱好，形成一个朋友圈。一个学生可以同时属于若干个不同的俱乐部。根据“我的朋友的朋友也是我的朋友”这个推论可以得出，如果A和B是朋友，且B和C是朋友，则A和C也是朋友。请编写程序计算最大朋友圈中有多少人。 输入格式:输入的第一行包含两个正整数N（≤30000）和M（≤1000），分别代表学校的学生总数和俱乐部的个数。后面的M行每行按以下格式给出1个俱乐部的信息，其中学生从1~N编号： 第i个俱乐部的人数Mi（空格）学生1（空格）学生2 … 学生Mi 输出格式:输出给出一个整数，表示在最大朋友圈中有多少人。 输入样例: 7 43 1 2 32 1 43 5 6 71 6 输出样例: 4 #include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;vector&gt; #include&lt;algorithm&gt; #include&lt;stack&gt; #include&lt;queue&gt; #include&lt;map&gt; #include&lt;list&gt; #include&lt;set&gt; #include&lt;cmath&gt; using namespace std; typedef long long ll; #define N 30005 int fa[N],num[N]; int find(int x){ if(x==fa[x]) return x; return fa[x] = find(fa[x]); } void Union(int x,int y){ int rootx = find(x),rooty = find(y); if(rootx!=rooty){ fa[rooty] = rootx; num[rootx] += num[rooty]; } } int main(){ int n,m; cin &gt;&gt; n &gt;&gt; m; for(int i=1;i&lt;=n;i++) { fa[i] = i;num[i]=1; } for(int i=0;i&lt;m;i++){ int cnt,root,x; cin &gt;&gt; cnt; cin &gt;&gt; root; for(int j=1;j&lt;cnt;j++) { cin &gt;&gt; x; Union(root,x); } } int res=1; for(int i=1;i&lt;=n;i++){ res = max(res,num[fa[i]]); } cout &lt;&lt; res &lt;&lt; endl; return 0; }]]></content>
-      <categories>
-        <category>PTA</category>
-      </categories>
-      <tags>
-        <tag>PTA</tag>
-        <tag>并查集</tag>
       </tags>
   </entry>
   <entry>
@@ -173,18 +173,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[回溯算法求解数独问题(C++ 递归/非递归)]]></title>
-    <url>%2F2019%2F11%2F29%2F2019-11-29-hui-su-suan-fa-qiu-jie-shu-du-wen-ti-c-di-gui-fei-di-gui%2F</url>
-    <content type="text"><![CDATA[如何使用求解上述数独? 递归实现#include&lt;bits/stdc++.h&gt; using namespace std; int sudoku[9][9]; int dx[9]= {-1,-1,-1,0,0,0,1,1,1},dy[9]={-1,0,1,-1,0,1,-1,0,1}; void print(){ for(int i=0;i&lt;9;i++){ for(int j=0;j&lt;9;j++) cout &lt;&lt; sudoku[i][j] &lt;&lt; &quot; &quot;; cout &lt;&lt; endl; } } bool check(int i,int j, int num){ // (i,j)位置填入num判断是否合适 for(int k=0;k&lt;9;k++){ // 所在行和列判断 if(sudoku[i][k]==num||sudoku[k][j]==num){ return false; } } int cx = i/3*3+1, cy = j/3*3+1; for(int k=0;k&lt;9;k++){ // 九宫格 int cur_x = cx+dx[k],cur_y = cy+dy[k]; if(sudoku[cur_x][cur_y]==num) return false; } return true; } void search(int i,int j){ if(i==8&amp;&amp;j==9) { print(); return ; } if(j==9){ i++; j=0; } if(sudoku[i][j]==0){ for(int num=1;num&lt;=9;num++){ if(check(i,j,num)){ sudoku[i][j] = num; search(i,j+1); sudoku[i][j] = 0; } } } else search(i,j+1); } int main(){ for(int i=0;i&lt;9;i++) for(int j=0;j&lt;9;j++) cin &gt;&gt; sudoku[i][j]; search(0,0); return 0; } 非递归实现非递归回溯求解数独问题，每次在9*9的矩阵中按行优先寻找第一个不为0的位置并将该位置进栈，然后对该位置进行从num=1到9试填，并check该位置放num是否合适，如果不合适就将该点出栈，同时将值置为0，否则就放入num，然后将下一个0位置进栈… #include&lt;bits/stdc++.h&gt; using namespace std; int sudoku[9][9]; int dx[9]= {-1,-1,-1,0,0,0,1,1,1},dy[9]={-1,0,1,-1,0,1,-1,0,1}; void print(){ for(int i=0;i&lt;9;i++){ for(int j=0;j&lt;9;j++) cout &lt;&lt; sudoku[i][j] &lt;&lt; &quot; &quot;; cout &lt;&lt; endl; } } bool check(int i,int j, int num){ // (i,j)位置填入num判断是否合适 for(int k=0;k&lt;9;k++){ // 所在行和列判断 if(sudoku[i][k]==num||sudoku[k][j]==num){ return false; } } int cx = i/3*3+1, cy = j/3*3+1; for(int k=0;k&lt;9;k++){ // 九宫格 int cur_x = cx+dx[k],cur_y = cy+dy[k]; if(sudoku[cur_x][cur_y]==num) return false; } return true; } int find(){ for (int i = 0;i&lt;81;i++) if (!sudoku[i/9][i%9]) return i; return -1; } bool solve(){ // 非递归回溯 stack&lt;int&gt; st; st.push(find()); int num; while(!st.empty()&amp;&amp;(st.top()&gt;=0)){ int x = st.top()/9, y = st.top()%9; for(num = sudoku[x][y]+1;num&lt;=9&amp;&amp;(!check(x,y,num));num++); if(num&gt;9){ sudoku[x][y] = 0; st.pop(); } else { sudoku[x][y] = num; st.push(find()); } } return (!st.empty()); } int main() { for(int i=0;i&lt;9;i++) for(int j=0;j&lt;9;j++) cin &gt;&gt; sudoku[i][j]; if(solve()){ print(); } else cout &lt;&lt; &quot;无解&quot; &lt;&lt; endl; return 0; }]]></content>
-      <categories>
-        <category>数据结构与算法训练</category>
-      </categories>
-      <tags>
-        <tag>回溯法</tag>
-        <tag>数独</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[回溯法求解幂集]]></title>
     <url>%2F2019%2F11%2F29%2F2019-11-29-hui-su-fa-qiu-jie-mi-ji%2F</url>
     <content type="text"><![CDATA[回溯—使用解向量使用一个大小为n的数组x，来标记解向量，在每次迭代过程重要要么选择当前值，要么不选择 #include&lt;bits/stdc++.h&gt; using namespace std; void print(int a[], int x[], int n){ cout &lt;&lt; &quot;{&quot;; for(int i=0;i&lt;n;i++){ if(x[i]) printf(&quot;%d &quot;,a[i]); } cout &lt;&lt; &quot;}&quot; &lt;&lt; endl; cout &lt;&lt; endl; } void dfs(int a[], int x[], int n, int i){ if(i&gt;=n) { print(a,x,n);return ; } else{ x[i] = 0; dfs(a,x,n,i+1); x[i] = 1; dfs(a,x,n,i+1); } } int main(){ int n; cin &gt;&gt; n; int a[n]; for(int i=0;i&lt;n;i++) cin &gt;&gt; a[i]; int x[n]; memset(x,0,sizeof(x)); dfs(a,x,n,0); return 0; } 回溯法—使用容器存放结果不去采用标准的解向量，而是用一个边长数组vector去存放解。 #include&lt;bits/stdc++.h&gt; using namespace std; #define rep(i,m,n) for(int i=m;i&lt;n;i++) #define pb push_back int res = 0; void print(vector&lt;int&gt; v){ rep(i,0,v.size()){ cout &lt;&lt; v[i] &lt;&lt; &quot; &quot;; } cout &lt;&lt; endl; } void dfs(int a[], int n, int i, vector&lt;int&gt; path){ if(i&gt;=n){ print(path); res++; // 统计个数 return ; } else { dfs(a,n,i+1,path); path.pb(a[i]); dfs(a,n,i+1,path); } } int main(){ int n; cin &gt;&gt; n; int a[n]; rep(i,0,n) cin &gt;&gt; a[i]; vector&lt;int&gt; path; dfs(a,n,0,path); cout &lt;&lt; &quot;Total : &quot; &lt;&lt; res &lt;&lt; endl; return 0; } 枚举法—使用二进位对应解空间用二进制位来对应解 #include&lt;bits/stdc++.h&gt; using namespace std; #define rep(i,m,n) for(int i=m;i&lt;n;i++) #define pb push_back int res = 0; void print(int a[],int n,int x){ int j = 0; // 也可令j变为n,只是会调整输出顺序 cout &lt;&lt; &quot;{&quot;; while(x){ if(x&amp;1) { cout &lt;&lt; a[j]; if(x&gt;=2) cout &lt;&lt; &quot; &quot;; // 输出格式控制 } x &gt;&gt;= 1;j++; } cout &lt;&lt; &quot;}&quot;; cout &lt;&lt; endl; res++; } int main(){ int n; cin &gt;&gt; n; int a[n]; rep(i,0,n) cin &gt;&gt; a[i]; rep(i,0,1&lt;&lt;n){ print(a,n,i); } cout &lt;&lt; &quot;Total：&quot; &lt;&lt; res ; }]]></content>
@@ -197,9 +185,33 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[蓝桥杯集训笔记]]></title>
-    <url>%2F2019%2F11%2F22%2F2019-11-22-lan-qiao-bei-ji-xun-bi-ji%2F</url>
-    <content type="text"><![CDATA[数学建模的思想几道题目 熊怪吃核桃—二进制的使用 切面条余数的使用余数运算对于加法、减法和乘法封闭，常用于循环队列等使用，也可以利用余数的性质大幅度简化编码常用场合：递推法，倒推法有很多经典的题目，比如猴子吃桃..猜字母（待补..） 统计某种运算的结果末尾0的个数统计因子中能被2和5整除的个数分别为n1,n2 result = min(n1,n2)毕达哥拉斯定理（勾股定理）可以直接利用$x^2+y^2=z^2$在正整数域构造基础解系 \begin{cases}x=2k+1\\y=2k^2+2k\\ z = 2k^2+2k+1 \\ k = 1,2,3,... \end{cases}另一种解系： \begin{cases}x=st\\y=\frac{t^2-s^2}{2}\\ z =\frac{t^2+s^2}{2} \\ s =1,3,5,7.. \\ gcd(t,s)=1 \end{cases}超长位数的处理 存储方式：字符串、整数数组（甚至采用整型数组紧缩存放，即数组中一个元素存放多位，输出的时候使用printf(“%nd”,x[i]); 存储格式：把低位放在前，高位放在后面，符号位和小数位单独处理，可使用标志变量 运算方式 C/C++使用数组模拟进行加减乘除，及时取余进位操作，小心溢出 java 中里面提供了两个类BigInteger，BigDecimal分别对应大整数、高精度小数的处理 。 tips：尽管是C/C++选手，假如遇到了大数运算的题目，又刚好是个填空题，不妨简单学下Java里面的这个两个类，甚至Date类（日期计算），求结果多快好省，何乐而不为？ 两个往年题目练习一下BigInteger，BigDecimal的使用 大数乘法 java BigInteger的使用 黄金连分数—BigDecimal的使用 RSA对应2019省赛A组题目RSA解密涉及的知识点如下 逆元 欧拉函数 快速幂 素数筛 扩展欧几里得算法 （待补..）]]></content>
+    <title><![CDATA[回溯算法求解数独问题(C++ 递归/非递归)]]></title>
+    <url>%2F2019%2F11%2F29%2F2019-11-29-hui-su-suan-fa-qiu-jie-shu-du-wen-ti-c-di-gui-fei-di-gui%2F</url>
+    <content type="text"><![CDATA[如何使用求解上述数独? 递归实现#include&lt;bits/stdc++.h&gt; using namespace std; int sudoku[9][9]; int dx[9]= {-1,-1,-1,0,0,0,1,1,1},dy[9]={-1,0,1,-1,0,1,-1,0,1}; void print(){ for(int i=0;i&lt;9;i++){ for(int j=0;j&lt;9;j++) cout &lt;&lt; sudoku[i][j] &lt;&lt; &quot; &quot;; cout &lt;&lt; endl; } } bool check(int i,int j, int num){ // (i,j)位置填入num判断是否合适 for(int k=0;k&lt;9;k++){ // 所在行和列判断 if(sudoku[i][k]==num||sudoku[k][j]==num){ return false; } } int cx = i/3*3+1, cy = j/3*3+1; for(int k=0;k&lt;9;k++){ // 九宫格 int cur_x = cx+dx[k],cur_y = cy+dy[k]; if(sudoku[cur_x][cur_y]==num) return false; } return true; } void search(int i,int j){ if(i==8&amp;&amp;j==9) { print(); return ; } if(j==9){ i++; j=0; } if(sudoku[i][j]==0){ for(int num=1;num&lt;=9;num++){ if(check(i,j,num)){ sudoku[i][j] = num; search(i,j+1); sudoku[i][j] = 0; } } } else search(i,j+1); } int main(){ for(int i=0;i&lt;9;i++) for(int j=0;j&lt;9;j++) cin &gt;&gt; sudoku[i][j]; search(0,0); return 0; } 非递归实现非递归回溯求解数独问题，每次在9*9的矩阵中按行优先寻找第一个不为0的位置并将该位置进栈，然后对该位置进行从num=1到9试填，并check该位置放num是否合适，如果不合适就将该点出栈，同时将值置为0，否则就放入num，然后将下一个0位置进栈… #include&lt;bits/stdc++.h&gt; using namespace std; int sudoku[9][9]; int dx[9]= {-1,-1,-1,0,0,0,1,1,1},dy[9]={-1,0,1,-1,0,1,-1,0,1}; void print(){ for(int i=0;i&lt;9;i++){ for(int j=0;j&lt;9;j++) cout &lt;&lt; sudoku[i][j] &lt;&lt; &quot; &quot;; cout &lt;&lt; endl; } } bool check(int i,int j, int num){ // (i,j)位置填入num判断是否合适 for(int k=0;k&lt;9;k++){ // 所在行和列判断 if(sudoku[i][k]==num||sudoku[k][j]==num){ return false; } } int cx = i/3*3+1, cy = j/3*3+1; for(int k=0;k&lt;9;k++){ // 九宫格 int cur_x = cx+dx[k],cur_y = cy+dy[k]; if(sudoku[cur_x][cur_y]==num) return false; } return true; } int find(){ for (int i = 0;i&lt;81;i++) if (!sudoku[i/9][i%9]) return i; return -1; } bool solve(){ // 非递归回溯 stack&lt;int&gt; st; st.push(find()); int num; while(!st.empty()&amp;&amp;(st.top()&gt;=0)){ int x = st.top()/9, y = st.top()%9; for(num = sudoku[x][y]+1;num&lt;=9&amp;&amp;(!check(x,y,num));num++); if(num&gt;9){ sudoku[x][y] = 0; st.pop(); } else { sudoku[x][y] = num; st.push(find()); } } return (!st.empty()); } int main() { for(int i=0;i&lt;9;i++) for(int j=0;j&lt;9;j++) cin &gt;&gt; sudoku[i][j]; if(solve()){ print(); } else cout &lt;&lt; &quot;无解&quot; &lt;&lt; endl; return 0; }]]></content>
+      <categories>
+        <category>数据结构与算法训练</category>
+      </categories>
+      <tags>
+        <tag>回溯法</tag>
+        <tag>数独</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[黄金连分数--BigDecimal的使用]]></title>
+    <url>%2F2019%2F11%2F22%2F2019-11-22-huang-jin-lian-fen-shu-bigdecimal-de-shi-yong%2F</url>
+    <content type="text"><![CDATA[一道2013蓝桥杯省赛试题 黄金连分数 黄金分割数是0.61803是一个无理数，… 写出精确到小数点后100位精度的黄金分割数 \frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+}}}}}}当然黄金分割数是$\frac{\sqrt5-1}{2}$,可以直接算，但是Windows下的计算器的求解只能到小数点之后32位 思路当然这是一道填空题，只需要结果，假如你懂一点点java，又刚好知道BigDecimal这个类，那你就可以打开桌面的Eclipse轻松求解这个题目。 import java.math.BigDecimal; import java.math.BigInteger; import java.util.Scanner; public class BigDecimalLearning { public static void main(String[] args) { BigDecimal res = new BigDecimal(1); // 没有 new BigDecimal(BigDecimal.ONE); 这种构造方法 for(int i=0;i&lt;100;i++) { res = res.add(BigDecimal.ONE); res = BigDecimal.ONE.divide(res,105,BigDecimal.ROUND_HALF_UP); } String str = res.toString().substring(2, 102); System.out.println(str); // System.out.println(str.length()); } } 结果： 6180339887498948482045868343656381177203096998094118264936291294152016354093729191617385189497190563 简单介绍一下BigDecimalJava在java.math包中提供了BigDecimal类，用来对超过16位有效位的数进行精确的运算。双精度浮点型变量double可以处理16位有效数。在实际应用中，需要对更大或者更小的数进行运算和处理。float和double只能用来做科学计算或者是工程计算，在商业计算中要用java.math.BigDecimal。常用方法如下： BigDecimal b1 = new BigDecimal(&quot;20&quot;); BigDecimal b2 = new BigDecimal(&quot;30&quot;); b1.add(b2) //加法，求两个BigDecimal类型数据的和。 b1.subtract(b2); //减法，求两个BigDecimal类型数据的差。 b1.multiply(b2); //乘法，求两个BigDecimal类型数据的积。 b1.remainder(b2); //求余数，求b1除以b2的余数。 b1.max(b2); //最大数，求两个BigDecimal类型数据的最大值 b1.min(b2); //最小数，求两个BigDecimal类型数据的最小值。 bi.abs(); //绝对值，求BigDecimal类型数据的绝对值。 b1.negate(); //相反数，求BigDecimal类型数据的相反数。]]></content>
+      <categories>
+        <category>蓝桥杯</category>
+      </categories>
+      <tags>
+        <tag>蓝桥杯</tag>
+        <tag>BigDecimal</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[切面条]]></title>
+    <url>%2F2019%2F11%2F22%2F2019-11-22-qie-mian-tiao%2F</url>
+    <content type="text"><![CDATA[一道2014蓝桥杯省赛试题切面条 一根高筋拉面，中间切一刀，可以得到2根面条。 如果先对折1次，中间切一刀，可以得到3根面条。 如果连续对折2次，中间切一刀，可以得到5根面条。 那么，连续对折10次，中间切一刀，会得到多少面条呢？ 不切的话，一根面条原本有两个端点对折0次，中间切一刀，会产生1个端点，一共3个端点，会产生2根面条对折1次，中间切一刀，会产生2个端点，一共4个端点，会产生3根面条对折2次，中间切一刀，会产生4个端点，一共6个端点，会产生5根面条对折3次，中间切一刀，会产生8个端点，一共10个端点，会产生9根面条……假设对折n次，则中间切一刀，会产生$2^n$个端点，加上原来的两个，一共$2^n+2$个端点，会产生$2^n+2-1$根面条，也即产生的面条数等于端点数减一。即result = 2^n+1（证明略..）当n=10时，result = 1025]]></content>
       <categories>
         <category>蓝桥杯</category>
       </categories>
@@ -220,21 +232,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[黄金连分数--BigDecimal的使用]]></title>
-    <url>%2F2019%2F11%2F22%2F2019-11-22-huang-jin-lian-fen-shu-bigdecimal-de-shi-yong%2F</url>
-    <content type="text"><![CDATA[一道2013蓝桥杯省赛试题 黄金连分数 黄金分割数是0.61803是一个无理数，… 写出精确到小数点后100位精度的黄金分割数 \frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+}}}}}}当然黄金分割数是$\frac{\sqrt5-1}{2}$,可以直接算，但是Windows下的计算器的求解只能到小数点之后32位 思路当然这是一道填空题，只需要结果，假如你懂一点点java，又刚好知道BigDecimal这个类，那你就可以打开桌面的Eclipse轻松求解这个题目。 import java.math.BigDecimal; import java.math.BigInteger; import java.util.Scanner; public class BigDecimalLearning { public static void main(String[] args) { BigDecimal res = new BigDecimal(1); // 没有 new BigDecimal(BigDecimal.ONE); 这种构造方法 for(int i=0;i&lt;100;i++) { res = res.add(BigDecimal.ONE); res = BigDecimal.ONE.divide(res,105,BigDecimal.ROUND_HALF_UP); } String str = res.toString().substring(2, 102); System.out.println(str); // System.out.println(str.length()); } } 结果： 6180339887498948482045868343656381177203096998094118264936291294152016354093729191617385189497190563 简单介绍一下BigDecimalJava在java.math包中提供了BigDecimal类，用来对超过16位有效位的数进行精确的运算。双精度浮点型变量double可以处理16位有效数。在实际应用中，需要对更大或者更小的数进行运算和处理。float和double只能用来做科学计算或者是工程计算，在商业计算中要用java.math.BigDecimal。常用方法如下： BigDecimal b1 = new BigDecimal(&quot;20&quot;); BigDecimal b2 = new BigDecimal(&quot;30&quot;); b1.add(b2) //加法，求两个BigDecimal类型数据的和。 b1.subtract(b2); //减法，求两个BigDecimal类型数据的差。 b1.multiply(b2); //乘法，求两个BigDecimal类型数据的积。 b1.remainder(b2); //求余数，求b1除以b2的余数。 b1.max(b2); //最大数，求两个BigDecimal类型数据的最大值 b1.min(b2); //最小数，求两个BigDecimal类型数据的最小值。 bi.abs(); //绝对值，求BigDecimal类型数据的绝对值。 b1.negate(); //相反数，求BigDecimal类型数据的相反数。]]></content>
-      <categories>
-        <category>蓝桥杯</category>
-      </categories>
-      <tags>
-        <tag>蓝桥杯</tag>
-        <tag>BigDecimal</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[切面条]]></title>
-    <url>%2F2019%2F11%2F22%2F2019-11-22-qie-mian-tiao%2F</url>
-    <content type="text"><![CDATA[一道2014蓝桥杯省赛试题切面条 一根高筋拉面，中间切一刀，可以得到2根面条。 如果先对折1次，中间切一刀，可以得到3根面条。 如果连续对折2次，中间切一刀，可以得到5根面条。 那么，连续对折10次，中间切一刀，会得到多少面条呢？ 不切的话，一根面条原本有两个端点对折0次，中间切一刀，会产生1个端点，一共3个端点，会产生2根面条对折1次，中间切一刀，会产生2个端点，一共4个端点，会产生3根面条对折2次，中间切一刀，会产生4个端点，一共6个端点，会产生5根面条对折3次，中间切一刀，会产生8个端点，一共10个端点，会产生9根面条……假设对折n次，则中间切一刀，会产生$2^n$个端点，加上原来的两个，一共$2^n+2$个端点，会产生$2^n+2-1$根面条，也即产生的面条数等于端点数减一。即result = 2^n+1（证明略..）当n=10时，result = 1025]]></content>
+    <title><![CDATA[蓝桥杯集训笔记]]></title>
+    <url>%2F2019%2F11%2F22%2F2019-11-22-lan-qiao-bei-ji-xun-bi-ji%2F</url>
+    <content type="text"><![CDATA[数学建模的思想几道题目 熊怪吃核桃—二进制的使用 切面条余数的使用余数运算对于加法、减法和乘法封闭，常用于循环队列等使用，也可以利用余数的性质大幅度简化编码常用场合：递推法，倒推法有很多经典的题目，比如猴子吃桃..猜字母（待补..） 统计某种运算的结果末尾0的个数统计因子中能被2和5整除的个数分别为n1,n2 result = min(n1,n2)毕达哥拉斯定理（勾股定理）可以直接利用$x^2+y^2=z^2$在正整数域构造基础解系 \begin{cases}x=2k+1\\y=2k^2+2k\\ z = 2k^2+2k+1 \\ k = 1,2,3,... \end{cases}另一种解系： \begin{cases}x=st\\y=\frac{t^2-s^2}{2}\\ z =\frac{t^2+s^2}{2} \\ s =1,3,5,7.. \\ gcd(t,s)=1 \end{cases}超长位数的处理 存储方式：字符串、整数数组（甚至采用整型数组紧缩存放，即数组中一个元素存放多位，输出的时候使用printf(“%nd”,x[i]); 存储格式：把低位放在前，高位放在后面，符号位和小数位单独处理，可使用标志变量 运算方式 C/C++使用数组模拟进行加减乘除，及时取余进位操作，小心溢出 java 中里面提供了两个类BigInteger，BigDecimal分别对应大整数、高精度小数的处理 。 tips：尽管是C/C++选手，假如遇到了大数运算的题目，又刚好是个填空题，不妨简单学下Java里面的这个两个类，甚至Date类（日期计算），求结果多快好省，何乐而不为？ 两个往年题目练习一下BigInteger，BigDecimal的使用 大数乘法 java BigInteger的使用 黄金连分数—BigDecimal的使用 RSA对应2019省赛A组题目RSA解密涉及的知识点如下 逆元 欧拉函数 快速幂 素数筛 扩展欧几里得算法 （待补..）]]></content>
       <categories>
         <category>蓝桥杯</category>
       </categories>
@@ -288,9 +288,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[PTA九宫格输入法]]></title>
-    <url>%2F2019%2F11%2F08%2F2019-11-08-jiu-gong-ge-shu-ru-fa%2F</url>
-    <content type="text"><![CDATA[假设有九宫格输入法键盘布局如下： [ 1,.?! ] [ 2ABC ] [ 3DEF ] [ 4GHI ] [ 5JKL ] [ 6MNO ] [ 7PQRS ] [ 8TUV ] [ 9WXYZ ] [ 0空 ] 注意：中括号[ ]仅为了表示键盘的分隔，不是输入字符。每个中括号中，位于首位的数字字符即是键盘的按键，按一下即可输入该数字字符。多次按同一个键，则输入的字符依次循环轮流，例如按两次3，则输入D；按5次7，则输入S；按6次2，则输入A。按键0的输入组合是0和空格字符，即按两次0输入空格。 你需要对于给定的按键组合，给出该组合对应的文本。 输入格式:输入在一行中给出数个字符的按键组合（例如 999 表示按3次9），每个字符的按键组合之间用空格间隔，最后一个输入法组合之后以换行结束。输入数据至少包括一个字符的按键组合，且输入总长度不超过500个字符。 输出格式:在一行中输出该按键组合对应的文本。 输入样例: 22 5555 22 666 00 88 888 7777 4444 666 44 输出样例: ALAN TURING 实现#include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;cmath&gt; #include&lt;algorithm&gt; using namespace std; #define rep(i,m,n) for(int i=m;i&lt;n;i++) #define rep1(i,m,n) for(int i=m;i&gt;=n;i--) int main() { string s[10]; s[1]=&quot;1,.?!&quot;;s[2]=&quot;2ABC&quot;;s[3]=&quot;3DEF&quot;;s[4]=&quot;4GHI&quot;;s[5]=&quot;5JKL&quot;; s[6]=&quot;6MNO&quot;;s[7]=&quot;7PQRS&quot;;s[8]=&quot;8TUV&quot;;s[9]=&quot;9WXYZ&quot;;s[0]=&quot;0 &quot;; char tmp[100]; while(cin&gt;&gt;tmp&amp;&amp;tmp[0]!=&#39;\n&#39;){ int index = strlen(tmp)%s[tmp[0]-&#39;0&#39;].length(); if(index==0) cout &lt;&lt; s[tmp[0]-&#39;0&#39;][s[tmp[0]-&#39;0&#39;].length()-1]; else cout &lt;&lt; s[tmp[0]-&#39;0&#39;][index-1]; } return 0; }]]></content>
+    <title><![CDATA[PTA福到了]]></title>
+    <url>%2F2019%2F11%2F08%2F2019-11-08-fu-dao-liao%2F</url>
+    <content type="text"><![CDATA[“福”字倒着贴，寓意“福到”。不论到底算不算民俗，本题且请你编写程序，把各种汉字倒过来输出。这里要处理的每个汉字是由一个 N × N 的网格组成的，网格中的元素或者为字符 @ 或者为空格。而倒过来的汉字所用的字符由裁判指定。 输入格式：输入在第一行中给出倒过来的汉字所用的字符、以及网格的规模 N （不超过100的正整数），其间以 1 个空格分隔；随后 N 行，每行给出 N 个字符，或者为 @ 或者为空格。 输出格式：输出倒置的网格，如样例所示。但是，如果这个字正过来倒过去是一样的，就先输出bu yong dao le，然后再用输入指定的字符将其输出。 输入样例 1： $ 9 @ @@@@@@@@ @@@ @ @ @@@@ @@@@@@ @@@@@@@@ @ @ @@@@ @@@@@ @ @ @ @ @ @@@@@ 输出样例 1：$$$$$ $ $ $ $ $ $$$$$ $$$ $ $ $ $$$ $$$$$ $$$ $$$ $$$ $ $ $ $$$ $$$ $$$$$ $ 输入样例 2： &amp; 3@@@ @@@@ 输出样例 2： bu yong dao le\&amp;\&amp;\&amp; &amp;&amp;\&amp;\&amp; Tips记得getchar()坑很多.. 实现#include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;cmath&gt; #include&lt;algorithm&gt; using namespace std; #define rep(i,m,n) for(int i=m;i&lt;n;i++) #define rep1(i,m,n) for(int i=m;i&gt;=n;i--) int main() { char c; int n; cin &gt;&gt; c &gt;&gt; n; getchar(); string s[n]; rep(i,0,n) getline(cin,s[i]); bool ok = true; // 不需要倒置 for(int i=0,j=n-1;i&lt;n&amp;&amp;ok;i++,j--){ for(int k=0,t=n-1;k&lt;n;k++,t--){ if(s[i][k]!=s[j][t]) {ok = false;break;} } } if(ok) cout &lt;&lt; &quot;bu yong dao le&quot; &lt;&lt; endl; rep1(i,n-1,0){ rep1(j,n-1,0) if(s[i][j]==&#39;@&#39;) cout &lt;&lt; c ; else cout &lt;&lt; &quot; &quot;; cout &lt;&lt; endl; } return 0; }]]></content>
       <categories>
         <category>PTA</category>
       </categories>
@@ -299,9 +299,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[PTA福到了]]></title>
-    <url>%2F2019%2F11%2F08%2F2019-11-08-fu-dao-liao%2F</url>
-    <content type="text"><![CDATA[“福”字倒着贴，寓意“福到”。不论到底算不算民俗，本题且请你编写程序，把各种汉字倒过来输出。这里要处理的每个汉字是由一个 N × N 的网格组成的，网格中的元素或者为字符 @ 或者为空格。而倒过来的汉字所用的字符由裁判指定。 输入格式：输入在第一行中给出倒过来的汉字所用的字符、以及网格的规模 N （不超过100的正整数），其间以 1 个空格分隔；随后 N 行，每行给出 N 个字符，或者为 @ 或者为空格。 输出格式：输出倒置的网格，如样例所示。但是，如果这个字正过来倒过去是一样的，就先输出bu yong dao le，然后再用输入指定的字符将其输出。 输入样例 1： $ 9 @ @@@@@@@@ @@@ @ @ @@@@ @@@@@@ @@@@@@@@ @ @ @@@@ @@@@@ @ @ @ @ @ @@@@@ 输出样例 1：$$$$$ $ $ $ $ $ $$$$$ $$$ $ $ $ $$$ $$$$$ $$$ $$$ $$$ $ $ $ $$$ $$$ $$$$$ $ 输入样例 2： &amp; 3@@@ @@@@ 输出样例 2： bu yong dao le\&amp;\&amp;\&amp; &amp;&amp;\&amp;\&amp; Tips记得getchar()坑很多.. 实现#include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;cmath&gt; #include&lt;algorithm&gt; using namespace std; #define rep(i,m,n) for(int i=m;i&lt;n;i++) #define rep1(i,m,n) for(int i=m;i&gt;=n;i--) int main() { char c; int n; cin &gt;&gt; c &gt;&gt; n; getchar(); string s[n]; rep(i,0,n) getline(cin,s[i]); bool ok = true; // 不需要倒置 for(int i=0,j=n-1;i&lt;n&amp;&amp;ok;i++,j--){ for(int k=0,t=n-1;k&lt;n;k++,t--){ if(s[i][k]!=s[j][t]) {ok = false;break;} } } if(ok) cout &lt;&lt; &quot;bu yong dao le&quot; &lt;&lt; endl; rep1(i,n-1,0){ rep1(j,n-1,0) if(s[i][j]==&#39;@&#39;) cout &lt;&lt; c ; else cout &lt;&lt; &quot; &quot;; cout &lt;&lt; endl; } return 0; }]]></content>
+    <title><![CDATA[PTA九宫格输入法]]></title>
+    <url>%2F2019%2F11%2F08%2F2019-11-08-jiu-gong-ge-shu-ru-fa%2F</url>
+    <content type="text"><![CDATA[假设有九宫格输入法键盘布局如下： [ 1,.?! ] [ 2ABC ] [ 3DEF ] [ 4GHI ] [ 5JKL ] [ 6MNO ] [ 7PQRS ] [ 8TUV ] [ 9WXYZ ] [ 0空 ] 注意：中括号[ ]仅为了表示键盘的分隔，不是输入字符。每个中括号中，位于首位的数字字符即是键盘的按键，按一下即可输入该数字字符。多次按同一个键，则输入的字符依次循环轮流，例如按两次3，则输入D；按5次7，则输入S；按6次2，则输入A。按键0的输入组合是0和空格字符，即按两次0输入空格。 你需要对于给定的按键组合，给出该组合对应的文本。 输入格式:输入在一行中给出数个字符的按键组合（例如 999 表示按3次9），每个字符的按键组合之间用空格间隔，最后一个输入法组合之后以换行结束。输入数据至少包括一个字符的按键组合，且输入总长度不超过500个字符。 输出格式:在一行中输出该按键组合对应的文本。 输入样例: 22 5555 22 666 00 88 888 7777 4444 666 44 输出样例: ALAN TURING 实现#include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;cmath&gt; #include&lt;algorithm&gt; using namespace std; #define rep(i,m,n) for(int i=m;i&lt;n;i++) #define rep1(i,m,n) for(int i=m;i&gt;=n;i--) int main() { string s[10]; s[1]=&quot;1,.?!&quot;;s[2]=&quot;2ABC&quot;;s[3]=&quot;3DEF&quot;;s[4]=&quot;4GHI&quot;;s[5]=&quot;5JKL&quot;; s[6]=&quot;6MNO&quot;;s[7]=&quot;7PQRS&quot;;s[8]=&quot;8TUV&quot;;s[9]=&quot;9WXYZ&quot;;s[0]=&quot;0 &quot;; char tmp[100]; while(cin&gt;&gt;tmp&amp;&amp;tmp[0]!=&#39;\n&#39;){ int index = strlen(tmp)%s[tmp[0]-&#39;0&#39;].length(); if(index==0) cout &lt;&lt; s[tmp[0]-&#39;0&#39;][s[tmp[0]-&#39;0&#39;].length()-1]; else cout &lt;&lt; s[tmp[0]-&#39;0&#39;][index-1]; } return 0; }]]></content>
       <categories>
         <category>PTA</category>
       </categories>
@@ -343,6 +343,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[LeetCodeWeeklyContest-160]]></title>
+    <url>%2F2019%2F10%2F27%2F2019-10-27-leetcodeweeklycontest-160%2F</url>
+    <content type="text"><![CDATA[题目传送门找出给定方程的正整数解签到题的新包装，我没有玩过的船新版本。 class Solution { public: vector&lt;vector&lt;int&gt;&gt; findSolution(CustomFunction&amp; c, int z) { vector&lt;vector&lt;int&gt;&gt; res; for(int i=1;i&lt;=1000;i++){ for(int j=1;j&lt;=1000;j++){ if(c.f(i,j)&lt;z) continue; else if(c.f(i,j)==z) { vector&lt;int&gt; v; v.push_back(i),v.push_back(j); res.push_back(v); } else break; } } return res; } }; 循环码排列给你两个整数 n 和 start。你的任务是返回任意 (0,1,2,,…,2^n-1) 的排列 p，并且满足： p[0] = start p[i] 和 p[i+1] 的二进制表示形式只有一位不同 p[0] 和 p[2^n -1] 的二进制表示形式也只有一位不同 举个例子： 输入：n = 2, start = 3 输出：[3,2,0,1] 解释：这个排列的二进制表示是 (11,10,00,01) 所有的相邻元素都有一位是不同的，另一个有效的排列是 [3,1,0,2] 思路参考： [Java/C++/Python] 4-line Gray Code Gray code 其实就是格雷码。使用位运算操作 实现vector&lt;int&gt; circularPermutation(int n, int start) { vector&lt;int&gt; res; for(int i=0;i&lt; 1&lt;&lt;n;i++){ res.push_back(start^i^i&gt;&gt;1); } return res; } 比赛时找了个格雷码的板子，然后改了改，就过掉了… class Solution { public: vector&lt;int&gt; grayCode(int n){ vector&lt;int&gt; gray; if (n &lt; 1) { gray.push_back(0); return gray; } int num = pow(2,n); int graycode[n]; for (int i = 0; i &lt; num; i++) { IntToBit(graycode, i, n); BitToGray(graycode,n); gray.push_back(GrayBitToInt(graycode, n)); } return gray; } void IntToBit(int *code, int n, int bit){ int i = bit-1; while (i &gt;= 0) { code[i--] = n%2; n/=2; } } void BitToGray(int *code, int bit){ int temp[bit]; temp[0] = 0^code[0]; for (int i = 0; i &lt; bit-1; i++) { temp[i+1] = code[i]^code[i+1]; } for (int i = 0; i &lt; bit; i++) { code[i] = temp[i]; } } int GrayBitToInt(int *code, int bit){ int number = 0; for (int i = 0; i &lt; bit; i++) { if (code[i] == 1) { number += pow(2, bit-i-1); } } return number; } vector&lt;int&gt; circularPermutation(int n, int start) { vector&lt;int&gt; res,tmp; tmp = grayCode(n); int index,msize = pow(2,n); for(int i=0;i&lt;msize;i++){ if(tmp[i]==start){ index = i; break; } } for(int i=index;i&lt;msize;i++){ res.push_back(tmp[i]); } for(int i=0;i&lt;index;i++){ res.push_back(tmp[i]); } return res; } }; 串联字符串的最大长度给定一个字符串数组 arr，字符串 s 是将 arr 某一子序列字符串连接所得的字符串，如果 s 中的每一个字符都只出现过一次，那么它就是一个可行解。请返回所有可行解 s 中最长长度。 思路判定函数+DFS判定函数：判定一个字符串是否有重复字母，打个大小为26的表即可。 实现class Solution { public: int maxL = 0; bool pend(string s1){ int ph[26]={0}; for(int i=0;i&lt;s1.length();i++){ if(ph[s1[i]-&#39;a&#39;]==1) return false; ph[s1[i]-&#39;a&#39;]=1; } return true; } void dfs(vector&lt;string&gt; arr, int index, string str){ int len = str.length(); if(pend(str)) maxL = max(maxL,len); if(index == arr.size()||!pend(str)) return ; for(int i=index;i&lt;arr.size();i++){ dfs(arr,i+1,str+arr[i]); } } int maxLength(vector&lt;string&gt;&amp; arr) { dfs(arr,0,&quot;&quot;); return maxL; } }; 铺瓷砖你是一位施工队的工长，根据设计师的要求准备为一套设计风格独特的房子进行室内装修。房子的客厅大小为 n x m，为保持极简的风格，需要使用尽可能少的 正方形 瓷砖来铺盖地面。假设正方形瓷砖的规格不限，边长都是整数。请你帮设计师计算一下，最少需要用到多少块方形瓷砖？ 思路参考： Paper Cut into Minimum Number of Squares | Set 2 B站视频讲解 基本上还是DFS，其实这个题很像经典的贪心题目，不过那个貌似是是个正方形，而且这个题有个特殊的点，就是当n\==11&amp;&amp;m\==13||n\==13&amp;&amp;m==11 这个时候的结果应该为6。剩下的就是先横切，看需要多少方形瓷砖，然后再纵切，看需要多少方形瓷砖，取横切和纵切的最小值，便是结果。 实现class Solution { public: int dp[300][300]={0}; int solve(int n,int m){ if(n==m) return 1; if(dp[n][m]) return dp[n][m]; int res = 2e8; for(int i=1;i&lt;=n/2;i++){ res = min(solve(i,m)+solve(n-i,m),res); } for(int j=1;j&lt;=m/2;j++){ res = min(solve(n,j)+solve(n,m-j),res); } dp[n][m] = res; return res; } int tilingRectangle(int n, int m) { if(n==11&amp;&amp;m==13||n==13&amp;&amp;m==11) return 6; return solve(n,m); } }; 你一人低头在路上… 多向往 多漫长]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[格雷码]]></title>
     <url>%2F2019%2F10%2F27%2F2019-10-27-ge-lei-ma%2F</url>
     <content type="text"><![CDATA[偶然间发现了一个很好的方法，详见Gray code 下面是一个生成以start开始的格雷码的板子，n为二进制位的个数。 vector&lt;int&gt; getGray(int n, int start) { vector&lt;int&gt; res; for(int i=0;i&lt; 1&lt;&lt;n;i++){ res.push_back(start^i^i&gt;&gt;1); } return res; }]]></content>
@@ -352,17 +363,6 @@
       <tags>
         <tag>位运算</tag>
         <tag>格雷码</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[LeetCodeWeeklyContest-160]]></title>
-    <url>%2F2019%2F10%2F27%2F2019-10-27-leetcodeweeklycontest-160%2F</url>
-    <content type="text"><![CDATA[题目传送门找出给定方程的正整数解签到题的新包装，我没有玩过的船新版本。 class Solution { public: vector&lt;vector&lt;int&gt;&gt; findSolution(CustomFunction&amp; c, int z) { vector&lt;vector&lt;int&gt;&gt; res; for(int i=1;i&lt;=1000;i++){ for(int j=1;j&lt;=1000;j++){ if(c.f(i,j)&lt;z) continue; else if(c.f(i,j)==z) { vector&lt;int&gt; v; v.push_back(i),v.push_back(j); res.push_back(v); } else break; } } return res; } }; 循环码排列给你两个整数 n 和 start。你的任务是返回任意 (0,1,2,,…,2^n-1) 的排列 p，并且满足： p[0] = start p[i] 和 p[i+1] 的二进制表示形式只有一位不同 p[0] 和 p[2^n -1] 的二进制表示形式也只有一位不同 举个例子： 输入：n = 2, start = 3 输出：[3,2,0,1] 解释：这个排列的二进制表示是 (11,10,00,01) 所有的相邻元素都有一位是不同的，另一个有效的排列是 [3,1,0,2] 思路参考： [Java/C++/Python] 4-line Gray Code Gray code 其实就是格雷码。使用位运算操作 实现vector&lt;int&gt; circularPermutation(int n, int start) { vector&lt;int&gt; res; for(int i=0;i&lt; 1&lt;&lt;n;i++){ res.push_back(start^i^i&gt;&gt;1); } return res; } 比赛时找了个格雷码的板子，然后改了改，就过掉了… class Solution { public: vector&lt;int&gt; grayCode(int n){ vector&lt;int&gt; gray; if (n &lt; 1) { gray.push_back(0); return gray; } int num = pow(2,n); int graycode[n]; for (int i = 0; i &lt; num; i++) { IntToBit(graycode, i, n); BitToGray(graycode,n); gray.push_back(GrayBitToInt(graycode, n)); } return gray; } void IntToBit(int *code, int n, int bit){ int i = bit-1; while (i &gt;= 0) { code[i--] = n%2; n/=2; } } void BitToGray(int *code, int bit){ int temp[bit]; temp[0] = 0^code[0]; for (int i = 0; i &lt; bit-1; i++) { temp[i+1] = code[i]^code[i+1]; } for (int i = 0; i &lt; bit; i++) { code[i] = temp[i]; } } int GrayBitToInt(int *code, int bit){ int number = 0; for (int i = 0; i &lt; bit; i++) { if (code[i] == 1) { number += pow(2, bit-i-1); } } return number; } vector&lt;int&gt; circularPermutation(int n, int start) { vector&lt;int&gt; res,tmp; tmp = grayCode(n); int index,msize = pow(2,n); for(int i=0;i&lt;msize;i++){ if(tmp[i]==start){ index = i; break; } } for(int i=index;i&lt;msize;i++){ res.push_back(tmp[i]); } for(int i=0;i&lt;index;i++){ res.push_back(tmp[i]); } return res; } }; 串联字符串的最大长度给定一个字符串数组 arr，字符串 s 是将 arr 某一子序列字符串连接所得的字符串，如果 s 中的每一个字符都只出现过一次，那么它就是一个可行解。请返回所有可行解 s 中最长长度。 思路判定函数+DFS判定函数：判定一个字符串是否有重复字母，打个大小为26的表即可。 实现class Solution { public: int maxL = 0; bool pend(string s1){ int ph[26]={0}; for(int i=0;i&lt;s1.length();i++){ if(ph[s1[i]-&#39;a&#39;]==1) return false; ph[s1[i]-&#39;a&#39;]=1; } return true; } void dfs(vector&lt;string&gt; arr, int index, string str){ int len = str.length(); if(pend(str)) maxL = max(maxL,len); if(index == arr.size()||!pend(str)) return ; for(int i=index;i&lt;arr.size();i++){ dfs(arr,i+1,str+arr[i]); } } int maxLength(vector&lt;string&gt;&amp; arr) { dfs(arr,0,&quot;&quot;); return maxL; } }; 铺瓷砖你是一位施工队的工长，根据设计师的要求准备为一套设计风格独特的房子进行室内装修。房子的客厅大小为 n x m，为保持极简的风格，需要使用尽可能少的 正方形 瓷砖来铺盖地面。假设正方形瓷砖的规格不限，边长都是整数。请你帮设计师计算一下，最少需要用到多少块方形瓷砖？ 思路参考： Paper Cut into Minimum Number of Squares | Set 2 B站视频讲解 基本上还是DFS，其实这个题很像经典的贪心题目，不过那个貌似是是个正方形，而且这个题有个特殊的点，就是当n\==11&amp;&amp;m\==13||n\==13&amp;&amp;m==11 这个时候的结果应该为6。剩下的就是先横切，看需要多少方形瓷砖，然后再纵切，看需要多少方形瓷砖，取横切和纵切的最小值，便是结果。 实现class Solution { public: int dp[300][300]={0}; int solve(int n,int m){ if(n==m) return 1; if(dp[n][m]) return dp[n][m]; int res = 2e8; for(int i=1;i&lt;=n/2;i++){ res = min(solve(i,m)+solve(n-i,m),res); } for(int j=1;j&lt;=m/2;j++){ res = min(solve(n,j)+solve(n,m-j),res); } dp[n][m] = res; return res; } int tilingRectangle(int n, int m) { if(n==11&amp;&amp;m==13||n==13&amp;&amp;m==11) return 6; return solve(n,m); } }; 你一人低头在路上… 多向往 多漫长]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -510,17 +510,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[联想Y7000装Ubuntu双系统路上的坑]]></title>
-    <url>%2F2019%2F09%2F22%2F2019-09-22-lian-xiang-y7000-zhuang-ubuntu-shuang-xi-tong-lu-shang-de-keng%2F</url>
-    <content type="text"><![CDATA[三言两语道不尽心酸，一句两句说不尽心酸一个Ubuntu装了2天，装的无比心酸一直报ACPI错误，后来加上nomodeset才搞定后来专门搜了一下联想Y7000装Ubuntu的教程才知道这是联想显卡的问题。而且最好装Ubuntu 16.04.5 下面是一些参考文章：关于在联想Y7000上安装ubuntu和win10双系统的卡死坑 y7000安装ubuntu和一些小tips ubuntu 添加中文拼音输入法 Ubuntu16.04系统查看已安装的python版本，及其配置 其实装上Ubuntu之后，还有很多事情要做，很多环境要配，显卡要修改，就不一一列出了，主要是前面进入开机界面太艰难了，写篇博客记录下。 2019年9月30日更新 windows休眠，没有彻底关闭Ubuntu 无法访问windows下的磁盘的解决方法Ubuntu系统打不开windows磁盘文件]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[LeetCodeWeeklyContest-155]]></title>
     <url>%2F2019%2F09%2F22%2F2019-09-22-leetcodeweeklycontest-155%2F</url>
     <content type="text"><![CDATA[操千曲而晓声,观千剑而后识器 —— 《文心雕龙》 力扣的周赛自闭了，好久没写了，丢掉的改捡了。 题目传送个人博客同步更新 Problem1 最小绝对差 难度：Easy题目 给你个整数数组 arr，其中每个元素都 不相同。请你找到所有具有最小绝对差的元素对，并且按升序的顺序返回。 思路 遍历，边找边push，只需一遍 貌似代码写复杂了 题解#include&lt;bits/stdc++.h&gt; using namespace std; /* LeetCode WeeklyContest-155 */ vector&lt;vector&lt;int&gt; &gt; minimumAbsDifference(vector&lt;int&gt;&amp; arr) { sort(arr.begin(),arr.end()); int n=arr.size(); vector&lt;vector&lt;int&gt; &gt; result; int min = arr[1]-arr[0]; vector&lt;int&gt; tmp; for(int i=0;i&lt;n-1;i++){ if(arr[i+1]-arr[i] &lt; min){ min = arr[i+1]-arr[i]; result.clear(); tmp.push_back(arr[i]); tmp.push_back(arr[i+1]); result.push_back(tmp); tmp.clear(); } else if(arr[i+1]-arr[i] == min){ tmp.push_back(arr[i]); tmp.push_back(arr[i+1]); result.push_back(tmp); tmp.clear(); } else ; } return result; } // 测试下 int main() { vector&lt;int&gt; v; v.push_back(-20); v.push_back(11); v.push_back(26); v.push_back(27); v.push_back(40); vector&lt;vector&lt;int&gt; &gt; result = minimumAbsDifference(v); vector&lt;vector&lt;int&gt; &gt;::iterator rIt; vector&lt;int&gt;::iterator it; for(rIt = result.begin();rIt!=result.end();rIt++){ for(it = (*rIt).begin();it!=(*rIt).end();it++){ cout &lt;&lt; *it &lt;&lt; &quot; &quot;; } cout &lt;&lt; endl; } return 0; } Problem 2 丑数 III题目 请你帮忙设计一个程序，用来找出第 n 个丑数。丑数是可以被 a 或 b 或 c 整除的 正整数。1 &lt;= n, a, b, c &lt;= 10^91 &lt;= a b c &lt;= 10^18本题结果在 [1, 2 * 10^9] 的范围内 难度：Medium 思路 无脑暴力$1到\min(na,nb,n*c)$ 超时。 无脑开个数组，把 $ia、ib、i*c$ 其中$i=1…n$,然后写个sort(),直接取第n个数，内存爆掉。 以上都是不可取的**计算1~m之间有多少丑数，设为cnt，然后从n开始折半查找，判断cnt与n的关系，最后直接定位到第n个丑数。另外，如何判断1~m之间有多少丑数？公式如下： cnt = m/a + m/b + m/c - m/lcm(a,b)- m/lcm(b,c) - m/lcm(a,c) + m/lcm(lcm(a,b),c)其中$lcm(a,b)$是a、b的最小公倍数。** 题解/* LeetCode WeeklyContest-155 */ #include&lt;bits/stdc++.h&gt; using namespace std; typedef long long ll; // 避免超范围 ，不妨都写成ll ll gcd(int x, int y){ if(x&gt;y) swap(x,y); int r = y%x; if(r==1) return 1; while(r){ y = x; x = r; r = y%x; } return x; } ll lcm(int x, int y){ return x/gcd(x,y)*y; } bool countLessN(ll m,int a,int b,int c,int n){ int cnt = m/a + m/b + m/c - m/lcm(a,b) - m/lcm(b,c) - m/lcm(a,c) + m/lcm(lcm(a,b),c); return cnt &gt;= n; } int nthUglyNumber(int n, int a, int b, int c) { ll begin =1,end=2e10+5; while(begin+1&lt;end){ // 注意是begin+1&lt;end int mid = (begin+end)/2; if(countLessN(mid,a,b,c,n)) end = mid; else begin=mid; } return end; } // 测试下 int main() { int n,a,b,c; n = 1000000000, a = 2, b = 217983653, c = 336916467; cout &lt;&lt; nthUglyNumber(n,a,b,c); return 0; } Problem3题目 给你一个字符串 s，以及该字符串中的一些「索引对」数组 pairs，其中 pairs[i] = [a, b] 表示字符串中的两个索引（编号从 0 开始）。你可以 任意多次交换 在 pairs 中任意一对索引处的字符。返回在经过若干次交换后，s 可以变成的按字典序最小的字符串。 难度：Medium 思路先根据索引对建立并查集，构成若干个连通分量，每个连通分量内部排序，使其排成最小字典序，然后再将排完序的连通分量复原，就可以得到最小字典序的字符串了。 题解#include&lt;bits/stdc++.h&gt; using namespace std; vector&lt;int&gt; father,sz; int find(int x){ // 并查集 查 return father[x]==x?x:father[x] = find(father[x]); } string smallestStringWithSwaps(string s,vector&lt;vector&lt;int&gt; &gt; pairs){ int n=s.size(); father.resize(n); sz.resize(n); for(int i=0;i&lt;n;i++){ // 初始化 father[i] = i; sz[i] = 1; } int n1 = pairs.size(); for(int i=0;i&lt;n1;i++){ vector&lt;int&gt; tmp = pairs[i]; int f1 = find(tmp[0]),f2=find(tmp[1]); if(f1!=f2){ if(sz[f1]&lt;sz[f2]){ father[f1] = f2; sz[f2] += sz[f1]; } else{ father[f2] = f1; sz[f1] += sz[f2]; } } } vector&lt;vector&lt;char&gt; &gt; charArr(n); vector&lt;vector&lt;int&gt; &gt; posArr(n); // 并查集发挥作用 for(int i=0;i&lt;n;i++){ charArr[find(i)].push_back(s[i]); posArr[find(i)].push_back(i); } // char数组排序 for(int i=0;i&lt;charArr.size();i++){ sort(charArr[i].begin(),charArr[i].end()); } // 把排完序的联通块，合到一起 string s1(n,&#39;\0&#39;); for(int i=0;i&lt;n;i++){ for(int j=0;j&lt;charArr[i].size();j++){ s1[posArr[i][j]] = charArr[i][j]; } } return s1; } // 测试下 int main() { string s=&quot;cba&quot;; vector&lt;vector&lt;int&gt; &gt; v; vector&lt;int&gt; s1,s2; s1.push_back(0); s1.push_back(1); s2.push_back(1); s2.push_back(2); v.push_back(s1),v.push_back(s2); cout &lt;&lt; smallestStringWithSwaps(s,v) &lt;&lt; endl; return 0; } Problem4 项目管理略]]></content>
@@ -529,6 +518,17 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[联想Y7000装Ubuntu双系统路上的坑]]></title>
+    <url>%2F2019%2F09%2F22%2F2019-09-22-lian-xiang-y7000-zhuang-ubuntu-shuang-xi-tong-lu-shang-de-keng%2F</url>
+    <content type="text"><![CDATA[三言两语道不尽心酸，一句两句说不尽心酸一个Ubuntu装了2天，装的无比心酸一直报ACPI错误，后来加上nomodeset才搞定后来专门搜了一下联想Y7000装Ubuntu的教程才知道这是联想显卡的问题。而且最好装Ubuntu 16.04.5 下面是一些参考文章：关于在联想Y7000上安装ubuntu和win10双系统的卡死坑 y7000安装ubuntu和一些小tips ubuntu 添加中文拼音输入法 Ubuntu16.04系统查看已安装的python版本，及其配置 其实装上Ubuntu之后，还有很多事情要做，很多环境要配，显卡要修改，就不一一列出了，主要是前面进入开机界面太艰难了，写篇博客记录下。 2019年9月30日更新 windows休眠，没有彻底关闭Ubuntu 无法访问windows下的磁盘的解决方法Ubuntu系统打不开windows磁盘文件]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
