@@ -1,19 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[PTA列出连通集(DFS+BFS)]]></title>
-    <url>%2F2020%2F01%2F20%2F2020-01-20-pta-lie-chu-lian-tong-ji-dfs-bfs%2F</url>
-    <content type="text"><![CDATA[给定一个有N个顶点和E条边的无向图，请用DFS和BFS分别列出其所有的连通集。假设顶点从0到N−1编号。进行搜索时，假设我们总是从编号最小的顶点出发，按编号递增的顺序访问邻接点。 输入格式:输入第1行给出2个整数N(0&lt;N≤10)和E，分别是图的顶点数和边数。随后E行，每行给出一条边的两个端点。每行中的数字之间用1空格分隔。 输出格式:按照”{ v​1 v​2​​ … v​k​​ }”的格式，每行输出一个连通集。先输出DFS的结果，再输出BFS的结果。 输入样例: 8 60 70 12 04 12 43 5 输出样例: { 0 1 4 2 7 }{ 3 5 }{ 6 }{ 0 1 2 7 4 }{ 3 5 }{ 6 } #include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;vector&gt; #include&lt;algorithm&gt; #include&lt;stack&gt; #include&lt;queue&gt; #include&lt;map&gt; #include&lt;list&gt; #include&lt;set&gt; #include&lt;cmath&gt; using namespace std; typedef long long ll; #define N 15 int edge[N][N],vis[N]; queue&lt;int&gt; qu; void dfs(int x,int n){ vis[x] = 1; cout &lt;&lt; &quot; &quot; &lt;&lt; x; for(int i=0;i&lt;n;i++){ if(edge[x][i]&amp;&amp;!vis[i]) dfs(i,n); } } void bfs(int x,int n){ qu.push(x); vis[x] = 1; while(!qu.empty()){ int root = qu.front(); cout &lt;&lt; &quot; &quot; &lt;&lt; root; qu.pop(); for(int i=0;i&lt;n;i++){ if(edge[root][i]&amp;&amp;!vis[i]){ qu.push(i); vis[i] = 1; } } } } int main(){ int n,e,x,y; cin &gt;&gt; n &gt;&gt; e; for(int i=1;i&lt;=n;i++) { edge[i][i] = 1; } for(int i=0;i&lt;e;i++){ cin &gt;&gt; x &gt;&gt;y; edge[x][y] = 1; edge[y][x] = 1; } for(int i=0;i&lt;n;i++) { if(!vis[i]){ cout &lt;&lt; &quot;{&quot;; dfs(i,n); cout &lt;&lt; &quot; }&quot; &lt;&lt; endl; } } memset(vis,0,sizeof(vis)); for(int i=0;i&lt;n;i++){ if(!vis[i]) { cout &lt;&lt; &quot;{&quot;; bfs(i,n); cout &lt;&lt; &quot; }&quot; &lt;&lt; endl; } } return 0; }]]></content>
-      <categories>
-        <category>PTA</category>
-      </categories>
-      <tags>
-        <tag>DFS</tag>
-        <tag>PTA</tag>
-        <tag>BFS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[PTA朋友圈(并查集)]]></title>
     <url>%2F2020%2F01%2F20%2F2020-01-20-pta-peng-you-quan-bing-cha-ji%2F</url>
     <content type="text"><![CDATA[某学校有N个学生，形成M个俱乐部。每个俱乐部里的学生有着一定相似的兴趣爱好，形成一个朋友圈。一个学生可以同时属于若干个不同的俱乐部。根据“我的朋友的朋友也是我的朋友”这个推论可以得出，如果A和B是朋友，且B和C是朋友，则A和C也是朋友。请编写程序计算最大朋友圈中有多少人。 输入格式:输入的第一行包含两个正整数N（≤30000）和M（≤1000），分别代表学校的学生总数和俱乐部的个数。后面的M行每行按以下格式给出1个俱乐部的信息，其中学生从1~N编号： 第i个俱乐部的人数Mi（空格）学生1（空格）学生2 … 学生Mi 输出格式:输出给出一个整数，表示在最大朋友圈中有多少人。 输入样例: 7 43 1 2 32 1 43 5 6 71 6 输出样例: 4 #include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;vector&gt; #include&lt;algorithm&gt; #include&lt;stack&gt; #include&lt;queue&gt; #include&lt;map&gt; #include&lt;list&gt; #include&lt;set&gt; #include&lt;cmath&gt; using namespace std; typedef long long ll; #define N 30005 int fa[N],num[N]; int find(int x){ if(x==fa[x]) return x; return fa[x] = find(fa[x]); } void Union(int x,int y){ int rootx = find(x),rooty = find(y); if(rootx!=rooty){ fa[rooty] = rootx; num[rootx] += num[rooty]; } } int main(){ int n,m; cin &gt;&gt; n &gt;&gt; m; for(int i=1;i&lt;=n;i++) { fa[i] = i;num[i]=1; } for(int i=0;i&lt;m;i++){ int cnt,root,x; cin &gt;&gt; cnt; cin &gt;&gt; root; for(int j=1;j&lt;cnt;j++) { cin &gt;&gt; x; Union(root,x); } } int res=1; for(int i=1;i&lt;=n;i++){ res = max(res,num[fa[i]]); } cout &lt;&lt; res &lt;&lt; endl; return 0; }]]></content>
@@ -26,15 +13,16 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[PTA汉密尔顿回路]]></title>
-    <url>%2F2020%2F01%2F19%2F2020-01-19-pta-han-mi-er-dun-hui-lu%2F</url>
-    <content type="text"><![CDATA[著名的“汉密尔顿（Hamilton）回路问题”是要找一个能遍历图中所有顶点的简单回路（即每个顶点只访问 1 次）。本题就要求你判断任一给定的回路是否汉密尔顿回路。 输入格式：首先第一行给出两个正整数：无向图中顶点数 N（2&lt;N≤200）和边数 M。随后 M 行，每行给出一条边的两个端点，格式为“顶点1 顶点2”，其中顶点从 1 到N 编号。再下一行给出一个正整数 K，是待检验的回路的条数。随后 K 行，每行给出一条待检回路，格式为：$n\quad V_1\quad V_2⋯ V_​n$ 其中 n 是回路中的顶点数，$V_i$是路径上的顶点编号。 输出格式：对每条待检回路，如果是汉密尔顿回路，就在一行中输出”YES”，否则输出”NO”。 输入样例： 6 106 23 41 52 53 14 11 66 31 24 567 5 1 4 3 6 2 56 5 1 4 3 6 29 6 2 1 6 3 4 5 2 64 1 2 5 17 6 1 3 4 5 2 67 6 1 2 5 4 3 1 输出样例： YESNONONOYESNO 思路：将边用数组存储起来，判断回路里两条边之前是否连通并且除出发点外其余点只出现一次。如果给定的回路里点的个数不等于n+1，直接NO #include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;vector&gt; #include&lt;algorithm&gt; #include&lt;stack&gt; #include&lt;queue&gt; #include&lt;map&gt; #include&lt;list&gt; #include&lt;set&gt; #include&lt;cmath&gt; using namespace std; typedef long long ll; #define N 205 int edge[N][N]; int main(){ int n,m,x,y; cin &gt;&gt; n &gt;&gt; m; memset(edge,0,sizeof(edge)); for(int i=0;i&lt;m;i++){ cin &gt;&gt; x &gt;&gt; y; edge[x][y] = 1; edge[y][x] = 1; } int t,vis[n+1]; memset(vis,0,sizeof(vis)); cin &gt;&gt; t; while(t--){ int cnt,pre,flag=1,start; cin &gt;&gt; cnt; cin &gt;&gt; start; vis[start]=1;pre = start; for(int j=1;j&lt;cnt;j++){ cin &gt;&gt; x; if(!edge[pre][x]) flag = 0; // 判定条件要注意 if(vis[x]&amp;&amp;(j&lt;cnt-1||x!=start)) flag = 0; // if(vis[x]&amp;&amp;x!=start||!edge[pre][x]) flag = 0; vis[x]=1; pre = x; } if(cnt!=n+1) flag = 0; if(flag) cout&lt;&lt; &quot;YES&quot; &lt;&lt; endl; else cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl; memset(vis,0,sizeof(vis)); } return 0; }]]></content>
+    <title><![CDATA[PTA列出连通集(DFS+BFS)]]></title>
+    <url>%2F2020%2F01%2F20%2F2020-01-20-pta-lie-chu-lian-tong-ji-dfs-bfs%2F</url>
+    <content type="text"><![CDATA[给定一个有N个顶点和E条边的无向图，请用DFS和BFS分别列出其所有的连通集。假设顶点从0到N−1编号。进行搜索时，假设我们总是从编号最小的顶点出发，按编号递增的顺序访问邻接点。 输入格式:输入第1行给出2个整数N(0&lt;N≤10)和E，分别是图的顶点数和边数。随后E行，每行给出一条边的两个端点。每行中的数字之间用1空格分隔。 输出格式:按照”{ v​1 v​2​​ … v​k​​ }”的格式，每行输出一个连通集。先输出DFS的结果，再输出BFS的结果。 输入样例: 8 60 70 12 04 12 43 5 输出样例: { 0 1 4 2 7 }{ 3 5 }{ 6 }{ 0 1 2 7 4 }{ 3 5 }{ 6 } #include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;vector&gt; #include&lt;algorithm&gt; #include&lt;stack&gt; #include&lt;queue&gt; #include&lt;map&gt; #include&lt;list&gt; #include&lt;set&gt; #include&lt;cmath&gt; using namespace std; typedef long long ll; #define N 15 int edge[N][N],vis[N]; queue&lt;int&gt; qu; void dfs(int x,int n){ vis[x] = 1; cout &lt;&lt; &quot; &quot; &lt;&lt; x; for(int i=0;i&lt;n;i++){ if(edge[x][i]&amp;&amp;!vis[i]) dfs(i,n); } } void bfs(int x,int n){ qu.push(x); vis[x] = 1; while(!qu.empty()){ int root = qu.front(); cout &lt;&lt; &quot; &quot; &lt;&lt; root; qu.pop(); for(int i=0;i&lt;n;i++){ if(edge[root][i]&amp;&amp;!vis[i]){ qu.push(i); vis[i] = 1; } } } } int main(){ int n,e,x,y; cin &gt;&gt; n &gt;&gt; e; for(int i=1;i&lt;=n;i++) { edge[i][i] = 1; } for(int i=0;i&lt;e;i++){ cin &gt;&gt; x &gt;&gt;y; edge[x][y] = 1; edge[y][x] = 1; } for(int i=0;i&lt;n;i++) { if(!vis[i]){ cout &lt;&lt; &quot;{&quot;; dfs(i,n); cout &lt;&lt; &quot; }&quot; &lt;&lt; endl; } } memset(vis,0,sizeof(vis)); for(int i=0;i&lt;n;i++){ if(!vis[i]) { cout &lt;&lt; &quot;{&quot;; bfs(i,n); cout &lt;&lt; &quot; }&quot; &lt;&lt; endl; } } return 0; }]]></content>
       <categories>
         <category>PTA</category>
       </categories>
       <tags>
         <tag>PTA</tag>
-        <tag>Hamilton回路</tag>
+        <tag>DFS</tag>
+        <tag>BFS</tag>
       </tags>
   </entry>
   <entry>
@@ -47,6 +35,18 @@
       <tags>
         <tag>PTA</tag>
         <tag>BFS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PTA汉密尔顿回路]]></title>
+    <url>%2F2020%2F01%2F19%2F2020-01-19-pta-han-mi-er-dun-hui-lu%2F</url>
+    <content type="text"><![CDATA[著名的“汉密尔顿（Hamilton）回路问题”是要找一个能遍历图中所有顶点的简单回路（即每个顶点只访问 1 次）。本题就要求你判断任一给定的回路是否汉密尔顿回路。 输入格式：首先第一行给出两个正整数：无向图中顶点数 N（2&lt;N≤200）和边数 M。随后 M 行，每行给出一条边的两个端点，格式为“顶点1 顶点2”，其中顶点从 1 到N 编号。再下一行给出一个正整数 K，是待检验的回路的条数。随后 K 行，每行给出一条待检回路，格式为：$n\quad V_1\quad V_2⋯ V_​n$ 其中 n 是回路中的顶点数，$V_i$是路径上的顶点编号。 输出格式：对每条待检回路，如果是汉密尔顿回路，就在一行中输出”YES”，否则输出”NO”。 输入样例： 6 106 23 41 52 53 14 11 66 31 24 567 5 1 4 3 6 2 56 5 1 4 3 6 29 6 2 1 6 3 4 5 2 64 1 2 5 17 6 1 3 4 5 2 67 6 1 2 5 4 3 1 输出样例： YESNONONOYESNO 思路：将边用数组存储起来，判断回路里两条边之前是否连通并且除出发点外其余点只出现一次。如果给定的回路里点的个数不等于n+1，直接NO #include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;vector&gt; #include&lt;algorithm&gt; #include&lt;stack&gt; #include&lt;queue&gt; #include&lt;map&gt; #include&lt;list&gt; #include&lt;set&gt; #include&lt;cmath&gt; using namespace std; typedef long long ll; #define N 205 int edge[N][N]; int main(){ int n,m,x,y; cin &gt;&gt; n &gt;&gt; m; memset(edge,0,sizeof(edge)); for(int i=0;i&lt;m;i++){ cin &gt;&gt; x &gt;&gt; y; edge[x][y] = 1; edge[y][x] = 1; } int t,vis[n+1]; memset(vis,0,sizeof(vis)); cin &gt;&gt; t; while(t--){ int cnt,pre,flag=1,start; cin &gt;&gt; cnt; cin &gt;&gt; start; vis[start]=1;pre = start; for(int j=1;j&lt;cnt;j++){ cin &gt;&gt; x; if(!edge[pre][x]) flag = 0; // 判定条件要注意 if(vis[x]&amp;&amp;(j&lt;cnt-1||x!=start)) flag = 0; // if(vis[x]&amp;&amp;x!=start||!edge[pre][x]) flag = 0; vis[x]=1; pre = x; } if(cnt!=n+1) flag = 0; if(flag) cout&lt;&lt; &quot;YES&quot; &lt;&lt; endl; else cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl; memset(vis,0,sizeof(vis)); } return 0; }]]></content>
+      <categories>
+        <category>PTA</category>
+      </categories>
+      <tags>
+        <tag>PTA</tag>
+        <tag>Hamilton回路</tag>
       </tags>
   </entry>
   <entry>
@@ -121,9 +121,16 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>%2F2020%2F01%2F01%2F00%2F</url>
-    <content type="text"><![CDATA[]]></content>
+    <title><![CDATA[PTA切分表达式——写个tokenizer吧]]></title>
+    <url>%2F2020%2F01%2F01%2F2020-01-16-pta-qie-fen-biao-da-shi-xie-ge-tokenizer-ba%2F</url>
+    <content type="text"><![CDATA[[先说点出题背景]这个题是为低年级同学、学C语言的同学准备的，因为，对这部分同学，这个题目编写起来略有一点复杂。如果是高年级、学过了正则表达式（Regular Expression）的同学或者学过了Java等OO语言的同学做这个题，应当发现这题比较简单吧。哦，对了，什么是tokenizer？请自行查询解决。反正在此处不应翻译成“令牌解析器”。 [正题]四则运算表达式由运算数（必定包含数字，可能包含正或负符号、小数点）、运算符（包括+、-、*、/）以及小括号（(和)）组成，每个运算数、运算符和括号都是一个token（标记）。现在，对于给定的一个四则运算表达式，请把她的每个token切分出来。题目保证给定的表达式是正确的，不需要做有效性检查。输入格式:在一行中给出长度不超过40个字符的表达式，其中没有空格，仅由上文中token的字符组成 输出格式:依次输出表达式中的tokens，每个token占一行。 输入样例: 32*((2-2)+5)/(-15) 输出样例:```32*((2-2)+5)/(-15) ## 实现 ```cpp #include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;vector&gt; #include&lt;algorithm&gt; #include&lt;stack&gt; #include&lt;map&gt; #include&lt;list&gt; #include&lt;cmath&gt; using namespace std; typedef long long ll; #define N 205 int main(){ char s[N],ch; int flag = 0; scanf(&quot;%s&quot;,s); printf(&quot;%c&quot;,s[0]); for(int i=1;i&lt;strlen(s);i++){ if(s[i]&gt;=&#39;0&#39;&amp;&amp;s[i]&lt;=&#39;9&#39;||s[i]==&#39;.&#39;){ if(flag) cout &lt;&lt; endl; printf(&quot;%c&quot;,s[i]); flag = 0; } else { if(s[i-1]==&#39;(&#39;&amp;&amp;s[i]==&#39;-&#39;){ printf(&quot;\n%c&quot;,s[i]); flag = 0; } else { printf(&quot;\n%c&quot;,s[i]); flag = 1; } } } return 0; }]]></content>
+      <categories>
+        <category>PTA</category>
+      </categories>
+      <tags>
+        <tag>字符串</tag>
+        <tag>PTA</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[PTA列出叶结点(BFS)]]></title>
@@ -138,16 +145,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[PTA切分表达式——写个tokenizer吧]]></title>
-    <url>%2F2020%2F01%2F01%2F2020-01-16-pta-qie-fen-biao-da-shi-xie-ge-tokenizer-ba%2F</url>
-    <content type="text"><![CDATA[[先说点出题背景]这个题是为低年级同学、学C语言的同学准备的，因为，对这部分同学，这个题目编写起来略有一点复杂。如果是高年级、学过了正则表达式（Regular Expression）的同学或者学过了Java等OO语言的同学做这个题，应当发现这题比较简单吧。哦，对了，什么是tokenizer？请自行查询解决。反正在此处不应翻译成“令牌解析器”。 [正题]四则运算表达式由运算数（必定包含数字，可能包含正或负符号、小数点）、运算符（包括+、-、*、/）以及小括号（(和)）组成，每个运算数、运算符和括号都是一个token（标记）。现在，对于给定的一个四则运算表达式，请把她的每个token切分出来。题目保证给定的表达式是正确的，不需要做有效性检查。输入格式:在一行中给出长度不超过40个字符的表达式，其中没有空格，仅由上文中token的字符组成 输出格式:依次输出表达式中的tokens，每个token占一行。 输入样例: 32*((2-2)+5)/(-15) 输出样例:```32*((2-2)+5)/(-15) ## 实现 ```cpp #include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;vector&gt; #include&lt;algorithm&gt; #include&lt;stack&gt; #include&lt;map&gt; #include&lt;list&gt; #include&lt;cmath&gt; using namespace std; typedef long long ll; #define N 205 int main(){ char s[N],ch; int flag = 0; scanf(&quot;%s&quot;,s); printf(&quot;%c&quot;,s[0]); for(int i=1;i&lt;strlen(s);i++){ if(s[i]&gt;=&#39;0&#39;&amp;&amp;s[i]&lt;=&#39;9&#39;||s[i]==&#39;.&#39;){ if(flag) cout &lt;&lt; endl; printf(&quot;%c&quot;,s[i]); flag = 0; } else { if(s[i-1]==&#39;(&#39;&amp;&amp;s[i]==&#39;-&#39;){ printf(&quot;\n%c&quot;,s[i]); flag = 0; } else { printf(&quot;\n%c&quot;,s[i]); flag = 1; } } } return 0; }]]></content>
-      <categories>
-        <category>PTA</category>
-      </categories>
-      <tags>
-        <tag>字符串</tag>
-        <tag>PTA</tag>
-      </tags>
+    <title></title>
+    <url>%2F2020%2F01%2F01%2F00%2F</url>
+    <content type="text"><![CDATA[]]></content>
   </entry>
   <entry>
     <title><![CDATA[2019蓝桥杯校内选拔赛题解]]></title>
@@ -173,18 +173,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[回溯算法求解数独问题(C++ 递归/非递归)]]></title>
-    <url>%2F2019%2F11%2F29%2F2019-11-29-hui-su-suan-fa-qiu-jie-shu-du-wen-ti-c-di-gui-fei-di-gui%2F</url>
-    <content type="text"><![CDATA[如何使用求解上述数独? 递归实现#include&lt;bits/stdc++.h&gt; using namespace std; int sudoku[9][9]; int dx[9]= {-1,-1,-1,0,0,0,1,1,1},dy[9]={-1,0,1,-1,0,1,-1,0,1}; void print(){ for(int i=0;i&lt;9;i++){ for(int j=0;j&lt;9;j++) cout &lt;&lt; sudoku[i][j] &lt;&lt; &quot; &quot;; cout &lt;&lt; endl; } } bool check(int i,int j, int num){ // (i,j)位置填入num判断是否合适 for(int k=0;k&lt;9;k++){ // 所在行和列判断 if(sudoku[i][k]==num||sudoku[k][j]==num){ return false; } } int cx = i/3*3+1, cy = j/3*3+1; for(int k=0;k&lt;9;k++){ // 九宫格 int cur_x = cx+dx[k],cur_y = cy+dy[k]; if(sudoku[cur_x][cur_y]==num) return false; } return true; } void search(int i,int j){ if(i==8&amp;&amp;j==9) { print(); return ; } if(j==9){ i++; j=0; } if(sudoku[i][j]==0){ for(int num=1;num&lt;=9;num++){ if(check(i,j,num)){ sudoku[i][j] = num; search(i,j+1); sudoku[i][j] = 0; } } } else search(i,j+1); } int main(){ for(int i=0;i&lt;9;i++) for(int j=0;j&lt;9;j++) cin &gt;&gt; sudoku[i][j]; search(0,0); return 0; } 非递归实现非递归回溯求解数独问题，每次在9*9的矩阵中按行优先寻找第一个不为0的位置并将该位置进栈，然后对该位置进行从num=1到9试填，并check该位置放num是否合适，如果不合适就将该点出栈，同时将值置为0，否则就放入num，然后将下一个0位置进栈… #include&lt;bits/stdc++.h&gt; using namespace std; int sudoku[9][9]; int dx[9]= {-1,-1,-1,0,0,0,1,1,1},dy[9]={-1,0,1,-1,0,1,-1,0,1}; void print(){ for(int i=0;i&lt;9;i++){ for(int j=0;j&lt;9;j++) cout &lt;&lt; sudoku[i][j] &lt;&lt; &quot; &quot;; cout &lt;&lt; endl; } } bool check(int i,int j, int num){ // (i,j)位置填入num判断是否合适 for(int k=0;k&lt;9;k++){ // 所在行和列判断 if(sudoku[i][k]==num||sudoku[k][j]==num){ return false; } } int cx = i/3*3+1, cy = j/3*3+1; for(int k=0;k&lt;9;k++){ // 九宫格 int cur_x = cx+dx[k],cur_y = cy+dy[k]; if(sudoku[cur_x][cur_y]==num) return false; } return true; } int find(){ for (int i = 0;i&lt;81;i++) if (!sudoku[i/9][i%9]) return i; return -1; } bool solve(){ // 非递归回溯 stack&lt;int&gt; st; st.push(find()); int num; while(!st.empty()&amp;&amp;(st.top()&gt;=0)){ int x = st.top()/9, y = st.top()%9; for(num = sudoku[x][y]+1;num&lt;=9&amp;&amp;(!check(x,y,num));num++); if(num&gt;9){ sudoku[x][y] = 0; st.pop(); } else { sudoku[x][y] = num; st.push(find()); } } return (!st.empty()); } int main() { for(int i=0;i&lt;9;i++) for(int j=0;j&lt;9;j++) cin &gt;&gt; sudoku[i][j]; if(solve()){ print(); } else cout &lt;&lt; &quot;无解&quot; &lt;&lt; endl; return 0; }]]></content>
-      <categories>
-        <category>数据结构与算法训练</category>
-      </categories>
-      <tags>
-        <tag>回溯法</tag>
-        <tag>数独</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[回溯法求解幂集]]></title>
     <url>%2F2019%2F11%2F29%2F2019-11-29-hui-su-fa-qiu-jie-mi-ji%2F</url>
     <content type="text"><![CDATA[回溯—使用解向量使用一个大小为n的数组x，来标记解向量，在每次迭代过程重要要么选择当前值，要么不选择 #include&lt;bits/stdc++.h&gt; using namespace std; void print(int a[], int x[], int n){ cout &lt;&lt; &quot;{&quot;; for(int i=0;i&lt;n;i++){ if(x[i]) printf(&quot;%d &quot;,a[i]); } cout &lt;&lt; &quot;}&quot; &lt;&lt; endl; cout &lt;&lt; endl; } void dfs(int a[], int x[], int n, int i){ if(i&gt;=n) { print(a,x,n);return ; } else{ x[i] = 0; dfs(a,x,n,i+1); x[i] = 1; dfs(a,x,n,i+1); } } int main(){ int n; cin &gt;&gt; n; int a[n]; for(int i=0;i&lt;n;i++) cin &gt;&gt; a[i]; int x[n]; memset(x,0,sizeof(x)); dfs(a,x,n,0); return 0; } 回溯法—使用容器存放结果不去采用标准的解向量，而是用一个边长数组vector去存放解。 #include&lt;bits/stdc++.h&gt; using namespace std; #define rep(i,m,n) for(int i=m;i&lt;n;i++) #define pb push_back int res = 0; void print(vector&lt;int&gt; v){ rep(i,0,v.size()){ cout &lt;&lt; v[i] &lt;&lt; &quot; &quot;; } cout &lt;&lt; endl; } void dfs(int a[], int n, int i, vector&lt;int&gt; path){ if(i&gt;=n){ print(path); res++; // 统计个数 return ; } else { dfs(a,n,i+1,path); path.pb(a[i]); dfs(a,n,i+1,path); } } int main(){ int n; cin &gt;&gt; n; int a[n]; rep(i,0,n) cin &gt;&gt; a[i]; vector&lt;int&gt; path; dfs(a,n,0,path); cout &lt;&lt; &quot;Total : &quot; &lt;&lt; res &lt;&lt; endl; return 0; } 枚举法—使用二进位对应解空间用二进制位来对应解 #include&lt;bits/stdc++.h&gt; using namespace std; #define rep(i,m,n) for(int i=m;i&lt;n;i++) #define pb push_back int res = 0; void print(int a[],int n,int x){ int j = 0; // 也可令j变为n,只是会调整输出顺序 cout &lt;&lt; &quot;{&quot;; while(x){ if(x&amp;1) { cout &lt;&lt; a[j]; if(x&gt;=2) cout &lt;&lt; &quot; &quot;; // 输出格式控制 } x &gt;&gt;= 1;j++; } cout &lt;&lt; &quot;}&quot;; cout &lt;&lt; endl; res++; } int main(){ int n; cin &gt;&gt; n; int a[n]; rep(i,0,n) cin &gt;&gt; a[i]; rep(i,0,1&lt;&lt;n){ print(a,n,i); } cout &lt;&lt; &quot;Total：&quot; &lt;&lt; res ; }]]></content>
@@ -197,27 +185,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[大数乘法 java BigInteger的使用]]></title>
-    <url>%2F2019%2F11%2F22%2F2019-11-22-da-shu-cheng-fa-java-biginteger-de-shi-yong%2F</url>
-    <content type="text"><![CDATA[找个大数乘法的题目练习一下 BigInterger的使用 当两个比较大的整数相乘时，可能会出现数据溢出的情形。为避免溢出，可以采用字符串的方法来实现两个大数之间的乘法。具体来说，首先以字符串的形式输入两个整数，每个整数的长度不会超过8位，然后把它们相乘的结果存储在另一个字符串当中（长度不会超过16位），最后把这个字符串打印出来。例如，假设用户输入为：62773417和12345678，则输出结果为：774980393241726. 输入： 62773417 12345678 输出： 774980393241726 代码实现 import java.math.BigInteger; import java.util.Scanner; public class Main { public static void main(String[] args) { Scanner input = new Scanner(System.in); String str1 = input.next(),str2 = input.next(); BigInteger num1 = new BigInteger(str1); BigInteger num2 = new BigInteger(str2); BigInteger res = num1.multiply(num2); System.out.println(res.toString()); input.close(); } } 比C/C++实现起来爽很多。一般来说BigInteger是使用String类型进行构造，传入两个个数字字符串，然后进行加减乘除。java中并没有重载运算符这种操作，只能另外实现封装成新的函数。 一些常用API请参考java基础-BigInteger的使用]]></content>
+    <title><![CDATA[回溯算法求解数独问题(C++ 递归/非递归)]]></title>
+    <url>%2F2019%2F11%2F29%2F2019-11-29-hui-su-suan-fa-qiu-jie-shu-du-wen-ti-c-di-gui-fei-di-gui%2F</url>
+    <content type="text"><![CDATA[如何使用求解上述数独? 递归实现#include&lt;bits/stdc++.h&gt; using namespace std; int sudoku[9][9]; int dx[9]= {-1,-1,-1,0,0,0,1,1,1},dy[9]={-1,0,1,-1,0,1,-1,0,1}; void print(){ for(int i=0;i&lt;9;i++){ for(int j=0;j&lt;9;j++) cout &lt;&lt; sudoku[i][j] &lt;&lt; &quot; &quot;; cout &lt;&lt; endl; } } bool check(int i,int j, int num){ // (i,j)位置填入num判断是否合适 for(int k=0;k&lt;9;k++){ // 所在行和列判断 if(sudoku[i][k]==num||sudoku[k][j]==num){ return false; } } int cx = i/3*3+1, cy = j/3*3+1; for(int k=0;k&lt;9;k++){ // 九宫格 int cur_x = cx+dx[k],cur_y = cy+dy[k]; if(sudoku[cur_x][cur_y]==num) return false; } return true; } void search(int i,int j){ if(i==8&amp;&amp;j==9) { print(); return ; } if(j==9){ i++; j=0; } if(sudoku[i][j]==0){ for(int num=1;num&lt;=9;num++){ if(check(i,j,num)){ sudoku[i][j] = num; search(i,j+1); sudoku[i][j] = 0; } } } else search(i,j+1); } int main(){ for(int i=0;i&lt;9;i++) for(int j=0;j&lt;9;j++) cin &gt;&gt; sudoku[i][j]; search(0,0); return 0; } 非递归实现非递归回溯求解数独问题，每次在9*9的矩阵中按行优先寻找第一个不为0的位置并将该位置进栈，然后对该位置进行从num=1到9试填，并check该位置放num是否合适，如果不合适就将该点出栈，同时将值置为0，否则就放入num，然后将下一个0位置进栈… #include&lt;bits/stdc++.h&gt; using namespace std; int sudoku[9][9]; int dx[9]= {-1,-1,-1,0,0,0,1,1,1},dy[9]={-1,0,1,-1,0,1,-1,0,1}; void print(){ for(int i=0;i&lt;9;i++){ for(int j=0;j&lt;9;j++) cout &lt;&lt; sudoku[i][j] &lt;&lt; &quot; &quot;; cout &lt;&lt; endl; } } bool check(int i,int j, int num){ // (i,j)位置填入num判断是否合适 for(int k=0;k&lt;9;k++){ // 所在行和列判断 if(sudoku[i][k]==num||sudoku[k][j]==num){ return false; } } int cx = i/3*3+1, cy = j/3*3+1; for(int k=0;k&lt;9;k++){ // 九宫格 int cur_x = cx+dx[k],cur_y = cy+dy[k]; if(sudoku[cur_x][cur_y]==num) return false; } return true; } int find(){ for (int i = 0;i&lt;81;i++) if (!sudoku[i/9][i%9]) return i; return -1; } bool solve(){ // 非递归回溯 stack&lt;int&gt; st; st.push(find()); int num; while(!st.empty()&amp;&amp;(st.top()&gt;=0)){ int x = st.top()/9, y = st.top()%9; for(num = sudoku[x][y]+1;num&lt;=9&amp;&amp;(!check(x,y,num));num++); if(num&gt;9){ sudoku[x][y] = 0; st.pop(); } else { sudoku[x][y] = num; st.push(find()); } } return (!st.empty()); } int main() { for(int i=0;i&lt;9;i++) for(int j=0;j&lt;9;j++) cin &gt;&gt; sudoku[i][j]; if(solve()){ print(); } else cout &lt;&lt; &quot;无解&quot; &lt;&lt; endl; return 0; }]]></content>
       <categories>
-        <category>蓝桥杯</category>
+        <category>数据结构与算法训练</category>
       </categories>
       <tags>
-        <tag>蓝桥杯</tag>
-        <tag>BigInteger</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[熊怪吃核桃--二进制的使用]]></title>
-    <url>%2F2019%2F11%2F22%2F2019-11-22-xiong-guai-chi-he-tao-er-jin-zhi-de-shi-yong%2F</url>
-    <content type="text"><![CDATA[一道2015年蓝桥杯省赛试题熊怪吃核桃 森林里有一只熊怪，很爱吃核桃。 不过它有个习惯，每次都把找到的核桃分成相等的两份，吃掉一份，留一份。 如果不能等分，熊怪就会扔掉一个核桃再分。 第二天再继续这个过程，直到最后剩一个核桃了，直接丢掉。 有一天，熊怪发现了1543个核桃，请问，它在吃这些核桃的过程中，一共要丢掉多少个核桃。 思路思路就是每次判读一下是奇数还是偶数，奇数的话就减1然后除以2，偶数的话就直接除以2。用C/C++实现写起来其实很简单，其实还有一种更妙的思路，这个过程其实就是一个除2的过程，也就类似于十进制转二进制的过程，所以直接在Windows下利用计算器输入1543转成二进制，然后数一数二进制里面有几个1即可。 1543对应的二进制是110 0000 0111，里面有5个1。 顺便放一个代码实现吧 #include&lt;iostream&gt; using namespace std; int main(){ int n = 1543,cnt = 0; while(n){ if(n&amp;1){ n--;cnt++; n /= 2; } else n /= 2; } cout &lt;&lt; cnt &lt;&lt; endl; return 0; }]]></content>
-      <categories>
-        <category>蓝桥杯</category>
-      </categories>
-      <tags>
-        <tag>位运算</tag>
-        <tag>蓝桥杯</tag>
+        <tag>回溯法</tag>
+        <tag>数独</tag>
       </tags>
   </entry>
   <entry>
@@ -240,6 +216,30 @@
         <category>蓝桥杯</category>
       </categories>
       <tags>
+        <tag>蓝桥杯</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[大数乘法 java BigInteger的使用]]></title>
+    <url>%2F2019%2F11%2F22%2F2019-11-22-da-shu-cheng-fa-java-biginteger-de-shi-yong%2F</url>
+    <content type="text"><![CDATA[找个大数乘法的题目练习一下 BigInterger的使用 当两个比较大的整数相乘时，可能会出现数据溢出的情形。为避免溢出，可以采用字符串的方法来实现两个大数之间的乘法。具体来说，首先以字符串的形式输入两个整数，每个整数的长度不会超过8位，然后把它们相乘的结果存储在另一个字符串当中（长度不会超过16位），最后把这个字符串打印出来。例如，假设用户输入为：62773417和12345678，则输出结果为：774980393241726. 输入： 62773417 12345678 输出： 774980393241726 代码实现 import java.math.BigInteger; import java.util.Scanner; public class Main { public static void main(String[] args) { Scanner input = new Scanner(System.in); String str1 = input.next(),str2 = input.next(); BigInteger num1 = new BigInteger(str1); BigInteger num2 = new BigInteger(str2); BigInteger res = num1.multiply(num2); System.out.println(res.toString()); input.close(); } } 比C/C++实现起来爽很多。一般来说BigInteger是使用String类型进行构造，传入两个个数字字符串，然后进行加减乘除。java中并没有重载运算符这种操作，只能另外实现封装成新的函数。 一些常用API请参考java基础-BigInteger的使用]]></content>
+      <categories>
+        <category>蓝桥杯</category>
+      </categories>
+      <tags>
+        <tag>BigInteger</tag>
+        <tag>蓝桥杯</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[熊怪吃核桃--二进制的使用]]></title>
+    <url>%2F2019%2F11%2F22%2F2019-11-22-xiong-guai-chi-he-tao-er-jin-zhi-de-shi-yong%2F</url>
+    <content type="text"><![CDATA[一道2015年蓝桥杯省赛试题熊怪吃核桃 森林里有一只熊怪，很爱吃核桃。 不过它有个习惯，每次都把找到的核桃分成相等的两份，吃掉一份，留一份。 如果不能等分，熊怪就会扔掉一个核桃再分。 第二天再继续这个过程，直到最后剩一个核桃了，直接丢掉。 有一天，熊怪发现了1543个核桃，请问，它在吃这些核桃的过程中，一共要丢掉多少个核桃。 思路思路就是每次判读一下是奇数还是偶数，奇数的话就减1然后除以2，偶数的话就直接除以2。用C/C++实现写起来其实很简单，其实还有一种更妙的思路，这个过程其实就是一个除2的过程，也就类似于十进制转二进制的过程，所以直接在Windows下利用计算器输入1543转成二进制，然后数一数二进制里面有几个1即可。 1543对应的二进制是110 0000 0111，里面有5个1。 顺便放一个代码实现吧 #include&lt;iostream&gt; using namespace std; int main(){ int n = 1543,cnt = 0; while(n){ if(n&amp;1){ n--;cnt++; n /= 2; } else n /= 2; } cout &lt;&lt; cnt &lt;&lt; endl; return 0; }]]></content>
+      <categories>
+        <category>蓝桥杯</category>
+      </categories>
+      <tags>
+        <tag>位运算</tag>
         <tag>蓝桥杯</tag>
       </tags>
   </entry>
@@ -343,6 +343,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[LeetCodeWeeklyContest-160]]></title>
+    <url>%2F2019%2F10%2F27%2F2019-10-27-leetcodeweeklycontest-160%2F</url>
+    <content type="text"><![CDATA[题目传送门找出给定方程的正整数解签到题的新包装，我没有玩过的船新版本。 class Solution { public: vector&lt;vector&lt;int&gt;&gt; findSolution(CustomFunction&amp; c, int z) { vector&lt;vector&lt;int&gt;&gt; res; for(int i=1;i&lt;=1000;i++){ for(int j=1;j&lt;=1000;j++){ if(c.f(i,j)&lt;z) continue; else if(c.f(i,j)==z) { vector&lt;int&gt; v; v.push_back(i),v.push_back(j); res.push_back(v); } else break; } } return res; } }; 循环码排列给你两个整数 n 和 start。你的任务是返回任意 (0,1,2,,…,2^n-1) 的排列 p，并且满足： p[0] = start p[i] 和 p[i+1] 的二进制表示形式只有一位不同 p[0] 和 p[2^n -1] 的二进制表示形式也只有一位不同 举个例子： 输入：n = 2, start = 3 输出：[3,2,0,1] 解释：这个排列的二进制表示是 (11,10,00,01) 所有的相邻元素都有一位是不同的，另一个有效的排列是 [3,1,0,2] 思路参考： [Java/C++/Python] 4-line Gray Code Gray code 其实就是格雷码。使用位运算操作 实现vector&lt;int&gt; circularPermutation(int n, int start) { vector&lt;int&gt; res; for(int i=0;i&lt; 1&lt;&lt;n;i++){ res.push_back(start^i^i&gt;&gt;1); } return res; } 比赛时找了个格雷码的板子，然后改了改，就过掉了… class Solution { public: vector&lt;int&gt; grayCode(int n){ vector&lt;int&gt; gray; if (n &lt; 1) { gray.push_back(0); return gray; } int num = pow(2,n); int graycode[n]; for (int i = 0; i &lt; num; i++) { IntToBit(graycode, i, n); BitToGray(graycode,n); gray.push_back(GrayBitToInt(graycode, n)); } return gray; } void IntToBit(int *code, int n, int bit){ int i = bit-1; while (i &gt;= 0) { code[i--] = n%2; n/=2; } } void BitToGray(int *code, int bit){ int temp[bit]; temp[0] = 0^code[0]; for (int i = 0; i &lt; bit-1; i++) { temp[i+1] = code[i]^code[i+1]; } for (int i = 0; i &lt; bit; i++) { code[i] = temp[i]; } } int GrayBitToInt(int *code, int bit){ int number = 0; for (int i = 0; i &lt; bit; i++) { if (code[i] == 1) { number += pow(2, bit-i-1); } } return number; } vector&lt;int&gt; circularPermutation(int n, int start) { vector&lt;int&gt; res,tmp; tmp = grayCode(n); int index,msize = pow(2,n); for(int i=0;i&lt;msize;i++){ if(tmp[i]==start){ index = i; break; } } for(int i=index;i&lt;msize;i++){ res.push_back(tmp[i]); } for(int i=0;i&lt;index;i++){ res.push_back(tmp[i]); } return res; } }; 串联字符串的最大长度给定一个字符串数组 arr，字符串 s 是将 arr 某一子序列字符串连接所得的字符串，如果 s 中的每一个字符都只出现过一次，那么它就是一个可行解。请返回所有可行解 s 中最长长度。 思路判定函数+DFS判定函数：判定一个字符串是否有重复字母，打个大小为26的表即可。 实现class Solution { public: int maxL = 0; bool pend(string s1){ int ph[26]={0}; for(int i=0;i&lt;s1.length();i++){ if(ph[s1[i]-&#39;a&#39;]==1) return false; ph[s1[i]-&#39;a&#39;]=1; } return true; } void dfs(vector&lt;string&gt; arr, int index, string str){ int len = str.length(); if(pend(str)) maxL = max(maxL,len); if(index == arr.size()||!pend(str)) return ; for(int i=index;i&lt;arr.size();i++){ dfs(arr,i+1,str+arr[i]); } } int maxLength(vector&lt;string&gt;&amp; arr) { dfs(arr,0,&quot;&quot;); return maxL; } }; 铺瓷砖你是一位施工队的工长，根据设计师的要求准备为一套设计风格独特的房子进行室内装修。房子的客厅大小为 n x m，为保持极简的风格，需要使用尽可能少的 正方形 瓷砖来铺盖地面。假设正方形瓷砖的规格不限，边长都是整数。请你帮设计师计算一下，最少需要用到多少块方形瓷砖？ 思路参考： Paper Cut into Minimum Number of Squares | Set 2 B站视频讲解 基本上还是DFS，其实这个题很像经典的贪心题目，不过那个貌似是是个正方形，而且这个题有个特殊的点，就是当n\==11&amp;&amp;m\==13||n\==13&amp;&amp;m==11 这个时候的结果应该为6。剩下的就是先横切，看需要多少方形瓷砖，然后再纵切，看需要多少方形瓷砖，取横切和纵切的最小值，便是结果。 实现class Solution { public: int dp[300][300]={0}; int solve(int n,int m){ if(n==m) return 1; if(dp[n][m]) return dp[n][m]; int res = 2e8; for(int i=1;i&lt;=n/2;i++){ res = min(solve(i,m)+solve(n-i,m),res); } for(int j=1;j&lt;=m/2;j++){ res = min(solve(n,j)+solve(n,m-j),res); } dp[n][m] = res; return res; } int tilingRectangle(int n, int m) { if(n==11&amp;&amp;m==13||n==13&amp;&amp;m==11) return 6; return solve(n,m); } }; 你一人低头在路上… 多向往 多漫长]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[格雷码]]></title>
     <url>%2F2019%2F10%2F27%2F2019-10-27-ge-lei-ma%2F</url>
     <content type="text"><![CDATA[偶然间发现了一个很好的方法，详见Gray code 下面是一个生成以start开始的格雷码的板子，n为二进制位的个数。 vector&lt;int&gt; getGray(int n, int start) { vector&lt;int&gt; res; for(int i=0;i&lt; 1&lt;&lt;n;i++){ res.push_back(start^i^i&gt;&gt;1); } return res; }]]></content>
@@ -352,17 +363,6 @@
       <tags>
         <tag>位运算</tag>
         <tag>格雷码</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[LeetCodeWeeklyContest-160]]></title>
-    <url>%2F2019%2F10%2F27%2F2019-10-27-leetcodeweeklycontest-160%2F</url>
-    <content type="text"><![CDATA[题目传送门找出给定方程的正整数解签到题的新包装，我没有玩过的船新版本。 class Solution { public: vector&lt;vector&lt;int&gt;&gt; findSolution(CustomFunction&amp; c, int z) { vector&lt;vector&lt;int&gt;&gt; res; for(int i=1;i&lt;=1000;i++){ for(int j=1;j&lt;=1000;j++){ if(c.f(i,j)&lt;z) continue; else if(c.f(i,j)==z) { vector&lt;int&gt; v; v.push_back(i),v.push_back(j); res.push_back(v); } else break; } } return res; } }; 循环码排列给你两个整数 n 和 start。你的任务是返回任意 (0,1,2,,…,2^n-1) 的排列 p，并且满足： p[0] = start p[i] 和 p[i+1] 的二进制表示形式只有一位不同 p[0] 和 p[2^n -1] 的二进制表示形式也只有一位不同 举个例子： 输入：n = 2, start = 3 输出：[3,2,0,1] 解释：这个排列的二进制表示是 (11,10,00,01) 所有的相邻元素都有一位是不同的，另一个有效的排列是 [3,1,0,2] 思路参考： [Java/C++/Python] 4-line Gray Code Gray code 其实就是格雷码。使用位运算操作 实现vector&lt;int&gt; circularPermutation(int n, int start) { vector&lt;int&gt; res; for(int i=0;i&lt; 1&lt;&lt;n;i++){ res.push_back(start^i^i&gt;&gt;1); } return res; } 比赛时找了个格雷码的板子，然后改了改，就过掉了… class Solution { public: vector&lt;int&gt; grayCode(int n){ vector&lt;int&gt; gray; if (n &lt; 1) { gray.push_back(0); return gray; } int num = pow(2,n); int graycode[n]; for (int i = 0; i &lt; num; i++) { IntToBit(graycode, i, n); BitToGray(graycode,n); gray.push_back(GrayBitToInt(graycode, n)); } return gray; } void IntToBit(int *code, int n, int bit){ int i = bit-1; while (i &gt;= 0) { code[i--] = n%2; n/=2; } } void BitToGray(int *code, int bit){ int temp[bit]; temp[0] = 0^code[0]; for (int i = 0; i &lt; bit-1; i++) { temp[i+1] = code[i]^code[i+1]; } for (int i = 0; i &lt; bit; i++) { code[i] = temp[i]; } } int GrayBitToInt(int *code, int bit){ int number = 0; for (int i = 0; i &lt; bit; i++) { if (code[i] == 1) { number += pow(2, bit-i-1); } } return number; } vector&lt;int&gt; circularPermutation(int n, int start) { vector&lt;int&gt; res,tmp; tmp = grayCode(n); int index,msize = pow(2,n); for(int i=0;i&lt;msize;i++){ if(tmp[i]==start){ index = i; break; } } for(int i=index;i&lt;msize;i++){ res.push_back(tmp[i]); } for(int i=0;i&lt;index;i++){ res.push_back(tmp[i]); } return res; } }; 串联字符串的最大长度给定一个字符串数组 arr，字符串 s 是将 arr 某一子序列字符串连接所得的字符串，如果 s 中的每一个字符都只出现过一次，那么它就是一个可行解。请返回所有可行解 s 中最长长度。 思路判定函数+DFS判定函数：判定一个字符串是否有重复字母，打个大小为26的表即可。 实现class Solution { public: int maxL = 0; bool pend(string s1){ int ph[26]={0}; for(int i=0;i&lt;s1.length();i++){ if(ph[s1[i]-&#39;a&#39;]==1) return false; ph[s1[i]-&#39;a&#39;]=1; } return true; } void dfs(vector&lt;string&gt; arr, int index, string str){ int len = str.length(); if(pend(str)) maxL = max(maxL,len); if(index == arr.size()||!pend(str)) return ; for(int i=index;i&lt;arr.size();i++){ dfs(arr,i+1,str+arr[i]); } } int maxLength(vector&lt;string&gt;&amp; arr) { dfs(arr,0,&quot;&quot;); return maxL; } }; 铺瓷砖你是一位施工队的工长，根据设计师的要求准备为一套设计风格独特的房子进行室内装修。房子的客厅大小为 n x m，为保持极简的风格，需要使用尽可能少的 正方形 瓷砖来铺盖地面。假设正方形瓷砖的规格不限，边长都是整数。请你帮设计师计算一下，最少需要用到多少块方形瓷砖？ 思路参考： Paper Cut into Minimum Number of Squares | Set 2 B站视频讲解 基本上还是DFS，其实这个题很像经典的贪心题目，不过那个貌似是是个正方形，而且这个题有个特殊的点，就是当n\==11&amp;&amp;m\==13||n\==13&amp;&amp;m==11 这个时候的结果应该为6。剩下的就是先横切，看需要多少方形瓷砖，然后再纵切，看需要多少方形瓷砖，取横切和纵切的最小值，便是结果。 实现class Solution { public: int dp[300][300]={0}; int solve(int n,int m){ if(n==m) return 1; if(dp[n][m]) return dp[n][m]; int res = 2e8; for(int i=1;i&lt;=n/2;i++){ res = min(solve(i,m)+solve(n-i,m),res); } for(int j=1;j&lt;=m/2;j++){ res = min(solve(n,j)+solve(n,m-j),res); } dp[n][m] = res; return res; } int tilingRectangle(int n, int m) { if(n==11&amp;&amp;m==13||n==13&amp;&amp;m==11) return 6; return solve(n,m); } }; 你一人低头在路上… 多向往 多漫长]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -377,9 +377,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[裴蜀定理&&扩展欧几里得算法]]></title>
-    <url>%2F2019%2F10%2F22%2F2019-10-22-pei-shu-ding-li-kuo-zhan-ou-ji-li-de-suan-fa%2F</url>
-    <content type="text"><![CDATA[裴蜀定理也就是Bezout定理，对于任意整数a,b，存在一对整数x,y，满足$ax+by=gcd(a,b)$。在数论中，裴蜀定理是一个关于最大公约数（或最大公约式）的定理，裴蜀定理得名于法国数学家艾蒂安·裴蜀。裴蜀定理说明了对任何整数 a、b和它们的最大公约数 d ，关于未知数 x 和 y 的线性丢番图方程（称为裴蜀等式）。 证明： 若b=0时，此时迭代到算法的最后一步，显然存在一对整数，$x=1,y=0$ ，使得a*1+0*0 = gcd(a,0) 若b&gt;0时，则 $gcd(a,b) = gcd(b,a\,mod\,b)$ ，假设存在一对整数 $x_1,y_1$ ，满足 b*x_1+(a\,mod\,b)*y_1 = gcd(b,a\,mod\,b) ，因为 b*x_1+(a\,mod\,b)*{y_1}= b*x_1+(a-a/b*b)y_1= a*y_1 +b*(x_1-(a/b)*y_1) 证毕 裴蜀定理是按照欧几里得算法的思路被证明的，并且同时给出了整数x和y的计算方法。这种计算方法被称为扩展欧几里得算法。 联立一下 \begin{cases} gcd=a*x+b*y \\ gcd = a*y_1 + b*(x_1-(a/b)*y_1) \end{cases}可以得出 \begin{cases} x=y_1 \\ y = x_1-(a/b)*y_1 \end{cases}实现int exgcd(int a,int b,int &amp;x,int &amp;y){ if(b==0){ x = 1,y = 0; return a; } int ans = exgcd(b,a%b,x,y); int z = y; y = x - (a/b)*z,x = z; return ans; } 说明上述程序求出的是一组特解$x_0,y_0$，并返回a,b的最大公约数d。 未完，待续…]]></content>
+    <title><![CDATA[费马小定理]]></title>
+    <url>%2F2019%2F10%2F22%2F2019-10-22-fei-ma-xiao-ding-li%2F</url>
+    <content type="text"><![CDATA[若p是质数，则对于任意整数a，有$a^p \equiv a (mod \, p)$]]></content>
       <categories>
         <category>数论</category>
       </categories>
@@ -388,9 +388,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[费马小定理]]></title>
-    <url>%2F2019%2F10%2F22%2F2019-10-22-fei-ma-xiao-ding-li%2F</url>
-    <content type="text"><![CDATA[若p是质数，则对于任意整数a，有$a^p \equiv a (mod \, p)$]]></content>
+    <title><![CDATA[裴蜀定理&&扩展欧几里得算法]]></title>
+    <url>%2F2019%2F10%2F22%2F2019-10-22-pei-shu-ding-li-kuo-zhan-ou-ji-li-de-suan-fa%2F</url>
+    <content type="text"><![CDATA[裴蜀定理也就是Bezout定理，对于任意整数a,b，存在一对整数x,y，满足$ax+by=gcd(a,b)$。在数论中，裴蜀定理是一个关于最大公约数（或最大公约式）的定理，裴蜀定理得名于法国数学家艾蒂安·裴蜀。裴蜀定理说明了对任何整数 a、b和它们的最大公约数 d ，关于未知数 x 和 y 的线性丢番图方程（称为裴蜀等式）。 证明： 若b=0时，此时迭代到算法的最后一步，显然存在一对整数，$x=1,y=0$ ，使得a*1+0*0 = gcd(a,0) 若b&gt;0时，则 $gcd(a,b) = gcd(b,a\,mod\,b)$ ，假设存在一对整数 $x_1,y_1$ ，满足 b*x_1+(a\,mod\,b)*y_1 = gcd(b,a\,mod\,b) ，因为 b*x_1+(a\,mod\,b)*{y_1}= b*x_1+(a-a/b*b)y_1= a*y_1 +b*(x_1-(a/b)*y_1) 证毕 裴蜀定理是按照欧几里得算法的思路被证明的，并且同时给出了整数x和y的计算方法。这种计算方法被称为扩展欧几里得算法。 联立一下 \begin{cases} gcd=a*x+b*y \\ gcd = a*y_1 + b*(x_1-(a/b)*y_1) \end{cases}可以得出 \begin{cases} x=y_1 \\ y = x_1-(a/b)*y_1 \end{cases}实现int exgcd(int a,int b,int &amp;x,int &amp;y){ if(b==0){ x = 1,y = 0; return a; } int ans = exgcd(b,a%b,x,y); int z = y; y = x - (a/b)*z,x = z; return ans; } 说明上述程序求出的是一组特解$x_0,y_0$，并返回a,b的最大公约数d。 未完，待续…]]></content>
       <categories>
         <category>数论</category>
       </categories>
@@ -794,17 +794,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[HDU2097Sky数]]></title>
-    <url>%2F2019%2F01%2F09%2F2019-01-09-hdu-2097sky-shu%2F</url>
-    <content type="text"><![CDATA[Sky数 My life didn’t please me, so I created my life.我的生活不曾取悦于我，所以我创造了自己的生活 ———-Coco Chanel Problem Description Sky从小喜欢奇特的东西，而且天生对数字特别敏感，一次偶然的机会，他发现了一个有趣的四位数2992，这个数它的十进制数表示，其四位数字之和为2+9+9+2=22，它的十六进制数BB0，其四位数字之和也为22，同时它的十二进制数表示1894，其四位数字之和也为22，啊哈，真是巧啊。Sky非常喜欢这种四位数，由于他的发现，所以这里我们命名其为Sky数。但是要判断这样的数还是有点麻烦啊，那么现在请你帮忙来判断任何一个十进制的四位数，是不是Sky数吧。 Input 输入含有一些四位正整数，如果为0，则输入结束。 Output 若n为Sky数，则输出“#n is a Sky Number.”，否则输出“#n is not a Sky Number.”。每个结果占一行。注意：#n表示所读入的n值。 Sample Input 299212340 Sample Output 2992 is a Sky Number.1234 is not a Sky Number. 思路 输入一个四位整数，需要将其进制转换，而在进制转换的过程中又可以实现四位数各位相加，看似需要将数据转换成十六进制、十二进制（输入的便是十进制），实则，只需一个进制转换求和函数就可以实现，不妨设转换为n进制，在转换的过程中便可实现求和，先对n求模，再整除n，最后判断和是否相等即可。 代码#include &lt;iostream&gt; using namespace std; int DBC(int a,int n) //将数字a转化为n进制，将其每位相加求和 { int sum=0; while(a) { sum += a%n; a /= n; } return sum; } int main() { int a,b,sum=0; while(cin &gt;&gt; a &amp;&amp; a!=0) { b=a; //个人认为，这里只要三者相等即可，不一定为22 if((DBC(b,10)==DBC(b,16)) &amp;&amp; (DBC(b,10)==DBC(b,12))) cout&lt;&lt; a &lt;&lt; &quot; is a Sky Number.&quot; &lt;&lt; endl; else cout&lt;&lt; a &lt;&lt; &quot; is not a Sky Number.&quot; &lt;&lt; endl; } return 0; }]]></content>
-      <categories>
-        <category>数据结构与算法训练</category>
-      </categories>
-      <tags>
-        <tag>数据结构与算法训练</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[欧几里得算法]]></title>
     <url>%2F2019%2F01%2F09%2F2019-01-09-ou-ji-li-de-suan-fa%2F</url>
     <content type="text"><![CDATA[欧几里得算法求最大公约数 Sometimes your whole life boils down to one insane move. 人这一辈子，有时就得靠一次疯狂的举动才能扭转乾坤。 —————————《阿凡达》 @[toc] 一、介绍欧几里得 &emsp;&emsp;像所有博客一样，出于尊重，介绍一下这位伟大的数学家欧几里得。 &emsp;&emsp;欧几里得，古希腊人，数学家，主要成就：数学巨著《几何原本》、欧几里得算法、完全数。 &emsp;&emsp;在柏拉图学派晚期导师普罗克洛斯（约410～485）的《几何学发展概要》中，就记载着这样一则故事，说的是数学在欧几里得的推动下，逐渐成为人们生活中的一个时髦话题(这与当今社会截然相反)，以至于当时亚里山大国王托勒密一世也想赶这一时髦，学点儿几何学。 &emsp;&emsp;虽然这位国王见多识广，但欧氏几何却令他学的很吃力。于是，他问欧几里得“学习几何学有没有什么捷径可走？”，欧几里得笑道：“抱歉，陛下!学习数学和学习一切科学一样，是没有什么捷径可走的。学习数学，人人都得独立思考，就像种庄稼一样，不耕耘是不会有收获的。在这一方面，国王和普通老百姓是一样的。” 从此,“在几何学里,没有专为国王铺设的大道。”这句话成为千古传诵的学习箴言。&emsp;&emsp;总之呢，任何事情都是这样，哪有这么多得捷径可走，天才往往都是天天积累成才。 二、实现思路 定义2.1：设m和n是两个不全为0的整数，称m与n的公因子中最大的为m与n的最大公因子，或最大公约数(greatest common divisor)，记作gcd(m,n)定义2.2：设m和n是两个非零整数，称a与b最小的公倍数为m与n的最小公倍数(least common multiple)，记作lcm(m,n) 欧几里得算法又称辗转相除法 s：设两个正整数m，n且m &gt; n ; s1：令r=m%n（%代表取余）； s2：若r=0(即n整除m)运算结束，n为结果 ； s3：否则令m=n，n=r并返回s1 ； 三、核心思想gcd(m,n)=gcd(n,mod(m,n) lcm(m,n) = ab/gcd(m,n) 证明：不妨设 m=k1d ,n=k2d , k3 = m/n (整除) 则 r=m-k3n=k1d-k2k3d=(k1- k2k3)d故r也是d的倍数，得证$\it gcd (m,n)=gcd(n,mod(m,n)$ 四、优点 一看相比于穷举法，效率也会高很多 五、核心代码 int gcd(int m,int n) { int t,r; if(m&lt;n) swap(m,n); //交换二者的值 while(n!=0) { r=m%n; m=n; n=r; } return n; } int gcd(int m,int n) // 递归做法 { if(m&lt;n) swap(m,n); //交换二者的值 if(n==0) return m; return gcd(n,m%n); } int lcm(int gcd,int m,int n) { return m*n/gcd; } 参考来源：人物简介源自百度百科 在CSDN上的第一篇文章，２０１９加油！]]></content>
@@ -813,6 +802,17 @@
       </categories>
       <tags>
         <tag>数论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[HDU2097Sky数]]></title>
+    <url>%2F2019%2F01%2F09%2F2019-01-09-hdu-2097sky-shu%2F</url>
+    <content type="text"><![CDATA[Sky数 My life didn’t please me, so I created my life.我的生活不曾取悦于我，所以我创造了自己的生活 ———-Coco Chanel Problem Description Sky从小喜欢奇特的东西，而且天生对数字特别敏感，一次偶然的机会，他发现了一个有趣的四位数2992，这个数它的十进制数表示，其四位数字之和为2+9+9+2=22，它的十六进制数BB0，其四位数字之和也为22，同时它的十二进制数表示1894，其四位数字之和也为22，啊哈，真是巧啊。Sky非常喜欢这种四位数，由于他的发现，所以这里我们命名其为Sky数。但是要判断这样的数还是有点麻烦啊，那么现在请你帮忙来判断任何一个十进制的四位数，是不是Sky数吧。 Input 输入含有一些四位正整数，如果为0，则输入结束。 Output 若n为Sky数，则输出“#n is a Sky Number.”，否则输出“#n is not a Sky Number.”。每个结果占一行。注意：#n表示所读入的n值。 Sample Input 299212340 Sample Output 2992 is a Sky Number.1234 is not a Sky Number. 思路 输入一个四位整数，需要将其进制转换，而在进制转换的过程中又可以实现四位数各位相加，看似需要将数据转换成十六进制、十二进制（输入的便是十进制），实则，只需一个进制转换求和函数就可以实现，不妨设转换为n进制，在转换的过程中便可实现求和，先对n求模，再整除n，最后判断和是否相等即可。 代码#include &lt;iostream&gt; using namespace std; int DBC(int a,int n) //将数字a转化为n进制，将其每位相加求和 { int sum=0; while(a) { sum += a%n; a /= n; } return sum; } int main() { int a,b,sum=0; while(cin &gt;&gt; a &amp;&amp; a!=0) { b=a; //个人认为，这里只要三者相等即可，不一定为22 if((DBC(b,10)==DBC(b,16)) &amp;&amp; (DBC(b,10)==DBC(b,12))) cout&lt;&lt; a &lt;&lt; &quot; is a Sky Number.&quot; &lt;&lt; endl; else cout&lt;&lt; a &lt;&lt; &quot; is not a Sky Number.&quot; &lt;&lt; endl; } return 0; }]]></content>
+      <categories>
+        <category>数据结构与算法训练</category>
+      </categories>
+      <tags>
+        <tag>数据结构与算法训练</tag>
       </tags>
   </entry>
 </search>
