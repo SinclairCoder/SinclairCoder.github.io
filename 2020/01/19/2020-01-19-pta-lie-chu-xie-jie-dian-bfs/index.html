@@ -4,11 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="2019蓝桥杯校内选拔赛题解, SinclairのBlog">
-    <meta name="description" content="题目传送A Perfect略
-B Common(Easy Version)详见Common(Easy、Middle 、Hard)
-C Common(Hard Version)详见Common(Easy、Middle 、Hard)
-D Tre">
+    <meta name="keywords" content="PTA列出叶结点(BFS), SinclairのBlog">
+    <meta name="description" content="对于给定的二叉树，本题要求你按从上到下、从左到右的顺序输出其所有叶节点。
+输入格式：首先第一行给出一个正整数 N（≤10），为树中结点总数。树中的结点从 0 到 N−1 编号。随后 N 行，每行给出一个对应结点左右孩子的编号。如果某个孩子不">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +14,7 @@ D Tre">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>2019蓝桥杯校内选拔赛题解 | SinclairのBlog</title>
+    <title>PTA列出叶结点(BFS) | SinclairのBlog</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -257,12 +255,12 @@ D Tre">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2019蓝桥杯校内选拔赛题解</h1>
+                    <h1 class="description center-align post-title">PTA列出叶结点(BFS)</h1>
                 </div>
             </div>
         </div>
@@ -284,8 +282,12 @@ D Tre">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/蓝桥杯/">
-                                <span class="chip bg-color">蓝桥杯</span>
+                            <a href="/tags/PTA/">
+                                <span class="chip bg-color">PTA</span>
+                            </a>
+                        
+                            <a href="/tags/BFS/">
+                                <span class="chip bg-color">BFS</span>
                             </a>
                         
                     </div>
@@ -296,8 +298,8 @@ D Tre">
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/蓝桥杯/" class="post-category">
-                                蓝桥杯
+                            <a href="/categories/PTA/" class="post-category">
+                                PTA
                             </a>
                         
                     </div>
@@ -309,28 +311,28 @@ D Tre">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-12-10
+                    2020-01-19
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-01-22
+                    2020-02-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.5k
+                    466
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    7 Min
+                    2 Min
                 </div>
                 
 
@@ -346,232 +348,82 @@ D Tre">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="题目传送"><a href="#题目传送" class="headerlink" title="题目传送"></a><a href="https://witacm.com/contest_problemset.php?cid=1046" target="_blank" rel="noopener">题目传送</a></h1><h2 id="A-Perfect"><a href="#A-Perfect" class="headerlink" title="A Perfect"></a>A Perfect</h2><p>略</p>
-<h2 id="B-Common-Easy-Version"><a href="#B-Common-Easy-Version" class="headerlink" title="B Common(Easy Version)"></a>B Common(Easy Version)</h2><p>详见<a href="https://blog.csdn.net/SinclairWang/article/details/103428852" target="_blank" rel="noopener">Common(Easy、Middle 、Hard)</a></p>
-<h2 id="C-Common-Hard-Version"><a href="#C-Common-Hard-Version" class="headerlink" title="C Common(Hard Version)"></a>C Common(Hard Version)</h2><p>详见<a href="https://blog.csdn.net/SinclairWang/article/details/103428852" target="_blank" rel="noopener">Common(Easy、Middle 、Hard)</a></p>
-<h2 id="D-Treasure"><a href="#D-Treasure" class="headerlink" title="D Treasure"></a>D Treasure</h2><p>有一个 n 行 m 列的迷宫， 行数从上到下为 1 到 n, 列数从左到右为 1 到 m, 入口为 (1,1),<br>Reverie只能向上下左右四个方向行走。迷宫中有若干个宝箱。Reverie想知道，最少需要走多少步，才能找到一个宝箱。</p>
-<p>第一行两个正整数 n, m, 表示迷宫的行数和列数。<br>之后 n 行，每行 m 个字符, ‘.’ 表示该位置是空地, ‘*’ 表示该位置是障碍, ‘#’ 表示该位置有一个宝箱。<br>保证点 (1,1) 是空地，宝箱所在的格子可以通过。<br>$1≤n,m≤1000$<br>一行内输出一个整数表示答案，如果没有宝箱或者所有宝箱位置均不可达，输出 -1.</p>
-<p>BFS</p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-
+                <p>对于给定的二叉树，本题要求你按从上到下、从左到右的顺序输出其所有叶节点。</p>
+<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>首先第一行给出一个正整数 N（≤10），为树中结点总数。树中的结点从 0 到 N−1 编号。随后 N 行，每行给出一个对应结点左右孩子的编号。如果某个孩子不存在，则在对应位置给出 “-“。编号间以 1 个空格分隔。</p>
+<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>在一行中按规定顺序输出叶节点的编号。编号间以 1 个空格分隔，行首尾不得有多余空格。</p>
+<h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><pre><code>8
+1 -
+- -
+0 -
+2 7
+- -
+- -
+5 -
+4 6
+</code></pre><h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote>
+<p>4 1 5</p>
+</blockquote>
+<p>实现：<br>题意理解了半天… 开个标记数组，在叶子左右孩子节点中出现过的就进行标记。剩下的那一个就是root，然后在进行BFS</p>
+<pre><code class="lang-cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;vector&gt;
+#include&lt;algorithm&gt;
+#include&lt;stack&gt;
+#include&lt;queue&gt;
+#include&lt;map&gt;
+#include&lt;list&gt;
+#include&lt;set&gt;
+#include&lt;cmath&gt;
 using namespace std;
 typedef long long ll;
-#define mp make_pair
-#define pb push_back
-ll gcd(ll a,ll b) { return !b?a:gcd(b,a%b);}
-ll lcm(ll a,ll b){ return a/gcd(a,b)*b;}
-int dx[4]={-1,1,0,0},dy[4]={0,0,-1,1};
-int cnt = 0;
-int r[1000+5][1000+5];
-bool visited[1000+5][1000+5];
-int res[1000+5][1000+5];
-bool bfs(int i,int j){
-    queue&lt;pair&lt;int,int &gt; &gt; q;
-    q.push(mp(i,j));visited[i][j] = 1;
-    pair&lt;int,int&gt; t;
-    while(!q.empty()){
-        t = q.front();
-        i = t.first; j = t.second;
-        q.pop();
-        for(int k=0;k&lt;4;k++){
-            int cx = i+dx[k],cy = j+dy[k];
-            if(r[cx][cy]&amp;&amp;!visited[cx][cy]){
-                cnt = res[i][j]+1;
-                res[cx][cy] = cnt;
-                visited[cx][cy]=1;
-                if(r[cx][cy]==2) return true;
-                else q.push(mp(cx,cy));
-            }
-        }
+
+struct node{
+    int leaf ;
+    int right;
+}q[15]; 
+queue&lt;int&gt; qu; 
+int res[15],top=0;
+void bfs(){
+    while(qu.size()){
+        int num = qu.front();
+        qu.pop();
+        if(q[num].leaf==-1&amp;&amp;q[num].right==-1) res[top++] = num;
+        if(q[num].leaf!=-1) qu.push(q[num].leaf);
+        if(q[num].right!=-1) qu.push(q[num].right);
+
     }
-    return false;
 }
 int main(){
-    int n,m;
-    cin &gt;&gt; n &gt;&gt; m;
-    memset(visited,0,sizeof(visited));
-    memset(r,0,sizeof(r));
-    char c;
-    for(int i=1;i&lt;=n;i++)
-        for(int j=1;j&lt;=m;j++){
-            cin &gt;&gt; c;
-            if(c==&#39;.&#39;) r[i][j] = 1;
-            else if(c==&#39;#&#39;) r[i][j] = 2;
-        }        
-
-    if(bfs(1,1)) cout &lt;&lt; cnt &lt;&lt; endl;
-    else cout &lt;&lt; &quot;-1&quot; &lt;&lt; endl;
-    return 0;
-}
-</code></pre>
-<h2 id="E-Select"><a href="#E-Select" class="headerlink" title="E  Select"></a>E  Select</h2><p>$Reverie有一个长度为 n 的正整数数组 A, 她想从中挑出一些数字，$<br>$使得这些数字的和最大，选中的任意两个数字在原数组中不能相邻。$</p>
-<p>$第一行一个正整数 T, 代表测试的组数。$<br>$每组测试第一行一个正整数 n 表示数组的大小，第二行 n 个正整数表示数组里的数，以空格分隔。$<br>$1≤T≤100$<br>$1≤n≤1000$<br>$1≤A_i≤1000$</p>
-<p>状态转移方程：<br>$dp[0]=a[0],dp[1]=max(a[0],a[1])$<br>$dp[i]=max(dp[i-1],dp[i-2]+a[i])$</p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-int main(){
-    int T;
-    cin &gt;&gt; T;
-    while(T--){
-        int n;
-        cin &gt;&gt; n;
-        int a[n],dp[n+2];
-        memset(dp,0,sizeof(dp));
-        for(int i=0;i&lt;n;i++)
-            cin &gt;&gt; a[i];
-        dp[0] = a[0];
-        dp[1] = max(a[0],a[1]);
-        for(int i=2;i&lt;n;i++)
-            dp[i] = max(dp[i-2]+a[i],dp[i-1]);
-        cout &lt;&lt; dp[n-1] &lt;&lt; endl;
-    } 
-    return 0;
-}
-</code></pre>
-<h2 id="F-Swap-Easy-Vesion"><a href="#F-Swap-Easy-Vesion" class="headerlink" title="F Swap(Easy Vesion)"></a>F Swap(Easy Vesion)</h2><p>$Reverie有一个字符串，她每次操作可以交换其中任意相邻两个字符的位置。$<br>$Reveire想知道，把这个字符串变成字典序最小至少需要多少次操作。$<br>$第一行一个正整数 T, 代表测试的组数。$<br>$每组测试，一行内给出一个仅包含小写字母的字符串 s。$<br>$1≤T≤10$<br>$1≤∣s∣≤1000$</p>
-<p>最小交换次数即逆序对数<br>下面使用两重循环暴力求解</p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-
-ll res = 0 ; 
-char a[1000005];
-int main(){
-    int t;
-    cin &gt;&gt; t;
+    int n,root;
+    cin &gt;&gt; n;
     getchar();
-    while(t--){
-        res = 0;
-        scanf(&quot;%s&quot;,a);
-        int n = strlen(a); 
-        for(int i=0;i&lt;n;i++){
-            for(int j=0;j&lt;i;j++){
-                if(a[j]&gt;a[i]){
-                    res ++;
-                }
-            }
-        }
-        cout &lt;&lt; res &lt;&lt; endl;
-    }
-    return 0;
-}
-</code></pre>
-<h2 id="G-Swap-Hard-Vesion"><a href="#G-Swap-Hard-Vesion" class="headerlink" title="G Swap(Hard Vesion)"></a>G Swap(Hard Vesion)</h2><p>数据范围改变<br>$1≤T≤10$<br>$1≤∣s∣≤100000$<br>暴力不可行，会超时，使用归并排序求逆序对数</p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-/*
-    归并排序求逆序对 
-*/ 
-
-ll res = 0 ; 
-char a[1000005];
-char b[1000005];
-void merge(char a[],int low,int mid,int high){
-    int i = low,j = mid +1,k = 0;
-    while(i&lt;=mid&amp;&amp;j&lt;=high){
-        if((a[i]-&#39;a&#39;)&lt;=(a[j]-&#39;a&#39;))    b[k++] = a[i++];
+    int flag[n];
+    char a,b;
+    memset(q,0,sizeof(q));
+    memset(flag,0,sizeof(flag));
+    for(int i=0;i&lt;n;i++){
+        scanf(&quot;%c %c&quot;,&amp;a,&amp;b);
+        getchar();
+        if(a==&#39;-&#39;) q[i].leaf=-1;
         else {
-            b[k++] = a[j++];
-            res += (mid-i+1);  // 是mid-i+1 而非j-i 
+            q[i].leaf = a-&#39;0&#39;;flag[q[i].leaf] = 1;
+        } 
+        if(b==&#39;-&#39;) q[i].right=-1;
+        else {
+            q[i].right = b-&#39;0&#39;;flag[q[i].right] = 1;
+        }     
+    }
+    for(int i=0;i&lt;n;i++){
+        if(flag[i]==0){
+            root = i;
+            break;
         }
     }
-    while(i&lt;=mid){
-        b[k++] = a[i++];
-    }
-    while(j&lt;=high){
-        b[k++] = a[j++];
-    }
-    k = 0;
-    for(i=low;i&lt;=high;i++,k++){
-        a[i] = b[k];
-    }    
-}
-void merge_sort(char a[],int low, int high){
-    int mid;
-    if(low &lt; high){
-        mid = (low+high)/2;
-        merge_sort(a,low,mid);
-        merge_sort(a,mid+1,high);
-        merge(a,low,mid,high);
-    }
-}
-
-
-int main(){
-    int t;
-    cin &gt;&gt; t;
-    getchar();
-    while(t--){
-        res = 0;
-        scanf(&quot;%s&quot;,a); 
-        merge_sort(a,0,strlen(a)-1);
-        cout &lt;&lt; res &lt;&lt; endl;
-    }
-    return 0;
-}
-</code></pre>
-<h2 id="H-Operator"><a href="#H-Operator" class="headerlink" title="H Operator"></a>H Operator</h2><p>$Reverie有一个长度为n的整数数组A，她想在每两个数之间填入$<br>$‘+’ 或者 ‘-’, 使得最终运算结果尽可能接近给定的评估值 k.$</p>
-<p>$Input$<br>$第一行一个正整数 T, 代表测试的组数。$<br>$每组测试，第一行两个整数 n, k 分别表示数组的大小和给定的评估值，$<br>$第二行 n 个正整数表示数组里的数，以空格分隔。$</p>
-<p>$1≤T≤10$<br>$2≤n≤20$<br>$1≤k,A_i≤10^6$</p>
-<p>$Output$<br>$每组测试，一行内输出一个整数表示运算结果与 k 的差值的绝对值的最小值。$</p>
-<p>$Sample Input$</p>
-<blockquote>
-<p>2<br>3 7<br>3 6 9<br>4 6<br>1 2 3 4</p>
-</blockquote>
-<p>$Sample Output$</p>
-<blockquote>
-<p>1<br>0</p>
-</blockquote>
-<p>DFS即可</p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-
-ll inf = 0x3f3f3f3f;
-const int maxn = 200;
-char best[maxn];
-void dfs(int a[],int n,int sum,int i,char op[],int tar){
-    if(i==n){
-        if(abs(sum-tar)&lt;abs(inf-tar)){
-            inf = sum;
-            for(int i=1;i&lt;n;i++)
-                best[i] = op[i];    
-        }
-        return ;
-    }
-    sum += a[i];
-    op[i] = &#39;+&#39;;
-    dfs(a,n,sum,i+1,op,tar);
-    sum -= a[i];
-
-    sum -= a[i];
-    op[i] = &#39;-&#39;;
-    dfs(a,n,sum,i+1,op,tar);
-    sum += a[i];
-} 
-int main(){
-    int t;
-    cin &gt;&gt; t;
-    getchar();
-    while(t--){
-        int n; cin &gt;&gt; n;
-        ll tar; cin &gt;&gt; tar;
-        int a[n];
-        for(int i=0;i&lt;n;i++)
-            cin &gt;&gt; a[i];
-        char op[n];
-        dfs(a,n,a[0],1,op,tar);
-        ll res = a[0];
-        for(int i=1;i&lt;n;i++){
-            if(best[i]==&#39;+&#39;)
-                res += a[i];
-            else if(best[i]==&#39;-&#39;)
-                res -= a[i];
-        }
-        cout &lt;&lt; abs(res-tar) &lt;&lt; endl;
-        inf = 0x3f3f3f3f;  // 记得修改inf的值 
+    qu.push(root);
+    bfs();
+    cout &lt;&lt; res[0];
+    for(int i=1;i&lt;top;i++){
+        cout &lt;&lt; &quot; &quot; &lt;&lt; res[i];
     }
     return 0;
 }
@@ -601,7 +453,7 @@ int main(){
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://sinclaircoder.top/2019/12/10/2019-12-10-2019-lan-qiao-bei-xiao-nei-xuan-ba-sai-ti-jie/">https://sinclaircoder.top/2019/12/10/2019-12-10-2019-lan-qiao-bei-xiao-nei-xuan-ba-sai-ti-jie/</a>
+                    <a href="https://sinclaircoder.top/2020/01/19/2020-01-19-pta-lie-chu-xie-jie-dian-bfs/">https://sinclaircoder.top/2020/01/19/2020-01-19-pta-lie-chu-xie-jie-dian-bfs/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -639,8 +491,12 @@ int main(){
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/蓝桥杯/">
-                                    <span class="chip bg-color">蓝桥杯</span>
+                                <a href="/tags/PTA/">
+                                    <span class="chip bg-color">PTA</span>
+                                </a>
+                            
+                                <a href="/tags/BFS/">
+                                    <span class="chip bg-color">BFS</span>
                                 </a>
                             
                         </div>
@@ -1073,32 +929,49 @@ int main(){
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2020/01/01/00/">
+                <a href="/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="PTA小字辈（BFS）">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">PTA小字辈（BFS）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            本题给定一个庞大家族的家谱，要请你给出最小一辈的名单。
+输入格式：输入在第一行给出家族人口总数 N（不超过 100 000 的正整数） —— 简单起见，我们把家族成员从 1 到 N 编号。随后第二行给出 N 个编号，其中第 i 个编号对应第
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-01
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-19
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            SinclairWang
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/PTA/" class="post-category">
+                                    PTA
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/PTA/">
+                        <span class="chip bg-color">PTA</span>
+                    </a>
+                    
+                    <a href="/tags/BFS/">
+                        <span class="chip bg-color">BFS</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1110,33 +983,32 @@ int main(){
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/06/2019-12-06-common-easy-middle-hard/">
+                <a href="/2020/01/18/2020-01-18-pta-da-yin-xue-sheng-xuan-ke-qing-dan-ha-xi-biao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Common (Easy、Middle 、Hard)">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="PTA打印学生选课清单(哈希表)">
                         
-                        <span class="card-title">Common (Easy、Middle 、Hard)</span>
+                        <span class="card-title">PTA打印学生选课清单(哈希表)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一道题
-Easy Version题目描述$求区间 [l, r] 内是 a 或 b 的倍数的数的个数。$
-Input$第一行一个正整数 T, 代表测试的组数。$$之后 T 行，每行四个正整数 a, b, l, r, 以空格分隔，意义如题面所述
+                            假设全校有最多40000名学生和最多2500门课程。现给出每门课的选课学生名单，要求输出每个前来查询的学生的选课清单。
+输入格式:输入的第一行是两个正整数：N（≤40000），为前来查询课表的学生总数；K（≤2500），为总课程数。此后顺序
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/蓝桥杯/" class="post-category">
-                                    蓝桥杯
+                            <a href="/categories/PTA/" class="post-category">
+                                    PTA
                                 </a>
                             
                             
@@ -1146,12 +1018,12 @@ Input$第一行一个正整数 T, 代表测试的组数。$$之后 T 行，每�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/组合数学/">
-                        <span class="chip bg-color">组合数学</span>
+                    <a href="/tags/PTA/">
+                        <span class="chip bg-color">PTA</span>
                     </a>
                     
-                    <a href="/tags/暴力/">
-                        <span class="chip bg-color">暴力</span>
+                    <a href="/tags/哈希表/">
+                        <span class="chip bg-color">哈希表</span>
                     </a>
                     
                 </div>
@@ -1232,13 +1104,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 
     <footer class="page-footer bg-color">
