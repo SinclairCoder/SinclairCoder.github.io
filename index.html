@@ -4,8 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="SinclairのBlog">
-    <meta name="description" content="SinclairのBlog">
+    <meta name="keywords" content="Sinclair">
+    <meta name="description" content="Sinclair">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>SinclairのBlog</title>
+    <title>Sinclair</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -39,7 +39,7 @@
                     
                     <img src="/medias/logo.jpg" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">SinclairのBlog</span>
+                    <span class="logo-span">Sinclair</span>
                 </a>
             </div>
             
@@ -137,10 +137,10 @@
         
         <img src="/medias/logo.jpg" class="logo-img circle responsive-img">
         
-        <div class="logo-name">SinclairのBlog</div>
+        <div class="logo-name">Sinclair</div>
         <div class="logo-desc">
             
-            嚼得草根 做得大事
+            Never really desperate, only the lost of the soul.
             
         </div>
     </div>
@@ -283,13 +283,6 @@
 
 <div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
     
-        <div id="prev-cover" class="left waves-effect carousel-control">
-            <i class="icon fa fa-angle-left"></i>
-        </div>
-        <div id="next-cover" class="right waves-effect carousel-control">
-            <i class="icon fa fa-angle-right"></i>
-        </div>
-    
 
     <div class="carousel-item red white-text bg-cover about-cover">
         <div class="container">
@@ -298,7 +291,7 @@
         <div class="brand">
             <div class="title center-align">
                 
-                三寸旧城，七寸执念
+                subtitle
                 
             </div>
 
@@ -495,9 +488,9 @@ SinclairWang 个人博客同步更新，欢迎关注相信每个参赛者都会�
     $(function () {
         let coverSlider = $('.carousel');
         coverSlider.carousel({
-            duration: Number('100'),
+            duration: Number('1000'),
             fullWidth: true,
-            indicators: 'true' === 'true'
+            indicators: 'false' === 'true'
         });
 
         let carouselIntervalId;
@@ -506,7 +499,7 @@ SinclairWang 个人博客同步更新，欢迎关注相信每个参赛者都会�
         let autoCarousel = function() {
             carouselIntervalId = setInterval(function () {
                 coverSlider.carousel('next');
-            }, 3000);
+            }, 30000);
         };
         autoCarousel();
         
@@ -518,16 +511,6 @@ SinclairWang 个人博客同步更新，欢迎关注相信每个参赛者都会�
             
         };
 
-        
-        // prev and next cover post.
-        $('#prev-cover').click(function () {
-            coverSlider.carousel('prev');
-            restartPlay();
-        });
-        $('#next-cover').click(function () {
-            coverSlider.carousel('next');
-            restartPlay();
-        });
         
     });
 </script>
@@ -542,29 +525,12 @@ SinclairWang 个人博客同步更新，欢迎关注相信每个参赛者都会�
             <div class="card">
                 <div class="card-content">
                     
-                        <div class="dream">
-    
-    <div class="title center-align">
-        <i class="far fa-lightbulb"></i>&nbsp;&nbsp;Dreams
-    </div>
-    
-    <div class="row">
-        <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
-            Have some spare time, have a happy family and do what I love and want with my own habbies.
-        </div>
-    </div>
-</div>
-                    
 
                     
                         
 
 <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
 <div class="music-player">
-    
-    <div class="title center-align">
-        <i class="fas fa-music"></i>&nbsp;&nbsp;Enjoy
-    </div>
     
     <div class="row">
         <div class="col l8 offset-l2 m10 offset-m1 s12">
@@ -579,14 +545,14 @@ $(function () {
     new APlayer({
         container: document.getElementById('aplayer'),
         fixed: 'false' === 'true',
-        autoplay: 'true' === 'true',
+        autoplay: 'false' === 'true',
         theme: '#42b983',
         loop: 'all',
         order: 'random',
         preload: 'auto',
         volume: Number('0.5'),
         listFolded: 'false' === 'true',
-        listMaxHeight: '',
+        listMaxHeight: '10',
         audio: eval([{"name":"那女孩对我说","artist":"戴羽彤","url":"http://music.163.com/song/media/outer/url?id=1396568325.mp3","cover":"https://cn.bing.com/th?id=OIP.kiLw-v0q2PijuwPRLOPgfQHaJQ&pid=Api&rs=1"},{"name":"光年之外","artist":"邓紫棋","url":"http://mp32.9ku.com/upload/2017/04/26/861243.m4a","cover":"https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D500/sign=60b1cfbacc5c1038207ecec28210931c/91ef76c6a7efce1b14f7076aa551f3deb58f65b6.jpg"},{"name":"不再犹豫 (Live)+体面 (Live)","artist":"于文文","url":"http://music.163.com/song/media/outer/url?id=1407757605.mp3","cover":"https://tse3-mm.cn.bing.net/th/id/OIP.zqB7IpOMTOmqubbzcVNUfQAAAA?w=212&h=212&c=7&o=5&dpr=1.25&pid=1.7"},{"name":"何为永恒","artist":"胡夏","url":"http://music.163.com/song/media/outer/url?id=1348548038.mp3","cover":"http://pic.qingting.fm/channel/2019/03/18/85c54729e9a890f5d97c9c6af2001d1b.jpg!200"},{"name":"梦幻诛仙","artist":"张碧晨","url":"http://music.163.com/song/media/outer/url?id=438456232.mp3","cover":"http://img5.iqilu.com/c/u/2016/1101/1477975989160.jpg"},{"name":"萧琴合奏","artist":"许昊珂","url":"http://music.163.com/song/media/outer/url?id=1351449586.mp3","cover":"http://pic.qingting.fm/channel/2019/03/18/85c54729e9a890f5d97c9c6af2001d1b.jpg!200"},{"name":"慢慢喜欢你","artist":"莫文蔚","url":"http://music.163.com/song/media/outer/url?id=541687281.mp3","cover":"http://imge.kugou.com/stdmusic/20180524/20180524001021751841.jpg"},{"name":"大雨将至","artist":"徐佳莹","url":"http://music.163.com/song/media/outer/url?id=29774430.mp3","cover":"https://cn.bing.com/th?id=OIP.xH0Jw0bAPnqGcN0tUalPAwHaG9&pid=Api&rs=1"}])
     });
 });
@@ -783,62 +749,6 @@ $(function () {
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/01/20/2020-01-20-pta-lie-chu-lian-tong-ji-dfs-bfs/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="PTA列出连通集(DFS+BFS)">
-                            
-                            <span class="card-title">PTA列出连通集(DFS+BFS)</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                给定一个有N个顶点和E条边的无向图，请用DFS和BFS分别列出其所有的连通集。假设顶点从0到N−1编号。进行搜索时，假设我们总是从编号最小的顶点出发，按编号递增的顺序访问邻接点。
-输入格式:输入第1行给出2个整数N(0&lt;N≤10)和E
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-20
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/PTA/" class="post-category">
-                                    PTA
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/PTA/">
-                            <span class="chip bg-color">PTA</span>
-                        </a>
-                        
-                        <a href="/tags/DFS/">
-                            <span class="chip bg-color">DFS</span>
-                        </a>
-                        
-                        <a href="/tags/BFS/">
-                            <span class="chip bg-color">BFS</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
                     <a href="/2020/01/20/2020-01-20-pta-peng-you-quan-bing-cha-ji/">
                         <div class="card-image">
                             
@@ -890,26 +800,26 @@ $(function () {
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/01/19/2020-01-19-pta-han-mi-er-dun-hui-lu/">
+                    <a href="/2020/01/20/2020-01-20-pta-lie-chu-lian-tong-ji-dfs-bfs/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="PTA汉密尔顿回路">
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="PTA列出连通集(DFS+BFS)">
                             
-                            <span class="card-title">PTA汉密尔顿回路</span>
+                            <span class="card-title">PTA列出连通集(DFS+BFS)</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                著名的“汉密尔顿（Hamilton）回路问题”是要找一个能遍历图中所有顶点的简单回路（即每个顶点只访问 1 次）。本题就要求你判断任一给定的回路是否汉密尔顿回路。
-输入格式：首先第一行给出两个正整数：无向图中顶点数 N（2&lt;N≤200
+                                给定一个有N个顶点和E条边的无向图，请用DFS和BFS分别列出其所有的连通集。假设顶点从0到N−1编号。进行搜索时，假设我们总是从编号最小的顶点出发，按编号递增的顺序访问邻接点。
+输入格式:输入第1行给出2个整数N(0&lt;N≤10)和E
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-20
                             </span>
                             <span class="publish-author">
                                 
@@ -931,8 +841,12 @@ $(function () {
                             <span class="chip bg-color">PTA</span>
                         </a>
                         
-                        <a href="/tags/Hamilton回路/">
-                            <span class="chip bg-color">Hamilton回路</span>
+                        <a href="/tags/DFS/">
+                            <span class="chip bg-color">DFS</span>
+                        </a>
+                        
+                        <a href="/tags/BFS/">
+                            <span class="chip bg-color">BFS</span>
                         </a>
                         
                     </div>
@@ -1040,6 +954,58 @@ $(function () {
                         
                         <a href="/tags/BFS/">
                             <span class="chip bg-color">BFS</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/01/19/2020-01-19-pta-han-mi-er-dun-hui-lu/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="PTA汉密尔顿回路">
+                            
+                            <span class="card-title">PTA汉密尔顿回路</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                著名的“汉密尔顿（Hamilton）回路问题”是要找一个能遍历图中所有顶点的简单回路（即每个顶点只访问 1 次）。本题就要求你判断任一给定的回路是否汉密尔顿回路。
+输入格式：首先第一行给出两个正整数：无向图中顶点数 N（2&lt;N≤200
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/PTA/" class="post-category">
+                                    PTA
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/PTA/">
+                            <span class="chip bg-color">PTA</span>
+                        </a>
+                        
+                        <a href="/tags/Hamilton回路/">
+                            <span class="chip bg-color">Hamilton回路</span>
                         </a>
                         
                     </div>
@@ -1341,6 +1307,17 @@ $(function () {
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135806349-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'UA-135806349-1');
+</script>
+
 
     <!-- Baidu Analytics -->
 
@@ -1409,6 +1386,11 @@ $(function () {
 
     
 
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
     
 
     
