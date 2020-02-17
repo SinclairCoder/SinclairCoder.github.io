@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Sinclair&#39;s Blog</title>
+  <title>SinclairのBlog</title>
   
-  <subtitle>Talk is always cheap.</subtitle>
+  <subtitle>为而不争</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sinclaircoder.top/"/>
@@ -73,13 +73,13 @@
   </entry>
   
   <entry>
-    <title>PTA汉密尔顿回路</title>
-    <link href="https://sinclaircoder.top/2020/01/19/2020-01-19-pta-han-mi-er-dun-hui-lu/"/>
-    <id>https://sinclaircoder.top/2020/01/19/2020-01-19-pta-han-mi-er-dun-hui-lu/</id>
+    <title>PTA小字辈（BFS）</title>
+    <link href="https://sinclaircoder.top/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/"/>
+    <id>https://sinclaircoder.top/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/</id>
     <published>2020-01-18T16:00:00.000Z</published>
-    <updated>2020-01-22T04:34:51.273Z</updated>
+    <updated>2020-01-22T04:32:14.073Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>著名的“汉密尔顿（Hamilton）回路问题”是要找一个能遍历图中所有顶点的简单回路（即每个顶点只访问 1 次）。本题就要求你判断任一给定的回路是否汉密尔顿回路。</p><h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>首先第一行给出两个正整数：无向图中顶点数 N（2&lt;N≤200）和边数 M。随后 M 行，每行给出一条边的两个端点，格式为“顶点1 顶点2”，其中顶点从 1 到N 编号。再下一行给出一个正整数 K，是待检验的回路的条数。随后 K 行，每行给出一条待检回路，格式为：<br>$n\quad V_1\quad V_2⋯ V_​n$</p><p>其中 n 是回路中的顶点数，$V_i$是路径上的顶点编号。</p><h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>对每条待检回路，如果是汉密尔顿回路，就在一行中输出”YES”，否则输出”NO”。</p><h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><blockquote><p>6 10<br>6 2<br>3 4<br>1 5<br>2 5<br>3 1<br>4 1<br>1 6<br>6 3<br>1 2<br>4 5<br>6<br>7 5 1 4 3 6 2 5<br>6 5 1 4 3 6 2<br>9 6 2 1 6 3 4 5 2 6<br>4 1 2 5 1<br>7 6 1 3 4 5 2 6<br>7 6 1 2 5 4 3 1</p></blockquote><h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote><p>YES<br>NO<br>NO<br>NO<br>YES<br>NO</p></blockquote><p><br><br>思路：<br>将边用数组存储起来，判断回路里两条边之前是否连通并且除出发点外其余点只出现一次。如果给定的回路里点的个数不等于n+1，直接NO<br><br></p><pre><code class="lang-cpp">#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;#define N 205int edge[N][N];int main(){    int n,m,x,y;    cin &gt;&gt; n &gt;&gt; m;    memset(edge,0,sizeof(edge));    for(int i=0;i&lt;m;i++){        cin &gt;&gt; x &gt;&gt; y;        edge[x][y] = 1;        edge[y][x] = 1;    }    int t,vis[n+1];    memset(vis,0,sizeof(vis));    cin &gt;&gt; t;    while(t--){        int cnt,pre,flag=1,start;        cin &gt;&gt; cnt;        cin &gt;&gt; start; vis[start]=1;pre = start;        for(int j=1;j&lt;cnt;j++){            cin &gt;&gt; x;            if(!edge[pre][x]) flag = 0;            // 判定条件要注意            if(vis[x]&amp;&amp;(j&lt;cnt-1||x!=start)) flag = 0;//            if(vis[x]&amp;&amp;x!=start||!edge[pre][x]) flag = 0;            vis[x]=1;            pre = x;        }        if(cnt!=n+1) flag = 0;        if(flag) cout&lt;&lt; &quot;YES&quot; &lt;&lt; endl;        else cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl;        memset(vis,0,sizeof(vis));    }     return 0;}</code></pre>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本题给定一个庞大家族的家谱，要请你给出最小一辈的名单。</p><h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>输入在第一行给出家族人口总数 N（不超过 100 000 的正整数） —— 简单起见，我们把家族成员从 1 到 N 编号。随后第二行给出 N 个编号，其中第 i 个编号对应第 i 位成员的父/母。家谱中辈分最高的老祖宗对应的父/母编号为 -1。一行中的数字间以空格分隔。</p><h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>首先输出最小的辈分（老祖宗的辈分为 1，以下逐级递增）。然后在第二行按递增顺序输出辈分最小的成员的编号。编号间以一个空格分隔，行首尾不得有多余空格。</p><h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><blockquote><p>9<br>2 6 5 5 -1 5 6 4 7</p></blockquote><h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote><p>4<br>1 9</p></blockquote><p>其实主要是存储的数据结构的设计。<br><br></p><pre><code class="lang-cpp">#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;struct node{    int father;    vector&lt;int&gt; child;}family[100005];queue&lt;int&gt; qu;vector&lt;int&gt; level;int maxh = 1;void bfs(int root){    qu.push(root);    level[root] = 1;    while(qu.size()){        int index = qu.front();        qu.pop();        vector&lt;int&gt; tmp = family[index].child;        for(int i=0;i&lt;tmp.size();i++){            level[tmp[i]] = level[index]+1;            maxh = max(level[tmp[i]],maxh);            qu.push(family[index].child[i]);         }    }}int main(){    int n,x,root;    cin &gt;&gt; n;    level.resize(n+1);    for(int i=1;i&lt;=n;i++){        cin &gt;&gt; family[i].father;        if(family[i].father==-1) root = i;        else {            family[family[i].father].child.push_back(i);        }    }    bfs(root);    cout &lt;&lt; maxh &lt;&lt; endl;    int first = 1;    for(int i=1;i&lt;=n;i++){        if(level[i]==maxh){            if(first) {                cout &lt;&lt; i ; first = 0;            }            else cout &lt;&lt; &quot; &quot; &lt;&lt; i ;         }    }    return 0;}</code></pre>]]></content>
     
     <summary type="html">
     
@@ -95,7 +95,34 @@
     
       <category term="PTA" scheme="https://sinclaircoder.top/tags/PTA/"/>
     
-      <category term="Hamilton回路" scheme="https://sinclaircoder.top/tags/Hamilton%E5%9B%9E%E8%B7%AF/"/>
+      <category term="BFS" scheme="https://sinclaircoder.top/tags/BFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PTA列出叶结点(BFS)</title>
+    <link href="https://sinclaircoder.top/2020/01/19/2020-01-19-pta-lie-chu-xie-jie-dian-bfs/"/>
+    <id>https://sinclaircoder.top/2020/01/19/2020-01-19-pta-lie-chu-xie-jie-dian-bfs/</id>
+    <published>2020-01-18T16:00:00.000Z</published>
+    <updated>2020-02-16T07:24:07.534Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>对于给定的二叉树，本题要求你按从上到下、从左到右的顺序输出其所有叶节点。</p><h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>首先第一行给出一个正整数 N（≤10），为树中结点总数。树中的结点从 0 到 N−1 编号。随后 N 行，每行给出一个对应结点左右孩子的编号。如果某个孩子不存在，则在对应位置给出 “-“。编号间以 1 个空格分隔。</p><h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>在一行中按规定顺序输出叶节点的编号。编号间以 1 个空格分隔，行首尾不得有多余空格。</p><h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><pre><code>81 -- -0 -2 7- -- -5 -4 6</code></pre><h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote><p>4 1 5</p></blockquote><p>实现：<br>题意理解了半天… 开个标记数组，在叶子左右孩子节点中出现过的就进行标记。剩下的那一个就是root，然后在进行BFS</p><pre><code class="lang-cpp">#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;struct node{    int leaf ;    int right;}q[15]; queue&lt;int&gt; qu; int res[15],top=0;void bfs(){    while(qu.size()){        int num = qu.front();        qu.pop();        if(q[num].leaf==-1&amp;&amp;q[num].right==-1) res[top++] = num;        if(q[num].leaf!=-1) qu.push(q[num].leaf);        if(q[num].right!=-1) qu.push(q[num].right);    }}int main(){    int n,root;    cin &gt;&gt; n;    getchar();    int flag[n];    char a,b;    memset(q,0,sizeof(q));    memset(flag,0,sizeof(flag));    for(int i=0;i&lt;n;i++){        scanf(&quot;%c %c&quot;,&amp;a,&amp;b);        getchar();        if(a==&#39;-&#39;) q[i].leaf=-1;        else {            q[i].leaf = a-&#39;0&#39;;flag[q[i].leaf] = 1;        }         if(b==&#39;-&#39;) q[i].right=-1;        else {            q[i].right = b-&#39;0&#39;;flag[q[i].right] = 1;        }         }    for(int i=0;i&lt;n;i++){        if(flag[i]==0){            root = i;            break;        }    }    qu.push(root);    bfs();    cout &lt;&lt; res[0];    for(int i=1;i&lt;top;i++){        cout &lt;&lt; &quot; &quot; &lt;&lt; res[i];    }    return 0;}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="PTA" scheme="https://sinclaircoder.top/categories/PTA/"/>
+    
+    
+      <category term="PTA" scheme="https://sinclaircoder.top/tags/PTA/"/>
+    
+      <category term="BFS" scheme="https://sinclaircoder.top/tags/BFS/"/>
     
   </entry>
   
@@ -129,13 +156,13 @@
   </entry>
   
   <entry>
-    <title>PTA列出叶结点(BFS)</title>
-    <link href="https://sinclaircoder.top/2020/01/19/2020-01-19-pta-lie-chu-xie-jie-dian-bfs/"/>
-    <id>https://sinclaircoder.top/2020/01/19/2020-01-19-pta-lie-chu-xie-jie-dian-bfs/</id>
+    <title>PTA汉密尔顿回路</title>
+    <link href="https://sinclaircoder.top/2020/01/19/2020-01-19-pta-han-mi-er-dun-hui-lu/"/>
+    <id>https://sinclaircoder.top/2020/01/19/2020-01-19-pta-han-mi-er-dun-hui-lu/</id>
     <published>2020-01-18T16:00:00.000Z</published>
-    <updated>2020-02-16T07:24:07.534Z</updated>
+    <updated>2020-01-22T04:34:51.273Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>对于给定的二叉树，本题要求你按从上到下、从左到右的顺序输出其所有叶节点。</p><h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>首先第一行给出一个正整数 N（≤10），为树中结点总数。树中的结点从 0 到 N−1 编号。随后 N 行，每行给出一个对应结点左右孩子的编号。如果某个孩子不存在，则在对应位置给出 “-“。编号间以 1 个空格分隔。</p><h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>在一行中按规定顺序输出叶节点的编号。编号间以 1 个空格分隔，行首尾不得有多余空格。</p><h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><pre><code>81 -- -0 -2 7- -- -5 -4 6</code></pre><h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote><p>4 1 5</p></blockquote><p>实现：<br>题意理解了半天… 开个标记数组，在叶子左右孩子节点中出现过的就进行标记。剩下的那一个就是root，然后在进行BFS</p><pre><code class="lang-cpp">#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;struct node{    int leaf ;    int right;}q[15]; queue&lt;int&gt; qu; int res[15],top=0;void bfs(){    while(qu.size()){        int num = qu.front();        qu.pop();        if(q[num].leaf==-1&amp;&amp;q[num].right==-1) res[top++] = num;        if(q[num].leaf!=-1) qu.push(q[num].leaf);        if(q[num].right!=-1) qu.push(q[num].right);    }}int main(){    int n,root;    cin &gt;&gt; n;    getchar();    int flag[n];    char a,b;    memset(q,0,sizeof(q));    memset(flag,0,sizeof(flag));    for(int i=0;i&lt;n;i++){        scanf(&quot;%c %c&quot;,&amp;a,&amp;b);        getchar();        if(a==&#39;-&#39;) q[i].leaf=-1;        else {            q[i].leaf = a-&#39;0&#39;;flag[q[i].leaf] = 1;        }         if(b==&#39;-&#39;) q[i].right=-1;        else {            q[i].right = b-&#39;0&#39;;flag[q[i].right] = 1;        }         }    for(int i=0;i&lt;n;i++){        if(flag[i]==0){            root = i;            break;        }    }    qu.push(root);    bfs();    cout &lt;&lt; res[0];    for(int i=1;i&lt;top;i++){        cout &lt;&lt; &quot; &quot; &lt;&lt; res[i];    }    return 0;}</code></pre>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>著名的“汉密尔顿（Hamilton）回路问题”是要找一个能遍历图中所有顶点的简单回路（即每个顶点只访问 1 次）。本题就要求你判断任一给定的回路是否汉密尔顿回路。</p><h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>首先第一行给出两个正整数：无向图中顶点数 N（2&lt;N≤200）和边数 M。随后 M 行，每行给出一条边的两个端点，格式为“顶点1 顶点2”，其中顶点从 1 到N 编号。再下一行给出一个正整数 K，是待检验的回路的条数。随后 K 行，每行给出一条待检回路，格式为：<br>$n\quad V_1\quad V_2⋯ V_​n$</p><p>其中 n 是回路中的顶点数，$V_i$是路径上的顶点编号。</p><h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>对每条待检回路，如果是汉密尔顿回路，就在一行中输出”YES”，否则输出”NO”。</p><h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><blockquote><p>6 10<br>6 2<br>3 4<br>1 5<br>2 5<br>3 1<br>4 1<br>1 6<br>6 3<br>1 2<br>4 5<br>6<br>7 5 1 4 3 6 2 5<br>6 5 1 4 3 6 2<br>9 6 2 1 6 3 4 5 2 6<br>4 1 2 5 1<br>7 6 1 3 4 5 2 6<br>7 6 1 2 5 4 3 1</p></blockquote><h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote><p>YES<br>NO<br>NO<br>NO<br>YES<br>NO</p></blockquote><p><br><br>思路：<br>将边用数组存储起来，判断回路里两条边之前是否连通并且除出发点外其余点只出现一次。如果给定的回路里点的个数不等于n+1，直接NO<br><br></p><pre><code class="lang-cpp">#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;#define N 205int edge[N][N];int main(){    int n,m,x,y;    cin &gt;&gt; n &gt;&gt; m;    memset(edge,0,sizeof(edge));    for(int i=0;i&lt;m;i++){        cin &gt;&gt; x &gt;&gt; y;        edge[x][y] = 1;        edge[y][x] = 1;    }    int t,vis[n+1];    memset(vis,0,sizeof(vis));    cin &gt;&gt; t;    while(t--){        int cnt,pre,flag=1,start;        cin &gt;&gt; cnt;        cin &gt;&gt; start; vis[start]=1;pre = start;        for(int j=1;j&lt;cnt;j++){            cin &gt;&gt; x;            if(!edge[pre][x]) flag = 0;            // 判定条件要注意            if(vis[x]&amp;&amp;(j&lt;cnt-1||x!=start)) flag = 0;//            if(vis[x]&amp;&amp;x!=start||!edge[pre][x]) flag = 0;            vis[x]=1;            pre = x;        }        if(cnt!=n+1) flag = 0;        if(flag) cout&lt;&lt; &quot;YES&quot; &lt;&lt; endl;        else cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl;        memset(vis,0,sizeof(vis));    }     return 0;}</code></pre>]]></content>
     
     <summary type="html">
     
@@ -151,34 +178,7 @@
     
       <category term="PTA" scheme="https://sinclaircoder.top/tags/PTA/"/>
     
-      <category term="BFS" scheme="https://sinclaircoder.top/tags/BFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PTA小字辈（BFS）</title>
-    <link href="https://sinclaircoder.top/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/"/>
-    <id>https://sinclaircoder.top/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/</id>
-    <published>2020-01-18T16:00:00.000Z</published>
-    <updated>2020-01-22T04:32:14.073Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本题给定一个庞大家族的家谱，要请你给出最小一辈的名单。</p><h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>输入在第一行给出家族人口总数 N（不超过 100 000 的正整数） —— 简单起见，我们把家族成员从 1 到 N 编号。随后第二行给出 N 个编号，其中第 i 个编号对应第 i 位成员的父/母。家谱中辈分最高的老祖宗对应的父/母编号为 -1。一行中的数字间以空格分隔。</p><h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>首先输出最小的辈分（老祖宗的辈分为 1，以下逐级递增）。然后在第二行按递增顺序输出辈分最小的成员的编号。编号间以一个空格分隔，行首尾不得有多余空格。</p><h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><blockquote><p>9<br>2 6 5 5 -1 5 6 4 7</p></blockquote><h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote><p>4<br>1 9</p></blockquote><p>其实主要是存储的数据结构的设计。<br><br></p><pre><code class="lang-cpp">#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;struct node{    int father;    vector&lt;int&gt; child;}family[100005];queue&lt;int&gt; qu;vector&lt;int&gt; level;int maxh = 1;void bfs(int root){    qu.push(root);    level[root] = 1;    while(qu.size()){        int index = qu.front();        qu.pop();        vector&lt;int&gt; tmp = family[index].child;        for(int i=0;i&lt;tmp.size();i++){            level[tmp[i]] = level[index]+1;            maxh = max(level[tmp[i]],maxh);            qu.push(family[index].child[i]);         }    }}int main(){    int n,x,root;    cin &gt;&gt; n;    level.resize(n+1);    for(int i=1;i&lt;=n;i++){        cin &gt;&gt; family[i].father;        if(family[i].father==-1) root = i;        else {            family[family[i].father].child.push_back(i);        }    }    bfs(root);    cout &lt;&lt; maxh &lt;&lt; endl;    int first = 1;    for(int i=1;i&lt;=n;i++){        if(level[i]==maxh){            if(first) {                cout &lt;&lt; i ; first = 0;            }            else cout &lt;&lt; &quot; &quot; &lt;&lt; i ;         }    }    return 0;}</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="PTA" scheme="https://sinclaircoder.top/categories/PTA/"/>
-    
-    
-      <category term="PTA" scheme="https://sinclaircoder.top/tags/PTA/"/>
-    
-      <category term="BFS" scheme="https://sinclaircoder.top/tags/BFS/"/>
+      <category term="Hamilton回路" scheme="https://sinclaircoder.top/tags/Hamilton%E5%9B%9E%E8%B7%AF/"/>
     
   </entry>
   
@@ -393,33 +393,6 @@
   </entry>
   
   <entry>
-    <title>回溯算法求解数独问题(C++ 递归/非递归)</title>
-    <link href="https://sinclaircoder.top/2019/11/29/2019-11-29-hui-su-suan-fa-qiu-jie-shu-du-wen-ti-c-di-gui-fei-di-gui/"/>
-    <id>https://sinclaircoder.top/2019/11/29/2019-11-29-hui-su-suan-fa-qiu-jie-shu-du-wen-ti-c-di-gui-fei-di-gui/</id>
-    <published>2019-11-28T16:00:00.000Z</published>
-    <updated>2020-01-22T04:05:23.457Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://img-blog.csdnimg.cn/20191129202756865.png" alt="数独求解"><br>如何使用求解上述数独?</p><h2 id="递归实现"><a href="#递归实现" class="headerlink" title="递归实现"></a>递归实现</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;using namespace std;int sudoku[9][9];int dx[9]= {-1,-1,-1,0,0,0,1,1,1},dy[9]={-1,0,1,-1,0,1,-1,0,1};void print(){    for(int i=0;i&lt;9;i++){        for(int j=0;j&lt;9;j++)            cout &lt;&lt; sudoku[i][j] &lt;&lt; &quot; &quot;;        cout &lt;&lt; endl;    }}bool check(int i,int j, int num){ // (i,j)位置填入num判断是否合适     for(int k=0;k&lt;9;k++){   // 所在行和列判断         if(sudoku[i][k]==num||sudoku[k][j]==num){            return false;        }    }    int cx = i/3*3+1, cy = j/3*3+1;    for(int k=0;k&lt;9;k++){                   // 九宫格         int cur_x = cx+dx[k],cur_y = cy+dy[k];        if(sudoku[cur_x][cur_y]==num)            return false;    }    return true;}void  search(int i,int j){    if(i==8&amp;&amp;j==9) {        print();        return ;    }    if(j==9){        i++;        j=0;    }    if(sudoku[i][j]==0){        for(int num=1;num&lt;=9;num++){            if(check(i,j,num)){                sudoku[i][j] = num;                search(i,j+1);                sudoku[i][j] = 0;            }        }    }    else         search(i,j+1);}int main(){    for(int i=0;i&lt;9;i++)        for(int j=0;j&lt;9;j++)            cin &gt;&gt; sudoku[i][j];        search(0,0);        return 0;}</code></pre><h2 id="非递归实现"><a href="#非递归实现" class="headerlink" title="非递归实现"></a>非递归实现</h2><p>非递归回溯求解数独问题，每次在9*9的矩阵中按行优先寻找第一个不为0的位置<br>并将该位置进栈，然后对该位置进行从num=1到9试填，并check该位置放num是否合适，<br>如果不合适就将该点出栈，同时将值置为0，否则就放入num，然后将下一个0位置进栈… </p><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt; using namespace std;int sudoku[9][9];int dx[9]= {-1,-1,-1,0,0,0,1,1,1},dy[9]={-1,0,1,-1,0,1,-1,0,1};void print(){    for(int i=0;i&lt;9;i++){        for(int j=0;j&lt;9;j++)            cout &lt;&lt; sudoku[i][j] &lt;&lt; &quot; &quot;;        cout &lt;&lt; endl;    }}bool check(int i,int j, int num){ // (i,j)位置填入num判断是否合适     for(int k=0;k&lt;9;k++){   // 所在行和列判断         if(sudoku[i][k]==num||sudoku[k][j]==num){            return false;        }    }    int cx = i/3*3+1, cy = j/3*3+1;    for(int k=0;k&lt;9;k++){                   // 九宫格         int cur_x = cx+dx[k],cur_y = cy+dy[k];        if(sudoku[cur_x][cur_y]==num)            return false;    }    return true;}int find(){    for (int i = 0;i&lt;81;i++)        if (!sudoku[i/9][i%9])            return i;    return -1;}bool solve(){   // 非递归回溯     stack&lt;int&gt; st;    st.push(find());    int num;    while(!st.empty()&amp;&amp;(st.top()&gt;=0)){        int x = st.top()/9, y = st.top()%9;        for(num = sudoku[x][y]+1;num&lt;=9&amp;&amp;(!check(x,y,num));num++);        if(num&gt;9){            sudoku[x][y] = 0;            st.pop();            }        else {            sudoku[x][y] = num;            st.push(find());        }        }     return (!st.empty());}int main(){    for(int i=0;i&lt;9;i++)        for(int j=0;j&lt;9;j++)            cin &gt;&gt; sudoku[i][j];    if(solve()){        print();        }    else cout &lt;&lt; &quot;无解&quot; &lt;&lt; endl;     return 0;}</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="数据结构与算法训练" scheme="https://sinclaircoder.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83/"/>
-    
-    
-      <category term="回溯法" scheme="https://sinclaircoder.top/tags/%E5%9B%9E%E6%BA%AF%E6%B3%95/"/>
-    
-      <category term="数独" scheme="https://sinclaircoder.top/tags/%E6%95%B0%E7%8B%AC/"/>
-    
-  </entry>
-  
-  <entry>
     <title>回溯法求解幂集</title>
     <link href="https://sinclaircoder.top/2019/11/29/2019-11-29-hui-su-fa-qiu-jie-mi-ji/"/>
     <id>https://sinclaircoder.top/2019/11/29/2019-11-29-hui-su-fa-qiu-jie-mi-ji/</id>
@@ -447,6 +420,33 @@
   </entry>
   
   <entry>
+    <title>回溯算法求解数独问题(C++ 递归/非递归)</title>
+    <link href="https://sinclaircoder.top/2019/11/29/2019-11-29-hui-su-suan-fa-qiu-jie-shu-du-wen-ti-c-di-gui-fei-di-gui/"/>
+    <id>https://sinclaircoder.top/2019/11/29/2019-11-29-hui-su-suan-fa-qiu-jie-shu-du-wen-ti-c-di-gui-fei-di-gui/</id>
+    <published>2019-11-28T16:00:00.000Z</published>
+    <updated>2020-01-22T04:05:23.457Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://img-blog.csdnimg.cn/20191129202756865.png" alt="数独求解"><br>如何使用求解上述数独?</p><h2 id="递归实现"><a href="#递归实现" class="headerlink" title="递归实现"></a>递归实现</h2><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;using namespace std;int sudoku[9][9];int dx[9]= {-1,-1,-1,0,0,0,1,1,1},dy[9]={-1,0,1,-1,0,1,-1,0,1};void print(){    for(int i=0;i&lt;9;i++){        for(int j=0;j&lt;9;j++)            cout &lt;&lt; sudoku[i][j] &lt;&lt; &quot; &quot;;        cout &lt;&lt; endl;    }}bool check(int i,int j, int num){ // (i,j)位置填入num判断是否合适     for(int k=0;k&lt;9;k++){   // 所在行和列判断         if(sudoku[i][k]==num||sudoku[k][j]==num){            return false;        }    }    int cx = i/3*3+1, cy = j/3*3+1;    for(int k=0;k&lt;9;k++){                   // 九宫格         int cur_x = cx+dx[k],cur_y = cy+dy[k];        if(sudoku[cur_x][cur_y]==num)            return false;    }    return true;}void  search(int i,int j){    if(i==8&amp;&amp;j==9) {        print();        return ;    }    if(j==9){        i++;        j=0;    }    if(sudoku[i][j]==0){        for(int num=1;num&lt;=9;num++){            if(check(i,j,num)){                sudoku[i][j] = num;                search(i,j+1);                sudoku[i][j] = 0;            }        }    }    else         search(i,j+1);}int main(){    for(int i=0;i&lt;9;i++)        for(int j=0;j&lt;9;j++)            cin &gt;&gt; sudoku[i][j];        search(0,0);        return 0;}</code></pre><h2 id="非递归实现"><a href="#非递归实现" class="headerlink" title="非递归实现"></a>非递归实现</h2><p>非递归回溯求解数独问题，每次在9*9的矩阵中按行优先寻找第一个不为0的位置<br>并将该位置进栈，然后对该位置进行从num=1到9试填，并check该位置放num是否合适，<br>如果不合适就将该点出栈，同时将值置为0，否则就放入num，然后将下一个0位置进栈… </p><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt; using namespace std;int sudoku[9][9];int dx[9]= {-1,-1,-1,0,0,0,1,1,1},dy[9]={-1,0,1,-1,0,1,-1,0,1};void print(){    for(int i=0;i&lt;9;i++){        for(int j=0;j&lt;9;j++)            cout &lt;&lt; sudoku[i][j] &lt;&lt; &quot; &quot;;        cout &lt;&lt; endl;    }}bool check(int i,int j, int num){ // (i,j)位置填入num判断是否合适     for(int k=0;k&lt;9;k++){   // 所在行和列判断         if(sudoku[i][k]==num||sudoku[k][j]==num){            return false;        }    }    int cx = i/3*3+1, cy = j/3*3+1;    for(int k=0;k&lt;9;k++){                   // 九宫格         int cur_x = cx+dx[k],cur_y = cy+dy[k];        if(sudoku[cur_x][cur_y]==num)            return false;    }    return true;}int find(){    for (int i = 0;i&lt;81;i++)        if (!sudoku[i/9][i%9])            return i;    return -1;}bool solve(){   // 非递归回溯     stack&lt;int&gt; st;    st.push(find());    int num;    while(!st.empty()&amp;&amp;(st.top()&gt;=0)){        int x = st.top()/9, y = st.top()%9;        for(num = sudoku[x][y]+1;num&lt;=9&amp;&amp;(!check(x,y,num));num++);        if(num&gt;9){            sudoku[x][y] = 0;            st.pop();            }        else {            sudoku[x][y] = num;            st.push(find());        }        }     return (!st.empty());}int main(){    for(int i=0;i&lt;9;i++)        for(int j=0;j&lt;9;j++)            cin &gt;&gt; sudoku[i][j];    if(solve()){        print();        }    else cout &lt;&lt; &quot;无解&quot; &lt;&lt; endl;     return 0;}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="数据结构与算法训练" scheme="https://sinclaircoder.top/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83/"/>
+    
+    
+      <category term="回溯法" scheme="https://sinclaircoder.top/tags/%E5%9B%9E%E6%BA%AF%E6%B3%95/"/>
+    
+      <category term="数独" scheme="https://sinclaircoder.top/tags/%E6%95%B0%E7%8B%AC/"/>
+    
+  </entry>
+  
+  <entry>
     <title>切面条</title>
     <link href="https://sinclaircoder.top/2019/11/22/2019-11-22-qie-mian-tiao/"/>
     <id>https://sinclaircoder.top/2019/11/22/2019-11-22-qie-mian-tiao/</id>
@@ -466,6 +466,33 @@
     
       <category term="蓝桥杯" scheme="https://sinclaircoder.top/categories/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
     
+    
+      <category term="蓝桥杯" scheme="https://sinclaircoder.top/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>熊怪吃核桃--二进制的使用</title>
+    <link href="https://sinclaircoder.top/2019/11/22/2019-11-22-xiong-guai-chi-he-tao-er-jin-zhi-de-shi-yong/"/>
+    <id>https://sinclaircoder.top/2019/11/22/2019-11-22-xiong-guai-chi-he-tao-er-jin-zhi-de-shi-yong/</id>
+    <published>2019-11-21T16:00:00.000Z</published>
+    <updated>2020-01-22T03:59:04.091Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一道2015年蓝桥杯省赛试题<br><strong>熊怪吃核桃</strong></p><ul><li>森林里有一只熊怪，很爱吃核桃。</li><li>不过它有个习惯，每次都把找到的核桃分成相等的两份，吃掉一份，留一份。</li><li>如果不能等分，熊怪就会扔掉一个核桃再分。</li><li>第二天再继续这个过程，直到最后剩一个核桃了，直接丢掉。</li><li>有一天，熊怪发现了1543个核桃，请问，它在吃这些核桃的过程中，一共要丢掉多少个核桃。</li></ul><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>思路就是每次判读一下是奇数还是偶数，奇数的话就减1然后除以2，偶数的话就直接除以2。用C/C++实现写起来其实很简单，其实还有一种更妙的思路，这个过程其实就是一个除2的过程，也就类似于十进制转二进制的过程，所以直接在Windows下利用计算器输入1543转成二进制，然后数一数二进制里面有几个1即可。</p><ul><li>1543对应的二进制是110 0000 0111，里面有5个1。</li></ul><p>顺便放一个代码实现吧</p><pre><code class="lang-cpp">#include&lt;iostream&gt;using namespace std;int main(){    int n = 1543,cnt = 0;    while(n){        if(n&amp;1){            n--;cnt++;            n /= 2;        }        else n /= 2;    }    cout &lt;&lt; cnt &lt;&lt; endl;    return 0;}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="蓝桥杯" scheme="https://sinclaircoder.top/categories/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
+    
+    
+      <category term="位运算" scheme="https://sinclaircoder.top/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
     
       <category term="蓝桥杯" scheme="https://sinclaircoder.top/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
     
@@ -499,40 +526,13 @@
   </entry>
   
   <entry>
-    <title>熊怪吃核桃--二进制的使用</title>
-    <link href="https://sinclaircoder.top/2019/11/22/2019-11-22-xiong-guai-chi-he-tao-er-jin-zhi-de-shi-yong/"/>
-    <id>https://sinclaircoder.top/2019/11/22/2019-11-22-xiong-guai-chi-he-tao-er-jin-zhi-de-shi-yong/</id>
+    <title>蓝桥杯集训笔记</title>
+    <link href="https://sinclaircoder.top/2019/11/22/2019-11-22-lan-qiao-bei-ji-xun-bi-ji/"/>
+    <id>https://sinclaircoder.top/2019/11/22/2019-11-22-lan-qiao-bei-ji-xun-bi-ji/</id>
     <published>2019-11-21T16:00:00.000Z</published>
-    <updated>2020-01-22T03:59:04.091Z</updated>
+    <updated>2020-01-22T04:02:15.521Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一道2015年蓝桥杯省赛试题<br><strong>熊怪吃核桃</strong></p><ul><li>森林里有一只熊怪，很爱吃核桃。</li><li>不过它有个习惯，每次都把找到的核桃分成相等的两份，吃掉一份，留一份。</li><li>如果不能等分，熊怪就会扔掉一个核桃再分。</li><li>第二天再继续这个过程，直到最后剩一个核桃了，直接丢掉。</li><li>有一天，熊怪发现了1543个核桃，请问，它在吃这些核桃的过程中，一共要丢掉多少个核桃。</li></ul><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>思路就是每次判读一下是奇数还是偶数，奇数的话就减1然后除以2，偶数的话就直接除以2。用C/C++实现写起来其实很简单，其实还有一种更妙的思路，这个过程其实就是一个除2的过程，也就类似于十进制转二进制的过程，所以直接在Windows下利用计算器输入1543转成二进制，然后数一数二进制里面有几个1即可。</p><ul><li>1543对应的二进制是110 0000 0111，里面有5个1。</li></ul><p>顺便放一个代码实现吧</p><pre><code class="lang-cpp">#include&lt;iostream&gt;using namespace std;int main(){    int n = 1543,cnt = 0;    while(n){        if(n&amp;1){            n--;cnt++;            n /= 2;        }        else n /= 2;    }    cout &lt;&lt; cnt &lt;&lt; endl;    return 0;}</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="蓝桥杯" scheme="https://sinclaircoder.top/categories/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
-    
-    
-      <category term="位运算" scheme="https://sinclaircoder.top/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
-    
-      <category term="蓝桥杯" scheme="https://sinclaircoder.top/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>大数乘法 java BigInteger的使用</title>
-    <link href="https://sinclaircoder.top/2019/11/22/2019-11-22-da-shu-cheng-fa-java-biginteger-de-shi-yong/"/>
-    <id>https://sinclaircoder.top/2019/11/22/2019-11-22-da-shu-cheng-fa-java-biginteger-de-shi-yong/</id>
-    <published>2019-11-21T16:00:00.000Z</published>
-    <updated>2020-01-22T03:58:51.898Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>找个大数乘法的题目练习一下 BigInterger的使用</p><blockquote><p>当两个比较大的整数相乘时，可能会出现数据溢出的情形。为避免溢出，可以采用字符串的方法来实现两个大数之间的乘法。具体来说，首先以字符串的形式输入两个整数，每个整数的长度不会超过8位，然后把它们相乘的结果存储在另一个字符串当中（长度不会超过16位），最后把这个字符串打印出来。例如，假设用户输入为：62773417和12345678，则输出结果为：774980393241726.</p></blockquote><p>输入：</p><blockquote><p>62773417 12345678</p></blockquote><p>输出：</p><blockquote><p>774980393241726</p></blockquote><p>代码实现</p><pre><code class="lang-java">import java.math.BigInteger;import java.util.Scanner;public class Main {    public static void main(String[] args) {        Scanner input = new Scanner(System.in);        String str1 = input.next(),str2 = input.next();        BigInteger num1 = new BigInteger(str1);        BigInteger num2 = new BigInteger(str2);        BigInteger res = num1.multiply(num2);        System.out.println(res.toString());        input.close();    }}</code></pre><p>比C/C++实现起来爽很多。<br>一般来说BigInteger是使用String类型进行构造，传入两个个数字字符串，然后进行加减乘除。<br>java中并没有重载运算符这种操作，只能另外实现封装成新的函数。</p><p>一些常用API请参考<a href="https://blog.csdn.net/suyebiubiu/article/details/78511556" target="_blank" rel="noopener">java基础-BigInteger的使用</a></p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="数学建模的思想"><a href="#数学建模的思想" class="headerlink" title="数学建模的思想"></a>数学建模的思想</h2><p>几道题目</p><ul><li><a href="https://blog.csdn.net/SinclairWang/article/details/103203318" target="_blank" rel="noopener">熊怪吃核桃—二进制的使用</a></li><li><a href="https://blog.csdn.net/SinclairWang/article/details/103204198" target="_blank" rel="noopener">切面条</a><h3 id="余数的使用"><a href="#余数的使用" class="headerlink" title="余数的使用"></a>余数的使用</h3>余数运算对于加法、减法和乘法封闭，常用于循环队列等使用，也可以利用余数的性质大幅度简化编码<br>常用场合：递推法，倒推法<br>有很多经典的题目，比如猴子吃桃..<br>猜字母（待补..）</li></ul><h3 id="统计某种运算的结果末尾0的个数"><a href="#统计某种运算的结果末尾0的个数" class="headerlink" title="统计某种运算的结果末尾0的个数"></a>统计某种运算的结果末尾0的个数</h3><p>统计因子中能被2和5整除的个数分别为n1,n2</p><script type="math/tex; mode=display">result = min(n1,n2)</script><h3 id="毕达哥拉斯定理（勾股定理）"><a href="#毕达哥拉斯定理（勾股定理）" class="headerlink" title="毕达哥拉斯定理（勾股定理）"></a>毕达哥拉斯定理（勾股定理）</h3><p>可以直接利用$x^2+y^2=z^2$在正整数域构造基础解系</p><script type="math/tex; mode=display">\begin{cases}x=2k+1\\y=2k^2+2k\\ z = 2k^2+2k+1 \\ k = 1,2,3,... \end{cases}</script><p>另一种解系：</p><script type="math/tex; mode=display">\begin{cases}x=st\\y=\frac{t^2-s^2}{2}\\ z =\frac{t^2+s^2}{2} \\ s =1,3,5,7.. \\ gcd(t,s)=1 \end{cases}</script><h2 id="超长位数的处理"><a href="#超长位数的处理" class="headerlink" title="超长位数的处理"></a>超长位数的处理</h2><ul><li>存储方式：字符串、整数数组（甚至采用整型数组紧缩存放，即数组中一个元素存放多位，输出的时候使用printf(“%nd”,x[i]);</li><li>存储格式：把低位放在前，高位放在后面，符号位和小数位单独处理，可使用标志变量</li><li><p>运算方式</p><ul><li>C/C++使用数组模拟进行加减乘除，及时取余进位操作，小心溢出</li><li>java 中里面提供了两个类BigInteger，BigDecimal分别对应大整数、高精度小数的处理 。</li><li><strong>tips：尽管是C/C++选手，假如遇到了大数运算的题目，又刚好是个填空题，不妨简单学下Java里面的这个两个类，甚至Date类（日期计算），求结果多快好省，何乐而不为？</strong></li></ul></li></ul><p>两个往年题目练习一下BigInteger，BigDecimal的使用</p><ul><li><a href="https://blog.csdn.net/SinclairWang/article/details/103191468" target="_blank" rel="noopener">大数乘法 java BigInteger的使用</a></li><li><a href="https://blog.csdn.net/SinclairWang/article/details/103202851" target="_blank" rel="noopener">黄金连分数—BigDecimal的使用</a></li></ul><h2 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h2><p>对应2019省赛A组题目RSA解密<br>涉及的知识点如下</p><ul><li>逆元</li><li>欧拉函数</li><li>快速幂</li><li>素数筛</li><li>扩展欧几里得算法</li></ul><p>（待补..）</p>]]></content>
     
     <summary type="html">
     
@@ -547,8 +547,6 @@
     
     
       <category term="蓝桥杯" scheme="https://sinclaircoder.top/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
-    
-      <category term="BigInteger" scheme="https://sinclaircoder.top/tags/BigInteger/"/>
     
   </entry>
   
