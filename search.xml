@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[PTA朋友圈(并查集)]]></title>
-    <url>%2F2020%2F01%2F20%2F2020-01-20-pta-peng-you-quan-bing-cha-ji%2F</url>
-    <content type="text"><![CDATA[某学校有N个学生，形成M个俱乐部。每个俱乐部里的学生有着一定相似的兴趣爱好，形成一个朋友圈。一个学生可以同时属于若干个不同的俱乐部。根据“我的朋友的朋友也是我的朋友”这个推论可以得出，如果A和B是朋友，且B和C是朋友，则A和C也是朋友。请编写程序计算最大朋友圈中有多少人。 输入格式:输入的第一行包含两个正整数N（≤30000）和M（≤1000），分别代表学校的学生总数和俱乐部的个数。后面的M行每行按以下格式给出1个俱乐部的信息，其中学生从1~N编号： 第i个俱乐部的人数Mi（空格）学生1（空格）学生2 … 学生Mi 输出格式:输出给出一个整数，表示在最大朋友圈中有多少人。 输入样例: 7 43 1 2 32 1 43 5 6 71 6 输出样例: 4 #include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;vector&gt; #include&lt;algorithm&gt; #include&lt;stack&gt; #include&lt;queue&gt; #include&lt;map&gt; #include&lt;list&gt; #include&lt;set&gt; #include&lt;cmath&gt; using namespace std; typedef long long ll; #define N 30005 int fa[N],num[N]; int find(int x){ if(x==fa[x]) return x; return fa[x] = find(fa[x]); } void Union(int x,int y){ int rootx = find(x),rooty = find(y); if(rootx!=rooty){ fa[rooty] = rootx; num[rootx] += num[rooty]; } } int main(){ int n,m; cin &gt;&gt; n &gt;&gt; m; for(int i=1;i&lt;=n;i++) { fa[i] = i;num[i]=1; } for(int i=0;i&lt;m;i++){ int cnt,root,x; cin &gt;&gt; cnt; cin &gt;&gt; root; for(int j=1;j&lt;cnt;j++) { cin &gt;&gt; x; Union(root,x); } } int res=1; for(int i=1;i&lt;=n;i++){ res = max(res,num[fa[i]]); } cout &lt;&lt; res &lt;&lt; endl; return 0; }]]></content>
-      <categories>
-        <category>PTA</category>
-      </categories>
-      <tags>
-        <tag>PTA</tag>
-        <tag>并查集</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[PTA列出连通集(DFS+BFS)]]></title>
     <url>%2F2020%2F01%2F20%2F2020-01-20-pta-lie-chu-lian-tong-ji-dfs-bfs%2F</url>
     <content type="text"><![CDATA[给定一个有N个顶点和E条边的无向图，请用DFS和BFS分别列出其所有的连通集。假设顶点从0到N−1编号。进行搜索时，假设我们总是从编号最小的顶点出发，按编号递增的顺序访问邻接点。 输入格式:输入第1行给出2个整数N(0&lt;N≤10)和E，分别是图的顶点数和边数。随后E行，每行给出一条边的两个端点。每行中的数字之间用1空格分隔。 输出格式:按照”{ v​1 v​2​​ … v​k​​ }”的格式，每行输出一个连通集。先输出DFS的结果，再输出BFS的结果。 输入样例: 8 60 70 12 04 12 43 5 输出样例: { 0 1 4 2 7 }{ 3 5 }{ 6 }{ 0 1 2 7 4 }{ 3 5 }{ 6 } #include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;vector&gt; #include&lt;algorithm&gt; #include&lt;stack&gt; #include&lt;queue&gt; #include&lt;map&gt; #include&lt;list&gt; #include&lt;set&gt; #include&lt;cmath&gt; using namespace std; typedef long long ll; #define N 15 int edge[N][N],vis[N]; queue&lt;int&gt; qu; void dfs(int x,int n){ vis[x] = 1; cout &lt;&lt; &quot; &quot; &lt;&lt; x; for(int i=0;i&lt;n;i++){ if(edge[x][i]&amp;&amp;!vis[i]) dfs(i,n); } } void bfs(int x,int n){ qu.push(x); vis[x] = 1; while(!qu.empty()){ int root = qu.front(); cout &lt;&lt; &quot; &quot; &lt;&lt; root; qu.pop(); for(int i=0;i&lt;n;i++){ if(edge[root][i]&amp;&amp;!vis[i]){ qu.push(i); vis[i] = 1; } } } } int main(){ int n,e,x,y; cin &gt;&gt; n &gt;&gt; e; for(int i=1;i&lt;=n;i++) { edge[i][i] = 1; } for(int i=0;i&lt;e;i++){ cin &gt;&gt; x &gt;&gt;y; edge[x][y] = 1; edge[y][x] = 1; } for(int i=0;i&lt;n;i++) { if(!vis[i]){ cout &lt;&lt; &quot;{&quot;; dfs(i,n); cout &lt;&lt; &quot; }&quot; &lt;&lt; endl; } } memset(vis,0,sizeof(vis)); for(int i=0;i&lt;n;i++){ if(!vis[i]) { cout &lt;&lt; &quot;{&quot;; bfs(i,n); cout &lt;&lt; &quot; }&quot; &lt;&lt; endl; } } return 0; }]]></content>
@@ -23,6 +11,18 @@
         <tag>PTA</tag>
         <tag>DFS</tag>
         <tag>BFS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PTA朋友圈(并查集)]]></title>
+    <url>%2F2020%2F01%2F20%2F2020-01-20-pta-peng-you-quan-bing-cha-ji%2F</url>
+    <content type="text"><![CDATA[某学校有N个学生，形成M个俱乐部。每个俱乐部里的学生有着一定相似的兴趣爱好，形成一个朋友圈。一个学生可以同时属于若干个不同的俱乐部。根据“我的朋友的朋友也是我的朋友”这个推论可以得出，如果A和B是朋友，且B和C是朋友，则A和C也是朋友。请编写程序计算最大朋友圈中有多少人。 输入格式:输入的第一行包含两个正整数N（≤30000）和M（≤1000），分别代表学校的学生总数和俱乐部的个数。后面的M行每行按以下格式给出1个俱乐部的信息，其中学生从1~N编号： 第i个俱乐部的人数Mi（空格）学生1（空格）学生2 … 学生Mi 输出格式:输出给出一个整数，表示在最大朋友圈中有多少人。 输入样例: 7 43 1 2 32 1 43 5 6 71 6 输出样例: 4 #include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;vector&gt; #include&lt;algorithm&gt; #include&lt;stack&gt; #include&lt;queue&gt; #include&lt;map&gt; #include&lt;list&gt; #include&lt;set&gt; #include&lt;cmath&gt; using namespace std; typedef long long ll; #define N 30005 int fa[N],num[N]; int find(int x){ if(x==fa[x]) return x; return fa[x] = find(fa[x]); } void Union(int x,int y){ int rootx = find(x),rooty = find(y); if(rootx!=rooty){ fa[rooty] = rootx; num[rootx] += num[rooty]; } } int main(){ int n,m; cin &gt;&gt; n &gt;&gt; m; for(int i=1;i&lt;=n;i++) { fa[i] = i;num[i]=1; } for(int i=0;i&lt;m;i++){ int cnt,root,x; cin &gt;&gt; cnt; cin &gt;&gt; root; for(int j=1;j&lt;cnt;j++) { cin &gt;&gt; x; Union(root,x); } } int res=1; for(int i=1;i&lt;=n;i++){ res = max(res,num[fa[i]]); } cout &lt;&lt; res &lt;&lt; endl; return 0; }]]></content>
+      <categories>
+        <category>PTA</category>
+      </categories>
+      <tags>
+        <tag>PTA</tag>
+        <tag>并查集</tag>
       </tags>
   </entry>
   <entry>
@@ -38,19 +38,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）]]></title>
-    <url>%2F2020%2F01%2F19%2F2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji%2F</url>
-    <content type="text"><![CDATA[哥尼斯堡是位于普累格河上的一座城市，它包含两个岛屿及连接它们的七座桥，可否走过这样的七座桥，而且每桥只走过一次？瑞士数学家欧拉(Leonhard Euler，1707—1783)最终解决了这个问题，并由此创立了拓扑学。这个问题如今可以描述为判断欧拉回路是否存在的问题。欧拉回路是指不令笔离开纸面，可画过图中每条边仅一次，且可以回到起点的一条回路。现给定一个无向图，问是否存在欧拉回路？ 输入格式:输入第一行给出两个正整数，分别是节点数N (1≤N≤1000)和边数M；随后的M行对应M条边，每行给出一对正整数，分别是该条边直接连通的两个节点的编号（节点从1到N编号）。 输出格式:若欧拉回路存在则输出1，否则输出0。 输入样例1: 6 101 22 33 14 55 66 41 41 63 43 6 输出样例1:1 输入样例2: 5 81 21 32 32 42 55 35 43 4 输出样例2: 0 思路：如果欧拉通路的起点与终点一样，则成为欧拉回路， 连通的多重图具有欧拉回路当且仅当它的每个顶点都有偶数度则欧拉回路的条件： 图是连通的，没有孤立节点 无向图的每个节点的度数都是偶数度，有向图每个节点的入度等于出度 使用并查集统计连通分量个数，使用degree数组奇偶数判断是否全为偶数。 #include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;vector&gt; #include&lt;algorithm&gt; #include&lt;stack&gt; #include&lt;queue&gt; #include&lt;map&gt; #include&lt;list&gt; #include&lt;set&gt; #include&lt;cmath&gt; using namespace std; typedef long long ll; int fa[1005]; int father(int x){ if(fa[x]==x) return x; return fa[x] = father(fa[x]); } int main(){ int n,m,x,y; cin &gt;&gt; n &gt;&gt; m; int degree[n+1]; for(int i=1;i&lt;=n;i++) fa[i] = i; memset(degree,0,sizeof(degree)); for(int i=0;i&lt;m;i++){ cin &gt;&gt; x &gt;&gt; y; int rootx = father(x),rooty = father(y); if(rootx!=rooty){ fa[rooty] = rootx; } // fa[father(y)] = father(x); 这样写竟然会超时！！！！ // 不要问我咋知道的 degree[x]++; degree[y]++; } int exist=1,root = fa[1],connectcnt = 0; for(int i=1;i&lt;=n;i++){ if(fa[i]==i) connectcnt++; } if(connectcnt&gt;1) exist = 0; for(int i=1;i&lt;=n;i++){ if(degree[i]%2){ exist = 0;break; } } cout &lt;&lt; exist &lt;&lt; endl; return 0; }]]></content>
-      <categories>
-        <category>PTA</category>
-      </categories>
-      <tags>
-        <tag>PTA</tag>
-        <tag>欧拉回路</tag>
-        <tag>并查集</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[PTA列出叶结点(BFS)]]></title>
     <url>%2F2020%2F01%2F19%2F2020-01-19-pta-lie-chu-xie-jie-dian-bfs%2F</url>
     <content type="text"><![CDATA[对于给定的二叉树，本题要求你按从上到下、从左到右的顺序输出其所有叶节点。 输入格式：首先第一行给出一个正整数 N（≤10），为树中结点总数。树中的结点从 0 到 N−1 编号。随后 N 行，每行给出一个对应结点左右孩子的编号。如果某个孩子不存在，则在对应位置给出 “-“。编号间以 1 个空格分隔。 输出格式：在一行中按规定顺序输出叶节点的编号。编号间以 1 个空格分隔，行首尾不得有多余空格。 输入样例：8 1 - - - 0 - 2 7 - - - - 5 - 4 6 输出样例： 4 1 5 实现：题意理解了半天… 开个标记数组，在叶子左右孩子节点中出现过的就进行标记。剩下的那一个就是root，然后在进行BFS #include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;vector&gt; #include&lt;algorithm&gt; #include&lt;stack&gt; #include&lt;queue&gt; #include&lt;map&gt; #include&lt;list&gt; #include&lt;set&gt; #include&lt;cmath&gt; using namespace std; typedef long long ll; struct node{ int leaf ; int right; }q[15]; queue&lt;int&gt; qu; int res[15],top=0; void bfs(){ while(qu.size()){ int num = qu.front(); qu.pop(); if(q[num].leaf==-1&amp;&amp;q[num].right==-1) res[top++] = num; if(q[num].leaf!=-1) qu.push(q[num].leaf); if(q[num].right!=-1) qu.push(q[num].right); } } int main(){ int n,root; cin &gt;&gt; n; getchar(); int flag[n]; char a,b; memset(q,0,sizeof(q)); memset(flag,0,sizeof(flag)); for(int i=0;i&lt;n;i++){ scanf(&quot;%c %c&quot;,&amp;a,&amp;b); getchar(); if(a==&#39;-&#39;) q[i].leaf=-1; else { q[i].leaf = a-&#39;0&#39;;flag[q[i].leaf] = 1; } if(b==&#39;-&#39;) q[i].right=-1; else { q[i].right = b-&#39;0&#39;;flag[q[i].right] = 1; } } for(int i=0;i&lt;n;i++){ if(flag[i]==0){ root = i; break; } } qu.push(root); bfs(); cout &lt;&lt; res[0]; for(int i=1;i&lt;top;i++){ cout &lt;&lt; &quot; &quot; &lt;&lt; res[i]; } return 0; }]]></content>
@@ -60,6 +47,19 @@
       <tags>
         <tag>PTA</tag>
         <tag>BFS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）]]></title>
+    <url>%2F2020%2F01%2F19%2F2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji%2F</url>
+    <content type="text"><![CDATA[哥尼斯堡是位于普累格河上的一座城市，它包含两个岛屿及连接它们的七座桥，可否走过这样的七座桥，而且每桥只走过一次？瑞士数学家欧拉(Leonhard Euler，1707—1783)最终解决了这个问题，并由此创立了拓扑学。这个问题如今可以描述为判断欧拉回路是否存在的问题。欧拉回路是指不令笔离开纸面，可画过图中每条边仅一次，且可以回到起点的一条回路。现给定一个无向图，问是否存在欧拉回路？ 输入格式:输入第一行给出两个正整数，分别是节点数N (1≤N≤1000)和边数M；随后的M行对应M条边，每行给出一对正整数，分别是该条边直接连通的两个节点的编号（节点从1到N编号）。 输出格式:若欧拉回路存在则输出1，否则输出0。 输入样例1: 6 101 22 33 14 55 66 41 41 63 43 6 输出样例1:1 输入样例2: 5 81 21 32 32 42 55 35 43 4 输出样例2: 0 思路：如果欧拉通路的起点与终点一样，则成为欧拉回路， 连通的多重图具有欧拉回路当且仅当它的每个顶点都有偶数度则欧拉回路的条件： 图是连通的，没有孤立节点 无向图的每个节点的度数都是偶数度，有向图每个节点的入度等于出度 使用并查集统计连通分量个数，使用degree数组奇偶数判断是否全为偶数。 #include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;vector&gt; #include&lt;algorithm&gt; #include&lt;stack&gt; #include&lt;queue&gt; #include&lt;map&gt; #include&lt;list&gt; #include&lt;set&gt; #include&lt;cmath&gt; using namespace std; typedef long long ll; int fa[1005]; int father(int x){ if(fa[x]==x) return x; return fa[x] = father(fa[x]); } int main(){ int n,m,x,y; cin &gt;&gt; n &gt;&gt; m; int degree[n+1]; for(int i=1;i&lt;=n;i++) fa[i] = i; memset(degree,0,sizeof(degree)); for(int i=0;i&lt;m;i++){ cin &gt;&gt; x &gt;&gt; y; int rootx = father(x),rooty = father(y); if(rootx!=rooty){ fa[rooty] = rootx; } // fa[father(y)] = father(x); 这样写竟然会超时！！！！ // 不要问我咋知道的 degree[x]++; degree[y]++; } int exist=1,root = fa[1],connectcnt = 0; for(int i=1;i&lt;=n;i++){ if(fa[i]==i) connectcnt++; } if(connectcnt&gt;1) exist = 0; for(int i=1;i&lt;=n;i++){ if(degree[i]%2){ exist = 0;break; } } cout &lt;&lt; exist &lt;&lt; endl; return 0; }]]></content>
+      <categories>
+        <category>PTA</category>
+      </categories>
+      <tags>
+        <tag>PTA</tag>
+        <tag>并查集</tag>
+        <tag>欧拉回路</tag>
       </tags>
   </entry>
   <entry>
@@ -192,9 +192,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[切面条]]></title>
-    <url>%2F2019%2F11%2F22%2F2019-11-22-qie-mian-tiao%2F</url>
-    <content type="text"><![CDATA[一道2014蓝桥杯省赛试题切面条 一根高筋拉面，中间切一刀，可以得到2根面条。 如果先对折1次，中间切一刀，可以得到3根面条。 如果连续对折2次，中间切一刀，可以得到5根面条。 那么，连续对折10次，中间切一刀，会得到多少面条呢？ 不切的话，一根面条原本有两个端点对折0次，中间切一刀，会产生1个端点，一共3个端点，会产生2根面条对折1次，中间切一刀，会产生2个端点，一共4个端点，会产生3根面条对折2次，中间切一刀，会产生4个端点，一共6个端点，会产生5根面条对折3次，中间切一刀，会产生8个端点，一共10个端点，会产生9根面条……假设对折n次，则中间切一刀，会产生$2^n$个端点，加上原来的两个，一共$2^n+2$个端点，会产生$2^n+2-1$根面条，也即产生的面条数等于端点数减一。即result = 2^n+1（证明略..）当n=10时，result = 1025]]></content>
+    <title><![CDATA[蓝桥杯集训笔记]]></title>
+    <url>%2F2019%2F11%2F22%2F2019-11-22-lan-qiao-bei-ji-xun-bi-ji%2F</url>
+    <content type="text"><![CDATA[数学建模的思想几道题目 熊怪吃核桃—二进制的使用 切面条余数的使用余数运算对于加法、减法和乘法封闭，常用于循环队列等使用，也可以利用余数的性质大幅度简化编码常用场合：递推法，倒推法有很多经典的题目，比如猴子吃桃..猜字母（待补..） 统计某种运算的结果末尾0的个数统计因子中能被2和5整除的个数分别为n1,n2 result = min(n1,n2)毕达哥拉斯定理（勾股定理）可以直接利用$x^2+y^2=z^2$在正整数域构造基础解系 \begin{cases}x=2k+1\\y=2k^2+2k\\ z = 2k^2+2k+1 \\ k = 1,2,3,... \end{cases}另一种解系： \begin{cases}x=st\\y=\frac{t^2-s^2}{2}\\ z =\frac{t^2+s^2}{2} \\ s =1,3,5,7.. \\ gcd(t,s)=1 \end{cases}超长位数的处理 存储方式：字符串、整数数组（甚至采用整型数组紧缩存放，即数组中一个元素存放多位，输出的时候使用printf(“%nd”,x[i]); 存储格式：把低位放在前，高位放在后面，符号位和小数位单独处理，可使用标志变量 运算方式 C/C++使用数组模拟进行加减乘除，及时取余进位操作，小心溢出 java 中里面提供了两个类BigInteger，BigDecimal分别对应大整数、高精度小数的处理 。 tips：尽管是C/C++选手，假如遇到了大数运算的题目，又刚好是个填空题，不妨简单学下Java里面的这个两个类，甚至Date类（日期计算），求结果多快好省，何乐而不为？ 两个往年题目练习一下BigInteger，BigDecimal的使用 大数乘法 java BigInteger的使用 黄金连分数—BigDecimal的使用 RSA对应2019省赛A组题目RSA解密涉及的知识点如下 逆元 欧拉函数 快速幂 素数筛 扩展欧几里得算法 （待补..）]]></content>
       <categories>
         <category>蓝桥杯</category>
       </categories>
@@ -215,18 +215,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[熊怪吃核桃--二进制的使用]]></title>
-    <url>%2F2019%2F11%2F22%2F2019-11-22-xiong-guai-chi-he-tao-er-jin-zhi-de-shi-yong%2F</url>
-    <content type="text"><![CDATA[一道2015年蓝桥杯省赛试题熊怪吃核桃 森林里有一只熊怪，很爱吃核桃。 不过它有个习惯，每次都把找到的核桃分成相等的两份，吃掉一份，留一份。 如果不能等分，熊怪就会扔掉一个核桃再分。 第二天再继续这个过程，直到最后剩一个核桃了，直接丢掉。 有一天，熊怪发现了1543个核桃，请问，它在吃这些核桃的过程中，一共要丢掉多少个核桃。 思路思路就是每次判读一下是奇数还是偶数，奇数的话就减1然后除以2，偶数的话就直接除以2。用C/C++实现写起来其实很简单，其实还有一种更妙的思路，这个过程其实就是一个除2的过程，也就类似于十进制转二进制的过程，所以直接在Windows下利用计算器输入1543转成二进制，然后数一数二进制里面有几个1即可。 1543对应的二进制是110 0000 0111，里面有5个1。 顺便放一个代码实现吧 #include&lt;iostream&gt; using namespace std; int main(){ int n = 1543,cnt = 0; while(n){ if(n&amp;1){ n--;cnt++; n /= 2; } else n /= 2; } cout &lt;&lt; cnt &lt;&lt; endl; return 0; }]]></content>
-      <categories>
-        <category>蓝桥杯</category>
-      </categories>
-      <tags>
-        <tag>位运算</tag>
-        <tag>蓝桥杯</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[大数乘法 java BigInteger的使用]]></title>
     <url>%2F2019%2F11%2F22%2F2019-11-22-da-shu-cheng-fa-java-biginteger-de-shi-yong%2F</url>
     <content type="text"><![CDATA[找个大数乘法的题目练习一下 BigInterger的使用 当两个比较大的整数相乘时，可能会出现数据溢出的情形。为避免溢出，可以采用字符串的方法来实现两个大数之间的乘法。具体来说，首先以字符串的形式输入两个整数，每个整数的长度不会超过8位，然后把它们相乘的结果存储在另一个字符串当中（长度不会超过16位），最后把这个字符串打印出来。例如，假设用户输入为：62773417和12345678，则输出结果为：774980393241726. 输入： 62773417 12345678 输出： 774980393241726 代码实现 import java.math.BigInteger; import java.util.Scanner; public class Main { public static void main(String[] args) { Scanner input = new Scanner(System.in); String str1 = input.next(),str2 = input.next(); BigInteger num1 = new BigInteger(str1); BigInteger num2 = new BigInteger(str2); BigInteger res = num1.multiply(num2); System.out.println(res.toString()); input.close(); } } 比C/C++实现起来爽很多。一般来说BigInteger是使用String类型进行构造，传入两个个数字字符串，然后进行加减乘除。java中并没有重载运算符这种操作，只能另外实现封装成新的函数。 一些常用API请参考java基础-BigInteger的使用]]></content>
@@ -239,9 +227,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[蓝桥杯集训笔记]]></title>
-    <url>%2F2019%2F11%2F22%2F2019-11-22-lan-qiao-bei-ji-xun-bi-ji%2F</url>
-    <content type="text"><![CDATA[数学建模的思想几道题目 熊怪吃核桃—二进制的使用 切面条余数的使用余数运算对于加法、减法和乘法封闭，常用于循环队列等使用，也可以利用余数的性质大幅度简化编码常用场合：递推法，倒推法有很多经典的题目，比如猴子吃桃..猜字母（待补..） 统计某种运算的结果末尾0的个数统计因子中能被2和5整除的个数分别为n1,n2 result = min(n1,n2)毕达哥拉斯定理（勾股定理）可以直接利用$x^2+y^2=z^2$在正整数域构造基础解系 \begin{cases}x=2k+1\\y=2k^2+2k\\ z = 2k^2+2k+1 \\ k = 1,2,3,... \end{cases}另一种解系： \begin{cases}x=st\\y=\frac{t^2-s^2}{2}\\ z =\frac{t^2+s^2}{2} \\ s =1,3,5,7.. \\ gcd(t,s)=1 \end{cases}超长位数的处理 存储方式：字符串、整数数组（甚至采用整型数组紧缩存放，即数组中一个元素存放多位，输出的时候使用printf(“%nd”,x[i]); 存储格式：把低位放在前，高位放在后面，符号位和小数位单独处理，可使用标志变量 运算方式 C/C++使用数组模拟进行加减乘除，及时取余进位操作，小心溢出 java 中里面提供了两个类BigInteger，BigDecimal分别对应大整数、高精度小数的处理 。 tips：尽管是C/C++选手，假如遇到了大数运算的题目，又刚好是个填空题，不妨简单学下Java里面的这个两个类，甚至Date类（日期计算），求结果多快好省，何乐而不为？ 两个往年题目练习一下BigInteger，BigDecimal的使用 大数乘法 java BigInteger的使用 黄金连分数—BigDecimal的使用 RSA对应2019省赛A组题目RSA解密涉及的知识点如下 逆元 欧拉函数 快速幂 素数筛 扩展欧几里得算法 （待补..）]]></content>
+    <title><![CDATA[切面条]]></title>
+    <url>%2F2019%2F11%2F22%2F2019-11-22-qie-mian-tiao%2F</url>
+    <content type="text"><![CDATA[一道2014蓝桥杯省赛试题切面条 一根高筋拉面，中间切一刀，可以得到2根面条。 如果先对折1次，中间切一刀，可以得到3根面条。 如果连续对折2次，中间切一刀，可以得到5根面条。 那么，连续对折10次，中间切一刀，会得到多少面条呢？ 不切的话，一根面条原本有两个端点对折0次，中间切一刀，会产生1个端点，一共3个端点，会产生2根面条对折1次，中间切一刀，会产生2个端点，一共4个端点，会产生3根面条对折2次，中间切一刀，会产生4个端点，一共6个端点，会产生5根面条对折3次，中间切一刀，会产生8个端点，一共10个端点，会产生9根面条……假设对折n次，则中间切一刀，会产生$2^n$个端点，加上原来的两个，一共$2^n+2$个端点，会产生$2^n+2-1$根面条，也即产生的面条数等于端点数减一。即result = 2^n+1（证明略..）当n=10时，result = 1025]]></content>
       <categories>
         <category>蓝桥杯</category>
       </categories>
@@ -250,14 +238,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[SQLServer配置管理器打开SQLServer服务&&远程过程调用失败问题]]></title>
-    <url>%2F2019%2F11%2F19%2F2019-11-19-sqlserver-pei-zhi-guan-li-qi-da-kai-sqlserver-fu-wu-yuan-cheng-guo-cheng-diao-yong-shi-bai-wen-ti%2F</url>
-    <content type="text"><![CDATA[打开SQL Server配置管理器在Windows 10中，SQL Server 配置管理器不显示为一个应用程序。如果想找到配置管理器一般在下面这个路径里 C:\Windows\SysWOW64 里面文件很多，然后搜索SQLServerManager可能版本不一样，只要是这个就可以，然后双击打开。 远程过程调用失败问题打开服务的时候可能会遇到无法连接到 WMI 提供程序的问题 八成是因为之前装过VS，然后装上了Microsoft SQL Server 201* Express LocalDB（版本可能不一样），可以去控制面板添加或卸载程序 里面搜索Microsoft SQL Server 就可以看到，然后卸载掉应该就可以了。]]></content>
+    <title><![CDATA[熊怪吃核桃--二进制的使用]]></title>
+    <url>%2F2019%2F11%2F22%2F2019-11-22-xiong-guai-chi-he-tao-er-jin-zhi-de-shi-yong%2F</url>
+    <content type="text"><![CDATA[一道2015年蓝桥杯省赛试题熊怪吃核桃 森林里有一只熊怪，很爱吃核桃。 不过它有个习惯，每次都把找到的核桃分成相等的两份，吃掉一份，留一份。 如果不能等分，熊怪就会扔掉一个核桃再分。 第二天再继续这个过程，直到最后剩一个核桃了，直接丢掉。 有一天，熊怪发现了1543个核桃，请问，它在吃这些核桃的过程中，一共要丢掉多少个核桃。 思路思路就是每次判读一下是奇数还是偶数，奇数的话就减1然后除以2，偶数的话就直接除以2。用C/C++实现写起来其实很简单，其实还有一种更妙的思路，这个过程其实就是一个除2的过程，也就类似于十进制转二进制的过程，所以直接在Windows下利用计算器输入1543转成二进制，然后数一数二进制里面有几个1即可。 1543对应的二进制是110 0000 0111，里面有5个1。 顺便放一个代码实现吧 #include&lt;iostream&gt; using namespace std; int main(){ int n = 1543,cnt = 0; while(n){ if(n&amp;1){ n--;cnt++; n /= 2; } else n /= 2; } cout &lt;&lt; cnt &lt;&lt; endl; return 0; }]]></content>
       <categories>
-        <category>DataBase</category>
+        <category>蓝桥杯</category>
       </categories>
       <tags>
-        <tag>SQLServer</tag>
+        <tag>位运算</tag>
+        <tag>蓝桥杯</tag>
       </tags>
   </entry>
   <entry>
@@ -272,6 +261,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[SQLServer配置管理器打开SQLServer服务&&远程过程调用失败问题]]></title>
+    <url>%2F2019%2F11%2F19%2F2019-11-19-sqlserver-pei-zhi-guan-li-qi-da-kai-sqlserver-fu-wu-yuan-cheng-guo-cheng-diao-yong-shi-bai-wen-ti%2F</url>
+    <content type="text"><![CDATA[打开SQL Server配置管理器在Windows 10中，SQL Server 配置管理器不显示为一个应用程序。如果想找到配置管理器一般在下面这个路径里 C:\Windows\SysWOW64 里面文件很多，然后搜索SQLServerManager可能版本不一样，只要是这个就可以，然后双击打开。 远程过程调用失败问题打开服务的时候可能会遇到无法连接到 WMI 提供程序的问题 八成是因为之前装过VS，然后装上了Microsoft SQL Server 201* Express LocalDB（版本可能不一样），可以去控制面板添加或卸载程序 里面搜索Microsoft SQL Server 就可以看到，然后卸载掉应该就可以了。]]></content>
+      <categories>
+        <category>DataBase</category>
+      </categories>
+      <tags>
+        <tag>SQLServer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[PTA-说反话-加强版]]></title>
     <url>%2F2019%2F11%2F15%2F2019-11-15-pta-shuo-fan-hua-jia-qiang-ban%2F</url>
     <content type="text"><![CDATA[给定一句英语，要求你编写程序，将句中所有单词的顺序颠倒输出。 输入格式：测试输入包含一个测试用例，在一行内给出总长度不超过500 000的字符串。字符串由若干单词和若干空格组成，其中单词是由英文字母（大小写有区分）组成的字符串，单词之间用若干个空格分开。 输出格式：每个测试用例的输出占一行，输出倒序后的句子，并且保证单词间只有1个空格。 输入样例： Hello World Here I Come 输出样例： Come I Here World Hello 思路一开始用string s，while(cin &gt;&gt; s) 做的，5行代码只拿了19分，差一分，全为空格的情况没有处理。然后就只能推倒重来了，先读完在后再扫描，判断空格，每读完一个就push一个，但是最后一个会漏掉，要特判一下。更多细节看代码。 实现#include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;vector&gt; #include&lt;algorithm&gt; #include&lt;stack&gt; #include&lt;map&gt; #include&lt;cmath&gt; using namespace std; #define rep(i,m,n) for(int i=m;i&lt;n;i++) #define rep1(i,m,n) for(int i=m;i&gt;=n;i--) #define pb push_back int main(){ string s,s1=&quot;&quot;,s2=&quot;&quot;; getline(cin,s); vector&lt;string&gt; res; rep(i,0,s.length()){ char c = s[i]; if(c!=&#39; &#39;)s1 += c; else { if(s1.length()&gt;0){ res.pb(s1);s1.clear(); } } } // 最后一个会漏掉，但是要判断一下 if(s1.length()&gt;0) res.pb(s1); if(res.size()) cout &lt;&lt; res[res.size()-1]; rep1(i,res.size()-2,0) cout &lt;&lt; &quot; &quot; &lt;&lt; res[i] ; return 0; } /* 如下代码可轻松拿下19分，不过想拿剩下的一分,代码就没有这么简洁了 int main(){ string s; vector&lt;string&gt; v; while(cin &gt;&gt; s) v.pb(s); cout &lt;&lt; v[v.size()-1]; rep1(i,v.size()-2,0) cout &lt;&lt; &quot; &quot; &lt;&lt; v[i] ; return 0; }*/]]></content>
@@ -283,9 +283,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[PTA九宫格输入法]]></title>
-    <url>%2F2019%2F11%2F08%2F2019-11-08-jiu-gong-ge-shu-ru-fa%2F</url>
-    <content type="text"><![CDATA[假设有九宫格输入法键盘布局如下： [ 1,.?! ] [ 2ABC ] [ 3DEF ] [ 4GHI ] [ 5JKL ] [ 6MNO ] [ 7PQRS ] [ 8TUV ] [ 9WXYZ ] [ 0空 ] 注意：中括号[ ]仅为了表示键盘的分隔，不是输入字符。每个中括号中，位于首位的数字字符即是键盘的按键，按一下即可输入该数字字符。多次按同一个键，则输入的字符依次循环轮流，例如按两次3，则输入D；按5次7，则输入S；按6次2，则输入A。按键0的输入组合是0和空格字符，即按两次0输入空格。 你需要对于给定的按键组合，给出该组合对应的文本。 输入格式:输入在一行中给出数个字符的按键组合（例如 999 表示按3次9），每个字符的按键组合之间用空格间隔，最后一个输入法组合之后以换行结束。输入数据至少包括一个字符的按键组合，且输入总长度不超过500个字符。 输出格式:在一行中输出该按键组合对应的文本。 输入样例: 22 5555 22 666 00 88 888 7777 4444 666 44 输出样例: ALAN TURING 实现#include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;cmath&gt; #include&lt;algorithm&gt; using namespace std; #define rep(i,m,n) for(int i=m;i&lt;n;i++) #define rep1(i,m,n) for(int i=m;i&gt;=n;i--) int main() { string s[10]; s[1]=&quot;1,.?!&quot;;s[2]=&quot;2ABC&quot;;s[3]=&quot;3DEF&quot;;s[4]=&quot;4GHI&quot;;s[5]=&quot;5JKL&quot;; s[6]=&quot;6MNO&quot;;s[7]=&quot;7PQRS&quot;;s[8]=&quot;8TUV&quot;;s[9]=&quot;9WXYZ&quot;;s[0]=&quot;0 &quot;; char tmp[100]; while(cin&gt;&gt;tmp&amp;&amp;tmp[0]!=&#39;\n&#39;){ int index = strlen(tmp)%s[tmp[0]-&#39;0&#39;].length(); if(index==0) cout &lt;&lt; s[tmp[0]-&#39;0&#39;][s[tmp[0]-&#39;0&#39;].length()-1]; else cout &lt;&lt; s[tmp[0]-&#39;0&#39;][index-1]; } return 0; }]]></content>
+    <title><![CDATA[PTA福到了]]></title>
+    <url>%2F2019%2F11%2F08%2F2019-11-08-fu-dao-liao%2F</url>
+    <content type="text"><![CDATA[“福”字倒着贴，寓意“福到”。不论到底算不算民俗，本题且请你编写程序，把各种汉字倒过来输出。这里要处理的每个汉字是由一个 N × N 的网格组成的，网格中的元素或者为字符 @ 或者为空格。而倒过来的汉字所用的字符由裁判指定。 输入格式：输入在第一行中给出倒过来的汉字所用的字符、以及网格的规模 N （不超过100的正整数），其间以 1 个空格分隔；随后 N 行，每行给出 N 个字符，或者为 @ 或者为空格。 输出格式：输出倒置的网格，如样例所示。但是，如果这个字正过来倒过去是一样的，就先输出bu yong dao le，然后再用输入指定的字符将其输出。 输入样例 1： $ 9 @ @@@@@@@@ @@@ @ @ @@@@ @@@@@@ @@@@@@@@ @ @ @@@@ @@@@@ @ @ @ @ @ @@@@@ 输出样例 1：$$$$$ $ $ $ $ $ $$$$$ $$$ $ $ $ $$$ $$$$$ $$$ $$$ $$$ $ $ $ $$$ $$$ $$$$$ $ 输入样例 2： &amp; 3@@@ @@@@ 输出样例 2： bu yong dao le\&amp;\&amp;\&amp; &amp;&amp;\&amp;\&amp; Tips记得getchar()坑很多.. 实现#include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;cmath&gt; #include&lt;algorithm&gt; using namespace std; #define rep(i,m,n) for(int i=m;i&lt;n;i++) #define rep1(i,m,n) for(int i=m;i&gt;=n;i--) int main() { char c; int n; cin &gt;&gt; c &gt;&gt; n; getchar(); string s[n]; rep(i,0,n) getline(cin,s[i]); bool ok = true; // 不需要倒置 for(int i=0,j=n-1;i&lt;n&amp;&amp;ok;i++,j--){ for(int k=0,t=n-1;k&lt;n;k++,t--){ if(s[i][k]!=s[j][t]) {ok = false;break;} } } if(ok) cout &lt;&lt; &quot;bu yong dao le&quot; &lt;&lt; endl; rep1(i,n-1,0){ rep1(j,n-1,0) if(s[i][j]==&#39;@&#39;) cout &lt;&lt; c ; else cout &lt;&lt; &quot; &quot;; cout &lt;&lt; endl; } return 0; }]]></content>
       <categories>
         <category>PTA</category>
       </categories>
@@ -294,9 +294,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[PTA福到了]]></title>
-    <url>%2F2019%2F11%2F08%2F2019-11-08-fu-dao-liao%2F</url>
-    <content type="text"><![CDATA[“福”字倒着贴，寓意“福到”。不论到底算不算民俗，本题且请你编写程序，把各种汉字倒过来输出。这里要处理的每个汉字是由一个 N × N 的网格组成的，网格中的元素或者为字符 @ 或者为空格。而倒过来的汉字所用的字符由裁判指定。 输入格式：输入在第一行中给出倒过来的汉字所用的字符、以及网格的规模 N （不超过100的正整数），其间以 1 个空格分隔；随后 N 行，每行给出 N 个字符，或者为 @ 或者为空格。 输出格式：输出倒置的网格，如样例所示。但是，如果这个字正过来倒过去是一样的，就先输出bu yong dao le，然后再用输入指定的字符将其输出。 输入样例 1： $ 9 @ @@@@@@@@ @@@ @ @ @@@@ @@@@@@ @@@@@@@@ @ @ @@@@ @@@@@ @ @ @ @ @ @@@@@ 输出样例 1：$$$$$ $ $ $ $ $ $$$$$ $$$ $ $ $ $$$ $$$$$ $$$ $$$ $$$ $ $ $ $$$ $$$ $$$$$ $ 输入样例 2： &amp; 3@@@ @@@@ 输出样例 2： bu yong dao le\&amp;\&amp;\&amp; &amp;&amp;\&amp;\&amp; Tips记得getchar()坑很多.. 实现#include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;cmath&gt; #include&lt;algorithm&gt; using namespace std; #define rep(i,m,n) for(int i=m;i&lt;n;i++) #define rep1(i,m,n) for(int i=m;i&gt;=n;i--) int main() { char c; int n; cin &gt;&gt; c &gt;&gt; n; getchar(); string s[n]; rep(i,0,n) getline(cin,s[i]); bool ok = true; // 不需要倒置 for(int i=0,j=n-1;i&lt;n&amp;&amp;ok;i++,j--){ for(int k=0,t=n-1;k&lt;n;k++,t--){ if(s[i][k]!=s[j][t]) {ok = false;break;} } } if(ok) cout &lt;&lt; &quot;bu yong dao le&quot; &lt;&lt; endl; rep1(i,n-1,0){ rep1(j,n-1,0) if(s[i][j]==&#39;@&#39;) cout &lt;&lt; c ; else cout &lt;&lt; &quot; &quot;; cout &lt;&lt; endl; } return 0; }]]></content>
+    <title><![CDATA[PTA九宫格输入法]]></title>
+    <url>%2F2019%2F11%2F08%2F2019-11-08-jiu-gong-ge-shu-ru-fa%2F</url>
+    <content type="text"><![CDATA[假设有九宫格输入法键盘布局如下： [ 1,.?! ] [ 2ABC ] [ 3DEF ] [ 4GHI ] [ 5JKL ] [ 6MNO ] [ 7PQRS ] [ 8TUV ] [ 9WXYZ ] [ 0空 ] 注意：中括号[ ]仅为了表示键盘的分隔，不是输入字符。每个中括号中，位于首位的数字字符即是键盘的按键，按一下即可输入该数字字符。多次按同一个键，则输入的字符依次循环轮流，例如按两次3，则输入D；按5次7，则输入S；按6次2，则输入A。按键0的输入组合是0和空格字符，即按两次0输入空格。 你需要对于给定的按键组合，给出该组合对应的文本。 输入格式:输入在一行中给出数个字符的按键组合（例如 999 表示按3次9），每个字符的按键组合之间用空格间隔，最后一个输入法组合之后以换行结束。输入数据至少包括一个字符的按键组合，且输入总长度不超过500个字符。 输出格式:在一行中输出该按键组合对应的文本。 输入样例: 22 5555 22 666 00 88 888 7777 4444 666 44 输出样例: ALAN TURING 实现#include&lt;iostream&gt; #include&lt;cstring&gt; #include&lt;cmath&gt; #include&lt;algorithm&gt; using namespace std; #define rep(i,m,n) for(int i=m;i&lt;n;i++) #define rep1(i,m,n) for(int i=m;i&gt;=n;i--) int main() { string s[10]; s[1]=&quot;1,.?!&quot;;s[2]=&quot;2ABC&quot;;s[3]=&quot;3DEF&quot;;s[4]=&quot;4GHI&quot;;s[5]=&quot;5JKL&quot;; s[6]=&quot;6MNO&quot;;s[7]=&quot;7PQRS&quot;;s[8]=&quot;8TUV&quot;;s[9]=&quot;9WXYZ&quot;;s[0]=&quot;0 &quot;; char tmp[100]; while(cin&gt;&gt;tmp&amp;&amp;tmp[0]!=&#39;\n&#39;){ int index = strlen(tmp)%s[tmp[0]-&#39;0&#39;].length(); if(index==0) cout &lt;&lt; s[tmp[0]-&#39;0&#39;][s[tmp[0]-&#39;0&#39;].length()-1]; else cout &lt;&lt; s[tmp[0]-&#39;0&#39;][index-1]; } return 0; }]]></content>
       <categories>
         <category>PTA</category>
       </categories>
@@ -394,17 +394,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[统计字符]]></title>
-    <url>%2F2019%2F10%2F21%2F2019-10-21-tong-ji-zi-fu%2F</url>
-    <content type="text"><![CDATA[输入一行字符，分别统计出其中英文字母、空格、数字和其他字符的个数。 #include&lt;bits/stdc++.h&gt; using namespace std; typedef long long ll; const int maxn = 2e5; # define mod(a,b) (a)%(b) int main(){ char ch; int count[4]={0}; while(cin.get(ch)){ if(ch&gt;=&#39;a&#39;&amp;&amp;ch&lt;=&#39;z&#39;||ch&gt;=&#39;A&#39;&amp;&amp;ch&lt;=&#39;Z&#39;) count[0]++; else if(ch==&#39; &#39;) count[1]++; else if(ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;) count[2]++; else if(ch==&#39;\n&#39;) break; else count[3]++; } cout &lt;&lt; count[0] &lt;&lt; &quot; &quot; &lt;&lt; count[2] &lt;&lt; &quot; &quot; &lt;&lt; count[1] &lt;&lt; &quot; &quot; &lt;&lt; count[3] ; return 0; } 题目虽然简单，注意点是统计空格需要用cin.get(ch)，输入时会在行末多输入一个回车，注意处理。]]></content>
-      <categories>
-        <category>数据结构与算法训练</category>
-      </categories>
-      <tags>
-        <tag>字符串</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[LeetCodeWeeklyContest-159]]></title>
     <url>%2F2019%2F10%2F21%2F2019-10-21-leetcodeweeklycontest-159%2F</url>
     <content type="text"><![CDATA[最近看了篇文章，文章里说 希望你身边能有个比你聪明五倍，但却比你还努力十倍的人。倍数虽然有些夸张，但是这个思想还是能get到的。 5230. 缀点成线在一个 XY 坐标系中有一些点，我们用数组 coordinates 来分别记录它们的坐标，其中 coordinates[i] = [x, y] 表示横坐标为 x、纵坐标为 y 的点。 请你来判断，这些点是否在该坐标系中属于同一条直线上，是则返回 true，否则请返回 false。 思路根据前两个点构造直线，看后续的点是否在直线上。直线方程为 $ax+by+c=0$，其中：$a=y_2-y_1$ $b=x_1-x_2$ $c=-ax_1-by_1$好处是不用考虑斜率，这是个方程的一般式。如果考虑斜率，还得分斜率是否为0。 实现class Solution { public: bool checkStraightLine(vector&lt;vector&lt;int&gt;&gt;&amp; coordinates) { vector&lt;int&gt; v1,v2,v3; v1 = coordinates[0]; v2 = coordinates[1]; int a = v2[1]-v1[1]; int b = v1[0]-v2[0]; int c = -1*a*v1[0]-b*v1[1]; for(int i=1;i&lt;coordinates.size();i++){ v3 = coordinates[i]; if(a*v3[0]+b*v3[1]+c!=0) return false; } return true; } }; 删除子文件夹你是一位系统管理员，手里有一份文件夹列表 folder，你的任务是要删除该列表中的所有 子文件夹，并以 任意顺序 返回剩下的文件夹。 我们这样定义「子文件夹」： 如果文件夹 folder[i] 位于另一个文件夹 folder[j] 下，那么 folder[i] 就是 folder[j] 的子文件夹。文件夹的「路径」是由一个或多个按以下格式串联形成的字符串： / 后跟一个或者多个小写英文字母。例如，/leetcode 和 /leetcode/problems 都是有效的路径，而空字符串和 / 不是。 思路 写一个判别函数来判断是否为子路径 将文件夹序列sort，此时字典序小的应该在前，长度小的也在前，故一般父路径也在前。 设置一个标记数组，初始置0，如果该文件夹路径要被删除置1。 扫描文件夹序列，两两对比，神奇的是不用二重循环就可以做到。 将标记为0的push进vector，返回。 实现class Solution { public: // a.length &lt; b.length bool isSubFolder(string a,string b) { int n1 = a.length(),n2 = b.length(); if(n1&gt;n2) return false; int i; for(i=0;i&lt;n1;i++){ if(a[i]!=b[i]) return false; } if(b[i]!=&#39;/&#39;) return false; return true; } vector&lt;string&gt; removeSubfolders(vector&lt;string&gt;&amp; folder) { sort(folder.begin(),folder.end()); int n = folder.size(); int pend[n]={0}; // delete 1 int j=0; for(int i=1;i&lt;n;i++){ if(isSubFolder(folder[j],folder[i])){ pend[i] = 1; } else j = i; // important } vector&lt;string&gt; res; for(int i=0;i&lt;n;i++){ if(!pend[i]) res.push_back(folder[i]); } return res; } }; 替换子串得到平衡字符串有一个只含有 ‘Q’, ‘W’, ‘E’, ‘R’ 四种字符，且长度为 n 的字符串。假如在该字符串中，这四个字符都恰好出现 n/4 次，那么它就是一个「平衡字符串」。给你一个这样的字符串 s，请通过「替换子串」的方式，使原字符串 s 变成一个「平衡字符串」。你可以用和「待替换子串」长度相同的 任何 其他字符串来完成替换。请返回待替换子串的最小可能长度。如果原字符串自身就是一个平衡字符串，则返回 0。 思路参考： lee215 的视频讲解 [Java/C++/Python] Sliding Window 我觉得题目需要重新阅读并理解一下，题目的意思是在给出的序列中找一个子串，只需要修改这个子串的字符就可以使得这个字符串变为平衡字符串，求这个子串的最小长度。 思路是lee215 这位大牛的，上面的参考一个是他的视频讲解，另一个是他写的题解。下面写一下他的思路：首先扫描一下字符串，把W、E、R、Q这四个字符的个数记录下来，使用滑动窗口的思想，从下标0开始，扫描字符串，只考虑滑动窗口以外的字符，不考虑滑动窗口内的字符，滑动窗口外的W、E、R、Q这四个字符的个数，如果字符个数小于等于n/4，则说明改滑动窗口所在的区间越正确，也即滑动窗口内的字符是多余的并需要被修改的，然后找到这个滑动窗口长度的最小值即可。 当然这个算法是O(n)的，代码很简介，或许是全网最短，也或许最难懂。 更多题解可以参考 leetcode英文社区下关于这道题的讨论。1234. Replace the Substring for Balanced String 实现class Solution { public: int balancedString(string s) { // QWER count; int n = s.length(),m=n/4,res=n,i=0; map&lt;char,int&gt; count; for(int j=0;j&lt;n;j++) count[s[j]]++; for(int j=0;j&lt;n;j++){ count[s[j]]--; while(i&lt;n&amp;&amp;count[&#39;Q&#39;]&lt;=m&amp;&amp;count[&#39;E&#39;]&lt;=m&amp;&amp;count[&#39;R&#39;]&lt;=m&amp;&amp;count[&#39;W&#39;]&lt;=m){ res = min(res,j-i+1); count[s[i]]++; i++; } } return res; } }; 规划兼职工作你打算利用空闲时间来做兼职工作赚些零花钱。这里有 n 份兼职工作，每份工作预计从 startTime[i] 开始到 endTime[i] 结束，报酬为 profit[i]。给你一份兼职工作表，包含开始时间 startTime，结束时间 endTime 和预计报酬 profit 三个数组，请你计算并返回可以获得的最大报酬。注意，时间上出现重叠的 2 份工作不能同时进行。如果你选择的工作在时间 X 结束，那么你可以立刻进行在时间 X 开始的下一份工作。 思路一参考： [Java/C++/Python] DP Solution lee215 的视频讲解 再开辟一块空间，把endTime[i],startTime[i],profit[i] 一起存放进去，按照结束时间排序。然后进行动态规划，使用map，其中dp[i]表示从0到i时间段内的收益，i为结束时间，迭代过程是在dp中找到开始时间大于每次的startTime的结束时间的前一个，也就是小于startTime的最大的endTime,然后与当前的收益相加，最后map的最后一个就是答案。（其实这里有很多细节需要仔细钻研一下，比如之前就踩过的坑，涉及到了map的存储结构等) 实现一class Solution { public: int jobScheduling(vector&lt;int&gt;&amp; startTime, vector&lt;int&gt;&amp; endTime, vector&lt;int&gt;&amp; profit) { int n = endTime.size(); vector&lt;vector&lt;int&gt; &gt; jobs; for(int i=0;i&lt;n;i++){ jobs.push_back({endTime[i],startTime[i],profit[i]}); } sort(jobs.begin(),jobs.end()); map&lt;int,int&gt; dp; dp[0] = 0; for(auto job:jobs){ int cur = prev(dp.upper_bound(job[1]))-&gt;second + job[2]; if(cur &gt; dp.rbegin()-&gt;second) dp[job[0]] = cur; } return dp.rbegin()-&gt;second; } }; 思路二参考： [C++] Sort and DP, O(NlogN)不去重新分配存储空间去存储starttime、endTime、profit，只需要新建一个索引数组，自定义排序规则，按照结束时间排序。然后还定义了一个匿名函数，返回在endTime在startTime[i]之前的索引。然后就是动态规划，dp[i]表示在i时刻及以前所获得的最大收益，cur为当前时刻可以获得的收益。dp[i] = max(dp[i-1],cur)，最后dp[n-1]便是答案。 更多题解可以参考 leetcode英文社区下关于这道题的讨论。1235. Maximum Profit in Job Scheduling 实现二class Solution { public: int jobScheduling(vector&lt;int&gt;&amp; startTime, vector&lt;int&gt;&amp; endTime, vector&lt;int&gt;&amp; profit) { int n = startTime.size(); vector&lt;vector&lt;int&gt;&gt; jobs; int index[n]; for(int i=0;i&lt;n;i++){ index[i]=i; } sort(index,index+n,[&amp;endTime](int i,int j){return endTime[i]&lt;endTime[j];}); auto lastestValidIndex = [&amp;startTime,&amp;endTime,&amp;index](int i){ // lambda int start = startTime[index[i]]; int left = 0, right = i; while(left&lt;right){ int mid = (left+right)&gt;&gt;1; if(endTime[index[mid]]&lt;=start) left = mid+1; // +1 else right = mid; } return right==0?-1:right-1; }; int dp[n]={0}; dp[0] = profit[index[0]]; for(int i=1;i&lt;n;i++){ int cur = profit[index[i]]; int last = lastestValidIndex(i); if(last!=-1) cur +=dp[last]; dp[i] = max(dp[i-1],cur); } return dp[n-1]; } }; 被DP教育4小时。为伊消得人憔悴..说实话还是leetcode英文社区那边大牛多，讨论也更多一些。 今日份荐读： 姚班学霸陈立杰：16岁保送清华，18岁拿下IOI世界冠军，现摘得FOCS 2019最佳学生论文量子位]]></content>
@@ -413,6 +402,17 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[统计字符]]></title>
+    <url>%2F2019%2F10%2F21%2F2019-10-21-tong-ji-zi-fu%2F</url>
+    <content type="text"><![CDATA[输入一行字符，分别统计出其中英文字母、空格、数字和其他字符的个数。 #include&lt;bits/stdc++.h&gt; using namespace std; typedef long long ll; const int maxn = 2e5; # define mod(a,b) (a)%(b) int main(){ char ch; int count[4]={0}; while(cin.get(ch)){ if(ch&gt;=&#39;a&#39;&amp;&amp;ch&lt;=&#39;z&#39;||ch&gt;=&#39;A&#39;&amp;&amp;ch&lt;=&#39;Z&#39;) count[0]++; else if(ch==&#39; &#39;) count[1]++; else if(ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;) count[2]++; else if(ch==&#39;\n&#39;) break; else count[3]++; } cout &lt;&lt; count[0] &lt;&lt; &quot; &quot; &lt;&lt; count[2] &lt;&lt; &quot; &quot; &lt;&lt; count[1] &lt;&lt; &quot; &quot; &lt;&lt; count[3] ; return 0; } 题目虽然简单，注意点是统计空格需要用cin.get(ch)，输入时会在行末多输入一个回车，注意处理。]]></content>
+      <categories>
+        <category>数据结构与算法训练</category>
+      </categories>
+      <tags>
+        <tag>字符串</tag>
       </tags>
   </entry>
   <entry>
@@ -461,17 +461,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[LeetCodeWeeklyContest-156]]></title>
-    <url>%2F2019%2F10%2F02%2F2019-10-2-leetcodeweeklycontest-156%2F</url>
-    <content type="text"><![CDATA[题目传送写题解就像写博客一样真的有好处，尽管会多花点时间。 1 、独一无二的出现次数描述给你一个整数数组 arr，请你帮忙统计数组中每个数的出现次数。如果每个数的出现次数都是独一无二的，就返回 true；否则返回 false。 思路统计出现次数，然后排序。有相同的为false，否则为true。 实现 bool uniqueOccurrences(vector&lt;int&gt;&amp; arr) { int a[2001]={0}; for(int i=0;i&lt;arr.size();i++){ a[arr[i]+1000]++; } sort(a,a+2001); for(int i=0;i&lt;2000;i++){ if(a[i]==a[i+1]&amp;&amp;a[i]!=0){ return false; } } return true; } 时间复杂度：O(nlog2n) 2、尽可能使字符串相等描述给你两个长度相同的字符串，s 和 t。将 s 中的第 i 个字符变到 t 中的第 i 个字符需要 |s[i] - t[i]| 的开销（开销可能为 0），也就是两个字符的 ASCII 码值的差的绝对值。用于变更字符串的最大预算是 maxCost。在转化字符串时，总开销应当小于等于该预算，这也意味着字符串的转化可能是不完全的。如果你可以将 s 的子字符串转化为它在 t 中对应的子字符串，则返回可以转化的最大长度。如果 s 中没有子字符串可以转化成 t 中对应的子字符串，则返回 0。 思路官方题解说这是本场比赛里面最好的题目了。使用滑动窗口思想。一般使用滑动窗口思想，求解一个序列中连续k个数的最值问题 下面以s=”pxezla”,t=”loewbi”,maxCost=25为例 index 0 1 2 3 4 5 string1 p x e z l a string2 l o e w b i \ cost[i]\ 4 9 0 3 10 8 \ sum[i]\ 4 13 13 16 26 34 分别使用left，right表示cost数组的左右索引。left=0,right=0只要curCost小于maxCost,就right++当出现maxCost&lt;curCost时，则需要使left—，即向右整体滑动，貌似有点改进的kmp算法的感觉。最大长度best = max(best,right-left+1);只需滑动一次，即得最大值，对应的cost数组段为[9 0 3 10] 实现一class Solution { public: int equalSubstring(string s, string t, int maxCost) { vector&lt;int&gt; c; for(int i=0;i&lt;s.size();i++){ c.push_back(abs(s[i]-t[i])); } int curCost = 0,cnt=0; for(int i=0,j=0;i&lt;s.size();i++){ curCost += c[i]; while(curCost&gt;maxCost){ curCost -= c[j]; j++; } cnt = max(cnt,i-j+1); } return cnt; } }; 实现二class Solution { public: int equalSubstring(string s, string t, int maxCost) { vector&lt;int&gt; sumArr; int ans =0; sumArr.push_back(ans); // 很关键的处理 for(int i=0;i&lt;s.size();i++){ ans += abs(s[i]-t[i]); // cout &lt;&lt; ans &lt;&lt; endl; sumArr.push_back(ans); } int curCost = 0,cnt=0; for(int i=1,j=0;i&lt;=s.size();i++){ // 注意这里的等号，仔细想想为甚麽？ for(;sumArr[i]-sumArr[j]&gt;maxCost;j++); cnt = max(cnt,i-j); } return cnt; } }; 时间复杂度：O(n) 3、删除字符串中的所有相邻重复项 II描述给你一个字符串 s，「k 倍重复项删除操作」将会从 s 中选择 k 个相邻且相等的字母，并删除它们，使被删去的字符串的左侧和右侧连在一起。你需要对 s 重复进行无限次这样的删除操作，直到无法继续为止。在执行完所有删除操作后，返回最终得到的字符串。本题答案保证唯一。 思路参考官方题解，维护一个栈，栈元素类型为 pair ，其中char类型为对应的字符串的s[i]，int类型为对应的个数，由于本题保证答案唯一，题目大大简化，所以最后个数等于k的字符一定可以被删掉。扫描字符串s，使字符依次进栈，若栈顶的字母对应的个数等于k，便出栈k次。 实现class Solution { public: string removeDuplicates(string s, int k) { stack&lt;pair&lt;char,int&gt; &gt; st; for(int i=0;i&lt;s.size();i++){ if(st.empty()) st.push(make_pair(s[i],1)); else { if(st.top().first==s[i]){ st.push(make_pair(s[i],st.top().second+1)); } else st.push(make_pair(s[i],1)); } if(st.top().second==k){ for(int i=0;i&lt;k;i++){ st.pop(); } } } string result; while(st.size()){ result += st.top().first; st.pop(); } reverse(result.begin(),result.end()); return result; } }; 时间复杂度：O(n) 4、穿过迷宫的最少移动次数略]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[修改Jupyter Notebook的默认存储路径]]></title>
     <url>%2F2019%2F10%2F02%2F2019-10-2-xiu-gai-jupyter-notebook-de-mo-ren-cun-chu-lu-jing%2F</url>
     <content type="text"><![CDATA[最近在复现数据分析，发现JupyterNotebook默认存储路径在C盘 /user/.jupyter里面想改一下默认存储路径。 step1进入Anaconda安装路径，一般来说都是 */Anaconda3/Scripts，比如我的就是在 E:\Python\Anaconda\INSTALL\Scripts这个路径下，在cmd中将路径转到该路径下，这样替换代码如下，其中路径替换成自己的。 &gt;&gt; cd E:\Python\Anaconda\INSTALL\Scripts &gt;&gt; e: step2在cmd中输入命令： jupyter notebook --generate-config 然后就会在C盘用户路径（例如我的路径是：C:\Users\三寸旧城七寸执念\.jupyter）下生成jupyter_notebook_config.py文件，使用文本编辑器（VS Code等）打开该文件。 step3定位到第246行 #c.NotebookApp.notebook_dir = &#39;&#39; 替换为 c.NotebookApp.notebook_dir = &#39;E:/CodeCache/JupyterNotebook&#39; step4右击JupyterNotebook的快捷方式点击属性，将目标那一栏里的%USERPROFILE%删掉，应该就可以了。 重启Jupyter Notebook。 另外，需要给Jupyter NoteBook 换主题，换字体，字号，以及代码自动补全可参考使用 Jupyter Themes 修改 Jupyter Notebook 的主题、字体、字号Jupyter Notebook 更换主题、设置字体(jupyterthemes的使用)、代码自动补全、变更工作目录（默认目录） 其实个人觉得貌似也没有好看的字体，传说中的Consolas字体貌似也不支持，主题换来换去其实还不如最初的默认的。其实个人觉得比较有用的还是代码补全。另外，需要注意里面的命令行是在 Anaconda Prompt输入的，而非cmd。]]></content>
@@ -480,6 +469,17 @@
       </categories>
       <tags>
         <tag>JupyterNotebook</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCodeWeeklyContest-156]]></title>
+    <url>%2F2019%2F10%2F02%2F2019-10-2-leetcodeweeklycontest-156%2F</url>
+    <content type="text"><![CDATA[题目传送写题解就像写博客一样真的有好处，尽管会多花点时间。 1 、独一无二的出现次数描述给你一个整数数组 arr，请你帮忙统计数组中每个数的出现次数。如果每个数的出现次数都是独一无二的，就返回 true；否则返回 false。 思路统计出现次数，然后排序。有相同的为false，否则为true。 实现 bool uniqueOccurrences(vector&lt;int&gt;&amp; arr) { int a[2001]={0}; for(int i=0;i&lt;arr.size();i++){ a[arr[i]+1000]++; } sort(a,a+2001); for(int i=0;i&lt;2000;i++){ if(a[i]==a[i+1]&amp;&amp;a[i]!=0){ return false; } } return true; } 时间复杂度：O(nlog2n) 2、尽可能使字符串相等描述给你两个长度相同的字符串，s 和 t。将 s 中的第 i 个字符变到 t 中的第 i 个字符需要 |s[i] - t[i]| 的开销（开销可能为 0），也就是两个字符的 ASCII 码值的差的绝对值。用于变更字符串的最大预算是 maxCost。在转化字符串时，总开销应当小于等于该预算，这也意味着字符串的转化可能是不完全的。如果你可以将 s 的子字符串转化为它在 t 中对应的子字符串，则返回可以转化的最大长度。如果 s 中没有子字符串可以转化成 t 中对应的子字符串，则返回 0。 思路官方题解说这是本场比赛里面最好的题目了。使用滑动窗口思想。一般使用滑动窗口思想，求解一个序列中连续k个数的最值问题 下面以s=”pxezla”,t=”loewbi”,maxCost=25为例 index 0 1 2 3 4 5 string1 p x e z l a string2 l o e w b i \ cost[i]\ 4 9 0 3 10 8 \ sum[i]\ 4 13 13 16 26 34 分别使用left，right表示cost数组的左右索引。left=0,right=0只要curCost小于maxCost,就right++当出现maxCost&lt;curCost时，则需要使left—，即向右整体滑动，貌似有点改进的kmp算法的感觉。最大长度best = max(best,right-left+1);只需滑动一次，即得最大值，对应的cost数组段为[9 0 3 10] 实现一class Solution { public: int equalSubstring(string s, string t, int maxCost) { vector&lt;int&gt; c; for(int i=0;i&lt;s.size();i++){ c.push_back(abs(s[i]-t[i])); } int curCost = 0,cnt=0; for(int i=0,j=0;i&lt;s.size();i++){ curCost += c[i]; while(curCost&gt;maxCost){ curCost -= c[j]; j++; } cnt = max(cnt,i-j+1); } return cnt; } }; 实现二class Solution { public: int equalSubstring(string s, string t, int maxCost) { vector&lt;int&gt; sumArr; int ans =0; sumArr.push_back(ans); // 很关键的处理 for(int i=0;i&lt;s.size();i++){ ans += abs(s[i]-t[i]); // cout &lt;&lt; ans &lt;&lt; endl; sumArr.push_back(ans); } int curCost = 0,cnt=0; for(int i=1,j=0;i&lt;=s.size();i++){ // 注意这里的等号，仔细想想为甚麽？ for(;sumArr[i]-sumArr[j]&gt;maxCost;j++); cnt = max(cnt,i-j); } return cnt; } }; 时间复杂度：O(n) 3、删除字符串中的所有相邻重复项 II描述给你一个字符串 s，「k 倍重复项删除操作」将会从 s 中选择 k 个相邻且相等的字母，并删除它们，使被删去的字符串的左侧和右侧连在一起。你需要对 s 重复进行无限次这样的删除操作，直到无法继续为止。在执行完所有删除操作后，返回最终得到的字符串。本题答案保证唯一。 思路参考官方题解，维护一个栈，栈元素类型为 pair ，其中char类型为对应的字符串的s[i]，int类型为对应的个数，由于本题保证答案唯一，题目大大简化，所以最后个数等于k的字符一定可以被删掉。扫描字符串s，使字符依次进栈，若栈顶的字母对应的个数等于k，便出栈k次。 实现class Solution { public: string removeDuplicates(string s, int k) { stack&lt;pair&lt;char,int&gt; &gt; st; for(int i=0;i&lt;s.size();i++){ if(st.empty()) st.push(make_pair(s[i],1)); else { if(st.top().first==s[i]){ st.push(make_pair(s[i],st.top().second+1)); } else st.push(make_pair(s[i],1)); } if(st.top().second==k){ for(int i=0;i&lt;k;i++){ st.pop(); } } } string result; while(st.size()){ result += st.top().first; st.pop(); } reverse(result.begin(),result.end()); return result; } }; 时间复杂度：O(n) 4、穿过迷宫的最少移动次数略]]></content>
+      <categories>
+        <category>leetcode</category>
+      </categories>
+      <tags>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -778,14 +778,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[欧几里得算法]]></title>
-    <url>%2F2019%2F01%2F09%2F2019-01-09-ou-ji-li-de-suan-fa%2F</url>
-    <content type="text"><![CDATA[欧几里得算法求最大公约数 Sometimes your whole life boils down to one insane move. 人这一辈子，有时就得靠一次疯狂的举动才能扭转乾坤。 —————————《阿凡达》 @[toc] 一、介绍欧几里得 &emsp;&emsp;像所有博客一样，出于尊重，介绍一下这位伟大的数学家欧几里得。 &emsp;&emsp;欧几里得，古希腊人，数学家，主要成就：数学巨著《几何原本》、欧几里得算法、完全数。 &emsp;&emsp;在柏拉图学派晚期导师普罗克洛斯（约410～485）的《几何学发展概要》中，就记载着这样一则故事，说的是数学在欧几里得的推动下，逐渐成为人们生活中的一个时髦话题(这与当今社会截然相反)，以至于当时亚里山大国王托勒密一世也想赶这一时髦，学点儿几何学。 &emsp;&emsp;虽然这位国王见多识广，但欧氏几何却令他学的很吃力。于是，他问欧几里得“学习几何学有没有什么捷径可走？”，欧几里得笑道：“抱歉，陛下!学习数学和学习一切科学一样，是没有什么捷径可走的。学习数学，人人都得独立思考，就像种庄稼一样，不耕耘是不会有收获的。在这一方面，国王和普通老百姓是一样的。” 从此,“在几何学里,没有专为国王铺设的大道。”这句话成为千古传诵的学习箴言。&emsp;&emsp;总之呢，任何事情都是这样，哪有这么多得捷径可走，天才往往都是天天积累成才。 二、实现思路 定义2.1：设m和n是两个不全为0的整数，称m与n的公因子中最大的为m与n的最大公因子，或最大公约数(greatest common divisor)，记作gcd(m,n)定义2.2：设m和n是两个非零整数，称a与b最小的公倍数为m与n的最小公倍数(least common multiple)，记作lcm(m,n) 欧几里得算法又称辗转相除法 s：设两个正整数m，n且m &gt; n ; s1：令r=m%n（%代表取余）； s2：若r=0(即n整除m)运算结束，n为结果 ； s3：否则令m=n，n=r并返回s1 ； 三、核心思想gcd(m,n)=gcd(n,mod(m,n) lcm(m,n) = ab/gcd(m,n) 证明：不妨设 m=k1d ,n=k2d , k3 = m/n (整除) 则 r=m-k3n=k1d-k2k3d=(k1- k2k3)d故r也是d的倍数，得证$\it gcd (m,n)=gcd(n,mod(m,n)$ 四、优点 一看相比于穷举法，效率也会高很多 五、核心代码 int gcd(int m,int n) { int t,r; if(m&lt;n) swap(m,n); //交换二者的值 while(n!=0) { r=m%n; m=n; n=r; } return n; } int gcd(int m,int n) // 递归做法 { if(m&lt;n) swap(m,n); //交换二者的值 if(n==0) return m; return gcd(n,m%n); } int lcm(int gcd,int m,int n) { return m*n/gcd; } 参考来源：人物简介源自百度百科 在CSDN上的第一篇文章，２０１９加油！]]></content>
+    <title><![CDATA[HDU2097Sky数]]></title>
+    <url>%2F2019%2F01%2F09%2F2019-01-09-hdu-2097sky-shu%2F</url>
+    <content type="text"><![CDATA[Sky数 My life didn’t please me, so I created my life.我的生活不曾取悦于我，所以我创造了自己的生活 ———-Coco Chanel Problem Description Sky从小喜欢奇特的东西，而且天生对数字特别敏感，一次偶然的机会，他发现了一个有趣的四位数2992，这个数它的十进制数表示，其四位数字之和为2+9+9+2=22，它的十六进制数BB0，其四位数字之和也为22，同时它的十二进制数表示1894，其四位数字之和也为22，啊哈，真是巧啊。Sky非常喜欢这种四位数，由于他的发现，所以这里我们命名其为Sky数。但是要判断这样的数还是有点麻烦啊，那么现在请你帮忙来判断任何一个十进制的四位数，是不是Sky数吧。 Input 输入含有一些四位正整数，如果为0，则输入结束。 Output 若n为Sky数，则输出“#n is a Sky Number.”，否则输出“#n is not a Sky Number.”。每个结果占一行。注意：#n表示所读入的n值。 Sample Input 299212340 Sample Output 2992 is a Sky Number.1234 is not a Sky Number. 思路 输入一个四位整数，需要将其进制转换，而在进制转换的过程中又可以实现四位数各位相加，看似需要将数据转换成十六进制、十二进制（输入的便是十进制），实则，只需一个进制转换求和函数就可以实现，不妨设转换为n进制，在转换的过程中便可实现求和，先对n求模，再整除n，最后判断和是否相等即可。 代码#include &lt;iostream&gt; using namespace std; int DBC(int a,int n) //将数字a转化为n进制，将其每位相加求和 { int sum=0; while(a) { sum += a%n; a /= n; } return sum; } int main() { int a,b,sum=0; while(cin &gt;&gt; a &amp;&amp; a!=0) { b=a; //个人认为，这里只要三者相等即可，不一定为22 if((DBC(b,10)==DBC(b,16)) &amp;&amp; (DBC(b,10)==DBC(b,12))) cout&lt;&lt; a &lt;&lt; &quot; is a Sky Number.&quot; &lt;&lt; endl; else cout&lt;&lt; a &lt;&lt; &quot; is not a Sky Number.&quot; &lt;&lt; endl; } return 0; }]]></content>
       <categories>
-        <category>数论</category>
+        <category>数据结构与算法训练</category>
       </categories>
       <tags>
-        <tag>数论</tag>
+        <tag>数据结构与算法训练</tag>
       </tags>
   </entry>
   <entry>
@@ -800,14 +800,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[HDU2097Sky数]]></title>
-    <url>%2F2019%2F01%2F09%2F2019-01-09-hdu-2097sky-shu%2F</url>
-    <content type="text"><![CDATA[Sky数 My life didn’t please me, so I created my life.我的生活不曾取悦于我，所以我创造了自己的生活 ———-Coco Chanel Problem Description Sky从小喜欢奇特的东西，而且天生对数字特别敏感，一次偶然的机会，他发现了一个有趣的四位数2992，这个数它的十进制数表示，其四位数字之和为2+9+9+2=22，它的十六进制数BB0，其四位数字之和也为22，同时它的十二进制数表示1894，其四位数字之和也为22，啊哈，真是巧啊。Sky非常喜欢这种四位数，由于他的发现，所以这里我们命名其为Sky数。但是要判断这样的数还是有点麻烦啊，那么现在请你帮忙来判断任何一个十进制的四位数，是不是Sky数吧。 Input 输入含有一些四位正整数，如果为0，则输入结束。 Output 若n为Sky数，则输出“#n is a Sky Number.”，否则输出“#n is not a Sky Number.”。每个结果占一行。注意：#n表示所读入的n值。 Sample Input 299212340 Sample Output 2992 is a Sky Number.1234 is not a Sky Number. 思路 输入一个四位整数，需要将其进制转换，而在进制转换的过程中又可以实现四位数各位相加，看似需要将数据转换成十六进制、十二进制（输入的便是十进制），实则，只需一个进制转换求和函数就可以实现，不妨设转换为n进制，在转换的过程中便可实现求和，先对n求模，再整除n，最后判断和是否相等即可。 代码#include &lt;iostream&gt; using namespace std; int DBC(int a,int n) //将数字a转化为n进制，将其每位相加求和 { int sum=0; while(a) { sum += a%n; a /= n; } return sum; } int main() { int a,b,sum=0; while(cin &gt;&gt; a &amp;&amp; a!=0) { b=a; //个人认为，这里只要三者相等即可，不一定为22 if((DBC(b,10)==DBC(b,16)) &amp;&amp; (DBC(b,10)==DBC(b,12))) cout&lt;&lt; a &lt;&lt; &quot; is a Sky Number.&quot; &lt;&lt; endl; else cout&lt;&lt; a &lt;&lt; &quot; is not a Sky Number.&quot; &lt;&lt; endl; } return 0; }]]></content>
+    <title><![CDATA[欧几里得算法]]></title>
+    <url>%2F2019%2F01%2F09%2F2019-01-09-ou-ji-li-de-suan-fa%2F</url>
+    <content type="text"><![CDATA[欧几里得算法求最大公约数 Sometimes your whole life boils down to one insane move. 人这一辈子，有时就得靠一次疯狂的举动才能扭转乾坤。 —————————《阿凡达》 @[toc] 一、介绍欧几里得 &emsp;&emsp;像所有博客一样，出于尊重，介绍一下这位伟大的数学家欧几里得。 &emsp;&emsp;欧几里得，古希腊人，数学家，主要成就：数学巨著《几何原本》、欧几里得算法、完全数。 &emsp;&emsp;在柏拉图学派晚期导师普罗克洛斯（约410～485）的《几何学发展概要》中，就记载着这样一则故事，说的是数学在欧几里得的推动下，逐渐成为人们生活中的一个时髦话题(这与当今社会截然相反)，以至于当时亚里山大国王托勒密一世也想赶这一时髦，学点儿几何学。 &emsp;&emsp;虽然这位国王见多识广，但欧氏几何却令他学的很吃力。于是，他问欧几里得“学习几何学有没有什么捷径可走？”，欧几里得笑道：“抱歉，陛下!学习数学和学习一切科学一样，是没有什么捷径可走的。学习数学，人人都得独立思考，就像种庄稼一样，不耕耘是不会有收获的。在这一方面，国王和普通老百姓是一样的。” 从此,“在几何学里,没有专为国王铺设的大道。”这句话成为千古传诵的学习箴言。&emsp;&emsp;总之呢，任何事情都是这样，哪有这么多得捷径可走，天才往往都是天天积累成才。 二、实现思路 定义2.1：设m和n是两个不全为0的整数，称m与n的公因子中最大的为m与n的最大公因子，或最大公约数(greatest common divisor)，记作gcd(m,n)定义2.2：设m和n是两个非零整数，称a与b最小的公倍数为m与n的最小公倍数(least common multiple)，记作lcm(m,n) 欧几里得算法又称辗转相除法 s：设两个正整数m，n且m &gt; n ; s1：令r=m%n（%代表取余）； s2：若r=0(即n整除m)运算结束，n为结果 ； s3：否则令m=n，n=r并返回s1 ； 三、核心思想gcd(m,n)=gcd(n,mod(m,n) lcm(m,n) = ab/gcd(m,n) 证明：不妨设 m=k1d ,n=k2d , k3 = m/n (整除) 则 r=m-k3n=k1d-k2k3d=(k1- k2k3)d故r也是d的倍数，得证$\it gcd (m,n)=gcd(n,mod(m,n)$ 四、优点 一看相比于穷举法，效率也会高很多 五、核心代码 int gcd(int m,int n) { int t,r; if(m&lt;n) swap(m,n); //交换二者的值 while(n!=0) { r=m%n; m=n; n=r; } return n; } int gcd(int m,int n) // 递归做法 { if(m&lt;n) swap(m,n); //交换二者的值 if(n==0) return m; return gcd(n,m%n); } int lcm(int gcd,int m,int n) { return m*n/gcd; } 参考来源：人物简介源自百度百科 在CSDN上的第一篇文章，２０１９加油！]]></content>
       <categories>
-        <category>数据结构与算法训练</category>
+        <category>数论</category>
       </categories>
       <tags>
-        <tag>数据结构与算法训练</tag>
+        <tag>数论</tag>
       </tags>
   </entry>
 </search>
