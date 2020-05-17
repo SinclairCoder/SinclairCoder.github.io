@@ -32,7 +32,7 @@
 <meta property="og:site_name" content="SinclairのBlog">
 <meta property="og:description" content="最近在复现数据分析，发现JupyterNotebook默认存储路径在C盘 /user/.jupyter里面想改一下默认存储路径。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-05-17T17:53:39.633Z">
+<meta property="og:updated_time" content="2020-05-17T18:02:26.138Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="修改Jupyter Notebook的默认存储路径">
 <meta name="twitter:description" content="最近在复现数据分析，发现JupyterNotebook默认存储路径在C盘 /user/.jupyter里面想改一下默认存储路径。">
@@ -246,7 +246,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 01:53:39" itemprop="dateModified" datetime="2020-05-18T01:53:39+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 02:02:26" itemprop="dateModified" datetime="2020-05-18T02:02:26+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -285,7 +285,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>872</span>
+              <span>873</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -304,7 +304,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>最近在复现数据分析，发现JupyterNotebook默认存储路径在C盘 /user/.jupyter里面<br>想改一下默认存储路径。<br><a id="more"></a></p>
+        <p>最近在复现数据分析，发现JupyterNotebook默认存储路径在C盘 /user/.jupyter里面<br>想改一下默认存储路径。</p>
+<a id="more"></a>
 <h2 id="step1"><a href="#step1" class="headerlink" title="step1"></a>step1</h2><p>进入Anaconda安装路径，一般来说都是 <em>*</em>/Anaconda3/Scripts，比如我的就是在 E:\Python\Anaconda\INSTALL\Scripts这个路径下，在cmd中将路径转到该路径下，这样替换代码如下，其中路径替换成自己的。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; <span class="built_in">cd</span> E:\Python\Anaconda\INSTALL\Scripts</span><br><span class="line">&gt;&gt; e:</span><br></pre></td></tr></table></figure></p>
 <h2 id="step2"><a href="#step2" class="headerlink" title="step2"></a>step2</h2><p>在cmd中输入命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></table></figure></p>
 <p>然后就会在C盘用户路径（例如我的路径是：C:\Users\三寸旧城七寸执念\.jupyter）下生成jupyter_notebook_config.py文件，使用文本编辑器（VS Code等）打开该文件。</p>
@@ -525,7 +526,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:13</span>
+    <span title="Reading time total">2:12</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>

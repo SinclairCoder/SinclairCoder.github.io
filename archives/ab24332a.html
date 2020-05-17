@@ -24,18 +24,18 @@
     var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="输入一行字符，分别统计出其中英文字母、空格、数字和其他字符的个数。 123456789101112131415161718192021222324#include&amp;lt;bits/stdc++.h&amp;gt;using namespace std;typedef long long ll;const int maxn = 2e5;# define mod(a,b) (a)%(b)int main()&amp;">
+  <meta name="description" content="输入一行字符，分别统计出其中英文字母、空格、数字和其他字符的个数。">
 <meta name="keywords" content="字符串">
 <meta property="og:type" content="article">
 <meta property="og:title" content="统计字符">
 <meta property="og:url" content="https://sinclaircoder.gitee.io/archives/ab24332a.html">
 <meta property="og:site_name" content="SinclairのBlog">
-<meta property="og:description" content="输入一行字符，分别统计出其中英文字母、空格、数字和其他字符的个数。 123456789101112131415161718192021222324#include&amp;lt;bits/stdc++.h&amp;gt;using namespace std;typedef long long ll;const int maxn = 2e5;# define mod(a,b) (a)%(b)int main()&amp;">
+<meta property="og:description" content="输入一行字符，分别统计出其中英文字母、空格、数字和其他字符的个数。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-05-17T16:41:40.104Z">
+<meta property="og:updated_time" content="2020-05-17T18:02:01.535Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="统计字符">
-<meta name="twitter:description" content="输入一行字符，分别统计出其中英文字母、空格、数字和其他字符的个数。 123456789101112131415161718192021222324#include&amp;lt;bits/stdc++.h&amp;gt;using namespace std;typedef long long ll;const int maxn = 2e5;# define mod(a,b) (a)%(b)int main()&amp;">
+<meta name="twitter:description" content="输入一行字符，分别统计出其中英文字母、空格、数字和其他字符的个数。">
 
 <link rel="canonical" href="https://sinclaircoder.gitee.io/archives/ab24332a.html">
 
@@ -246,7 +246,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:40" itemprop="dateModified" datetime="2020-05-18T00:41:40+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 02:02:01" itemprop="dateModified" datetime="2020-05-18T02:02:01+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -285,7 +285,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>636</span>
+              <span>637</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -305,6 +305,7 @@
 
       
         <p><strong>输入一行字符，分别统计出其中英文字母、空格、数字和其他字符的个数。</strong></p>
+<a id="more"></a>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">2e5</span>;</span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> mod(a,b) (a)%(b)</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">char</span> ch;</span><br><span class="line">	<span class="keyword">int</span> count[<span class="number">4</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span>.get(ch))&#123;</span><br><span class="line">		<span class="keyword">if</span>(ch&gt;=<span class="string">'a'</span>&amp;&amp;ch&lt;=<span class="string">'z'</span>||ch&gt;=<span class="string">'A'</span>&amp;&amp;ch&lt;=<span class="string">'Z'</span>)</span><br><span class="line">			count[<span class="number">0</span>]++;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(ch==<span class="string">' '</span>)</span><br><span class="line">			count[<span class="number">1</span>]++;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(ch&gt;=<span class="string">'0'</span>&amp;&amp;ch&lt;=<span class="string">'9'</span>)</span><br><span class="line">			count[<span class="number">2</span>]++;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(ch==<span class="string">'\n'</span>) <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">else</span> count[<span class="number">3</span>]++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; count[<span class="number">0</span>] &lt;&lt; <span class="string">" "</span> &lt;&lt; count[<span class="number">2</span>] &lt;&lt; <span class="string">" "</span> &lt;&lt; count[<span class="number">1</span>] &lt;&lt; <span class="string">" "</span> &lt;&lt; count[<span class="number">3</span>] ;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>题目虽然简单，注意点是统计空格需要用<strong>cin.get(ch)</strong>，输入时会在行末多输入一个回车，注意处理。</p>
 
@@ -374,12 +375,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/archives/47a1ed4f.html" rel="prev" title="最长公共子序列(LongestCommonSubsequence)">
-      <i class="fa fa-chevron-left"></i> 最长公共子序列(LongestCommonSubsequence)
+    <a href="/archives/7472bec8.html" rel="prev" title="LeetCodeWeeklyContest-159">
+      <i class="fa fa-chevron-left"></i> LeetCodeWeeklyContest-159
     </a></div>
       <div class="post-nav-item">
-    <a href="/archives/7472bec8.html" rel="next" title="LeetCodeWeeklyContest-159">
-      LeetCodeWeeklyContest-159 <i class="fa fa-chevron-right"></i>
+    <a href="/archives/b359837a.html" rel="next" title="费马小定理">
+      费马小定理 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -526,7 +527,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:13</span>
+    <span title="Reading time total">2:12</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>

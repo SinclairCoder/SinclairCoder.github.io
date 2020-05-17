@@ -214,6 +214,119 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/7bffbf73.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/archives/7bffbf73.html" class="post-title-link" itemprop="url">黄金连分数--BigDecimal的使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-22 00:00:00" itemprop="dateCreated datePublished" datetime="2019-11-22T00:00:00+08:00">2019-11-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-18 01:46:11" itemprop="dateModified" datetime="2020-05-18T01:46:11+08:00">2020-05-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/蓝桥杯/" itemprop="url" rel="index"><span itemprop="name">蓝桥杯</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/archives/7bffbf73.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/7bffbf73.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>一道2013蓝桥杯省赛试题</p>
+<p><strong>黄金连分数</strong></p>
+<ul>
+<li>黄金分割数是0.61803是一个无理数，…</li>
+<li>写出精确到小数点后100位精度的黄金分割数
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/7bffbf73.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/6a744e70.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -245,7 +358,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:40" itemprop="dateModified" datetime="2020-05-18T00:41:40+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 02:00:31" itemprop="dateModified" datetime="2020-05-18T02:00:31+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -277,7 +390,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>800</span>
+              <span>801</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -297,239 +410,9 @@
 
       
           <p>找个大数乘法的题目练习一下 BigInterger的使用</p>
-<blockquote>
-<p>当两个比较大的整数相乘时，可能会出现数据溢出的情形。为避免溢出，可以采用字符串的方法来实现两个大数之间的乘法。具体来说，首先以字符串的形式输入两个整数，每个整数的长度不会超过8位，然后把它们相乘的结果存储在另一个字符串当中（长度不会超过16位），最后把这个字符串打印出来。例如，假设用户输入为：62773417和12345678，则输出结果为：774980393241726.</p>
-</blockquote>
-<p>输入：</p>
-<blockquote>
-<p>62773417 12345678</p>
-</blockquote>
-<p>输出：</p>
-<blockquote>
-<p>774980393241726</p>
-</blockquote>
-<p>代码实现</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.BigInteger;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		String str1 = input.next(),str2 = input.next();</span><br><span class="line">		BigInteger num1 = <span class="keyword">new</span> BigInteger(str1);</span><br><span class="line">		BigInteger num2 = <span class="keyword">new</span> BigInteger(str2);</span><br><span class="line">		BigInteger res = num1.multiply(num2);</span><br><span class="line">		System.out.println(res.toString());</span><br><span class="line">		input.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>比C/C++实现起来爽很多。<br>一般来说BigInteger是使用String类型进行构造，传入两个个数字字符串，然后进行加减乘除。<br>java中并没有重载运算符这种操作，只能另外实现封装成新的函数。</p>
-<p>一些常用API请参考<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3N1eWViaXViaXUvYXJ0aWNsZS9kZXRhaWxzLzc4NTExNTU2">java基础-BigInteger的使用<i class="fa fa-external-link-alt"></i></span></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/6c292947.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="SinclairWang">
-      <meta itemprop="description" content="算法 | NLP | MachineLearning">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SinclairのBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/6c292947.html" class="post-title-link" itemprop="url">切面条</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-22 00:00:00" itemprop="dateCreated datePublished" datetime="2019-11-22T00:00:00+08:00">2019-11-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 01:46:22" itemprop="dateModified" datetime="2020-05-18T01:46:22+08:00">2020-05-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/蓝桥杯/" itemprop="url" rel="index"><span itemprop="name">蓝桥杯</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/archives/6c292947.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/archives/6c292947.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>397</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>一道2014蓝桥杯省赛试题<br><strong>切面条</strong><br> 一根高筋拉面，中间切一刀，可以得到2根面条。<br>    如果先对折1次，中间切一刀，可以得到3根面条。<br>    如果连续对折2次，中间切一刀，可以得到5根面条。<br>    那么，连续对折10次，中间切一刀，会得到多少面条呢？<br>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/archives/6c292947.html#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/8ebca082.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="SinclairWang">
-      <meta itemprop="description" content="算法 | NLP | MachineLearning">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SinclairのBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/8ebca082.html" class="post-title-link" itemprop="url">蓝桥杯集训笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-22 00:00:00" itemprop="dateCreated datePublished" datetime="2019-11-22T00:00:00+08:00">2019-11-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 01:46:18" itemprop="dateModified" datetime="2020-05-18T01:46:18+08:00">2020-05-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/蓝桥杯/" itemprop="url" rel="index"><span itemprop="name">蓝桥杯</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/archives/8ebca082.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/archives/8ebca082.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>847</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="数学建模的思想"><a href="#数学建模的思想" class="headerlink" title="数学建模的思想"></a>数学建模的思想</h2><p>几道题目</p>
-<ul>
-<li><a href="https://blog.csdn.net/SinclairWang/article/details/103203318" target="_blank" rel="noopener">熊怪吃核桃—二进制的使用</a></li>
-<li><a href="https://blog.csdn.net/SinclairWang/article/details/103204198" target="_blank" rel="noopener">切面条</a></li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/archives/8ebca082.html#more" rel="contents">
+              <a class="btn" href="/archives/6a744e70.html#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -584,7 +467,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:40" itemprop="dateModified" datetime="2020-05-18T00:41:40+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 02:00:37" itemprop="dateModified" datetime="2020-05-18T02:00:37+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -616,7 +499,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>317</span>
+              <span>318</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -636,11 +519,14 @@
 
       
           <h2 id="打开SQL-Server配置管理器"><a href="#打开SQL-Server配置管理器" class="headerlink" title="打开SQL Server配置管理器"></a>打开SQL Server配置管理器</h2><p>在Windows 10中，SQL Server 配置管理器不显示为一个应用程序。<br>如果想找到配置管理器一般在下面这个路径里</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Windows\SysWOW64</span><br></pre></td></tr></table></figure>
-<p>里面文件很多，然后搜索SQLServerManager<br><img src="https://img-blog.csdnimg.cn/20191119132859931.png" alt="搜索SQLServerManager"><br>可能版本不一样，只要是这个就可以，然后双击打开。<br><img src="https://img-blog.csdnimg.cn/20191119133753870.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="配置管理器"></p>
-<h2 id="远程过程调用失败问题"><a href="#远程过程调用失败问题" class="headerlink" title="远程过程调用失败问题"></a>远程过程调用失败问题</h2><p>打开服务的时候可能会遇到无法连接到 WMI 提供程序的问题<br><img src="https://img-blog.csdnimg.cn/20191119134055201.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="无法连接到 WMI 提供程序的问题"></p>
-<p>八成是因为之前装过VS，然后装上了Microsoft SQL Server 201* Express LocalDB（版本可能不一样），可以去控制面板添加或卸载程序 里面搜索Microsoft SQL Server 就可以看到，然后卸载掉应该就可以了。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/b0be8873.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -690,7 +576,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:40" itemprop="dateModified" datetime="2020-05-18T00:41:40+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 02:00:47" itemprop="dateModified" datetime="2020-05-18T02:00:47+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -722,7 +608,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>789</span>
+              <span>790</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -742,16 +628,14 @@
 
       
           <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入2个字符串S1和S2，要求删除字符串S1中出现的所有子串S2，即结果字符串中不能包含S2。</p>
-<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>输入在2行中分别给出不超过80个字符长度的、以回车结束的2个非空字符串，对应S1和S2。</p>
-<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>在一行中输出删除字符串S1中出现的所有子串S2后的结果字符串。</p>
-<h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><blockquote>
-<p>Tomcat is a male ccatat<br>cat</p>
-</blockquote>
-<h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote>
-<p>Tom is a male </p>
-</blockquote>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll; </span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,m,n) for(int i=m;i&lt;n;i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep1(i,m,n) for(int i=m;i&gt;=n;i--)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 主要是练习一下 string里的find()函数和erase()函数的使用</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    getline(<span class="built_in">cin</span>,s);</span><br><span class="line">    <span class="built_in">string</span> del;</span><br><span class="line">    getline(<span class="built_in">cin</span>,del);</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> n = s.find(del,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">while</span>(n!=<span class="number">-1</span>)&#123;</span><br><span class="line">        s.erase(n,del.length());</span><br><span class="line">        n = s.find(del,<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; s;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/e8f904a2.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -801,7 +685,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:40" itemprop="dateModified" datetime="2020-05-18T00:41:40+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 02:00:59" itemprop="dateModified" datetime="2020-05-18T02:00:59+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -853,132 +737,14 @@
 
       
           <p>给定一句英语，要求你编写程序，将句中所有单词的顺序颠倒输出。</p>
-<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>测试输入包含一个测试用例，在一行内给出总长度不超过500 000的字符串。字符串由若干单词和若干空格组成，其中单词是由英文字母（大小写有区分）组成的字符串，单词之间用若干个空格分开。</p>
-<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>每个测试用例的输出占一行，输出倒序后的句子，并且保证单词间只有1个空格。</p>
-<h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><blockquote>
-<p>Hello World   Here I Come</p>
-</blockquote>
-<h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote>
-<p>Come I Here World Hello</p>
-</blockquote>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>一开始用string s，while(cin &gt;&gt; s) 做的，5行代码只拿了19分，差一分，全为空格的情况没有处理。然后就只能推倒重来了，先读完在后再扫描，判断空格，每读完一个就push一个，但是最后一个会漏掉，要特判一下。更多细节看代码。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,m,n) for(int i=m;i&lt;n;i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep1(i,m,n) for(int i=m;i&gt;=n;i--)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb  push_back</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> s,s1=<span class="string">""</span>,s2=<span class="string">""</span>;</span><br><span class="line">    getline(<span class="built_in">cin</span>,s);</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; res;</span><br><span class="line">    rep(i,<span class="number">0</span>,s.length())&#123;</span><br><span class="line">        <span class="keyword">char</span> c = s[i];</span><br><span class="line">        <span class="keyword">if</span>(c!=<span class="string">' '</span>)s1 += c;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">        	<span class="keyword">if</span>(s1.length()&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        		res.pb(s1);s1.clear();</span><br><span class="line">			&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 最后一个会漏掉，但是要判断一下</span></span><br><span class="line">	<span class="keyword">if</span>(s1.length()&gt;<span class="number">0</span>) res.pb(s1);  </span><br><span class="line">    <span class="keyword">if</span>(res.size()) <span class="built_in">cout</span> &lt;&lt;  res[res.size()<span class="number">-1</span>];</span><br><span class="line">	rep1(i,res.size()<span class="number">-2</span>,<span class="number">0</span>) <span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span> &lt;&lt; res[i] ;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 如下代码可轻松拿下19分，不过想拿剩下的一分,代码就没有这么简洁了</span></span><br><span class="line"><span class="comment">int main()&#123;</span></span><br><span class="line"><span class="comment">    string s;</span></span><br><span class="line"><span class="comment">    vector&lt;string&gt; v;</span></span><br><span class="line"><span class="comment">    while(cin &gt;&gt; s) v.pb(s); </span></span><br><span class="line"><span class="comment">	cout &lt;&lt;  v[v.size()-1];</span></span><br><span class="line"><span class="comment">	rep1(i,v.size()-2,0) cout &lt;&lt; " " &lt;&lt; v[i] ;</span></span><br><span class="line"><span class="comment">	return 0;</span></span><br><span class="line"><span class="comment">&#125;*/</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/dcede1ca.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="SinclairWang">
-      <meta itemprop="description" content="算法 | NLP | MachineLearning">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SinclairのBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/dcede1ca.html" class="post-title-link" itemprop="url">PTA福到了</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-08 00:00:00" itemprop="dateCreated datePublished" datetime="2019-11-08T00:00:00+08:00">2019-11-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:40" itemprop="dateModified" datetime="2020-05-18T00:41:40+08:00">2020-05-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PTA/" itemprop="url" rel="index"><span itemprop="name">PTA</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/archives/dcede1ca.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/archives/dcede1ca.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>1 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>“福”字倒着贴，寓意“福到”。不论到底算不算民俗，本题且请你编写程序，把各种汉字倒过来输出。这里要处理的每个汉字是由一个 N × N 的网格组成的，网格中的元素或者为字符 @ 或者为空格。而倒过来的汉字所用的字符由裁判指定。</p>
-<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>输入在第一行中给出倒过来的汉字所用的字符、以及网格的规模 N （不超过100的正整数），其间以 1 个空格分隔；随后 N 行，每行给出 N 个字符，或者为 @ 或者为空格。</p>
-<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>输出倒置的网格，如样例所示。但是，如果这个字正过来倒过去是一样的，就先输出bu yong dao le，然后再用输入指定的字符将其输出。</p>
-<h2 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例 1："></a>输入样例 1：</h2><blockquote>
-<p>$ 9<br> @  @@@@@<br>@@@  @@@<br> @   @ @<br>@@@  @@@<br>@@@ @@@@@<br>@@@ @ @ @<br>@@@ @@@@@<br> @  @ @ @<br> @  @@@@@</p>
-</blockquote>
-<h2 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例 1："></a>输出样例 1：</h2><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">$</span><span class="symbol">$</span><span class="symbol">$</span><span class="symbol">$</span><span class="symbol">$</span>  <span class="symbol">$</span> </span><br><span class="line"><span class="symbol">$</span> <span class="symbol">$</span> <span class="symbol">$</span>  <span class="symbol">$</span> </span><br><span class="line"><span class="symbol">$</span><span class="symbol">$</span><span class="symbol">$</span><span class="symbol">$</span><span class="symbol">$</span> <span class="symbol">$</span><span class="symbol">$</span><span class="symbol">$</span></span><br><span class="line"><span class="symbol">$</span> <span class="symbol">$</span> <span class="symbol">$</span> <span class="symbol">$</span><span class="symbol">$</span><span class="symbol">$</span></span><br><span class="line"><span class="symbol">$</span><span class="symbol">$</span><span class="symbol">$</span><span class="symbol">$</span><span class="symbol">$</span> <span class="symbol">$</span><span class="symbol">$</span><span class="symbol">$</span></span><br><span class="line"> <span class="symbol">$</span><span class="symbol">$</span><span class="symbol">$</span>  <span class="symbol">$</span><span class="symbol">$</span><span class="symbol">$</span></span><br><span class="line"> <span class="symbol">$</span> <span class="symbol">$</span>   <span class="symbol">$</span> </span><br><span class="line"> <span class="symbol">$</span><span class="symbol">$</span><span class="symbol">$</span>  <span class="symbol">$</span><span class="symbol">$</span><span class="symbol">$</span></span><br><span class="line"><span class="symbol">$</span><span class="symbol">$</span><span class="symbol">$</span><span class="symbol">$</span><span class="symbol">$</span>  <span class="symbol">$</span></span><br></pre></td></tr></table></figure>
-<h2 id="输入样例-2："><a href="#输入样例-2：" class="headerlink" title="输入样例 2："></a>输入样例 2：</h2><blockquote>
-<p>&amp; 3<br>@@@<br> @<br>@@@</p>
-</blockquote>
-<h2 id="输出样例-2："><a href="#输出样例-2：" class="headerlink" title="输出样例 2："></a>输出样例 2：</h2><blockquote>
-<p>bu yong dao le<br>\&amp;\&amp;\&amp;<br> &amp;<br>&amp;\&amp;\&amp;</p>
-</blockquote>
-<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><p>记得getchar()<br>坑很多..</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,m,n) for(int i=m;i&lt;n;i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep1(i,m,n) for(int i=m;i&gt;=n;i--)</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c; <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; c &gt;&gt; n;</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="built_in">string</span> s[n];</span><br><span class="line">    rep(i,<span class="number">0</span>,n)</span><br><span class="line">    	getline(<span class="built_in">cin</span>,s[i]);</span><br><span class="line">    <span class="keyword">bool</span> ok = <span class="literal">true</span>; <span class="comment">// 不需要倒置</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,j=n<span class="number">-1</span>;i&lt;n&amp;&amp;ok;i++,j--)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>,t=n<span class="number">-1</span>;k&lt;n;k++,t--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i][k]!=s[j][t])</span><br><span class="line">                &#123;ok = <span class="literal">false</span>;<span class="keyword">break</span>;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(ok) <span class="built_in">cout</span> &lt;&lt; <span class="string">"bu yong dao le"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    rep1(i,n<span class="number">-1</span>,<span class="number">0</span>)&#123;</span><br><span class="line">        rep1(j,n<span class="number">-1</span>,<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">if</span>(s[i][j]==<span class="string">'@'</span>) <span class="built_in">cout</span> &lt;&lt; c ; <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/553ab854.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1113,6 +879,115 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/dcede1ca.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/archives/dcede1ca.html" class="post-title-link" itemprop="url">PTA福到了</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-08 00:00:00" itemprop="dateCreated datePublished" datetime="2019-11-08T00:00:00+08:00">2019-11-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-18 02:01:03" itemprop="dateModified" datetime="2020-05-18T02:01:03+08:00">2020-05-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PTA/" itemprop="url" rel="index"><span itemprop="name">PTA</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/archives/dcede1ca.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/dcede1ca.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>“福”字倒着贴，寓意“福到”。不论到底算不算民俗，本题且请你编写程序，把各种汉字倒过来输出。这里要处理的每个汉字是由一个 N × N 的网格组成的，网格中的元素或者为字符 @ 或者为空格。而倒过来的汉字所用的字符由裁判指定。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/dcede1ca.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/b6269242.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1144,7 +1019,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:40" itemprop="dateModified" datetime="2020-05-18T00:41:40+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 02:01:06" itemprop="dateModified" datetime="2020-05-18T02:01:06+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1196,28 +1071,14 @@
 
       
           <p>本题要求编写程序，计算2个复数的和、差、积、商。</p>
-<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>输入在一行中按照a1 b1 a2 b2的格式给出2个复数C1=a1+b1i和C2=a2+b2i的实部和虚部。题目保证C2不为0。</p>
-<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>分别在4行中按照(a1+b1i) 运算符 (a2+b2i) = 结果的格式顺序输出2个复数的和、差、积、商，数字精确到小数点后1位。如果结果的实部或者虚部为0，则不输出。如果结果为0，则输出0.0。</p>
-<h2 id="输入样例1："><a href="#输入样例1：" class="headerlink" title="输入样例1："></a>输入样例1：</h2><blockquote>
-<p>2 3.08 -2.04 5.06</p>
-</blockquote>
-<h2 id="输出样例1："><a href="#输出样例1：" class="headerlink" title="输出样例1："></a>输出样例1：</h2><blockquote>
-<p>(2.0+3.1i) + (-2.0+5.1i) = 8.1i<br>(2.0+3.1i) - (-2.0+5.1i) = 4.0-2.0i<br>(2.0+3.1i) * (-2.0+5.1i) = -19.7+3.8i<br>(2.0+3.1i) / (-2.0+5.1i) = 0.4-0.6i</p>
-</blockquote>
-<h2 id="输入样例2："><a href="#输入样例2：" class="headerlink" title="输入样例2："></a>输入样例2：</h2><blockquote>
-<p>1 1 -1 -1.01</p>
-</blockquote>
-<h2 id="输出样例2："><a href="#输出样例2：" class="headerlink" title="输出样例2："></a>输出样例2：</h2><blockquote>
-<p>(1.0+1.0i) + (-1.0-1.0i) = 0.0<br>(1.0+1.0i) - (-1.0-1.0i) = 2.0+2.0i<br>(1.0+1.0i) * (-1.0-1.0i) = -2.0i<br>(1.0+1.0i) / (-1.0-1.0i) = -1.0</p>
-</blockquote>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>我也是过早的考虑了代码复用，没有注意到格式的问题。<br>注意题目：<strong>结果的格式顺序输出2个复数的和、差、积、商，数字精确到小数点后1位。如果结果的实部或者虚部为0，则不输出。如果结果为0，则输出0.0。</strong><br>等式左边输出时要保留小数点后一位，等式右边计算结果，如果实部或者虚部为0，则不输出。如果结果为0，则输出0.0。<br>参考：</p>
-<ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9saWdodGRyZWFtLnh5ei9jb21wbGV4Q2FsYy5odG1s">7-36 复数四则运算<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xpZ2h0aW5nbW9vbi9CbG9nUmVzb3VyY2VDb2RlL2Jsb2IvbWFzdGVyLyVFNSVBNCU4RCVFNiU5NSVCMCVFNSU5QiU5QiVFNSU4OCU5OSVFOCVCRiU5MCVFNyVBRSU5Ny9jb21wbGV4Q2FsYy5jcHA=">code<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,m,n) for(int i=m;i&lt;n;i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep1(i,m,n) for(int i=m;i&gt;=n;i--)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> print(a1,b1,c,a2,b2) printf(<span class="meta-string">"(%.1lf%+.1lfi) %c (%.1lf%+.1lfi) = "</span>,a1,b1,c,a2,b2);</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123; <span class="keyword">return</span> b==<span class="number">0</span>?a:gcd(b,a%b);&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print1</span><span class="params">(<span class="keyword">double</span> a,<span class="keyword">double</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">abs</span>(a)&lt;<span class="number">0.05</span>&amp;&amp;<span class="built_in">abs</span>(b)&lt;<span class="number">0.05</span>)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"0.0"</span>);</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">abs</span>(a)&gt;=<span class="number">0.05</span>) <span class="built_in">printf</span>(<span class="string">"%.1lf"</span>,a);</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">abs</span>(b)&gt;=<span class="number">0.05</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(b&gt;<span class="number">0</span>&amp;&amp;<span class="built_in">abs</span>(a)&gt;=<span class="number">0.05</span>) <span class="built_in">cout</span> &lt;&lt; <span class="string">"+"</span>;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%.1lfi"</span>,b);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">double</span> a,b,c,d;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b &gt;&gt; c &gt;&gt; d;</span><br><span class="line">    print(a,b,<span class="string">'+'</span>,c,d);print1(a+c,b+d);<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    print(a,b,<span class="string">'-'</span>,c,d);print1(a-c,b-d);<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    print(a,b,<span class="string">'*'</span>,c,d);print1(a*c-b*d,a*d+b*c);<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    print(a,b,<span class="string">'/'</span>,c,d);print1((a*c+b*d)/(c*c+d*d),(b*c-a*d)/(c*c+d*d));</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>一道题卡了多半个小时…</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/b6269242.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1267,7 +1128,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:40" itemprop="dateModified" datetime="2020-05-18T00:41:40+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 02:01:11" itemprop="dateModified" datetime="2020-05-18T02:01:11+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1321,114 +1182,127 @@
           <p>希望你还有诗和远方。</p>
 <hr>
 <p><br></p>
-<h2 id="传送门：-第-161-场周赛"><a href="#传送门：-第-161-场周赛" class="headerlink" title="传送门： 第 161 场周赛"></a>传送门： <span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vY29udGVzdC93ZWVrbHktY29udGVzdC0xNjE=">第 161 场周赛<i class="fa fa-external-link-alt"></i></span></h2><h2 id="交换字符使得字符串相同"><a href="#交换字符使得字符串相同" class="headerlink" title="交换字符使得字符串相同"></a>交换字符使得字符串相同</h2><p>有两个长度相同的字符串 s1 和 s2，且它们其中 只含有 字符 “x” 和 “y”，你需要通过「交换字符」的方式使这两个字符串相同。<br>每次「交换字符」的时候，你都可以在两个字符串中各选一个字符进行交换。<br>交换只能发生在两个不同的字符串之间，绝对不能发生在同一个字符串内部。也就是说，我们可以交换 s1[i] 和 s2[j]，但不能交换 s1[i] 和 s1[j]。最后，请你返回使 s1 和 s2 相同的最小交换次数，如果没有方法能够使得这两个字符串相同，则返回 -1 。<br>示例：</p>
-<blockquote>
-<p>输入：s1 = “xx”, s2 = “yy”<br>输出：1<br>解释：<br>交换 s1[0] 和 s2[1]，得到 s1 = “yx”，s2 = “yx”。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>通过找规律可以发现，只有s1 = “xx”，s2 = “yy”或者s1 = “xy”, s2 = “yx”这两种情况，分别需要的交换次数为1和2，那只需要统计两个字符串里面有多少个这样的组合。</p>
+<h2 id="传送门：-第-161-场周赛"><a href="#传送门：-第-161-场周赛" class="headerlink" title="传送门： 第 161 场周赛"></a>传送门： <a href="https://leetcode-cn.com/contest/weekly-contest-161" target="_blank" rel="noopener">第 161 场周赛</a></h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/51846539.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/94382368.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/archives/94382368.html" class="post-title-link" itemprop="url">PTA字符串转换成十进制整数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-11-01T00:00:00+08:00">2019-11-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-18 02:01:15" itemprop="dateModified" datetime="2020-05-18T02:01:15+08:00">2020-05-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构与算法训练/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法训练</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/archives/94382368.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/94382368.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>初闻不知曲中意，再闻已是曲中人</p>
 </blockquote>
-<ul>
-<li>同时扫描两个字符串，如果遇到不相同的字符，就把s1[i]中的字符压入vector（当然s2[i]也可以）</li>
-<li>然后数vector里面x和y的个数</li>
-<li>如果x和y的个数为奇数就无法完成交换，返回-1</li>
-<li>x/2+y/2 就是对应s1 = “xx”, s2 = “yy”组合的个数</li>
-<li>x%2就是对应s1 = “xy”, s2 = “yx”组合的个数</li>
-<li>result = x/2+y/2+(x%2)*2</li>
-</ul>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,m,n) for(int i=m;i&lt;n;i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minimumSwap</span><span class="params">(<span class="built_in">string</span> s1, <span class="built_in">string</span> s2)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; ans;</span><br><span class="line">        rep(i,<span class="number">0</span>,s1.length())&#123;</span><br><span class="line">            <span class="keyword">if</span>(s1[i]!=s2[i])</span><br><span class="line">                ans.pb(s1[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> x=<span class="number">0</span>,y=<span class="number">0</span>;</span><br><span class="line">        rep(i,<span class="number">0</span>,ans.size())&#123;</span><br><span class="line">            <span class="keyword">if</span>(ans[i]==<span class="string">'x'</span>)</span><br><span class="line">                x++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(ans[i]==<span class="string">'y'</span>)</span><br><span class="line">                y++;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; ans[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>((x+y)%<span class="number">2</span>) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> x/<span class="number">2</span>+y/<span class="number">2</span>+(x%<span class="number">2</span>)*<span class="number">2</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="统计「优美子数组」"><a href="#统计「优美子数组」" class="headerlink" title="统计「优美子数组」"></a>统计「优美子数组」</h2><p>给你一个整数数组 nums 和一个整数 k。<br>如果某个子数组中恰好有 k 个奇数数字，我们就认为这个子数组是「优美子数组」。<br>请返回这个数组中「优美子数组」的数目。<br>示例：</p>
-<blockquote>
-<p>输入：nums = [1,1,2,1,1], k = 3<br>输出：2<br>解释：包含 3 个奇数的子数组是 [1,1,2,1] 和 [1,2,1,1] 。</p>
-</blockquote>
-<h2 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h2><p>暴力会超时。<br>主要还是做一个数组，统计从第一个元素开始到现在奇数的个数。然后使用upper_bound 和 lower_bound<br>更多解法请参考：<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvY291bnQtbnVtYmVyLW9mLW5pY2Utc3ViYXJyYXlzL2Rpc2N1c3MvP2N1cnJlbnRQYWdlPTEmYW1wO29yZGVyQnk9aG90JmFtcDtxdWVyeT0=">1248. Count Number of Nice Subarrays<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,m,n) for(int i=m;i&lt;n;i++)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numberOfSubarrays</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> cnt[<span class="number">50005</span>];</span><br><span class="line">        <span class="built_in">memset</span>(cnt,<span class="number">0</span>,<span class="keyword">sizeof</span>(cnt));</span><br><span class="line">        rep(i,<span class="number">0</span>,nums.size())&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i]%<span class="number">2</span>)&#123;</span><br><span class="line">                cnt[i+<span class="number">1</span>] = cnt[i]+<span class="number">1</span>; </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> cnt[i+<span class="number">1</span>] = cnt[i];</span><br><span class="line">        &#125;  </span><br><span class="line">        rep(i,<span class="number">1</span>,nums.size()+<span class="number">1</span>)&#123;</span><br><span class="line">            res += upper_bound(cnt+<span class="number">1</span>,cnt+nums.size()+<span class="number">1</span>,cnt[i<span class="number">-1</span>]+k) - lower_bound(cnt+<span class="number">1</span>,cnt+nums.size()+<span class="number">1</span>,cnt[i<span class="number">-1</span>]+k);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>不过发现这种解法虽然运行没有问题，但是自己手动拿纸推的时候貌似样例过不去。<br>upper_bound 找的是范围内第一个大于x的位置<br> lower_bound找的是范围内第一个大于等于x的位置<br><strong>nums = [2,2,2,1,2,2,1,2,2,2], k = 2</strong>这个样例</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>nums</th>
-<th>2</th>
-<th>2</th>
-<th>2</th>
-<th>1</th>
-<th>2</th>
-<th>2</th>
-<th>1</th>
-<th>2</th>
-<th>2</th>
-<th>2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>index</td>
-<td>0</td>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>4</td>
-<td>5</td>
-<td>6</td>
-<td>7</td>
-<td>8</td>
-<td>9</td>
-</tr>
-<tr>
-<td>dict</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>2</td>
-<td>2</td>
-<td>2</td>
-<td>2</td>
-</tr>
-<tr>
-<td>upper</td>
-<td>10</td>
-<td>10</td>
-<td>10</td>
-<td>10</td>
-<td>10</td>
-<td>10</td>
-<td>10</td>
-<td>10</td>
-<td>10</td>
-<td>10</td>
-</tr>
-<tr>
-<td>lower</td>
-<td>6</td>
-<td>6</td>
-<td>6</td>
-<td>10</td>
-<td>10</td>
-<td>10</td>
-<td>10</td>
-<td>10</td>
-<td>10</td>
-<td>10</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><strong>这样一算 结果等于(10-6)<em>3=12!=16  这是为甚麽？</em></strong></p>
-<h2 id="移除无效的括号"><a href="#移除无效的括号" class="headerlink" title="移除无效的括号"></a>移除无效的括号</h2><p>给你一个由 ‘(‘、’)’ 和小写字母组成的字符串 s。<br>你需要从字符串中删除最少数目的 ‘(‘ 或者 ‘)’ （可以删除任意位置的括号)，使得剩下的「括号字符串」有效。请返回任意一个合法字符串。<br>有效「括号字符串」应当符合以下 任意一条 要求：</p>
-<ul>
-<li>空字符串或只包含小写字母的字符串</li>
-<li>可以被写作 AB（A 连接 B）的字符串，其中 A 和 B 都是有效「括号字符串」</li>
-<li>可以被写作 (A) 的字符串，其中 A 是一个有效的「括号字符串」<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3>一开始的想法是用栈来做，可是无法记录该删去的字符的下标，想用stack<pair<char,int> &gt;来做，不知道为甚麽，好像是指针有问题。<br>其实用数组模拟就可以，第一遍先正向扫描，统计和记录‘)’，删去多余的‘)’，记录多余的’(‘的个数cnt<br>，然后此时可能’(‘的个数刚好和‘)’的个数配对，也可能有多的，此时需要再逆向扫描一遍字符串，然后去掉多余的前cnt个字符<h3 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h3></pair<char,int></li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,m,n) for(int i=m;i&lt;n;i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep1(i,m,n) for(int i=m;i&gt;=n;i--)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">minRemoveToMakeValid</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">string</span> res=<span class="string">""</span>;</span><br><span class="line">        rep(i,<span class="number">0</span>,s.length())&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i]==<span class="string">'('</span>)</span><br><span class="line">                cnt++,res+=s[i];</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">')'</span>)&#123;</span><br><span class="line">        	    <span class="keyword">if</span>(cnt) cnt--,res+=s[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> res += s[i];</span><br><span class="line">        &#125;   </span><br><span class="line">        <span class="built_in">string</span> rres = <span class="string">""</span>;</span><br><span class="line">        rep1(i,res.length()<span class="number">-1</span>,<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(cnt&amp;&amp;res[i]==<span class="string">'('</span>)</span><br><span class="line">                cnt--;</span><br><span class="line">            <span class="keyword">else</span> rres += res[i];</span><br><span class="line">        &#125;</span><br><span class="line">        reverse(rres.begin(),rres.end());</span><br><span class="line">        <span class="keyword">return</span> rres;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="检查「好数组」"><a href="#检查「好数组」" class="headerlink" title="检查「好数组」"></a>检查「好数组」</h2><p>给你一个正整数数组 nums，你需要从中任选一些子集，然后将子集中每一个数乘以一个 任意整数，并求出他们的和。<br>假如该和结果为 1，那么原数组就是一个「好数组」，则返回 True；否则请返回 False。<br>示例：</p>
-<blockquote>
-<p>输入：nums = [12,5,7,23]<br>输出：true<br>解释：挑选数字 5 和 7。<br>5<em>3 + 7</em>(-2) = 1</p>
-</blockquote>
-<h3 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h3><p>虽然写题目的时候一眼就看出是欧几里得算法，只要数组里面存在若干个数互质即为好数组，也即gcd(a,b,c…)=1，后来越写越复杂，实现思路跑偏了…</p>
-<h3 id="实现-3"><a href="#实现-3" class="headerlink" title="实现"></a>实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> m,<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	    <span class="keyword">return</span> n ? gcd(n,m%n): m; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isGoodArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> a:nums)&#123;</span><br><span class="line">            res = gcd(res,a);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(res==<span class="number">1</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span>  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>去年此时正被这套PTA题目折磨，一年之后再写这些题目，记忆尤新，经历的酸楚自然是值得的。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/94382368.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1585,7 +1459,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:13</span>
+    <span title="Reading time total">2:12</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>
@@ -1679,6 +1553,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

@@ -32,7 +32,7 @@
 <meta property="og:site_name" content="SinclairのBlog">
 <meta property="og:description" content="先来占个坑，以后慢慢补充。 一道蓝桥杯2018B组国赛题目 格雷码补全代码的题目格雷码是以n位的二进制来表示数。 与普通的二进制表示不同的是，它要求相邻两个数字只能有1个数位不同。 首尾两个数字也要求只有1位之差。有很多算法来生成格雷码。以下是较常见的一种： 从编码全0开始生成。 当产生第奇数个数时，只把当前数字最末位改变（0变1，1变0） 当产生第偶数个数时，先找到最右边的一个1，把它左边的数">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-05-17T16:41:39.923Z">
+<meta property="og:updated_time" content="2020-05-17T18:03:44.464Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最妙不过位运算">
 <meta name="twitter:description" content="先来占个坑，以后慢慢补充。 一道蓝桥杯2018B组国赛题目 格雷码补全代码的题目格雷码是以n位的二进制来表示数。 与普通的二进制表示不同的是，它要求相邻两个数字只能有1个数位不同。 首尾两个数字也要求只有1位之差。有很多算法来生成格雷码。以下是较常见的一种： 从编码全0开始生成。 当产生第奇数个数时，只把当前数字最末位改变（0变1，1变0） 当产生第偶数个数时，先找到最右边的一个1，把它左边的数">
@@ -246,7 +246,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:39" itemprop="dateModified" datetime="2020-05-18T00:41:39+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 02:03:44" itemprop="dateModified" datetime="2020-05-18T02:03:44+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -285,7 +285,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>816</span>
+              <span>818</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -307,8 +307,10 @@
         <blockquote>
 <p>先来占个坑，以后慢慢补充。</p>
 <p>一道蓝桥杯2018B组国赛题目</p>
-<h2 id="格雷码"><a href="#格雷码" class="headerlink" title="格雷码"></a>格雷码</h2><p>补全代码的题目<br>格雷码是以n位的二进制来表示数。 与普通的二进制表示不同的是，它要求相邻两个数字只能有1个数位不同。 首尾两个数字也要求只有1位之差。有很多算法来生成格雷码。以下是较常见的一种： 从编码全0开始生成。 当产生第奇数个数时，只把当前数字最末位改变（0变1，1变0） 当产生第偶数个数时，先找到最右边的一个1，把它左边的数字改变。 用这个规则产生的4位格雷码序列<br><a id="more"></a><br>思路：<br>偶数时直接异或1；<br>奇数时找到最低位的1，然后将其左移一位，在于原来的值进行异或。<br>试问，如何找到最低位的1？<br>直接x&amp;(-x)即可！</p>
+<h2 id="格雷码"><a href="#格雷码" class="headerlink" title="格雷码"></a>格雷码</h2><p>补全代码的题目<br>格雷码是以n位的二进制来表示数。 与普通的二进制表示不同的是，它要求相邻两个数字只能有1个数位不同。 首尾两个数字也要求只有1位之差。有很多算法来生成格雷码。以下是较常见的一种： 从编码全0开始生成。 当产生第奇数个数时，只把当前数字最末位改变（0变1，1变0） 当产生第偶数个数时，先找到最右边的一个1，把它左边的数字改变。 用这个规则产生的4位格雷码序列</p>
 </blockquote>
+<a id="more"></a>
+<p>思路：<br>偶数时直接异或1；<br>奇数时找到最低位的1，然后将其左移一位，在于原来的值进行异或。<br>试问，如何找到最低位的1？<br>直接x&amp;(-x)即可！</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line">void show(int a,int n)</span><br><span class="line">&#123;</span><br><span class="line">	int i;</span><br><span class="line">	int msk = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n<span class="number">-1</span>; i++) msk = msk &lt;&lt; <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++)&#123;</span><br><span class="line">		printf((a &amp; msk)? <span class="string">"1"</span> : <span class="string">"0"</span>);</span><br><span class="line">		msk = msk &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	printf(<span class="string">"\n"</span>);</span><br><span class="line">&#125; </span><br><span class="line"> </span><br><span class="line">void f(int n)</span><br><span class="line">&#123;</span><br><span class="line">	int i;</span><br><span class="line">	int num = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;n; i++) num = num&lt;&lt;<span class="number">1</span>;</span><br><span class="line">	</span><br><span class="line">	int a = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;num; i++)&#123;</span><br><span class="line">		show(a,n);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">			a = a ^ <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			a = a^( (a&amp;(-a))&lt;&lt;<span class="number">1</span> ) ; <span class="comment">//填空</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	f(<span class="number">4</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -540,7 +542,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:13</span>
+    <span title="Reading time total">2:12</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>

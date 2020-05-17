@@ -32,7 +32,7 @@
 <meta property="og:site_name" content="SinclairのBlog">
 <meta property="og:description" content="今天写js代码的时候，看别的用prototype看的我云里雾里的，了解了一下：  prototype 是函数的属性，它的本质是函数的原型对象  可以以此执行一下如下代码，体会一下。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-05-17T16:41:39.931Z">
+<meta property="og:updated_time" content="2020-05-17T18:03:19.601Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript的prototype属性">
 <meta name="twitter:description" content="今天写js代码的时候，看别的用prototype看的我云里雾里的，了解了一下：  prototype 是函数的属性，它的本质是函数的原型对象  可以以此执行一下如下代码，体会一下。">
@@ -246,7 +246,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:39" itemprop="dateModified" datetime="2020-05-18T00:41:39+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 02:03:19" itemprop="dateModified" datetime="2020-05-18T02:03:19+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -285,7 +285,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>813</span>
+              <span>815</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -308,7 +308,9 @@
 <blockquote>
 <p>prototype 是函数的属性，它的本质是函数的原型对象</p>
 </blockquote>
-<p>可以以此执行一下如下代码，体会一下。<br><a id="more"></a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">var</span> ob = &#123; &#125;;<span class="comment">//超级简单的空对象</span></span><br><span class="line">alert(<span class="built_in">JSON</span>.stringify(ob.prototype));</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">alert(func.prototype);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>可以以此执行一下如下代码，体会一下。</p>
+<a id="more"></a>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">var</span> ob = &#123; &#125;;<span class="comment">//超级简单的空对象</span></span><br><span class="line">alert(<span class="built_in">JSON</span>.stringify(ob.prototype));</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">alert(func.prototype);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">&#125;</span><br><span class="line">alert(<span class="built_in">JSON</span>.stringify(func.prototype));</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;	</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">func.prototype.name =<span class="string">'prototype是函数的的属性，本质是函数的原型对象'</span>;</span><br><span class="line">alert(<span class="built_in">JSON</span>.stringify(func.prototype))</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//给函数的属性prototype赋予一个方法get</span></span><br><span class="line">func.prototype.get=<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> ob1 = <span class="keyword">new</span> func;</span><br><span class="line"><span class="comment">//用func实例化出来的对象来调用get属性函数</span></span><br><span class="line">alert(ob1.get(<span class="string">'hello,prototype原型对象'</span>));</span><br><span class="line"><span class="keyword">var</span> ob2 = <span class="keyword">new</span> func;</span><br><span class="line"><span class="comment">//用func实例化出来的对象来调用get属性方法</span></span><br><span class="line">alert(ob2.get(<span class="string">'我依然是func实例化出来的对象'</span>));</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
@@ -523,7 +525,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:13</span>
+    <span title="Reading time total">2:12</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>

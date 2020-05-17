@@ -24,18 +24,18 @@
     var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="问题描述有n个重量分别为w1 、 w2 、w3、w4···wn的物品，编号1~n，它们的价值为v1 、 v2 、v3、v4···vn。现有一容量为W的背包，求尽可能的把背包装满并使价值最大 下面不妨以ｎ＝４　Ｗ＝６为例     物品编号 重量 价值     1 5 4   2 3 4   3 2 3   4 1 1     蛮力法—求幂集搜索 思路大概是用蛮力法找出n的所有幂集,然后遍历一遍,找到">
+  <meta name="description" content="问题描述有n个重量分别为w1 、 w2 、w3、w4···wn的物品，编号1~n，它们的价值为v1 、 v2 、v3、v4···vn。现有一容量为W的背包，求尽可能的把背包装满并使价值最大">
 <meta name="keywords" content="数据结构与算法训练,动态规划,0&#x2F;1背包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="0&#x2F;1背包入门">
 <meta property="og:url" content="https://sinclaircoder.gitee.io/archives/add7841d.html">
 <meta property="og:site_name" content="SinclairのBlog">
-<meta property="og:description" content="问题描述有n个重量分别为w1 、 w2 、w3、w4···wn的物品，编号1~n，它们的价值为v1 、 v2 、v3、v4···vn。现有一容量为W的背包，求尽可能的把背包装满并使价值最大 下面不妨以ｎ＝４　Ｗ＝６为例     物品编号 重量 价值     1 5 4   2 3 4   3 2 3   4 1 1     蛮力法—求幂集搜索 思路大概是用蛮力法找出n的所有幂集,然后遍历一遍,找到">
+<meta property="og:description" content="问题描述有n个重量分别为w1 、 w2 、w3、w4···wn的物品，编号1~n，它们的价值为v1 、 v2 、v3、v4···vn。现有一容量为W的背包，求尽可能的把背包装满并使价值最大">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-05-17T16:41:39.935Z">
+<meta property="og:updated_time" content="2020-05-17T18:03:03.490Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="0&#x2F;1背包入门">
-<meta name="twitter:description" content="问题描述有n个重量分别为w1 、 w2 、w3、w4···wn的物品，编号1~n，它们的价值为v1 、 v2 、v3、v4···vn。现有一容量为W的背包，求尽可能的把背包装满并使价值最大 下面不妨以ｎ＝４　Ｗ＝６为例     物品编号 重量 价值     1 5 4   2 3 4   3 2 3   4 1 1     蛮力法—求幂集搜索 思路大概是用蛮力法找出n的所有幂集,然后遍历一遍,找到">
+<meta name="twitter:description" content="问题描述有n个重量分别为w1 、 w2 、w3、w4···wn的物品，编号1~n，它们的价值为v1 、 v2 、v3、v4···vn。现有一容量为W的背包，求尽可能的把背包装满并使价值最大">
 
 <link rel="canonical" href="https://sinclaircoder.gitee.io/archives/add7841d.html">
 
@@ -246,7 +246,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:39" itemprop="dateModified" datetime="2020-05-18T00:41:39+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 02:03:03" itemprop="dateModified" datetime="2020-05-18T02:03:03+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -305,6 +305,7 @@
 
       
         <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>有n个重量分别为w<sub>1</sub> 、 w<sub>2</sub> 、w<sub>3</sub>、w<sub>4</sub>···w<sub>n</sub>的物品，编号1~n，它们的价值为v<sub>1</sub> 、 v<sub>2</sub> 、v<sub>3</sub>、v<sub>4</sub>···v<sub>n</sub>。现有一容量为W的背包，求尽可能的把背包装满并使价值最大</p>
+<a id="more"></a>
 <p>下面不妨以ｎ＝４　Ｗ＝６为例</p>
 <div class="table-container">
 <table>
@@ -578,7 +579,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:13</span>
+    <span title="Reading time total">2:12</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>

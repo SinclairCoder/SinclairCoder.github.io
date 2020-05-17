@@ -245,7 +245,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:39" itemprop="dateModified" datetime="2020-05-18T00:41:39+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 02:03:08" itemprop="dateModified" datetime="2020-05-18T02:03:08+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -297,73 +297,14 @@
 
       
           <h1 id="简单的线性回归"><a href="#简单的线性回归" class="headerlink" title="简单的线性回归"></a>简单的线性回归</h1><p>以某产品的温度和产率关系为例，其中产率(y)是温度(x)的函数。请构建模型预测产品产率。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>温度</th>
-<th>产率</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>100</td>
-<td>45</td>
-</tr>
-<tr>
-<td>110</td>
-<td>51</td>
-</tr>
-<tr>
-<td>120</td>
-<td>54</td>
-</tr>
-<tr>
-<td>130</td>
-<td>61</td>
-</tr>
-<tr>
-<td>140</td>
-<td>66</td>
-</tr>
-<tr>
-<td>150</td>
-<td>70</td>
-</tr>
-<tr>
-<td>160</td>
-<td>74</td>
-</tr>
-<tr>
-<td>170</td>
-<td>78</td>
-</tr>
-<tr>
-<td>180</td>
-<td>85</td>
-</tr>
-<tr>
-<td>190</td>
-<td>89</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>首先，我们可以先把数据可视化，画个散点图出来。<br><img src="https://img-blog.csdnimg.cn/20190816215147426.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="温度产率线性回归散点图"><br>根据散点图可知，数据基本上都在一条直线上，我们可以用一条直线去拟合。</p>
-<h2 id="正规方程求解"><a href="#正规方程求解" class="headerlink" title="正规方程求解"></a>正规方程求解</h2><script type="math/tex; mode=display">\theta=(X^TX)^{-1}X^TY</script><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[ theta ]</span> = <span class="title">linearReg</span><span class="params">( )</span></span></span><br><span class="line"><span class="comment">% 线性回归正规方程求解</span></span><br><span class="line"><span class="comment">% 用130、190作为测试集</span></span><br><span class="line">train = <span class="number">8</span>;</span><br><span class="line">X = [<span class="number">1</span> <span class="number">100</span>;<span class="number">1</span>  <span class="number">110</span>;<span class="number">1</span>  <span class="number">120</span>;<span class="number">1</span>  <span class="number">140</span>;<span class="number">1</span>  <span class="number">150</span>;<span class="number">1</span>  <span class="number">160</span>;<span class="number">1</span>  <span class="number">170</span>;<span class="number">1</span>  <span class="number">180</span>;] </span><br><span class="line">Y = [<span class="number">45</span>; <span class="number">51</span> ;<span class="number">54</span> ;<span class="number">66</span>; <span class="number">70</span>; <span class="number">74</span> ;<span class="number">78</span>; <span class="number">85</span>];</span><br><span class="line">A = inv(X'*X);</span><br><span class="line">theta = A*X'*Y;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>解得：</p>
-<script type="math/tex; mode=display">\theta=\begin{pmatrix} -3.1507 \\  0.4851 \end{pmatrix}</script><p>散点图拟合情况如下：<br><img src="https://img-blog.csdnimg.cn/20190817145220145.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="正规方程求解"></p>
-<blockquote>
-<p>看起来拟合效果还不错</p>
-</blockquote>
-<h2 id="梯度下降求解"><a href="#梯度下降求解" class="headerlink" title="梯度下降求解"></a>梯度下降求解</h2><p>假设函数：<script type="math/tex">h_\theta(x)=\theta_0+\theta_1x</script><br>代价函数：</p>
-<script type="math/tex; mode=display">J(\theta_0 ,\theta_1)= \frac{1} {2m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2</script><p>梯度下降：(同步更新)</p>
-<script type="math/tex; mode=display">temp_0 = \theta_0- \alpha \frac{\partial} {\partial \theta_0}J(\theta_0 ,\theta_1)</script><script type="math/tex; mode=display">temp_1 = \theta_1- \alpha \frac{\partial} {\partial \theta_1}J(\theta_0 ,\theta_1)</script><script type="math/tex; mode=display">\theta_0 = temp_0</script><script type="math/tex; mode=display">\theta_1 = temp_1</script><p>假设函数<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[ res ]</span> = <span class="title">h_func</span><span class="params">(inputx,theta )</span></span></span><br><span class="line"><span class="comment">% 预测函数</span></span><br><span class="line">res = theta(<span class="number">1</span>)+theta(<span class="number">2</span>)*inputx;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
-<p>代价函数<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[ jVal,gradient ]</span> = <span class="title">costFunction2</span><span class="params">( theta )</span></span></span><br><span class="line"><span class="comment">% jVal 为 代价值 gradient为梯度</span></span><br><span class="line"><span class="comment">% cost function</span></span><br><span class="line"><span class="comment">% 用130、190作为测试集</span></span><br><span class="line">x = [<span class="number">100</span> <span class="number">110</span> <span class="number">120</span>  <span class="number">140</span>  <span class="number">150</span>  <span class="number">160</span>  <span class="number">170</span>  <span class="number">180</span>] </span><br><span class="line">y = [<span class="number">45</span> <span class="number">51</span> <span class="number">54</span> <span class="number">66</span> <span class="number">70</span> <span class="number">74</span> <span class="number">78</span> <span class="number">85</span>];</span><br><span class="line">m = <span class="built_in">size</span>(x,<span class="number">1</span>);  <span class="comment">% size(x) = [1 8] size(x,1) 表示获取x的行 </span></span><br><span class="line">hypothesis = h_func(x,theta); </span><br><span class="line">delta = hypothesis - y; <span class="comment">% 预测误差 向量</span></span><br><span class="line">jVal= sum(delta.^<span class="number">2</span>);  <span class="comment">% 损失函数</span></span><br><span class="line">gradient(<span class="number">1</span>) = sum(delta)/m;</span><br><span class="line">gradient(<span class="number">2</span>) = sum(delta.*x)/m;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
-<p>梯度下降<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[ optTheta,functionVal,exitFlag ]</span> = <span class="title">Gradient_descent</span><span class="params">()</span></span></span><br><span class="line"><span class="comment">% 梯度下降</span></span><br><span class="line"><span class="comment">% fminunc 非线性优化</span></span><br><span class="line"><span class="comment">% 找到min f(x) 的 x f(x)是一个返回值为标量的函数，x是一个向量或矩阵 </span></span><br><span class="line"><span class="comment">% options 配置选项，'GradObj' 'on'  表示使用自定义的梯度下降函数，'MaxIter',1000 表示最大迭代次数</span></span><br><span class="line">options = optimset(<span class="string">'GradObj'</span>,<span class="string">'on'</span>,<span class="string">'MaxIter'</span>,<span class="number">1000</span>);</span><br><span class="line"><span class="comment">% 需要返回的参数， 需要初始化</span></span><br><span class="line">initialTheta = <span class="built_in">zeros</span>(<span class="number">2</span>,<span class="number">1</span>);</span><br><span class="line">[optTheta,functionVal,exitFlag] = fminunc(@costFunction2,initialTheta,options); </span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
-<p>运行结果：</p>
-<script type="math/tex; mode=display">optTheta = \begin{pmatrix} -3.1507 \\0.4851  \end{pmatrix}</script><script type="math/tex; mode=display">functionVal = 6.1996</script><p>可见利用正规方程和梯度下降求解出来的参数一样<br><img src="https://img-blog.csdnimg.cn/20190817154210865.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="梯度下降"><br>未完，待续…</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/67f167a0.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -413,7 +354,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:39" itemprop="dateModified" datetime="2020-05-18T00:41:39+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 02:03:03" itemprop="dateModified" datetime="2020-05-18T02:03:03+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -465,49 +406,14 @@
 
       
           <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>有n个重量分别为w<sub>1</sub> 、 w<sub>2</sub> 、w<sub>3</sub>、w<sub>4</sub>···w<sub>n</sub>的物品，编号1~n，它们的价值为v<sub>1</sub> 、 v<sub>2</sub> 、v<sub>3</sub>、v<sub>4</sub>···v<sub>n</sub>。现有一容量为W的背包，求尽可能的把背包装满并使价值最大</p>
-<p>下面不妨以ｎ＝４　Ｗ＝６为例</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>物品编号</th>
-<th>重量</th>
-<th>价值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>5</td>
-<td>4</td>
-</tr>
-<tr>
-<td>2</td>
-<td>3</td>
-<td>4</td>
-</tr>
-<tr>
-<td>3</td>
-<td>2</td>
-<td>3</td>
-</tr>
-<tr>
-<td>4</td>
-<td>1</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="蛮力法—求幂集搜索"><a href="#蛮力法—求幂集搜索" class="headerlink" title="蛮力法—求幂集搜索"></a>蛮力法—求幂集搜索</h2><blockquote>
-<p>思路大概是用蛮力法找出n的所有幂集,然后遍历一遍,找到最优解</p>
-<p><strong>复杂度为O(2<sup>n</sup>)</strong></p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	求解简单0/1背包问题</span></span><br><span class="line"><span class="comment">	2019-8-12 </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; ps;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PSet</span><span class="params">(<span class="keyword">int</span> n)</span>  <span class="comment">// 求1-n的幂集 </span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; ps1;  <span class="comment">// 子幂集 </span></span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt;::iterator it;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">	ps.push_back(s);    <span class="comment">// 添加空集合元素</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		ps1 = ps;</span><br><span class="line">		<span class="keyword">for</span>(it=ps1.begin();it!=ps1.end();it++)</span><br><span class="line">			(*it).push_back(i);</span><br><span class="line">		<span class="keyword">for</span>(it=ps1.begin();it!=ps1.end();it++)</span><br><span class="line">			ps.push_back(*it);	</span><br><span class="line">	&#125; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Knap</span><span class="params">(<span class="keyword">int</span> w[],<span class="keyword">int</span> v[], <span class="keyword">int</span> W)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> sumw,sumv;</span><br><span class="line">	<span class="keyword">int</span> maxi,maxsumw=<span class="number">0</span>,maxsumv=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt;::iterator it;</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator sit;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">" 序号   选中物品     总重量    总价值     能否装入\n"</span>);</span><br><span class="line">	<span class="keyword">for</span>(it=ps.begin();it!=ps.end();it++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">" %d\t"</span>,count++);</span><br><span class="line">		sumw=sumv=<span class="number">0</span>;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">" &#123;"</span>);</span><br><span class="line">		<span class="keyword">for</span>(sit=(*it).begin();sit!=(*it).end();sit++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d "</span>,*sit);</span><br><span class="line">			sumw += w[*sit<span class="number">-1</span>];  </span><br><span class="line">			sumv += v[*sit<span class="number">-1</span>];</span><br><span class="line">		&#125; </span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"&#125;\t\t%d\t%d "</span>,sumw,sumv);</span><br><span class="line">		<span class="keyword">if</span>(sumw&lt;=W)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"能\n"</span>);</span><br><span class="line">			<span class="keyword">if</span>(sumv&gt;maxsumv)</span><br><span class="line">			&#123;</span><br><span class="line">				maxsumw = sumw;</span><br><span class="line">				maxsumv = sumv;</span><br><span class="line">				maxi = count<span class="number">-1</span>;	</span><br><span class="line">			&#125; </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt; <span class="string">"否\n"</span>;</span><br><span class="line">		<span class="comment">//	count++;</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"最佳方案为："</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"选中物品"</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"&#123; "</span>);</span><br><span class="line">	<span class="keyword">for</span>(sit=ps[maxi].begin();sit!=ps[maxi].end();sit++)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>,*sit);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"&#125;,"</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"总重量：%d,总价值：%d\n"</span>,maxsumw,maxsumv); 	 </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n = <span class="number">4</span>, W = <span class="number">6</span>;</span><br><span class="line">	<span class="keyword">int</span> w[] = &#123;<span class="number">5</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>&#125;;</span><br><span class="line">	<span class="keyword">int</span> v[] = &#123;<span class="number">4</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">1</span>&#125;;</span><br><span class="line">	PSet(n);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"0/1背包解决方案\n"</span>,n);</span><br><span class="line">	Knap(w,v,W);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="队列式分支界限法"><a href="#队列式分支界限法" class="headerlink" title="队列式分支界限法"></a>队列式分支界限法</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXV 20</span></span><br><span class="line"><span class="keyword">int</span> maxv = <span class="number">-9999</span>; </span><br><span class="line"><span class="keyword">int</span> bestx[<span class="number">20</span>]; <span class="comment">// 存放最优解，全局变量</span></span><br><span class="line"><span class="keyword">int</span> total = <span class="number">1</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">NodeType</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> num;  <span class="comment">// 结点编号 </span></span><br><span class="line">	<span class="keyword">int</span> i;    <span class="comment">// 当前结点在搜索空间中的层次 </span></span><br><span class="line">	<span class="keyword">int</span> w;    <span class="comment">// 当前结点的总权重 </span></span><br><span class="line">	<span class="keyword">int</span> v;    <span class="comment">// 当前结点的总价值 </span></span><br><span class="line">	<span class="keyword">int</span> x[MAXV];  <span class="comment">// 当前结点包含的解向量 </span></span><br><span class="line">	<span class="keyword">double</span> ub; <span class="comment">// 上界 </span></span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">int</span> n =<span class="number">5</span>,W = <span class="number">6</span>;</span><br><span class="line">	<span class="keyword">int</span> w[] = &#123;<span class="number">0</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>&#125;;</span><br><span class="line">	<span class="keyword">int</span> v[] = &#123;<span class="number">0</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">1</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bound</span><span class="params">(NodeType &amp;e)</span></span>&#123;  <span class="comment">// 计算分支结点e的上界 </span></span><br><span class="line">	<span class="keyword">int</span> i=e.i+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> sumw = e.w;</span><br><span class="line">	<span class="keyword">double</span> sumv = e.v; </span><br><span class="line">	<span class="keyword">while</span>((sumw+w[i]&lt;=W)&amp;&amp; i&lt;=n)&#123;</span><br><span class="line">		sumw += w[i];</span><br><span class="line">		sumv += v[i];</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(i&lt;=n)</span><br><span class="line">		e.ub = sumv+(W-sumw)*v[i]/w[i];</span><br><span class="line">	<span class="keyword">else</span> e.ub = sumv; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">EnQueue</span><span class="params">(NodeType e,<span class="built_in">queue</span>&lt;NodeType&gt; &amp;qu)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(e.i==n)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(e.v&gt;maxv)</span><br><span class="line">		&#123;</span><br><span class="line">			maxv = e.v;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">				bestx[j] = e.x[j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> qu.push(e);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> j;</span><br><span class="line">	NodeType e,e1,e2;</span><br><span class="line">	<span class="built_in">queue</span>&lt;NodeType&gt; qu;</span><br><span class="line">	e.i = <span class="number">0</span>;</span><br><span class="line">	e.w = <span class="number">0</span>;</span><br><span class="line">	e.v = <span class="number">0</span>;</span><br><span class="line">	e.num = total++;</span><br><span class="line">	<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">		e.x[j] = <span class="number">0</span>;</span><br><span class="line">	bound(e);</span><br><span class="line">	qu.push(e);</span><br><span class="line">	<span class="keyword">while</span>(!qu.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		e = qu.front();</span><br><span class="line">		qu.pop();</span><br><span class="line">		<span class="keyword">if</span>(e.w+w[e.i+<span class="number">1</span>]&lt;=W)  <span class="comment">// 剪枝：检查左孩子结点</span></span><br><span class="line">		&#123;</span><br><span class="line">			e1.num = total++;</span><br><span class="line">			e1.i = e.i+<span class="number">1</span>;</span><br><span class="line">			e1.w = e.w+w[e1.i];</span><br><span class="line">			e1.v = e.v+v[e1.i];</span><br><span class="line">			<span class="keyword">for</span>(j=<span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">				e1.x[j] = e.x[j];</span><br><span class="line">			e1.x[e1.i] = <span class="number">1</span>;</span><br><span class="line">			bound(e1);</span><br><span class="line">			EnQueue(e1,qu); </span><br><span class="line">		&#125; </span><br><span class="line">		e2.num = total++;</span><br><span class="line">		e2.i = e.i+<span class="number">1</span>;</span><br><span class="line">		e2.w = e.w; </span><br><span class="line">		e2.v = e.v;</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">2</span>;j&lt;=n;j++)</span><br><span class="line">			e2.x[j] = e.x[j];</span><br><span class="line">		e2.x[e2.i]= <span class="number">0</span>;</span><br><span class="line">		bound(e2);</span><br><span class="line">		<span class="keyword">if</span>(e2.ub&gt;maxv)</span><br><span class="line">			EnQueue(e2,qu); </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	</span><br><span class="line">	bfs();</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"分支界限法求解0/1背包问题：\n X=["</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%2d"</span>,bestx[i]);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"],装入总价值为%d\n"</span>,maxv); </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>未完待续~~</p>
-<p>参考: 李春葆 .算法设计与分析(第二版)</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/add7841d.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -666,7 +572,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:39" itemprop="dateModified" datetime="2020-05-18T00:41:39+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 02:03:14" itemprop="dateModified" datetime="2020-05-18T02:03:14+08:00">2020-05-18</time>
               </span>
 
           
@@ -689,7 +595,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>137</span>
+              <span>139</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -708,7 +614,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>最近在学习Spring Boot ，新建项目运行的时候出现了Tomcat 8080端口被占用的问题<br>
+          <p>最近在学习Spring Boot ，新建项目运行的时候出现了Tomcat 8080端口被占用的问题</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/archives/5e8f07b8.html#more" rel="contents">
@@ -766,7 +672,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:39" itemprop="dateModified" datetime="2020-05-18T00:41:39+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 02:03:19" itemprop="dateModified" datetime="2020-05-18T02:03:19+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -798,7 +704,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>813</span>
+              <span>815</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -821,7 +727,7 @@
 <blockquote>
 <p>prototype 是函数的属性，它的本质是函数的原型对象</p>
 </blockquote>
-<p>可以以此执行一下如下代码，体会一下。<br>
+<p>可以以此执行一下如下代码，体会一下。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/archives/90e818d6.html#more" rel="contents">
@@ -991,7 +897,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:39" itemprop="dateModified" datetime="2020-05-18T00:41:39+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 02:03:26" itemprop="dateModified" datetime="2020-05-18T02:03:26+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1043,7 +949,8 @@
 
       
           <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
-<p>图G由两个集合V和E组成，记为G=(V,E)，其中V是顶点的有限集合，记为V(G), E是连接V中两个不同顶点（顶点对）的边的有限集合，记为E(G)<br>
+<p>图G由两个集合V和E组成，记为G=(V,E)，其中V是顶点的有限集合，记为V(G), E是连接V中两个不同顶点（顶点对）的边的有限集合，记为E(G)</p>
+</blockquote>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/archives/defe2bcd.html#more" rel="contents">
@@ -1101,7 +1008,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:39" itemprop="dateModified" datetime="2020-05-18T00:41:39+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 02:03:30" itemprop="dateModified" datetime="2020-05-18T02:03:30+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1157,7 +1064,7 @@
 <p>1.若根节点的左子树非空，则左子树上所有节点关键字小于根节点关键字；<br>2.若根节点的右子树非空，则右子树上所有节点关键字大于根节点关键字；<br>3.根节点的左右子树本身又是一棵二叉排序树。</p>
 </blockquote>
 <p>即在二叉树的基础上添加了结点值的约束。</p>
-<p>以下是二叉搜索树的实现。<br>
+<p>以下是二叉搜索树的实现。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/archives/91db5119.html#more" rel="contents">
@@ -1215,7 +1122,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:39" itemprop="dateModified" datetime="2020-05-18T00:41:39+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 02:03:38" itemprop="dateModified" datetime="2020-05-18T02:03:38+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1266,7 +1173,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><img src="/images/2019年5月蓝桥sky.jpg" alt="北京故宫博物馆口"><br>一年一度的传说中的“暴力”杯又过去了，今年是第一次参加蓝桥杯省赛跟国赛，今天刚从北京回来，觉得应该写点东西，觉得不能再叫蓝桥杯暴力杯了<del>当然大佬觉得还是暴力还请忽略</del>，要改名了，今年难度有点大，首先题目数量变成了 10个，分值设置相对均匀5~25分的样子，之前分数梯度很大，然后难度也加了些，具体多少我也不是很清楚，我做去年第九届跟前年第十届的题目的时候也是很多也都不会做，有人下午比赛比了一半就溜出来了，觉得比CCPC还难，好吧，我还没参加过。我是C/C++B组，当时大概开始2小时左右我也想溜了，题目看到结尾了，好几个不会做的，看别人吃起了面包，觉得可能会分心，就没吃只是喝了口水，然后开始继续写，坚持到了最后，最后还是空了3个题目，大概两个大题，一个填空题，考完心凉了一半，下午6点考完，出来合了个影，既然比赛不顺利，那就玩耍的愉快吧，然后就开始了流浪北京，北京印象的日子。<br><strong>欢迎大家收看一年一集的《北京印象》，总共三集，当前是第一集。</strong><br>
+          <p><img src="/images/2019年5月蓝桥sky.jpg" alt="北京故宫博物馆口"><br>一年一度的传说中的“暴力”杯又过去了，今年是第一次参加蓝桥杯省赛跟国赛，今天刚从北京回来，觉得应该写点东西，觉得不能再叫蓝桥杯暴力杯了<del>当然大佬觉得还是暴力还请忽略</del>，要改名了，今年难度有点大，首先题目数量变成了 10个，分值设置相对均匀5~25分的样子，之前分数梯度很大，然后难度也加了些，具体多少我也不是很清楚，我做去年第九届跟前年第十届的题目的时候也是很多也都不会做，有人下午比赛比了一半就溜出来了，觉得比CCPC还难，好吧，我还没参加过。我是C/C++B组，当时大概开始2小时左右我也想溜了，题目看到结尾了，好几个不会做的，看别人吃起了面包，觉得可能会分心，就没吃只是喝了口水，然后开始继续写，坚持到了最后，最后还是空了3个题目，大概两个大题，一个填空题，考完心凉了一半，下午6点考完，出来合了个影，既然比赛不顺利，那就玩耍的愉快吧，然后就开始了流浪北京，北京印象的日子。<br><strong>欢迎大家收看一年一集的《北京印象》，总共三集，当前是第一集。</strong></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/archives/f2355877.html#more" rel="contents">
@@ -1324,7 +1231,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:39" itemprop="dateModified" datetime="2020-05-18T00:41:39+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 02:03:44" itemprop="dateModified" datetime="2020-05-18T02:03:44+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1356,7 +1263,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>816</span>
+              <span>818</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -1378,7 +1285,8 @@
           <blockquote>
 <p>先来占个坑，以后慢慢补充。</p>
 <p>一道蓝桥杯2018B组国赛题目</p>
-<h2 id="格雷码"><a href="#格雷码" class="headerlink" title="格雷码"></a>格雷码</h2><p>补全代码的题目<br>格雷码是以n位的二进制来表示数。 与普通的二进制表示不同的是，它要求相邻两个数字只能有1个数位不同。 首尾两个数字也要求只有1位之差。有很多算法来生成格雷码。以下是较常见的一种： 从编码全0开始生成。 当产生第奇数个数时，只把当前数字最末位改变（0变1，1变0） 当产生第偶数个数时，先找到最右边的一个1，把它左边的数字改变。 用这个规则产生的4位格雷码序列<br>
+<h2 id="格雷码"><a href="#格雷码" class="headerlink" title="格雷码"></a>格雷码</h2><p>补全代码的题目<br>格雷码是以n位的二进制来表示数。 与普通的二进制表示不同的是，它要求相邻两个数字只能有1个数位不同。 首尾两个数字也要求只有1位之差。有很多算法来生成格雷码。以下是较常见的一种： 从编码全0开始生成。 当产生第奇数个数时，只把当前数字最末位改变（0变1，1变0） 当产生第偶数个数时，先找到最右边的一个1，把它左边的数字改变。 用这个规则产生的4位格雷码序列</p>
+</blockquote>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/archives/c575047c.html#more" rel="contents">
@@ -1543,7 +1451,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:13</span>
+    <span title="Reading time total">2:12</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>

@@ -32,7 +32,7 @@
 <meta property="og:site_name" content="SinclairのBlog">
 <meta property="og:description" content="学习DFS看了很多篇博客慢慢入门，感谢我看过的所有博客，我把其中做过的题目汇总起来，里面有很多是大神的代码，与大家分享。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-05-17T16:41:40.199Z">
+<meta property="og:updated_time" content="2020-05-17T18:03:49.962Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DFS入门学习">
 <meta name="twitter:description" content="学习DFS看了很多篇博客慢慢入门，感谢我看过的所有博客，我把其中做过的题目汇总起来，里面有很多是大神的代码，与大家分享。">
@@ -246,7 +246,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:40" itemprop="dateModified" datetime="2020-05-18T00:41:40+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 02:03:49" itemprop="dateModified" datetime="2020-05-18T02:03:49+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -304,7 +304,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>学习DFS看了很多篇博客慢慢入门，感谢我看过的所有博客，我把其中做过的题目汇总起来，里面有很多是大神的代码，与大家分享。<br><a id="more"></a><br>@[toc]</p>
+        <p>学习DFS看了很多篇博客慢慢入门，感谢我看过的所有博客，我把其中做过的题目汇总起来，里面有很多是大神的代码，与大家分享。</p>
+<a id="more"></a>
+<p>@[toc]</p>
 <h2 id="计蒜客A1601全排列"><a href="#计蒜客A1601全排列" class="headerlink" title="计蒜客A1601全排列"></a>计蒜客A1601全排列</h2><p> <span class="exturl" data-url="aHR0cHM6Ly9uYW50aS5qaXN1YW5rZS5jb20vdC9BMTYwMQ==">计蒜客A1601全排列<i class="fa fa-external-link-alt"></i></span><br>找的是全排列中，排列结果互不相同的个数</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;cstdlib&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1e3</span>;</span><br><span class="line"><span class="keyword">char</span> str[N], buf[N];<span class="comment">//buffer</span></span><br><span class="line"><span class="keyword">int</span> vis[N], total, len;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">arrange</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (num == len)&#123;</span><br><span class="line">        printf(<span class="string">"%s\n"</span>, buf);</span><br><span class="line">        total++;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!vis[i]) &#123;</span><br><span class="line">            <span class="keyword">int</span> j;</span><br><span class="line">            <span class="keyword">for</span> (j = i + <span class="number">1</span>; j &lt; len; ++j) &#123;</span><br><span class="line">                <span class="keyword">if</span> (vis[j]&amp;&amp;str[i] == str[j]) &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (j == len) &#123;</span><br><span class="line">                vis[i] = <span class="number">1</span>;</span><br><span class="line">                buf[num] = str[i];</span><br><span class="line">                arrange(num + <span class="number">1</span>);</span><br><span class="line">                vis[i] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (~scanf(<span class="string">"%s"</span>,str)) &#123;</span><br><span class="line">        len = strlen(str);</span><br><span class="line">        sort(str, str + len);</span><br><span class="line">        total = <span class="number">0</span>;</span><br><span class="line">        buf[len] = <span class="string">'\0'</span>;</span><br><span class="line">        arrange(<span class="number">0</span>);</span><br><span class="line">        printf(<span class="string">"Total %d\n"</span>, total);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="计蒜客A1636素数个数"><a href="#计蒜客A1636素数个数" class="headerlink" title="计蒜客A1636素数个数"></a>计蒜客A1636素数个数</h2><p> <span class="exturl" data-url="aHR0cHM6Ly9uYW50aS5qaXN1YW5rZS5jb20vdC9BMTYzNg==">计蒜客A1636素数个数<i class="fa fa-external-link-alt"></i></span><br> 题目大致是求0~7的全排列组成的数字（首位不为0）中素数的个数，该题可理解为在全排列的基础上进行了条件限制</p>
@@ -568,7 +570,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:13</span>
+    <span title="Reading time total">2:12</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>

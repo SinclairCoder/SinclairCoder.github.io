@@ -24,18 +24,18 @@
     var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Problem Description 有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？  Input 输入数据由多个测试实例组成，每个测试实例占一行，包括一个整数n(0&amp;lt;n&amp;lt;55)，n的含义如题目中描述。n=0表示输入数据的结束，不做处理。  Output 对于每个测试实例，输出在第n年的时候母牛的数量">
+  <meta name="description" content="Problem Description 有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？">
 <meta name="keywords" content="数据结构与算法训练">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDU2018母牛的故事">
 <meta property="og:url" content="https://sinclaircoder.gitee.io/archives/40b55e68.html">
 <meta property="og:site_name" content="SinclairのBlog">
-<meta property="og:description" content="Problem Description 有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？  Input 输入数据由多个测试实例组成，每个测试实例占一行，包括一个整数n(0&amp;lt;n&amp;lt;55)，n的含义如题目中描述。n=0表示输入数据的结束，不做处理。  Output 对于每个测试实例，输出在第n年的时候母牛的数量">
+<meta property="og:description" content="Problem Description 有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-05-17T16:41:39.921Z">
+<meta property="og:updated_time" content="2020-05-17T18:04:16.597Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDU2018母牛的故事">
-<meta name="twitter:description" content="Problem Description 有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？  Input 输入数据由多个测试实例组成，每个测试实例占一行，包括一个整数n(0&amp;lt;n&amp;lt;55)，n的含义如题目中描述。n=0表示输入数据的结束，不做处理。  Output 对于每个测试实例，输出在第n年的时候母牛的数量">
+<meta name="twitter:description" content="Problem Description 有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？">
 
 <link rel="canonical" href="https://sinclaircoder.gitee.io/archives/40b55e68.html">
 
@@ -246,7 +246,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:39" itemprop="dateModified" datetime="2020-05-18T00:41:39+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 02:04:16" itemprop="dateModified" datetime="2020-05-18T02:04:16+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -307,13 +307,14 @@
         <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><blockquote>
 <p>有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><blockquote>
 <p>输入数据由多个测试实例组成，每个测试实例占一行，包括一个整数n(0&lt;n&lt;55)，n的含义如题目中描述。<br>n=0表示输入数据的结束，不做处理。</p>
 </blockquote>
 <h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><blockquote>
 <p>对于每个测试实例，输出在第n年的时候母牛的数量。每个输出占一行。</p>
 </blockquote>
-<a id="more"></a>
+<!-- more -->
 <h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><blockquote>
 <p>2<br>4<br>5<br>0</p>
 <h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><p>2<br>4<br>6</p>
@@ -650,7 +651,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:13</span>
+    <span title="Reading time total">2:12</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>
