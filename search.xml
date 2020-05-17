@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[PTA朋友圈(并查集)]]></title>
+    <url>%2Farchives%2F9c6e9d96.html</url>
+    <content type="text"><![CDATA[某学校有N个学生，形成M个俱乐部。每个俱乐部里的学生有着一定相似的兴趣爱好，形成一个朋友圈。一个学生可以同时属于若干个不同的俱乐部。根据“我的朋友的朋友也是我的朋友”这个推论可以得出，如果A和B是朋友，且B和C是朋友，则A和C也是朋友。请编写程序计算最大朋友圈中有多少人。 输入格式:输入的第一行包含两个正整数N（≤30000）和M（≤1000），分别代表学校的学生总数和俱乐部的个数。后面的M行每行按以下格式给出1个俱乐部的信息，其中学生从1~N编号： 第i个俱乐部的人数Mi（空格）学生1（空格）学生2 … 学生Mi 输出格式:输出给出一个整数，表示在最大朋友圈中有多少人。 输入样例: 7 43 1 2 32 1 43 5 6 71 6 输出样例: 4 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;#define N 30005int fa[N],num[N];int find(int x)&#123; if(x==fa[x]) return x; return fa[x] = find(fa[x]);&#125;void Union(int x,int y)&#123; int rootx = find(x),rooty = find(y); if(rootx!=rooty)&#123; fa[rooty] = rootx; num[rootx] += num[rooty]; &#125;&#125;int main()&#123; int n,m; cin &gt;&gt; n &gt;&gt; m; for(int i=1;i&lt;=n;i++) &#123; fa[i] = i;num[i]=1; &#125; for(int i=0;i&lt;m;i++)&#123; int cnt,root,x; cin &gt;&gt; cnt; cin &gt;&gt; root; for(int j=1;j&lt;cnt;j++) &#123; cin &gt;&gt; x; Union(root,x); &#125; &#125; int res=1; for(int i=1;i&lt;=n;i++)&#123; res = max(res,num[fa[i]]); &#125; cout &lt;&lt; res &lt;&lt; endl; return 0;&#125;]]></content>
+      <categories>
+        <category>PTA</category>
+      </categories>
+      <tags>
+        <tag>PTA</tag>
+        <tag>并查集</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[PTA列出连通集(DFS+BFS)]]></title>
     <url>%2Farchives%2F4669f0d5.html</url>
     <content type="text"><![CDATA[给定一个有N个顶点和E条边的无向图，请用DFS和BFS分别列出其所有的连通集。假设顶点从0到N−1编号。进行搜索时，假设我们总是从编号最小的顶点出发，按编号递增的顺序访问邻接点。 输入格式:输入第1行给出2个整数N(0&lt;N≤10)和E，分别是图的顶点数和边数。随后E行，每行给出一条边的两个端点。每行中的数字之间用1空格分隔。 输出格式:按照”{ v​1 v​2​​ … v​k​​ }”的格式，每行输出一个连通集。先输出DFS的结果，再输出BFS的结果。 输入样例: 8 60 70 12 04 12 43 5 输出样例: { 0 1 4 2 7 }{ 3 5 }{ 6 }{ 0 1 2 7 4 }{ 3 5 }{ 6 } 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;#define N 15int edge[N][N],vis[N];queue&lt;int&gt; qu;void dfs(int x,int n)&#123; vis[x] = 1; cout &lt;&lt; " " &lt;&lt; x; for(int i=0;i&lt;n;i++)&#123; if(edge[x][i]&amp;&amp;!vis[i]) dfs(i,n); &#125;&#125;void bfs(int x,int n)&#123; qu.push(x); vis[x] = 1; while(!qu.empty())&#123; int root = qu.front(); cout &lt;&lt; " " &lt;&lt; root; qu.pop(); for(int i=0;i&lt;n;i++)&#123; if(edge[root][i]&amp;&amp;!vis[i])&#123; qu.push(i); vis[i] = 1; &#125; &#125; &#125; &#125;int main()&#123; int n,e,x,y; cin &gt;&gt; n &gt;&gt; e; for(int i=1;i&lt;=n;i++) &#123; edge[i][i] = 1; &#125; for(int i=0;i&lt;e;i++)&#123; cin &gt;&gt; x &gt;&gt;y; edge[x][y] = 1; edge[y][x] = 1; &#125; for(int i=0;i&lt;n;i++) &#123; if(!vis[i])&#123; cout &lt;&lt; "&#123;"; dfs(i,n); cout &lt;&lt; " &#125;" &lt;&lt; endl; &#125; &#125; memset(vis,0,sizeof(vis)); for(int i=0;i&lt;n;i++)&#123; if(!vis[i]) &#123; cout &lt;&lt; "&#123;"; bfs(i,n); cout &lt;&lt; " &#125;" &lt;&lt; endl; &#125; &#125; return 0;&#125;]]></content>
@@ -14,15 +26,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[PTA朋友圈(并查集)]]></title>
-    <url>%2Farchives%2F9c6e9d96.html</url>
-    <content type="text"><![CDATA[某学校有N个学生，形成M个俱乐部。每个俱乐部里的学生有着一定相似的兴趣爱好，形成一个朋友圈。一个学生可以同时属于若干个不同的俱乐部。根据“我的朋友的朋友也是我的朋友”这个推论可以得出，如果A和B是朋友，且B和C是朋友，则A和C也是朋友。请编写程序计算最大朋友圈中有多少人。 输入格式:输入的第一行包含两个正整数N（≤30000）和M（≤1000），分别代表学校的学生总数和俱乐部的个数。后面的M行每行按以下格式给出1个俱乐部的信息，其中学生从1~N编号： 第i个俱乐部的人数Mi（空格）学生1（空格）学生2 … 学生Mi 输出格式:输出给出一个整数，表示在最大朋友圈中有多少人。 输入样例: 7 43 1 2 32 1 43 5 6 71 6 输出样例: 4 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;#define N 30005int fa[N],num[N];int find(int x)&#123; if(x==fa[x]) return x; return fa[x] = find(fa[x]);&#125;void Union(int x,int y)&#123; int rootx = find(x),rooty = find(y); if(rootx!=rooty)&#123; fa[rooty] = rootx; num[rootx] += num[rooty]; &#125;&#125;int main()&#123; int n,m; cin &gt;&gt; n &gt;&gt; m; for(int i=1;i&lt;=n;i++) &#123; fa[i] = i;num[i]=1; &#125; for(int i=0;i&lt;m;i++)&#123; int cnt,root,x; cin &gt;&gt; cnt; cin &gt;&gt; root; for(int j=1;j&lt;cnt;j++) &#123; cin &gt;&gt; x; Union(root,x); &#125; &#125; int res=1; for(int i=1;i&lt;=n;i++)&#123; res = max(res,num[fa[i]]); &#125; cout &lt;&lt; res &lt;&lt; endl; return 0;&#125;]]></content>
+    <title><![CDATA[PTA汉密尔顿回路]]></title>
+    <url>%2Farchives%2F8ce6deb1.html</url>
+    <content type="text"><![CDATA[著名的“汉密尔顿（Hamilton）回路问题”是要找一个能遍历图中所有顶点的简单回路（即每个顶点只访问 1 次）。本题就要求你判断任一给定的回路是否汉密尔顿回路。 输入格式：首先第一行给出两个正整数：无向图中顶点数 N（2&lt;N≤200）和边数 M。随后 M 行，每行给出一条边的两个端点，格式为“顶点1 顶点2”，其中顶点从 1 到N 编号。再下一行给出一个正整数 K，是待检验的回路的条数。随后 K 行，每行给出一条待检回路，格式为：$n\quad V1\quad V_2⋯ V​n$ 其中 n 是回路中的顶点数，$V_i$是路径上的顶点编号。 输出格式：对每条待检回路，如果是汉密尔顿回路，就在一行中输出”YES”，否则输出”NO”。 输入样例： 6 106 23 41 52 53 14 11 66 31 24 567 5 1 4 3 6 2 56 5 1 4 3 6 29 6 2 1 6 3 4 5 2 64 1 2 5 17 6 1 3 4 5 2 67 6 1 2 5 4 3 1 输出样例： YESNONONOYESNO 思路：将边用数组存储起来，判断回路里两条边之前是否连通并且除出发点外其余点只出现一次。如果给定的回路里点的个数不等于n+1，直接NO 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;#define N 205int edge[N][N];int main()&#123; int n,m,x,y; cin &gt;&gt; n &gt;&gt; m; memset(edge,0,sizeof(edge)); for(int i=0;i&lt;m;i++)&#123; cin &gt;&gt; x &gt;&gt; y; edge[x][y] = 1; edge[y][x] = 1; &#125; int t,vis[n+1]; memset(vis,0,sizeof(vis)); cin &gt;&gt; t; while(t--)&#123; int cnt,pre,flag=1,start; cin &gt;&gt; cnt; cin &gt;&gt; start; vis[start]=1;pre = start; for(int j=1;j&lt;cnt;j++)&#123; cin &gt;&gt; x; if(!edge[pre][x]) flag = 0; // 判定条件要注意 if(vis[x]&amp;&amp;(j&lt;cnt-1||x!=start)) flag = 0;// if(vis[x]&amp;&amp;x!=start||!edge[pre][x]) flag = 0; vis[x]=1; pre = x; &#125; if(cnt!=n+1) flag = 0; if(flag) cout&lt;&lt; "YES" &lt;&lt; endl; else cout &lt;&lt; "NO" &lt;&lt; endl; memset(vis,0,sizeof(vis)); &#125; return 0;&#125;]]></content>
       <categories>
         <category>PTA</category>
       </categories>
       <tags>
         <tag>PTA</tag>
-        <tag>并查集</tag>
+        <tag>Hamilton回路</tag>
       </tags>
   </entry>
   <entry>
@@ -60,18 +72,6 @@
         <tag>PTA</tag>
         <tag>欧拉回路</tag>
         <tag>并查集</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[PTA汉密尔顿回路]]></title>
-    <url>%2Farchives%2F8ce6deb1.html</url>
-    <content type="text"><![CDATA[著名的“汉密尔顿（Hamilton）回路问题”是要找一个能遍历图中所有顶点的简单回路（即每个顶点只访问 1 次）。本题就要求你判断任一给定的回路是否汉密尔顿回路。 输入格式：首先第一行给出两个正整数：无向图中顶点数 N（2&lt;N≤200）和边数 M。随后 M 行，每行给出一条边的两个端点，格式为“顶点1 顶点2”，其中顶点从 1 到N 编号。再下一行给出一个正整数 K，是待检验的回路的条数。随后 K 行，每行给出一条待检回路，格式为：$n\quad V1\quad V_2⋯ V​n$ 其中 n 是回路中的顶点数，$V_i$是路径上的顶点编号。 输出格式：对每条待检回路，如果是汉密尔顿回路，就在一行中输出”YES”，否则输出”NO”。 输入样例： 6 106 23 41 52 53 14 11 66 31 24 567 5 1 4 3 6 2 56 5 1 4 3 6 29 6 2 1 6 3 4 5 2 64 1 2 5 17 6 1 3 4 5 2 67 6 1 2 5 4 3 1 输出样例： YESNONONOYESNO 思路：将边用数组存储起来，判断回路里两条边之前是否连通并且除出发点外其余点只出现一次。如果给定的回路里点的个数不等于n+1，直接NO 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;#define N 205int edge[N][N];int main()&#123; int n,m,x,y; cin &gt;&gt; n &gt;&gt; m; memset(edge,0,sizeof(edge)); for(int i=0;i&lt;m;i++)&#123; cin &gt;&gt; x &gt;&gt; y; edge[x][y] = 1; edge[y][x] = 1; &#125; int t,vis[n+1]; memset(vis,0,sizeof(vis)); cin &gt;&gt; t; while(t--)&#123; int cnt,pre,flag=1,start; cin &gt;&gt; cnt; cin &gt;&gt; start; vis[start]=1;pre = start; for(int j=1;j&lt;cnt;j++)&#123; cin &gt;&gt; x; if(!edge[pre][x]) flag = 0; // 判定条件要注意 if(vis[x]&amp;&amp;(j&lt;cnt-1||x!=start)) flag = 0;// if(vis[x]&amp;&amp;x!=start||!edge[pre][x]) flag = 0; vis[x]=1; pre = x; &#125; if(cnt!=n+1) flag = 0; if(flag) cout&lt;&lt; "YES" &lt;&lt; endl; else cout &lt;&lt; "NO" &lt;&lt; endl; memset(vis,0,sizeof(vis)); &#125; return 0;&#125;]]></content>
-      <categories>
-        <category>PTA</category>
-      </categories>
-      <tags>
-        <tag>PTA</tag>
-        <tag>Hamilton回路</tag>
       </tags>
   </entry>
   <entry>
@@ -168,6 +168,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[回溯算法求解数独问题(C++ 递归/非递归)]]></title>
+    <url>%2Farchives%2Fd2731a93.html</url>
+    <content type="text"><![CDATA[如何使用求解上述数独? 递归实现1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556#include&lt;bits/stdc++.h&gt;using namespace std;int sudoku[9][9];int dx[9]= &#123;-1,-1,-1,0,0,0,1,1,1&#125;,dy[9]=&#123;-1,0,1,-1,0,1,-1,0,1&#125;; void print()&#123; for(int i=0;i&lt;9;i++)&#123; for(int j=0;j&lt;9;j++) cout &lt;&lt; sudoku[i][j] &lt;&lt; " "; cout &lt;&lt; endl; &#125;&#125;bool check(int i,int j, int num)&#123; // (i,j)位置填入num判断是否合适 for(int k=0;k&lt;9;k++)&#123; // 所在行和列判断 if(sudoku[i][k]==num||sudoku[k][j]==num)&#123; return false; &#125; &#125; int cx = i/3*3+1, cy = j/3*3+1; for(int k=0;k&lt;9;k++)&#123; // 九宫格 int cur_x = cx+dx[k],cur_y = cy+dy[k]; if(sudoku[cur_x][cur_y]==num) return false; &#125; return true;&#125;void search(int i,int j)&#123; if(i==8&amp;&amp;j==9) &#123; print(); return ; &#125; if(j==9)&#123; i++; j=0; &#125; if(sudoku[i][j]==0)&#123; for(int num=1;num&lt;=9;num++)&#123; if(check(i,j,num))&#123; sudoku[i][j] = num; search(i,j+1); sudoku[i][j] = 0; &#125; &#125; &#125; else search(i,j+1);&#125;int main()&#123; for(int i=0;i&lt;9;i++) for(int j=0;j&lt;9;j++) cin &gt;&gt; sudoku[i][j]; search(0,0); return 0;&#125; 非递归实现非递归回溯求解数独问题，每次在9*9的矩阵中按行优先寻找第一个不为0的位置并将该位置进栈，然后对该位置进行从num=1到9试填，并check该位置放num是否合适，如果不合适就将该点出栈，同时将值置为0，否则就放入num，然后将下一个0位置进栈… 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465#include&lt;bits/stdc++.h&gt; using namespace std;int sudoku[9][9];int dx[9]= &#123;-1,-1,-1,0,0,0,1,1,1&#125;,dy[9]=&#123;-1,0,1,-1,0,1,-1,0,1&#125;;void print()&#123; for(int i=0;i&lt;9;i++)&#123; for(int j=0;j&lt;9;j++) cout &lt;&lt; sudoku[i][j] &lt;&lt; " "; cout &lt;&lt; endl; &#125;&#125;bool check(int i,int j, int num)&#123; // (i,j)位置填入num判断是否合适 for(int k=0;k&lt;9;k++)&#123; // 所在行和列判断 if(sudoku[i][k]==num||sudoku[k][j]==num)&#123; return false; &#125; &#125; int cx = i/3*3+1, cy = j/3*3+1; for(int k=0;k&lt;9;k++)&#123; // 九宫格 int cur_x = cx+dx[k],cur_y = cy+dy[k]; if(sudoku[cur_x][cur_y]==num) return false; &#125; return true;&#125;int find()&#123; for (int i = 0;i&lt;81;i++) if (!sudoku[i/9][i%9]) return i; return -1;&#125;bool solve()&#123; // 非递归回溯 stack&lt;int&gt; st; st.push(find()); int num; while(!st.empty()&amp;&amp;(st.top()&gt;=0))&#123; int x = st.top()/9, y = st.top()%9; for(num = sudoku[x][y]+1;num&lt;=9&amp;&amp;(!check(x,y,num));num++); if(num&gt;9)&#123; sudoku[x][y] = 0; st.pop(); &#125; else &#123; sudoku[x][y] = num; st.push(find()); &#125; &#125; return (!st.empty());&#125;int main()&#123; for(int i=0;i&lt;9;i++) for(int j=0;j&lt;9;j++) cin &gt;&gt; sudoku[i][j]; if(solve())&#123; print(); &#125; else cout &lt;&lt; "无解" &lt;&lt; endl; return 0;&#125;]]></content>
+      <categories>
+        <category>数据结构与算法训练</category>
+      </categories>
+      <tags>
+        <tag>回溯法</tag>
+        <tag>数独</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[回溯法求解幂集]]></title>
     <url>%2Farchives%2Fd99eeb5c.html</url>
     <content type="text"><![CDATA[回溯—使用解向量使用一个大小为n的数组x，来标记解向量，在每次迭代过程重要要么选择当前值，要么不选择12345678910111213141516171819202122232425262728293031#include&lt;bits/stdc++.h&gt;using namespace std;void print(int a[], int x[], int n)&#123; cout &lt;&lt; "&#123;"; for(int i=0;i&lt;n;i++)&#123; if(x[i]) printf("%d ",a[i]); &#125; cout &lt;&lt; "&#125;" &lt;&lt; endl; cout &lt;&lt; endl;&#125;void dfs(int a[], int x[], int n, int i)&#123; if(i&gt;=n) &#123; print(a,x,n);return ; &#125; else&#123; x[i] = 0; dfs(a,x,n,i+1); x[i] = 1; dfs(a,x,n,i+1); &#125;&#125;int main()&#123; int n; cin &gt;&gt; n; int a[n]; for(int i=0;i&lt;n;i++) cin &gt;&gt; a[i]; int x[n]; memset(x,0,sizeof(x)); dfs(a,x,n,0); return 0;&#125; 回溯法—使用容器存放结果不去采用标准的解向量，而是用一个边长数组vector去存放解。1234567891011121314151617181920212223242526272829303132333435#include&lt;bits/stdc++.h&gt;using namespace std;#define rep(i,m,n) for(int i=m;i&lt;n;i++)#define pb push_backint res = 0;void print(vector&lt;int&gt; v)&#123; rep(i,0,v.size())&#123; cout &lt;&lt; v[i] &lt;&lt; " "; &#125; cout &lt;&lt; endl;&#125;void dfs(int a[], int n, int i, vector&lt;int&gt; path)&#123; if(i&gt;=n)&#123; print(path); res++; // 统计个数 return ; &#125; else &#123; dfs(a,n,i+1,path); path.pb(a[i]); dfs(a,n,i+1,path); &#125;&#125;int main()&#123; int n; cin &gt;&gt; n; int a[n]; rep(i,0,n) cin &gt;&gt; a[i]; vector&lt;int&gt; path; dfs(a,n,0,path); cout &lt;&lt; "Total : " &lt;&lt; res &lt;&lt; endl; return 0;&#125; 枚举法—使用二进位对应解空间用二进制位来对应解 123456789101112131415161718192021222324252627282930313233#include&lt;bits/stdc++.h&gt;using namespace std;#define rep(i,m,n) for(int i=m;i&lt;n;i++)#define pb push_backint res = 0;void print(int a[],int n,int x)&#123; int j = 0; // 也可令j变为n,只是会调整输出顺序 cout &lt;&lt; "&#123;"; while(x)&#123; if(x&amp;1) &#123; cout &lt;&lt; a[j]; if(x&gt;=2) cout &lt;&lt; " "; // 输出格式控制 &#125; x &gt;&gt;= 1;j++; &#125; cout &lt;&lt; "&#125;"; cout &lt;&lt; endl; res++;&#125;int main()&#123; int n; cin &gt;&gt; n; int a[n]; rep(i,0,n) cin &gt;&gt; a[i]; rep(i,0,1&lt;&lt;n)&#123; print(a,n,i); &#125; cout &lt;&lt; "Total：" &lt;&lt; res ; &#125;]]></content>
@@ -180,15 +192,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[回溯算法求解数独问题(C++ 递归/非递归)]]></title>
-    <url>%2Farchives%2Fd2731a93.html</url>
-    <content type="text"><![CDATA[如何使用求解上述数独? 递归实现1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556#include&lt;bits/stdc++.h&gt;using namespace std;int sudoku[9][9];int dx[9]= &#123;-1,-1,-1,0,0,0,1,1,1&#125;,dy[9]=&#123;-1,0,1,-1,0,1,-1,0,1&#125;; void print()&#123; for(int i=0;i&lt;9;i++)&#123; for(int j=0;j&lt;9;j++) cout &lt;&lt; sudoku[i][j] &lt;&lt; " "; cout &lt;&lt; endl; &#125;&#125;bool check(int i,int j, int num)&#123; // (i,j)位置填入num判断是否合适 for(int k=0;k&lt;9;k++)&#123; // 所在行和列判断 if(sudoku[i][k]==num||sudoku[k][j]==num)&#123; return false; &#125; &#125; int cx = i/3*3+1, cy = j/3*3+1; for(int k=0;k&lt;9;k++)&#123; // 九宫格 int cur_x = cx+dx[k],cur_y = cy+dy[k]; if(sudoku[cur_x][cur_y]==num) return false; &#125; return true;&#125;void search(int i,int j)&#123; if(i==8&amp;&amp;j==9) &#123; print(); return ; &#125; if(j==9)&#123; i++; j=0; &#125; if(sudoku[i][j]==0)&#123; for(int num=1;num&lt;=9;num++)&#123; if(check(i,j,num))&#123; sudoku[i][j] = num; search(i,j+1); sudoku[i][j] = 0; &#125; &#125; &#125; else search(i,j+1);&#125;int main()&#123; for(int i=0;i&lt;9;i++) for(int j=0;j&lt;9;j++) cin &gt;&gt; sudoku[i][j]; search(0,0); return 0;&#125; 非递归实现非递归回溯求解数独问题，每次在9*9的矩阵中按行优先寻找第一个不为0的位置并将该位置进栈，然后对该位置进行从num=1到9试填，并check该位置放num是否合适，如果不合适就将该点出栈，同时将值置为0，否则就放入num，然后将下一个0位置进栈… 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465#include&lt;bits/stdc++.h&gt; using namespace std;int sudoku[9][9];int dx[9]= &#123;-1,-1,-1,0,0,0,1,1,1&#125;,dy[9]=&#123;-1,0,1,-1,0,1,-1,0,1&#125;;void print()&#123; for(int i=0;i&lt;9;i++)&#123; for(int j=0;j&lt;9;j++) cout &lt;&lt; sudoku[i][j] &lt;&lt; " "; cout &lt;&lt; endl; &#125;&#125;bool check(int i,int j, int num)&#123; // (i,j)位置填入num判断是否合适 for(int k=0;k&lt;9;k++)&#123; // 所在行和列判断 if(sudoku[i][k]==num||sudoku[k][j]==num)&#123; return false; &#125; &#125; int cx = i/3*3+1, cy = j/3*3+1; for(int k=0;k&lt;9;k++)&#123; // 九宫格 int cur_x = cx+dx[k],cur_y = cy+dy[k]; if(sudoku[cur_x][cur_y]==num) return false; &#125; return true;&#125;int find()&#123; for (int i = 0;i&lt;81;i++) if (!sudoku[i/9][i%9]) return i; return -1;&#125;bool solve()&#123; // 非递归回溯 stack&lt;int&gt; st; st.push(find()); int num; while(!st.empty()&amp;&amp;(st.top()&gt;=0))&#123; int x = st.top()/9, y = st.top()%9; for(num = sudoku[x][y]+1;num&lt;=9&amp;&amp;(!check(x,y,num));num++); if(num&gt;9)&#123; sudoku[x][y] = 0; st.pop(); &#125; else &#123; sudoku[x][y] = num; st.push(find()); &#125; &#125; return (!st.empty());&#125;int main()&#123; for(int i=0;i&lt;9;i++) for(int j=0;j&lt;9;j++) cin &gt;&gt; sudoku[i][j]; if(solve())&#123; print(); &#125; else cout &lt;&lt; "无解" &lt;&lt; endl; return 0;&#125;]]></content>
+    <title><![CDATA[蓝桥杯集训笔记]]></title>
+    <url>%2Farchives%2F8ebca082.html</url>
+    <content type="text"><![CDATA[数学建模的思想几道题目 熊怪吃核桃—二进制的使用 切面条余数的使用余数运算对于加法、减法和乘法封闭，常用于循环队列等使用，也可以利用余数的性质大幅度简化编码常用场合：递推法，倒推法有很多经典的题目，比如猴子吃桃..猜字母（待补..） 统计某种运算的结果末尾0的个数统计因子中能被2和5整除的个数分别为n1,n2 result = min(n1,n2)毕达哥拉斯定理（勾股定理）可以直接利用$x^2+y^2=z^2$在正整数域构造基础解系 \begin{cases}x=2k+1\\y=2k^2+2k\\ z = 2k^2+2k+1 \\ k = 1,2,3,... \end{cases}另一种解系： \begin{cases}x=st\\y=\frac{t^2-s^2}{2}\\ z =\frac{t^2+s^2}{2} \\ s =1,3,5,7.. \\ gcd(t,s)=1 \end{cases}超长位数的处理 存储方式：字符串、整数数组（甚至采用整型数组紧缩存放，即数组中一个元素存放多位，输出的时候使用printf(“%nd”,x[i]); 存储格式：把低位放在前，高位放在后面，符号位和小数位单独处理，可使用标志变量 运算方式 C/C++使用数组模拟进行加减乘除，及时取余进位操作，小心溢出 java 中里面提供了两个类BigInteger，BigDecimal分别对应大整数、高精度小数的处理 。 tips：尽管是C/C++选手，假如遇到了大数运算的题目，又刚好是个填空题，不妨简单学下Java里面的这个两个类，甚至Date类（日期计算），求结果多快好省，何乐而不为？ 两个往年题目练习一下BigInteger，BigDecimal的使用 大数乘法 java BigInteger的使用 黄金连分数—BigDecimal的使用 RSA对应2019省赛A组题目RSA解密涉及的知识点如下 逆元 欧拉函数 快速幂 素数筛 扩展欧几里得算法 （待补..）]]></content>
       <categories>
-        <category>数据结构与算法训练</category>
+        <category>蓝桥杯</category>
       </categories>
       <tags>
-        <tag>回溯法</tag>
-        <tag>数独</tag>
+        <tag>蓝桥杯</tag>
       </tags>
   </entry>
   <entry>
@@ -204,20 +215,21 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[切面条]]></title>
-    <url>%2Farchives%2F6c292947.html</url>
-    <content type="text"><![CDATA[一道2014蓝桥杯省赛试题切面条 一根高筋拉面，中间切一刀，可以得到2根面条。 如果先对折1次，中间切一刀，可以得到3根面条。 如果连续对折2次，中间切一刀，可以得到5根面条。 那么，连续对折10次，中间切一刀，会得到多少面条呢？ 不切的话，一根面条原本有两个端点对折0次，中间切一刀，会产生1个端点，一共3个端点，会产生2根面条对折1次，中间切一刀，会产生2个端点，一共4个端点，会产生3根面条对折2次，中间切一刀，会产生4个端点，一共6个端点，会产生5根面条对折3次，中间切一刀，会产生8个端点，一共10个端点，会产生9根面条……假设对折n次，则中间切一刀，会产生$2^n$个端点，加上原来的两个，一共$2^n+2$个端点，会产生$2^n+2-1$根面条，也即产生的面条数等于端点数减一。即result = 2^n+1（证明略..）当n=10时，result = 1025]]></content>
+    <title><![CDATA[熊怪吃核桃--二进制的使用]]></title>
+    <url>%2Farchives%2F257addcb.html</url>
+    <content type="text"><![CDATA[一道2015年蓝桥杯省赛试题熊怪吃核桃 森林里有一只熊怪，很爱吃核桃。 不过它有个习惯，每次都把找到的核桃分成相等的两份，吃掉一份，留一份。 如果不能等分，熊怪就会扔掉一个核桃再分。 第二天再继续这个过程，直到最后剩一个核桃了，直接丢掉。 有一天，熊怪发现了1543个核桃，请问，它在吃这些核桃的过程中，一共要丢掉多少个核桃。 思路思路就是每次判读一下是奇数还是偶数，奇数的话就减1然后除以2，偶数的话就直接除以2。用C/C++实现写起来其实很简单，其实还有一种更妙的思路，这个过程其实就是一个除2的过程，也就类似于十进制转二进制的过程，所以直接在Windows下利用计算器输入1543转成二进制，然后数一数二进制里面有几个1即可。 1543对应的二进制是110 0000 0111，里面有5个1。 顺便放一个代码实现吧 1234567891011121314#include&lt;iostream&gt;using namespace std;int main()&#123; int n = 1543,cnt = 0; while(n)&#123; if(n&amp;1)&#123; n--;cnt++; n /= 2; &#125; else n /= 2; &#125; cout &lt;&lt; cnt &lt;&lt; endl; return 0;&#125;]]></content>
       <categories>
         <category>蓝桥杯</category>
       </categories>
       <tags>
+        <tag>位运算</tag>
         <tag>蓝桥杯</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[蓝桥杯集训笔记]]></title>
-    <url>%2Farchives%2F8ebca082.html</url>
-    <content type="text"><![CDATA[数学建模的思想几道题目 熊怪吃核桃—二进制的使用 切面条余数的使用余数运算对于加法、减法和乘法封闭，常用于循环队列等使用，也可以利用余数的性质大幅度简化编码常用场合：递推法，倒推法有很多经典的题目，比如猴子吃桃..猜字母（待补..） 统计某种运算的结果末尾0的个数统计因子中能被2和5整除的个数分别为n1,n2 result = min(n1,n2)毕达哥拉斯定理（勾股定理）可以直接利用$x^2+y^2=z^2$在正整数域构造基础解系 \begin{cases}x=2k+1\\y=2k^2+2k\\ z = 2k^2+2k+1 \\ k = 1,2,3,... \end{cases}另一种解系： \begin{cases}x=st\\y=\frac{t^2-s^2}{2}\\ z =\frac{t^2+s^2}{2} \\ s =1,3,5,7.. \\ gcd(t,s)=1 \end{cases}超长位数的处理 存储方式：字符串、整数数组（甚至采用整型数组紧缩存放，即数组中一个元素存放多位，输出的时候使用printf(“%nd”,x[i]); 存储格式：把低位放在前，高位放在后面，符号位和小数位单独处理，可使用标志变量 运算方式 C/C++使用数组模拟进行加减乘除，及时取余进位操作，小心溢出 java 中里面提供了两个类BigInteger，BigDecimal分别对应大整数、高精度小数的处理 。 tips：尽管是C/C++选手，假如遇到了大数运算的题目，又刚好是个填空题，不妨简单学下Java里面的这个两个类，甚至Date类（日期计算），求结果多快好省，何乐而不为？ 两个往年题目练习一下BigInteger，BigDecimal的使用 大数乘法 java BigInteger的使用 黄金连分数—BigDecimal的使用 RSA对应2019省赛A组题目RSA解密涉及的知识点如下 逆元 欧拉函数 快速幂 素数筛 扩展欧几里得算法 （待补..）]]></content>
+    <title><![CDATA[切面条]]></title>
+    <url>%2Farchives%2F6c292947.html</url>
+    <content type="text"><![CDATA[一道2014蓝桥杯省赛试题切面条 一根高筋拉面，中间切一刀，可以得到2根面条。 如果先对折1次，中间切一刀，可以得到3根面条。 如果连续对折2次，中间切一刀，可以得到5根面条。 那么，连续对折10次，中间切一刀，会得到多少面条呢？ 不切的话，一根面条原本有两个端点对折0次，中间切一刀，会产生1个端点，一共3个端点，会产生2根面条对折1次，中间切一刀，会产生2个端点，一共4个端点，会产生3根面条对折2次，中间切一刀，会产生4个端点，一共6个端点，会产生5根面条对折3次，中间切一刀，会产生8个端点，一共10个端点，会产生9根面条……假设对折n次，则中间切一刀，会产生$2^n$个端点，加上原来的两个，一共$2^n+2$个端点，会产生$2^n+2-1$根面条，也即产生的面条数等于端点数减一。即result = 2^n+1（证明略..）当n=10时，result = 1025]]></content>
       <categories>
         <category>蓝桥杯</category>
       </categories>
@@ -235,18 +247,6 @@
       <tags>
         <tag>蓝桥杯</tag>
         <tag>BigInteger</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[熊怪吃核桃--二进制的使用]]></title>
-    <url>%2Farchives%2F257addcb.html</url>
-    <content type="text"><![CDATA[一道2015年蓝桥杯省赛试题熊怪吃核桃 森林里有一只熊怪，很爱吃核桃。 不过它有个习惯，每次都把找到的核桃分成相等的两份，吃掉一份，留一份。 如果不能等分，熊怪就会扔掉一个核桃再分。 第二天再继续这个过程，直到最后剩一个核桃了，直接丢掉。 有一天，熊怪发现了1543个核桃，请问，它在吃这些核桃的过程中，一共要丢掉多少个核桃。 思路思路就是每次判读一下是奇数还是偶数，奇数的话就减1然后除以2，偶数的话就直接除以2。用C/C++实现写起来其实很简单，其实还有一种更妙的思路，这个过程其实就是一个除2的过程，也就类似于十进制转二进制的过程，所以直接在Windows下利用计算器输入1543转成二进制，然后数一数二进制里面有几个1即可。 1543对应的二进制是110 0000 0111，里面有5个1。 顺便放一个代码实现吧 1234567891011121314#include&lt;iostream&gt;using namespace std;int main()&#123; int n = 1543,cnt = 0; while(n)&#123; if(n&amp;1)&#123; n--;cnt++; n /= 2; &#125; else n /= 2; &#125; cout &lt;&lt; cnt &lt;&lt; endl; return 0;&#125;]]></content>
-      <categories>
-        <category>蓝桥杯</category>
-      </categories>
-      <tags>
-        <tag>位运算</tag>
-        <tag>蓝桥杯</tag>
       </tags>
   </entry>
   <entry>
@@ -394,17 +394,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[统计字符]]></title>
-    <url>%2Farchives%2Fab24332a.html</url>
-    <content type="text"><![CDATA[输入一行字符，分别统计出其中英文字母、空格、数字和其他字符的个数。 123456789101112131415161718192021222324#include&lt;bits/stdc++.h&gt;using namespace std;typedef long long ll;const int maxn = 2e5;# define mod(a,b) (a)%(b)int main()&#123; char ch; int count[4]=&#123;0&#125;; while(cin.get(ch))&#123; if(ch&gt;='a'&amp;&amp;ch&lt;='z'||ch&gt;='A'&amp;&amp;ch&lt;='Z') count[0]++; else if(ch==' ') count[1]++; else if(ch&gt;='0'&amp;&amp;ch&lt;='9') count[2]++; else if(ch=='\n') break; else count[3]++; &#125; cout &lt;&lt; count[0] &lt;&lt; " " &lt;&lt; count[2] &lt;&lt; " " &lt;&lt; count[1] &lt;&lt; " " &lt;&lt; count[3] ; return 0;&#125; 题目虽然简单，注意点是统计空格需要用cin.get(ch)，输入时会在行末多输入一个回车，注意处理。]]></content>
-      <categories>
-        <category>数据结构与算法训练</category>
-      </categories>
-      <tags>
-        <tag>字符串</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[LeetCodeWeeklyContest-159]]></title>
     <url>%2Farchives%2F7472bec8.html</url>
     <content type="text"><![CDATA[最近看了篇文章，文章里说 希望你身边能有个比你聪明五倍，但却比你还努力十倍的人。倍数虽然有些夸张，但是这个思想还是能get到的。 5230. 缀点成线在一个 XY 坐标系中有一些点，我们用数组 coordinates 来分别记录它们的坐标，其中 coordinates[i] = [x, y] 表示横坐标为 x、纵坐标为 y 的点。 请你来判断，这些点是否在该坐标系中属于同一条直线上，是则返回 true，否则请返回 false。 思路根据前两个点构造直线，看后续的点是否在直线上。直线方程为 $ax+by+c=0$，其中：$a=y_2-y_1$ $b=x_1-x_2$ $c=-ax_1-by_1$好处是不用考虑斜率，这是个方程的一般式。如果考虑斜率，还得分斜率是否为0。 实现12345678910111213141516class Solution &#123;public: bool checkStraightLine(vector&lt;vector&lt;int&gt;&gt;&amp; coordinates) &#123; vector&lt;int&gt; v1,v2,v3; v1 = coordinates[0]; v2 = coordinates[1]; int a = v2[1]-v1[1]; int b = v1[0]-v2[0]; int c = -1*a*v1[0]-b*v1[1]; for(int i=1;i&lt;coordinates.size();i++)&#123; v3 = coordinates[i]; if(a*v3[0]+b*v3[1]+c!=0) return false; &#125; return true; &#125;&#125;; 删除子文件夹你是一位系统管理员，手里有一份文件夹列表 folder，你的任务是要删除该列表中的所有 子文件夹，并以 任意顺序 返回剩下的文件夹。 我们这样定义「子文件夹」： 如果文件夹 folder[i] 位于另一个文件夹 folder[j] 下，那么 folder[i] 就是 folder[j] 的子文件夹。文件夹的「路径」是由一个或多个按以下格式串联形成的字符串： / 后跟一个或者多个小写英文字母。例如，/leetcode 和 /leetcode/problems 都是有效的路径，而空字符串和 / 不是。 思路 写一个判别函数来判断是否为子路径 将文件夹序列sort，此时字典序小的应该在前，长度小的也在前，故一般父路径也在前。 设置一个标记数组，初始置0，如果该文件夹路径要被删除置1。 扫描文件夹序列，两两对比，神奇的是不用二重循环就可以做到。 将标记为0的push进vector，返回。实现123456789101112131415161718192021222324252627282930313233class Solution &#123;public: // a.length &lt; b.length bool isSubFolder(string a,string b) &#123; int n1 = a.length(),n2 = b.length(); if(n1&gt;n2) return false; int i; for(i=0;i&lt;n1;i++)&#123; if(a[i]!=b[i]) return false; &#125; if(b[i]!='/') return false; return true; &#125; vector&lt;string&gt; removeSubfolders(vector&lt;string&gt;&amp; folder) &#123; sort(folder.begin(),folder.end()); int n = folder.size(); int pend[n]=&#123;0&#125;; // delete 1 int j=0; for(int i=1;i&lt;n;i++)&#123; if(isSubFolder(folder[j],folder[i]))&#123; pend[i] = 1; &#125; else j = i; // important &#125; vector&lt;string&gt; res; for(int i=0;i&lt;n;i++)&#123; if(!pend[i]) res.push_back(folder[i]); &#125; return res; &#125;&#125;; 替换子串得到平衡字符串有一个只含有 ‘Q’, ‘W’, ‘E’, ‘R’ 四种字符，且长度为 n 的字符串。假如在该字符串中，这四个字符都恰好出现 n/4 次，那么它就是一个「平衡字符串」。给你一个这样的字符串 s，请通过「替换子串」的方式，使原字符串 s 变成一个「平衡字符串」。你可以用和「待替换子串」长度相同的 任何 其他字符串来完成替换。请返回待替换子串的最小可能长度。如果原字符串自身就是一个平衡字符串，则返回 0。 思路参考： lee215 的视频讲解 [Java/C++/Python] Sliding Window 我觉得题目需要重新阅读并理解一下，题目的意思是在给出的序列中找一个子串，只需要修改这个子串的字符就可以使得这个字符串变为平衡字符串，求这个子串的最小长度。 思路是lee215 这位大牛的，上面的参考一个是他的视频讲解，另一个是他写的题解。下面写一下他的思路：首先扫描一下字符串，把W、E、R、Q这四个字符的个数记录下来，使用滑动窗口的思想，从下标0开始，扫描字符串，只考虑滑动窗口以外的字符，不考虑滑动窗口内的字符，滑动窗口外的W、E、R、Q这四个字符的个数，如果字符个数小于等于n/4，则说明改滑动窗口所在的区间越正确，也即滑动窗口内的字符是多余的并需要被修改的，然后找到这个滑动窗口长度的最小值即可。 当然这个算法是O(n)的，代码很简介，或许是全网最短，也或许最难懂。 更多题解可以参考 leetcode英文社区下关于这道题的讨论。1234. Replace the Substring for Balanced String 实现12345678910111213141516171819class Solution &#123;public: int balancedString(string s) &#123; // QWER count; int n = s.length(),m=n/4,res=n,i=0; map&lt;char,int&gt; count; for(int j=0;j&lt;n;j++) count[s[j]]++; for(int j=0;j&lt;n;j++)&#123; count[s[j]]--; while(i&lt;n&amp;&amp;count['Q']&lt;=m&amp;&amp;count['E']&lt;=m&amp;&amp;count['R']&lt;=m&amp;&amp;count['W']&lt;=m)&#123; res = min(res,j-i+1); count[s[i]]++; i++; &#125; &#125; return res; &#125;&#125;; 规划兼职工作你打算利用空闲时间来做兼职工作赚些零花钱。这里有 n 份兼职工作，每份工作预计从 startTime[i] 开始到 endTime[i] 结束，报酬为 profit[i]。给你一份兼职工作表，包含开始时间 startTime，结束时间 endTime 和预计报酬 profit 三个数组，请你计算并返回可以获得的最大报酬。注意，时间上出现重叠的 2 份工作不能同时进行。如果你选择的工作在时间 X 结束，那么你可以立刻进行在时间 X 开始的下一份工作。 思路一参考： [Java/C++/Python] DP Solution lee215 的视频讲解 再开辟一块空间，把endTime[i],startTime[i],profit[i] 一起存放进去，按照结束时间排序。然后进行动态规划，使用map，其中dp[i]表示从0到i时间段内的收益，i为结束时间，迭代过程是在dp中找到开始时间大于每次的startTime的结束时间的前一个，也就是小于startTime的最大的endTime,然后与当前的收益相加，最后map的最后一个就是答案。（其实这里有很多细节需要仔细钻研一下，比如之前就踩过的坑，涉及到了map的存储结构等) 实现一1234567891011121314151617181920class Solution &#123;public: int jobScheduling(vector&lt;int&gt;&amp; startTime, vector&lt;int&gt;&amp; endTime, vector&lt;int&gt;&amp; profit) &#123; int n = endTime.size(); vector&lt;vector&lt;int&gt; &gt; jobs; for(int i=0;i&lt;n;i++)&#123; jobs.push_back(&#123;endTime[i],startTime[i],profit[i]&#125;); &#125; sort(jobs.begin(),jobs.end()); map&lt;int,int&gt; dp; dp[0] = 0; for(auto job:jobs)&#123; int cur = prev(dp.upper_bound(job[1]))-&gt;second + job[2]; if(cur &gt; dp.rbegin()-&gt;second) dp[job[0]] = cur; &#125; return dp.rbegin()-&gt;second; &#125;&#125;; 思路二参考： [C++] Sort and DP, O(NlogN)不去重新分配存储空间去存储starttime、endTime、profit，只需要新建一个索引数组，自定义排序规则，按照结束时间排序。然后还定义了一个匿名函数，返回在endTime在startTime[i]之前的索引。然后就是动态规划，dp[i]表示在i时刻及以前所获得的最大收益，cur为当前时刻可以获得的收益。dp[i] = max(dp[i-1],cur)，最后dp[n-1]便是答案。 更多题解可以参考 leetcode英文社区下关于这道题的讨论。1235. Maximum Profit in Job Scheduling 实现二123456789101112131415161718192021222324252627282930313233class Solution &#123;public: int jobScheduling(vector&lt;int&gt;&amp; startTime, vector&lt;int&gt;&amp; endTime, vector&lt;int&gt;&amp; profit) &#123; int n = startTime.size(); vector&lt;vector&lt;int&gt;&gt; jobs; int index[n]; for(int i=0;i&lt;n;i++)&#123; index[i]=i; &#125; sort(index,index+n,[&amp;endTime](int i,int j)&#123;return endTime[i]&lt;endTime[j];&#125;); auto lastestValidIndex = [&amp;startTime,&amp;endTime,&amp;index](int i)&#123; // lambda int start = startTime[index[i]]; int left = 0, right = i; while(left&lt;right)&#123; int mid = (left+right)&gt;&gt;1; if(endTime[index[mid]]&lt;=start) left = mid+1; // +1 else right = mid; &#125; return right==0?-1:right-1; &#125;; int dp[n]=&#123;0&#125;; dp[0] = profit[index[0]]; for(int i=1;i&lt;n;i++)&#123; int cur = profit[index[i]]; int last = lastestValidIndex(i); if(last!=-1) cur +=dp[last]; dp[i] = max(dp[i-1],cur); &#125; return dp[n-1]; &#125;&#125;; 被DP教育4小时。为伊消得人憔悴..说实话还是leetcode英文社区那边大牛多，讨论也更多一些。 今日份荐读： 姚班学霸陈立杰：16岁保送清华，18岁拿下IOI世界冠军，现摘得FOCS 2019最佳学生论文量子位]]></content>
@@ -413,6 +402,17 @@
       </categories>
       <tags>
         <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[统计字符]]></title>
+    <url>%2Farchives%2Fab24332a.html</url>
+    <content type="text"><![CDATA[输入一行字符，分别统计出其中英文字母、空格、数字和其他字符的个数。 123456789101112131415161718192021222324#include&lt;bits/stdc++.h&gt;using namespace std;typedef long long ll;const int maxn = 2e5;# define mod(a,b) (a)%(b)int main()&#123; char ch; int count[4]=&#123;0&#125;; while(cin.get(ch))&#123; if(ch&gt;='a'&amp;&amp;ch&lt;='z'||ch&gt;='A'&amp;&amp;ch&lt;='Z') count[0]++; else if(ch==' ') count[1]++; else if(ch&gt;='0'&amp;&amp;ch&lt;='9') count[2]++; else if(ch=='\n') break; else count[3]++; &#125; cout &lt;&lt; count[0] &lt;&lt; " " &lt;&lt; count[2] &lt;&lt; " " &lt;&lt; count[1] &lt;&lt; " " &lt;&lt; count[3] ; return 0;&#125; 题目虽然简单，注意点是统计空格需要用cin.get(ch)，输入时会在行末多输入一个回车，注意处理。]]></content>
+      <categories>
+        <category>数据结构与算法训练</category>
+      </categories>
+      <tags>
+        <tag>字符串</tag>
       </tags>
   </entry>
   <entry>
@@ -505,17 +505,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[LeetCodeWeeklyContest-155]]></title>
-    <url>%2Farchives%2F7dc4f2e3.html</url>
-    <content type="text"><![CDATA[操千曲而晓声,观千剑而后识器 —— 《文心雕龙》 力扣的周赛自闭了，好久没写了，丢掉的改捡了。 题目传送个人博客同步更新 Problem1 最小绝对差 难度：Easy题目 给你个整数数组 arr，其中每个元素都 不相同。请你找到所有具有最小绝对差的元素对，并且按升序的顺序返回。 思路 遍历，边找边push，只需一遍 貌似代码写复杂了 题解1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#include&lt;bits/stdc++.h&gt;using namespace std;/* LeetCode WeeklyContest-155*/vector&lt;vector&lt;int&gt; &gt; minimumAbsDifference(vector&lt;int&gt;&amp; arr) &#123; sort(arr.begin(),arr.end()); int n=arr.size(); vector&lt;vector&lt;int&gt; &gt; result; int min = arr[1]-arr[0]; vector&lt;int&gt; tmp; for(int i=0;i&lt;n-1;i++)&#123; if(arr[i+1]-arr[i] &lt; min)&#123; min = arr[i+1]-arr[i]; result.clear(); tmp.push_back(arr[i]); tmp.push_back(arr[i+1]); result.push_back(tmp); tmp.clear(); &#125; else if(arr[i+1]-arr[i] == min)&#123; tmp.push_back(arr[i]); tmp.push_back(arr[i+1]); result.push_back(tmp); tmp.clear(); &#125; else ; &#125; return result; &#125;// 测试下int main()&#123; vector&lt;int&gt; v; v.push_back(-20); v.push_back(11); v.push_back(26); v.push_back(27); v.push_back(40); vector&lt;vector&lt;int&gt; &gt; result = minimumAbsDifference(v); vector&lt;vector&lt;int&gt; &gt;::iterator rIt; vector&lt;int&gt;::iterator it; for(rIt = result.begin();rIt!=result.end();rIt++)&#123; for(it = (*rIt).begin();it!=(*rIt).end();it++)&#123; cout &lt;&lt; *it &lt;&lt; " "; &#125; cout &lt;&lt; endl; &#125; return 0; &#125; Problem 2 丑数 III题目 请你帮忙设计一个程序，用来找出第 n 个丑数。丑数是可以被 a 或 b 或 c 整除的 正整数。1 &lt;= n, a, b, c &lt;= 10^91 &lt;= a b c &lt;= 10^18本题结果在 [1, 2 * 10^9] 的范围内 难度：Medium 思路 无脑暴力$1到\min(na,nb,n*c)$ 超时。 无脑开个数组，把 $ia、ib、i*c$ 其中$i=1…n$,然后写个sort(),直接取第n个数，内存爆掉。 以上都是不可取的**计算1~m之间有多少丑数，设为cnt，然后从n开始折半查找，判断cnt与n的关系，最后直接定位到第n个丑数。另外，如何判断1~m之间有多少丑数？公式如下： cnt = m/a + m/b + m/c - m/lcm(a,b)- m/lcm(b,c) - m/lcm(a,c) + m/lcm(lcm(a,b),c)其中$lcm(a,b)$是a、b的最小公倍数。** 题解123456789101112131415161718192021222324252627282930313233343536373839404142434445464748/* LeetCode WeeklyContest-155*/#include&lt;bits/stdc++.h&gt; using namespace std;typedef long long ll;// 避免超范围 ，不妨都写成llll gcd(int x, int y)&#123; if(x&gt;y) swap(x,y); int r = y%x; if(r==1) return 1; while(r)&#123; y = x; x = r; r = y%x; &#125; return x;&#125;ll lcm(int x, int y)&#123; return x/gcd(x,y)*y;&#125;bool countLessN(ll m,int a,int b,int c,int n)&#123; int cnt = m/a + m/b + m/c - m/lcm(a,b) - m/lcm(b,c) - m/lcm(a,c) + m/lcm(lcm(a,b),c); return cnt &gt;= n;&#125;int nthUglyNumber(int n, int a, int b, int c) &#123; ll begin =1,end=2e10+5; while(begin+1&lt;end)&#123; // 注意是begin+1&lt;end int mid = (begin+end)/2; if(countLessN(mid,a,b,c,n)) end = mid; else begin=mid; &#125; return end; &#125;// 测试下int main()&#123; int n,a,b,c; n = 1000000000, a = 2, b = 217983653, c = 336916467; cout &lt;&lt; nthUglyNumber(n,a,b,c); return 0; &#125; Problem3题目 给你一个字符串 s，以及该字符串中的一些「索引对」数组 pairs，其中 pairs[i] = [a, b] 表示字符串中的两个索引（编号从 0 开始）。你可以 任意多次交换 在 pairs 中任意一对索引处的字符。返回在经过若干次交换后，s 可以变成的按字典序最小的字符串。 难度：Medium 思路先根据索引对建立并查集，构成若干个连通分量，每个连通分量内部排序，使其排成最小字典序，然后再将排完序的连通分量复原，就可以得到最小字典序的字符串了。 题解12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364#include&lt;bits/stdc++.h&gt;using namespace std;vector&lt;int&gt; father,sz;int find(int x)&#123; // 并查集 查 return father[x]==x?x:father[x] = find(father[x]);&#125;string smallestStringWithSwaps(string s,vector&lt;vector&lt;int&gt; &gt; pairs)&#123; int n=s.size(); father.resize(n); sz.resize(n); for(int i=0;i&lt;n;i++)&#123; // 初始化 father[i] = i; sz[i] = 1; &#125; int n1 = pairs.size(); for(int i=0;i&lt;n1;i++)&#123; vector&lt;int&gt; tmp = pairs[i]; int f1 = find(tmp[0]),f2=find(tmp[1]); if(f1!=f2)&#123; if(sz[f1]&lt;sz[f2])&#123; father[f1] = f2; sz[f2] += sz[f1]; &#125; else&#123; father[f2] = f1; sz[f1] += sz[f2]; &#125; &#125; &#125; vector&lt;vector&lt;char&gt; &gt; charArr(n); vector&lt;vector&lt;int&gt; &gt; posArr(n); // 并查集发挥作用 for(int i=0;i&lt;n;i++)&#123; charArr[find(i)].push_back(s[i]); posArr[find(i)].push_back(i); &#125; // char数组排序 for(int i=0;i&lt;charArr.size();i++)&#123; sort(charArr[i].begin(),charArr[i].end()); &#125; // 把排完序的联通块，合到一起 string s1(n,'\0'); for(int i=0;i&lt;n;i++)&#123; for(int j=0;j&lt;charArr[i].size();j++)&#123; s1[posArr[i][j]] = charArr[i][j]; &#125; &#125; return s1; &#125;// 测试下int main()&#123; string s="cba"; vector&lt;vector&lt;int&gt; &gt; v; vector&lt;int&gt; s1,s2; s1.push_back(0); s1.push_back(1); s2.push_back(1); s2.push_back(2); v.push_back(s1),v.push_back(s2); cout &lt;&lt; smallestStringWithSwaps(s,v) &lt;&lt; endl; return 0;&#125; Problem4 项目管理略]]></content>
-      <categories>
-        <category>leetcode</category>
-      </categories>
-      <tags>
-        <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[联想Y7000装Ubuntu双系统路上的坑]]></title>
     <url>%2Farchives%2Fb4f9404c.html</url>
     <content type="text"><![CDATA[三言两语道不尽心酸，一句两句说不尽心酸一个Ubuntu装了2天，装的无比心酸一直报ACPI错误，后来加上nomodeset才搞定后来专门搜了一下联想Y7000装Ubuntu的教程才知道这是联想显卡的问题。而且最好装Ubuntu 16.04.5 下面是一些参考文章：关于在联想Y7000上安装ubuntu和win10双系统的卡死坑 y7000安装ubuntu和一些小tips ubuntu 添加中文拼音输入法 Ubuntu16.04系统查看已安装的python版本，及其配置 其实装上Ubuntu之后，还有很多事情要做，很多环境要配，显卡要修改，就不一一列出了，主要是前面进入开机界面太艰难了，写篇博客记录下。 2019年9月30日更新 windows休眠，没有彻底关闭Ubuntu 无法访问windows下的磁盘的解决方法Ubuntu系统打不开windows磁盘文件]]></content>
@@ -527,15 +516,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[2019数学建模赛后感悟：一次灵魂与肉体的交织&&一次参赛终身收益]]></title>
-    <url>%2Farchives%2F421bb123.html</url>
-    <content type="text"><![CDATA[一年一度的全国大学生数学建模比赛（CUMCM）已接近尾声… SinclairWang 个人博客同步更新，欢迎关注相信每个参赛者都会有自己的感悟一句恰如其分的描述：一次灵魂与肉体的交织。下面是自己的一点感悟与思考。 赛前 最初听说，大概是在一年前，决定参加比赛是在今年5月份，暑假有两个选择，要么参加8月份的建模集训，要么实验室打杂，综合考虑了一下，看到培训大纲上的东西，可能对日后专业方向走向有益，遂放弃了锻炼编码能力的时间，毅然决定参加去参加集训。 集训8月1日份开始，9月5日结束，9月12日比赛开始，9月15日比赛结束。 一个多月的集训，每天上午8点半到12点，可能下午还要加课，一个老师讲一个专题3天，理学院的老师轮流来，每人一个模块，每三天一个专题，智能计算、统计分析、数值计算、图与网络、模拟仿真、分类与聚类、组合优化、图像处理、历年赛题与优秀论文讲评。 老师们每天讲课，一个上午动辄上百页PPT，所以这一个月的日常就是上午上课，下午看老师讲的PPT、理解原理和复现程序。CUMCM涉及层面广而多，虽说深度欠缺，但是对于本科生来说，掌握这些知识，也是不易。 集训的过程，也曾想过放弃，不是畏难，而是有一段时间觉得自己做的可能没有自己想象中的有意义，正如本专业同学那句话 “或许当初没有选择数学建模，这一个月的时间，可能已经足够可以在专业上走的很远了…” 我也认同，可是大家还是选择坚持了下来，一直坚持到了最后。 一场集训下来，我也学到了很多东西，虽不知不觉，却也潜移默化，老师们讲的n个专题，不敢说全部掌握了，但可以说学了个大概，而且学的知识对日后专业方向走向极其有益，虽然理论深度掌握不够，但也相当于在自己的方向相关领域，在自己的学习进程上写了一句HelloWorld，其实集训之前本来想着老师们每讲一个专题，就跟着写一篇Blog，事实上，集训时每天的知识都消化不了，更不要说写博客了，这件事仔细想想，也并非完全不能做到，只是决心不够。虽然专题博客没跟上，但是将老师讲的专题总结成思维导图，形成数学建模集训的整个知识框架，这是不难做到的，思维导图是用xmind做的，用markdown文本导出，我放到了博客上，总结了一下建模期间的博客，不算这篇的话，还有一篇关于的图像处理的,当初看图像处理的时候觉得很有意思,就没忍住写了一篇。 数学建模集训知识大纲 基于奇异值分解的图像压缩 除此之外,我也从队友身上学到了很多,我们队人员组成是2计算机专业(一个SE，一个CS)+数学专业。我从队友身上看到了高效,其实一直很想写一篇关于效率与时间管理的文章,不过时间安排上没提上日程,一个人只有把效率提上去,才能做到自己想做的。之前知乎上有篇高赞文章,是讲*人是怎么废掉的,没想到其中有一条是瞎忙,除了没方向之外,更重要的是低效率,忙了一天不知道在忙什么,忙了点啥,就好比泡图书馆学习,一泡就是一天,到了晚上应该正确评估白天的效率如何,而不应该单纯陷在因为短暂的长时间学习而产生的自我感动上,只有走出了这个误区才能有所进步。经此,我也有了新的认知。另外,我也认识到了学习方式的不足,也有专业大环境的原因,认真专注听课反倒成为了一个大难题,另外,上课认真听课,下课才能用更少的时间去复习,节省出更多的时间去做自己想做的事情。 赛中 9月12日 进驻机房,晚上6点钟放题目,一开始略卡。下载到题目之后,A、B、C任选一题。读题： A题精确计算 有一定的专业知识背景，否则题意不好理解 B题 物理题目？果断放弃 C题 开放性题目 只有大概思路，具体思路没有 估计找数据会劝退一拨人 综合评估，我的答案是选C，队友讨论了一晚上A题，但是我给不出说服他们选C题的东西。没过多久，我找到了数据。但是模型没具体思路。晚上11点半回寝室休息 第二天一早队友们想选C题，其实我内心有点欣喜~然后就开始了建模…建模全靠队友，其中有个神奇的男人，中午小憩都能想到idea，上趟厕所模型都能被改进，回来说“我知道了…应该这样做…”。太神奇了…赛期说好的写论文的队友，最后却在编程，说好了写程序的队友，比赛的时候却开始写起了论文，只有我始终打杂，凭实力打杂。 “我要的折线图你画了没？” “我需要你画个直方图。” “决策树画好了没？” “给你说个思路，你看能实现吗？#$#%#^*@#” “数据处理好了吗？” “打点的图发我了没？” “附录整理好没？” “支撑材料打包了没？” 终于我成了全队无可替代的凭实力打杂的选手！ 到了最后一天，进度有点慢，14日晚上觉得得通宵了，一夜爆肝，那一晚仿佛大家都没回去，都在通宵做模型，计算，一双双熬红的双眼，其实熬夜或许不是最难的，最难的是建不出模，算不出来。那晚的月亮格外美，格外的圆。 那晚队友们几乎都没怎么睡，我凌晨5点撑不住了，睡到了7点多。 起来，洗把脸，下楼吃了东西，队友们赶进度顾不上了… 然后就开始了最刺激压力最大的一天 题目只做了一半，四问只做了两问，晚上8点就要截止了。 到了中午重新改思路，我编程计算，队友们将思路写到论文，完善前面的部分。 高压下编程或许是最考验编程能力的… 到了下午5点半初稿还没出来,还有很多格式要调整，公式要编辑…. 晚上7点40多交了初稿… 没过多久就到8点了，就剩下最后一次交的机会了… 终于能略微喘口气了 但是，还有一次机会，不能放弃 于是，接着完善，修改摘要，修改正文… 终于9点39分交上了这最后一次… 如释重负… 三个人都笑了… 欣喜若狂~ 这一天没吃饭，没水喝，压力大，睡眠不足 但是还是撑了下来，队内也没有发生矛盾，互相理解，合作愉快。 最后一起等到了10点，把参赛作品交了上去 然后离开了机房，嘴上都说着“我再也不想听到’数学建模‘这四个字”… 虽然数学建模门槛低，有人说这不是数学建模，是面向写作和美术的建模，最终看的是论文。但是我还是觉得我参加数学建模是一个无比正确的决定，无论结果如何，它教会了很多东西，我学了很多数学知识，也掌握了很多能力，比如快速学习的能力，随便甩给你个200多页PPT，两天内就能看完，让我更加专注，变得更加有毅力和耐心去学习，比赛教给我团队协作的重要性，一个人可以走的很快，但一群人能走的更远，你终究能走多远，可能不只是跟你自己有关系，还跟你身边的人有关系，别人会影响你，会改变你。我觉得或许自己跟顶尖名校的同龄人的差距或许不只是软硬件实力配置的差距，而是身边有没有一群这样的一群人：大家有着共同的想法，热衷眼前的事情，能全身心的投入，走在一起去实现这个想法的路上。这是我思考了很久得出的结论，也是从数学建模中收获的，尽管这有些难以置信。比赛的时候，我看到一群人通宵建模，尽管很累但都还在撑着，就像何凯文说的那样，“你有多久没有认真过了？”感悟喷涌，能写出来的寥寥数语总归显得苍白无力，只要经历过的全身心投入的人总归会懂得。 赛后好好休息了一下 还了借的参考书籍 今天周一，投入到了新的学习征程中，仿佛又是个崭新的开始。 哦，对了我还写了一篇参赛感悟，正如你所看到的… 后来 2019年9月25日更被抽中答辩，心中自是欣喜万分，同样，无形的压力扑面而来。 2019年9月28日更答辩结束，无论结果如何，石头落地了，尽人事，听天命，一切终于结束了。 准备答辩的过程中，听说了一句话叫做 一次参赛，终身收益 后来才知道这是建模组委会的口号，也越发觉得这句话真的很贴切，参赛经历和比赛的魅力或许已经远远超过了奖项本身了，无论是心智，还是毅力，还是个人能力，都得到了很好的锻炼，参赛期间高压下编程、高压下写作和高压下的团队合作对每个参赛选手都是一次很好的磨练。另外，我觉得答辩期间的压力也是不亚于竞赛期间的，压力反而更大，从准备到答辩结束，需要自己重新审视自己的作品，正确认识作品的缺点，勇于承认或许这才是最重要的。另外，参加一次省级甚至是国家级别的学术答辩，无论结果如何，这都是很好的锻炼。此时，一个累的打字都快打不动了的蒟蒻，还在拖着疲惫的身躯码着自己的切身体会，一般来说，能写出来的文字总归苍白无力。用两句话结个尾吧，给2019CUMCM画上个句号。星光不负赶路人，时光不负有心人。一次参赛，终身收益。]]></content>
+    <title><![CDATA[LeetCodeWeeklyContest-155]]></title>
+    <url>%2Farchives%2F7dc4f2e3.html</url>
+    <content type="text"><![CDATA[操千曲而晓声,观千剑而后识器 —— 《文心雕龙》 力扣的周赛自闭了，好久没写了，丢掉的改捡了。 题目传送个人博客同步更新 Problem1 最小绝对差 难度：Easy题目 给你个整数数组 arr，其中每个元素都 不相同。请你找到所有具有最小绝对差的元素对，并且按升序的顺序返回。 思路 遍历，边找边push，只需一遍 貌似代码写复杂了 题解1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253#include&lt;bits/stdc++.h&gt;using namespace std;/* LeetCode WeeklyContest-155*/vector&lt;vector&lt;int&gt; &gt; minimumAbsDifference(vector&lt;int&gt;&amp; arr) &#123; sort(arr.begin(),arr.end()); int n=arr.size(); vector&lt;vector&lt;int&gt; &gt; result; int min = arr[1]-arr[0]; vector&lt;int&gt; tmp; for(int i=0;i&lt;n-1;i++)&#123; if(arr[i+1]-arr[i] &lt; min)&#123; min = arr[i+1]-arr[i]; result.clear(); tmp.push_back(arr[i]); tmp.push_back(arr[i+1]); result.push_back(tmp); tmp.clear(); &#125; else if(arr[i+1]-arr[i] == min)&#123; tmp.push_back(arr[i]); tmp.push_back(arr[i+1]); result.push_back(tmp); tmp.clear(); &#125; else ; &#125; return result; &#125;// 测试下int main()&#123; vector&lt;int&gt; v; v.push_back(-20); v.push_back(11); v.push_back(26); v.push_back(27); v.push_back(40); vector&lt;vector&lt;int&gt; &gt; result = minimumAbsDifference(v); vector&lt;vector&lt;int&gt; &gt;::iterator rIt; vector&lt;int&gt;::iterator it; for(rIt = result.begin();rIt!=result.end();rIt++)&#123; for(it = (*rIt).begin();it!=(*rIt).end();it++)&#123; cout &lt;&lt; *it &lt;&lt; " "; &#125; cout &lt;&lt; endl; &#125; return 0; &#125; Problem 2 丑数 III题目 请你帮忙设计一个程序，用来找出第 n 个丑数。丑数是可以被 a 或 b 或 c 整除的 正整数。1 &lt;= n, a, b, c &lt;= 10^91 &lt;= a b c &lt;= 10^18本题结果在 [1, 2 * 10^9] 的范围内 难度：Medium 思路 无脑暴力$1到\min(na,nb,n*c)$ 超时。 无脑开个数组，把 $ia、ib、i*c$ 其中$i=1…n$,然后写个sort(),直接取第n个数，内存爆掉。 以上都是不可取的**计算1~m之间有多少丑数，设为cnt，然后从n开始折半查找，判断cnt与n的关系，最后直接定位到第n个丑数。另外，如何判断1~m之间有多少丑数？公式如下： cnt = m/a + m/b + m/c - m/lcm(a,b)- m/lcm(b,c) - m/lcm(a,c) + m/lcm(lcm(a,b),c)其中$lcm(a,b)$是a、b的最小公倍数。** 题解123456789101112131415161718192021222324252627282930313233343536373839404142434445464748/* LeetCode WeeklyContest-155*/#include&lt;bits/stdc++.h&gt; using namespace std;typedef long long ll;// 避免超范围 ，不妨都写成llll gcd(int x, int y)&#123; if(x&gt;y) swap(x,y); int r = y%x; if(r==1) return 1; while(r)&#123; y = x; x = r; r = y%x; &#125; return x;&#125;ll lcm(int x, int y)&#123; return x/gcd(x,y)*y;&#125;bool countLessN(ll m,int a,int b,int c,int n)&#123; int cnt = m/a + m/b + m/c - m/lcm(a,b) - m/lcm(b,c) - m/lcm(a,c) + m/lcm(lcm(a,b),c); return cnt &gt;= n;&#125;int nthUglyNumber(int n, int a, int b, int c) &#123; ll begin =1,end=2e10+5; while(begin+1&lt;end)&#123; // 注意是begin+1&lt;end int mid = (begin+end)/2; if(countLessN(mid,a,b,c,n)) end = mid; else begin=mid; &#125; return end; &#125;// 测试下int main()&#123; int n,a,b,c; n = 1000000000, a = 2, b = 217983653, c = 336916467; cout &lt;&lt; nthUglyNumber(n,a,b,c); return 0; &#125; Problem3题目 给你一个字符串 s，以及该字符串中的一些「索引对」数组 pairs，其中 pairs[i] = [a, b] 表示字符串中的两个索引（编号从 0 开始）。你可以 任意多次交换 在 pairs 中任意一对索引处的字符。返回在经过若干次交换后，s 可以变成的按字典序最小的字符串。 难度：Medium 思路先根据索引对建立并查集，构成若干个连通分量，每个连通分量内部排序，使其排成最小字典序，然后再将排完序的连通分量复原，就可以得到最小字典序的字符串了。 题解12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364#include&lt;bits/stdc++.h&gt;using namespace std;vector&lt;int&gt; father,sz;int find(int x)&#123; // 并查集 查 return father[x]==x?x:father[x] = find(father[x]);&#125;string smallestStringWithSwaps(string s,vector&lt;vector&lt;int&gt; &gt; pairs)&#123; int n=s.size(); father.resize(n); sz.resize(n); for(int i=0;i&lt;n;i++)&#123; // 初始化 father[i] = i; sz[i] = 1; &#125; int n1 = pairs.size(); for(int i=0;i&lt;n1;i++)&#123; vector&lt;int&gt; tmp = pairs[i]; int f1 = find(tmp[0]),f2=find(tmp[1]); if(f1!=f2)&#123; if(sz[f1]&lt;sz[f2])&#123; father[f1] = f2; sz[f2] += sz[f1]; &#125; else&#123; father[f2] = f1; sz[f1] += sz[f2]; &#125; &#125; &#125; vector&lt;vector&lt;char&gt; &gt; charArr(n); vector&lt;vector&lt;int&gt; &gt; posArr(n); // 并查集发挥作用 for(int i=0;i&lt;n;i++)&#123; charArr[find(i)].push_back(s[i]); posArr[find(i)].push_back(i); &#125; // char数组排序 for(int i=0;i&lt;charArr.size();i++)&#123; sort(charArr[i].begin(),charArr[i].end()); &#125; // 把排完序的联通块，合到一起 string s1(n,'\0'); for(int i=0;i&lt;n;i++)&#123; for(int j=0;j&lt;charArr[i].size();j++)&#123; s1[posArr[i][j]] = charArr[i][j]; &#125; &#125; return s1; &#125;// 测试下int main()&#123; string s="cba"; vector&lt;vector&lt;int&gt; &gt; v; vector&lt;int&gt; s1,s2; s1.push_back(0); s1.push_back(1); s2.push_back(1); s2.push_back(2); v.push_back(s1),v.push_back(s2); cout &lt;&lt; smallestStringWithSwaps(s,v) &lt;&lt; endl; return 0;&#125; Problem4 项目管理略]]></content>
       <categories>
-        <category>感悟</category>
+        <category>leetcode</category>
       </categories>
       <tags>
-        <tag>竞赛感悟</tag>
-        <tag>数学建模</tag>
+        <tag>leetcode</tag>
       </tags>
   </entry>
   <entry>
@@ -547,6 +535,18 @@
         <category>数学建模</category>
       </categories>
       <tags>
+        <tag>数学建模</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2019数学建模赛后感悟：一次灵魂与肉体的交织&&一次参赛终身收益]]></title>
+    <url>%2Farchives%2F421bb123.html</url>
+    <content type="text"><![CDATA[一年一度的全国大学生数学建模比赛（CUMCM）已接近尾声… SinclairWang 个人博客同步更新，欢迎关注相信每个参赛者都会有自己的感悟一句恰如其分的描述：一次灵魂与肉体的交织。下面是自己的一点感悟与思考。 赛前 最初听说，大概是在一年前，决定参加比赛是在今年5月份，暑假有两个选择，要么参加8月份的建模集训，要么实验室打杂，综合考虑了一下，看到培训大纲上的东西，可能对日后专业方向走向有益，遂放弃了锻炼编码能力的时间，毅然决定参加去参加集训。 集训8月1日份开始，9月5日结束，9月12日比赛开始，9月15日比赛结束。 一个多月的集训，每天上午8点半到12点，可能下午还要加课，一个老师讲一个专题3天，理学院的老师轮流来，每人一个模块，每三天一个专题，智能计算、统计分析、数值计算、图与网络、模拟仿真、分类与聚类、组合优化、图像处理、历年赛题与优秀论文讲评。 老师们每天讲课，一个上午动辄上百页PPT，所以这一个月的日常就是上午上课，下午看老师讲的PPT、理解原理和复现程序。CUMCM涉及层面广而多，虽说深度欠缺，但是对于本科生来说，掌握这些知识，也是不易。 集训的过程，也曾想过放弃，不是畏难，而是有一段时间觉得自己做的可能没有自己想象中的有意义，正如本专业同学那句话 “或许当初没有选择数学建模，这一个月的时间，可能已经足够可以在专业上走的很远了…” 我也认同，可是大家还是选择坚持了下来，一直坚持到了最后。 一场集训下来，我也学到了很多东西，虽不知不觉，却也潜移默化，老师们讲的n个专题，不敢说全部掌握了，但可以说学了个大概，而且学的知识对日后专业方向走向极其有益，虽然理论深度掌握不够，但也相当于在自己的方向相关领域，在自己的学习进程上写了一句HelloWorld，其实集训之前本来想着老师们每讲一个专题，就跟着写一篇Blog，事实上，集训时每天的知识都消化不了，更不要说写博客了，这件事仔细想想，也并非完全不能做到，只是决心不够。虽然专题博客没跟上，但是将老师讲的专题总结成思维导图，形成数学建模集训的整个知识框架，这是不难做到的，思维导图是用xmind做的，用markdown文本导出，我放到了博客上，总结了一下建模期间的博客，不算这篇的话，还有一篇关于的图像处理的,当初看图像处理的时候觉得很有意思,就没忍住写了一篇。 数学建模集训知识大纲 基于奇异值分解的图像压缩 除此之外,我也从队友身上学到了很多,我们队人员组成是2计算机专业(一个SE，一个CS)+数学专业。我从队友身上看到了高效,其实一直很想写一篇关于效率与时间管理的文章,不过时间安排上没提上日程,一个人只有把效率提上去,才能做到自己想做的。之前知乎上有篇高赞文章,是讲*人是怎么废掉的,没想到其中有一条是瞎忙,除了没方向之外,更重要的是低效率,忙了一天不知道在忙什么,忙了点啥,就好比泡图书馆学习,一泡就是一天,到了晚上应该正确评估白天的效率如何,而不应该单纯陷在因为短暂的长时间学习而产生的自我感动上,只有走出了这个误区才能有所进步。经此,我也有了新的认知。另外,我也认识到了学习方式的不足,也有专业大环境的原因,认真专注听课反倒成为了一个大难题,另外,上课认真听课,下课才能用更少的时间去复习,节省出更多的时间去做自己想做的事情。 赛中 9月12日 进驻机房,晚上6点钟放题目,一开始略卡。下载到题目之后,A、B、C任选一题。读题： A题精确计算 有一定的专业知识背景，否则题意不好理解 B题 物理题目？果断放弃 C题 开放性题目 只有大概思路，具体思路没有 估计找数据会劝退一拨人 综合评估，我的答案是选C，队友讨论了一晚上A题，但是我给不出说服他们选C题的东西。没过多久，我找到了数据。但是模型没具体思路。晚上11点半回寝室休息 第二天一早队友们想选C题，其实我内心有点欣喜~然后就开始了建模…建模全靠队友，其中有个神奇的男人，中午小憩都能想到idea，上趟厕所模型都能被改进，回来说“我知道了…应该这样做…”。太神奇了…赛期说好的写论文的队友，最后却在编程，说好了写程序的队友，比赛的时候却开始写起了论文，只有我始终打杂，凭实力打杂。 “我要的折线图你画了没？” “我需要你画个直方图。” “决策树画好了没？” “给你说个思路，你看能实现吗？#$#%#^*@#” “数据处理好了吗？” “打点的图发我了没？” “附录整理好没？” “支撑材料打包了没？” 终于我成了全队无可替代的凭实力打杂的选手！ 到了最后一天，进度有点慢，14日晚上觉得得通宵了，一夜爆肝，那一晚仿佛大家都没回去，都在通宵做模型，计算，一双双熬红的双眼，其实熬夜或许不是最难的，最难的是建不出模，算不出来。那晚的月亮格外美，格外的圆。 那晚队友们几乎都没怎么睡，我凌晨5点撑不住了，睡到了7点多。 起来，洗把脸，下楼吃了东西，队友们赶进度顾不上了… 然后就开始了最刺激压力最大的一天 题目只做了一半，四问只做了两问，晚上8点就要截止了。 到了中午重新改思路，我编程计算，队友们将思路写到论文，完善前面的部分。 高压下编程或许是最考验编程能力的… 到了下午5点半初稿还没出来,还有很多格式要调整，公式要编辑…. 晚上7点40多交了初稿… 没过多久就到8点了，就剩下最后一次交的机会了… 终于能略微喘口气了 但是，还有一次机会，不能放弃 于是，接着完善，修改摘要，修改正文… 终于9点39分交上了这最后一次… 如释重负… 三个人都笑了… 欣喜若狂~ 这一天没吃饭，没水喝，压力大，睡眠不足 但是还是撑了下来，队内也没有发生矛盾，互相理解，合作愉快。 最后一起等到了10点，把参赛作品交了上去 然后离开了机房，嘴上都说着“我再也不想听到’数学建模‘这四个字”… 虽然数学建模门槛低，有人说这不是数学建模，是面向写作和美术的建模，最终看的是论文。但是我还是觉得我参加数学建模是一个无比正确的决定，无论结果如何，它教会了很多东西，我学了很多数学知识，也掌握了很多能力，比如快速学习的能力，随便甩给你个200多页PPT，两天内就能看完，让我更加专注，变得更加有毅力和耐心去学习，比赛教给我团队协作的重要性，一个人可以走的很快，但一群人能走的更远，你终究能走多远，可能不只是跟你自己有关系，还跟你身边的人有关系，别人会影响你，会改变你。我觉得或许自己跟顶尖名校的同龄人的差距或许不只是软硬件实力配置的差距，而是身边有没有一群这样的一群人：大家有着共同的想法，热衷眼前的事情，能全身心的投入，走在一起去实现这个想法的路上。这是我思考了很久得出的结论，也是从数学建模中收获的，尽管这有些难以置信。比赛的时候，我看到一群人通宵建模，尽管很累但都还在撑着，就像何凯文说的那样，“你有多久没有认真过了？”感悟喷涌，能写出来的寥寥数语总归显得苍白无力，只要经历过的全身心投入的人总归会懂得。 赛后好好休息了一下 还了借的参考书籍 今天周一，投入到了新的学习征程中，仿佛又是个崭新的开始。 哦，对了我还写了一篇参赛感悟，正如你所看到的… 后来 2019年9月25日更被抽中答辩，心中自是欣喜万分，同样，无形的压力扑面而来。 2019年9月28日更答辩结束，无论结果如何，石头落地了，尽人事，听天命，一切终于结束了。 准备答辩的过程中，听说了一句话叫做 一次参赛，终身收益 后来才知道这是建模组委会的口号，也越发觉得这句话真的很贴切，参赛经历和比赛的魅力或许已经远远超过了奖项本身了，无论是心智，还是毅力，还是个人能力，都得到了很好的锻炼，参赛期间高压下编程、高压下写作和高压下的团队合作对每个参赛选手都是一次很好的磨练。另外，我觉得答辩期间的压力也是不亚于竞赛期间的，压力反而更大，从准备到答辩结束，需要自己重新审视自己的作品，正确认识作品的缺点，勇于承认或许这才是最重要的。另外，参加一次省级甚至是国家级别的学术答辩，无论结果如何，这都是很好的锻炼。此时，一个累的打字都快打不动了的蒟蒻，还在拖着疲惫的身躯码着自己的切身体会，一般来说，能写出来的文字总归苍白无力。用两句话结个尾吧，给2019CUMCM画上个句号。星光不负赶路人，时光不负有心人。一次参赛，终身收益。]]></content>
+      <categories>
+        <category>感悟</category>
+      </categories>
+      <tags>
+        <tag>竞赛感悟</tag>
         <tag>数学建模</tag>
       </tags>
   </entry>
@@ -780,18 +780,7 @@
   <entry>
     <title><![CDATA[HDU2099整除的尾数]]></title>
     <url>%2Farchives%2F27f39fb2.html</url>
-    <content type="text"><![CDATA[整除的尾数 You have to live spherically - in many directions.Never lose your childish enthusiasm and things will come your way.人要活得精彩，各个领域都要勇于尝试，永远保持童真般的热情，一切就会得偿所愿。 ——《托斯卡尼艳阳下》 Problem Description 一个整数，只知道前几位，不知道末二位，被另一个整数除尽了，那么该数的末二位该是什么呢？ Input 输入数据有若干组，每组数据包含二个整数a，b（0&lt;a&lt;10000, 10&lt;b&lt;100），若遇到0 0则处理结束。 Output 对应每组数据，将满足条件的所有尾数在一行内输出，格式见样本输出。同组数据的输出，其每个尾数之间空一格，行末没有空格。 Sample Input 200 401992 950 0 Sample Output 00 40 8015 一、思路 输入要判断是否为0，先将这个整数乘以100，然后利用0到99的穷举进行判断，输出时考虑到0的问题，用printf函数输出。 二、代码实现12345678910111213141516171819202122#include &lt;iostream&gt;using namespace std;int main() &#123; int a,b,count=0; while(cin&gt;&gt; a &gt;&gt; b &amp;&amp; a!=0 &amp;&amp; b!=0) &#123; a *= 100; for(int i=0;i&lt;=99;i++) &#123; if((a+i)%b == 0) &#123; count++; // 计数，用于空格的输出 if(count==1) printf("%02d",i); //输出空格的问题 else printf(" %02d",i); &#125; &#125; cout &lt;&lt; endl; count=0; //每一组整数的后两位判断完毕之后，count需清零，然后输出换行 &#125; return 0;&#125;]]></content>
-      <categories>
-        <category>数据结构与算法训练</category>
-      </categories>
-      <tags>
-        <tag>数据结构与算法训练</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[HDU2097Sky数]]></title>
-    <url>%2Farchives%2F7ff00a22.html</url>
-    <content type="text"><![CDATA[Sky数 My life didn’t please me, so I created my life.我的生活不曾取悦于我，所以我创造了自己的生活 ———-Coco Chanel Problem Description Sky从小喜欢奇特的东西，而且天生对数字特别敏感，一次偶然的机会，他发现了一个有趣的四位数2992，这个数它的十进制数表示，其四位数字之和为2+9+9+2=22，它的十六进制数BB0，其四位数字之和也为22，同时它的十二进制数表示1894，其四位数字之和也为22，啊哈，真是巧啊。Sky非常喜欢这种四位数，由于他的发现，所以这里我们命名其为Sky数。但是要判断这样的数还是有点麻烦啊，那么现在请你帮忙来判断任何一个十进制的四位数，是不是Sky数吧。 Input 输入含有一些四位正整数，如果为0，则输入结束。 Output 若n为Sky数，则输出“#n is a Sky Number.”，否则输出“#n is not a Sky Number.”。每个结果占一行。注意：#n表示所读入的n值。 Sample Input 299212340 Sample Output 2992 is a Sky Number.1234 is not a Sky Number. 思路 输入一个四位整数，需要将其进制转换，而在进制转换的过程中又可以实现四位数各位相加，看似需要将数据转换成十六进制、十二进制（输入的便是十进制），实则，只需一个进制转换求和函数就可以实现，不妨设转换为n进制，在转换的过程中便可实现求和，先对n求模，再整除n，最后判断和是否相等即可。 代码1234567891011121314151617181920212223#include &lt;iostream&gt;using namespace std;int DBC(int a,int n) //将数字a转化为n进制，将其每位相加求和 &#123; int sum=0; while(a) &#123; sum += a%n; a /= n; &#125; return sum; &#125;int main() &#123; int a,b,sum=0; while(cin &gt;&gt; a &amp;&amp; a!=0) &#123; b=a; //个人认为，这里只要三者相等即可，不一定为22 if((DBC(b,10)==DBC(b,16)) &amp;&amp; (DBC(b,10)==DBC(b,12))) cout&lt;&lt; a &lt;&lt; " is a Sky Number." &lt;&lt; endl; else cout&lt;&lt; a &lt;&lt; " is not a Sky Number." &lt;&lt; endl; &#125; return 0;&#125;]]></content>
+    <content type="text"><![CDATA[整除的尾数Problem Description 一个整数，只知道前几位，不知道末二位，被另一个整数除尽了，那么该数的末二位该是什么呢？ Input输入数据有若干组，每组数据包含二个整数a，b（0&lt;a&lt;10000, 10&lt;b&lt;100），若遇到0 0则处理结束。 Output 对应每组数据，将满足条件的所有尾数在一行内输出，格式见样本输出。同组数据的输出，其每个尾数之间空一格，行末没有空格。 Sample Input 200 401992 950 0 Sample Output 00 40 8015 一、思路 输入要判断是否为0，先将这个整数乘以100，然后利用0到99的穷举进行判断，输出时考虑到0的问题，用printf函数输出。 二、代码实现12345678910111213141516171819202122#include &lt;iostream&gt;using namespace std;int main() &#123; int a,b,count=0; while(cin&gt;&gt; a &gt;&gt; b &amp;&amp; a!=0 &amp;&amp; b!=0) &#123; a *= 100; for(int i=0;i&lt;=99;i++) &#123; if((a+i)%b == 0) &#123; count++; // 计数，用于空格的输出 if(count==1) printf("%02d",i); //输出空格的问题 else printf(" %02d",i); &#125; &#125; cout &lt;&lt; endl; count=0; //每一组整数的后两位判断完毕之后，count需清零，然后输出换行 &#125; return 0;&#125;]]></content>
       <categories>
         <category>数据结构与算法训练</category>
       </categories>
@@ -808,6 +797,17 @@
       </categories>
       <tags>
         <tag>数论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[HDU2097Sky数]]></title>
+    <url>%2Farchives%2F7ff00a22.html</url>
+    <content type="text"><![CDATA[Sky数 My life didn’t please me, so I created my life.我的生活不曾取悦于我，所以我创造了自己的生活 ———-Coco Chanel Problem Description Sky从小喜欢奇特的东西，而且天生对数字特别敏感，一次偶然的机会，他发现了一个有趣的四位数2992，这个数它的十进制数表示，其四位数字之和为2+9+9+2=22，它的十六进制数BB0，其四位数字之和也为22，同时它的十二进制数表示1894，其四位数字之和也为22，啊哈，真是巧啊。Sky非常喜欢这种四位数，由于他的发现，所以这里我们命名其为Sky数。但是要判断这样的数还是有点麻烦啊，那么现在请你帮忙来判断任何一个十进制的四位数，是不是Sky数吧。 Input 输入含有一些四位正整数，如果为0，则输入结束。 Output 若n为Sky数，则输出“#n is a Sky Number.”，否则输出“#n is not a Sky Number.”。每个结果占一行。注意：#n表示所读入的n值。 Sample Input 299212340 Sample Output 2992 is a Sky Number.1234 is not a Sky Number. 思路 输入一个四位整数，需要将其进制转换，而在进制转换的过程中又可以实现四位数各位相加，看似需要将数据转换成十六进制、十二进制（输入的便是十进制），实则，只需一个进制转换求和函数就可以实现，不妨设转换为n进制，在转换的过程中便可实现求和，先对n求模，再整除n，最后判断和是否相等即可。 代码1234567891011121314151617181920212223#include &lt;iostream&gt;using namespace std;int DBC(int a,int n) //将数字a转化为n进制，将其每位相加求和 &#123; int sum=0; while(a) &#123; sum += a%n; a /= n; &#125; return sum; &#125;int main() &#123; int a,b,sum=0; while(cin &gt;&gt; a &amp;&amp; a!=0) &#123; b=a; //个人认为，这里只要三者相等即可，不一定为22 if((DBC(b,10)==DBC(b,16)) &amp;&amp; (DBC(b,10)==DBC(b,12))) cout&lt;&lt; a &lt;&lt; " is a Sky Number." &lt;&lt; endl; else cout&lt;&lt; a &lt;&lt; " is not a Sky Number." &lt;&lt; endl; &#125; return 0;&#125;]]></content>
+      <categories>
+        <category>数据结构与算法训练</category>
+      </categories>
+      <tags>
+        <tag>数据结构与算法训练</tag>
       </tags>
   </entry>
 </search>

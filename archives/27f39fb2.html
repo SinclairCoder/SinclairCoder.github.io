@@ -24,18 +24,18 @@
     var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="整除的尾数 You have to live spherically - in many directions.Never lose your childish enthusiasm and things will come your way.人要活得精彩，各个领域都要勇于尝试，永远保持童真般的热情，一切就会得偿所愿。">
+  <meta name="description" content="整除的尾数Problem Description 一个整数，只知道前几位，不知道末二位，被另一个整数除尽了，那么该数的末二位该是什么呢？">
 <meta name="keywords" content="数据结构与算法训练">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDU2099整除的尾数">
 <meta property="og:url" content="https://sinclaircoder.gitee.io/archives/27f39fb2.html">
 <meta property="og:site_name" content="SinclairのBlog">
-<meta property="og:description" content="整除的尾数 You have to live spherically - in many directions.Never lose your childish enthusiasm and things will come your way.人要活得精彩，各个领域都要勇于尝试，永远保持童真般的热情，一切就会得偿所愿。">
+<meta property="og:description" content="整除的尾数Problem Description 一个整数，只知道前几位，不知道末二位，被另一个整数除尽了，那么该数的末二位该是什么呢？">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-05-17T16:41:39.910Z">
+<meta property="og:updated_time" content="2020-05-17T17:36:49.031Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDU2099整除的尾数">
-<meta name="twitter:description" content="整除的尾数 You have to live spherically - in many directions.Never lose your childish enthusiasm and things will come your way.人要活得精彩，各个领域都要勇于尝试，永远保持童真般的热情，一切就会得偿所愿。">
+<meta name="twitter:description" content="整除的尾数Problem Description 一个整数，只知道前几位，不知道末二位，被另一个整数除尽了，那么该数的末二位该是什么呢？">
 
 <link rel="canonical" href="https://sinclaircoder.gitee.io/archives/27f39fb2.html">
 
@@ -246,7 +246,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:39" itemprop="dateModified" datetime="2020-05-18T00:41:39+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 01:36:49" itemprop="dateModified" datetime="2020-05-18T01:36:49+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -285,7 +285,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1k</span>
+              <span>775</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -304,17 +304,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="整除的尾数"><a href="#整除的尾数" class="headerlink" title="整除的尾数"></a>整除的尾数</h1><blockquote>
-<p>You have to live spherically - in many directions.<br>Never lose your childish enthusiasm and things will come your way.<br>人要活得精彩，各个领域都要勇于尝试，永远保持童真般的热情，一切就会得偿所愿。<br>                                                          ——《托斯卡尼艳阳下》</p>
-</blockquote>
-<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><blockquote>
-<p>一个整数，只知道前几位，不知道末二位，被另一个整数除尽了，那么该数的末二位该是什么呢？    </p>
-</blockquote>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><blockquote>
-<p>输入数据有若干组，每组数据包含二个整数a，b（0&lt;a&lt;10000, 10&lt;b&lt;100），若遇到0 0则处理结束。</p>
+        <h1 id="整除的尾数"><a href="#整除的尾数" class="headerlink" title="整除的尾数"></a>整除的尾数</h1><h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><blockquote>
+<p>一个整数，只知道前几位，不知道末二位，被另一个整数除尽了，那么该数的末二位该是什么呢？<br><a id="more"></a></p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>输入数据有若干组，每组数据包含二个整数a，b（0&lt;a&lt;10000, 10&lt;b&lt;100），若遇到0 0则处理结束。</p>
 </blockquote>
 <h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><blockquote>
-<p>对应每组数据，将满足条件的所有尾数在一行内输出，格式见样本输出。<br>同组数据的输出，其每个尾数之间空一格，行末没有空格。<br><a id="more"></a></p>
+<p>对应每组数据，将满足条件的所有尾数在一行内输出，格式见样本输出。<br>同组数据的输出，其每个尾数之间空一格，行末没有空格。<br><!-- more --></p>
 </blockquote>
 <h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><blockquote>
 <p>200 40<br>1992 95<br>0 0</p>
@@ -401,10 +396,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/archives/7ff00a22.html" rel="next" title="HDU2097Sky数">
-      HDU2097Sky数 <i class="fa fa-chevron-right"></i>
+    <a href="/archives/b511dfae.html" rel="prev" title="欧几里得算法">
+      <i class="fa fa-chevron-left"></i> 欧几里得算法
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/archives/3d010e31.html" rel="next" title="Java中关于日期的printf格式化输出">
+      Java中关于日期的printf格式化输出 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
