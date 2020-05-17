@@ -1,64 +1,28 @@
 <!DOCTYPE html>
-
-
-
-
-
-<html class="theme-next muse use-motion" lang="en">
+<html lang="en">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
-<meta name="generator" content="Hexo 3.9.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
   <meta name="google-site-verification" content="6gsiR4JSQJ1xnCBNFsuQ1EI3jqGUDIhRNhqoCvRSC_Y">
   <meta name="baidu-site-verification" content="FwKLmibScs">
 
-<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link rel="stylesheet" href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2">
-
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-material.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '7.3.0',
-    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    save_scroll: false,
-    copycode: {"enable":false,"show_result":false,"style":null},
-    fancybox: true,
-    mediumzoom: false,
-    lazyload: false,
-    pangu: false,
-    algolia: {
-      applicationID: 'QF2NZ3KOZ1',
-      apiKey: 'f44f1fe6a3468b9a5c4d5441002c3a08',
-      indexName: 'blog_index',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: 'Copy',
-      copy_success: 'Copied',
-      copy_failure: 'Copy failed'
-    }
-  };
-</script>
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
 
   <meta name="description" content="算法 | NLP | MachineLearning | undergraduate">
 <meta name="keywords" content="算法 | NLP | MachineLearning">
@@ -71,33 +35,31 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SinclairのBlog">
 <meta name="twitter:description" content="算法 | NLP | MachineLearning | undergraduate">
-  <link rel="alternate" href="/atom.xml" title="SinclairのBlog" type="application/atom+xml">
-  <link rel="canonical" href="https://sinclaircoder.gitee.io/page/5/">
+
+<link rel="canonical" href="https://sinclaircoder.gitee.io/page/5/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false,
-    isPage: false,
-    isArchive: false
+    isHome : true,
+    isPost : false,
+    lang   : 'en'
   };
 </script>
 
   <title>SinclairのBlog</title>
   
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135806349-1"></script>
-  <script>
-    var host = window.location.hostname;
-    if (host !== "localhost" || !true) {
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-135806349-1');
-    }
-  </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135806349-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-135806349-1');
+      }
+    </script>
 
 
   <script>
@@ -113,11 +75,8 @@
 
 
 
-
-
   <noscript>
   <style>
-  .use-motion .motion-element,
   .use-motion .brand,
   .use-motion .menu-item,
   .sidebar-inner,
@@ -126,9 +85,8 @@
   .use-motion .comments,
   .use-motion .post-header,
   .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  .use-motion .collection-header { opacity: initial; }
 
-  .use-motion .logo,
   .use-motion .site-title,
   .use-motion .site-subtitle {
     opacity: initial;
@@ -142,210 +100,182 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
-
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left">
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">SinclairのBlog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
-        <p class="site-subtitle">为而不争</p>
-      
   </div>
 
-  <div class="site-nav-toggle">
-    <button aria-label="Toggle navigation bar">
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">SinclairのBlog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">为而不争</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
   </div>
 </div>
 
 
+
+
 <nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-      
-        
+  <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
-      
-    
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-about">
-      
-    
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-tags">
-      
-    
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">46</span></a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-categories">
-      
-    
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">23</span></a>
 
   </li>
-      
-      
-      
-        
         <li class="menu-item menu-item-archives">
-      
-    
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">71</span></a>
 
   </li>
-      
-      
-      
-        
-        <li class="menu-item menu-item-sitemap">
-      
-    
-
-    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>Sitemap</a>
-
-  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
   </ul>
-
-    
-
 </nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
 </div>
     </header>
 
     
+  <div class="reading-progress-bar"></div>
 
-  <a href="https://github.com/SinclairCoder" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL1NpbmNsYWlyQ29kZXI=" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
 
 
-    <main id="main" class="main">
+    <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          <div id="content" class="content page-home">
-            
-  <section id="posts" class="posts-expand">
-      
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+          <div class="content index posts-expand">
+            
+      
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2019/10/04/2019-10-4-python-shu-ju-fen-xi-yu-ying-yong-fu-xian-bi-ji/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="SinclairWang">
       <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="SinclairのBlog">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/10/04/2019-10-4-python-shu-ju-fen-xi-yu-ying-yong-fu-xian-bi-ji/" class="post-title-link" itemprop="url">《Python数据分析与应用》复现笔记</a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/04/2019-10-4-python-shu-ju-fen-xi-yu-ying-yong-fu-xian-bi-ji/" class="post-title-link" itemprop="url">《Python数据分析与应用》复现笔记</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">Posted on</span>
 
               <time title="Created: 2019-10-04 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-04T00:00:00+08:00">2019-10-04</time>
             </span>
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-21 21:49:12" itemprop="dateModified" datetime="2020-01-21T21:49:12+08:00">2020-01-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据分析/" itemprop="url" rel="index"><span itemprop="name">数据分析</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据分析/Python3/" itemprop="url" rel="index"><span itemprop="name">Python3</span></a>
+                </span>
+            </span>
 
-          
-            
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    
-      <span class="post-meta-item-text">Comments: </span>
-    
-  
-    <a href="/2019/10/04/2019-10-4-python-shu-ju-fen-xi-yu-ying-yong-fu-xian-bi-ji/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/04/2019-10-4-python-shu-ju-fen-xi-yu-ying-yong-fu-xian-bi-ji/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
           <br>
-            <span class="post-meta-item">
+            <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
+                <i class="far fa-file-word"></i>
               </span>
-              
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span title="Symbols count in article">2.3k</span>
+              <span>2.3k</span>
             </span>
-          
-            <span class="post-meta-item">
+            <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
+                <i class="far fa-clock"></i>
               </span>
-              
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span title="Reading time">2 mins.</span>
+              <span>2 mins.</span>
             </span>
-          
 
         </div>
       </header>
@@ -356,8 +286,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="Numpy"><a href="#Numpy" class="headerlink" title="Numpy"></a>Numpy</h2><ul>
+          <h2 id="Numpy"><a href="#Numpy" class="headerlink" title="Numpy"></a>Numpy</h2><ul>
 <li><p>arr.ravel() 完成数组的展开工作</p>
 </li>
 <li><p>arr.flatten()  展平数组，可以选择横向（’A’）或者纵向（’F’）展开</p>
@@ -411,114 +340,82 @@
 <li>pd.crosstab(index,columns,values)  创建交叉表，主要用于计算分组频率，crosstab函数中的index，columns、values都是从DataFrame中取出的某一列</li>
 </ul>
 
-          
-        
       
     </div>
 
     
     
     
-
-    
-    
-
-    <footer class="post-footer">
+      <footer class="post-footer">
         <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-    
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2019/10/02/2019-10-2-leetcodeweeklycontest-156/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2019/10/02/2019-10-2-xiu-gai-jupyter-notebook-de-mo-ren-cun-chu-lu-jing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="SinclairWang">
       <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="SinclairのBlog">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/10/02/2019-10-2-leetcodeweeklycontest-156/" class="post-title-link" itemprop="url">LeetCodeWeeklyContest-156</a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/02/2019-10-2-xiu-gai-jupyter-notebook-de-mo-ren-cun-chu-lu-jing/" class="post-title-link" itemprop="url">修改Jupyter Notebook的默认存储路径</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">Posted on</span>
 
               <time title="Created: 2019-10-02 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-02T00:00:00+08:00">2019-10-02</time>
             </span>
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-21 21:47:35" itemprop="dateModified" datetime="2020-01-21T21:47:35+08:00">2020-01-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python3/" itemprop="url" rel="index"><span itemprop="name">Python3</span></a>
+                </span>
+            </span>
 
-          
-            
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    
-      <span class="post-meta-item-text">Comments: </span>
-    
-  
-    <a href="/2019/10/02/2019-10-2-leetcodeweeklycontest-156/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/02/2019-10-2-leetcodeweeklycontest-156/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
           <br>
-            <span class="post-meta-item">
+            <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
+                <i class="far fa-file-word"></i>
               </span>
-              
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span title="Symbols count in article">2.4k</span>
+              <span>852</span>
             </span>
-          
-            <span class="post-meta-item">
+            <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
+                <i class="far fa-clock"></i>
               </span>
-              
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span title="Reading time">2 mins.</span>
+              <span>1 mins.</span>
             </span>
-          
 
         </div>
       </header>
@@ -529,8 +426,113 @@
     <div class="post-body" itemprop="articleBody">
 
       
+          <p>最近在复现数据分析，发现JupyterNotebook默认存储路径在C盘 /user/.jupyter里面<br>想改一下默认存储路径。</p>
+<h2 id="step1"><a href="#step1" class="headerlink" title="step1"></a>step1</h2><p>进入Anaconda安装路径，一般来说都是 <em>*</em>/Anaconda3/Scripts，比如我的就是在 E:\Python\Anaconda\INSTALL\Scripts这个路径下，在cmd中将路径转到该路径下，这样替换代码如下，其中路径替换成自己的。</p>
+<pre><code class="lang-bash">&gt;&gt; cd E:\Python\Anaconda\INSTALL\Scripts
+&gt;&gt; e:
+</code></pre>
+<h2 id="step2"><a href="#step2" class="headerlink" title="step2"></a>step2</h2><p>在cmd中输入命令：</p>
+<pre><code class="lang-bash">jupyter notebook --generate-config
+</code></pre>
+<p>然后就会在C盘用户路径（例如我的路径是：C:\Users\三寸旧城七寸执念\.jupyter）下生成jupyter_notebook_config.py文件，使用文本编辑器（VS Code等）打开该文件。</p>
+<h2 id="step3"><a href="#step3" class="headerlink" title="step3"></a>step3</h2><p>定位到第246行</p>
+<pre><code class="lang-bash">#c.NotebookApp.notebook_dir = &#39;&#39;
+</code></pre>
+<p>替换为</p>
+<pre><code class="lang-bash">c.NotebookApp.notebook_dir = &#39;E:/CodeCache/JupyterNotebook&#39;
+</code></pre>
+<h2 id="step4"><a href="#step4" class="headerlink" title="step4"></a>step4</h2><p>右击JupyterNotebook的快捷方式点击属性，将目标那一栏里的%USERPROFILE%删掉，应该就可以了。</p>
+<p>重启Jupyter Notebook。</p>
+<p>另外，需要给Jupyter NoteBook 换主题，换字体，字号，以及代码自动补全<br>可参考<br><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0plcnJ5X3h6ai9hcnRpY2xlL2RldGFpbHMvODk5MzExNjU=">使用 Jupyter Themes 修改 Jupyter Notebook 的主题、字体、字号<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2F6OTk5Ni9hcnRpY2xlL2RldGFpbHMvODg2MjEwMjgjXzI0">Jupyter Notebook 更换主题、设置字体(jupyterthemes的使用)、代码自动补全、变更工作目录（默认目录）<i class="fa fa-external-link-alt"></i></span></p>
+<p>其实个人觉得貌似也没有好看的字体，传说中的Consolas字体貌似也不支持，主题换来换去其实还不如最初的默认的。其实个人觉得比较有用的还是代码补全。<br>另外，需要注意里面的命令行是在 Anaconda Prompt输入的，而非cmd。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2019/10/02/2019-10-2-leetcodeweeklycontest-156/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
           
-            <p><a href="https://leetcode-cn.com/contest/weekly-contest-156/" target="_blank" rel="noopener">题目传送</a><br>写题解就像写博客一样真的有好处，尽管会多花点时间。</p>
+            <a href="/2019/10/02/2019-10-2-leetcodeweeklycontest-156/" class="post-title-link" itemprop="url">LeetCodeWeeklyContest-156</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-02 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-02T00:00:00+08:00">2019-10-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-21 21:45:05" itemprop="dateModified" datetime="2020-01-21T21:45:05+08:00">2020-01-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>2 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vY29udGVzdC93ZWVrbHktY29udGVzdC0xNTYv">题目传送<i class="fa fa-external-link-alt"></i></span><br>写题解就像写博客一样真的有好处，尽管会多花点时间。</p>
 <h2 id="1-、独一无二的出现次数"><a href="#1-、独一无二的出现次数" class="headerlink" title="1 、独一无二的出现次数"></a>1 、独一无二的出现次数</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><p>给你一个整数数组 arr，请你帮忙统计数组中每个数的出现次数。<br>如果每个数的出现次数都是独一无二的，就返回 true；否则返回 false。</p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>统计出现次数，然后排序。有相同的为false，否则为true。</p>
 <h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-c"> bool uniqueOccurrences(vector&lt;int&gt;&amp; arr) {
@@ -690,253 +692,82 @@ string removeDuplicates(string s, int k) {
 <p>时间复杂度：O(n)</p>
 <h2 id="4、穿过迷宫的最少移动次数"><a href="#4、穿过迷宫的最少移动次数" class="headerlink" title="4、穿过迷宫的最少移动次数"></a>4、穿过迷宫的最少移动次数</h2><p>略</p>
 
-          
-        
       
     </div>
 
     
     
     
-
-    
-    
-
-    <footer class="post-footer">
+      <footer class="post-footer">
         <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2019/10/02/2019-10-2-xiu-gai-jupyter-notebook-de-mo-ren-cun-chu-lu-jing/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SinclairWang">
-      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SinclairのBlog">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/10/02/2019-10-2-xiu-gai-jupyter-notebook-de-mo-ren-cun-chu-lu-jing/" class="post-title-link" itemprop="url">修改Jupyter Notebook的默认存储路径</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-10-02 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-02T00:00:00+08:00">2019-10-02</time>
-            </span>
-          
-
-          
-            
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    
-      <span class="post-meta-item-text">Comments: </span>
-    
-  
-    <a href="/2019/10/02/2019-10-2-xiu-gai-jupyter-notebook-de-mo-ren-cun-chu-lu-jing/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/02/2019-10-2-xiu-gai-jupyter-notebook-de-mo-ren-cun-chu-lu-jing/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-          <br>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span title="Symbols count in article">852</span>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span title="Reading time">1 mins.</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
 
       
-          
-            <p>最近在复现数据分析，发现JupyterNotebook默认存储路径在C盘 /user/.jupyter里面<br>想改一下默认存储路径。</p>
-<h2 id="step1"><a href="#step1" class="headerlink" title="step1"></a>step1</h2><p>进入Anaconda安装路径，一般来说都是 <em>*</em>/Anaconda3/Scripts，比如我的就是在 E:\Python\Anaconda\INSTALL\Scripts这个路径下，在cmd中将路径转到该路径下，这样替换代码如下，其中路径替换成自己的。</p>
-<pre><code class="lang-bash">&gt;&gt; cd E:\Python\Anaconda\INSTALL\Scripts
-&gt;&gt; e:
-</code></pre>
-<h2 id="step2"><a href="#step2" class="headerlink" title="step2"></a>step2</h2><p>在cmd中输入命令：</p>
-<pre><code class="lang-bash">jupyter notebook --generate-config
-</code></pre>
-<p>然后就会在C盘用户路径（例如我的路径是：C:\Users\三寸旧城七寸执念\.jupyter）下生成jupyter_notebook_config.py文件，使用文本编辑器（VS Code等）打开该文件。</p>
-<h2 id="step3"><a href="#step3" class="headerlink" title="step3"></a>step3</h2><p>定位到第246行</p>
-<pre><code class="lang-bash">#c.NotebookApp.notebook_dir = &#39;&#39;
-</code></pre>
-<p>替换为</p>
-<pre><code class="lang-bash">c.NotebookApp.notebook_dir = &#39;E:/CodeCache/JupyterNotebook&#39;
-</code></pre>
-<h2 id="step4"><a href="#step4" class="headerlink" title="step4"></a>step4</h2><p>右击JupyterNotebook的快捷方式点击属性，将目标那一栏里的%USERPROFILE%删掉，应该就可以了。</p>
-<p>重启Jupyter Notebook。</p>
-<p>另外，需要给Jupyter NoteBook 换主题，换字体，字号，以及代码自动补全<br>可参考<br><a href="https://blog.csdn.net/Jerry_xzj/article/details/89931165" target="_blank" rel="noopener">使用 Jupyter Themes 修改 Jupyter Notebook 的主题、字体、字号</a><br><a href="https://blog.csdn.net/az9996/article/details/88621028#_24" target="_blank" rel="noopener">Jupyter Notebook 更换主题、设置字体(jupyterthemes的使用)、代码自动补全、变更工作目录（默认目录）</a></p>
-<p>其实个人觉得貌似也没有好看的字体，传说中的Consolas字体貌似也不支持，主题换来换去其实还不如最初的默认的。其实个人觉得比较有用的还是代码补全。<br>另外，需要注意里面的命令行是在 Anaconda Prompt输入的，而非cmd。</p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
-  </div>
   
   
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2019/09/24/2019-09-24-she-ji-mo-shi-yi/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="SinclairWang">
       <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="SinclairのBlog">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/09/24/2019-09-24-she-ji-mo-shi-yi/" class="post-title-link" itemprop="url">设计模式(一)</a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/09/24/2019-09-24-she-ji-mo-shi-yi/" class="post-title-link" itemprop="url">设计模式(一)</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">Posted on</span>
 
               <time title="Created: 2019-09-24 00:00:00" itemprop="dateCreated datePublished" datetime="2019-09-24T00:00:00+08:00">2019-09-24</time>
             </span>
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-21 21:43:45" itemprop="dateModified" datetime="2020-01-21T21:43:45+08:00">2020-01-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工程/" itemprop="url" rel="index"><span itemprop="name">软件工程</span></a>
+                </span>
+            </span>
 
-          
-            
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    
-      <span class="post-meta-item-text">Comments: </span>
-    
-  
-    <a href="/2019/09/24/2019-09-24-she-ji-mo-shi-yi/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/24/2019-09-24-she-ji-mo-shi-yi/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
           <br>
-            <span class="post-meta-item">
+            <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
+                <i class="far fa-file-word"></i>
               </span>
-              
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span title="Symbols count in article">2.4k</span>
+              <span>2.4k</span>
             </span>
-          
-            <span class="post-meta-item">
+            <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
+                <i class="far fa-clock"></i>
               </span>
-              
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span title="Reading time">2 mins.</span>
+              <span>2 mins.</span>
             </span>
-          
 
         </div>
       </header>
@@ -947,8 +778,7 @@ string removeDuplicates(string s, int k) {
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
 <li>软件模式<ul>
 <li>软件开发中的重复出现的问题的解决方案，可认为是设计经验，在讨论问题的解决方案时，一种可交流的词汇</li>
 </ul>
@@ -1130,114 +960,82 @@ string removeDuplicates(string s, int k) {
 </li>
 </ul>
 
-          
-        
       
     </div>
 
     
     
     
-
-    
-    
-
-    <footer class="post-footer">
+      <footer class="post-footer">
         <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-    
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2019/09/23/2019-09-23-man-li-fa-qiu-jie-mi-ji-wen-ti/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="SinclairWang">
       <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="SinclairのBlog">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/09/23/2019-09-23-man-li-fa-qiu-jie-mi-ji-wen-ti/" class="post-title-link" itemprop="url">蛮力法求解幂集问题</a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/09/23/2019-09-23-man-li-fa-qiu-jie-mi-ji-wen-ti/" class="post-title-link" itemprop="url">蛮力法求解幂集问题</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">Posted on</span>
 
               <time title="Created: 2019-09-23 00:00:00" itemprop="dateCreated datePublished" datetime="2019-09-23T00:00:00+08:00">2019-09-23</time>
             </span>
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-21 21:38:07" itemprop="dateModified" datetime="2020-01-21T21:38:07+08:00">2020-01-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构与算法训练/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法训练</span></a>
+                </span>
+            </span>
 
-          
-            
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    
-      <span class="post-meta-item-text">Comments: </span>
-    
-  
-    <a href="/2019/09/23/2019-09-23-man-li-fa-qiu-jie-mi-ji-wen-ti/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/23/2019-09-23-man-li-fa-qiu-jie-mi-ji-wen-ti/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
           <br>
-            <span class="post-meta-item">
+            <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
+                <i class="far fa-file-word"></i>
               </span>
-              
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span title="Symbols count in article">1.5k</span>
+              <span>1.5k</span>
             </span>
-          
-            <span class="post-meta-item">
+            <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
+                <i class="far fa-clock"></i>
               </span>
-              
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span title="Reading time">1 mins.</span>
+              <span>1 mins.</span>
             </span>
-          
 
         </div>
       </header>
@@ -1248,8 +1046,7 @@ string removeDuplicates(string s, int k) {
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>对于给定的正整数n(n&gt;=1),求1到n构成的集合的幂集（包括全集和空集）</p>
+          <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>对于给定的正整数n(n&gt;=1),求1到n构成的集合的幂集（包括全集和空集）</p>
 <h3 id="解法一-直接枚举法"><a href="#解法一-直接枚举法" class="headerlink" title="解法一 直接枚举法"></a>解法一 直接枚举法</h3><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>将二进制位与幂集对应起来，n的幂集个数为$2^n$，每一个二进制位代表一个元素。下面以n等于3为例。</p>
 <div class="table-container">
 <table>
@@ -1393,114 +1190,82 @@ int main()
 }
 </code></pre>
 
-          
-        
       
     </div>
 
     
     
     
-
-    
-    
-
-    <footer class="post-footer">
+      <footer class="post-footer">
         <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-    
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2019/09/22/2019-09-22-leetcodeweeklycontest-155/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2019/09/22/2019-09-22-lian-xiang-y7000-zhuang-ubuntu-shuang-xi-tong-lu-shang-de-keng/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="SinclairWang">
       <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="SinclairのBlog">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/09/22/2019-09-22-leetcodeweeklycontest-155/" class="post-title-link" itemprop="url">LeetCodeWeeklyContest-155</a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/09/22/2019-09-22-lian-xiang-y7000-zhuang-ubuntu-shuang-xi-tong-lu-shang-de-keng/" class="post-title-link" itemprop="url">联想Y7000装Ubuntu双系统路上的坑</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">Posted on</span>
 
               <time title="Created: 2019-09-22 00:00:00" itemprop="dateCreated datePublished" datetime="2019-09-22T00:00:00+08:00">2019-09-22</time>
             </span>
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-21 21:34:46" itemprop="dateModified" datetime="2020-01-21T21:34:46+08:00">2020-01-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
 
-          
-            
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    
-      <span class="post-meta-item-text">Comments: </span>
-    
-  
-    <a href="/2019/09/22/2019-09-22-leetcodeweeklycontest-155/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/22/2019-09-22-leetcodeweeklycontest-155/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
           <br>
-            <span class="post-meta-item">
+            <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
+                <i class="far fa-file-word"></i>
               </span>
-              
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span title="Symbols count in article">3.6k</span>
+              <span>373</span>
             </span>
-          
-            <span class="post-meta-item">
+            <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
+                <i class="far fa-clock"></i>
               </span>
-              
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span title="Reading time">3 mins.</span>
+              <span>1 mins.</span>
             </span>
-          
 
         </div>
       </header>
@@ -1511,12 +1276,107 @@ int main()
     <div class="post-body" itemprop="articleBody">
 
       
+          <p><strong>三言两语道不尽心酸，一句两句说不尽心酸</strong><br>一个Ubuntu装了2天，装的无比心酸<br><br>一直报ACPI错误，后来加上nomodeset才搞定<br><br>后来专门搜了一下联想Y7000装Ubuntu的教程<br><br>才知道这是联想显卡的问题。<br><br>而且最好装Ubuntu 16.04.5<br></p>
+<p>下面是一些参考文章：<br><br><span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9lYjQwOGJmZGQ4NzM=">关于在联想Y7000上安装ubuntu和win10双系统的卡死坑<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMxNzA3Mjc1L2FydGljbGUvZGV0YWlscy84MjcwOTEzMw==">y7000安装ubuntu和一些小tips<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0Rpc2NvdmVyaGZ1Yi9hcnRpY2xlL2RldGFpbHMvNzk3MTkyMDg=">ubuntu 添加中文拼音输入法<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dhbmdndWNoYW8vYXJ0aWNsZS9kZXRhaWxzLzgyMTUxMzcy">Ubuntu16.04系统查看已安装的python版本，及其配置<i class="fa fa-external-link-alt"></i></span></p>
+<p>其实装上Ubuntu之后，还有很多事情要做，很多环境要配，显卡要修改，就不一一列出了，主要是前面进入开机界面太艰难了，写篇博客记录下。</p>
+<hr>
+<p>2019年9月30日更新</p>
+<p>windows休眠，没有彻底关闭<br><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2F3YXdmd2Z3L2FydGljbGUvZGV0YWlscy80NjQzNDE2Mw==">Ubuntu 无法访问windows下的磁盘的解决方法<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hhbmRva2luZy9hcnRpY2xlL2RldGFpbHMvNzc1MzAyMzg=">Ubuntu系统打不开windows磁盘文件<i class="fa fa-external-link-alt"></i></span></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2019/09/22/2019-09-22-leetcodeweeklycontest-155/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
           
-            <blockquote>
+            <a href="/2019/09/22/2019-09-22-leetcodeweeklycontest-155/" class="post-title-link" itemprop="url">LeetCodeWeeklyContest-155</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-09-22 00:00:00" itemprop="dateCreated datePublished" datetime="2019-09-22T00:00:00+08:00">2019-09-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-21 21:21:16" itemprop="dateModified" datetime="2020-01-21T21:21:16+08:00">2020-01-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>3.6k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
 <p>操千曲而晓声,观千剑而后识器           —— 《文心雕龙》</p>
 </blockquote>
 <p>力扣的周赛自闭了，好久没写了，丢掉的改捡了。</p>
-<h2 id="题目传送"><a href="#题目传送" class="headerlink" title="题目传送"></a><a href="https://leetcode-cn.com/contest/weekly-contest-155/" target="_blank" rel="noopener">题目传送</a></h2><p><strong><a href="https://sinclaircoder.top/2019/09/22/20190922-LeetCodeWeeklyContest-155/" target="_blank" rel="noopener">个人博客同步更新</a></strong></p>
+<h2 id="题目传送"><a href="#题目传送" class="headerlink" title="题目传送"></a><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vY29udGVzdC93ZWVrbHktY29udGVzdC0xNTUv">题目传送<i class="fa fa-external-link-alt"></i></span></h2><p><strong><span class="exturl" data-url="aHR0cHM6Ly9zaW5jbGFpcmNvZGVyLnRvcC8yMDE5LzA5LzIyLzIwMTkwOTIyLUxlZXRDb2RlV2Vla2x5Q29udGVzdC0xNTUv">个人博客同步更新<i class="fa fa-external-link-alt"></i></span></strong></p>
 <h2 id="Problem1-最小绝对差"><a href="#Problem1-最小绝对差" class="headerlink" title="Problem1 最小绝对差"></a>Problem1 最小绝对差</h2><ul>
 <li>难度：Easy<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><blockquote>
 <p>给你个整数数组 arr，其中每个元素都 不相同。<br>请你找到所有具有最小绝对差的元素对，并且按升序的顺序返回。</p>
@@ -1715,243 +1575,82 @@ int main()
 </code></pre>
 <h2 id="Problem4-项目管理"><a href="#Problem4-项目管理" class="headerlink" title="Problem4 项目管理"></a>Problem4 项目管理</h2><p>略</p>
 
-          
-        
       
     </div>
 
     
     
     
-
-    
-    
-
-    <footer class="post-footer">
+      <footer class="post-footer">
         <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-    
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2019/09/22/2019-09-22-lian-xiang-y7000-zhuang-ubuntu-shuang-xi-tong-lu-shang-de-keng/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2019/09/16/2019-09-16-2019-shu-xue-jian-mo-sai-hou-gan-wu-yi-ci-ling-hun-yu-rou-ti-de-jiao-zhi-yi-ci-can-sai-zhong-shen-shou-yi/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="SinclairWang">
       <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="SinclairのBlog">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/09/22/2019-09-22-lian-xiang-y7000-zhuang-ubuntu-shuang-xi-tong-lu-shang-de-keng/" class="post-title-link" itemprop="url">联想Y7000装Ubuntu双系统路上的坑</a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/09/16/2019-09-16-2019-shu-xue-jian-mo-sai-hou-gan-wu-yi-ci-ling-hun-yu-rou-ti-de-jiao-zhi-yi-ci-can-sai-zhong-shen-shou-yi/" class="post-title-link" itemprop="url">2019数学建模赛后感悟：一次灵魂与肉体的交织&&一次参赛终身收益</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-09-22 00:00:00" itemprop="dateCreated datePublished" datetime="2019-09-22T00:00:00+08:00">2019-09-22</time>
-            </span>
-          
-
-          
-            
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    
-      <span class="post-meta-item-text">Comments: </span>
-    
-  
-    <a href="/2019/09/22/2019-09-22-lian-xiang-y7000-zhuang-ubuntu-shuang-xi-tong-lu-shang-de-keng/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/22/2019-09-22-lian-xiang-y7000-zhuang-ubuntu-shuang-xi-tong-lu-shang-de-keng/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-          <br>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span title="Symbols count in article">373</span>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span title="Reading time">1 mins.</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <p><strong>三言两语道不尽心酸，一句两句说不尽心酸</strong><br>一个Ubuntu装了2天，装的无比心酸<br><br>一直报ACPI错误，后来加上nomodeset才搞定<br><br>后来专门搜了一下联想Y7000装Ubuntu的教程<br><br>才知道这是联想显卡的问题。<br><br>而且最好装Ubuntu 16.04.5<br></p>
-<p>下面是一些参考文章：<br><br><a href="https://www.jianshu.com/p/eb408bfdd873" target="_blank" rel="noopener">关于在联想Y7000上安装ubuntu和win10双系统的卡死坑</a></p>
-<p><a href="https://blog.csdn.net/qq_31707275/article/details/82709133" target="_blank" rel="noopener">y7000安装ubuntu和一些小tips</a></p>
-<p><a href="https://blog.csdn.net/Discoverhfub/article/details/79719208" target="_blank" rel="noopener">ubuntu 添加中文拼音输入法</a></p>
-<p><a href="https://blog.csdn.net/wangguchao/article/details/82151372" target="_blank" rel="noopener">Ubuntu16.04系统查看已安装的python版本，及其配置</a></p>
-<p>其实装上Ubuntu之后，还有很多事情要做，很多环境要配，显卡要修改，就不一一列出了，主要是前面进入开机界面太艰难了，写篇博客记录下。</p>
-<hr>
-<p>2019年9月30日更新</p>
-<p>windows休眠，没有彻底关闭<br><a href="https://blog.csdn.net/awawfwfw/article/details/46434163" target="_blank" rel="noopener">Ubuntu 无法访问windows下的磁盘的解决方法</a><br><a href="https://blog.csdn.net/handoking/article/details/77530238" target="_blank" rel="noopener">Ubuntu系统打不开windows磁盘文件</a></p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2019/09/16/2019-09-16-shu-xue-jian-mo-ji-xun-zhi-shi-da-gang/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SinclairWang">
-      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SinclairのBlog">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/09/16/2019-09-16-shu-xue-jian-mo-ji-xun-zhi-shi-da-gang/" class="post-title-link" itemprop="url">数学建模集训知识大纲</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">Posted on</span>
 
               <time title="Created: 2019-09-16 00:00:00" itemprop="dateCreated datePublished" datetime="2019-09-16T00:00:00+08:00">2019-09-16</time>
             </span>
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-21 21:19:47" itemprop="dateModified" datetime="2020-01-21T21:19:47+08:00">2020-01-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/感悟/" itemprop="url" rel="index"><span itemprop="name">感悟</span></a>
+                </span>
+            </span>
 
-          
-            
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    
-      <span class="post-meta-item-text">Comments: </span>
-    
-  
-    <a href="/2019/09/16/2019-09-16-shu-xue-jian-mo-ji-xun-zhi-shi-da-gang/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/16/2019-09-16-shu-xue-jian-mo-ji-xun-zhi-shi-da-gang/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
           <br>
-            <span class="post-meta-item">
+            <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
+                <i class="far fa-file-word"></i>
               </span>
-              
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span title="Symbols count in article">4.1k</span>
+              <span>3.3k</span>
             </span>
-          
-            <span class="post-meta-item">
+            <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
+                <i class="far fa-clock"></i>
               </span>
-              
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span title="Reading time">4 mins.</span>
+              <span>3 mins.</span>
             </span>
-          
 
         </div>
       </header>
@@ -1962,8 +1661,179 @@ int main()
     <div class="post-body" itemprop="articleBody">
 
       
+          <blockquote>
+<p>一年一度的全国大学生数学建模比赛（CUMCM）已接近尾声…</p>
+</blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9zaW5jbGFpcmNvZGVyLnRvcC8yMDE5LzA5LzE2LzIwMTktMDktMTYtJUU2JTk1JUIwJUU1JUFEJUE2JUU1JUJCJUJBJUU2JUE4JUExJUU5JTlCJTg2JUU4JUFFJUFEJUU3JTlGJUE1JUU4JUFGJTg2JUU3JTgyJUI5Lw==">SinclairWang 个人博客同步更新，欢迎关注<i class="fa fa-external-link-alt"></i></span><br>相信每个参赛者都会有自己的感悟<br>一句恰如其分的描述：<strong>一次灵魂与肉体的交织</strong>。<br>下面是自己的一点感悟与思考。</p>
+<h2 id="赛前"><a href="#赛前" class="headerlink" title="赛前"></a>赛前</h2><ul>
+<li>最初听说，大概是在一年前，决定参加比赛是在今年5月份，暑假有两个选择，要么参加8月份的建模集训，要么实验室打杂，综合考虑了一下，看到培训大纲上的东西，可能对日后专业方向走向有益，遂放弃了锻炼编码能力的时间，毅然决定参加去参加集训。</li>
+<li>集训8月1日份开始，9月5日结束，9月12日比赛开始，9月15日比赛结束。</li>
+<li>一个多月的集训，每天上午8点半到12点，可能下午还要加课，一个老师讲一个专题3天，理学院的老师轮流来，每人一个模块，每三天一个专题，智能计算、统计分析、数值计算、图与网络、模拟仿真、分类与聚类、组合优化、图像处理、历年赛题与优秀论文讲评。</li>
+<li>老师们每天讲课，一个上午动辄上百页PPT，所以这一个月的日常就是上午上课，下午看老师讲的PPT、理解原理和复现程序。CUMCM涉及层面广而多，虽说深度欠缺，但是对于本科生来说，掌握这些知识，也是不易。</li>
+<li>集训的过程，也曾想过放弃，不是畏难，而是有一段时间觉得自己做的可能没有自己想象中的有意义，正如本专业同学那句话 <strong>“或许当初没有选择数学建模，这一个月的时间，可能已经足够可以在专业上走的很远了…”</strong></li>
+<li>我也认同，可是大家还是选择坚持了下来，一直坚持到了最后。</li>
+</ul>
+<hr>
+<p> 一场集训下来，我也学到了很多东西，虽不知不觉，却也潜移默化，老师们讲的n个专题，不敢说全部掌握了，但可以说学了个大概，而且学的知识对日后专业方向走向<strong>极其有益</strong>，虽然理论深度掌握不够，但也相当于在自己的方向相关领域，在自己的学习进程上写了一句<em>HelloWorld</em>，其实集训之前本来想着老师们每讲一个专题，就跟着写一篇Blog，事实上，集训时每天的知识都消化不了，更不要说写博客了，这件事仔细想想，也并非完全不能做到，只是决心不够。虽然专题博客没跟上，但是将老师讲的专题总结成思维导图，形成数学建模集训的整个知识框架，这是不难做到的，思维导图是用xmind做的，用markdown文本导出，我放到了博客上，总结了一下建模期间的博客，不算这篇的话，还有一篇关于的图像处理的,当初看图像处理的时候觉得很有意思,就没忍住写了一篇。</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvMTAwODkxNzU3">数学建模集训知识大纲<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvMTAwNjY1NzYx">基于奇异值分解的图像压缩<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<hr>
+<p>除此之外,我也从队友身上学到了很多,我们队人员组成是2<em>计算机专业(一个SE，一个CS)+数学专业。我从队友身上看到了高效,其实一直很想写一篇关于效率与时间管理的文章,不过时间安排上没提上日程,一个人只有把效率提上去,才能做到自己想做的。之前知乎上有篇高赞文章,是讲<em>*人是怎么废掉的</em></em>,没想到其中有一条是瞎忙,除了没方向之外,更重要的是低效率,忙了一天不知道在忙什么,忙了点啥,就好比泡图书馆学习,一泡就是一天,到了晚上应该正确评估白天的效率如何,而不应该单纯陷在因为短暂的长时间学习而产生的自我感动上,只有走出了这个误区才能有所进步。经此,我也有了新的认知。另外,我也认识到了学习方式的不足,也有专业大环境的原因,认真专注听课反倒成为了一个大难题,另外,上课认真听课,下课才能用更少的时间去复习,节省出更多的时间去做自己想做的事情。</p>
+<hr>
+<h2 id="赛中"><a href="#赛中" class="headerlink" title="赛中"></a>赛中</h2><blockquote>
+<p><strong>9月12日</strong></p>
+<p>进驻机房,晚上6点钟放题目,一开始略卡。<br>下载到题目之后,A、B、C任选一题。<br>读题： </p>
+<ul>
+<li>A题精确计算 有一定的专业知识背景，否则题意不好理解 </li>
+<li>B题 物理题目？果断放弃</li>
+<li>C题 开放性题目 只有大概思路，具体思路没有 估计找数据会劝退一拨人</li>
+</ul>
+</blockquote>
+<p>综合评估，我的答案是选C，队友讨论了一晚上A题，但是我给不出说服他们选C题的东西。<br>没过多久，我找到了数据。<br>但是模型没具体思路。<br>晚上11点半回寝室休息</p>
+<p>第二天一早队友们想选C题，其实我内心有点欣喜~<br>然后就开始了建模…<br>建模全靠队友，其中有个神奇的男人，中午小憩都能想到idea，上趟厕所模型都能被改进，回来说“我知道了…应该这样做…”。<br>太神奇了…<br>赛期说好的写论文的队友，最后却在编程，说好了写程序的队友，比赛的时候却开始写起了论文，只有我始终打杂，凭实力打杂。</p>
+<ul>
+<li>“我要的折线图你画了没？”</li>
+<li>“我需要你画个直方图。”</li>
+<li>“决策树画好了没？”</li>
+<li>“给你说个思路，你看能实现吗？#$#%#^*@#”</li>
+<li>“数据处理好了吗？”</li>
+<li>“打点的图发我了没？”</li>
+<li>“附录整理好没？”</li>
+<li>“支撑材料打包了没？”</li>
+</ul>
+<p>终于我成了全队无可替代的凭实力打杂的选手！</p>
+<p>到了最后一天，进度有点慢，14日晚上觉得得通宵了，一夜爆肝，那一晚仿佛大家都没回去，都在通宵做模型，计算，一双双熬红的双眼，其实熬夜或许不是最难的，最难的是建不出模，算不出来。<strong>那晚的月亮格外美，格外的圆。</strong></p>
+<p>那晚队友们几乎都没怎么睡，我凌晨5点撑不住了，睡到了7点多。</p>
+<p>起来，洗把脸，下楼吃了东西，队友们赶进度顾不上了…</p>
+<p>然后就开始了最刺激压力最大的一天</p>
+<p>题目只做了一半，四问只做了两问，晚上8点就要截止了。</p>
+<p>到了中午重新改思路，我编程计算，队友们将思路写到论文，完善前面的部分。</p>
+<p>高压下编程或许是最考验编程能力的…</p>
+<p>到了下午5点半初稿还没出来,还有很多格式要调整，公式要编辑….</p>
+<p>晚上7点40多交了初稿…</p>
+<p>没过多久就到8点了，就剩下最后一次交的机会了…</p>
+<p>终于能略微喘口气了</p>
+<p>但是，还有一次机会，不能放弃</p>
+<p>于是，接着完善，修改摘要，修改正文…</p>
+<p>终于9点39分交上了这最后一次…</p>
+<p>如释重负…</p>
+<p>三个人都笑了…</p>
+<p>欣喜若狂~</p>
+<p>这一天没吃饭，没水喝，压力大，睡眠不足</p>
+<p>但是还是撑了下来，队内也没有发生矛盾，互相理解，合作愉快。</p>
+<p>最后一起等到了10点，把参赛作品交了上去</p>
+<p>然后离开了机房，嘴上都说着“我再也不想听到’数学建模‘这四个字”…</p>
+<blockquote>
+<p>虽然数学建模门槛低，有人说这不是数学建模，是面向写作和美术的建模，最终看的是论文。但是我还是觉得我参加数学建模是一个无比正确的决定，无论结果如何，它教会了很多东西，我学了很多数学知识，也掌握了很多能力，比如快速学习的能力，随便甩给你个200多页PPT，两天内就能看完，让我更加专注，变得更加有毅力和耐心去学习，比赛教给我团队协作的重要性，一个人可以走的很快，但一群人能走的更远，你终究能走多远，可能不只是跟你自己有关系，还跟你身边的人有关系，别人会影响你，会改变你。我觉得或许自己跟顶尖名校的同龄人的差距或许不只是软硬件实力配置的差距，而是身边有没有一群这样的一群人：大家有着共同的想法，热衷眼前的事情，能全身心的投入，走在一起去实现这个想法的路上。这是我思考了很久得出的结论，也是从数学建模中收获的，尽管这有些难以置信。比赛的时候，我看到一群人通宵建模，尽管很累但都还在撑着，就像何凯文说的那样，“你有多久没有认真过了？”<br>感悟喷涌，能写出来的寥寥数语总归显得苍白无力，只要经历过的全身心投入的人总归会懂得。</p>
+<hr>
+</blockquote>
+<h2 id="赛后"><a href="#赛后" class="headerlink" title="赛后"></a>赛后</h2><p>好好休息了一下</p>
+<p>还了借的参考书籍</p>
+<p>今天周一，投入到了新的学习征程中，仿佛又是个崭新的开始。</p>
+<p>哦，对了我还写了一篇参赛感悟，正如你所看到的…</p>
+<h2 id="后来"><a href="#后来" class="headerlink" title="后来"></a>后来</h2><hr>
+<p>2019年9月25日更<br>被抽中答辩，心中自是欣喜万分，同样，无形的压力扑面而来。</p>
+<hr>
+<p>2019年9月28日更<br>答辩结束，无论结果如何，石头落地了，尽人事，听天命，一切终于结束了。</p>
+<p>准备答辩的过程中，听说了一句话叫做</p>
+<blockquote>
+<p>一次参赛，终身收益</p>
+</blockquote>
+<p>后来才知道这是建模组委会的口号，也越发觉得这句话真的很贴切，参赛经历和比赛的魅力或许已经远远超过了奖项本身了，无论是心智，还是毅力，还是个人能力，都得到了很好的锻炼，参赛期间高压下编程、高压下写作和高压下的团队合作对每个参赛选手都是一次很好的磨练。另外，我觉得答辩期间的压力也是不亚于竞赛期间的，压力反而更大，从准备到答辩结束，需要自己重新审视自己的作品，正确认识作品的缺点，勇于承认或许这才是最重要的。<br><br>另外，参加一次省级甚至是国家级别的学术答辩，无论结果如何，这都是很好的锻炼。<br>此时，一个累的打字都快打不动了的蒟蒻，还在拖着疲惫的身躯码着自己的切身体会，一般来说，能写出来的文字总归苍白无力。<br><br>用两句话结个尾吧，给2019CUMCM画上个句号。<br><br><strong>星光不负赶路人，时光不负有心人。</strong><br><strong>一次参赛，终身收益。</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2019/09/16/2019-09-16-shu-xue-jian-mo-ji-xun-zhi-shi-da-gang/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
           
-            <h2 id="评价算法"><a href="#评价算法" class="headerlink" title="评价算法"></a>评价算法</h2><h3 id="简单加权法"><a href="#简单加权法" class="headerlink" title="简单加权法"></a>简单加权法</h3><ul>
+            <a href="/2019/09/16/2019-09-16-shu-xue-jian-mo-ji-xun-zhi-shi-da-gang/" class="post-title-link" itemprop="url">数学建模集训知识大纲</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-09-16 00:00:00" itemprop="dateCreated datePublished" datetime="2019-09-16T00:00:00+08:00">2019-09-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-21 21:13:13" itemprop="dateModified" datetime="2020-01-21T21:13:13+08:00">2020-01-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/竞赛感悟/" itemprop="url" rel="index"><span itemprop="name">竞赛感悟</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/竞赛感悟/数学建模/" itemprop="url" rel="index"><span itemprop="name">数学建模</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>4.1k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>4 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="评价算法"><a href="#评价算法" class="headerlink" title="评价算法"></a>评价算法</h2><h3 id="简单加权法"><a href="#简单加权法" class="headerlink" title="简单加权法"></a>简单加权法</h3><ul>
 <li>线性加权</li>
 <li>非线性加权</li>
 </ul>
@@ -2464,315 +2334,82 @@ int main()
 </li>
 </ul>
 <h3 id="全局优化工具箱"><a href="#全局优化工具箱" class="headerlink" title="全局优化工具箱"></a>全局优化工具箱</h3>
-          
-        
       
     </div>
 
     
     
     
-
-    
-    
-
-    <footer class="post-footer">
+      <footer class="post-footer">
         <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2019/09/16/2019-09-16-2019-shu-xue-jian-mo-sai-hou-gan-wu-yi-ci-ling-hun-yu-rou-ti-de-jiao-zhi-yi-ci-can-sai-zhong-shen-shou-yi/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SinclairWang">
-      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SinclairのBlog">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/09/16/2019-09-16-2019-shu-xue-jian-mo-sai-hou-gan-wu-yi-ci-ling-hun-yu-rou-ti-de-jiao-zhi-yi-ci-can-sai-zhong-shen-shou-yi/" class="post-title-link" itemprop="url">2019数学建模赛后感悟：一次灵魂与肉体的交织&&一次参赛终身收益</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-09-16 00:00:00" itemprop="dateCreated datePublished" datetime="2019-09-16T00:00:00+08:00">2019-09-16</time>
-            </span>
-          
-
-          
-            
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    
-      <span class="post-meta-item-text">Comments: </span>
-    
-  
-    <a href="/2019/09/16/2019-09-16-2019-shu-xue-jian-mo-sai-hou-gan-wu-yi-ci-ling-hun-yu-rou-ti-de-jiao-zhi-yi-ci-can-sai-zhong-shen-shou-yi/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/16/2019-09-16-2019-shu-xue-jian-mo-sai-hou-gan-wu-yi-ci-ling-hun-yu-rou-ti-de-jiao-zhi-yi-ci-can-sai-zhong-shen-shou-yi/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-          <br>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span title="Symbols count in article">3.3k</span>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span title="Reading time">3 mins.</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
 
       
-          
-            <blockquote>
-<p>一年一度的全国大学生数学建模比赛（CUMCM）已接近尾声…</p>
-</blockquote>
-<p><a href="https://sinclaircoder.top/2019/09/16/2019-09-16-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%9B%86%E8%AE%AD%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">SinclairWang 个人博客同步更新，欢迎关注</a><br>相信每个参赛者都会有自己的感悟<br>一句恰如其分的描述：<strong>一次灵魂与肉体的交织</strong>。<br>下面是自己的一点感悟与思考。</p>
-<h2 id="赛前"><a href="#赛前" class="headerlink" title="赛前"></a>赛前</h2><ul>
-<li>最初听说，大概是在一年前，决定参加比赛是在今年5月份，暑假有两个选择，要么参加8月份的建模集训，要么实验室打杂，综合考虑了一下，看到培训大纲上的东西，可能对日后专业方向走向有益，遂放弃了锻炼编码能力的时间，毅然决定参加去参加集训。</li>
-<li>集训8月1日份开始，9月5日结束，9月12日比赛开始，9月15日比赛结束。</li>
-<li>一个多月的集训，每天上午8点半到12点，可能下午还要加课，一个老师讲一个专题3天，理学院的老师轮流来，每人一个模块，每三天一个专题，智能计算、统计分析、数值计算、图与网络、模拟仿真、分类与聚类、组合优化、图像处理、历年赛题与优秀论文讲评。</li>
-<li>老师们每天讲课，一个上午动辄上百页PPT，所以这一个月的日常就是上午上课，下午看老师讲的PPT、理解原理和复现程序。CUMCM涉及层面广而多，虽说深度欠缺，但是对于本科生来说，掌握这些知识，也是不易。</li>
-<li>集训的过程，也曾想过放弃，不是畏难，而是有一段时间觉得自己做的可能没有自己想象中的有意义，正如本专业同学那句话 <strong>“或许当初没有选择数学建模，这一个月的时间，可能已经足够可以在专业上走的很远了…”</strong></li>
-<li>我也认同，可是大家还是选择坚持了下来，一直坚持到了最后。</li>
-</ul>
-<hr>
-<p> 一场集训下来，我也学到了很多东西，虽不知不觉，却也潜移默化，老师们讲的n个专题，不敢说全部掌握了，但可以说学了个大概，而且学的知识对日后专业方向走向<strong>极其有益</strong>，虽然理论深度掌握不够，但也相当于在自己的方向相关领域，在自己的学习进程上写了一句<em>HelloWorld</em>，其实集训之前本来想着老师们每讲一个专题，就跟着写一篇Blog，事实上，集训时每天的知识都消化不了，更不要说写博客了，这件事仔细想想，也并非完全不能做到，只是决心不够。虽然专题博客没跟上，但是将老师讲的专题总结成思维导图，形成数学建模集训的整个知识框架，这是不难做到的，思维导图是用xmind做的，用markdown文本导出，我放到了博客上，总结了一下建模期间的博客，不算这篇的话，还有一篇关于的图像处理的,当初看图像处理的时候觉得很有意思,就没忍住写了一篇。</p>
-<ul>
-<li><a href="https://blog.csdn.net/SinclairWang/article/details/100891757" target="_blank" rel="noopener">数学建模集训知识大纲</a></li>
-<li><a href="https://blog.csdn.net/SinclairWang/article/details/100665761" target="_blank" rel="noopener">基于奇异值分解的图像压缩</a></li>
-</ul>
-<hr>
-<p>除此之外,我也从队友身上学到了很多,我们队人员组成是2<em>计算机专业(一个SE，一个CS)+数学专业。我从队友身上看到了高效,其实一直很想写一篇关于效率与时间管理的文章,不过时间安排上没提上日程,一个人只有把效率提上去,才能做到自己想做的。之前知乎上有篇高赞文章,是讲<em>*人是怎么废掉的</em></em>,没想到其中有一条是瞎忙,除了没方向之外,更重要的是低效率,忙了一天不知道在忙什么,忙了点啥,就好比泡图书馆学习,一泡就是一天,到了晚上应该正确评估白天的效率如何,而不应该单纯陷在因为短暂的长时间学习而产生的自我感动上,只有走出了这个误区才能有所进步。经此,我也有了新的认知。另外,我也认识到了学习方式的不足,也有专业大环境的原因,认真专注听课反倒成为了一个大难题,另外,上课认真听课,下课才能用更少的时间去复习,节省出更多的时间去做自己想做的事情。</p>
-<hr>
-<h2 id="赛中"><a href="#赛中" class="headerlink" title="赛中"></a>赛中</h2><blockquote>
-<p><strong>9月12日</strong></p>
-<p>进驻机房,晚上6点钟放题目,一开始略卡。<br>下载到题目之后,A、B、C任选一题。<br>读题： </p>
-<ul>
-<li>A题精确计算 有一定的专业知识背景，否则题意不好理解 </li>
-<li>B题 物理题目？果断放弃</li>
-<li>C题 开放性题目 只有大概思路，具体思路没有 估计找数据会劝退一拨人</li>
-</ul>
-</blockquote>
-<p>综合评估，我的答案是选C，队友讨论了一晚上A题，但是我给不出说服他们选C题的东西。<br>没过多久，我找到了数据。<br>但是模型没具体思路。<br>晚上11点半回寝室休息</p>
-<p>第二天一早队友们想选C题，其实我内心有点欣喜~<br>然后就开始了建模…<br>建模全靠队友，其中有个神奇的男人，中午小憩都能想到idea，上趟厕所模型都能被改进，回来说“我知道了…应该这样做…”。<br>太神奇了…<br>赛期说好的写论文的队友，最后却在编程，说好了写程序的队友，比赛的时候却开始写起了论文，只有我始终打杂，凭实力打杂。</p>
-<ul>
-<li>“我要的折线图你画了没？”</li>
-<li>“我需要你画个直方图。”</li>
-<li>“决策树画好了没？”</li>
-<li>“给你说个思路，你看能实现吗？#$#%#^*@#”</li>
-<li>“数据处理好了吗？”</li>
-<li>“打点的图发我了没？”</li>
-<li>“附录整理好没？”</li>
-<li>“支撑材料打包了没？”</li>
-</ul>
-<p>终于我成了全队无可替代的凭实力打杂的选手！</p>
-<p>到了最后一天，进度有点慢，14日晚上觉得得通宵了，一夜爆肝，那一晚仿佛大家都没回去，都在通宵做模型，计算，一双双熬红的双眼，其实熬夜或许不是最难的，最难的是建不出模，算不出来。<strong>那晚的月亮格外美，格外的圆。</strong></p>
-<p>那晚队友们几乎都没怎么睡，我凌晨5点撑不住了，睡到了7点多。</p>
-<p>起来，洗把脸，下楼吃了东西，队友们赶进度顾不上了…</p>
-<p>然后就开始了最刺激压力最大的一天</p>
-<p>题目只做了一半，四问只做了两问，晚上8点就要截止了。</p>
-<p>到了中午重新改思路，我编程计算，队友们将思路写到论文，完善前面的部分。</p>
-<p>高压下编程或许是最考验编程能力的…</p>
-<p>到了下午5点半初稿还没出来,还有很多格式要调整，公式要编辑….</p>
-<p>晚上7点40多交了初稿…</p>
-<p>没过多久就到8点了，就剩下最后一次交的机会了…</p>
-<p>终于能略微喘口气了</p>
-<p>但是，还有一次机会，不能放弃</p>
-<p>于是，接着完善，修改摘要，修改正文…</p>
-<p>终于9点39分交上了这最后一次…</p>
-<p>如释重负…</p>
-<p>三个人都笑了…</p>
-<p>欣喜若狂~</p>
-<p>这一天没吃饭，没水喝，压力大，睡眠不足</p>
-<p>但是还是撑了下来，队内也没有发生矛盾，互相理解，合作愉快。</p>
-<p>最后一起等到了10点，把参赛作品交了上去</p>
-<p>然后离开了机房，嘴上都说着“我再也不想听到’数学建模‘这四个字”…</p>
-<blockquote>
-<p>虽然数学建模门槛低，有人说这不是数学建模，是面向写作和美术的建模，最终看的是论文。但是我还是觉得我参加数学建模是一个无比正确的决定，无论结果如何，它教会了很多东西，我学了很多数学知识，也掌握了很多能力，比如快速学习的能力，随便甩给你个200多页PPT，两天内就能看完，让我更加专注，变得更加有毅力和耐心去学习，比赛教给我团队协作的重要性，一个人可以走的很快，但一群人能走的更远，你终究能走多远，可能不只是跟你自己有关系，还跟你身边的人有关系，别人会影响你，会改变你。我觉得或许自己跟顶尖名校的同龄人的差距或许不只是软硬件实力配置的差距，而是身边有没有一群这样的一群人：大家有着共同的想法，热衷眼前的事情，能全身心的投入，走在一起去实现这个想法的路上。这是我思考了很久得出的结论，也是从数学建模中收获的，尽管这有些难以置信。比赛的时候，我看到一群人通宵建模，尽管很累但都还在撑着，就像何凯文说的那样，“你有多久没有认真过了？”<br>感悟喷涌，能写出来的寥寥数语总归显得苍白无力，只要经历过的全身心投入的人总归会懂得。</p>
-<hr>
-</blockquote>
-<h2 id="赛后"><a href="#赛后" class="headerlink" title="赛后"></a>赛后</h2><p>好好休息了一下</p>
-<p>还了借的参考书籍</p>
-<p>今天周一，投入到了新的学习征程中，仿佛又是个崭新的开始。</p>
-<p>哦，对了我还写了一篇参赛感悟，正如你所看到的…</p>
-<h2 id="后来"><a href="#后来" class="headerlink" title="后来"></a>后来</h2><hr>
-<p>2019年9月25日更<br>被抽中答辩，心中自是欣喜万分，同样，无形的压力扑面而来。</p>
-<hr>
-<p>2019年9月28日更<br>答辩结束，无论结果如何，石头落地了，尽人事，听天命，一切终于结束了。</p>
-<p>准备答辩的过程中，听说了一句话叫做</p>
-<blockquote>
-<p>一次参赛，终身收益</p>
-</blockquote>
-<p>后来才知道这是建模组委会的口号，也越发觉得这句话真的很贴切，参赛经历和比赛的魅力或许已经远远超过了奖项本身了，无论是心智，还是毅力，还是个人能力，都得到了很好的锻炼，参赛期间高压下编程、高压下写作和高压下的团队合作对每个参赛选手都是一次很好的磨练。另外，我觉得答辩期间的压力也是不亚于竞赛期间的，压力反而更大，从准备到答辩结束，需要自己重新审视自己的作品，正确认识作品的缺点，勇于承认或许这才是最重要的。<br><br>另外，参加一次省级甚至是国家级别的学术答辩，无论结果如何，这都是很好的锻炼。<br>此时，一个累的打字都快打不动了的蒟蒻，还在拖着疲惫的身躯码着自己的切身体会，一般来说，能写出来的文字总归苍白无力。<br><br>用两句话结个尾吧，给2019CUMCM画上个句号。<br><br><strong>星光不负赶路人，时光不负有心人。</strong><br><strong>一次参赛，终身收益。</strong></p>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
-  </div>
   
   
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2019/09/09/2019-09-09-ji-yu-qi-yi-zhi-fen-jie-de-tu-xiang-ya-suo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="SinclairWang">
       <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
-      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="SinclairのBlog">
     </span>
       <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/09/09/2019-09-09-ji-yu-qi-yi-zhi-fen-jie-de-tu-xiang-ya-suo/" class="post-title-link" itemprop="url">基于奇异值分解的图像压缩</a>
-              
-            
-          </h1>
-        
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/09/09/2019-09-09-ji-yu-qi-yi-zhi-fen-jie-de-tu-xiang-ya-suo/" class="post-title-link" itemprop="url">基于奇异值分解的图像压缩</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="far fa-calendar"></i>
               </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
+              <span class="post-meta-item-text">Posted on</span>
 
               <time title="Created: 2019-09-09 00:00:00" itemprop="dateCreated datePublished" datetime="2019-09-09T00:00:00+08:00">2019-09-09</time>
             </span>
-          
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-21 21:05:57" itemprop="dateModified" datetime="2020-01-21T21:05:57+08:00">2020-01-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/图像处理/" itemprop="url" rel="index"><span itemprop="name">图像处理</span></a>
+                </span>
+            </span>
 
-          
-            
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="fa fa-comment-o"></i>
-    </span>
-    
-      <span class="post-meta-item-text">Comments: </span>
-    
-  
-    <a href="/2019/09/09/2019-09-09-ji-yu-qi-yi-zhi-fen-jie-de-tu-xiang-ya-suo/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/09/2019-09-09-ji-yu-qi-yi-zhi-fen-jie-de-tu-xiang-ya-suo/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
           <br>
-            <span class="post-meta-item">
+            <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
+                <i class="far fa-file-word"></i>
               </span>
-              
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span title="Symbols count in article">1.5k</span>
+              <span>1.5k</span>
             </span>
-          
-            <span class="post-meta-item">
+            <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
+                <i class="far fa-clock"></i>
               </span>
-              
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span title="Reading time">1 mins.</span>
+              <span>1 mins.</span>
             </span>
-          
 
         </div>
       </header>
@@ -2783,8 +2420,7 @@ int main()
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="理论："><a href="#理论：" class="headerlink" title="理论："></a>理论：</h2><p>矩阵的奇异值分解变换是一种正交变换，它可以将矩阵对角化<br>定理：<br>设A是一个秩为$r$的$m*n$矩阵,则存在正交矩阵$U$和$V$,使得</p>
+          <h2 id="理论："><a href="#理论：" class="headerlink" title="理论："></a>理论：</h2><p>矩阵的奇异值分解变换是一种正交变换，它可以将矩阵对角化<br>定理：<br>设A是一个秩为$r$的$m*n$矩阵,则存在正交矩阵$U$和$V$,使得</p>
 <script type="math/tex; mode=display">U^TAV= \begin{bmatrix} \Sigma & 0 \\ 0 & 0 \\ \end{bmatrix}</script><p>其中$\Sigma=diag{\sigma_1,\sigma_2,\sigma_3,….,\sigma_r}$，这里$\sigma_1&gt;=\sigma_2&gt;=\sigma_3….&gt;=\sigma_r$，<br>$\sigma_1^2….\sigma_r^2$是矩阵$A^TA$对应的特征值。<br>称<script type="math/tex">A=U \begin{bmatrix} \Sigma & 0 \\ 0 & 0 \\ \end{bmatrix}V^T</script>A的奇异值分解，$\sigma_i(i=1,…r)$称为A的奇异值</p>
 <p>根据自己的理解，压缩的思路就是先进行奇异值分解，将前k大个特征值保留下来，其余的变为0，然后进行逆变换，起到基本替代原来奇异值矩阵的作用，从而实现图像的压缩，压缩率也会随k的变化而变化，诚然，k越大，压缩率越小。</p>
 <h2 id="实现步骤："><a href="#实现步骤：" class="headerlink" title="实现步骤："></a>实现步骤：</h2><ul>
@@ -2847,31 +2483,22 @@ figure,plot(S,&#39;.&#39;,&#39;Color&#39;,&#39;k&#39;); % 画出奇异值对应�
 <li>K=20时的压缩率<img src="https://img-blog.csdnimg.cn/20190909163802967.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="K=20时的压缩率"></li>
 </ul>
 <p>可以调节k的值得到不同的压缩率</p>
-<h2 id="参考博客："><a href="#参考博客：" class="headerlink" title="参考博客："></a>参考博客：</h2><p><a href="https://blog.csdn.net/chaolei3/article/details/75716422" target="_blank" rel="noopener">RGB图像转为灰度图像原理</a><br><a href="https://www.cnblogs.com/zhangjiansheng/p/6925722.html" target="_blank" rel="noopener">RGB转灰度的几种算法</a><br><a href="https://blog.csdn.net/bluecol/article/details/45971423#commentsedit" target="_blank" rel="noopener">图像压缩（SVD方法）</a></p>
+<h2 id="参考博客："><a href="#参考博客：" class="headerlink" title="参考博客："></a>参考博客：</h2><p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW9sZWkzL2FydGljbGUvZGV0YWlscy83NTcxNjQyMg==">RGB图像转为灰度图像原理<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vemhhbmdqaWFuc2hlbmcvcC82OTI1NzIyLmh0bWw=">RGB转灰度的几种算法<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JsdWVjb2wvYXJ0aWNsZS9kZXRhaWxzLzQ1OTcxNDIzI2NvbW1lbnRzZWRpdA==">图像压缩（SVD方法）<i class="fa fa-external-link-alt"></i></span></p>
 
-          
-        
       
     </div>
 
     
     
     
-
-    
-    
-
-    <footer class="post-footer">
+      <footer class="post-footer">
         <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
+      </footer>
   </article>
+  
+  
+  
 
-    
-  </section>
 
   
   <nav class="pagination">
@@ -2879,266 +2506,107 @@ figure,plot(S,&#39;.&#39;,&#39;Color&#39;,&#39;k&#39;); % 画出奇异值对应�
   </nav>
 
 
+
           </div>
           
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
 
         </div>
           
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
   </div>
 
-  <aside id="sidebar" class="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-inner">
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
-        <div class="site-overview">
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
 
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="SinclairWang"
+      src="/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">SinclairWang</p>
-  <div class="site-description motion-element" itemprop="description">算法 | NLP | MachineLearning | undergraduate</div>
+  <div class="site-description" itemprop="description">算法 | NLP | MachineLearning | undergraduate</div>
 </div>
-  <nav class="site-state motion-element">
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
       <div class="site-state-item site-state-posts">
-        
           <a href="/archives/">
         
           <span class="site-state-item-count">71</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-categories">
-        
-          
             <a href="/categories/">
           
-        
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
         <span class="site-state-item-count">23</span>
-        <span class="site-state-item-name">categories</span>
-        </a>
+        <span class="site-state-item-name">categories</span></a>
       </div>
-    
-      
-      
       <div class="site-state-item site-state-tags">
-        
-          
             <a href="/tags/">
           
-        
-        
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
         <span class="site-state-item-count">46</span>
-        <span class="site-state-item-name">tags</span>
-        </a>
+        <span class="site-state-item-name">tags</span></a>
       </div>
-    
   </nav>
-  <div class="feed-link motion-element">
-    <a href="/atom.xml" rel="alternate">
-      <i class="fa fa-rss"></i>RSS
-    </a>
-  </div>
+</div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <a href="https://github.com/SinclairCoder" title="GitHub &rarr; https://github.com/SinclairCoder" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1NpbmNsYWlyQ29kZXI=" title="GitHub → https://github.com/SinclairCoder"><i class="github fa-fw"></i></span>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <a href="mailto:sinclaircoder@163.com" title="E-Mail &rarr; mailto:sinclaircoder@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+        <span class="exturl" data-url="bWFpbHRvOnNpbmNsYWlyY29kZXJAMTYzLmNvbQ==" title="E-Mail → mailto:sinclaircoder@163.com"><i class="envelope fa-fw"></i></span>
       </span>
-    
       <span class="links-of-author-item">
-      
-      
-      
-        
-      
-        <a href="https://blog.csdn.net/SinclairWang" title="CSDN &rarr; https://blog.csdn.net/SinclairWang" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i></a>
+        <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==" title="CSDN → https://blog.csdn.net/SinclairWang"><i class="book fa-fw"></i></span>
       </span>
-    
   </div>
 
 
-  <div class="links-of-blogroll motion-element links-of-blogroll-block">
-    <div class="links-of-blogroll-title">
-      <i class="fa  fa-fw fa-link"></i>
-      Links
-    </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://www.liuchuo.net/" title="https://www.liuchuo.net/" rel="noopener" target="_blank">liuchuo</a>
-        </li>
-      
-        <li class="links-of-blogroll-item">
-          <a href="https://feisky.xyz/machine-learning/basic.html" title="https://feisky.xyz/machine-learning/basic.html" rel="noopener" target="_blank">AI NOTE</a>
-        </li>
-      
-    </ul>
-  </div>
 
-        </div>
       </div>
-
-        
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
 
     </div>
   </aside>
@@ -3148,17 +2616,25 @@ figure,plot(S,&#39;.&#39;,&#39;Color&#39;,&#39;k&#39;); % 画出奇异值对应�
       </div>
     </main>
 
-    <footer id="footer" class="footer">
+    <footer class="footer">
       <div class="footer-inner">
-        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; 2019 – <span itemprop="copyrightYear">2020</span>
-  <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+        
+
+        
+  <div class="beian"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5taWl0Lmdvdi5jbg==">冀ICP备20002885号 </span>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">SinclairWang</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
-      <i class="fa fa-area-chart"></i>
+      <i class="fa fa-chart-area"></i>
     </span>
     <span title="Symbols count total">121k</span>
     <span class="post-meta-divider">|</span>
@@ -3167,30 +2643,10 @@ figure,plot(S,&#39;.&#39;,&#39;Color&#39;,&#39;k&#39;); % 画出奇异值对应�
     </span>
     <span title="Reading time total">1:50</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a></div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
+  </div>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-user"></i>
-    </span>
-    <span class="site-uv" title="Total Visitors">
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-    </span>
-  
-    <span class="post-meta-divider">|</span>
-  
-    <span class="post-meta-item-icon">
-      <i class="fa fa-eye"></i>
-    </span>
-    <span class="site-pv" title="Total Views">
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-    </span>
-  
-</div>
 
 
 
@@ -3199,32 +2655,57 @@ figure,plot(S,&#39;.&#39;,&#39;Color&#39;,&#39;k&#39;); % 画出奇异值对应�
 
 
 
-        
       </div>
     </footer>
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-      </div>
-
-    
-
   </div>
 
   
-  <script src="/lib/jquery/index.js?v=3.4.1"></script>
-  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-<script src="/js/utils.js?v=7.3.0"></script>
-  <script src="/js/motion.js?v=7.3.0"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
 
 
-  <script src="/js/schemes/muse.js?v=7.3.0"></script>
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
 
 
-<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
 
 
 
@@ -3233,153 +2714,62 @@ figure,plot(S,&#39;.&#39;,&#39;Color&#39;,&#39;k&#39;); % 画出奇异值对应�
 
   
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <script src="//code.tidio.co/u61uushntplpeuutujp42qmi0lj20uxa.js"></script>
-
-
-
-
-
-
-
-
-
   
+      
 
-  
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  
-    
-      <script type="text/x-mathjax-config">
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      equationNumbers: {
-        autoNumber: 'AMS'
-      }
-    }
-  });
-
-  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
-    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
-      if (data.display) {
-        var next = data.script.nextSibling;
-        while (next && next.nodeName.toLowerCase() === '#text') {
-          next = next.nextSibling;
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
         }
-        if (next && next.nodeName.toLowerCase() === 'br') {
-          next.parentNode.removeChild(next);
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
         }
       }
-    });
-  });
-
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for (i = 0; i < all.length; i += 1) {
-      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
-      if (element.nodeName.toLowerCase() == 'li') {
-        element = element.parentNode;
-      }
-      element.classList.add('has-jax');
-    }
-  });
-</script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-    
-  
-
-  
-
-  
-
-   
-
-
-
-
-  <script async src="//code.tidio.co/u61uushntplpeuutujp42qmi0lj20uxa.js"></script>
-
-   
-  <script src="//code.tidio.co/u61uushntplpeuutujp42qmi0lj20uxa.js"></script>
-
-   
-<link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-<script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-
-
-<script src="/js/algolia-search.js?v=7.3.0"></script>
-
-
-
-
-  
-    <script>
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#comments',
-    verify: true,
-    notify: true,
-    appId: 'ykMNaPlRQAthwgrFfHggAQ7f-gzGzoHsz',
-    appKey: 'neDtomoYnobT9QzrcHrQj71d',
-    placeholder: 'Just go go',
-    avatar: 'mm',
-    meta: guest,
-    pageSize: '10' || 10,
-    visitor: false,
-    lang: '' || 'zh-cn',
-    path: location.pathname
-  });
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
 </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
+
+  
 
 </body>
 </html>

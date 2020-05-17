@@ -498,86 +498,6 @@ int main(){
       </tags>
   </entry>
   <entry>
-    <title>PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）</title>
-    <url>/2020/01/19/2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>哥尼斯堡是位于普累格河上的一座城市，它包含两个岛屿及连接它们的七座桥，<br>可否走过这样的七座桥，而且每桥只走过一次？瑞士数学家欧拉(Leonhard Euler，1707—1783)最终解决了这个问题，并由此创立了拓扑学。<br>这个问题如今可以描述为判断欧拉回路是否存在的问题。欧拉回路是指不令笔离开纸面，可画过图中每条边仅一次，且可以回到起点的一条回路。现给定一个无向图，问是否存在欧拉回路？</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入第一行给出两个正整数，分别是节点数N (1≤N≤1000)和边数M；随后的M行对应M条边，每行给出一对正整数，分别是该条边直接连通的两个节点的编号（节点从1到N编号）。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>若欧拉回路存在则输出1，否则输出0。</p>
-<h2 id="输入样例1"><a href="#输入样例1" class="headerlink" title="输入样例1:"></a>输入样例1:</h2><blockquote>
-<p>6 10<br>1 2<br>2 3<br>3 1<br>4 5<br>5 6<br>6 4<br>1 4<br>1 6<br>3 4<br>3 6    </p>
-<h2 id="输出样例1"><a href="#输出样例1" class="headerlink" title="输出样例1:"></a>输出样例1:</h2><p>1</p>
-</blockquote>
-<h2 id="输入样例2"><a href="#输入样例2" class="headerlink" title="输入样例2:"></a>输入样例2:</h2><blockquote>
-<p>5 8<br>1 2<br>1 3<br>2 3<br>2 4<br>2 5<br>5 3<br>5 4<br>3 4</p>
-</blockquote>
-<h2 id="输出样例2"><a href="#输出样例2" class="headerlink" title="输出样例2:"></a>输出样例2:</h2><blockquote>
-<p>0</p>
-</blockquote>
-<p><br><br>思路：<br><br>如果欧拉通路的起点与终点一样，则成为欧拉回路， 连通的多重图具有欧拉回路当且仅当它的每个顶点都有偶数度<br>则欧拉回路的条件：</p>
-<ul>
-<li>图是连通的，没有孤立节点</li>
-<li>无向图的每个节点的度数都是偶数度，有向图每个节点的入度等于出度</li>
-</ul>
-<p>使用并查集统计连通分量个数，使用degree数组奇偶数判断是否全为偶数。<br><br></p>
-<pre><code class="lang-cpp">#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-#include&lt;vector&gt;
-#include&lt;algorithm&gt;
-#include&lt;stack&gt;
-#include&lt;queue&gt;
-#include&lt;map&gt;
-#include&lt;list&gt;
-#include&lt;set&gt;
-#include&lt;cmath&gt;
-using namespace std;
-typedef long long ll;
-int fa[1005];
-int father(int x){
-    if(fa[x]==x) return x;
-    return fa[x] = father(fa[x]);
-} 
-int main(){
-    int n,m,x,y;
-    cin &gt;&gt; n &gt;&gt; m;
-    int degree[n+1];
-    for(int i=1;i&lt;=n;i++)  fa[i] = i;
-    memset(degree,0,sizeof(degree));
-    for(int i=0;i&lt;m;i++){
-        cin &gt;&gt; x &gt;&gt; y;
-        int rootx = father(x),rooty = father(y);
-        if(rootx!=rooty){
-            fa[rooty] = rootx;
-        }
-        // fa[father(y)] = father(x);  这样写竟然会超时！！！！
-        // 不要问我咋知道的
-        degree[x]++;
-        degree[y]++;
-    }
-    int exist=1,root = fa[1],connectcnt = 0;
-    for(int i=1;i&lt;=n;i++){
-        if(fa[i]==i) connectcnt++;
-    }
-    if(connectcnt&gt;1) exist = 0;
-    for(int i=1;i&lt;=n;i++){
-        if(degree[i]%2){
-            exist = 0;break;
-        }
-    } 
-    cout &lt;&lt; exist &lt;&lt; endl;    
-    return 0;
-}
-</code></pre>
-]]></content>
-      <categories>
-        <category>PTA</category>
-      </categories>
-      <tags>
-        <tag>PTA</tag>
-        <tag>欧拉回路</tag>
-        <tag>并查集</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>PTA汉密尔顿回路</title>
     <url>/2020/01/19/2020-01-19-pta-han-mi-er-dun-hui-lu/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>著名的“汉密尔顿（Hamilton）回路问题”是要找一个能遍历图中所有顶点的简单回路（即每个顶点只访问 1 次）。本题就要求你判断任一给定的回路是否汉密尔顿回路。</p>
@@ -741,6 +661,86 @@ int main(){
       </tags>
   </entry>
   <entry>
+    <title>PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）</title>
+    <url>/2020/01/19/2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>哥尼斯堡是位于普累格河上的一座城市，它包含两个岛屿及连接它们的七座桥，<br>可否走过这样的七座桥，而且每桥只走过一次？瑞士数学家欧拉(Leonhard Euler，1707—1783)最终解决了这个问题，并由此创立了拓扑学。<br>这个问题如今可以描述为判断欧拉回路是否存在的问题。欧拉回路是指不令笔离开纸面，可画过图中每条边仅一次，且可以回到起点的一条回路。现给定一个无向图，问是否存在欧拉回路？</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入第一行给出两个正整数，分别是节点数N (1≤N≤1000)和边数M；随后的M行对应M条边，每行给出一对正整数，分别是该条边直接连通的两个节点的编号（节点从1到N编号）。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>若欧拉回路存在则输出1，否则输出0。</p>
+<h2 id="输入样例1"><a href="#输入样例1" class="headerlink" title="输入样例1:"></a>输入样例1:</h2><blockquote>
+<p>6 10<br>1 2<br>2 3<br>3 1<br>4 5<br>5 6<br>6 4<br>1 4<br>1 6<br>3 4<br>3 6    </p>
+<h2 id="输出样例1"><a href="#输出样例1" class="headerlink" title="输出样例1:"></a>输出样例1:</h2><p>1</p>
+</blockquote>
+<h2 id="输入样例2"><a href="#输入样例2" class="headerlink" title="输入样例2:"></a>输入样例2:</h2><blockquote>
+<p>5 8<br>1 2<br>1 3<br>2 3<br>2 4<br>2 5<br>5 3<br>5 4<br>3 4</p>
+</blockquote>
+<h2 id="输出样例2"><a href="#输出样例2" class="headerlink" title="输出样例2:"></a>输出样例2:</h2><blockquote>
+<p>0</p>
+</blockquote>
+<p><br><br>思路：<br><br>如果欧拉通路的起点与终点一样，则成为欧拉回路， 连通的多重图具有欧拉回路当且仅当它的每个顶点都有偶数度<br>则欧拉回路的条件：</p>
+<ul>
+<li>图是连通的，没有孤立节点</li>
+<li>无向图的每个节点的度数都是偶数度，有向图每个节点的入度等于出度</li>
+</ul>
+<p>使用并查集统计连通分量个数，使用degree数组奇偶数判断是否全为偶数。<br><br></p>
+<pre><code class="lang-cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;vector&gt;
+#include&lt;algorithm&gt;
+#include&lt;stack&gt;
+#include&lt;queue&gt;
+#include&lt;map&gt;
+#include&lt;list&gt;
+#include&lt;set&gt;
+#include&lt;cmath&gt;
+using namespace std;
+typedef long long ll;
+int fa[1005];
+int father(int x){
+    if(fa[x]==x) return x;
+    return fa[x] = father(fa[x]);
+} 
+int main(){
+    int n,m,x,y;
+    cin &gt;&gt; n &gt;&gt; m;
+    int degree[n+1];
+    for(int i=1;i&lt;=n;i++)  fa[i] = i;
+    memset(degree,0,sizeof(degree));
+    for(int i=0;i&lt;m;i++){
+        cin &gt;&gt; x &gt;&gt; y;
+        int rootx = father(x),rooty = father(y);
+        if(rootx!=rooty){
+            fa[rooty] = rootx;
+        }
+        // fa[father(y)] = father(x);  这样写竟然会超时！！！！
+        // 不要问我咋知道的
+        degree[x]++;
+        degree[y]++;
+    }
+    int exist=1,root = fa[1],connectcnt = 0;
+    for(int i=1;i&lt;=n;i++){
+        if(fa[i]==i) connectcnt++;
+    }
+    if(connectcnt&gt;1) exist = 0;
+    for(int i=1;i&lt;=n;i++){
+        if(degree[i]%2){
+            exist = 0;break;
+        }
+    } 
+    cout &lt;&lt; exist &lt;&lt; endl;    
+    return 0;
+}
+</code></pre>
+]]></content>
+      <categories>
+        <category>PTA</category>
+      </categories>
+      <tags>
+        <tag>PTA</tag>
+        <tag>欧拉回路</tag>
+        <tag>并查集</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PTA打印学生选课清单(哈希表)</title>
     <url>/2020/01/18/2020-01-18-pta-da-yin-xue-sheng-xuan-ke-qing-dan-ha-xi-biao/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>假设全校有最多40000名学生和最多2500门课程。现给出每门课的选课学生名单，要求输出每个前来查询的学生的选课清单。</p>
@@ -871,7 +871,7 @@ int main(){
 <h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>输出前缀表达式的运算结果，保留小数点后1位，或错误信息ERROR。</p>
 <h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h2><pre><code>+ + 2 * 3 - 7 4 / 8 4
 </code></pre><h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例:"></a>输出样例:</h2><p>13.0</p>
-<h2 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h2><p>参考：<a href="https://www.cnblogs.com/KeepZ/p/11563413.html" target="_blank" rel="noopener">【表达式转换 (25 分)】</a><br>上面这篇文章写的很清楚，思路很清晰<br>当栈为空或者栈顶运算符的优先级小于当前二元运算符的优先级时，将该二元运算符导入。<br>倘若栈顶运算符的优先级大于或等于当前二元运算符的优先级，又分为以下两种情况，1.若栈顶运算符为（ 符号，则直接将该运算符插入即可； 2.若栈顶运算符不是（ 符号，则优先输出栈内的元素,直到碰到（ 符号或者栈为空，然后将当前二元运算符插入。</p>
+<h2 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h2><p>参考：<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vS2VlcFovcC8xMTU2MzQxMy5odG1s">【表达式转换 (25 分)】<i class="fa fa-external-link-alt"></i></span><br>上面这篇文章写的很清楚，思路很清晰<br>当栈为空或者栈顶运算符的优先级小于当前二元运算符的优先级时，将该二元运算符导入。<br>倘若栈顶运算符的优先级大于或等于当前二元运算符的优先级，又分为以下两种情况，1.若栈顶运算符为（ 符号，则直接将该运算符插入即可； 2.若栈顶运算符不是（ 符号，则优先输出栈内的元素,直到碰到（ 符号或者栈为空，然后将当前二元运算符插入。</p>
 <h2 id="实现一"><a href="#实现一" class="headerlink" title="实现一"></a>实现一</h2><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;cstring&gt;
 #include&lt;vector&gt;
@@ -1563,9 +1563,9 @@ int main(){
   <entry>
     <title>2019蓝桥杯校内选拔赛题解</title>
     <url>/2019/12/10/2019-12-10-2019-lan-qiao-bei-xiao-nei-xuan-ba-sai-ti-jie/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="题目传送"><a href="#题目传送" class="headerlink" title="题目传送"></a><a href="https://witacm.com/contest_problemset.php?cid=1046" target="_blank" rel="noopener">题目传送</a></h1><h2 id="A-Perfect"><a href="#A-Perfect" class="headerlink" title="A Perfect"></a>A Perfect</h2><p>略</p>
-<h2 id="B-Common-Easy-Version"><a href="#B-Common-Easy-Version" class="headerlink" title="B Common(Easy Version)"></a>B Common(Easy Version)</h2><p>详见<a href="https://blog.csdn.net/SinclairWang/article/details/103428852" target="_blank" rel="noopener">Common(Easy、Middle 、Hard)</a></p>
-<h2 id="C-Common-Hard-Version"><a href="#C-Common-Hard-Version" class="headerlink" title="C Common(Hard Version)"></a>C Common(Hard Version)</h2><p>详见<a href="https://blog.csdn.net/SinclairWang/article/details/103428852" target="_blank" rel="noopener">Common(Easy、Middle 、Hard)</a></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="题目传送"><a href="#题目传送" class="headerlink" title="题目传送"></a><span class="exturl" data-url="aHR0cHM6Ly93aXRhY20uY29tL2NvbnRlc3RfcHJvYmxlbXNldC5waHA/Y2lkPTEwNDY=">题目传送<i class="fa fa-external-link-alt"></i></span></h1><h2 id="A-Perfect"><a href="#A-Perfect" class="headerlink" title="A Perfect"></a>A Perfect</h2><p>略</p>
+<h2 id="B-Common-Easy-Version"><a href="#B-Common-Easy-Version" class="headerlink" title="B Common(Easy Version)"></a>B Common(Easy Version)</h2><p>详见<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvMTAzNDI4ODUy">Common(Easy、Middle 、Hard)<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="C-Common-Hard-Version"><a href="#C-Common-Hard-Version" class="headerlink" title="C Common(Hard Version)"></a>C Common(Hard Version)</h2><p>详见<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvMTAzNDI4ODUy">Common(Easy、Middle 、Hard)<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="D-Treasure"><a href="#D-Treasure" class="headerlink" title="D Treasure"></a>D Treasure</h2><p>有一个 n 行 m 列的迷宫， 行数从上到下为 1 到 n, 列数从左到右为 1 到 m, 入口为 (1,1),<br>Reverie只能向上下左右四个方向行走。迷宫中有若干个宝箱。Reverie想知道，最少需要走多少步，才能找到一个宝箱。</p>
 <p>第一行两个正整数 n, m, 表示迷宫的行数和列数。<br>之后 n 行，每行 m 个字符, ‘.’ 表示该位置是空地, ‘*’ 表示该位置是障碍, ‘#’ 表示该位置有一个宝箱。<br>保证点 (1,1) 是空地，宝箱所在的格子可以通过。<br>$1≤n,m≤1000$<br>一行内输出一个整数表示答案，如果没有宝箱或者所有宝箱位置均不可达，输出 -1.</p>
 <p>BFS</p>
@@ -2148,66 +2148,12 @@ int main()
       </tags>
   </entry>
   <entry>
-    <title>黄金连分数--BigDecimal的使用</title>
-    <url>/2019/11/22/2019-11-22-huang-jin-lian-fen-shu-bigdecimal-de-shi-yong/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一道2013蓝桥杯省赛试题</p>
-<p><strong>黄金连分数</strong></p>
-<ul>
-<li>黄金分割数是0.61803是一个无理数，…</li>
-<li>写出精确到小数点后100位精度的黄金分割数</li>
-</ul>
-<script type="math/tex; mode=display">\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+}}}}}}</script><p>当然黄金分割数是$\frac{\sqrt5-1}{2}$,可以直接算，但是Windows下的计算器的求解只能到小数点之后32位</p>
-<p><img src="https://img-blog.csdnimg.cn/20191122163245826.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="windows下计算器计算结果"></p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>当然这是一道填空题，只需要结果，假如你懂一点点java，又刚好知道BigDecimal这个类，那你就可以打开桌面的Eclipse轻松求解这个题目。</p>
-<pre><code class="lang-java">import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.util.Scanner;
-
-public class BigDecimalLearning {
-    public static void main(String[] args) {
-        BigDecimal res = new BigDecimal(1); // 没有 new BigDecimal(BigDecimal.ONE); 这种构造方法
-        for(int i=0;i&lt;100;i++) {
-            res = res.add(BigDecimal.ONE);
-            res = BigDecimal.ONE.divide(res,105,BigDecimal.ROUND_HALF_UP);
-        }
-        String str = res.toString().substring(2, 102);
-        System.out.println(str);
-//        System.out.println(str.length());
-    }
-}
-</code></pre>
-<p>结果：</p>
-<pre><code class="lang-java">6180339887498948482045868343656381177203096998094118264936291294152016354093729191617385189497190563
-</code></pre>
-<p><br></p>
-<h2 id="简单介绍一下BigDecimal"><a href="#简单介绍一下BigDecimal" class="headerlink" title="简单介绍一下BigDecimal"></a>简单介绍一下BigDecimal</h2><p>Java在java.math包中提供了BigDecimal类，用来对超过16位有效位的数进行精确的运算。双精度浮点型变量double可以处理16位有效数。在实际应用中，需要对更大或者更小的数进行运算和处理。float和double只能用来做科学计算或者是工程计算，在商业计算中要用java.math.BigDecimal。<br>常用方法如下：</p>
-<pre><code class="lang-java">BigDecimal b1 = new BigDecimal(&quot;20&quot;);
-BigDecimal b2 = new BigDecimal(&quot;30&quot;);
-b1.add(b2)          //加法，求两个BigDecimal类型数据的和。
-b1.subtract(b2);     //减法，求两个BigDecimal类型数据的差。
-b1.multiply(b2);     //乘法，求两个BigDecimal类型数据的积。
-b1.remainder(b2);    //求余数，求b1除以b2的余数。
-b1.max(b2);        //最大数，求两个BigDecimal类型数据的最大值
-b1.min(b2);       //最小数，求两个BigDecimal类型数据的最小值。
-bi.abs();      //绝对值，求BigDecimal类型数据的绝对值。
-b1.negate();    //相反数，求BigDecimal类型数据的相反数。
-</code></pre>
-]]></content>
-      <categories>
-        <category>蓝桥杯</category>
-      </categories>
-      <tags>
-        <tag>蓝桥杯</tag>
-        <tag>BigDecimal</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>蓝桥杯集训笔记</title>
     <url>/2019/11/22/2019-11-22-lan-qiao-bei-ji-xun-bi-ji/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="数学建模的思想"><a href="#数学建模的思想" class="headerlink" title="数学建模的思想"></a>数学建模的思想</h2><p>几道题目</p>
 <ul>
-<li><a href="https://blog.csdn.net/SinclairWang/article/details/103203318" target="_blank" rel="noopener">熊怪吃核桃—二进制的使用</a></li>
-<li><a href="https://blog.csdn.net/SinclairWang/article/details/103204198" target="_blank" rel="noopener">切面条</a><h3 id="余数的使用"><a href="#余数的使用" class="headerlink" title="余数的使用"></a>余数的使用</h3>余数运算对于加法、减法和乘法封闭，常用于循环队列等使用，也可以利用余数的性质大幅度简化编码<br>常用场合：递推法，倒推法<br>有很多经典的题目，比如猴子吃桃..<br>猜字母（待补..）</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvMTAzMjAzMzE4">熊怪吃核桃—二进制的使用<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvMTAzMjA0MTk4">切面条<i class="fa fa-external-link-alt"></i></span><h3 id="余数的使用"><a href="#余数的使用" class="headerlink" title="余数的使用"></a>余数的使用</h3>余数运算对于加法、减法和乘法封闭，常用于循环队列等使用，也可以利用余数的性质大幅度简化编码<br>常用场合：递推法，倒推法<br>有很多经典的题目，比如猴子吃桃..<br>猜字母（待补..）</li>
 </ul>
 <h3 id="统计某种运算的结果末尾0的个数"><a href="#统计某种运算的结果末尾0的个数" class="headerlink" title="统计某种运算的结果末尾0的个数"></a>统计某种运算的结果末尾0的个数</h3><p>统计因子中能被2和5整除的个数分别为n1,n2</p>
 <script type="math/tex; mode=display">result = min(n1,n2)</script><h3 id="毕达哥拉斯定理（勾股定理）"><a href="#毕达哥拉斯定理（勾股定理）" class="headerlink" title="毕达哥拉斯定理（勾股定理）"></a>毕达哥拉斯定理（勾股定理）</h3><p>可以直接利用$x^2+y^2=z^2$在正整数域构造基础解系</p>
@@ -2225,8 +2171,8 @@ b1.negate();    //相反数，求BigDecimal类型数据的相反数。
 </ul>
 <p>两个往年题目练习一下BigInteger，BigDecimal的使用</p>
 <ul>
-<li><a href="https://blog.csdn.net/SinclairWang/article/details/103191468" target="_blank" rel="noopener">大数乘法 java BigInteger的使用</a></li>
-<li><a href="https://blog.csdn.net/SinclairWang/article/details/103202851" target="_blank" rel="noopener">黄金连分数—BigDecimal的使用</a></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvMTAzMTkxNDY4">大数乘法 java BigInteger的使用<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvMTAzMjAyODUx">黄金连分数—BigDecimal的使用<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <h2 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h2><p>对应2019省赛A组题目RSA解密<br>涉及的知识点如下</p>
 <ul>
@@ -2291,14 +2237,68 @@ public class Main {
 }
 </code></pre>
 <p>比C/C++实现起来爽很多。<br>一般来说BigInteger是使用String类型进行构造，传入两个个数字字符串，然后进行加减乘除。<br>java中并没有重载运算符这种操作，只能另外实现封装成新的函数。</p>
-<p>一些常用API请参考<a href="https://blog.csdn.net/suyebiubiu/article/details/78511556" target="_blank" rel="noopener">java基础-BigInteger的使用</a></p>
+<p>一些常用API请参考<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3N1eWViaXViaXUvYXJ0aWNsZS9kZXRhaWxzLzc4NTExNTU2">java基础-BigInteger的使用<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <categories>
         <category>蓝桥杯</category>
       </categories>
       <tags>
-        <tag>BigInteger</tag>
         <tag>蓝桥杯</tag>
+        <tag>BigInteger</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>黄金连分数--BigDecimal的使用</title>
+    <url>/2019/11/22/2019-11-22-huang-jin-lian-fen-shu-bigdecimal-de-shi-yong/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一道2013蓝桥杯省赛试题</p>
+<p><strong>黄金连分数</strong></p>
+<ul>
+<li>黄金分割数是0.61803是一个无理数，…</li>
+<li>写出精确到小数点后100位精度的黄金分割数</li>
+</ul>
+<script type="math/tex; mode=display">\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+}}}}}}</script><p>当然黄金分割数是$\frac{\sqrt5-1}{2}$,可以直接算，但是Windows下的计算器的求解只能到小数点之后32位</p>
+<p><img src="https://img-blog.csdnimg.cn/20191122163245826.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="windows下计算器计算结果"></p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>当然这是一道填空题，只需要结果，假如你懂一点点java，又刚好知道BigDecimal这个类，那你就可以打开桌面的Eclipse轻松求解这个题目。</p>
+<pre><code class="lang-java">import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.Scanner;
+
+public class BigDecimalLearning {
+    public static void main(String[] args) {
+        BigDecimal res = new BigDecimal(1); // 没有 new BigDecimal(BigDecimal.ONE); 这种构造方法
+        for(int i=0;i&lt;100;i++) {
+            res = res.add(BigDecimal.ONE);
+            res = BigDecimal.ONE.divide(res,105,BigDecimal.ROUND_HALF_UP);
+        }
+        String str = res.toString().substring(2, 102);
+        System.out.println(str);
+//        System.out.println(str.length());
+    }
+}
+</code></pre>
+<p>结果：</p>
+<pre><code class="lang-java">6180339887498948482045868343656381177203096998094118264936291294152016354093729191617385189497190563
+</code></pre>
+<p><br></p>
+<h2 id="简单介绍一下BigDecimal"><a href="#简单介绍一下BigDecimal" class="headerlink" title="简单介绍一下BigDecimal"></a>简单介绍一下BigDecimal</h2><p>Java在java.math包中提供了BigDecimal类，用来对超过16位有效位的数进行精确的运算。双精度浮点型变量double可以处理16位有效数。在实际应用中，需要对更大或者更小的数进行运算和处理。float和double只能用来做科学计算或者是工程计算，在商业计算中要用java.math.BigDecimal。<br>常用方法如下：</p>
+<pre><code class="lang-java">BigDecimal b1 = new BigDecimal(&quot;20&quot;);
+BigDecimal b2 = new BigDecimal(&quot;30&quot;);
+b1.add(b2)          //加法，求两个BigDecimal类型数据的和。
+b1.subtract(b2);     //减法，求两个BigDecimal类型数据的差。
+b1.multiply(b2);     //乘法，求两个BigDecimal类型数据的积。
+b1.remainder(b2);    //求余数，求b1除以b2的余数。
+b1.max(b2);        //最大数，求两个BigDecimal类型数据的最大值
+b1.min(b2);       //最小数，求两个BigDecimal类型数据的最小值。
+bi.abs();      //绝对值，求BigDecimal类型数据的绝对值。
+b1.negate();    //相反数，求BigDecimal类型数据的相反数。
+</code></pre>
+]]></content>
+      <categories>
+        <category>蓝桥杯</category>
+      </categories>
+      <tags>
+        <tag>蓝桥杯</tag>
+        <tag>BigDecimal</tag>
       </tags>
   </entry>
   <entry>
@@ -2607,8 +2607,8 @@ int main()
 </blockquote>
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>我也是过早的考虑了代码复用，没有注意到格式的问题。<br>注意题目：<strong>结果的格式顺序输出2个复数的和、差、积、商，数字精确到小数点后1位。如果结果的实部或者虚部为0，则不输出。如果结果为0，则输出0.0。</strong><br>等式左边输出时要保留小数点后一位，等式右边计算结果，如果实部或者虚部为0，则不输出。如果结果为0，则输出0.0。<br>参考：</p>
 <ul>
-<li><a href="https://lightdream.xyz/complexCalc.html" target="_blank" rel="noopener">7-36 复数四则运算</a></li>
-<li><a href="https://github.com/lightingmoon/BlogResourceCode/blob/master/%E5%A4%8D%E6%95%B0%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97/complexCalc.cpp" target="_blank" rel="noopener">code</a></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9saWdodGRyZWFtLnh5ei9jb21wbGV4Q2FsYy5odG1s">7-36 复数四则运算<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2xpZ2h0aW5nbW9vbi9CbG9nUmVzb3VyY2VDb2RlL2Jsb2IvbWFzdGVyLyVFNSVBNCU4RCVFNiU5NSVCMCVFNSU5QiU5QiVFNSU4OCU5OSVFOCVCRiU5MCVFNyVBRSU5Ny9jb21wbGV4Q2FsYy5jcHA=">code<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;string.h&gt;
@@ -2659,7 +2659,7 @@ int main(){
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>希望你还有诗和远方。</p>
 <hr>
 <p><br></p>
-<h2 id="传送门：-第-161-场周赛"><a href="#传送门：-第-161-场周赛" class="headerlink" title="传送门： 第 161 场周赛"></a>传送门： <a href="https://leetcode-cn.com/contest/weekly-contest-161" target="_blank" rel="noopener">第 161 场周赛</a></h2><h2 id="交换字符使得字符串相同"><a href="#交换字符使得字符串相同" class="headerlink" title="交换字符使得字符串相同"></a>交换字符使得字符串相同</h2><p>有两个长度相同的字符串 s1 和 s2，且它们其中 只含有 字符 “x” 和 “y”，你需要通过「交换字符」的方式使这两个字符串相同。<br>每次「交换字符」的时候，你都可以在两个字符串中各选一个字符进行交换。<br>交换只能发生在两个不同的字符串之间，绝对不能发生在同一个字符串内部。也就是说，我们可以交换 s1[i] 和 s2[j]，但不能交换 s1[i] 和 s1[j]。最后，请你返回使 s1 和 s2 相同的最小交换次数，如果没有方法能够使得这两个字符串相同，则返回 -1 。<br>示例：</p>
+<h2 id="传送门：-第-161-场周赛"><a href="#传送门：-第-161-场周赛" class="headerlink" title="传送门： 第 161 场周赛"></a>传送门： <span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vY29udGVzdC93ZWVrbHktY29udGVzdC0xNjE=">第 161 场周赛<i class="fa fa-external-link-alt"></i></span></h2><h2 id="交换字符使得字符串相同"><a href="#交换字符使得字符串相同" class="headerlink" title="交换字符使得字符串相同"></a>交换字符使得字符串相同</h2><p>有两个长度相同的字符串 s1 和 s2，且它们其中 只含有 字符 “x” 和 “y”，你需要通过「交换字符」的方式使这两个字符串相同。<br>每次「交换字符」的时候，你都可以在两个字符串中各选一个字符进行交换。<br>交换只能发生在两个不同的字符串之间，绝对不能发生在同一个字符串内部。也就是说，我们可以交换 s1[i] 和 s2[j]，但不能交换 s1[i] 和 s1[j]。最后，请你返回使 s1 和 s2 相同的最小交换次数，如果没有方法能够使得这两个字符串相同，则返回 -1 。<br>示例：</p>
 <blockquote>
 <p>输入：s1 = “xx”, s2 = “yy”<br>输出：1<br>解释：<br>交换 s1[0] 和 s2[1]，得到 s1 = “yx”，s2 = “yx”。</p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>通过找规律可以发现，只有s1 = “xx”，s2 = “yy”或者s1 = “xy”, s2 = “yx”这两种情况，分别需要的交换次数为1和2，那只需要统计两个字符串里面有多少个这样的组合。</p>
@@ -2700,7 +2700,7 @@ public:
 <blockquote>
 <p>输入：nums = [1,1,2,1,1], k = 3<br>输出：2<br>解释：包含 3 个奇数的子数组是 [1,1,2,1] 和 [1,2,1,1] 。</p>
 </blockquote>
-<h2 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h2><p>暴力会超时。<br>主要还是做一个数组，统计从第一个元素开始到现在奇数的个数。然后使用upper_bound 和 lower_bound<br>更多解法请参考：<a href="https://leetcode.com/problems/count-number-of-nice-subarrays/discuss/?currentPage=1&amp;orderBy=hot&amp;query=" target="_blank" rel="noopener">1248. Count Number of Nice Subarrays</a></p>
+<h2 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h2><p>暴力会超时。<br>主要还是做一个数组，统计从第一个元素开始到现在奇数的个数。然后使用upper_bound 和 lower_bound<br>更多解法请参考：<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvY291bnQtbnVtYmVyLW9mLW5pY2Utc3ViYXJyYXlzL2Rpc2N1c3MvP2N1cnJlbnRQYWdlPTEmYW1wO29yZGVyQnk9aG90JmFtcDtxdWVyeT0=">1248. Count Number of Nice Subarrays<i class="fa fa-external-link-alt"></i></span></p>
 <h2 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">#define rep(i,m,n) for(int i=m;i&lt;n;i++)
 class Solution {
 public:
@@ -2948,7 +2948,7 @@ int main(){
   <entry>
     <title>LeetCodeWeeklyContest-160</title>
     <url>/2019/10/27/2019-10-27-leetcodeweeklycontest-160/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="题目传送门"><a href="#题目传送门" class="headerlink" title="题目传送门"></a><a href="https://leetcode-cn.com/contest/weekly-contest-160/problems/find-positive-integer-solution-for-a-given-equation/" target="_blank" rel="noopener">题目传送门</a></h2><h2 id="找出给定方程的正整数解"><a href="#找出给定方程的正整数解" class="headerlink" title="找出给定方程的正整数解"></a>找出给定方程的正整数解</h2><p>签到题的新包装，我没有玩过的船新版本。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="题目传送门"><a href="#题目传送门" class="headerlink" title="题目传送门"></a><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vY29udGVzdC93ZWVrbHktY29udGVzdC0xNjAvcHJvYmxlbXMvZmluZC1wb3NpdGl2ZS1pbnRlZ2VyLXNvbHV0aW9uLWZvci1hLWdpdmVuLWVxdWF0aW9uLw==">题目传送门<i class="fa fa-external-link-alt"></i></span></h2><h2 id="找出给定方程的正整数解"><a href="#找出给定方程的正整数解" class="headerlink" title="找出给定方程的正整数解"></a>找出给定方程的正整数解</h2><p>签到题的新包装，我没有玩过的船新版本。</p>
 <pre><code class="lang-cpp">class Solution {
 public:
     vector&lt;vector&lt;int&gt;&gt; findSolution(CustomFunction&amp; c, int z) {
@@ -2984,8 +2984,8 @@ public:
 </ul>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>参考：</p>
 <ul>
-<li><a href="https://leetcode.com/problems/circular-permutation-in-binary-representation/discuss/414203/JavaC++Python-4-line-Gray-Code" target="_blank" rel="noopener">[Java/C++/Python] 4-line Gray Code</a></li>
-<li><a href="https://cp-algorithms.com/algebra/gray-code.html" target="_blank" rel="noopener">Gray code</a></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvY2lyY3VsYXItcGVybXV0YXRpb24taW4tYmluYXJ5LXJlcHJlc2VudGF0aW9uL2Rpc2N1c3MvNDE0MjAzL0phdmFDKytQeXRob24tNC1saW5lLUdyYXktQ29kZQ==">[Java/C++/Python] 4-line Gray Code<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9jcC1hbGdvcml0aG1zLmNvbS9hbGdlYnJhL2dyYXktY29kZS5odG1s">Gray code<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <p>其实就是格雷码。<br>使用位运算操作</p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">vector&lt;int&gt; circularPermutation(int n, int start) {
@@ -3094,8 +3094,8 @@ public:
 <h2 id="铺瓷砖"><a href="#铺瓷砖" class="headerlink" title="铺瓷砖"></a>铺瓷砖</h2><p>你是一位施工队的工长，根据设计师的要求准备为一套设计风格独特的房子进行室内装修。<br>房子的客厅大小为 n x m，为保持极简的风格，需要使用尽可能少的 正方形 瓷砖来铺盖地面。<br>假设正方形瓷砖的规格不限，边长都是整数。<br>请你帮设计师计算一下，最少需要用到多少块方形瓷砖？</p>
 <h2 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h2><p>参考：</p>
 <ul>
-<li><a href="https://www.geeksforgeeks.org/paper-cut-minimum-number-squares-set-2/" target="_blank" rel="noopener">Paper Cut into Minimum Number of Squares | Set 2</a></li>
-<li><a href="https://www.bilibili.com/video/av73579708?from=search&amp;seid=8107473763828762133" target="_blank" rel="noopener">B站视频讲解</a></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZ2Vla3Nmb3JnZWVrcy5vcmcvcGFwZXItY3V0LW1pbmltdW0tbnVtYmVyLXNxdWFyZXMtc2V0LTIv">Paper Cut into Minimum Number of Squares | Set 2<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL2F2NzM1Nzk3MDg/ZnJvbT1zZWFyY2gmYW1wO3NlaWQ9ODEwNzQ3Mzc2MzgyODc2MjEzMw==">B站视频讲解<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <p>基本上还是DFS，其实这个题很像经典的贪心题目，不过那个貌似是是个正方形，而且这个题有个特殊的点，就是当n\==11&amp;&amp;m\==13||n\==13&amp;&amp;m==11 这个时候的结果应该为6。剩下的就是先横切，看需要多少方形瓷砖，然后再纵切，看需要多少方形瓷砖，取横切和纵切的最小值，便是结果。</p>
 <h3 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
@@ -3124,7 +3124,7 @@ public:
 
 };
 </code></pre>
-<p><a href="https://y.qq.com/portal/player.html" target="_blank" rel="noopener">你一人低头在路上… 多向往  多漫长</a></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly95LnFxLmNvbS9wb3J0YWwvcGxheWVyLmh0bWw=">你一人低头在路上… 多向往  多漫长<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <categories>
         <category>leetcode</category>
@@ -3136,7 +3136,7 @@ public:
   <entry>
     <title>格雷码</title>
     <url>/2019/10/27/2019-10-27-ge-lei-ma/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>偶然间发现了一个很好的方法，详见<a href="https://cp-algorithms.com/algebra/gray-code.html" target="_blank" rel="noopener">Gray code</a></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>偶然间发现了一个很好的方法，详见<span class="exturl" data-url="aHR0cHM6Ly9jcC1hbGdvcml0aG1zLmNvbS9hbGdlYnJhL2dyYXktY29kZS5odG1s">Gray code<i class="fa fa-external-link-alt"></i></span></p>
 <p>下面是一个生成以start开始的格雷码的板子，n为二进制位的个数。</p>
 <pre><code class="lang-cpp">vector&lt;int&gt; getGray(int n, int start) {
         vector&lt;int&gt; res; 
@@ -3283,13 +3283,13 @@ public:
 <h2 id="替换子串得到平衡字符串"><a href="#替换子串得到平衡字符串" class="headerlink" title="替换子串得到平衡字符串"></a>替换子串得到平衡字符串</h2><p>有一个只含有 ‘Q’, ‘W’, ‘E’, ‘R’ 四种字符，且长度为 n 的字符串。<br>假如在该字符串中，这四个字符都恰好出现 n/4 次，那么它就是一个「平衡字符串」。<br>给你一个这样的字符串 s，请通过「替换子串」的方式，使原字符串 s 变成一个「平衡字符串」。<br>你可以用和「待替换子串」长度相同的 任何 其他字符串来完成替换。<br>请返回待替换子串的最小可能长度。<br>如果原字符串自身就是一个平衡字符串，则返回 0。</p>
 <h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>参考：</p>
 <ul>
-<li><a href="https://www.youtube.com/watch?v=omnSO-CSFIs" target="_blank" rel="noopener"> lee215 的视频讲解</a></li>
-<li><a href="https://leetcode.com/problems/replace-the-substring-for-balanced-string/discuss/408978/JavaC++Python-Sliding-Window" target="_blank" rel="noopener">[Java/C++/Python] Sliding Window</a></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1vbW5TTy1DU0ZJcw=="> lee215 的视频讲解<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvcmVwbGFjZS10aGUtc3Vic3RyaW5nLWZvci1iYWxhbmNlZC1zdHJpbmcvZGlzY3Vzcy80MDg5NzgvSmF2YUMrK1B5dGhvbi1TbGlkaW5nLVdpbmRvdw==">[Java/C++/Python] Sliding Window<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <p>我觉得题目需要重新阅读并理解一下，<strong>题目的意思是在给出的序列中找一个子串，只需要修改这个子串的字符就可以使得这个字符串变为平衡字符串，求这个子串的最小长度。</strong></p>
 <p>思路是lee215 这位大牛的，上面的参考一个是他的视频讲解，另一个是他写的题解。<br>下面写一下他的思路：<br>首先扫描一下字符串，把W、E、R、Q这四个字符的个数记录下来，使用<strong>滑动窗口</strong>的思想，从下标0开始，扫描字符串，只考虑滑动窗口以外的字符，不考虑滑动窗口内的字符，滑动窗口外的W、E、R、Q这四个字符的个数，如果字符个数小于等于n/4，则说明改滑动窗口所在的区间越正确，也即滑动窗口内的字符是多余的并需要被修改的，然后找到这个滑动窗口长度的最小值即可。</p>
 <p>当然这个算法是O(n)的，代码很简介，或许是全网最短，也或许最难懂。</p>
-<p>更多题解可以参考 leetcode英文社区下关于这道题的讨论。<a href="https://leetcode.com/problems/replace-the-substring-for-balanced-string/discuss/?currentPage=1&amp;orderBy=hot&amp;query=" target="_blank" rel="noopener">1234. Replace the Substring for Balanced String</a></p>
+<p>更多题解可以参考 leetcode英文社区下关于这道题的讨论。<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvcmVwbGFjZS10aGUtc3Vic3RyaW5nLWZvci1iYWxhbmNlZC1zdHJpbmcvZGlzY3Vzcy8/Y3VycmVudFBhZ2U9MSZhbXA7b3JkZXJCeT1ob3QmYW1wO3F1ZXJ5PQ==">1234. Replace the Substring for Balanced String<i class="fa fa-external-link-alt"></i></span></p>
 <h3 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
 public:
     int balancedString(string s) {
@@ -3313,8 +3313,8 @@ public:
 <h2 id="规划兼职工作"><a href="#规划兼职工作" class="headerlink" title="规划兼职工作"></a>规划兼职工作</h2><p>你打算利用空闲时间来做兼职工作赚些零花钱。<br>这里有 n 份兼职工作，每份工作预计从 startTime[i] 开始到 endTime[i] 结束，报酬为 profit[i]。<br>给你一份兼职工作表，包含开始时间 startTime，结束时间 endTime 和预计报酬 profit 三个数组，请你计算并返回可以获得的最大报酬。<br>注意，时间上出现重叠的 2 份工作不能同时进行。<br>如果你选择的工作在时间 X 结束，那么你可以立刻进行在时间 X 开始的下一份工作。</p>
 <h3 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h3><p>参考：</p>
 <ul>
-<li><a href="https://leetcode.com/problems/maximum-profit-in-job-scheduling/discuss/409009/JavaC++Python-DP-Solution" target="_blank" rel="noopener">[Java/C++/Python] DP Solution</a> </li>
-<li><a href="https://www.youtube.com/watch?v=omnSO-CSFIs" target="_blank" rel="noopener"> lee215 的视频讲解</a></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvbWF4aW11bS1wcm9maXQtaW4tam9iLXNjaGVkdWxpbmcvZGlzY3Vzcy80MDkwMDkvSmF2YUMrK1B5dGhvbi1EUC1Tb2x1dGlvbg==">[Java/C++/Python] DP Solution<i class="fa fa-external-link-alt"></i></span> </li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1vbW5TTy1DU0ZJcw=="> lee215 的视频讲解<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <p>再开辟一块空间，把endTime[i],startTime[i],profit[i] 一起存放进去，按照结束时间排序。<br>然后进行动态规划，使用map，其中dp[i]表示从0到i时间段内的收益，i为结束时间，迭代过程是在dp中找到开始时间大于每次的startTime的结束时间的前一个，也就是小于startTime的最大的endTime,然后与当前的收益相加，最后map的最后一个就是答案。（其实这里有很多细节需要仔细钻研一下，比如之前就踩过的坑，涉及到了map的存储结构等)</p>
 <h3 id="实现一"><a href="#实现一" class="headerlink" title="实现一"></a>实现一</h3><pre><code class="lang-cpp">class Solution {
@@ -3340,9 +3340,9 @@ public:
 </code></pre>
 <h2 id="思路二"><a href="#思路二" class="headerlink" title="思路二"></a>思路二</h2><p>参考：</p>
 <ul>
-<li><a href="https://leetcode.com/problems/maximum-profit-in-job-scheduling/discuss/409031/C++-Sort-and-DP-O%28NlogN%29" target="_blank" rel="noopener">[C++]  Sort and DP, O(NlogN)</a><br><br>不去重新分配存储空间去存储starttime、endTime、profit，只需要新建一个索引数组，自定义排序规则，按照结束时间排序。然后还定义了一个匿名函数，返回在endTime在startTime[i]之前的索引。<br>然后就是动态规划，dp[i]表示在i时刻及以前所获得的最大收益，cur为当前时刻可以获得的收益。<br>dp[i] = max(dp[i-1],cur)，最后dp[n-1]便是答案。</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvbWF4aW11bS1wcm9maXQtaW4tam9iLXNjaGVkdWxpbmcvZGlzY3Vzcy80MDkwMzEvQysrLVNvcnQtYW5kLURQLU8lMjhObG9nTiUyOQ==">[C++]  Sort and DP, O(NlogN)<i class="fa fa-external-link-alt"></i></span><br><br>不去重新分配存储空间去存储starttime、endTime、profit，只需要新建一个索引数组，自定义排序规则，按照结束时间排序。然后还定义了一个匿名函数，返回在endTime在startTime[i]之前的索引。<br>然后就是动态规划，dp[i]表示在i时刻及以前所获得的最大收益，cur为当前时刻可以获得的收益。<br>dp[i] = max(dp[i-1],cur)，最后dp[n-1]便是答案。</li>
 </ul>
-<p>更多题解可以参考 leetcode英文社区下关于这道题的讨论。<a href="https://leetcode.com/problems/maximum-profit-in-job-scheduling/discuss/?currentPage=1&amp;orderBy=hot&amp;query=" target="_blank" rel="noopener">1235. Maximum Profit in Job Scheduling</a></p>
+<p>更多题解可以参考 leetcode英文社区下关于这道题的讨论。<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvbWF4aW11bS1wcm9maXQtaW4tam9iLXNjaGVkdWxpbmcvZGlzY3Vzcy8/Y3VycmVudFBhZ2U9MSZhbXA7b3JkZXJCeT1ob3QmYW1wO3F1ZXJ5PQ==">1235. Maximum Profit in Job Scheduling<i class="fa fa-external-link-alt"></i></span></p>
 <h3 id="实现二"><a href="#实现二" class="headerlink" title="实现二"></a>实现二</h3><pre><code class="lang-cpp">class Solution {
 public:
     int jobScheduling(vector&lt;int&gt;&amp; startTime, vector&lt;int&gt;&amp; endTime, vector&lt;int&gt;&amp; profit) {
@@ -3459,7 +3459,7 @@ vector&lt;char&gt; longestCommonSubsequence(string s1, string s2) {
     return subs;
 }
 </code></pre>
-<p>来道板子题试试：<a href="https://leetcode-cn.com/problems/longest-common-subsequence/submissions/" target="_blank" rel="noopener">1143. 最长公共子序列</a></p>
+<p>来道板子题试试：<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vcHJvYmxlbXMvbG9uZ2VzdC1jb21tb24tc3Vic2VxdWVuY2Uvc3VibWlzc2lvbnMv">1143. 最长公共子序列<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <categories>
         <category>动态规划</category>
@@ -3472,7 +3472,7 @@ vector&lt;char&gt; longestCommonSubsequence(string s1, string s2) {
     <title>LeetCodeWeeklyContest-158</title>
     <url>/2019/10/13/2019-10-13-leetcodeweeklycontest-158/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>戒骄戒躁，勇往直前。<br><br></p>
-<h2 id="传送门：第-158-场周赛"><a href="#传送门：第-158-场周赛" class="headerlink" title="传送门：第 158 场周赛"></a>传送门：<a href="https://leetcode-cn.com/contest/weekly-contest-158" target="_blank" rel="noopener">第 158 场周赛</a></h2><h2 id="分割平衡字符串"><a href="#分割平衡字符串" class="headerlink" title="分割平衡字符串"></a>分割平衡字符串</h2><p>在一个「平衡字符串」中，’L’ 和 ‘R’ 字符的数量是相同的。<br>给出一个平衡字符串 s，请你将它分割成尽可能多的平衡字符串。<br>返回可以通过分割得到的平衡字符串的最大数量。<br>输入：s = “RLRRLLRLRL”<br>输出：4<br>解释：s 可以分割为 “RL”, “RRLL”, “RL”, “RL”, 每个子字符串中都包含相同数量的 ‘L’ 和 ‘R’。</p>
+<h2 id="传送门：第-158-场周赛"><a href="#传送门：第-158-场周赛" class="headerlink" title="传送门：第 158 场周赛"></a>传送门：<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vY29udGVzdC93ZWVrbHktY29udGVzdC0xNTg=">第 158 场周赛<i class="fa fa-external-link-alt"></i></span></h2><h2 id="分割平衡字符串"><a href="#分割平衡字符串" class="headerlink" title="分割平衡字符串"></a>分割平衡字符串</h2><p>在一个「平衡字符串」中，’L’ 和 ‘R’ 字符的数量是相同的。<br>给出一个平衡字符串 s，请你将它分割成尽可能多的平衡字符串。<br>返回可以通过分割得到的平衡字符串的最大数量。<br>输入：s = “RLRRLLRLRL”<br>输出：4<br>解释：s 可以分割为 “RL”, “RRLL”, “RL”, “RL”, 每个子字符串中都包含相同数量的 ‘L’ 和 ‘R’。</p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>用两个数组记录当前出现的R和L的次数，进行比对相等则cnt+1。</p>
 <h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
 public:
@@ -3521,7 +3521,7 @@ public:
 };
 </code></pre>
 <h2 id="掷骰子模拟"><a href="#掷骰子模拟" class="headerlink" title="掷骰子模拟"></a>掷骰子模拟</h2><p>有一个骰子模拟器会每次投掷的时候生成一个 1 到 6 的随机数。<br>不过我们在使用它时有个约束，就是使得投掷骰子时，连续 掷出数字 i 的次数不能超过 rollMax[i]（i 从 1 开始编号）。<br>现在，给你一个整数数组 rollMax 和一个整数 n，请你来计算掷 n 次骰子可得到的不同点数序列的数量。<br>假如两个序列中至少存在一个元素不同，就认为这两个序列是不同的。由于答案可能很大，所以请返回 模 10^9 + 7 之后的结果。</p>
-<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><p>请参考<a href="https://leetcode.com/problems/dice-roll-simulation/discuss/403736/ChineseC++-1223." target="_blank" rel="noopener"> [Chinese/C++] 1223. 【动态规划】有限制的掷骰子（详解）</a></p>
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><p>请参考<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvZGljZS1yb2xsLXNpbXVsYXRpb24vZGlzY3Vzcy80MDM3MzYvQ2hpbmVzZUMrKy0xMjIzLg=="> [Chinese/C++] 1223. 【动态规划】有限制的掷骰子（详解）<i class="fa fa-external-link-alt"></i></span></p>
 <h3 id="实现1"><a href="#实现1" class="headerlink" title="实现1"></a>实现1</h3><pre><code class="lang-cpp">class Solution{
     vector&lt;int&gt; rollMax ;
     typedef long long ll;
@@ -3584,8 +3584,8 @@ public:
 <h2 id="最大相等频率"><a href="#最大相等频率" class="headerlink" title="最大相等频率"></a>最大相等频率</h2><p>给出一个正整数数组 nums，请你帮忙从该数组中找出能满足下面要求的 最长 前缀，并返回其长度：<br>从前缀中 删除一个 元素后，使得所剩下的每个数字的出现次数相同。<br>如果删除这个元素后没有剩余元素存在，仍可认为每个数字都具有相同的出现次数（也就是 0 次）。<br>举个例子<br>输入：nums = [2,2,1,1,5,3,3,5]<br>输出：7<br>解释：对于长度为 7 的子数组 [2,2,1,1,5,3,3]，如果我们从中删去 nums[4]=5，就可以得到[2,2,1,1,3,3]，里面每个数字都出现了两次。</p>
 <h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>参考题解：</p>
 <ul>
-<li><a href="https://leetcode.com/problems/maximum-equal-frequency/discuss/403779/ChineseC++-.-O%28N%29" target="_blank" rel="noopener">Chinese/C++ ] 1224. 【统计】最大相等频率，详解，O(N)</a></li>
-<li><a href="https://leetcode.com/problems/maximum-equal-frequency/discuss/403678/C++O%28n%29consider-for-four-situations" target="_blank" rel="noopener">C++,O(n),consider for four situations</a></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvbWF4aW11bS1lcXVhbC1mcmVxdWVuY3kvZGlzY3Vzcy80MDM3NzkvQ2hpbmVzZUMrKy0uLU8lMjhOJTI5">Chinese/C++ ] 1224. 【统计】最大相等频率，详解，O(N)<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvbWF4aW11bS1lcXVhbC1mcmVxdWVuY3kvZGlzY3Vzcy80MDM2NzgvQysrTyUyOG4lMjljb25zaWRlci1mb3ItZm91ci1zaXR1YXRpb25z">C++,O(n),consider for four situations<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <p>打两次表，cnt表是用来记录每种数字出现的次数，freq表记录每个次数出现的频率，其中需要考虑四种情况。</p>
 <ol>
@@ -3629,7 +3629,7 @@ public:
     <title>LeetCodeWeeklyContest-157</title>
     <url>/2019/10/07/2019-10-7-leetcodeweeklycontest-157/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>秋意寂寥，国庆假期归来，”百废待兴”。<br>路漫漫其修远兮，吾将上下而求索。</p>
-<h2 id="题目传送"><a href="#题目传送" class="headerlink" title="题目传送"></a><a href="https://leetcode-cn.com/contest/weekly-contest-157/" target="_blank" rel="noopener">题目传送</a></h2><h2 id="玩筹码"><a href="#玩筹码" class="headerlink" title="玩筹码"></a>玩筹码</h2><p>数轴上放置了一些筹码，每个筹码的位置存在数组 chips 当中。<br>你可以对 任何筹码 执行下面两种操作之一（不限操作次数，0 次也可以）：<br>将第 i 个筹码向左或者右移动 2 个单位，代价为 0。<br>将第 i 个筹码向左或者右移动 1 个单位，代价为 1。<br>最开始的时候，同一位置上也可能放着两个或者更多的筹码。<br>返回将所有筹码移动到同一位置（任意位置）上所需要的最小代价。</p>
+<h2 id="题目传送"><a href="#题目传送" class="headerlink" title="题目传送"></a><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vY29udGVzdC93ZWVrbHktY29udGVzdC0xNTcv">题目传送<i class="fa fa-external-link-alt"></i></span></h2><h2 id="玩筹码"><a href="#玩筹码" class="headerlink" title="玩筹码"></a>玩筹码</h2><p>数轴上放置了一些筹码，每个筹码的位置存在数组 chips 当中。<br>你可以对 任何筹码 执行下面两种操作之一（不限操作次数，0 次也可以）：<br>将第 i 个筹码向左或者右移动 2 个单位，代价为 0。<br>将第 i 个筹码向左或者右移动 1 个单位，代价为 1。<br>最开始的时候，同一位置上也可能放着两个或者更多的筹码。<br>返回将所有筹码移动到同一位置（任意位置）上所需要的最小代价。</p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>做的时候看了半天，不会写，后来发现题目理解错了，chips上存放的是筹码的位置，偶数位置跳到偶数位置代价为0，偶数位置跳到奇数位置代价为1，奇数位置跳到奇数位置代价为0，奇数位置跳到偶数位置代价为1，假设奇数位置的筹码数量为 evenN，偶数位置的筹码数量为 oldN，最小代价即为 min(evenN,oldN)</p>
 <h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">int minCostToMoveChips(vector&lt;int&gt;&amp; chips) {
         int even=0,odd=0;
@@ -3858,9 +3858,39 @@ public:
       </tags>
   </entry>
   <entry>
+    <title>修改Jupyter Notebook的默认存储路径</title>
+    <url>/2019/10/02/2019-10-2-xiu-gai-jupyter-notebook-de-mo-ren-cun-chu-lu-jing/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>最近在复现数据分析，发现JupyterNotebook默认存储路径在C盘 /user/.jupyter里面<br>想改一下默认存储路径。</p>
+<h2 id="step1"><a href="#step1" class="headerlink" title="step1"></a>step1</h2><p>进入Anaconda安装路径，一般来说都是 <em>*</em>/Anaconda3/Scripts，比如我的就是在 E:\Python\Anaconda\INSTALL\Scripts这个路径下，在cmd中将路径转到该路径下，这样替换代码如下，其中路径替换成自己的。</p>
+<pre><code class="lang-bash">&gt;&gt; cd E:\Python\Anaconda\INSTALL\Scripts
+&gt;&gt; e:
+</code></pre>
+<h2 id="step2"><a href="#step2" class="headerlink" title="step2"></a>step2</h2><p>在cmd中输入命令：</p>
+<pre><code class="lang-bash">jupyter notebook --generate-config
+</code></pre>
+<p>然后就会在C盘用户路径（例如我的路径是：C:\Users\三寸旧城七寸执念\.jupyter）下生成jupyter_notebook_config.py文件，使用文本编辑器（VS Code等）打开该文件。</p>
+<h2 id="step3"><a href="#step3" class="headerlink" title="step3"></a>step3</h2><p>定位到第246行</p>
+<pre><code class="lang-bash">#c.NotebookApp.notebook_dir = &#39;&#39;
+</code></pre>
+<p>替换为</p>
+<pre><code class="lang-bash">c.NotebookApp.notebook_dir = &#39;E:/CodeCache/JupyterNotebook&#39;
+</code></pre>
+<h2 id="step4"><a href="#step4" class="headerlink" title="step4"></a>step4</h2><p>右击JupyterNotebook的快捷方式点击属性，将目标那一栏里的%USERPROFILE%删掉，应该就可以了。</p>
+<p>重启Jupyter Notebook。</p>
+<p>另外，需要给Jupyter NoteBook 换主题，换字体，字号，以及代码自动补全<br>可参考<br><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0plcnJ5X3h6ai9hcnRpY2xlL2RldGFpbHMvODk5MzExNjU=">使用 Jupyter Themes 修改 Jupyter Notebook 的主题、字体、字号<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2F6OTk5Ni9hcnRpY2xlL2RldGFpbHMvODg2MjEwMjgjXzI0">Jupyter Notebook 更换主题、设置字体(jupyterthemes的使用)、代码自动补全、变更工作目录（默认目录）<i class="fa fa-external-link-alt"></i></span></p>
+<p>其实个人觉得貌似也没有好看的字体，传说中的Consolas字体貌似也不支持，主题换来换去其实还不如最初的默认的。其实个人觉得比较有用的还是代码补全。<br>另外，需要注意里面的命令行是在 Anaconda Prompt输入的，而非cmd。</p>
+]]></content>
+      <categories>
+        <category>Python3</category>
+      </categories>
+      <tags>
+        <tag>JupyterNotebook</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCodeWeeklyContest-156</title>
     <url>/2019/10/02/2019-10-2-leetcodeweeklycontest-156/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="https://leetcode-cn.com/contest/weekly-contest-156/" target="_blank" rel="noopener">题目传送</a><br>写题解就像写博客一样真的有好处，尽管会多花点时间。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vY29udGVzdC93ZWVrbHktY29udGVzdC0xNTYv">题目传送<i class="fa fa-external-link-alt"></i></span><br>写题解就像写博客一样真的有好处，尽管会多花点时间。</p>
 <h2 id="1-、独一无二的出现次数"><a href="#1-、独一无二的出现次数" class="headerlink" title="1 、独一无二的出现次数"></a>1 、独一无二的出现次数</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><p>给你一个整数数组 arr，请你帮忙统计数组中每个数的出现次数。<br>如果每个数的出现次数都是独一无二的，就返回 true；否则返回 false。</p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>统计出现次数，然后排序。有相同的为false，否则为true。</p>
 <h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-c"> bool uniqueOccurrences(vector&lt;int&gt;&amp; arr) {
@@ -4025,36 +4055,6 @@ string removeDuplicates(string s, int k) {
       </categories>
       <tags>
         <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>修改Jupyter Notebook的默认存储路径</title>
-    <url>/2019/10/02/2019-10-2-xiu-gai-jupyter-notebook-de-mo-ren-cun-chu-lu-jing/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>最近在复现数据分析，发现JupyterNotebook默认存储路径在C盘 /user/.jupyter里面<br>想改一下默认存储路径。</p>
-<h2 id="step1"><a href="#step1" class="headerlink" title="step1"></a>step1</h2><p>进入Anaconda安装路径，一般来说都是 <em>*</em>/Anaconda3/Scripts，比如我的就是在 E:\Python\Anaconda\INSTALL\Scripts这个路径下，在cmd中将路径转到该路径下，这样替换代码如下，其中路径替换成自己的。</p>
-<pre><code class="lang-bash">&gt;&gt; cd E:\Python\Anaconda\INSTALL\Scripts
-&gt;&gt; e:
-</code></pre>
-<h2 id="step2"><a href="#step2" class="headerlink" title="step2"></a>step2</h2><p>在cmd中输入命令：</p>
-<pre><code class="lang-bash">jupyter notebook --generate-config
-</code></pre>
-<p>然后就会在C盘用户路径（例如我的路径是：C:\Users\三寸旧城七寸执念\.jupyter）下生成jupyter_notebook_config.py文件，使用文本编辑器（VS Code等）打开该文件。</p>
-<h2 id="step3"><a href="#step3" class="headerlink" title="step3"></a>step3</h2><p>定位到第246行</p>
-<pre><code class="lang-bash">#c.NotebookApp.notebook_dir = &#39;&#39;
-</code></pre>
-<p>替换为</p>
-<pre><code class="lang-bash">c.NotebookApp.notebook_dir = &#39;E:/CodeCache/JupyterNotebook&#39;
-</code></pre>
-<h2 id="step4"><a href="#step4" class="headerlink" title="step4"></a>step4</h2><p>右击JupyterNotebook的快捷方式点击属性，将目标那一栏里的%USERPROFILE%删掉，应该就可以了。</p>
-<p>重启Jupyter Notebook。</p>
-<p>另外，需要给Jupyter NoteBook 换主题，换字体，字号，以及代码自动补全<br>可参考<br><a href="https://blog.csdn.net/Jerry_xzj/article/details/89931165" target="_blank" rel="noopener">使用 Jupyter Themes 修改 Jupyter Notebook 的主题、字体、字号</a><br><a href="https://blog.csdn.net/az9996/article/details/88621028#_24" target="_blank" rel="noopener">Jupyter Notebook 更换主题、设置字体(jupyterthemes的使用)、代码自动补全、变更工作目录（默认目录）</a></p>
-<p>其实个人觉得貌似也没有好看的字体，传说中的Consolas字体貌似也不支持，主题换来换去其实还不如最初的默认的。其实个人觉得比较有用的还是代码补全。<br>另外，需要注意里面的命令行是在 Anaconda Prompt输入的，而非cmd。</p>
-]]></content>
-      <categories>
-        <category>Python3</category>
-      </categories>
-      <tags>
-        <tag>JupyterNotebook</tag>
       </tags>
   </entry>
   <entry>
@@ -4404,13 +4404,33 @@ int main()
       </tags>
   </entry>
   <entry>
+    <title>联想Y7000装Ubuntu双系统路上的坑</title>
+    <url>/2019/09/22/2019-09-22-lian-xiang-y7000-zhuang-ubuntu-shuang-xi-tong-lu-shang-de-keng/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>三言两语道不尽心酸，一句两句说不尽心酸</strong><br>一个Ubuntu装了2天，装的无比心酸<br><br>一直报ACPI错误，后来加上nomodeset才搞定<br><br>后来专门搜了一下联想Y7000装Ubuntu的教程<br><br>才知道这是联想显卡的问题。<br><br>而且最好装Ubuntu 16.04.5<br></p>
+<p>下面是一些参考文章：<br><br><span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9lYjQwOGJmZGQ4NzM=">关于在联想Y7000上安装ubuntu和win10双系统的卡死坑<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMxNzA3Mjc1L2FydGljbGUvZGV0YWlscy84MjcwOTEzMw==">y7000安装ubuntu和一些小tips<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0Rpc2NvdmVyaGZ1Yi9hcnRpY2xlL2RldGFpbHMvNzk3MTkyMDg=">ubuntu 添加中文拼音输入法<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dhbmdndWNoYW8vYXJ0aWNsZS9kZXRhaWxzLzgyMTUxMzcy">Ubuntu16.04系统查看已安装的python版本，及其配置<i class="fa fa-external-link-alt"></i></span></p>
+<p>其实装上Ubuntu之后，还有很多事情要做，很多环境要配，显卡要修改，就不一一列出了，主要是前面进入开机界面太艰难了，写篇博客记录下。</p>
+<hr>
+<p>2019年9月30日更新</p>
+<p>windows休眠，没有彻底关闭<br><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2F3YXdmd2Z3L2FydGljbGUvZGV0YWlscy80NjQzNDE2Mw==">Ubuntu 无法访问windows下的磁盘的解决方法<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hhbmRva2luZy9hcnRpY2xlL2RldGFpbHMvNzc1MzAyMzg=">Ubuntu系统打不开windows磁盘文件<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCodeWeeklyContest-155</title>
     <url>/2019/09/22/2019-09-22-leetcodeweeklycontest-155/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
 <p>操千曲而晓声,观千剑而后识器           —— 《文心雕龙》</p>
 </blockquote>
 <p>力扣的周赛自闭了，好久没写了，丢掉的改捡了。</p>
-<h2 id="题目传送"><a href="#题目传送" class="headerlink" title="题目传送"></a><a href="https://leetcode-cn.com/contest/weekly-contest-155/" target="_blank" rel="noopener">题目传送</a></h2><p><strong><a href="https://sinclaircoder.top/2019/09/22/20190922-LeetCodeWeeklyContest-155/" target="_blank" rel="noopener">个人博客同步更新</a></strong></p>
+<h2 id="题目传送"><a href="#题目传送" class="headerlink" title="题目传送"></a><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vY29udGVzdC93ZWVrbHktY29udGVzdC0xNTUv">题目传送<i class="fa fa-external-link-alt"></i></span></h2><p><strong><span class="exturl" data-url="aHR0cHM6Ly9zaW5jbGFpcmNvZGVyLnRvcC8yMDE5LzA5LzIyLzIwMTkwOTIyLUxlZXRDb2RlV2Vla2x5Q29udGVzdC0xNTUv">个人博客同步更新<i class="fa fa-external-link-alt"></i></span></strong></p>
 <h2 id="Problem1-最小绝对差"><a href="#Problem1-最小绝对差" class="headerlink" title="Problem1 最小绝对差"></a>Problem1 最小绝对差</h2><ul>
 <li>难度：Easy<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><blockquote>
 <p>给你个整数数组 arr，其中每个元素都 不相同。<br>请你找到所有具有最小绝对差的元素对，并且按升序的顺序返回。</p>
@@ -4617,23 +4637,96 @@ int main()
       </tags>
   </entry>
   <entry>
-    <title>联想Y7000装Ubuntu双系统路上的坑</title>
-    <url>/2019/09/22/2019-09-22-lian-xiang-y7000-zhuang-ubuntu-shuang-xi-tong-lu-shang-de-keng/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>三言两语道不尽心酸，一句两句说不尽心酸</strong><br>一个Ubuntu装了2天，装的无比心酸<br><br>一直报ACPI错误，后来加上nomodeset才搞定<br><br>后来专门搜了一下联想Y7000装Ubuntu的教程<br><br>才知道这是联想显卡的问题。<br><br>而且最好装Ubuntu 16.04.5<br></p>
-<p>下面是一些参考文章：<br><br><a href="https://www.jianshu.com/p/eb408bfdd873" target="_blank" rel="noopener">关于在联想Y7000上安装ubuntu和win10双系统的卡死坑</a></p>
-<p><a href="https://blog.csdn.net/qq_31707275/article/details/82709133" target="_blank" rel="noopener">y7000安装ubuntu和一些小tips</a></p>
-<p><a href="https://blog.csdn.net/Discoverhfub/article/details/79719208" target="_blank" rel="noopener">ubuntu 添加中文拼音输入法</a></p>
-<p><a href="https://blog.csdn.net/wangguchao/article/details/82151372" target="_blank" rel="noopener">Ubuntu16.04系统查看已安装的python版本，及其配置</a></p>
-<p>其实装上Ubuntu之后，还有很多事情要做，很多环境要配，显卡要修改，就不一一列出了，主要是前面进入开机界面太艰难了，写篇博客记录下。</p>
+    <title>2019数学建模赛后感悟：一次灵魂与肉体的交织&amp;&amp;一次参赛终身收益</title>
+    <url>/2019/09/16/2019-09-16-2019-shu-xue-jian-mo-sai-hou-gan-wu-yi-ci-ling-hun-yu-rou-ti-de-jiao-zhi-yi-ci-can-sai-zhong-shen-shou-yi/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
+<p>一年一度的全国大学生数学建模比赛（CUMCM）已接近尾声…</p>
+</blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9zaW5jbGFpcmNvZGVyLnRvcC8yMDE5LzA5LzE2LzIwMTktMDktMTYtJUU2JTk1JUIwJUU1JUFEJUE2JUU1JUJCJUJBJUU2JUE4JUExJUU5JTlCJTg2JUU4JUFFJUFEJUU3JTlGJUE1JUU4JUFGJTg2JUU3JTgyJUI5Lw==">SinclairWang 个人博客同步更新，欢迎关注<i class="fa fa-external-link-alt"></i></span><br>相信每个参赛者都会有自己的感悟<br>一句恰如其分的描述：<strong>一次灵魂与肉体的交织</strong>。<br>下面是自己的一点感悟与思考。</p>
+<h2 id="赛前"><a href="#赛前" class="headerlink" title="赛前"></a>赛前</h2><ul>
+<li>最初听说，大概是在一年前，决定参加比赛是在今年5月份，暑假有两个选择，要么参加8月份的建模集训，要么实验室打杂，综合考虑了一下，看到培训大纲上的东西，可能对日后专业方向走向有益，遂放弃了锻炼编码能力的时间，毅然决定参加去参加集训。</li>
+<li>集训8月1日份开始，9月5日结束，9月12日比赛开始，9月15日比赛结束。</li>
+<li>一个多月的集训，每天上午8点半到12点，可能下午还要加课，一个老师讲一个专题3天，理学院的老师轮流来，每人一个模块，每三天一个专题，智能计算、统计分析、数值计算、图与网络、模拟仿真、分类与聚类、组合优化、图像处理、历年赛题与优秀论文讲评。</li>
+<li>老师们每天讲课，一个上午动辄上百页PPT，所以这一个月的日常就是上午上课，下午看老师讲的PPT、理解原理和复现程序。CUMCM涉及层面广而多，虽说深度欠缺，但是对于本科生来说，掌握这些知识，也是不易。</li>
+<li>集训的过程，也曾想过放弃，不是畏难，而是有一段时间觉得自己做的可能没有自己想象中的有意义，正如本专业同学那句话 <strong>“或许当初没有选择数学建模，这一个月的时间，可能已经足够可以在专业上走的很远了…”</strong></li>
+<li>我也认同，可是大家还是选择坚持了下来，一直坚持到了最后。</li>
+</ul>
 <hr>
-<p>2019年9月30日更新</p>
-<p>windows休眠，没有彻底关闭<br><a href="https://blog.csdn.net/awawfwfw/article/details/46434163" target="_blank" rel="noopener">Ubuntu 无法访问windows下的磁盘的解决方法</a><br><a href="https://blog.csdn.net/handoking/article/details/77530238" target="_blank" rel="noopener">Ubuntu系统打不开windows磁盘文件</a></p>
+<p> 一场集训下来，我也学到了很多东西，虽不知不觉，却也潜移默化，老师们讲的n个专题，不敢说全部掌握了，但可以说学了个大概，而且学的知识对日后专业方向走向<strong>极其有益</strong>，虽然理论深度掌握不够，但也相当于在自己的方向相关领域，在自己的学习进程上写了一句<em>HelloWorld</em>，其实集训之前本来想着老师们每讲一个专题，就跟着写一篇Blog，事实上，集训时每天的知识都消化不了，更不要说写博客了，这件事仔细想想，也并非完全不能做到，只是决心不够。虽然专题博客没跟上，但是将老师讲的专题总结成思维导图，形成数学建模集训的整个知识框架，这是不难做到的，思维导图是用xmind做的，用markdown文本导出，我放到了博客上，总结了一下建模期间的博客，不算这篇的话，还有一篇关于的图像处理的,当初看图像处理的时候觉得很有意思,就没忍住写了一篇。</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvMTAwODkxNzU3">数学建模集训知识大纲<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvMTAwNjY1NzYx">基于奇异值分解的图像压缩<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<hr>
+<p>除此之外,我也从队友身上学到了很多,我们队人员组成是2<em>计算机专业(一个SE，一个CS)+数学专业。我从队友身上看到了高效,其实一直很想写一篇关于效率与时间管理的文章,不过时间安排上没提上日程,一个人只有把效率提上去,才能做到自己想做的。之前知乎上有篇高赞文章,是讲<em>*人是怎么废掉的</em></em>,没想到其中有一条是瞎忙,除了没方向之外,更重要的是低效率,忙了一天不知道在忙什么,忙了点啥,就好比泡图书馆学习,一泡就是一天,到了晚上应该正确评估白天的效率如何,而不应该单纯陷在因为短暂的长时间学习而产生的自我感动上,只有走出了这个误区才能有所进步。经此,我也有了新的认知。另外,我也认识到了学习方式的不足,也有专业大环境的原因,认真专注听课反倒成为了一个大难题,另外,上课认真听课,下课才能用更少的时间去复习,节省出更多的时间去做自己想做的事情。</p>
+<hr>
+<h2 id="赛中"><a href="#赛中" class="headerlink" title="赛中"></a>赛中</h2><blockquote>
+<p><strong>9月12日</strong></p>
+<p>进驻机房,晚上6点钟放题目,一开始略卡。<br>下载到题目之后,A、B、C任选一题。<br>读题： </p>
+<ul>
+<li>A题精确计算 有一定的专业知识背景，否则题意不好理解 </li>
+<li>B题 物理题目？果断放弃</li>
+<li>C题 开放性题目 只有大概思路，具体思路没有 估计找数据会劝退一拨人</li>
+</ul>
+</blockquote>
+<p>综合评估，我的答案是选C，队友讨论了一晚上A题，但是我给不出说服他们选C题的东西。<br>没过多久，我找到了数据。<br>但是模型没具体思路。<br>晚上11点半回寝室休息</p>
+<p>第二天一早队友们想选C题，其实我内心有点欣喜~<br>然后就开始了建模…<br>建模全靠队友，其中有个神奇的男人，中午小憩都能想到idea，上趟厕所模型都能被改进，回来说“我知道了…应该这样做…”。<br>太神奇了…<br>赛期说好的写论文的队友，最后却在编程，说好了写程序的队友，比赛的时候却开始写起了论文，只有我始终打杂，凭实力打杂。</p>
+<ul>
+<li>“我要的折线图你画了没？”</li>
+<li>“我需要你画个直方图。”</li>
+<li>“决策树画好了没？”</li>
+<li>“给你说个思路，你看能实现吗？#$#%#^*@#”</li>
+<li>“数据处理好了吗？”</li>
+<li>“打点的图发我了没？”</li>
+<li>“附录整理好没？”</li>
+<li>“支撑材料打包了没？”</li>
+</ul>
+<p>终于我成了全队无可替代的凭实力打杂的选手！</p>
+<p>到了最后一天，进度有点慢，14日晚上觉得得通宵了，一夜爆肝，那一晚仿佛大家都没回去，都在通宵做模型，计算，一双双熬红的双眼，其实熬夜或许不是最难的，最难的是建不出模，算不出来。<strong>那晚的月亮格外美，格外的圆。</strong></p>
+<p>那晚队友们几乎都没怎么睡，我凌晨5点撑不住了，睡到了7点多。</p>
+<p>起来，洗把脸，下楼吃了东西，队友们赶进度顾不上了…</p>
+<p>然后就开始了最刺激压力最大的一天</p>
+<p>题目只做了一半，四问只做了两问，晚上8点就要截止了。</p>
+<p>到了中午重新改思路，我编程计算，队友们将思路写到论文，完善前面的部分。</p>
+<p>高压下编程或许是最考验编程能力的…</p>
+<p>到了下午5点半初稿还没出来,还有很多格式要调整，公式要编辑….</p>
+<p>晚上7点40多交了初稿…</p>
+<p>没过多久就到8点了，就剩下最后一次交的机会了…</p>
+<p>终于能略微喘口气了</p>
+<p>但是，还有一次机会，不能放弃</p>
+<p>于是，接着完善，修改摘要，修改正文…</p>
+<p>终于9点39分交上了这最后一次…</p>
+<p>如释重负…</p>
+<p>三个人都笑了…</p>
+<p>欣喜若狂~</p>
+<p>这一天没吃饭，没水喝，压力大，睡眠不足</p>
+<p>但是还是撑了下来，队内也没有发生矛盾，互相理解，合作愉快。</p>
+<p>最后一起等到了10点，把参赛作品交了上去</p>
+<p>然后离开了机房，嘴上都说着“我再也不想听到’数学建模‘这四个字”…</p>
+<blockquote>
+<p>虽然数学建模门槛低，有人说这不是数学建模，是面向写作和美术的建模，最终看的是论文。但是我还是觉得我参加数学建模是一个无比正确的决定，无论结果如何，它教会了很多东西，我学了很多数学知识，也掌握了很多能力，比如快速学习的能力，随便甩给你个200多页PPT，两天内就能看完，让我更加专注，变得更加有毅力和耐心去学习，比赛教给我团队协作的重要性，一个人可以走的很快，但一群人能走的更远，你终究能走多远，可能不只是跟你自己有关系，还跟你身边的人有关系，别人会影响你，会改变你。我觉得或许自己跟顶尖名校的同龄人的差距或许不只是软硬件实力配置的差距，而是身边有没有一群这样的一群人：大家有着共同的想法，热衷眼前的事情，能全身心的投入，走在一起去实现这个想法的路上。这是我思考了很久得出的结论，也是从数学建模中收获的，尽管这有些难以置信。比赛的时候，我看到一群人通宵建模，尽管很累但都还在撑着，就像何凯文说的那样，“你有多久没有认真过了？”<br>感悟喷涌，能写出来的寥寥数语总归显得苍白无力，只要经历过的全身心投入的人总归会懂得。</p>
+<hr>
+</blockquote>
+<h2 id="赛后"><a href="#赛后" class="headerlink" title="赛后"></a>赛后</h2><p>好好休息了一下</p>
+<p>还了借的参考书籍</p>
+<p>今天周一，投入到了新的学习征程中，仿佛又是个崭新的开始。</p>
+<p>哦，对了我还写了一篇参赛感悟，正如你所看到的…</p>
+<h2 id="后来"><a href="#后来" class="headerlink" title="后来"></a>后来</h2><hr>
+<p>2019年9月25日更<br>被抽中答辩，心中自是欣喜万分，同样，无形的压力扑面而来。</p>
+<hr>
+<p>2019年9月28日更<br>答辩结束，无论结果如何，石头落地了，尽人事，听天命，一切终于结束了。</p>
+<p>准备答辩的过程中，听说了一句话叫做</p>
+<blockquote>
+<p>一次参赛，终身收益</p>
+</blockquote>
+<p>后来才知道这是建模组委会的口号，也越发觉得这句话真的很贴切，参赛经历和比赛的魅力或许已经远远超过了奖项本身了，无论是心智，还是毅力，还是个人能力，都得到了很好的锻炼，参赛期间高压下编程、高压下写作和高压下的团队合作对每个参赛选手都是一次很好的磨练。另外，我觉得答辩期间的压力也是不亚于竞赛期间的，压力反而更大，从准备到答辩结束，需要自己重新审视自己的作品，正确认识作品的缺点，勇于承认或许这才是最重要的。<br><br>另外，参加一次省级甚至是国家级别的学术答辩，无论结果如何，这都是很好的锻炼。<br>此时，一个累的打字都快打不动了的蒟蒻，还在拖着疲惫的身躯码着自己的切身体会，一般来说，能写出来的文字总归苍白无力。<br><br>用两句话结个尾吧，给2019CUMCM画上个句号。<br><br><strong>星光不负赶路人，时光不负有心人。</strong><br><strong>一次参赛，终身收益。</strong></p>
 ]]></content>
       <categories>
-        <category>Linux</category>
+        <category>感悟</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
+        <tag>竞赛感悟</tag>
+        <tag>数学建模</tag>
       </tags>
   </entry>
   <entry>
@@ -5149,99 +5242,6 @@ int main()
       </tags>
   </entry>
   <entry>
-    <title>2019数学建模赛后感悟：一次灵魂与肉体的交织&amp;&amp;一次参赛终身收益</title>
-    <url>/2019/09/16/2019-09-16-2019-shu-xue-jian-mo-sai-hou-gan-wu-yi-ci-ling-hun-yu-rou-ti-de-jiao-zhi-yi-ci-can-sai-zhong-shen-shou-yi/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
-<p>一年一度的全国大学生数学建模比赛（CUMCM）已接近尾声…</p>
-</blockquote>
-<p><a href="https://sinclaircoder.top/2019/09/16/2019-09-16-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%9B%86%E8%AE%AD%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">SinclairWang 个人博客同步更新，欢迎关注</a><br>相信每个参赛者都会有自己的感悟<br>一句恰如其分的描述：<strong>一次灵魂与肉体的交织</strong>。<br>下面是自己的一点感悟与思考。</p>
-<h2 id="赛前"><a href="#赛前" class="headerlink" title="赛前"></a>赛前</h2><ul>
-<li>最初听说，大概是在一年前，决定参加比赛是在今年5月份，暑假有两个选择，要么参加8月份的建模集训，要么实验室打杂，综合考虑了一下，看到培训大纲上的东西，可能对日后专业方向走向有益，遂放弃了锻炼编码能力的时间，毅然决定参加去参加集训。</li>
-<li>集训8月1日份开始，9月5日结束，9月12日比赛开始，9月15日比赛结束。</li>
-<li>一个多月的集训，每天上午8点半到12点，可能下午还要加课，一个老师讲一个专题3天，理学院的老师轮流来，每人一个模块，每三天一个专题，智能计算、统计分析、数值计算、图与网络、模拟仿真、分类与聚类、组合优化、图像处理、历年赛题与优秀论文讲评。</li>
-<li>老师们每天讲课，一个上午动辄上百页PPT，所以这一个月的日常就是上午上课，下午看老师讲的PPT、理解原理和复现程序。CUMCM涉及层面广而多，虽说深度欠缺，但是对于本科生来说，掌握这些知识，也是不易。</li>
-<li>集训的过程，也曾想过放弃，不是畏难，而是有一段时间觉得自己做的可能没有自己想象中的有意义，正如本专业同学那句话 <strong>“或许当初没有选择数学建模，这一个月的时间，可能已经足够可以在专业上走的很远了…”</strong></li>
-<li>我也认同，可是大家还是选择坚持了下来，一直坚持到了最后。</li>
-</ul>
-<hr>
-<p> 一场集训下来，我也学到了很多东西，虽不知不觉，却也潜移默化，老师们讲的n个专题，不敢说全部掌握了，但可以说学了个大概，而且学的知识对日后专业方向走向<strong>极其有益</strong>，虽然理论深度掌握不够，但也相当于在自己的方向相关领域，在自己的学习进程上写了一句<em>HelloWorld</em>，其实集训之前本来想着老师们每讲一个专题，就跟着写一篇Blog，事实上，集训时每天的知识都消化不了，更不要说写博客了，这件事仔细想想，也并非完全不能做到，只是决心不够。虽然专题博客没跟上，但是将老师讲的专题总结成思维导图，形成数学建模集训的整个知识框架，这是不难做到的，思维导图是用xmind做的，用markdown文本导出，我放到了博客上，总结了一下建模期间的博客，不算这篇的话，还有一篇关于的图像处理的,当初看图像处理的时候觉得很有意思,就没忍住写了一篇。</p>
-<ul>
-<li><a href="https://blog.csdn.net/SinclairWang/article/details/100891757" target="_blank" rel="noopener">数学建模集训知识大纲</a></li>
-<li><a href="https://blog.csdn.net/SinclairWang/article/details/100665761" target="_blank" rel="noopener">基于奇异值分解的图像压缩</a></li>
-</ul>
-<hr>
-<p>除此之外,我也从队友身上学到了很多,我们队人员组成是2<em>计算机专业(一个SE，一个CS)+数学专业。我从队友身上看到了高效,其实一直很想写一篇关于效率与时间管理的文章,不过时间安排上没提上日程,一个人只有把效率提上去,才能做到自己想做的。之前知乎上有篇高赞文章,是讲<em>*人是怎么废掉的</em></em>,没想到其中有一条是瞎忙,除了没方向之外,更重要的是低效率,忙了一天不知道在忙什么,忙了点啥,就好比泡图书馆学习,一泡就是一天,到了晚上应该正确评估白天的效率如何,而不应该单纯陷在因为短暂的长时间学习而产生的自我感动上,只有走出了这个误区才能有所进步。经此,我也有了新的认知。另外,我也认识到了学习方式的不足,也有专业大环境的原因,认真专注听课反倒成为了一个大难题,另外,上课认真听课,下课才能用更少的时间去复习,节省出更多的时间去做自己想做的事情。</p>
-<hr>
-<h2 id="赛中"><a href="#赛中" class="headerlink" title="赛中"></a>赛中</h2><blockquote>
-<p><strong>9月12日</strong></p>
-<p>进驻机房,晚上6点钟放题目,一开始略卡。<br>下载到题目之后,A、B、C任选一题。<br>读题： </p>
-<ul>
-<li>A题精确计算 有一定的专业知识背景，否则题意不好理解 </li>
-<li>B题 物理题目？果断放弃</li>
-<li>C题 开放性题目 只有大概思路，具体思路没有 估计找数据会劝退一拨人</li>
-</ul>
-</blockquote>
-<p>综合评估，我的答案是选C，队友讨论了一晚上A题，但是我给不出说服他们选C题的东西。<br>没过多久，我找到了数据。<br>但是模型没具体思路。<br>晚上11点半回寝室休息</p>
-<p>第二天一早队友们想选C题，其实我内心有点欣喜~<br>然后就开始了建模…<br>建模全靠队友，其中有个神奇的男人，中午小憩都能想到idea，上趟厕所模型都能被改进，回来说“我知道了…应该这样做…”。<br>太神奇了…<br>赛期说好的写论文的队友，最后却在编程，说好了写程序的队友，比赛的时候却开始写起了论文，只有我始终打杂，凭实力打杂。</p>
-<ul>
-<li>“我要的折线图你画了没？”</li>
-<li>“我需要你画个直方图。”</li>
-<li>“决策树画好了没？”</li>
-<li>“给你说个思路，你看能实现吗？#$#%#^*@#”</li>
-<li>“数据处理好了吗？”</li>
-<li>“打点的图发我了没？”</li>
-<li>“附录整理好没？”</li>
-<li>“支撑材料打包了没？”</li>
-</ul>
-<p>终于我成了全队无可替代的凭实力打杂的选手！</p>
-<p>到了最后一天，进度有点慢，14日晚上觉得得通宵了，一夜爆肝，那一晚仿佛大家都没回去，都在通宵做模型，计算，一双双熬红的双眼，其实熬夜或许不是最难的，最难的是建不出模，算不出来。<strong>那晚的月亮格外美，格外的圆。</strong></p>
-<p>那晚队友们几乎都没怎么睡，我凌晨5点撑不住了，睡到了7点多。</p>
-<p>起来，洗把脸，下楼吃了东西，队友们赶进度顾不上了…</p>
-<p>然后就开始了最刺激压力最大的一天</p>
-<p>题目只做了一半，四问只做了两问，晚上8点就要截止了。</p>
-<p>到了中午重新改思路，我编程计算，队友们将思路写到论文，完善前面的部分。</p>
-<p>高压下编程或许是最考验编程能力的…</p>
-<p>到了下午5点半初稿还没出来,还有很多格式要调整，公式要编辑….</p>
-<p>晚上7点40多交了初稿…</p>
-<p>没过多久就到8点了，就剩下最后一次交的机会了…</p>
-<p>终于能略微喘口气了</p>
-<p>但是，还有一次机会，不能放弃</p>
-<p>于是，接着完善，修改摘要，修改正文…</p>
-<p>终于9点39分交上了这最后一次…</p>
-<p>如释重负…</p>
-<p>三个人都笑了…</p>
-<p>欣喜若狂~</p>
-<p>这一天没吃饭，没水喝，压力大，睡眠不足</p>
-<p>但是还是撑了下来，队内也没有发生矛盾，互相理解，合作愉快。</p>
-<p>最后一起等到了10点，把参赛作品交了上去</p>
-<p>然后离开了机房，嘴上都说着“我再也不想听到’数学建模‘这四个字”…</p>
-<blockquote>
-<p>虽然数学建模门槛低，有人说这不是数学建模，是面向写作和美术的建模，最终看的是论文。但是我还是觉得我参加数学建模是一个无比正确的决定，无论结果如何，它教会了很多东西，我学了很多数学知识，也掌握了很多能力，比如快速学习的能力，随便甩给你个200多页PPT，两天内就能看完，让我更加专注，变得更加有毅力和耐心去学习，比赛教给我团队协作的重要性，一个人可以走的很快，但一群人能走的更远，你终究能走多远，可能不只是跟你自己有关系，还跟你身边的人有关系，别人会影响你，会改变你。我觉得或许自己跟顶尖名校的同龄人的差距或许不只是软硬件实力配置的差距，而是身边有没有一群这样的一群人：大家有着共同的想法，热衷眼前的事情，能全身心的投入，走在一起去实现这个想法的路上。这是我思考了很久得出的结论，也是从数学建模中收获的，尽管这有些难以置信。比赛的时候，我看到一群人通宵建模，尽管很累但都还在撑着，就像何凯文说的那样，“你有多久没有认真过了？”<br>感悟喷涌，能写出来的寥寥数语总归显得苍白无力，只要经历过的全身心投入的人总归会懂得。</p>
-<hr>
-</blockquote>
-<h2 id="赛后"><a href="#赛后" class="headerlink" title="赛后"></a>赛后</h2><p>好好休息了一下</p>
-<p>还了借的参考书籍</p>
-<p>今天周一，投入到了新的学习征程中，仿佛又是个崭新的开始。</p>
-<p>哦，对了我还写了一篇参赛感悟，正如你所看到的…</p>
-<h2 id="后来"><a href="#后来" class="headerlink" title="后来"></a>后来</h2><hr>
-<p>2019年9月25日更<br>被抽中答辩，心中自是欣喜万分，同样，无形的压力扑面而来。</p>
-<hr>
-<p>2019年9月28日更<br>答辩结束，无论结果如何，石头落地了，尽人事，听天命，一切终于结束了。</p>
-<p>准备答辩的过程中，听说了一句话叫做</p>
-<blockquote>
-<p>一次参赛，终身收益</p>
-</blockquote>
-<p>后来才知道这是建模组委会的口号，也越发觉得这句话真的很贴切，参赛经历和比赛的魅力或许已经远远超过了奖项本身了，无论是心智，还是毅力，还是个人能力，都得到了很好的锻炼，参赛期间高压下编程、高压下写作和高压下的团队合作对每个参赛选手都是一次很好的磨练。另外，我觉得答辩期间的压力也是不亚于竞赛期间的，压力反而更大，从准备到答辩结束，需要自己重新审视自己的作品，正确认识作品的缺点，勇于承认或许这才是最重要的。<br><br>另外，参加一次省级甚至是国家级别的学术答辩，无论结果如何，这都是很好的锻炼。<br>此时，一个累的打字都快打不动了的蒟蒻，还在拖着疲惫的身躯码着自己的切身体会，一般来说，能写出来的文字总归苍白无力。<br><br>用两句话结个尾吧，给2019CUMCM画上个句号。<br><br><strong>星光不负赶路人，时光不负有心人。</strong><br><strong>一次参赛，终身收益。</strong></p>
-]]></content>
-      <categories>
-        <category>感悟</category>
-      </categories>
-      <tags>
-        <tag>竞赛感悟</tag>
-        <tag>数学建模</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>基于奇异值分解的图像压缩</title>
     <url>/2019/09/09/2019-09-09-ji-yu-qi-yi-zhi-fen-jie-de-tu-xiang-ya-suo/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="理论："><a href="#理论：" class="headerlink" title="理论："></a>理论：</h2><p>矩阵的奇异值分解变换是一种正交变换，它可以将矩阵对角化<br>定理：<br>设A是一个秩为$r$的$m*n$矩阵,则存在正交矩阵$U$和$V$,使得</p>
@@ -5307,7 +5307,7 @@ figure,plot(S,&#39;.&#39;,&#39;Color&#39;,&#39;k&#39;); % 画出奇异值对应�
 <li>K=20时的压缩率<img src="https://img-blog.csdnimg.cn/20190909163802967.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="K=20时的压缩率"></li>
 </ul>
 <p>可以调节k的值得到不同的压缩率</p>
-<h2 id="参考博客："><a href="#参考博客：" class="headerlink" title="参考博客："></a>参考博客：</h2><p><a href="https://blog.csdn.net/chaolei3/article/details/75716422" target="_blank" rel="noopener">RGB图像转为灰度图像原理</a><br><a href="https://www.cnblogs.com/zhangjiansheng/p/6925722.html" target="_blank" rel="noopener">RGB转灰度的几种算法</a><br><a href="https://blog.csdn.net/bluecol/article/details/45971423#commentsedit" target="_blank" rel="noopener">图像压缩（SVD方法）</a></p>
+<h2 id="参考博客："><a href="#参考博客：" class="headerlink" title="参考博客："></a>参考博客：</h2><p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoYW9sZWkzL2FydGljbGUvZGV0YWlscy83NTcxNjQyMg==">RGB图像转为灰度图像原理<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vemhhbmdqaWFuc2hlbmcvcC82OTI1NzIyLmh0bWw=">RGB转灰度的几种算法<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JsdWVjb2wvYXJ0aWNsZS9kZXRhaWxzLzQ1OTcxNDIzI2NvbW1lbnRzZWRpdA==">图像压缩（SVD方法）<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <categories>
         <category>图像处理</category>
@@ -5734,7 +5734,7 @@ var ob2 = new func;
 alert(ob2.get(&#39;我依然是func实例化出来的对象&#39;));
 &lt;/script&gt;
 </code></pre>
-<p>详情请见==&gt;<a href="https://blog.csdn.net/u011277123/article/details/53404180" target="_blank" rel="noopener">简单理解js的prototype属性</a></p>
+<p>详情请见==&gt;<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTEyNzcxMjMvYXJ0aWNsZS9kZXRhaWxzLzUzNDA0MTgw">简单理解js的prototype属性<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <categories>
         <category>javascript</category>
@@ -5746,8 +5746,8 @@ alert(ob2.get(&#39;我依然是func实例化出来的对象&#39;));
   <entry>
     <title>数据结构-图-深度优先搜索的应用</title>
     <url>/2019/06/17/2019-06-17-shu-ju-jie-gou-tu-shen-du-you-xian-sou-suo-de-ying-yong/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>@[toc]<br>之前还写过一篇关于DFS的题解入门学习文章，详情见<a href="https://blog.csdn.net/SinclairWang/article/details/90346900" target="_blank" rel="noopener">DFS入门学习</a></p>
-<h1 id="深度优先搜索的应用"><a href="#深度优先搜索的应用" class="headerlink" title="深度优先搜索的应用"></a>深度优先搜索的应用</h1><h2 id="头文件声明"><a href="#头文件声明" class="headerlink" title="头文件声明"></a>头文件声明</h2><p>即图的基本运算，详情见<a href="https://blog.csdn.net/SinclairWang/article/details/92407493" target="_blank" rel="noopener">数据结构-图-基本运算</a></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>@[toc]<br>之前还写过一篇关于DFS的题解入门学习文章，详情见<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvOTAzNDY5MDA=">DFS入门学习<i class="fa fa-external-link-alt"></i></span></p>
+<h1 id="深度优先搜索的应用"><a href="#深度优先搜索的应用" class="headerlink" title="深度优先搜索的应用"></a>深度优先搜索的应用</h1><h2 id="头文件声明"><a href="#头文件声明" class="headerlink" title="头文件声明"></a>头文件声明</h2><p>即图的基本运算，详情见<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvOTI0MDc0OTM=">数据结构-图-基本运算<i class="fa fa-external-link-alt"></i></span></p>
 <pre><code class="lang-c">#include&quot;Graph.cpp&quot;
 </code></pre>
 <h2 id="顶点u到顶点v是否有简单路径"><a href="#顶点u到顶点v是否有简单路径" class="headerlink" title="顶点u到顶点v是否有简单路径"></a>顶点u到顶点v是否有简单路径</h2><a id="more"></a>
@@ -6481,7 +6481,7 @@ int main()
     <title>DFS入门学习</title>
     <url>/2019/05/22/2019-05-22-dfs-ru-men-xue-xi/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>学习DFS看了很多篇博客慢慢入门，感谢我看过的所有博客，我把其中做过的题目汇总起来，里面有很多是大神的代码，与大家分享。<br><a id="more"></a><br>@[toc]</p>
-<h2 id="计蒜客A1601全排列"><a href="#计蒜客A1601全排列" class="headerlink" title="计蒜客A1601全排列"></a>计蒜客A1601全排列</h2><p> <a href="https://nanti.jisuanke.com/t/A1601" target="_blank" rel="noopener">计蒜客A1601全排列</a><br>找的是全排列中，排列结果互不相同的个数</p>
+<h2 id="计蒜客A1601全排列"><a href="#计蒜客A1601全排列" class="headerlink" title="计蒜客A1601全排列"></a>计蒜客A1601全排列</h2><p> <span class="exturl" data-url="aHR0cHM6Ly9uYW50aS5qaXN1YW5rZS5jb20vdC9BMTYwMQ==">计蒜客A1601全排列<i class="fa fa-external-link-alt"></i></span><br>找的是全排列中，排列结果互不相同的个数</p>
 <pre><code class="lang-java">#include &lt;cstdio&gt;
 #include &lt;cstdlib&gt;
 #include &lt;cstring&gt;
@@ -6526,7 +6526,7 @@ int main() {
     return 0;
 }
 </code></pre>
-<h2 id="计蒜客A1636素数个数"><a href="#计蒜客A1636素数个数" class="headerlink" title="计蒜客A1636素数个数"></a>计蒜客A1636素数个数</h2><p> <a href="https://nanti.jisuanke.com/t/A1636" target="_blank" rel="noopener">计蒜客A1636素数个数</a><br> 题目大致是求0~7的全排列组成的数字（首位不为0）中素数的个数，该题可理解为在全排列的基础上进行了条件限制</p>
+<h2 id="计蒜客A1636素数个数"><a href="#计蒜客A1636素数个数" class="headerlink" title="计蒜客A1636素数个数"></a>计蒜客A1636素数个数</h2><p> <span class="exturl" data-url="aHR0cHM6Ly9uYW50aS5qaXN1YW5rZS5jb20vdC9BMTYzNg==">计蒜客A1636素数个数<i class="fa fa-external-link-alt"></i></span><br> 题目大致是求0~7的全排列组成的数字（首位不为0）中素数的个数，该题可理解为在全排列的基础上进行了条件限制</p>
 <ol>
 <li>DFS+判断  答案：2668<pre><code class="lang-java">#include&lt;iostream&gt;
 #include&lt;cstring&gt;
@@ -6648,7 +6648,7 @@ int main()
     return 0;
 }
 </code></pre>
-<h2 id="计蒜客A1146补全等式"><a href="#计蒜客A1146补全等式" class="headerlink" title="计蒜客A1146补全等式"></a>计蒜客A1146补全等式</h2><p><a href="https://nanti.jisuanke.com/t/A1146" target="_blank" rel="noopener">计蒜客A1146补全等式</a><br>1.暴力解法：全排列+判断 时间稍长预计需要172.4s  答案：122368</p>
+<h2 id="计蒜客A1146补全等式"><a href="#计蒜客A1146补全等式" class="headerlink" title="计蒜客A1146补全等式"></a>计蒜客A1146补全等式</h2><p><span class="exturl" data-url="aHR0cHM6Ly9uYW50aS5qaXN1YW5rZS5jb20vdC9BMTE0Ng==">计蒜客A1146补全等式<i class="fa fa-external-link-alt"></i></span><br>1.暴力解法：全排列+判断 时间稍长预计需要172.4s  答案：122368</p>
 <pre><code class="lang-java">//
 #include&lt;stdio.h&gt;
 #include&lt;iostream&gt;
@@ -6803,7 +6803,7 @@ int main()
     return 0;
 }
 </code></pre>
-<h2 id="【递归入门】n皇后-问题（原始的8皇后问题）"><a href="#【递归入门】n皇后-问题（原始的8皇后问题）" class="headerlink" title="【递归入门】n皇后 问题（原始的8皇后问题）"></a>【递归入门】n皇后 问题（原始的8皇后问题）</h2><p><a href="http://codeup.cn/problem.php?cid=100000608&amp;pid=3" target="_blank" rel="noopener">【递归入门】n皇后 问题（原始的8皇后问题）</a></p>
+<h2 id="【递归入门】n皇后-问题（原始的8皇后问题）"><a href="#【递归入门】n皇后-问题（原始的8皇后问题）" class="headerlink" title="【递归入门】n皇后 问题（原始的8皇后问题）"></a>【递归入门】n皇后 问题（原始的8皇后问题）</h2><p><span class="exturl" data-url="aHR0cDovL2NvZGV1cC5jbi9wcm9ibGVtLnBocD9jaWQ9MTAwMDAwNjA4JmFtcDtwaWQ9Mw==">【递归入门】n皇后 问题（原始的8皇后问题）<i class="fa fa-external-link-alt"></i></span></p>
 <pre><code class="lang-java">#include&lt;iostream&gt;
 #include&lt;cmath&gt;
 using namespace std;
@@ -6858,7 +6858,7 @@ int main()
     return 0;
 }
 </code></pre>
-<h2 id="HDU2553-N皇后问题"><a href="#HDU2553-N皇后问题" class="headerlink" title="HDU2553 N皇后问题"></a>HDU2553 N皇后问题</h2><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=2553" target="_blank" rel="noopener">HDU2553 N皇后问题</a><br>DFS+打表<br>打表很重要，不然很可能超时，来个TLE！</p>
+<h2 id="HDU2553-N皇后问题"><a href="#HDU2553-N皇后问题" class="headerlink" title="HDU2553 N皇后问题"></a>HDU2553 N皇后问题</h2><p><span class="exturl" data-url="aHR0cDovL2FjbS5oZHUuZWR1LmNuL3Nob3dwcm9ibGVtLnBocD9waWQ9MjU1Mw==">HDU2553 N皇后问题<i class="fa fa-external-link-alt"></i></span><br>DFS+打表<br>打表很重要，不然很可能超时，来个TLE！</p>
 <pre><code class="lang-java">#include&lt;iostream&gt;
 #include&lt;string.h&gt;
 #include&lt;math.h&gt;
@@ -6966,7 +6966,7 @@ int main()
     return 0;
 }
 </code></pre>
-<h2 id="【递归入门】走迷宫"><a href="#【递归入门】走迷宫" class="headerlink" title="【递归入门】走迷宫"></a>【递归入门】走迷宫</h2><p><a href="http://codeup.cn/problem.php?id=5978" target="_blank" rel="noopener">Codeup5978【递归入门】走迷宫</a></p>
+<h2 id="【递归入门】走迷宫"><a href="#【递归入门】走迷宫" class="headerlink" title="【递归入门】走迷宫"></a>【递归入门】走迷宫</h2><p><span class="exturl" data-url="aHR0cDovL2NvZGV1cC5jbi9wcm9ibGVtLnBocD9pZD01OTc4">Codeup5978【递归入门】走迷宫<i class="fa fa-external-link-alt"></i></span></p>
 <pre><code class="lang-java">#include&lt;iostream&gt;
 using namespace std;
 int a[20][20], endx, endy, m, n;
@@ -7033,7 +7033,7 @@ int main() {
   <entry>
     <title>7-29 修理牧场</title>
     <url>/2019/05/04/2019-05-04-7-29-xiu-li-mu-chang/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>来源：(<a href="https://pintia.cn/problem-sets/15/problems/856" target="_blank" rel="noopener">PTA数据结构与算法题目集(中文)</a></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>来源：(<span class="exturl" data-url="aHR0cHM6Ly9waW50aWEuY24vcHJvYmxlbS1zZXRzLzE1L3Byb2JsZW1zLzg1Ng==">PTA数据结构与算法题目集(中文)<i class="fa fa-external-link-alt"></i></span></p>
 <hr>
 <blockquote>
 <p>农夫要修理牧场的一段栅栏，他测量了栅栏，发现需要N块木头，每块木头长度为整数L<sub>i</sub>个长度单位，于是他购买了一条很长的、能锯成N块的木头，即该木头的长度是L<sub>i</sub>的总和。但是农夫自己没有锯子，请人锯木的酬金跟这段木头的长度成正比。为简单起见，不妨就设酬金等于所锯木头的长度。例如，要将长度为20的木头锯成长度为8、7和5的三段，第一次锯木头花费20，将木头锯成12和8；第二次锯木头花费12，将长度为12的木头锯成7和5，总花费为32。如果第一次将木头锯成15和5，则第二次锯木头花费15，总花费为35（大于32）。<br>请编写程序帮助农夫计算将木头锯成N块的最少花费。</p>
@@ -7090,7 +7090,7 @@ int main()
     <title>第一次参加蓝桥杯(第十届)感怀</title>
     <url>/2019/03/24/2019-03-24-di-yi-ci-can-jia-lan-qiao-bei-di-shi-jie-gan-huai/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
-<p>四个小时，十道题目，花了学院300块大洋  \捂脸<br><a id="more"></a><br>这是我第一次参加规模还差不多的程序设计比赛，蓝桥杯，当然一些大牛高校的王牌选手是不稀罕参加的，网上风评称其为“暴力杯”，说根本用不到什么算法技巧，只要会点数学，全程暴力求解就ok，比赛之前看了很多关于蓝桥杯的经验贴，其中出现频率最高的词汇是暴力求解，后来慢慢的训练的做题目的时候，才知道什么是真正的暴力求解，所谓暴力求解，并非无脑不假思索的就直接暴力枚举，而是要经过若干逻辑判断之后，进行求解，相比于十分精巧的算法技巧来说，是暴力了些。比赛的前一天，也就是昨天，我还在看蓝桥杯必考的快排、DFS、贪心….结果必考的没考，没考快排，考了DFS，一道迷宫题目，当时看了看，因为深搜不熟练，觉得做这道题目的话，做半天可能也做不出来，白浪费时间干脆直接跳过，这道题是填空题，15分，下了考场之后，群里有人说这是一道华为的面试题目，好吧。<br>同样是参加蓝桥杯，车上有18级的、17级的还有16级的，我是17级但是今年是第一次参加蓝桥杯，我大一这时候，听老师的话自己的笔记本还没买…经过我的亲身经历证明，对于计算机专业来说，这是万万不行的，我大一一年一直停留在C，C还没精通，而别人大一就学完了C、C++、数据结构甚至更多，而我大一的时间都去哪儿了，我用我的时间换来了什么？都是值得思考的问题，终于我在大一的暑假反应过来，励志大二上学完数据结构，可是大二上课多，再加上自己的惰性，这个历史性的任务终究还是没完成。大二上参加的学院老师讲的蓝桥杯培训课，去是每次都去了，可是也仅仅是听了听，自己也没有下去动手，导致编码能力太差，到现在，我发现18级的很多学生的编码能力已经比我强了…当然这种事情也说不好，毕竟起跑线不同<del>我又在给自己找借口，菜就是原罪</del>。<br>等到了大二上期末考试考完之后，留校做课设，那个时候我开始准备蓝桥杯，从数论开始学起，没学多少放寒假了，打算寒假训练自己的编码能力，顺便学学数据结构的，结果学习的重心不知不觉跑到了JAVA上。我就是这样一步一步的鸽掉我的算法训练的…<br>到了大二下学期，正儿八经的自我反思过后，决心要努力学习训练算法，没事就刷题，周末时间抱着电脑图书馆刷各大OJ上的题目，看别人说，先来刷个杭电OJ 100题<a href="http://acm.hdu.edu.cn/listproblem.php?vol=11" target="_blank" rel="noopener">水题100道</a>。然而我到现在也只是异常费劲的写了35道，前几天学习算法知识，做题目，越做越绝望，看一道不会，看一道不会，然后去网上找解题报告看，学习别人的思路，看别人的做法，我立誓要学好算法，去参加各种程序设计比赛，让日后的每一天都不会像现在一样窘迫。<br>昨天周六，比赛前一天，我在图书馆看了一天的往年题目，也思考了很多，思考我努力学习算法到底是为了什么？为了参加比赛？为了拿奖？用拿来的奖来证明自己？用拿来的奖来争取推免资格？我想了又想，我最初就是为了拿到推免资格来参加比赛，一直心急的去参加各种比赛，以前参加的全国大学生数学竞赛、全国大学英语竞赛，每次都是匆匆上阵，每次都是落荒而逃，每次都是说下次一定再去努力。那便是我的2018年的写照。参加程序设计比赛是为了拿奖，而不是出于对编程的热爱，一直以来，觉得自己一个很大的缺点，就是太过于急功近利，我没有别人的聪明才智，也没有别人的超高效率，更没有比别人很强的能力，却总想着去用做一件事的时间来做两件事，有时候会面对两个比赛，别人可能会有所取舍，而我却总想着我能做到，然后急功近利的去报了两个比赛的名，然后最后可能一个比赛的作品都提交不上。如今2019了，不能再鸽了，不能再中途放弃了，包括写博客，这是我2019年开始写的，<a href="https://sinclaircoder.top" target="_blank" rel="noopener">我的博客</a>搭建好了, 2019年要去更加努力、更加自律、更加脚踏实地、不能再去做思想上的巨人而行动上的侏儒了，今天的蓝桥杯落下帷幕，下周的高校天梯赛，由于种种原因，参赛名单里没我，正好我可以重新训练，学习我要今年3月份完成的数据结构教程学习，还要补作业，写一个带界面的迷宫算法，算是个小课设。接下来的希望就是我能进阶决赛，去首都走一趟。能不能进决赛，下周比赛结果就出来了。最近的一个比赛可能就是中国高校微信小程序比赛，要准备参赛了。总要做出点东西来，才不枉自己对一步步接近梦想时内心的汹涌与澎湃。另外，自己的暑假也被安排上了，前20天去导师实验室跟着做项目学习<del>假如我啥都不会做，那我扫地好了</del>后面的一个月参加数学建模培训，参赛，另外把去年失之交臂的数竞再来一遍，不到长城非好汉，人啊，总是失去了才知道珍惜，当我重新再拿到机会时我想我会倍加珍惜…<br>再来谈谈今天的蓝桥杯，今天去的赛点是一个民办大学，一下车觉得这所学校未免也有点太高端，比我的学校好太多，这建筑、这校园、这高楼，真想来这里读大学，当然这是参赛之前的想法，当我参加完比赛之后，我的认知发生了变化<del>你懂的</del>，与更好的校园设施（宽敞的校园、气派的大门，高端的大楼）相比，我还是更喜欢学习氛围、学术氛围更加浓厚的学校，尽管它的校门可能不是那么气派。</p>
+<p>四个小时，十道题目，花了学院300块大洋  \捂脸<br><a id="more"></a><br>这是我第一次参加规模还差不多的程序设计比赛，蓝桥杯，当然一些大牛高校的王牌选手是不稀罕参加的，网上风评称其为“暴力杯”，说根本用不到什么算法技巧，只要会点数学，全程暴力求解就ok，比赛之前看了很多关于蓝桥杯的经验贴，其中出现频率最高的词汇是暴力求解，后来慢慢的训练的做题目的时候，才知道什么是真正的暴力求解，所谓暴力求解，并非无脑不假思索的就直接暴力枚举，而是要经过若干逻辑判断之后，进行求解，相比于十分精巧的算法技巧来说，是暴力了些。比赛的前一天，也就是昨天，我还在看蓝桥杯必考的快排、DFS、贪心….结果必考的没考，没考快排，考了DFS，一道迷宫题目，当时看了看，因为深搜不熟练，觉得做这道题目的话，做半天可能也做不出来，白浪费时间干脆直接跳过，这道题是填空题，15分，下了考场之后，群里有人说这是一道华为的面试题目，好吧。<br>同样是参加蓝桥杯，车上有18级的、17级的还有16级的，我是17级但是今年是第一次参加蓝桥杯，我大一这时候，听老师的话自己的笔记本还没买…经过我的亲身经历证明，对于计算机专业来说，这是万万不行的，我大一一年一直停留在C，C还没精通，而别人大一就学完了C、C++、数据结构甚至更多，而我大一的时间都去哪儿了，我用我的时间换来了什么？都是值得思考的问题，终于我在大一的暑假反应过来，励志大二上学完数据结构，可是大二上课多，再加上自己的惰性，这个历史性的任务终究还是没完成。大二上参加的学院老师讲的蓝桥杯培训课，去是每次都去了，可是也仅仅是听了听，自己也没有下去动手，导致编码能力太差，到现在，我发现18级的很多学生的编码能力已经比我强了…当然这种事情也说不好，毕竟起跑线不同<del>我又在给自己找借口，菜就是原罪</del>。<br>等到了大二上期末考试考完之后，留校做课设，那个时候我开始准备蓝桥杯，从数论开始学起，没学多少放寒假了，打算寒假训练自己的编码能力，顺便学学数据结构的，结果学习的重心不知不觉跑到了JAVA上。我就是这样一步一步的鸽掉我的算法训练的…<br>到了大二下学期，正儿八经的自我反思过后，决心要努力学习训练算法，没事就刷题，周末时间抱着电脑图书馆刷各大OJ上的题目，看别人说，先来刷个杭电OJ 100题<span class="exturl" data-url="aHR0cDovL2FjbS5oZHUuZWR1LmNuL2xpc3Rwcm9ibGVtLnBocD92b2w9MTE=">水题100道<i class="fa fa-external-link-alt"></i></span>。然而我到现在也只是异常费劲的写了35道，前几天学习算法知识，做题目，越做越绝望，看一道不会，看一道不会，然后去网上找解题报告看，学习别人的思路，看别人的做法，我立誓要学好算法，去参加各种程序设计比赛，让日后的每一天都不会像现在一样窘迫。<br>昨天周六，比赛前一天，我在图书馆看了一天的往年题目，也思考了很多，思考我努力学习算法到底是为了什么？为了参加比赛？为了拿奖？用拿来的奖来证明自己？用拿来的奖来争取推免资格？我想了又想，我最初就是为了拿到推免资格来参加比赛，一直心急的去参加各种比赛，以前参加的全国大学生数学竞赛、全国大学英语竞赛，每次都是匆匆上阵，每次都是落荒而逃，每次都是说下次一定再去努力。那便是我的2018年的写照。参加程序设计比赛是为了拿奖，而不是出于对编程的热爱，一直以来，觉得自己一个很大的缺点，就是太过于急功近利，我没有别人的聪明才智，也没有别人的超高效率，更没有比别人很强的能力，却总想着去用做一件事的时间来做两件事，有时候会面对两个比赛，别人可能会有所取舍，而我却总想着我能做到，然后急功近利的去报了两个比赛的名，然后最后可能一个比赛的作品都提交不上。如今2019了，不能再鸽了，不能再中途放弃了，包括写博客，这是我2019年开始写的，<span class="exturl" data-url="aHR0cHM6Ly9zaW5jbGFpcmNvZGVyLnRvcA==">我的博客<i class="fa fa-external-link-alt"></i></span>搭建好了, 2019年要去更加努力、更加自律、更加脚踏实地、不能再去做思想上的巨人而行动上的侏儒了，今天的蓝桥杯落下帷幕，下周的高校天梯赛，由于种种原因，参赛名单里没我，正好我可以重新训练，学习我要今年3月份完成的数据结构教程学习，还要补作业，写一个带界面的迷宫算法，算是个小课设。接下来的希望就是我能进阶决赛，去首都走一趟。能不能进决赛，下周比赛结果就出来了。最近的一个比赛可能就是中国高校微信小程序比赛，要准备参赛了。总要做出点东西来，才不枉自己对一步步接近梦想时内心的汹涌与澎湃。另外，自己的暑假也被安排上了，前20天去导师实验室跟着做项目学习<del>假如我啥都不会做，那我扫地好了</del>后面的一个月参加数学建模培训，参赛，另外把去年失之交臂的数竞再来一遍，不到长城非好汉，人啊，总是失去了才知道珍惜，当我重新再拿到机会时我想我会倍加珍惜…<br>再来谈谈今天的蓝桥杯，今天去的赛点是一个民办大学，一下车觉得这所学校未免也有点太高端，比我的学校好太多，这建筑、这校园、这高楼，真想来这里读大学，当然这是参赛之前的想法，当我参加完比赛之后，我的认知发生了变化<del>你懂的</del>，与更好的校园设施（宽敞的校园、气派的大门，高端的大楼）相比，我还是更喜欢学习氛围、学术氛围更加浓厚的学校，尽管它的校门可能不是那么气派。</p>
 </blockquote>
 <hr>
 <p>更于2019年3月28日<br>初赛结果出来了，省一，要准备国赛了…</p>
@@ -7105,7 +7105,7 @@ int main()
   <entry>
     <title>HDU2032之杨辉三角的多种解法</title>
     <url>/2019/03/09/2019-03-09-hdu2032-zhi-yang-hui-san-jiao-de-duo-chong-jie-fa/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="HDU2032"><a href="#HDU2032" class="headerlink" title="HDU2032"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=2032" target="_blank" rel="noopener">HDU2032</a></h2><blockquote>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="HDU2032"><a href="#HDU2032" class="headerlink" title="HDU2032"></a><span class="exturl" data-url="aHR0cDovL2FjbS5oZHUuZWR1LmNuL3Nob3dwcm9ibGVtLnBocD9waWQ9MjAzMg==">HDU2032<i class="fa fa-external-link-alt"></i></span></h2><blockquote>
 <p>还记得中学时候学过的杨辉三角吗？具体的定义这里不再描述，你可以参考以下的图形：<br>1<br>1 1<br>1 2 1<br>1 3 3 1<br>1 4 6 4 1<br>1 5 10 10 5 1</p>
 </blockquote>
 <p>即元素值等于肩上的两个元素之和，每行第一个跟最后一个都为１。</p>
@@ -7241,7 +7241,7 @@ int main()
 <blockquote>
 <p>收费的SSL服务总是比免费的更加周到，一般收费的SSL都会提供端到端的加密。但是价格不菲，对于个人博客来说，这是一笔不必要的开销。我只是需要看到网站地址栏有绿色的锁头，那就证明我们的网站相对安全了。<br>此外，使用https之后，谷歌、百度等搜索排名权值（PR等）也会有相对提升。还有其他的一些，例如Cloudflare还提供免费的CDN和缓存技术，让浏览者有更好的体验~~<br><a id="more"></a></p>
 </blockquote>
-<p>下面是我参考的教程(博主尊重原创，故此下面只给出超链)：<br><a href="https://www.yicodes.com/2016/12/04/free-cloudflare-ssl-for-custom-domain/#%E5%8E%9F%E6%96%87%E5%9C%B0%E5%9D%80%E8%BD%AC%E8%BD%BD%E5%89%8D%E5%8F%91%E9%82%AE%E4%BB%B6%E7%9F%A5%E4%BC%9A%E5%8D%B3%E5%8F%AFromenntsgmailcom" target="_blank" rel="noopener">为自定义域名的GitHub Pages添加SSL 完整方案</a><br><a href="https://blog.csdn.net/jave_f/article/details/80056501" target="_blank" rel="noopener">为添加了自定义域名的GitHub Pages添加SSL，启用强制HTTPS(小绿锁）</a></p>
+<p>下面是我参考的教程(博主尊重原创，故此下面只给出超链)：<br><span class="exturl" data-url="aHR0cHM6Ly93d3cueWljb2Rlcy5jb20vMjAxNi8xMi8wNC9mcmVlLWNsb3VkZmxhcmUtc3NsLWZvci1jdXN0b20tZG9tYWluLyMlRTUlOEUlOUYlRTYlOTYlODclRTUlOUMlQjAlRTUlOUQlODAlRTglQkQlQUMlRTglQkQlQkQlRTUlODklOEQlRTUlOEYlOTElRTklODIlQUUlRTQlQkIlQjYlRTclOUYlQTUlRTQlQkMlOUElRTUlOEQlQjMlRTUlOEYlQUZyb21lbm50c2dtYWlsY29t">为自定义域名的GitHub Pages添加SSL 完整方案<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2phdmVfZi9hcnRpY2xlL2RldGFpbHMvODAwNTY1MDE=">为添加了自定义域名的GitHub Pages添加SSL，启用强制HTTPS(小绿锁）<i class="fa fa-external-link-alt"></i></span></p>
 <blockquote>
 <p>总之，博客愈发完善，每次改动都会碰见一堆高大上的专业术语，而他们却真实的来自那看起来枯燥无聊的基础知识，实战受蹩，或许看书应该能更加投入。等技术再成熟些，博客应该会更完善！</p>
 </blockquote>
@@ -7587,6 +7587,63 @@ int main()
       </tags>
   </entry>
   <entry>
+    <title>HDU2097Sky数</title>
+    <url>/2019/01/09/2019-01-09-hdu-2097sky-shu/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Sky数"><a href="#Sky数" class="headerlink" title="Sky数"></a>Sky数</h1><blockquote>
+<p>My life didn’t please me, so I created my life.<br>我的生活不曾取悦于我，所以我创造了自己的生活               ———-Coco Chanel</p>
+</blockquote>
+<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><blockquote>
+<p>Sky从小喜欢奇特的东西，而且天生对数字特别敏感，一次偶然的机会，他发现了一个有趣的四位数2992，这个数它的十进制数表示，其四位数字之和为2+9+9+2=22，它的十六进制数BB0，其四位数字之和也为22，同时它的十二进制数表示1894，其四位数字之和也为22，啊哈，真是巧啊。Sky非常喜欢这种四位数，由于他的发现，所以这里我们命名其为Sky数。但是要判断这样的数还是有点麻烦啊，那么现在请你帮忙来判断任何一个十进制的四位数，是不是Sky数吧。</p>
+</blockquote>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><blockquote>
+<p>输入含有一些四位正整数，如果为0，则输入结束。</p>
+</blockquote>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><blockquote>
+<p>若n为Sky数，则输出“#n is a Sky Number.”，否则输出“#n is not a Sky Number.”。<br>每个结果占一行。注意：#n表示所读入的n值。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><blockquote>
+<p>2992<br>1234<br>0</p>
+</blockquote>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><blockquote>
+<p>2992 is a Sky Number.<br>1234 is not a Sky Number.</p>
+</blockquote>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><blockquote>
+<p>输入一个四位整数，需要将其进制转换，而在进制转换的过程中又可以实现四位数各位相加，看似需要将数据转换成十六进制、十二进制（输入的便是十进制），实则，只需一个进制转换求和函数就可以实现，不妨设转换为n进制，在转换的过程中便可实现求和，先对n求模，再整除n，最后判断和是否相等即可。</p>
+</blockquote>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code class="lang-c">#include &lt;iostream&gt;
+using namespace std;
+int DBC(int a,int n) //将数字a转化为n进制，将其每位相加求和 
+{
+    int sum=0;
+    while(a)
+    { sum += a%n;  a /= n; }
+    return sum; 
+}
+int main() 
+{
+    int a,b,sum=0;
+    while(cin &gt;&gt; a &amp;&amp; a!=0)
+    {
+        b=a;
+        //个人认为，这里只要三者相等即可，不一定为22
+
+        if((DBC(b,10)==DBC(b,16)) &amp;&amp; (DBC(b,10)==DBC(b,12))) 
+            cout&lt;&lt; a &lt;&lt; &quot; is a Sky Number.&quot; &lt;&lt; endl;
+        else cout&lt;&lt; a &lt;&lt; &quot; is not a Sky Number.&quot; &lt;&lt; endl;
+    }
+   return 0;
+}
+</code></pre>
+]]></content>
+      <categories>
+        <category>数据结构与算法训练</category>
+      </categories>
+      <tags>
+        <tag>数据结构与算法训练</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>欧几里得算法</title>
     <url>/2019/01/09/2019-01-09-ou-ji-li-de-suan-fa/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="欧几里得算法求最大公约数"><a href="#欧几里得算法求最大公约数" class="headerlink" title="欧几里得算法求最大公约数"></a>欧几里得算法求最大公约数</h2><blockquote>
@@ -7643,63 +7700,6 @@ int lcm(int gcd,int m,int n)
       </categories>
       <tags>
         <tag>数论</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>HDU2097Sky数</title>
-    <url>/2019/01/09/2019-01-09-hdu-2097sky-shu/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Sky数"><a href="#Sky数" class="headerlink" title="Sky数"></a>Sky数</h1><blockquote>
-<p>My life didn’t please me, so I created my life.<br>我的生活不曾取悦于我，所以我创造了自己的生活               ———-Coco Chanel</p>
-</blockquote>
-<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><blockquote>
-<p>Sky从小喜欢奇特的东西，而且天生对数字特别敏感，一次偶然的机会，他发现了一个有趣的四位数2992，这个数它的十进制数表示，其四位数字之和为2+9+9+2=22，它的十六进制数BB0，其四位数字之和也为22，同时它的十二进制数表示1894，其四位数字之和也为22，啊哈，真是巧啊。Sky非常喜欢这种四位数，由于他的发现，所以这里我们命名其为Sky数。但是要判断这样的数还是有点麻烦啊，那么现在请你帮忙来判断任何一个十进制的四位数，是不是Sky数吧。</p>
-</blockquote>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><blockquote>
-<p>输入含有一些四位正整数，如果为0，则输入结束。</p>
-</blockquote>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><blockquote>
-<p>若n为Sky数，则输出“#n is a Sky Number.”，否则输出“#n is not a Sky Number.”。<br>每个结果占一行。注意：#n表示所读入的n值。</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><blockquote>
-<p>2992<br>1234<br>0</p>
-</blockquote>
-<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><blockquote>
-<p>2992 is a Sky Number.<br>1234 is not a Sky Number.</p>
-</blockquote>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><blockquote>
-<p>输入一个四位整数，需要将其进制转换，而在进制转换的过程中又可以实现四位数各位相加，看似需要将数据转换成十六进制、十二进制（输入的便是十进制），实则，只需一个进制转换求和函数就可以实现，不妨设转换为n进制，在转换的过程中便可实现求和，先对n求模，再整除n，最后判断和是否相等即可。</p>
-</blockquote>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code class="lang-c">#include &lt;iostream&gt;
-using namespace std;
-int DBC(int a,int n) //将数字a转化为n进制，将其每位相加求和 
-{
-    int sum=0;
-    while(a)
-    { sum += a%n;  a /= n; }
-    return sum; 
-}
-int main() 
-{
-    int a,b,sum=0;
-    while(cin &gt;&gt; a &amp;&amp; a!=0)
-    {
-        b=a;
-        //个人认为，这里只要三者相等即可，不一定为22
-
-        if((DBC(b,10)==DBC(b,16)) &amp;&amp; (DBC(b,10)==DBC(b,12))) 
-            cout&lt;&lt; a &lt;&lt; &quot; is a Sky Number.&quot; &lt;&lt; endl;
-        else cout&lt;&lt; a &lt;&lt; &quot; is not a Sky Number.&quot; &lt;&lt; endl;
-    }
-   return 0;
-}
-</code></pre>
-]]></content>
-      <categories>
-        <category>数据结构与算法训练</category>
-      </categories>
-      <tags>
-        <tag>数据结构与算法训练</tag>
       </tags>
   </entry>
 </search>
