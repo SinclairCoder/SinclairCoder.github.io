@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="6gsiR4JSQJ1xnCBNFsuQ1EI3jqGUDIhRNhqoCvRSC_Y">
+  <meta name="baidu-site-verification" content="FwKLmibScs">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-material.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="博观而约取，厚积而薄发。                            　　　　　　　　　　——-苏轼  尽管书的名字是《大数据智能》，实则内容则是互联网时代的机器学习和自然语言处理技术的综述。对于nlper，读一读受益匪浅。抑或是仅仅当科普读物一读，也未尝不可。 深度学习应用分类 垃圾邮件过滤 图像分类  结构分类 句法分析 情感分析 机器翻译  分类 语言模型也是一个特殊的回归任务">
+<meta name="keywords" content="前沿科普">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《大数据智能》阅读笔记">
+<meta property="og:url" content="https://sinclaircoder.gitee.io/archives/703a7422.html">
+<meta property="og:site_name" content="SinclairのBlog">
+<meta property="og:description" content="博观而约取，厚积而薄发。                            　　　　　　　　　　——-苏轼  尽管书的名字是《大数据智能》，实则内容则是互联网时代的机器学习和自然语言处理技术的综述。对于nlper，读一读受益匪浅。抑或是仅仅当科普读物一读，也未尝不可。 深度学习应用分类 垃圾邮件过滤 图像分类  结构分类 句法分析 情感分析 机器翻译  分类 语言模型也是一个特殊的回归任务">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-05-17T16:41:40.301Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《大数据智能》阅读笔记">
+<meta name="twitter:description" content="博观而约取，厚积而薄发。                            　　　　　　　　　　——-苏轼  尽管书的名字是《大数据智能》，实则内容则是互联网时代的机器学习和自然语言处理技术的综述。对于nlper，读一读受益匪浅。抑或是仅仅当科普读物一读，也未尝不可。 深度学习应用分类 垃圾邮件过滤 图像分类  结构分类 句法分析 情感分析 机器翻译  分类 语言模型也是一个特殊的回归任务">
+
+<link rel="canonical" href="https://sinclaircoder.gitee.io/archives/703a7422.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>《大数据智能》阅读笔记 | SinclairのBlog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135806349-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-135806349-1');
+      }
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ad3c73a898b555b5658e0609e7dd9dc6";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">SinclairのBlog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">为而不争</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">46</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">23</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">71</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL1NpbmNsYWlyQ29kZXI=" title="Follow me on GitHub" aria-label="Follow me on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/703a7422.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          《大数据智能》阅读笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-15 00:00:00" itemprop="dateCreated datePublished" datetime="2020-01-15T00:00:00+08:00">2020-01-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-18 00:41:40" itemprop="dateModified" datetime="2020-05-18T00:41:40+08:00">2020-05-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/阅读笔记/" itemprop="url" rel="index"><span itemprop="name">阅读笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/archives/703a7422.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/703a7422.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>4.3k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>4 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>博观而约取，厚积而薄发。                            　　　　　　　　　　——-苏轼</p>
+</blockquote>
+<p>尽管书的名字是《大数据智能》，实则内容则是互联网时代的机器学习和自然语言处理技术的综述。对于nlper，读一读受益匪浅。抑或是仅仅当科普读物一读，也未尝不可。</p>
+<h2 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h2><h3 id="应用分类"><a href="#应用分类" class="headerlink" title="应用分类"></a>应用分类</h3><ul>
+<li>垃圾邮件过滤</li>
+<li>图像分类</li>
+</ul>
+<h3 id="结构分类"><a href="#结构分类" class="headerlink" title="结构分类"></a>结构分类</h3><ul>
+<li>句法分析</li>
+<li>情感分析</li>
+<li>机器翻译</li>
+</ul>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
+<li>语言模型也是一个特殊的回归任务</li>
+</ul>
+<h2 id="知识图谱"><a href="#知识图谱" class="headerlink" title="知识图谱"></a>知识图谱</h2><h3 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h3><ul>
+<li>大规模知识库</li>
+<li>互联网链接数据</li>
+<li>互联网网页文本数据</li>
+<li><p>多数据源的知识融合</p>
+<ul>
+<li>实体融合</li>
+<li>关系融合</li>
+<li>实例融合</li>
+</ul>
+</li>
+</ul>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><ul>
+<li>理解查询</li>
+<li><p>自动问答</p>
+<ul>
+<li>下一代的搜索引擎能直接回大人们提出的问题</li>
+</ul>
+</li>
+<li><p>文档表示</p>
+<ul>
+<li>最简单的方案：将文档表示为基于知识图谱的一个子图，即用改文档中出现或涉及的实体及其关系所构成的图表示该文档</li>
+</ul>
+</li>
+</ul>
+<h3 id="主要技术"><a href="#主要技术" class="headerlink" title="主要技术"></a>主要技术</h3><ul>
+<li><p>实体链指</p>
+<p>将互联网网页与实体之间建立链接关系。并不局限于实体与文本之间</p>
+<ul>
+<li><p>实体识别</p>
+<ul>
+<li>从文本中发现实体</li>
+</ul>
+</li>
+<li><p>实体消歧</p>
+</li>
+</ul>
+</li>
+<li><p>关系抽取</p>
+<p>从互联网网页文本中抽取实体</p>
+</li>
+<li><p>知识推理</p>
+</li>
+<li>知识表示：基础技术</li>
+</ul>
+<h3 id="前景与挑战"><a href="#前景与挑战" class="headerlink" title="前景与挑战"></a>前景与挑战</h3><ul>
+<li>知识的类型与表示</li>
+<li>知识获取</li>
+<li>知识融合</li>
+<li>知识应用</li>
+</ul>
+<h2 id="大数据系统"><a href="#大数据系统" class="headerlink" title="大数据系统"></a>大数据系统</h2><h3 id="高性能计算技术"><a href="#高性能计算技术" class="headerlink" title="高性能计算技术"></a>高性能计算技术</h3><ul>
+<li><p>超级计算机</p>
+<ul>
+<li>计算节点</li>
+<li>存储节点</li>
+<li>管理节点</li>
+</ul>
+</li>
+<li><p>并行计算的系统支持</p>
+<ul>
+<li><p>常见并行编程组件</p>
+<ul>
+<li>Pthreads</li>
+<li>OpenMP</li>
+<li>xdfc</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="虚拟化技术"><a href="#虚拟化技术" class="headerlink" title="虚拟化技术"></a>虚拟化技术</h3><ul>
+<li>虚拟化技术是指创建虚拟的事物，包括计算机硬件平台、操作系统、存储设备、计算机网络，是云计算的支撑技术</li>
+</ul>
+<h3 id="云计算技术"><a href="#云计算技术" class="headerlink" title="云计算技术"></a>云计算技术</h3><ul>
+<li>美国国家标准技术研究所认为：云计算是通过网络使得一组可配置的计算资源（网络、计算机、存储、应用程序、服务等）能够在任何地点方便地、按需地进行访问的模型，资源的提供和释放可以快速完成，管理开销低，与提供商的交互简便易行</li>
+<li><p>三种服务模型</p>
+<ul>
+<li><p>软件即服务 Software as a Service SaaS</p>
+<ul>
+<li>常见的有亚马逊的AWS、微软的Azure、阿里云</li>
+</ul>
+</li>
+<li><p>平台即服务 Platform as a Service PaaS</p>
+<ul>
+<li>常见的有Google App Engine（GAE）、新浪App Engine、RedHat的OpenShift等</li>
+<li>GAE给开发者提供了包括Python、Java、Go、php等多种语言的开发和运行环境，用于编写Web应用程序，开发者只需专注于应用程序的功能实现，部署到GAE后，应用程序的性能将由平台来保证</li>
+</ul>
+</li>
+<li><p>基础架构即服务 Infrastructure as a Service IaaS</p>
+</li>
+</ul>
+</li>
+<li><p>根据受众进行分类</p>
+<ul>
+<li>私有云</li>
+<li>社区云</li>
+<li>公有云</li>
+<li>混合云</li>
+</ul>
+</li>
+<li><p>常见的云服务</p>
+<ul>
+<li>Elastic Compute Cloud（EC2）虚拟云主机服务</li>
+<li>Simple Storage Service（S3）基于Web服务的存储</li>
+<li>Elastic Block Store（EBS）为EC2提供的持久化块存储</li>
+<li>DynamoDB 可扩展、可延迟的NoSQL数据库服务</li>
+<li>Relational Database Service（RDS）关系型数据库服务</li>
+<li>Route53 高可靠的域名系统服务（DNS）服务</li>
+<li>CloudFront 内容分发服务</li>
+<li>Elastic MapReduce (EMR) 在EC2和S3的基础上用Hadoop搭建的MapReduce</li>
+</ul>
+</li>
+</ul>
+<h3 id="基于分布式计算的大数据系统"><a href="#基于分布式计算的大数据系统" class="headerlink" title="基于分布式计算的大数据系统"></a>基于分布式计算的大数据系统</h3><ul>
+<li><p>Hadoop生态系统</p>
+<ul>
+<li><p>HDFS（Hadoop Distributed File System）</p>
+<ul>
+<li>分布式文件系统，将文件按一定大小切块，然后把每个块以多个副本的形式保存在不同的数据节点上</li>
+</ul>
+</li>
+<li><p>YARN（Yet Another Resource Negotiator）</p>
+<ul>
+<li>Hadoop的计算资源管理和调度系统，接受任务请求，并根据请求的需要来分配资源，调度任务的执行。</li>
+</ul>
+</li>
+<li><p>MapReduce</p>
+<ul>
+<li>Google提出的并行程序编程模型，适合对数据进行统计、分类等处理</li>
+</ul>
+</li>
+<li><p>HBase</p>
+<ul>
+<li>基于列的分布式存储，数据以表的形式组织，每个表可以有很多行，每行可以有若干列簇，每个列簇可以包含多个列</li>
+<li>HBase可作为数据仓库存储有一定结构的海量数据，数据可以发生修改，但不要很频繁，否则会影响效率</li>
+</ul>
+</li>
+<li><p>Hive、Pig</p>
+<ul>
+<li>能够让用户用较为简便的方式来查询保存在HDFS或HBase中的数据</li>
+</ul>
+</li>
+<li><p>ZooKeeper</p>
+<ul>
+<li>提供了编写分布式软件所需的常用工具</li>
+</ul>
+</li>
+<li><p>Tez</p>
+<ul>
+<li>比MapReduce更一般化的数据流编程框架</li>
+</ul>
+</li>
+<li><p>Storm、S4</p>
+<ul>
+<li>建立在Hadoop上的流式处理引擎</li>
+</ul>
+</li>
+<li><p>Mahout</p>
+<ul>
+<li>Hadoop实现的机器学习算法库，包括聚类、分类、推荐以及线性代数常用的算法</li>
+<li>新版本的Mapout主要用一种支持线性代数操作的领域特定语言（Domain Specific Language DSL）来实现</li>
+</ul>
+</li>
+<li><p>Giraph</p>
+<ul>
+<li>在Hadoop上实现了类似于Google的Pregel这样的图计算引擎，用于处理Web链接关系图、社交网络等类型的数据</li>
+</ul>
+</li>
+<li><p>Sqoop</p>
+<ul>
+<li>一个命令行工具，用于在Hadoop和传统的关系型数据库之间传输数据</li>
+</ul>
+</li>
+<li><p>三种安装模式</p>
+<ul>
+<li>单机模式</li>
+<li>伪分布模式</li>
+<li>全分布模式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Spark</p>
+<ul>
+<li>设计核心：一种叫做可靠分布式数据集（Resilient Distributed Dataset，RDD）的数据结构</li>
+<li>Spark SQL</li>
+<li><p>Spark Streaming</p>
+<ul>
+<li>提供流式处理的功能</li>
+</ul>
+</li>
+<li><p>MLlib</p>
+<ul>
+<li>机器学习算法库</li>
+</ul>
+</li>
+<li><p>GraphX</p>
+<ul>
+<li>Spark的图计算框架</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>典型的大数据基础架构</p>
+<ul>
+<li>GFS</li>
+<li>Cosmos</li>
+<li>SCOPE</li>
+</ul>
+</li>
+</ul>
+<h3 id="大规模图计算"><a href="#大规模图计算" class="headerlink" title="大规模图计算"></a>大规模图计算</h3><ul>
+<li><p>分布式图计算框架</p>
+<ul>
+<li>Pregel</li>
+<li>GraphLab</li>
+</ul>
+</li>
+<li><p>高效的单机图计算框架</p>
+<ul>
+<li>GraphChi</li>
+<li>X-Stream</li>
+<li>GridGraph</li>
+</ul>
+</li>
+</ul>
+<h3 id="NoSQL"><a href="#NoSQL" class="headerlink" title="NoSQL"></a>NoSQL</h3><ul>
+<li><p>分类</p>
+<ul>
+<li><p>基于列的存储</p>
+<ul>
+<li>常见的有HBase</li>
+</ul>
+</li>
+<li><p>基于文档的存储</p>
+<ul>
+<li>常见的有MongoDB、CouchDB</li>
+</ul>
+</li>
+<li><p>键值对存储</p>
+<ul>
+<li><p>单机内存型</p>
+<ul>
+<li>数据持久化在磁盘上，强调单机读写性能，数据一般按照键排序</li>
+<li>常见的有Berkeley DB、LevelDB</li>
+</ul>
+</li>
+<li><p>单机内存型</p>
+<ul>
+<li>数据主要存放在内存中，一般用作数据的缓存</li>
+<li>常见的有memcached、redis</li>
+</ul>
+</li>
+<li><p>分布式</p>
+<ul>
+<li>数据经划分后存放在不同的机器上，同一项数据可以在不同的机器上存有副本</li>
+<li>常见的有Dynamo、Riak</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>图数据库</p>
+<ul>
+<li>数据以图的形式组织，数据项是图中的顶点，每个顶点可以带属性，数据项之间的联系用边来表示，边上也可以带属性</li>
+<li>常见的有Neo4j</li>
+</ul>
+</li>
+<li><p>多模型</p>
+<ul>
+<li>同时支持上述若干模型，例如OrientDB、ArangoDB</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>NoSQL的理解</p>
+<ul>
+<li>一开始是No SQL 后来添加了对SQL的部分支持，变为Not only SQL</li>
+</ul>
+</li>
+<li><p>MongoDB</p>
+<ul>
+<li>基于文档的存储，数据以文档为单位组织</li>
+<li>存储的数据分为数据库、集合和文档三级，一个数据库可以包含若干集合，而一个集合可以包含若干个文档</li>
+<li>文档在表达上采用JSON格式</li>
+<li>基本操作包括文档的插入、更新、删除和查询，另外还可以单独对文档的某个属性进行修改，还可以进行增加、倍增这样的原子操作</li>
+<li>可以单机使用也可以在分布式的环境中使用</li>
+<li>还具有一定的数据分析能力，可以对数据进行统计</li>
+</ul>
+</li>
+</ul>
+<h2 id="智能问答"><a href="#智能问答" class="headerlink" title="智能问答"></a>智能问答</h2><h3 id="问答技术对于用户提出的问题予以理解，并找到答案回答给用户。经典案例：Siri等，人工智能的一个重要分支：专家系统"><a href="#问答技术对于用户提出的问题予以理解，并找到答案回答给用户。经典案例：Siri等，人工智能的一个重要分支：专家系统" class="headerlink" title="问答技术对于用户提出的问题予以理解，并找到答案回答给用户。经典案例：Siri等，人工智能的一个重要分支：专家系统"></a>问答技术对于用户提出的问题予以理解，并找到答案回答给用户。经典案例：Siri等，人工智能的一个重要分支：专家系统</h3><h3 id="问答系统的输入部分即问题更不容易被计算机理解，输出部分需要更准确，此外答案的来源更加——即知识也多种多样，既有结构化的信息也有非结构化的信息，因此问答系统的难度更大"><a href="#问答系统的输入部分即问题更不容易被计算机理解，输出部分需要更准确，此外答案的来源更加——即知识也多种多样，既有结构化的信息也有非结构化的信息，因此问答系统的难度更大" class="headerlink" title="问答系统的输入部分即问题更不容易被计算机理解，输出部分需要更准确，此外答案的来源更加——即知识也多种多样，既有结构化的信息也有非结构化的信息，因此问答系统的难度更大"></a>问答系统的输入部分即问题更不容易被计算机理解，输出部分需要更准确，此外答案的来源更加——即知识也多种多样，既有结构化的信息也有非结构化的信息，因此问答系统的难度更大</h3><h3 id="问答系统的组成"><a href="#问答系统的组成" class="headerlink" title="问答系统的组成"></a>问答系统的组成</h3><ul>
+<li><p>问题理解</p>
+<ul>
+<li>理解问题是什么，比如北京的温度是多少和太阳的温度是多少根本不是一个领域的问题</li>
+</ul>
+</li>
+<li><p>知识检索</p>
+</li>
+<li>答案生成</li>
+</ul>
+<h3 id="文本问答系统"><a href="#文本问答系统" class="headerlink" title="文本问答系统"></a>文本问答系统</h3><ul>
+<li>最基本的一类问答系统</li>
+<li><p>问题理解</p>
+<ul>
+<li><p>问题理解的内容</p>
+<ul>
+<li>常见分类体系：UIUC体系、Moldovan等人的分类体系、单层的平面分类和根据垂直领域的分类</li>
+</ul>
+</li>
+<li><p>问题理解的方法</p>
+<ul>
+<li>最直观的方法：模板匹配策略。优点在于逻辑清晰可见，易于理解和编写，缺点在于形式固定，对于千变万化的自然语言不容易灵活适应</li>
+<li>灵活的技术则要从词法、句法的分析入手，做词性标注，做句法分析，找出命名实体。</li>
+</ul>
+</li>
+<li><p>问题扩展</p>
+<ul>
+<li>同义词造成的多样性</li>
+<li>在词的级别上，可以借助《同义词词林》、知网（HowNet），这样的同义词词典及词语知识图谱可以扩展我们的词库</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>知识检索</p>
+<ul>
+<li><p>非结构化信息检索</p>
+<ul>
+<li>非结构化的信息，通常是指没有或很少标注的整篇文章组成的集合</li>
+<li>最直观的理解便是使用搜索引擎，提取出问题的关键词，查询索引，找出与这些关键词相关的文档，最后经过筛选和提取步骤，生成最终答案</li>
+<li>在挑选出的多篇文档的多个段落中，也需要找出更可能包含答案的段落或局部段落，也因此要对这些文本块排序</li>
+<li>问答系统中的经典做法是采用标准基数排序，排序指标的常见的三个因素：相同顺序的关键词数目、最远关键词间距和未命中关键词数</li>
+</ul>
+</li>
+<li><p>结构化知识检索</p>
+<ul>
+<li>主要侧重于一个实体的各个属性以及他们之间的关系</li>
+<li><p>结构化知识分类</p>
+<ul>
+<li>百科类知识</li>
+<li>关系类知识</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>答案生成</p>
+<ul>
+<li>可以考虑答案与问题的相似程度，如问题的关键词和答案词之间语义联系的远近，此外，答案与问题也可能存在句式的联系</li>
+</ul>
+</li>
+</ul>
+<h3 id="社区问答系统"><a href="#社区问答系统" class="headerlink" title="社区问答系统"></a>社区问答系统</h3><ul>
+<li>一些比较著名的有国外的Quora和国内的知乎、百度知道和搜狗问问等</li>
+<li><p>社区问答系统的结构</p>
+<ul>
+<li>问题理解</li>
+<li>答案生成</li>
+</ul>
+</li>
+<li><p>相似问题检索</p>
+<ul>
+<li>一般的问答系统是用问题检索，而社区问答中是用问题去找问题。问题的相似性问题与问题扩展所解决的问题是类似 的，同样需要词义的扩展、句式的扩展。</li>
+<li><p>问题相似性度量的几种方式</p>
+<ul>
+<li>模板匹配</li>
+<li>基于统计机器翻译</li>
+<li><p>基于词典的方法</p>
+<ul>
+<li>主要是基于同近义词的知识来扩展关键词，从而识别相似问句</li>
+</ul>
+</li>
+<li><p>基于信息距离</p>
+<ul>
+<li>可以借助信息论中的柯尔莫哥洛夫复杂性来定义一系列语义度量，来衡量两个问题语义的相似性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>答案过滤</p>
+<ul>
+<li>根据答案提供者的权威性选择答案</li>
+<li>根据答案内容本身评估质量</li>
+</ul>
+</li>
+</ul>
+<h3 id="多媒体问答系统（Multimedia-Question-Answering）"><a href="#多媒体问答系统（Multimedia-Question-Answering）" class="headerlink" title="多媒体问答系统（Multimedia Question Answering）"></a>多媒体问答系统（Multimedia Question Answering）</h3><ul>
+<li>问答的内容不仅仅限于纯文本内容，多媒体内容的表现力更强、更直观，易于理解</li>
+<li>需要计算机视觉、信号处理等多媒体技术，才能分析出多媒体所表达的内容，属于比较前沿的课题</li>
+</ul>
+<h3 id="体会"><a href="#体会" class="headerlink" title="体会"></a>体会</h3><ul>
+<li>对话系统比问答系统更难，问答系统涉及的技术较多，既包含语义分析，又有信息检索，还涉及到知识的挖掘与管理，若想成为全才，必须在方方面面都下功夫</li>
+</ul>
+<h2 id="自然语言处理"><a href="#自然语言处理" class="headerlink" title="自然语言处理"></a>自然语言处理</h2><h3 id="基本任务"><a href="#基本任务" class="headerlink" title="基本任务"></a>基本任务</h3><ul>
+<li>文档分类</li>
+<li>文档摘要</li>
+<li>关键词抽取</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="SinclairWang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="SinclairWang Alipay">
+        <p>Alipay</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>SinclairWang
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://sinclaircoder.gitee.io/archives/703a7422.html" title="《大数据智能》阅读笔记">https://sinclaircoder.gitee.io/archives/703a7422.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/前沿科普/" rel="tag"><i class="fa fa-tag"></i> 前沿科普</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/archives/9f9f7065.html" rel="prev" title="PTA整数分解为若干项之和">
+      <i class="fa fa-chevron-left"></i> PTA整数分解为若干项之和
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/archives/cafc282e.html" rel="next" title="PTA求前缀表达式的值">
+      PTA求前缀表达式的值 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#深度学习"><span class="nav-number">1.</span> <span class="nav-text">深度学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用分类"><span class="nav-number">1.1.</span> <span class="nav-text">应用分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结构分类"><span class="nav-number">1.2.</span> <span class="nav-text">结构分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分类"><span class="nav-number">1.3.</span> <span class="nav-text">分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#知识图谱"><span class="nav-number">2.</span> <span class="nav-text">知识图谱</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构建"><span class="nav-number">2.1.</span> <span class="nav-text">构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用"><span class="nav-number">2.2.</span> <span class="nav-text">应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要技术"><span class="nav-number">2.3.</span> <span class="nav-text">主要技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前景与挑战"><span class="nav-number">2.4.</span> <span class="nav-text">前景与挑战</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大数据系统"><span class="nav-number">3.</span> <span class="nav-text">大数据系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#高性能计算技术"><span class="nav-number">3.1.</span> <span class="nav-text">高性能计算技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟化技术"><span class="nav-number">3.2.</span> <span class="nav-text">虚拟化技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#云计算技术"><span class="nav-number">3.3.</span> <span class="nav-text">云计算技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于分布式计算的大数据系统"><span class="nav-number">3.4.</span> <span class="nav-text">基于分布式计算的大数据系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大规模图计算"><span class="nav-number">3.5.</span> <span class="nav-text">大规模图计算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NoSQL"><span class="nav-number">3.6.</span> <span class="nav-text">NoSQL</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#智能问答"><span class="nav-number">4.</span> <span class="nav-text">智能问答</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问答技术对于用户提出的问题予以理解，并找到答案回答给用户。经典案例：Siri等，人工智能的一个重要分支：专家系统"><span class="nav-number">4.1.</span> <span class="nav-text">问答技术对于用户提出的问题予以理解，并找到答案回答给用户。经典案例：Siri等，人工智能的一个重要分支：专家系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问答系统的输入部分即问题更不容易被计算机理解，输出部分需要更准确，此外答案的来源更加——即知识也多种多样，既有结构化的信息也有非结构化的信息，因此问答系统的难度更大"><span class="nav-number">4.2.</span> <span class="nav-text">问答系统的输入部分即问题更不容易被计算机理解，输出部分需要更准确，此外答案的来源更加——即知识也多种多样，既有结构化的信息也有非结构化的信息，因此问答系统的难度更大</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问答系统的组成"><span class="nav-number">4.3.</span> <span class="nav-text">问答系统的组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本问答系统"><span class="nav-number">4.4.</span> <span class="nav-text">文本问答系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#社区问答系统"><span class="nav-number">4.5.</span> <span class="nav-text">社区问答系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多媒体问答系统（Multimedia-Question-Answering）"><span class="nav-number">4.6.</span> <span class="nav-text">多媒体问答系统（Multimedia Question Answering）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#体会"><span class="nav-number">4.7.</span> <span class="nav-text">体会</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自然语言处理"><span class="nav-number">5.</span> <span class="nav-text">自然语言处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本任务"><span class="nav-number">5.1.</span> <span class="nav-text">基本任务</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="SinclairWang"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">SinclairWang</p>
+  <div class="site-description" itemprop="description">算法 | NLP | MachineLearning</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1NpbmNsYWlyQ29kZXI=" title="GitHub → https://github.com/SinclairCoder"><i class="github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOnNpbmNsYWlyY29kZXJAMTYzLmNvbQ==" title="E-Mail → mailto:sinclaircoder@163.com"><i class="envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==" title="CSDN → https://blog.csdn.net/SinclairWang"><i class="book fa-fw"></i></span>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><span class="exturl" data-url="aHR0cDovL3d3dy5iZWlhbi5taWl0Lmdvdi5jbg==">冀ICP备20002885号 </span>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SinclairWang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="Symbols count total">157k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">2:22</span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'ykMNaPlRQAthwgrFfHggAQ7f-gzGzoHsz',
+      appKey     : 'neDtomoYnobT9QzrcHrQj71d',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div class="moon-menu-item" onclick="back2bottom()">
+      <i class='fa fa-chevron-down'></i>    </div>
+    
+    <div class="moon-menu-item" onclick="back2top()">
+      <i class='fa fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button">
+    <svg class="moon-menu-bg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+    </svg>
+    <div class="moon-menu-content">
+      <div class="moon-menu-icon"><i class='fas fa-ellipsis-v'></i></div>
+      <div class="moon-menu-text"></div>
+    </div>
+  </div>
+</div><script src="/js/injector.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
