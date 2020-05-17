@@ -73,6 +73,35 @@
   </entry>
   
   <entry>
+    <title>PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）</title>
+    <link href="https://sinclaircoder.gitee.io/archives/f029cec1.html"/>
+    <id>https://sinclaircoder.gitee.io/archives/f029cec1.html</id>
+    <published>2020-01-18T16:00:00.000Z</published>
+    <updated>2020-05-17T16:41:40.192Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>哥尼斯堡是位于普累格河上的一座城市，它包含两个岛屿及连接它们的七座桥，<br>可否走过这样的七座桥，而且每桥只走过一次？瑞士数学家欧拉(Leonhard Euler，1707—1783)最终解决了这个问题，并由此创立了拓扑学。<br>这个问题如今可以描述为判断欧拉回路是否存在的问题。欧拉回路是指不令笔离开纸面，可画过图中每条边仅一次，且可以回到起点的一条回路。现给定一个无向图，问是否存在欧拉回路？</p><h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入第一行给出两个正整数，分别是节点数N (1≤N≤1000)和边数M；随后的M行对应M条边，每行给出一对正整数，分别是该条边直接连通的两个节点的编号（节点从1到N编号）。</p><h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>若欧拉回路存在则输出1，否则输出0。</p><h2 id="输入样例1"><a href="#输入样例1" class="headerlink" title="输入样例1:"></a>输入样例1:</h2><blockquote><p>6 10<br>1 2<br>2 3<br>3 1<br>4 5<br>5 6<br>6 4<br>1 4<br>1 6<br>3 4<br>3 6    </p><h2 id="输出样例1"><a href="#输出样例1" class="headerlink" title="输出样例1:"></a>输出样例1:</h2><p>1</p></blockquote><h2 id="输入样例2"><a href="#输入样例2" class="headerlink" title="输入样例2:"></a>输入样例2:</h2><blockquote><p>5 8<br>1 2<br>1 3<br>2 3<br>2 4<br>2 5<br>5 3<br>5 4<br>3 4</p></blockquote><h2 id="输出样例2"><a href="#输出样例2" class="headerlink" title="输出样例2:"></a>输出样例2:</h2><blockquote><p>0</p></blockquote><p><br><br>思路：<br><br>如果欧拉通路的起点与终点一样，则成为欧拉回路， 连通的多重图具有欧拉回路当且仅当它的每个顶点都有偶数度<br>则欧拉回路的条件：</p><ul><li>图是连通的，没有孤立节点</li><li>无向图的每个节点的度数都是偶数度，有向图每个节点的入度等于出度</li></ul><p>使用并查集统计连通分量个数，使用degree数组奇偶数判断是否全为偶数。<br><br></p><pre><code class="lang-cpp">#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;int fa[1005];int father(int x){    if(fa[x]==x) return x;    return fa[x] = father(fa[x]);} int main(){    int n,m,x,y;    cin &gt;&gt; n &gt;&gt; m;    int degree[n+1];    for(int i=1;i&lt;=n;i++)  fa[i] = i;    memset(degree,0,sizeof(degree));    for(int i=0;i&lt;m;i++){        cin &gt;&gt; x &gt;&gt; y;        int rootx = father(x),rooty = father(y);        if(rootx!=rooty){            fa[rooty] = rootx;        }        // fa[father(y)] = father(x);  这样写竟然会超时！！！！        // 不要问我咋知道的        degree[x]++;        degree[y]++;    }    int exist=1,root = fa[1],connectcnt = 0;    for(int i=1;i&lt;=n;i++){        if(fa[i]==i) connectcnt++;    }    if(connectcnt&gt;1) exist = 0;    for(int i=1;i&lt;=n;i++){        if(degree[i]%2){            exist = 0;break;        }    }     cout &lt;&lt; exist &lt;&lt; endl;        return 0;}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="PTA" scheme="https://sinclaircoder.gitee.io/categories/PTA/"/>
+    
+    
+      <category term="PTA" scheme="https://sinclaircoder.gitee.io/tags/PTA/"/>
+    
+      <category term="欧拉回路" scheme="https://sinclaircoder.gitee.io/tags/%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF/"/>
+    
+      <category term="并查集" scheme="https://sinclaircoder.gitee.io/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PTA汉密尔顿回路</title>
     <link href="https://sinclaircoder.gitee.io/archives/8ce6deb1.html"/>
     <id>https://sinclaircoder.gitee.io/archives/8ce6deb1.html</id>
@@ -150,35 +179,6 @@
       <category term="PTA" scheme="https://sinclaircoder.gitee.io/tags/PTA/"/>
     
       <category term="BFS" scheme="https://sinclaircoder.gitee.io/tags/BFS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）</title>
-    <link href="https://sinclaircoder.gitee.io/archives/f029cec1.html"/>
-    <id>https://sinclaircoder.gitee.io/archives/f029cec1.html</id>
-    <published>2020-01-18T16:00:00.000Z</published>
-    <updated>2020-05-17T16:41:40.192Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>哥尼斯堡是位于普累格河上的一座城市，它包含两个岛屿及连接它们的七座桥，<br>可否走过这样的七座桥，而且每桥只走过一次？瑞士数学家欧拉(Leonhard Euler，1707—1783)最终解决了这个问题，并由此创立了拓扑学。<br>这个问题如今可以描述为判断欧拉回路是否存在的问题。欧拉回路是指不令笔离开纸面，可画过图中每条边仅一次，且可以回到起点的一条回路。现给定一个无向图，问是否存在欧拉回路？</p><h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入第一行给出两个正整数，分别是节点数N (1≤N≤1000)和边数M；随后的M行对应M条边，每行给出一对正整数，分别是该条边直接连通的两个节点的编号（节点从1到N编号）。</p><h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>若欧拉回路存在则输出1，否则输出0。</p><h2 id="输入样例1"><a href="#输入样例1" class="headerlink" title="输入样例1:"></a>输入样例1:</h2><blockquote><p>6 10<br>1 2<br>2 3<br>3 1<br>4 5<br>5 6<br>6 4<br>1 4<br>1 6<br>3 4<br>3 6    </p><h2 id="输出样例1"><a href="#输出样例1" class="headerlink" title="输出样例1:"></a>输出样例1:</h2><p>1</p></blockquote><h2 id="输入样例2"><a href="#输入样例2" class="headerlink" title="输入样例2:"></a>输入样例2:</h2><blockquote><p>5 8<br>1 2<br>1 3<br>2 3<br>2 4<br>2 5<br>5 3<br>5 4<br>3 4</p></blockquote><h2 id="输出样例2"><a href="#输出样例2" class="headerlink" title="输出样例2:"></a>输出样例2:</h2><blockquote><p>0</p></blockquote><p><br><br>思路：<br><br>如果欧拉通路的起点与终点一样，则成为欧拉回路， 连通的多重图具有欧拉回路当且仅当它的每个顶点都有偶数度<br>则欧拉回路的条件：</p><ul><li>图是连通的，没有孤立节点</li><li>无向图的每个节点的度数都是偶数度，有向图每个节点的入度等于出度</li></ul><p>使用并查集统计连通分量个数，使用degree数组奇偶数判断是否全为偶数。<br><br></p><pre><code class="lang-cpp">#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;int fa[1005];int father(int x){    if(fa[x]==x) return x;    return fa[x] = father(fa[x]);} int main(){    int n,m,x,y;    cin &gt;&gt; n &gt;&gt; m;    int degree[n+1];    for(int i=1;i&lt;=n;i++)  fa[i] = i;    memset(degree,0,sizeof(degree));    for(int i=0;i&lt;m;i++){        cin &gt;&gt; x &gt;&gt; y;        int rootx = father(x),rooty = father(y);        if(rootx!=rooty){            fa[rooty] = rootx;        }        // fa[father(y)] = father(x);  这样写竟然会超时！！！！        // 不要问我咋知道的        degree[x]++;        degree[y]++;    }    int exist=1,root = fa[1],connectcnt = 0;    for(int i=1;i&lt;=n;i++){        if(fa[i]==i) connectcnt++;    }    if(connectcnt&gt;1) exist = 0;    for(int i=1;i&lt;=n;i++){        if(degree[i]%2){            exist = 0;break;        }    }     cout &lt;&lt; exist &lt;&lt; endl;        return 0;}</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="PTA" scheme="https://sinclaircoder.gitee.io/categories/PTA/"/>
-    
-    
-      <category term="PTA" scheme="https://sinclaircoder.gitee.io/tags/PTA/"/>
-    
-      <category term="并查集" scheme="https://sinclaircoder.gitee.io/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
-    
-      <category term="欧拉回路" scheme="https://sinclaircoder.gitee.io/tags/%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF/"/>
     
   </entry>
   
@@ -472,13 +472,13 @@
   </entry>
   
   <entry>
-    <title>切面条</title>
-    <link href="https://sinclaircoder.gitee.io/archives/6c292947.html"/>
-    <id>https://sinclaircoder.gitee.io/archives/6c292947.html</id>
+    <title>大数乘法 java BigInteger的使用</title>
+    <link href="https://sinclaircoder.gitee.io/archives/6a744e70.html"/>
+    <id>https://sinclaircoder.gitee.io/archives/6a744e70.html</id>
     <published>2019-11-21T16:00:00.000Z</published>
-    <updated>2020-05-17T16:41:40.182Z</updated>
+    <updated>2020-05-17T16:41:40.131Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一道2014蓝桥杯省赛试题<br><strong>切面条</strong><br> 一根高筋拉面，中间切一刀，可以得到2根面条。<br>    如果先对折1次，中间切一刀，可以得到3根面条。<br>    如果连续对折2次，中间切一刀，可以得到5根面条。<br>    那么，连续对折10次，中间切一刀，会得到多少面条呢？  </p><p>不切的话，一根面条原本有两个端点<br>对折0次，中间切一刀，会产生1个端点，一共3个端点，会产生2根面条<br>对折1次，中间切一刀，会产生2个端点，一共4个端点，会产生3根面条<br>对折2次，中间切一刀，会产生4个端点，一共6个端点，会产生5根面条<br>对折3次，中间切一刀，会产生8个端点，一共10个端点，会产生9根面条<br>…<br>…<br>假设对折n次，则中间切一刀，会产生$2^n$个端点，加上原来的两个，一共$2^n+2$个端点，会产生$2^n+2-1$根面条，也即产生的面条数等于端点数减一。<br>即<script type="math/tex">result = 2^n+1</script><br>（证明略..）<br>当n=10时，result = 1025</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>找个大数乘法的题目练习一下 BigInterger的使用</p><blockquote><p>当两个比较大的整数相乘时，可能会出现数据溢出的情形。为避免溢出，可以采用字符串的方法来实现两个大数之间的乘法。具体来说，首先以字符串的形式输入两个整数，每个整数的长度不会超过8位，然后把它们相乘的结果存储在另一个字符串当中（长度不会超过16位），最后把这个字符串打印出来。例如，假设用户输入为：62773417和12345678，则输出结果为：774980393241726.</p></blockquote><p>输入：</p><blockquote><p>62773417 12345678</p></blockquote><p>输出：</p><blockquote><p>774980393241726</p></blockquote><p>代码实现</p><pre><code class="lang-java">import java.math.BigInteger;import java.util.Scanner;public class Main {    public static void main(String[] args) {        Scanner input = new Scanner(System.in);        String str1 = input.next(),str2 = input.next();        BigInteger num1 = new BigInteger(str1);        BigInteger num2 = new BigInteger(str2);        BigInteger res = num1.multiply(num2);        System.out.println(res.toString());        input.close();    }}</code></pre><p>比C/C++实现起来爽很多。<br>一般来说BigInteger是使用String类型进行构造，传入两个个数字字符串，然后进行加减乘除。<br>java中并没有重载运算符这种操作，只能另外实现封装成新的函数。</p><p>一些常用API请参考<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3N1eWViaXViaXUvYXJ0aWNsZS9kZXRhaWxzLzc4NTExNTU2">java基础-BigInteger的使用<i class="fa fa-external-link-alt"></i></span></p>]]></content>
     
     <summary type="html">
     
@@ -491,6 +491,8 @@
     
       <category term="蓝桥杯" scheme="https://sinclaircoder.gitee.io/categories/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
     
+    
+      <category term="BigInteger" scheme="https://sinclaircoder.gitee.io/tags/BigInteger/"/>
     
       <category term="蓝桥杯" scheme="https://sinclaircoder.gitee.io/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
     
@@ -524,13 +526,13 @@
   </entry>
   
   <entry>
-    <title>大数乘法 java BigInteger的使用</title>
-    <link href="https://sinclaircoder.gitee.io/archives/6a744e70.html"/>
-    <id>https://sinclaircoder.gitee.io/archives/6a744e70.html</id>
+    <title>黄金连分数--BigDecimal的使用</title>
+    <link href="https://sinclaircoder.gitee.io/archives/7bffbf73.html"/>
+    <id>https://sinclaircoder.gitee.io/archives/7bffbf73.html</id>
     <published>2019-11-21T16:00:00.000Z</published>
-    <updated>2020-05-17T16:41:40.131Z</updated>
+    <updated>2020-05-17T16:41:40.179Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>找个大数乘法的题目练习一下 BigInterger的使用</p><blockquote><p>当两个比较大的整数相乘时，可能会出现数据溢出的情形。为避免溢出，可以采用字符串的方法来实现两个大数之间的乘法。具体来说，首先以字符串的形式输入两个整数，每个整数的长度不会超过8位，然后把它们相乘的结果存储在另一个字符串当中（长度不会超过16位），最后把这个字符串打印出来。例如，假设用户输入为：62773417和12345678，则输出结果为：774980393241726.</p></blockquote><p>输入：</p><blockquote><p>62773417 12345678</p></blockquote><p>输出：</p><blockquote><p>774980393241726</p></blockquote><p>代码实现</p><pre><code class="lang-java">import java.math.BigInteger;import java.util.Scanner;public class Main {    public static void main(String[] args) {        Scanner input = new Scanner(System.in);        String str1 = input.next(),str2 = input.next();        BigInteger num1 = new BigInteger(str1);        BigInteger num2 = new BigInteger(str2);        BigInteger res = num1.multiply(num2);        System.out.println(res.toString());        input.close();    }}</code></pre><p>比C/C++实现起来爽很多。<br>一般来说BigInteger是使用String类型进行构造，传入两个个数字字符串，然后进行加减乘除。<br>java中并没有重载运算符这种操作，只能另外实现封装成新的函数。</p><p>一些常用API请参考<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3N1eWViaXViaXUvYXJ0aWNsZS9kZXRhaWxzLzc4NTExNTU2">java基础-BigInteger的使用<i class="fa fa-external-link-alt"></i></span></p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一道2013蓝桥杯省赛试题</p><p><strong>黄金连分数</strong></p><ul><li>黄金分割数是0.61803是一个无理数，…</li><li>写出精确到小数点后100位精度的黄金分割数</li></ul><script type="math/tex; mode=display">\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+}}}}}}</script><p>当然黄金分割数是$\frac{\sqrt5-1}{2}$,可以直接算，但是Windows下的计算器的求解只能到小数点之后32位</p><p><img src="https://img-blog.csdnimg.cn/20191122163245826.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="windows下计算器计算结果"></p><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>当然这是一道填空题，只需要结果，假如你懂一点点java，又刚好知道BigDecimal这个类，那你就可以打开桌面的Eclipse轻松求解这个题目。</p><pre><code class="lang-java">import java.math.BigDecimal;import java.math.BigInteger;import java.util.Scanner;public class BigDecimalLearning {    public static void main(String[] args) {        BigDecimal res = new BigDecimal(1); // 没有 new BigDecimal(BigDecimal.ONE); 这种构造方法        for(int i=0;i&lt;100;i++) {            res = res.add(BigDecimal.ONE);            res = BigDecimal.ONE.divide(res,105,BigDecimal.ROUND_HALF_UP);        }        String str = res.toString().substring(2, 102);        System.out.println(str);//        System.out.println(str.length());    }}</code></pre><p>结果：</p><pre><code class="lang-java">6180339887498948482045868343656381177203096998094118264936291294152016354093729191617385189497190563</code></pre><p><br></p><h2 id="简单介绍一下BigDecimal"><a href="#简单介绍一下BigDecimal" class="headerlink" title="简单介绍一下BigDecimal"></a>简单介绍一下BigDecimal</h2><p>Java在java.math包中提供了BigDecimal类，用来对超过16位有效位的数进行精确的运算。双精度浮点型变量double可以处理16位有效数。在实际应用中，需要对更大或者更小的数进行运算和处理。float和double只能用来做科学计算或者是工程计算，在商业计算中要用java.math.BigDecimal。<br>常用方法如下：</p><pre><code class="lang-java">BigDecimal b1 = new BigDecimal(&quot;20&quot;);BigDecimal b2 = new BigDecimal(&quot;30&quot;);b1.add(b2)          //加法，求两个BigDecimal类型数据的和。b1.subtract(b2);     //减法，求两个BigDecimal类型数据的差。b1.multiply(b2);     //乘法，求两个BigDecimal类型数据的积。b1.remainder(b2);    //求余数，求b1除以b2的余数。b1.max(b2);        //最大数，求两个BigDecimal类型数据的最大值b1.min(b2);       //最小数，求两个BigDecimal类型数据的最小值。bi.abs();      //绝对值，求BigDecimal类型数据的绝对值。b1.negate();    //相反数，求BigDecimal类型数据的相反数。</code></pre>]]></content>
     
     <summary type="html">
     
@@ -546,7 +548,7 @@
     
       <category term="蓝桥杯" scheme="https://sinclaircoder.gitee.io/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/"/>
     
-      <category term="BigInteger" scheme="https://sinclaircoder.gitee.io/tags/BigInteger/"/>
+      <category term="BigDecimal" scheme="https://sinclaircoder.gitee.io/tags/BigDecimal/"/>
     
   </entry>
   
