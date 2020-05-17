@@ -24,18 +24,18 @@
     var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="最近在复现数据分析，发现JupyterNotebook默认存储路径在C盘 /user/.jupyter里面想改一下默认存储路径。 step1进入Anaconda安装路径，一般来说都是 */Anaconda3/Scripts，比如我的就是在 E:\Python\Anaconda\INSTALL\Scripts这个路径下，在cmd中将路径转到该路径下，这样替换代码如下，其中路径替换成自己的。12&amp;gt">
+  <meta name="description" content="最近在复现数据分析，发现JupyterNotebook默认存储路径在C盘 /user/.jupyter里面想改一下默认存储路径。">
 <meta name="keywords" content="JupyterNotebook">
 <meta property="og:type" content="article">
 <meta property="og:title" content="修改Jupyter Notebook的默认存储路径">
 <meta property="og:url" content="https://sinclaircoder.gitee.io/archives/5656ce34.html">
 <meta property="og:site_name" content="SinclairのBlog">
-<meta property="og:description" content="最近在复现数据分析，发现JupyterNotebook默认存储路径在C盘 /user/.jupyter里面想改一下默认存储路径。 step1进入Anaconda安装路径，一般来说都是 */Anaconda3/Scripts，比如我的就是在 E:\Python\Anaconda\INSTALL\Scripts这个路径下，在cmd中将路径转到该路径下，这样替换代码如下，其中路径替换成自己的。12&amp;gt">
+<meta property="og:description" content="最近在复现数据分析，发现JupyterNotebook默认存储路径在C盘 /user/.jupyter里面想改一下默认存储路径。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-05-17T16:41:40.106Z">
+<meta property="og:updated_time" content="2020-05-17T17:53:39.633Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="修改Jupyter Notebook的默认存储路径">
-<meta name="twitter:description" content="最近在复现数据分析，发现JupyterNotebook默认存储路径在C盘 /user/.jupyter里面想改一下默认存储路径。 step1进入Anaconda安装路径，一般来说都是 */Anaconda3/Scripts，比如我的就是在 E:\Python\Anaconda\INSTALL\Scripts这个路径下，在cmd中将路径转到该路径下，这样替换代码如下，其中路径替换成自己的。12&amp;gt">
+<meta name="twitter:description" content="最近在复现数据分析，发现JupyterNotebook默认存储路径在C盘 /user/.jupyter里面想改一下默认存储路径。">
 
 <link rel="canonical" href="https://sinclaircoder.gitee.io/archives/5656ce34.html">
 
@@ -246,7 +246,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:40" itemprop="dateModified" datetime="2020-05-18T00:41:40+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 01:53:39" itemprop="dateModified" datetime="2020-05-18T01:53:39+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -304,7 +304,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>最近在复现数据分析，发现JupyterNotebook默认存储路径在C盘 /user/.jupyter里面<br>想改一下默认存储路径。</p>
+        <p>最近在复现数据分析，发现JupyterNotebook默认存储路径在C盘 /user/.jupyter里面<br>想改一下默认存储路径。<br><a id="more"></a></p>
 <h2 id="step1"><a href="#step1" class="headerlink" title="step1"></a>step1</h2><p>进入Anaconda安装路径，一般来说都是 <em>*</em>/Anaconda3/Scripts，比如我的就是在 E:\Python\Anaconda\INSTALL\Scripts这个路径下，在cmd中将路径转到该路径下，这样替换代码如下，其中路径替换成自己的。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; <span class="built_in">cd</span> E:\Python\Anaconda\INSTALL\Scripts</span><br><span class="line">&gt;&gt; e:</span><br></pre></td></tr></table></figure></p>
 <h2 id="step2"><a href="#step2" class="headerlink" title="step2"></a>step2</h2><p>在cmd中输入命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></table></figure></p>
 <p>然后就会在C盘用户路径（例如我的路径是：C:\Users\三寸旧城七寸执念\.jupyter）下生成jupyter_notebook_config.py文件，使用文本编辑器（VS Code等）打开该文件。</p>

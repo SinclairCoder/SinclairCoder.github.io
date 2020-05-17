@@ -24,18 +24,18 @@
     var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="著名的“汉密尔顿（Hamilton）回路问题”是要找一个能遍历图中所有顶点的简单回路（即每个顶点只访问 1 次）。本题就要求你判断任一给定的回路是否汉密尔顿回路。 输入格式：首先第一行给出两个正整数：无向图中顶点数 N（2&amp;lt;N≤200）和边数 M。随后 M 行，每行给出一条边的两个端点，格式为“顶点1 顶点2”，其中顶点从 1 到N 编号。再下一行给出一个正整数 K，是待检验的回路的条数。随">
+  <meta name="description" content="著名的“汉密尔顿（Hamilton）回路问题”是要找一个能遍历图中所有顶点的简单回路（即每个顶点只访问 1 次）。本题就要求你判断任一给定的回路是否汉密尔顿回路。">
 <meta name="keywords" content="PTA,Hamilton回路">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PTA汉密尔顿回路">
 <meta property="og:url" content="https://sinclaircoder.gitee.io/archives/8ce6deb1.html">
 <meta property="og:site_name" content="SinclairのBlog">
-<meta property="og:description" content="著名的“汉密尔顿（Hamilton）回路问题”是要找一个能遍历图中所有顶点的简单回路（即每个顶点只访问 1 次）。本题就要求你判断任一给定的回路是否汉密尔顿回路。 输入格式：首先第一行给出两个正整数：无向图中顶点数 N（2&amp;lt;N≤200）和边数 M。随后 M 行，每行给出一条边的两个端点，格式为“顶点1 顶点2”，其中顶点从 1 到N 编号。再下一行给出一个正整数 K，是待检验的回路的条数。随">
+<meta property="og:description" content="著名的“汉密尔顿（Hamilton）回路问题”是要找一个能遍历图中所有顶点的简单回路（即每个顶点只访问 1 次）。本题就要求你判断任一给定的回路是否汉密尔顿回路。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-05-17T16:41:40.195Z">
+<meta property="og:updated_time" content="2020-05-17T17:53:55.450Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PTA汉密尔顿回路">
-<meta name="twitter:description" content="著名的“汉密尔顿（Hamilton）回路问题”是要找一个能遍历图中所有顶点的简单回路（即每个顶点只访问 1 次）。本题就要求你判断任一给定的回路是否汉密尔顿回路。 输入格式：首先第一行给出两个正整数：无向图中顶点数 N（2&amp;lt;N≤200）和边数 M。随后 M 行，每行给出一条边的两个端点，格式为“顶点1 顶点2”，其中顶点从 1 到N 编号。再下一行给出一个正整数 K，是待检验的回路的条数。随">
+<meta name="twitter:description" content="著名的“汉密尔顿（Hamilton）回路问题”是要找一个能遍历图中所有顶点的简单回路（即每个顶点只访问 1 次）。本题就要求你判断任一给定的回路是否汉密尔顿回路。">
 
 <link rel="canonical" href="https://sinclaircoder.gitee.io/archives/8ce6deb1.html">
 
@@ -246,7 +246,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:40" itemprop="dateModified" datetime="2020-05-18T00:41:40+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 01:53:55" itemprop="dateModified" datetime="2020-05-18T01:53:55+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -305,6 +305,7 @@
 
       
         <p>著名的“汉密尔顿（Hamilton）回路问题”是要找一个能遍历图中所有顶点的简单回路（即每个顶点只访问 1 次）。本题就要求你判断任一给定的回路是否汉密尔顿回路。</p>
+<a id="more"></a>
 <h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>首先第一行给出两个正整数：无向图中顶点数 N（2&lt;N≤200）和边数 M。随后 M 行，每行给出一条边的两个端点，格式为“顶点1 顶点2”，其中顶点从 1 到N 编号。再下一行给出一个正整数 K，是待检验的回路的条数。随后 K 行，每行给出一条待检回路，格式为：<br>$n\quad V<em>1\quad V_2⋯ V</em>​n$</p>
 <p>其中 n 是回路中的顶点数，$V_i$是路径上的顶点编号。</p>
 <h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>对每条待检回路，如果是汉密尔顿回路，就在一行中输出”YES”，否则输出”NO”。</p>
@@ -329,7 +330,7 @@
       <div class="popular-posts-title"><a href="\archives\cafc282e.html" rel="bookmark">PTA求前缀表达式的值</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\archives\4669f0d5.html" rel="bookmark">PTA列出连通集(DFS+BFS)</a></div>
+      <div class="popular-posts-title"><a href="\archives\9c6e9d96.html" rel="bookmark">PTA朋友圈(并查集)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\archives\f029cec1.html" rel="bookmark">PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）</a></div>
@@ -393,12 +394,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/archives/f76e7172.html" rel="prev" title="PTA小字辈（BFS）">
-      <i class="fa fa-chevron-left"></i> PTA小字辈（BFS）
+    <a href="/archives/f029cec1.html" rel="prev" title="PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）">
+      <i class="fa fa-chevron-left"></i> PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）
     </a></div>
       <div class="post-nav-item">
-    <a href="/archives/16fc6f35.html" rel="next" title="PTA列出叶结点(BFS)">
-      PTA列出叶结点(BFS) <i class="fa fa-chevron-right"></i>
+    <a href="/archives/f76e7172.html" rel="next" title="PTA小字辈（BFS）">
+      PTA小字辈（BFS） <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

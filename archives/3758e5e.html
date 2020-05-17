@@ -24,18 +24,18 @@
     var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="戒骄戒躁，勇往直前。 传送门：第 158 场周赛分割平衡字符串在一个「平衡字符串」中，’L’ 和 ‘R’ 字符的数量是相同的。给出一个平衡字符串 s，请你将它分割成尽可能多的平衡字符串。返回可以通过分割得到的平衡字符串的最大数量。输入：s = “RLRRLLRLRL”输出：4解释：s 可以分割为 “RL”, “RRLL”, “RL”, “RL”, 每个子字符串中都包含相同数量的 ‘L’ 和 ‘R’">
+  <meta name="description" content="戒骄戒躁，勇往直前。 传送门：第 158 场周赛">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCodeWeeklyContest-158">
 <meta property="og:url" content="https://sinclaircoder.gitee.io/archives/3758e5e.html">
 <meta property="og:site_name" content="SinclairのBlog">
-<meta property="og:description" content="戒骄戒躁，勇往直前。 传送门：第 158 场周赛分割平衡字符串在一个「平衡字符串」中，’L’ 和 ‘R’ 字符的数量是相同的。给出一个平衡字符串 s，请你将它分割成尽可能多的平衡字符串。返回可以通过分割得到的平衡字符串的最大数量。输入：s = “RLRRLLRLRL”输出：4解释：s 可以分割为 “RL”, “RRLL”, “RL”, “RL”, 每个子字符串中都包含相同数量的 ‘L’ 和 ‘R’">
+<meta property="og:description" content="戒骄戒躁，勇往直前。 传送门：第 158 场周赛">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-05-17T16:41:40.202Z">
+<meta property="og:updated_time" content="2020-05-17T17:53:35.961Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCodeWeeklyContest-158">
-<meta name="twitter:description" content="戒骄戒躁，勇往直前。 传送门：第 158 场周赛分割平衡字符串在一个「平衡字符串」中，’L’ 和 ‘R’ 字符的数量是相同的。给出一个平衡字符串 s，请你将它分割成尽可能多的平衡字符串。返回可以通过分割得到的平衡字符串的最大数量。输入：s = “RLRRLLRLRL”输出：4解释：s 可以分割为 “RL”, “RRLL”, “RL”, “RL”, 每个子字符串中都包含相同数量的 ‘L’ 和 ‘R’">
+<meta name="twitter:description" content="戒骄戒躁，勇往直前。 传送门：第 158 场周赛">
 
 <link rel="canonical" href="https://sinclaircoder.gitee.io/archives/3758e5e.html">
 
@@ -246,7 +246,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:40" itemprop="dateModified" datetime="2020-05-18T00:41:40+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 01:53:35" itemprop="dateModified" datetime="2020-05-18T01:53:35+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -305,7 +305,8 @@
 
       
         <p>戒骄戒躁，勇往直前。<br><br></p>
-<h2 id="传送门：第-158-场周赛"><a href="#传送门：第-158-场周赛" class="headerlink" title="传送门：第 158 场周赛"></a>传送门：<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vY29udGVzdC93ZWVrbHktY29udGVzdC0xNTg=">第 158 场周赛<i class="fa fa-external-link-alt"></i></span></h2><h2 id="分割平衡字符串"><a href="#分割平衡字符串" class="headerlink" title="分割平衡字符串"></a>分割平衡字符串</h2><p>在一个「平衡字符串」中，’L’ 和 ‘R’ 字符的数量是相同的。<br>给出一个平衡字符串 s，请你将它分割成尽可能多的平衡字符串。<br>返回可以通过分割得到的平衡字符串的最大数量。<br>输入：s = “RLRRLLRLRL”<br>输出：4<br>解释：s 可以分割为 “RL”, “RRLL”, “RL”, “RL”, 每个子字符串中都包含相同数量的 ‘L’ 和 ‘R’。</p>
+<h2 id="传送门：第-158-场周赛"><a href="#传送门：第-158-场周赛" class="headerlink" title="传送门：第 158 场周赛"></a>传送门：<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vY29udGVzdC93ZWVrbHktY29udGVzdC0xNTg=">第 158 场周赛<i class="fa fa-external-link-alt"></i></span></h2><a id="more"></a> 
+<h2 id="分割平衡字符串"><a href="#分割平衡字符串" class="headerlink" title="分割平衡字符串"></a>分割平衡字符串</h2><p>在一个「平衡字符串」中，’L’ 和 ‘R’ 字符的数量是相同的。<br>给出一个平衡字符串 s，请你将它分割成尽可能多的平衡字符串。<br>返回可以通过分割得到的平衡字符串的最大数量。<br>输入：s = “RLRRLLRLRL”<br>输出：4<br>解释：s 可以分割为 “RL”, “RRLL”, “RL”, “RL”, 每个子字符串中都包含相同数量的 ‘L’ 和 ‘R’。</p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>用两个数组记录当前出现的R和L的次数，进行比对相等则cnt+1。</p>
 <h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">balancedStringSplit</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.length(),cnt=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> rcnt[n]=&#123;<span class="number">0</span>&#125;,lcnt[n]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">            rcnt[i]=(i==<span class="number">0</span>?<span class="number">0</span>:rcnt[i<span class="number">-1</span>]);</span><br><span class="line">            lcnt[i]=(i==<span class="number">0</span>?<span class="number">0</span>:lcnt[i<span class="number">-1</span>]);</span><br><span class="line">            <span class="keyword">if</span>(s[i]==<span class="string">'R'</span>)  rcnt[i]++;</span><br><span class="line">            <span class="keyword">if</span>(s[i]==<span class="string">'L'</span>)  lcnt[i]++;</span><br><span class="line">            <span class="keyword">if</span>(lcnt[i]==rcnt[i]) cnt++; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cnt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="可以攻击国王的皇后"><a href="#可以攻击国王的皇后" class="headerlink" title="可以攻击国王的皇后"></a>可以攻击国王的皇后</h2><p>在一个 8x8 的棋盘上，放置着若干「黑皇后」和一个「白国王」。<br>「黑皇后」在棋盘上的位置分布用整数坐标数组 queens 表示，「白国王」的坐标用数组 king 表示。<br>「黑皇后」的行棋规定是：横、直、斜都可以走，步数不受限制，但是，不能越子行棋。<br>请你返回可以直接攻击到「白国王」的所有「黑皇后」的坐标（任意顺序）。</p>

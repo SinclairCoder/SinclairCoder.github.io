@@ -24,18 +24,18 @@
     var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="假设全校有最多40000名学生和最多2500门课程。现给出每门课的选课学生名单，要求输出每个前来查询的学生的选课清单。 输入格式:输入的第一行是两个正整数：N（≤40000），为前来查询课表的学生总数；K（≤2500），为总课程数。此后顺序给出课程1到K的选课学生名单。格式为：对每一门课，首先在一行中输出课程编号（简单起见，课程从1到K编号）和选课学生总数（之间用空格分隔），之后在第二行给出学生名">
+  <meta name="description" content="假设全校有最多40000名学生和最多2500门课程。现给出每门课的选课学生名单，要求输出每个前来查询的学生的选课清单。">
 <meta name="keywords" content="PTA,哈希表">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PTA打印学生选课清单(哈希表)">
 <meta property="og:url" content="https://sinclaircoder.gitee.io/archives/9e567f89.html">
 <meta property="og:site_name" content="SinclairのBlog">
-<meta property="og:description" content="假设全校有最多40000名学生和最多2500门课程。现给出每门课的选课学生名单，要求输出每个前来查询的学生的选课清单。 输入格式:输入的第一行是两个正整数：N（≤40000），为前来查询课表的学生总数；K（≤2500），为总课程数。此后顺序给出课程1到K的选课学生名单。格式为：对每一门课，首先在一行中输出课程编号（简单起见，课程从1到K编号）和选课学生总数（之间用空格分隔），之后在第二行给出学生名">
+<meta property="og:description" content="假设全校有最多40000名学生和最多2500门课程。现给出每门课的选课学生名单，要求输出每个前来查询的学生的选课清单。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-05-17T16:41:40.187Z">
+<meta property="og:updated_time" content="2020-05-17T17:53:57.846Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PTA打印学生选课清单(哈希表)">
-<meta name="twitter:description" content="假设全校有最多40000名学生和最多2500门课程。现给出每门课的选课学生名单，要求输出每个前来查询的学生的选课清单。 输入格式:输入的第一行是两个正整数：N（≤40000），为前来查询课表的学生总数；K（≤2500），为总课程数。此后顺序给出课程1到K的选课学生名单。格式为：对每一门课，首先在一行中输出课程编号（简单起见，课程从1到K编号）和选课学生总数（之间用空格分隔），之后在第二行给出学生名">
+<meta name="twitter:description" content="假设全校有最多40000名学生和最多2500门课程。现给出每门课的选课学生名单，要求输出每个前来查询的学生的选课清单。">
 
 <link rel="canonical" href="https://sinclaircoder.gitee.io/archives/9e567f89.html">
 
@@ -246,7 +246,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:40" itemprop="dateModified" datetime="2020-05-18T00:41:40+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 01:53:57" itemprop="dateModified" datetime="2020-05-18T01:53:57+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -305,6 +305,7 @@
 
       
         <p>假设全校有最多40000名学生和最多2500门课程。现给出每门课的选课学生名单，要求输出每个前来查询的学生的选课清单。</p>
+<a id="more"></a>
 <h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入的第一行是两个正整数：N（≤40000），为前来查询课表的学生总数；K（≤2500），为总课程数。此后顺序给出课程1到K的选课学生名单。格式为：对每一门课，首先在一行中输出课程编号（简单起见，课程从1到K编号）和选课学生总数（之间用空格分隔），之后在第二行给出学生名单，相邻两个学生名字用1个空格分隔。学生姓名由3个大写英文字母+1位数字组成。选课信息之后，在一行内给出了N个前来查询课表的学生的名字，相邻两个学生名字用1个空格分隔。</p>
 <h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>对每位前来查询课表的学生，首先输出其名字，随后在同一行中输出一个正整数C，代表该生所选的课程门数，随后按递增顺序输出C个课程的编号。相邻数据用1个空格分隔，注意行末不能输出多余空格。</p>
 <h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h2><blockquote>
@@ -327,7 +328,7 @@
       <div class="popular-posts-title"><a href="\archives\cafc282e.html" rel="bookmark">PTA求前缀表达式的值</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\archives\4669f0d5.html" rel="bookmark">PTA列出连通集(DFS+BFS)</a></div>
+      <div class="popular-posts-title"><a href="\archives\9c6e9d96.html" rel="bookmark">PTA朋友圈(并查集)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\archives\f029cec1.html" rel="bookmark">PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）</a></div>
@@ -336,7 +337,7 @@
       <div class="popular-posts-title"><a href="\archives\16fc6f35.html" rel="bookmark">PTA列出叶结点(BFS)</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\archives\f76e7172.html" rel="bookmark">PTA小字辈（BFS）</a></div>
+      <div class="popular-posts-title"><a href="\archives\8ce6deb1.html" rel="bookmark">PTA汉密尔顿回路</a></div>
     </li>
   </ul>
 
@@ -395,8 +396,8 @@
       <i class="fa fa-chevron-left"></i> PTA列车调度
     </a></div>
       <div class="post-nav-item">
-    <a href="/archives/f029cec1.html" rel="next" title="PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）">
-      PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集） <i class="fa fa-chevron-right"></i>
+    <a href="/archives/16fc6f35.html" rel="next" title="PTA列出叶结点(BFS)">
+      PTA列出叶结点(BFS) <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
