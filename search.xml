@@ -417,6 +417,87 @@ int main(){
       </tags>
   </entry>
   <entry>
+    <title>PTA小字辈（BFS）</title>
+    <url>/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本题给定一个庞大家族的家谱，要请你给出最小一辈的名单。</p>
+<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>输入在第一行给出家族人口总数 N（不超过 100 000 的正整数） —— 简单起见，我们把家族成员从 1 到 N 编号。随后第二行给出 N 个编号，其中第 i 个编号对应第 i 位成员的父/母。家谱中辈分最高的老祖宗对应的父/母编号为 -1。一行中的数字间以空格分隔。</p>
+<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>首先输出最小的辈分（老祖宗的辈分为 1，以下逐级递增）。然后在第二行按递增顺序输出辈分最小的成员的编号。编号间以一个空格分隔，行首尾不得有多余空格。</p>
+<h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><blockquote>
+<p>9<br>2 6 5 5 -1 5 6 4 7</p>
+</blockquote>
+<h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote>
+<p>4<br>1 9</p>
+</blockquote>
+<p>其实主要是存储的数据结构的设计。<br><br></p>
+<pre><code class="lang-cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;vector&gt;
+#include&lt;algorithm&gt;
+#include&lt;stack&gt;
+#include&lt;queue&gt;
+#include&lt;map&gt;
+#include&lt;list&gt;
+#include&lt;set&gt;
+#include&lt;cmath&gt;
+using namespace std;
+typedef long long ll;
+struct node{
+    int father;
+    vector&lt;int&gt; child;
+}family[100005];
+queue&lt;int&gt; qu;
+vector&lt;int&gt; level;
+int maxh = 1;
+void bfs(int root){
+    qu.push(root);
+    level[root] = 1;
+    while(qu.size()){
+        int index = qu.front();
+        qu.pop();
+        vector&lt;int&gt; tmp = family[index].child;
+        for(int i=0;i&lt;tmp.size();i++){
+            level[tmp[i]] = level[index]+1;
+            maxh = max(level[tmp[i]],maxh);
+            qu.push(family[index].child[i]); 
+        }
+    }
+}
+int main(){
+    int n,x,root;
+    cin &gt;&gt; n;
+    level.resize(n+1);
+    for(int i=1;i&lt;=n;i++){
+        cin &gt;&gt; family[i].father;
+        if(family[i].father==-1) root = i;
+        else {
+            family[family[i].father].child.push_back(i);
+        }
+    }
+    bfs(root);
+    cout &lt;&lt; maxh &lt;&lt; endl;
+    int first = 1;
+    for(int i=1;i&lt;=n;i++){
+        if(level[i]==maxh){
+            if(first) {
+                cout &lt;&lt; i ; first = 0;
+            }
+            else cout &lt;&lt; &quot; &quot; &lt;&lt; i ; 
+        }
+
+    }
+    return 0;
+}
+</code></pre>
+]]></content>
+      <categories>
+        <category>PTA</category>
+      </categories>
+      <tags>
+        <tag>PTA</tag>
+        <tag>BFS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）</title>
     <url>/2020/01/19/2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>哥尼斯堡是位于普累格河上的一座城市，它包含两个岛屿及连接它们的七座桥，<br>可否走过这样的七座桥，而且每桥只走过一次？瑞士数学家欧拉(Leonhard Euler，1707—1783)最终解决了这个问题，并由此创立了拓扑学。<br>这个问题如今可以描述为判断欧拉回路是否存在的问题。欧拉回路是指不令笔离开纸面，可画过图中每条边仅一次，且可以回到起点的一条回路。现给定一个无向图，问是否存在欧拉回路？</p>
@@ -565,87 +646,6 @@ int main(){
       <tags>
         <tag>PTA</tag>
         <tag>Hamilton回路</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PTA小字辈（BFS）</title>
-    <url>/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本题给定一个庞大家族的家谱，要请你给出最小一辈的名单。</p>
-<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>输入在第一行给出家族人口总数 N（不超过 100 000 的正整数） —— 简单起见，我们把家族成员从 1 到 N 编号。随后第二行给出 N 个编号，其中第 i 个编号对应第 i 位成员的父/母。家谱中辈分最高的老祖宗对应的父/母编号为 -1。一行中的数字间以空格分隔。</p>
-<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>首先输出最小的辈分（老祖宗的辈分为 1，以下逐级递增）。然后在第二行按递增顺序输出辈分最小的成员的编号。编号间以一个空格分隔，行首尾不得有多余空格。</p>
-<h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><blockquote>
-<p>9<br>2 6 5 5 -1 5 6 4 7</p>
-</blockquote>
-<h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote>
-<p>4<br>1 9</p>
-</blockquote>
-<p>其实主要是存储的数据结构的设计。<br><br></p>
-<pre><code class="lang-cpp">#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-#include&lt;vector&gt;
-#include&lt;algorithm&gt;
-#include&lt;stack&gt;
-#include&lt;queue&gt;
-#include&lt;map&gt;
-#include&lt;list&gt;
-#include&lt;set&gt;
-#include&lt;cmath&gt;
-using namespace std;
-typedef long long ll;
-struct node{
-    int father;
-    vector&lt;int&gt; child;
-}family[100005];
-queue&lt;int&gt; qu;
-vector&lt;int&gt; level;
-int maxh = 1;
-void bfs(int root){
-    qu.push(root);
-    level[root] = 1;
-    while(qu.size()){
-        int index = qu.front();
-        qu.pop();
-        vector&lt;int&gt; tmp = family[index].child;
-        for(int i=0;i&lt;tmp.size();i++){
-            level[tmp[i]] = level[index]+1;
-            maxh = max(level[tmp[i]],maxh);
-            qu.push(family[index].child[i]); 
-        }
-    }
-}
-int main(){
-    int n,x,root;
-    cin &gt;&gt; n;
-    level.resize(n+1);
-    for(int i=1;i&lt;=n;i++){
-        cin &gt;&gt; family[i].father;
-        if(family[i].father==-1) root = i;
-        else {
-            family[family[i].father].child.push_back(i);
-        }
-    }
-    bfs(root);
-    cout &lt;&lt; maxh &lt;&lt; endl;
-    int first = 1;
-    for(int i=1;i&lt;=n;i++){
-        if(level[i]==maxh){
-            if(first) {
-                cout &lt;&lt; i ; first = 0;
-            }
-            else cout &lt;&lt; &quot; &quot; &lt;&lt; i ; 
-        }
-
-    }
-    return 0;
-}
-</code></pre>
-]]></content>
-      <categories>
-        <category>PTA</category>
-      </categories>
-      <tags>
-        <tag>PTA</tag>
-        <tag>BFS</tag>
       </tags>
   </entry>
   <entry>
@@ -1894,6 +1894,123 @@ int main(){
       </tags>
   </entry>
   <entry>
+    <title>回溯法求解幂集</title>
+    <url>/2019/11/29/2019-11-29-hui-su-fa-qiu-jie-mi-ji/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="回溯—使用解向量"><a href="#回溯—使用解向量" class="headerlink" title="回溯—使用解向量"></a>回溯—使用解向量</h2><p>使用一个大小为n的数组x，来标记解向量，在每次迭代过程重要要么选择当前值，要么不选择</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+void print(int a[], int x[], int n){
+    cout &lt;&lt; &quot;{&quot;;
+    for(int i=0;i&lt;n;i++){
+        if(x[i]) printf(&quot;%d &quot;,a[i]);
+    }
+    cout &lt;&lt; &quot;}&quot; &lt;&lt; endl;
+    cout &lt;&lt; endl;
+}
+void dfs(int a[], int x[], int n, int i){
+    if(i&gt;=n) {
+        print(a,x,n);return ;
+    }
+    else{
+        x[i] = 0; dfs(a,x,n,i+1);
+        x[i] = 1; dfs(a,x,n,i+1);
+    }
+}
+int main(){
+    int n;
+    cin &gt;&gt; n;
+    int a[n];
+    for(int i=0;i&lt;n;i++)
+        cin &gt;&gt; a[i];
+    int x[n];
+    memset(x,0,sizeof(x));
+    dfs(a,x,n,0);
+    return 0;
+}
+</code></pre>
+<h2 id="回溯法—使用容器存放结果"><a href="#回溯法—使用容器存放结果" class="headerlink" title="回溯法—使用容器存放结果"></a>回溯法—使用容器存放结果</h2><p>不去采用标准的解向量，而是用一个边长数组vector去存放解。</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+#define rep(i,m,n) for(int i=m;i&lt;n;i++)
+#define pb push_back
+
+int res = 0;
+void print(vector&lt;int&gt; v){
+    rep(i,0,v.size()){
+        cout &lt;&lt; v[i] &lt;&lt; &quot; &quot;;
+    }
+    cout &lt;&lt; endl;
+}
+void dfs(int a[], int n, int i, vector&lt;int&gt; path){
+    if(i&gt;=n){
+        print(path);
+        res++; // 统计个数 
+        return ;
+    }
+    else {
+        dfs(a,n,i+1,path);
+        path.pb(a[i]);
+        dfs(a,n,i+1,path);
+    }
+}
+int main(){
+    int n;
+    cin &gt;&gt; n;
+    int a[n];
+    rep(i,0,n)
+        cin &gt;&gt; a[i];
+    vector&lt;int&gt; path;
+    dfs(a,n,0,path);
+    cout &lt;&lt; &quot;Total : &quot; &lt;&lt; res &lt;&lt; endl; 
+    return 0;
+}
+</code></pre>
+<h2 id="枚举法—使用二进位对应解空间"><a href="#枚举法—使用二进位对应解空间" class="headerlink" title="枚举法—使用二进位对应解空间"></a>枚举法—使用二进位对应解空间</h2><p>用二进制位来对应解</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+#define rep(i,m,n) for(int i=m;i&lt;n;i++)
+#define pb push_back
+
+int res = 0;
+void print(int a[],int n,int x){
+    int j = 0; // 也可令j变为n,只是会调整输出顺序 
+    cout &lt;&lt; &quot;{&quot;;
+    while(x){
+        if(x&amp;1) {
+            cout &lt;&lt; a[j];
+            if(x&gt;=2) cout &lt;&lt; &quot; &quot;; // 输出格式控制 
+        }
+        x &gt;&gt;= 1;j++;
+    }
+    cout &lt;&lt; &quot;}&quot;;
+    cout &lt;&lt; endl;
+    res++;
+}
+
+int main(){
+    int n;
+    cin &gt;&gt; n;
+    int a[n];
+    rep(i,0,n)
+        cin &gt;&gt; a[i];
+    rep(i,0,1&lt;&lt;n){
+        print(a,n,i);
+    }
+    cout &lt;&lt; &quot;Total：&quot; &lt;&lt; res ; 
+}
+</code></pre>
+]]></content>
+      <categories>
+        <category>数据结构与算法训练</category>
+      </categories>
+      <tags>
+        <tag>幂集问题</tag>
+        <tag>回溯法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>回溯算法求解数独问题(C++ 递归/非递归)</title>
     <url>/2019/11/29/2019-11-29-hui-su-suan-fa-qiu-jie-shu-du-wen-ti-c-di-gui-fei-di-gui/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://img-blog.csdnimg.cn/20191129202756865.png" alt="数独求解"><br>如何使用求解上述数独?</p>
@@ -2031,210 +2148,6 @@ int main()
       </tags>
   </entry>
   <entry>
-    <title>回溯法求解幂集</title>
-    <url>/2019/11/29/2019-11-29-hui-su-fa-qiu-jie-mi-ji/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="回溯—使用解向量"><a href="#回溯—使用解向量" class="headerlink" title="回溯—使用解向量"></a>回溯—使用解向量</h2><p>使用一个大小为n的数组x，来标记解向量，在每次迭代过程重要要么选择当前值，要么不选择</p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-
-void print(int a[], int x[], int n){
-    cout &lt;&lt; &quot;{&quot;;
-    for(int i=0;i&lt;n;i++){
-        if(x[i]) printf(&quot;%d &quot;,a[i]);
-    }
-    cout &lt;&lt; &quot;}&quot; &lt;&lt; endl;
-    cout &lt;&lt; endl;
-}
-void dfs(int a[], int x[], int n, int i){
-    if(i&gt;=n) {
-        print(a,x,n);return ;
-    }
-    else{
-        x[i] = 0; dfs(a,x,n,i+1);
-        x[i] = 1; dfs(a,x,n,i+1);
-    }
-}
-int main(){
-    int n;
-    cin &gt;&gt; n;
-    int a[n];
-    for(int i=0;i&lt;n;i++)
-        cin &gt;&gt; a[i];
-    int x[n];
-    memset(x,0,sizeof(x));
-    dfs(a,x,n,0);
-    return 0;
-}
-</code></pre>
-<h2 id="回溯法—使用容器存放结果"><a href="#回溯法—使用容器存放结果" class="headerlink" title="回溯法—使用容器存放结果"></a>回溯法—使用容器存放结果</h2><p>不去采用标准的解向量，而是用一个边长数组vector去存放解。</p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-#define rep(i,m,n) for(int i=m;i&lt;n;i++)
-#define pb push_back
-
-int res = 0;
-void print(vector&lt;int&gt; v){
-    rep(i,0,v.size()){
-        cout &lt;&lt; v[i] &lt;&lt; &quot; &quot;;
-    }
-    cout &lt;&lt; endl;
-}
-void dfs(int a[], int n, int i, vector&lt;int&gt; path){
-    if(i&gt;=n){
-        print(path);
-        res++; // 统计个数 
-        return ;
-    }
-    else {
-        dfs(a,n,i+1,path);
-        path.pb(a[i]);
-        dfs(a,n,i+1,path);
-    }
-}
-int main(){
-    int n;
-    cin &gt;&gt; n;
-    int a[n];
-    rep(i,0,n)
-        cin &gt;&gt; a[i];
-    vector&lt;int&gt; path;
-    dfs(a,n,0,path);
-    cout &lt;&lt; &quot;Total : &quot; &lt;&lt; res &lt;&lt; endl; 
-    return 0;
-}
-</code></pre>
-<h2 id="枚举法—使用二进位对应解空间"><a href="#枚举法—使用二进位对应解空间" class="headerlink" title="枚举法—使用二进位对应解空间"></a>枚举法—使用二进位对应解空间</h2><p>用二进制位来对应解</p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-
-#define rep(i,m,n) for(int i=m;i&lt;n;i++)
-#define pb push_back
-
-int res = 0;
-void print(int a[],int n,int x){
-    int j = 0; // 也可令j变为n,只是会调整输出顺序 
-    cout &lt;&lt; &quot;{&quot;;
-    while(x){
-        if(x&amp;1) {
-            cout &lt;&lt; a[j];
-            if(x&gt;=2) cout &lt;&lt; &quot; &quot;; // 输出格式控制 
-        }
-        x &gt;&gt;= 1;j++;
-    }
-    cout &lt;&lt; &quot;}&quot;;
-    cout &lt;&lt; endl;
-    res++;
-}
-
-int main(){
-    int n;
-    cin &gt;&gt; n;
-    int a[n];
-    rep(i,0,n)
-        cin &gt;&gt; a[i];
-    rep(i,0,1&lt;&lt;n){
-        print(a,n,i);
-    }
-    cout &lt;&lt; &quot;Total：&quot; &lt;&lt; res ; 
-}
-</code></pre>
-]]></content>
-      <categories>
-        <category>数据结构与算法训练</category>
-      </categories>
-      <tags>
-        <tag>幂集问题</tag>
-        <tag>回溯法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>蓝桥杯集训笔记</title>
-    <url>/2019/11/22/2019-11-22-lan-qiao-bei-ji-xun-bi-ji/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="数学建模的思想"><a href="#数学建模的思想" class="headerlink" title="数学建模的思想"></a>数学建模的思想</h2><p>几道题目</p>
-<ul>
-<li><a href="https://blog.csdn.net/SinclairWang/article/details/103203318" target="_blank" rel="noopener">熊怪吃核桃—二进制的使用</a></li>
-<li><a href="https://blog.csdn.net/SinclairWang/article/details/103204198" target="_blank" rel="noopener">切面条</a><h3 id="余数的使用"><a href="#余数的使用" class="headerlink" title="余数的使用"></a>余数的使用</h3>余数运算对于加法、减法和乘法封闭，常用于循环队列等使用，也可以利用余数的性质大幅度简化编码<br>常用场合：递推法，倒推法<br>有很多经典的题目，比如猴子吃桃..<br>猜字母（待补..）</li>
-</ul>
-<h3 id="统计某种运算的结果末尾0的个数"><a href="#统计某种运算的结果末尾0的个数" class="headerlink" title="统计某种运算的结果末尾0的个数"></a>统计某种运算的结果末尾0的个数</h3><p>统计因子中能被2和5整除的个数分别为n1,n2</p>
-<script type="math/tex; mode=display">result = min(n1,n2)</script><h3 id="毕达哥拉斯定理（勾股定理）"><a href="#毕达哥拉斯定理（勾股定理）" class="headerlink" title="毕达哥拉斯定理（勾股定理）"></a>毕达哥拉斯定理（勾股定理）</h3><p>可以直接利用$x^2+y^2=z^2$在正整数域构造基础解系</p>
-<script type="math/tex; mode=display">\begin{cases}x=2k+1\\y=2k^2+2k\\ z = 2k^2+2k+1 \\ k = 1,2,3,... \end{cases}</script><p>另一种解系：</p>
-<script type="math/tex; mode=display">\begin{cases}x=st\\y=\frac{t^2-s^2}{2}\\ z =\frac{t^2+s^2}{2} \\ s =1,3,5,7.. \\ gcd(t,s)=1 \end{cases}</script><h2 id="超长位数的处理"><a href="#超长位数的处理" class="headerlink" title="超长位数的处理"></a>超长位数的处理</h2><ul>
-<li>存储方式：字符串、整数数组（甚至采用整型数组紧缩存放，即数组中一个元素存放多位，输出的时候使用printf(“%nd”,x[i]);</li>
-<li>存储格式：把低位放在前，高位放在后面，符号位和小数位单独处理，可使用标志变量</li>
-<li><p>运算方式</p>
-<ul>
-<li>C/C++使用数组模拟进行加减乘除，及时取余进位操作，小心溢出</li>
-<li>java 中里面提供了两个类BigInteger，BigDecimal分别对应大整数、高精度小数的处理 。</li>
-<li><strong>tips：尽管是C/C++选手，假如遇到了大数运算的题目，又刚好是个填空题，不妨简单学下Java里面的这个两个类，甚至Date类（日期计算），求结果多快好省，何乐而不为？</strong></li>
-</ul>
-</li>
-</ul>
-<p>两个往年题目练习一下BigInteger，BigDecimal的使用</p>
-<ul>
-<li><a href="https://blog.csdn.net/SinclairWang/article/details/103191468" target="_blank" rel="noopener">大数乘法 java BigInteger的使用</a></li>
-<li><a href="https://blog.csdn.net/SinclairWang/article/details/103202851" target="_blank" rel="noopener">黄金连分数—BigDecimal的使用</a></li>
-</ul>
-<h2 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h2><p>对应2019省赛A组题目RSA解密<br>涉及的知识点如下</p>
-<ul>
-<li>逆元</li>
-<li>欧拉函数</li>
-<li>快速幂</li>
-<li>素数筛</li>
-<li>扩展欧几里得算法</li>
-</ul>
-<p>（待补..）</p>
-]]></content>
-      <categories>
-        <category>蓝桥杯</category>
-      </categories>
-      <tags>
-        <tag>蓝桥杯</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>大数乘法 java BigInteger的使用</title>
-    <url>/2019/11/22/2019-11-22-da-shu-cheng-fa-java-biginteger-de-shi-yong/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>找个大数乘法的题目练习一下 BigInterger的使用</p>
-<blockquote>
-<p>当两个比较大的整数相乘时，可能会出现数据溢出的情形。为避免溢出，可以采用字符串的方法来实现两个大数之间的乘法。具体来说，首先以字符串的形式输入两个整数，每个整数的长度不会超过8位，然后把它们相乘的结果存储在另一个字符串当中（长度不会超过16位），最后把这个字符串打印出来。例如，假设用户输入为：62773417和12345678，则输出结果为：774980393241726.</p>
-</blockquote>
-<p>输入：</p>
-<blockquote>
-<p>62773417 12345678</p>
-</blockquote>
-<p>输出：</p>
-<blockquote>
-<p>774980393241726</p>
-</blockquote>
-<p>代码实现</p>
-<pre><code class="lang-java">import java.math.BigInteger;
-import java.util.Scanner;
-
-public class Main {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        String str1 = input.next(),str2 = input.next();
-        BigInteger num1 = new BigInteger(str1);
-        BigInteger num2 = new BigInteger(str2);
-        BigInteger res = num1.multiply(num2);
-        System.out.println(res.toString());
-        input.close();
-    }
-
-}
-</code></pre>
-<p>比C/C++实现起来爽很多。<br>一般来说BigInteger是使用String类型进行构造，传入两个个数字字符串，然后进行加减乘除。<br>java中并没有重载运算符这种操作，只能另外实现封装成新的函数。</p>
-<p>一些常用API请参考<a href="https://blog.csdn.net/suyebiubiu/article/details/78511556" target="_blank" rel="noopener">java基础-BigInteger的使用</a></p>
-]]></content>
-      <categories>
-        <category>蓝桥杯</category>
-      </categories>
-      <tags>
-        <tag>蓝桥杯</tag>
-        <tag>BigInteger</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>黄金连分数--BigDecimal的使用</title>
     <url>/2019/11/22/2019-11-22-huang-jin-lian-fen-shu-bigdecimal-de-shi-yong/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一道2013蓝桥杯省赛试题</p>
@@ -2289,6 +2202,106 @@ b1.negate();    //相反数，求BigDecimal类型数据的相反数。
       </tags>
   </entry>
   <entry>
+    <title>蓝桥杯集训笔记</title>
+    <url>/2019/11/22/2019-11-22-lan-qiao-bei-ji-xun-bi-ji/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="数学建模的思想"><a href="#数学建模的思想" class="headerlink" title="数学建模的思想"></a>数学建模的思想</h2><p>几道题目</p>
+<ul>
+<li><a href="https://blog.csdn.net/SinclairWang/article/details/103203318" target="_blank" rel="noopener">熊怪吃核桃—二进制的使用</a></li>
+<li><a href="https://blog.csdn.net/SinclairWang/article/details/103204198" target="_blank" rel="noopener">切面条</a><h3 id="余数的使用"><a href="#余数的使用" class="headerlink" title="余数的使用"></a>余数的使用</h3>余数运算对于加法、减法和乘法封闭，常用于循环队列等使用，也可以利用余数的性质大幅度简化编码<br>常用场合：递推法，倒推法<br>有很多经典的题目，比如猴子吃桃..<br>猜字母（待补..）</li>
+</ul>
+<h3 id="统计某种运算的结果末尾0的个数"><a href="#统计某种运算的结果末尾0的个数" class="headerlink" title="统计某种运算的结果末尾0的个数"></a>统计某种运算的结果末尾0的个数</h3><p>统计因子中能被2和5整除的个数分别为n1,n2</p>
+<script type="math/tex; mode=display">result = min(n1,n2)</script><h3 id="毕达哥拉斯定理（勾股定理）"><a href="#毕达哥拉斯定理（勾股定理）" class="headerlink" title="毕达哥拉斯定理（勾股定理）"></a>毕达哥拉斯定理（勾股定理）</h3><p>可以直接利用$x^2+y^2=z^2$在正整数域构造基础解系</p>
+<script type="math/tex; mode=display">\begin{cases}x=2k+1\\y=2k^2+2k\\ z = 2k^2+2k+1 \\ k = 1,2,3,... \end{cases}</script><p>另一种解系：</p>
+<script type="math/tex; mode=display">\begin{cases}x=st\\y=\frac{t^2-s^2}{2}\\ z =\frac{t^2+s^2}{2} \\ s =1,3,5,7.. \\ gcd(t,s)=1 \end{cases}</script><h2 id="超长位数的处理"><a href="#超长位数的处理" class="headerlink" title="超长位数的处理"></a>超长位数的处理</h2><ul>
+<li>存储方式：字符串、整数数组（甚至采用整型数组紧缩存放，即数组中一个元素存放多位，输出的时候使用printf(“%nd”,x[i]);</li>
+<li>存储格式：把低位放在前，高位放在后面，符号位和小数位单独处理，可使用标志变量</li>
+<li><p>运算方式</p>
+<ul>
+<li>C/C++使用数组模拟进行加减乘除，及时取余进位操作，小心溢出</li>
+<li>java 中里面提供了两个类BigInteger，BigDecimal分别对应大整数、高精度小数的处理 。</li>
+<li><strong>tips：尽管是C/C++选手，假如遇到了大数运算的题目，又刚好是个填空题，不妨简单学下Java里面的这个两个类，甚至Date类（日期计算），求结果多快好省，何乐而不为？</strong></li>
+</ul>
+</li>
+</ul>
+<p>两个往年题目练习一下BigInteger，BigDecimal的使用</p>
+<ul>
+<li><a href="https://blog.csdn.net/SinclairWang/article/details/103191468" target="_blank" rel="noopener">大数乘法 java BigInteger的使用</a></li>
+<li><a href="https://blog.csdn.net/SinclairWang/article/details/103202851" target="_blank" rel="noopener">黄金连分数—BigDecimal的使用</a></li>
+</ul>
+<h2 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h2><p>对应2019省赛A组题目RSA解密<br>涉及的知识点如下</p>
+<ul>
+<li>逆元</li>
+<li>欧拉函数</li>
+<li>快速幂</li>
+<li>素数筛</li>
+<li>扩展欧几里得算法</li>
+</ul>
+<p>（待补..）</p>
+]]></content>
+      <categories>
+        <category>蓝桥杯</category>
+      </categories>
+      <tags>
+        <tag>蓝桥杯</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>切面条</title>
+    <url>/2019/11/22/2019-11-22-qie-mian-tiao/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一道2014蓝桥杯省赛试题<br><strong>切面条</strong><br> 一根高筋拉面，中间切一刀，可以得到2根面条。<br>    如果先对折1次，中间切一刀，可以得到3根面条。<br>    如果连续对折2次，中间切一刀，可以得到5根面条。<br>    那么，连续对折10次，中间切一刀，会得到多少面条呢？  </p>
+<p>不切的话，一根面条原本有两个端点<br>对折0次，中间切一刀，会产生1个端点，一共3个端点，会产生2根面条<br>对折1次，中间切一刀，会产生2个端点，一共4个端点，会产生3根面条<br>对折2次，中间切一刀，会产生4个端点，一共6个端点，会产生5根面条<br>对折3次，中间切一刀，会产生8个端点，一共10个端点，会产生9根面条<br>…<br>…<br>假设对折n次，则中间切一刀，会产生$2^n$个端点，加上原来的两个，一共$2^n+2$个端点，会产生$2^n+2-1$根面条，也即产生的面条数等于端点数减一。<br>即<script type="math/tex">result = 2^n+1</script><br>（证明略..）<br>当n=10时，result = 1025</p>
+]]></content>
+      <categories>
+        <category>蓝桥杯</category>
+      </categories>
+      <tags>
+        <tag>蓝桥杯</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大数乘法 java BigInteger的使用</title>
+    <url>/2019/11/22/2019-11-22-da-shu-cheng-fa-java-biginteger-de-shi-yong/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>找个大数乘法的题目练习一下 BigInterger的使用</p>
+<blockquote>
+<p>当两个比较大的整数相乘时，可能会出现数据溢出的情形。为避免溢出，可以采用字符串的方法来实现两个大数之间的乘法。具体来说，首先以字符串的形式输入两个整数，每个整数的长度不会超过8位，然后把它们相乘的结果存储在另一个字符串当中（长度不会超过16位），最后把这个字符串打印出来。例如，假设用户输入为：62773417和12345678，则输出结果为：774980393241726.</p>
+</blockquote>
+<p>输入：</p>
+<blockquote>
+<p>62773417 12345678</p>
+</blockquote>
+<p>输出：</p>
+<blockquote>
+<p>774980393241726</p>
+</blockquote>
+<p>代码实现</p>
+<pre><code class="lang-java">import java.math.BigInteger;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String str1 = input.next(),str2 = input.next();
+        BigInteger num1 = new BigInteger(str1);
+        BigInteger num2 = new BigInteger(str2);
+        BigInteger res = num1.multiply(num2);
+        System.out.println(res.toString());
+        input.close();
+    }
+
+}
+</code></pre>
+<p>比C/C++实现起来爽很多。<br>一般来说BigInteger是使用String类型进行构造，传入两个个数字字符串，然后进行加减乘除。<br>java中并没有重载运算符这种操作，只能另外实现封装成新的函数。</p>
+<p>一些常用API请参考<a href="https://blog.csdn.net/suyebiubiu/article/details/78511556" target="_blank" rel="noopener">java基础-BigInteger的使用</a></p>
+]]></content>
+      <categories>
+        <category>蓝桥杯</category>
+      </categories>
+      <tags>
+        <tag>BigInteger</tag>
+        <tag>蓝桥杯</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>熊怪吃核桃--二进制的使用</title>
     <url>/2019/11/22/2019-11-22-xiong-guai-chi-he-tao-er-jin-zhi-de-shi-yong/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一道2015年蓝桥杯省赛试题<br><strong>熊怪吃核桃</strong></p>
@@ -2326,36 +2339,6 @@ int main(){
       <tags>
         <tag>位运算</tag>
         <tag>蓝桥杯</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>切面条</title>
-    <url>/2019/11/22/2019-11-22-qie-mian-tiao/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一道2014蓝桥杯省赛试题<br><strong>切面条</strong><br> 一根高筋拉面，中间切一刀，可以得到2根面条。<br>    如果先对折1次，中间切一刀，可以得到3根面条。<br>    如果连续对折2次，中间切一刀，可以得到5根面条。<br>    那么，连续对折10次，中间切一刀，会得到多少面条呢？  </p>
-<p>不切的话，一根面条原本有两个端点<br>对折0次，中间切一刀，会产生1个端点，一共3个端点，会产生2根面条<br>对折1次，中间切一刀，会产生2个端点，一共4个端点，会产生3根面条<br>对折2次，中间切一刀，会产生4个端点，一共6个端点，会产生5根面条<br>对折3次，中间切一刀，会产生8个端点，一共10个端点，会产生9根面条<br>…<br>…<br>假设对折n次，则中间切一刀，会产生$2^n$个端点，加上原来的两个，一共$2^n+2$个端点，会产生$2^n+2-1$根面条，也即产生的面条数等于端点数减一。<br>即<script type="math/tex">result = 2^n+1</script><br>（证明略..）<br>当n=10时，result = 1025</p>
-]]></content>
-      <categories>
-        <category>蓝桥杯</category>
-      </categories>
-      <tags>
-        <tag>蓝桥杯</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SQLServer配置管理器打开SQLServer服务&amp;&amp;远程过程调用失败问题</title>
-    <url>/2019/11/19/2019-11-19-sqlserver-pei-zhi-guan-li-qi-da-kai-sqlserver-fu-wu-yuan-cheng-guo-cheng-diao-yong-shi-bai-wen-ti/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="打开SQL-Server配置管理器"><a href="#打开SQL-Server配置管理器" class="headerlink" title="打开SQL Server配置管理器"></a>打开SQL Server配置管理器</h2><p>在Windows 10中，SQL Server 配置管理器不显示为一个应用程序。<br>如果想找到配置管理器一般在下面这个路径里</p>
-<pre><code class="lang-bash">C:\Windows\SysWOW64
-</code></pre>
-<p>里面文件很多，然后搜索SQLServerManager<br><img src="https://img-blog.csdnimg.cn/20191119132859931.png" alt="搜索SQLServerManager"><br>可能版本不一样，只要是这个就可以，然后双击打开。<br><img src="https://img-blog.csdnimg.cn/20191119133753870.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="配置管理器"></p>
-<h2 id="远程过程调用失败问题"><a href="#远程过程调用失败问题" class="headerlink" title="远程过程调用失败问题"></a>远程过程调用失败问题</h2><p>打开服务的时候可能会遇到无法连接到 WMI 提供程序的问题<br><img src="https://img-blog.csdnimg.cn/20191119134055201.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="无法连接到 WMI 提供程序的问题"></p>
-<p>八成是因为之前装过VS，然后装上了Microsoft SQL Server 201* Express LocalDB（版本可能不一样），可以去控制面板添加或卸载程序 里面搜索Microsoft SQL Server 就可以看到，然后卸载掉应该就可以了。</p>
-]]></content>
-      <categories>
-        <category>DataBase</category>
-      </categories>
-      <tags>
-        <tag>SQLServer</tag>
       </tags>
   </entry>
   <entry>
@@ -2406,6 +2389,23 @@ int main(){
       </categories>
       <tags>
         <tag>PTA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SQLServer配置管理器打开SQLServer服务&amp;&amp;远程过程调用失败问题</title>
+    <url>/2019/11/19/2019-11-19-sqlserver-pei-zhi-guan-li-qi-da-kai-sqlserver-fu-wu-yuan-cheng-guo-cheng-diao-yong-shi-bai-wen-ti/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="打开SQL-Server配置管理器"><a href="#打开SQL-Server配置管理器" class="headerlink" title="打开SQL Server配置管理器"></a>打开SQL Server配置管理器</h2><p>在Windows 10中，SQL Server 配置管理器不显示为一个应用程序。<br>如果想找到配置管理器一般在下面这个路径里</p>
+<pre><code class="lang-bash">C:\Windows\SysWOW64
+</code></pre>
+<p>里面文件很多，然后搜索SQLServerManager<br><img src="https://img-blog.csdnimg.cn/20191119132859931.png" alt="搜索SQLServerManager"><br>可能版本不一样，只要是这个就可以，然后双击打开。<br><img src="https://img-blog.csdnimg.cn/20191119133753870.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="配置管理器"></p>
+<h2 id="远程过程调用失败问题"><a href="#远程过程调用失败问题" class="headerlink" title="远程过程调用失败问题"></a>远程过程调用失败问题</h2><p>打开服务的时候可能会遇到无法连接到 WMI 提供程序的问题<br><img src="https://img-blog.csdnimg.cn/20191119134055201.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="无法连接到 WMI 提供程序的问题"></p>
+<p>八成是因为之前装过VS，然后装上了Microsoft SQL Server 201* Express LocalDB（版本可能不一样），可以去控制面板添加或卸载程序 里面搜索Microsoft SQL Server 就可以看到，然后卸载掉应该就可以了。</p>
+]]></content>
+      <categories>
+        <category>DataBase</category>
+      </categories>
+      <tags>
+        <tag>SQLServer</tag>
       </tags>
   </entry>
   <entry>
@@ -2475,6 +2475,54 @@ int main(){
       </tags>
   </entry>
   <entry>
+    <title>PTA九宫格输入法</title>
+    <url>/2019/11/08/2019-11-08-jiu-gong-ge-shu-ru-fa/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>假设有九宫格输入法键盘布局如下：</p>
+<blockquote>
+<p>[ 1,.?! ] [ 2ABC ] [ 3DEF  ]<br> [ 4GHI  ] [ 5JKL ] [ 6MNO  ]<br> [ 7PQRS ] [ 8TUV ] [ 9WXYZ ]<br>           [ 0空  ]</p>
+</blockquote>
+<p>注意：中括号[ ]仅为了表示键盘的分隔，不是输入字符。每个中括号中，位于首位的数字字符即是键盘的按键，按一下即可输入该数字字符。多次按同一个键，则输入的字符依次循环轮流，例如按两次3，则输入D；按5次7，则输入S；按6次2，则输入A。按键0的输入组合是0和空格字符，即按两次0输入空格。</p>
+<p>你需要对于给定的按键组合，给出该组合对应的文本。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入在一行中给出数个字符的按键组合（例如 999 表示按3次9），每个字符的按键组合之间用空格间隔，最后一个输入法组合之后以换行结束。输入数据至少包括一个字符的按键组合，且输入总长度不超过500个字符。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>在一行中输出该按键组合对应的文本。</p>
+<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h2><blockquote>
+<p>22 5555 22 666 00 88 888 7777 4444 666 44</p>
+</blockquote>
+<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例:"></a>输出样例:</h2><blockquote>
+<p>ALAN TURING</p>
+</blockquote>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;cmath&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+
+#define rep(i,m,n) for(int i=m;i&lt;n;i++)
+#define rep1(i,m,n) for(int i=m;i&gt;=n;i--)
+
+int main()
+{
+    string s[10];
+    s[1]=&quot;1,.?!&quot;;s[2]=&quot;2ABC&quot;;s[3]=&quot;3DEF&quot;;s[4]=&quot;4GHI&quot;;s[5]=&quot;5JKL&quot;;
+    s[6]=&quot;6MNO&quot;;s[7]=&quot;7PQRS&quot;;s[8]=&quot;8TUV&quot;;s[9]=&quot;9WXYZ&quot;;s[0]=&quot;0 &quot;;
+    char tmp[100];
+    while(cin&gt;&gt;tmp&amp;&amp;tmp[0]!=&#39;\n&#39;){
+        int index = strlen(tmp)%s[tmp[0]-&#39;0&#39;].length();
+        if(index==0) cout &lt;&lt; s[tmp[0]-&#39;0&#39;][s[tmp[0]-&#39;0&#39;].length()-1];
+        else cout &lt;&lt; s[tmp[0]-&#39;0&#39;][index-1];
+    }
+    return 0;
+}
+</code></pre>
+]]></content>
+      <categories>
+        <category>PTA</category>
+      </categories>
+      <tags>
+        <tag>PTA</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PTA福到了</title>
     <url>/2019/11/08/2019-11-08-fu-dao-liao/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>“福”字倒着贴，寓意“福到”。不论到底算不算民俗，本题且请你编写程序，把各种汉字倒过来输出。这里要处理的每个汉字是由一个 N × N 的网格组成的，网格中的元素或者为字符 @ 或者为空格。而倒过来的汉字所用的字符由裁判指定。</p>
@@ -2527,54 +2575,6 @@ int main()
         rep1(j,n-1,0)
             if(s[i][j]==&#39;@&#39;) cout &lt;&lt; c ; else cout &lt;&lt; &quot; &quot;;
         cout &lt;&lt; endl; 
-    }
-    return 0;
-}
-</code></pre>
-]]></content>
-      <categories>
-        <category>PTA</category>
-      </categories>
-      <tags>
-        <tag>PTA</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PTA九宫格输入法</title>
-    <url>/2019/11/08/2019-11-08-jiu-gong-ge-shu-ru-fa/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>假设有九宫格输入法键盘布局如下：</p>
-<blockquote>
-<p>[ 1,.?! ] [ 2ABC ] [ 3DEF  ]<br> [ 4GHI  ] [ 5JKL ] [ 6MNO  ]<br> [ 7PQRS ] [ 8TUV ] [ 9WXYZ ]<br>           [ 0空  ]</p>
-</blockquote>
-<p>注意：中括号[ ]仅为了表示键盘的分隔，不是输入字符。每个中括号中，位于首位的数字字符即是键盘的按键，按一下即可输入该数字字符。多次按同一个键，则输入的字符依次循环轮流，例如按两次3，则输入D；按5次7，则输入S；按6次2，则输入A。按键0的输入组合是0和空格字符，即按两次0输入空格。</p>
-<p>你需要对于给定的按键组合，给出该组合对应的文本。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入在一行中给出数个字符的按键组合（例如 999 表示按3次9），每个字符的按键组合之间用空格间隔，最后一个输入法组合之后以换行结束。输入数据至少包括一个字符的按键组合，且输入总长度不超过500个字符。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>在一行中输出该按键组合对应的文本。</p>
-<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h2><blockquote>
-<p>22 5555 22 666 00 88 888 7777 4444 666 44</p>
-</blockquote>
-<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例:"></a>输出样例:</h2><blockquote>
-<p>ALAN TURING</p>
-</blockquote>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-#include&lt;cmath&gt;
-#include&lt;algorithm&gt;
-using namespace std;
-
-#define rep(i,m,n) for(int i=m;i&lt;n;i++)
-#define rep1(i,m,n) for(int i=m;i&gt;=n;i--)
-
-int main()
-{
-    string s[10];
-    s[1]=&quot;1,.?!&quot;;s[2]=&quot;2ABC&quot;;s[3]=&quot;3DEF&quot;;s[4]=&quot;4GHI&quot;;s[5]=&quot;5JKL&quot;;
-    s[6]=&quot;6MNO&quot;;s[7]=&quot;7PQRS&quot;;s[8]=&quot;8TUV&quot;;s[9]=&quot;9WXYZ&quot;;s[0]=&quot;0 &quot;;
-    char tmp[100];
-    while(cin&gt;&gt;tmp&amp;&amp;tmp[0]!=&#39;\n&#39;){
-        int index = strlen(tmp)%s[tmp[0]-&#39;0&#39;].length();
-        if(index==0) cout &lt;&lt; s[tmp[0]-&#39;0&#39;][s[tmp[0]-&#39;0&#39;].length()-1];
-        else cout &lt;&lt; s[tmp[0]-&#39;0&#39;][index-1];
     }
     return 0;
 }
@@ -7532,6 +7532,61 @@ print(s2.expandtabs())
       </tags>
   </entry>
   <entry>
+    <title>HDU2099整除的尾数</title>
+    <url>/2019/01/09/2019-01-09-hdu2099-zheng-chu-de-wei-shu/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="整除的尾数"><a href="#整除的尾数" class="headerlink" title="整除的尾数"></a>整除的尾数</h1><blockquote>
+<p>You have to live spherically - in many directions.<br>Never lose your childish enthusiasm and things will come your way.<br>人要活得精彩，各个领域都要勇于尝试，永远保持童真般的热情，一切就会得偿所愿。<br>                                                          ——《托斯卡尼艳阳下》</p>
+</blockquote>
+<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><blockquote>
+<p>一个整数，只知道前几位，不知道末二位，被另一个整数除尽了，那么该数的末二位该是什么呢？    </p>
+</blockquote>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><blockquote>
+<p>输入数据有若干组，每组数据包含二个整数a，b（0&lt;a&lt;10000, 10&lt;b&lt;100），若遇到0 0则处理结束。</p>
+</blockquote>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><blockquote>
+<p>对应每组数据，将满足条件的所有尾数在一行内输出，格式见样本输出。<br>同组数据的输出，其每个尾数之间空一格，行末没有空格。<br><a id="more"></a></p>
+</blockquote>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><blockquote>
+<p>200 40<br>1992 95<br>0 0</p>
+</blockquote>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><blockquote>
+<p>00 40 80<br>15</p>
+</blockquote>
+<h2 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h2><blockquote>
+<p>输入要判断是否为0，先将这个整数乘以100，然后利用0到99的穷举进行判断，输出时考虑到0的问题，用printf函数输出。</p>
+</blockquote>
+<h2 id="二、代码实现"><a href="#二、代码实现" class="headerlink" title="二、代码实现"></a>二、代码实现</h2><pre><code class="lang-javascript">#include &lt;iostream&gt;
+using namespace std;
+int main() 
+{
+    int a,b,count=0;
+    while(cin&gt;&gt; a &gt;&gt; b &amp;&amp; a!=0 &amp;&amp; b!=0)
+    {
+        a *= 100;
+        for(int i=0;i&lt;=99;i++)
+        {
+            if((a+i)%b == 0)
+            {
+                count++; // 计数，用于空格的输出
+                if(count==1) printf(&quot;%02d&quot;,i);  //输出空格的问题
+                else printf(&quot; %02d&quot;,i);
+            }
+        }
+        cout &lt;&lt; endl;
+        count=0;   //每一组整数的后两位判断完毕之后，count需清零，然后输出换行
+    }
+    return 0;
+}
+</code></pre>
+]]></content>
+      <categories>
+        <category>数据结构与算法训练</category>
+      </categories>
+      <tags>
+        <tag>数据结构与算法训练</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>欧几里得算法</title>
     <url>/2019/01/09/2019-01-09-ou-ji-li-de-suan-fa/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="欧几里得算法求最大公约数"><a href="#欧几里得算法求最大公约数" class="headerlink" title="欧几里得算法求最大公约数"></a>欧几里得算法求最大公约数</h2><blockquote>
@@ -7637,61 +7692,6 @@ int main()
         else cout&lt;&lt; a &lt;&lt; &quot; is not a Sky Number.&quot; &lt;&lt; endl;
     }
    return 0;
-}
-</code></pre>
-]]></content>
-      <categories>
-        <category>数据结构与算法训练</category>
-      </categories>
-      <tags>
-        <tag>数据结构与算法训练</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>HDU2099整除的尾数</title>
-    <url>/2019/01/09/2019-01-09-hdu2099-zheng-chu-de-wei-shu/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="整除的尾数"><a href="#整除的尾数" class="headerlink" title="整除的尾数"></a>整除的尾数</h1><blockquote>
-<p>You have to live spherically - in many directions.<br>Never lose your childish enthusiasm and things will come your way.<br>人要活得精彩，各个领域都要勇于尝试，永远保持童真般的热情，一切就会得偿所愿。<br>                                                          ——《托斯卡尼艳阳下》</p>
-</blockquote>
-<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><blockquote>
-<p>一个整数，只知道前几位，不知道末二位，被另一个整数除尽了，那么该数的末二位该是什么呢？    </p>
-</blockquote>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><blockquote>
-<p>输入数据有若干组，每组数据包含二个整数a，b（0&lt;a&lt;10000, 10&lt;b&lt;100），若遇到0 0则处理结束。</p>
-</blockquote>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><blockquote>
-<p>对应每组数据，将满足条件的所有尾数在一行内输出，格式见样本输出。<br>同组数据的输出，其每个尾数之间空一格，行末没有空格。<br><a id="more"></a></p>
-</blockquote>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><blockquote>
-<p>200 40<br>1992 95<br>0 0</p>
-</blockquote>
-<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><blockquote>
-<p>00 40 80<br>15</p>
-</blockquote>
-<h2 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h2><blockquote>
-<p>输入要判断是否为0，先将这个整数乘以100，然后利用0到99的穷举进行判断，输出时考虑到0的问题，用printf函数输出。</p>
-</blockquote>
-<h2 id="二、代码实现"><a href="#二、代码实现" class="headerlink" title="二、代码实现"></a>二、代码实现</h2><pre><code class="lang-javascript">#include &lt;iostream&gt;
-using namespace std;
-int main() 
-{
-    int a,b,count=0;
-    while(cin&gt;&gt; a &gt;&gt; b &amp;&amp; a!=0 &amp;&amp; b!=0)
-    {
-        a *= 100;
-        for(int i=0;i&lt;=99;i++)
-        {
-            if((a+i)%b == 0)
-            {
-                count++; // 计数，用于空格的输出
-                if(count==1) printf(&quot;%02d&quot;,i);  //输出空格的问题
-                else printf(&quot; %02d&quot;,i);
-            }
-        }
-        cout &lt;&lt; endl;
-        count=0;   //每一组整数的后两位判断完毕之后，count需清零，然后输出换行
-    }
-    return 0;
 }
 </code></pre>
 ]]></content>
