@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sinclaircoder.gitee.io/"/>
-  <updated>2020-01-22T04:35:46.061Z</updated>
+  <updated>2020-01-22T04:38:55.987Z</updated>
   <id>https://sinclaircoder.gitee.io/</id>
   
   <author>
@@ -15,33 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>PTA朋友圈(并查集)</title>
-    <link href="https://sinclaircoder.gitee.io/2020/01/20/2020-01-20-pta-peng-you-quan-bing-cha-ji/"/>
-    <id>https://sinclaircoder.gitee.io/2020/01/20/2020-01-20-pta-peng-you-quan-bing-cha-ji/</id>
-    <published>2020-01-19T16:00:00.000Z</published>
-    <updated>2020-01-22T04:35:46.061Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>某学校有N个学生，形成M个俱乐部。每个俱乐部里的学生有着一定相似的兴趣爱好，形成一个朋友圈。一个学生可以同时属于若干个不同的俱乐部。根据“我的朋友的朋友也是我的朋友”这个推论可以得出，如果A和B是朋友，且B和C是朋友，则A和C也是朋友。请编写程序计算最大朋友圈中有多少人。</p><h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入的第一行包含两个正整数N（≤30000）和M（≤1000），分别代表学校的学生总数和俱乐部的个数。后面的M行每行按以下格式给出1个俱乐部的信息，其中学生从1~N编号：</p><p>第i个俱乐部的人数Mi（空格）学生1（空格）学生2 … 学生Mi</p><h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>输出给出一个整数，表示在最大朋友圈中有多少人。</p><h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h2><blockquote><p>7 4<br>3 1 2 3<br>2 1 4<br>3 5 6 7<br>1 6</p></blockquote><h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例:"></a>输出样例:</h2><blockquote><p>4</p></blockquote><pre><code class="lang-cpp">#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;#define N 30005int fa[N],num[N];int find(int x){    if(x==fa[x]) return x;    return fa[x] = find(fa[x]);}void Union(int x,int y){    int rootx = find(x),rooty = find(y);    if(rootx!=rooty){        fa[rooty] = rootx;        num[rootx] += num[rooty];    }}int main(){    int n,m;    cin &gt;&gt; n &gt;&gt; m;    for(int i=1;i&lt;=n;i++) {        fa[i] = i;num[i]=1;    }    for(int i=0;i&lt;m;i++){        int cnt,root,x;        cin &gt;&gt; cnt;        cin &gt;&gt; root;            for(int j=1;j&lt;cnt;j++) {            cin &gt;&gt; x;            Union(root,x);        }    }    int res=1;    for(int i=1;i&lt;=n;i++){        res = max(res,num[fa[i]]);    }    cout &lt;&lt; res &lt;&lt; endl;    return 0;}</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="PTA" scheme="https://sinclaircoder.gitee.io/categories/PTA/"/>
-    
-    
-      <category term="PTA" scheme="https://sinclaircoder.gitee.io/tags/PTA/"/>
-    
-      <category term="并查集" scheme="https://sinclaircoder.gitee.io/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
-    
-  </entry>
   
   <entry>
     <title>PTA列出连通集(DFS+BFS)</title>
@@ -69,6 +42,33 @@
       <category term="DFS" scheme="https://sinclaircoder.gitee.io/tags/DFS/"/>
     
       <category term="BFS" scheme="https://sinclaircoder.gitee.io/tags/BFS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PTA朋友圈(并查集)</title>
+    <link href="https://sinclaircoder.gitee.io/2020/01/20/2020-01-20-pta-peng-you-quan-bing-cha-ji/"/>
+    <id>https://sinclaircoder.gitee.io/2020/01/20/2020-01-20-pta-peng-you-quan-bing-cha-ji/</id>
+    <published>2020-01-19T16:00:00.000Z</published>
+    <updated>2020-01-22T04:35:46.061Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>某学校有N个学生，形成M个俱乐部。每个俱乐部里的学生有着一定相似的兴趣爱好，形成一个朋友圈。一个学生可以同时属于若干个不同的俱乐部。根据“我的朋友的朋友也是我的朋友”这个推论可以得出，如果A和B是朋友，且B和C是朋友，则A和C也是朋友。请编写程序计算最大朋友圈中有多少人。</p><h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入的第一行包含两个正整数N（≤30000）和M（≤1000），分别代表学校的学生总数和俱乐部的个数。后面的M行每行按以下格式给出1个俱乐部的信息，其中学生从1~N编号：</p><p>第i个俱乐部的人数Mi（空格）学生1（空格）学生2 … 学生Mi</p><h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>输出给出一个整数，表示在最大朋友圈中有多少人。</p><h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h2><blockquote><p>7 4<br>3 1 2 3<br>2 1 4<br>3 5 6 7<br>1 6</p></blockquote><h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例:"></a>输出样例:</h2><blockquote><p>4</p></blockquote><pre><code class="lang-cpp">#include&lt;iostream&gt;#include&lt;cstring&gt;#include&lt;vector&gt;#include&lt;algorithm&gt;#include&lt;stack&gt;#include&lt;queue&gt;#include&lt;map&gt;#include&lt;list&gt;#include&lt;set&gt;#include&lt;cmath&gt;using namespace std;typedef long long ll;#define N 30005int fa[N],num[N];int find(int x){    if(x==fa[x]) return x;    return fa[x] = find(fa[x]);}void Union(int x,int y){    int rootx = find(x),rooty = find(y);    if(rootx!=rooty){        fa[rooty] = rootx;        num[rootx] += num[rooty];    }}int main(){    int n,m;    cin &gt;&gt; n &gt;&gt; m;    for(int i=1;i&lt;=n;i++) {        fa[i] = i;num[i]=1;    }    for(int i=0;i&lt;m;i++){        int cnt,root,x;        cin &gt;&gt; cnt;        cin &gt;&gt; root;            for(int j=1;j&lt;cnt;j++) {            cin &gt;&gt; x;            Union(root,x);        }    }    int res=1;    for(int i=1;i&lt;=n;i++){        res = max(res,num[fa[i]]);    }    cout &lt;&lt; res &lt;&lt; endl;    return 0;}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="PTA" scheme="https://sinclaircoder.gitee.io/categories/PTA/"/>
+    
+    
+      <category term="PTA" scheme="https://sinclaircoder.gitee.io/tags/PTA/"/>
+    
+      <category term="并查集" scheme="https://sinclaircoder.gitee.io/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
     
   </entry>
   
@@ -176,9 +176,9 @@
     
       <category term="PTA" scheme="https://sinclaircoder.gitee.io/tags/PTA/"/>
     
-      <category term="欧拉回路" scheme="https://sinclaircoder.gitee.io/tags/%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF/"/>
-    
       <category term="并查集" scheme="https://sinclaircoder.gitee.io/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
+    
+      <category term="欧拉回路" scheme="https://sinclaircoder.gitee.io/tags/%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF/"/>
     
   </entry>
   
@@ -393,33 +393,6 @@
   </entry>
   
   <entry>
-    <title>回溯法求解幂集</title>
-    <link href="https://sinclaircoder.gitee.io/2019/11/29/2019-11-29-hui-su-fa-qiu-jie-mi-ji/"/>
-    <id>https://sinclaircoder.gitee.io/2019/11/29/2019-11-29-hui-su-fa-qiu-jie-mi-ji/</id>
-    <published>2019-11-28T16:00:00.000Z</published>
-    <updated>2020-01-22T04:06:50.303Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="回溯—使用解向量"><a href="#回溯—使用解向量" class="headerlink" title="回溯—使用解向量"></a>回溯—使用解向量</h2><p>使用一个大小为n的数组x，来标记解向量，在每次迭代过程重要要么选择当前值，要么不选择</p><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;using namespace std;void print(int a[], int x[], int n){    cout &lt;&lt; &quot;{&quot;;    for(int i=0;i&lt;n;i++){        if(x[i]) printf(&quot;%d &quot;,a[i]);    }    cout &lt;&lt; &quot;}&quot; &lt;&lt; endl;    cout &lt;&lt; endl;}void dfs(int a[], int x[], int n, int i){    if(i&gt;=n) {        print(a,x,n);return ;    }    else{        x[i] = 0; dfs(a,x,n,i+1);        x[i] = 1; dfs(a,x,n,i+1);    }}int main(){    int n;    cin &gt;&gt; n;    int a[n];    for(int i=0;i&lt;n;i++)        cin &gt;&gt; a[i];    int x[n];    memset(x,0,sizeof(x));    dfs(a,x,n,0);    return 0;}</code></pre><h2 id="回溯法—使用容器存放结果"><a href="#回溯法—使用容器存放结果" class="headerlink" title="回溯法—使用容器存放结果"></a>回溯法—使用容器存放结果</h2><p>不去采用标准的解向量，而是用一个边长数组vector去存放解。</p><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;using namespace std;#define rep(i,m,n) for(int i=m;i&lt;n;i++)#define pb push_backint res = 0;void print(vector&lt;int&gt; v){    rep(i,0,v.size()){        cout &lt;&lt; v[i] &lt;&lt; &quot; &quot;;    }    cout &lt;&lt; endl;}void dfs(int a[], int n, int i, vector&lt;int&gt; path){    if(i&gt;=n){        print(path);        res++; // 统计个数         return ;    }    else {        dfs(a,n,i+1,path);        path.pb(a[i]);        dfs(a,n,i+1,path);    }}int main(){    int n;    cin &gt;&gt; n;    int a[n];    rep(i,0,n)        cin &gt;&gt; a[i];    vector&lt;int&gt; path;    dfs(a,n,0,path);    cout &lt;&lt; &quot;Total : &quot; &lt;&lt; res &lt;&lt; endl;     return 0;}</code></pre><h2 id="枚举法—使用二进位对应解空间"><a href="#枚举法—使用二进位对应解空间" class="headerlink" title="枚举法—使用二进位对应解空间"></a>枚举法—使用二进位对应解空间</h2><p>用二进制位来对应解</p><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;using namespace std;#define rep(i,m,n) for(int i=m;i&lt;n;i++)#define pb push_backint res = 0;void print(int a[],int n,int x){    int j = 0; // 也可令j变为n,只是会调整输出顺序     cout &lt;&lt; &quot;{&quot;;    while(x){        if(x&amp;1) {            cout &lt;&lt; a[j];            if(x&gt;=2) cout &lt;&lt; &quot; &quot;; // 输出格式控制         }        x &gt;&gt;= 1;j++;    }    cout &lt;&lt; &quot;}&quot;;    cout &lt;&lt; endl;    res++;}int main(){    int n;    cin &gt;&gt; n;    int a[n];    rep(i,0,n)        cin &gt;&gt; a[i];    rep(i,0,1&lt;&lt;n){        print(a,n,i);    }    cout &lt;&lt; &quot;Total：&quot; &lt;&lt; res ; }</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-      <category term="数据结构与算法训练" scheme="https://sinclaircoder.gitee.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83/"/>
-    
-    
-      <category term="幂集问题" scheme="https://sinclaircoder.gitee.io/tags/%E5%B9%82%E9%9B%86%E9%97%AE%E9%A2%98/"/>
-    
-      <category term="回溯法" scheme="https://sinclaircoder.gitee.io/tags/%E5%9B%9E%E6%BA%AF%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
     <title>回溯算法求解数独问题(C++ 递归/非递归)</title>
     <link href="https://sinclaircoder.gitee.io/2019/11/29/2019-11-29-hui-su-suan-fa-qiu-jie-shu-du-wen-ti-c-di-gui-fei-di-gui/"/>
     <id>https://sinclaircoder.gitee.io/2019/11/29/2019-11-29-hui-su-suan-fa-qiu-jie-shu-du-wen-ti-c-di-gui-fei-di-gui/</id>
@@ -443,6 +416,33 @@
       <category term="回溯法" scheme="https://sinclaircoder.gitee.io/tags/%E5%9B%9E%E6%BA%AF%E6%B3%95/"/>
     
       <category term="数独" scheme="https://sinclaircoder.gitee.io/tags/%E6%95%B0%E7%8B%AC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>回溯法求解幂集</title>
+    <link href="https://sinclaircoder.gitee.io/2019/11/29/2019-11-29-hui-su-fa-qiu-jie-mi-ji/"/>
+    <id>https://sinclaircoder.gitee.io/2019/11/29/2019-11-29-hui-su-fa-qiu-jie-mi-ji/</id>
+    <published>2019-11-28T16:00:00.000Z</published>
+    <updated>2020-01-22T04:06:50.303Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="回溯—使用解向量"><a href="#回溯—使用解向量" class="headerlink" title="回溯—使用解向量"></a>回溯—使用解向量</h2><p>使用一个大小为n的数组x，来标记解向量，在每次迭代过程重要要么选择当前值，要么不选择</p><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;using namespace std;void print(int a[], int x[], int n){    cout &lt;&lt; &quot;{&quot;;    for(int i=0;i&lt;n;i++){        if(x[i]) printf(&quot;%d &quot;,a[i]);    }    cout &lt;&lt; &quot;}&quot; &lt;&lt; endl;    cout &lt;&lt; endl;}void dfs(int a[], int x[], int n, int i){    if(i&gt;=n) {        print(a,x,n);return ;    }    else{        x[i] = 0; dfs(a,x,n,i+1);        x[i] = 1; dfs(a,x,n,i+1);    }}int main(){    int n;    cin &gt;&gt; n;    int a[n];    for(int i=0;i&lt;n;i++)        cin &gt;&gt; a[i];    int x[n];    memset(x,0,sizeof(x));    dfs(a,x,n,0);    return 0;}</code></pre><h2 id="回溯法—使用容器存放结果"><a href="#回溯法—使用容器存放结果" class="headerlink" title="回溯法—使用容器存放结果"></a>回溯法—使用容器存放结果</h2><p>不去采用标准的解向量，而是用一个边长数组vector去存放解。</p><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;using namespace std;#define rep(i,m,n) for(int i=m;i&lt;n;i++)#define pb push_backint res = 0;void print(vector&lt;int&gt; v){    rep(i,0,v.size()){        cout &lt;&lt; v[i] &lt;&lt; &quot; &quot;;    }    cout &lt;&lt; endl;}void dfs(int a[], int n, int i, vector&lt;int&gt; path){    if(i&gt;=n){        print(path);        res++; // 统计个数         return ;    }    else {        dfs(a,n,i+1,path);        path.pb(a[i]);        dfs(a,n,i+1,path);    }}int main(){    int n;    cin &gt;&gt; n;    int a[n];    rep(i,0,n)        cin &gt;&gt; a[i];    vector&lt;int&gt; path;    dfs(a,n,0,path);    cout &lt;&lt; &quot;Total : &quot; &lt;&lt; res &lt;&lt; endl;     return 0;}</code></pre><h2 id="枚举法—使用二进位对应解空间"><a href="#枚举法—使用二进位对应解空间" class="headerlink" title="枚举法—使用二进位对应解空间"></a>枚举法—使用二进位对应解空间</h2><p>用二进制位来对应解</p><pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;using namespace std;#define rep(i,m,n) for(int i=m;i&lt;n;i++)#define pb push_backint res = 0;void print(int a[],int n,int x){    int j = 0; // 也可令j变为n,只是会调整输出顺序     cout &lt;&lt; &quot;{&quot;;    while(x){        if(x&amp;1) {            cout &lt;&lt; a[j];            if(x&gt;=2) cout &lt;&lt; &quot; &quot;; // 输出格式控制         }        x &gt;&gt;= 1;j++;    }    cout &lt;&lt; &quot;}&quot;;    cout &lt;&lt; endl;    res++;}int main(){    int n;    cin &gt;&gt; n;    int a[n];    rep(i,0,n)        cin &gt;&gt; a[i];    rep(i,0,1&lt;&lt;n){        print(a,n,i);    }    cout &lt;&lt; &quot;Total：&quot; &lt;&lt; res ; }</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="数据结构与算法训练" scheme="https://sinclaircoder.gitee.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AE%AD%E7%BB%83/"/>
+    
+    
+      <category term="幂集问题" scheme="https://sinclaircoder.gitee.io/tags/%E5%B9%82%E9%9B%86%E9%97%AE%E9%A2%98/"/>
+    
+      <category term="回溯法" scheme="https://sinclaircoder.gitee.io/tags/%E5%9B%9E%E6%BA%AF%E6%B3%95/"/>
     
   </entry>
   

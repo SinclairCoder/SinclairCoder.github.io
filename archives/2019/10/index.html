@@ -238,8 +238,8 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2019/10/27/2019-10-27-leetcodeweeklycontest-160/" itemprop="url">
-            <span itemprop="name">LeetCodeWeeklyContest-160</span>
+          <a class="post-title-link" href="/2019/10/27/2019-10-27-ge-lei-ma/" itemprop="url">
+            <span itemprop="name">格雷码</span>
           </a>
       </div>
 
@@ -258,8 +258,8 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2019/10/27/2019-10-27-ge-lei-ma/" itemprop="url">
-            <span itemprop="name">格雷码</span>
+          <a class="post-title-link" href="/2019/10/27/2019-10-27-leetcodeweeklycontest-160/" itemprop="url">
+            <span itemprop="name">LeetCodeWeeklyContest-160</span>
           </a>
       </div>
 
@@ -298,8 +298,8 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2019/10/22/2019-10-22-pei-shu-ding-li-kuo-zhan-ou-ji-li-de-suan-fa/" itemprop="url">
-            <span itemprop="name">裴蜀定理&&扩展欧几里得算法</span>
+          <a class="post-title-link" href="/2019/10/22/2019-10-22-fei-ma-xiao-ding-li/" itemprop="url">
+            <span itemprop="name">费马小定理</span>
           </a>
       </div>
 
@@ -318,8 +318,8 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2019/10/22/2019-10-22-fei-ma-xiao-ding-li/" itemprop="url">
-            <span itemprop="name">费马小定理</span>
+          <a class="post-title-link" href="/2019/10/22/2019-10-22-pei-shu-ding-li-kuo-zhan-ou-ji-li-de-suan-fa/" itemprop="url">
+            <span itemprop="name">裴蜀定理&&扩展欧几里得算法</span>
           </a>
       </div>
 
@@ -689,7 +689,7 @@
 
 
 
-  <script src="/js/local-search.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script src="/js/local-search.js"></script>
 
 
 
@@ -707,6 +707,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'ykMNaPlRQAthwgrFfHggAQ7f-gzGzoHsz',
+      appKey     : 'neDtomoYnobT9QzrcHrQj71d',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

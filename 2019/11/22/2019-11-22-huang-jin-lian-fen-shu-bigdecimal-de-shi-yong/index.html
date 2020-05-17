@@ -260,7 +260,21 @@
                 </span>
             </span>
 
-          <br>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/11/22/2019-11-22-huang-jin-lian-fen-shu-bigdecimal-de-shi-yong/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/11/22/2019-11-22-huang-jin-lian-fen-shu-bigdecimal-de-shi-yong/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -387,8 +401,8 @@ b1.negate();    //相反数，求BigDecimal类型数据的相反数。
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/11/19/2019-11-19-sqlserver-pei-zhi-guan-li-qi-da-kai-sqlserver-fu-wu-yuan-cheng-guo-cheng-diao-yong-shi-bai-wen-ti/" rel="prev" title="SQLServer配置管理器打开SQLServer服务&&远程过程调用失败问题">
-      <i class="fa fa-chevron-left"></i> SQLServer配置管理器打开SQLServer服务&&远程过程调用失败问题
+    <a href="/2019/11/19/2019-11-19-pta-shan-chu-zi-fu-chuan-zhong-de-zi-chuan/" rel="prev" title="PTA-删除字符串中的子串">
+      <i class="fa fa-chevron-left"></i> PTA-删除字符串中的子串
     </a></div>
       <div class="post-nav-item">
     <a href="/2019/11/22/2019-11-22-xiong-guai-chi-he-tao-er-jin-zhi-de-shi-yong/" rel="next" title="熊怪吃核桃--二进制的使用">
@@ -406,6 +420,7 @@ b1.negate();    //相反数，求BigDecimal类型数据的相反数。
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -663,11 +678,40 @@ b1.negate();    //相反数，求BigDecimal类型数据的相反数。
     MathJax.texReset();
     MathJax.typeset();
   }
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
     
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'ykMNaPlRQAthwgrFfHggAQ7f-gzGzoHsz',
+      appKey     : 'neDtomoYnobT9QzrcHrQj71d',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

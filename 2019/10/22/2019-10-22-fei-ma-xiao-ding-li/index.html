@@ -258,7 +258,21 @@
                 </span>
             </span>
 
-          <br>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/10/22/2019-10-22-fei-ma-xiao-ding-li/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/22/2019-10-22-fei-ma-xiao-ding-li/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -337,12 +351,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/10/21/2019-10-21-tong-ji-zi-fu/" rel="prev" title="统计字符">
-      <i class="fa fa-chevron-left"></i> 统计字符
+    <a href="/2019/10/22/2019-10-22-pei-shu-ding-li-kuo-zhan-ou-ji-li-de-suan-fa/" rel="prev" title="裴蜀定理&&扩展欧几里得算法">
+      <i class="fa fa-chevron-left"></i> 裴蜀定理&&扩展欧几里得算法
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/10/22/2019-10-22-pei-shu-ding-li-kuo-zhan-ou-ji-li-de-suan-fa/" rel="next" title="裴蜀定理&&扩展欧几里得算法">
-      裴蜀定理&&扩展欧几里得算法 <i class="fa fa-chevron-right"></i>
+    <a href="/2019/10/25/2019-10-25-xian-xing-shai/" rel="next" title="线性筛">
+      线性筛 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -356,6 +370,7 @@
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -612,11 +627,40 @@
     MathJax.texReset();
     MathJax.typeset();
   }
-</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</script>
 
     
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'ykMNaPlRQAthwgrFfHggAQ7f-gzGzoHsz',
+      appKey     : 'neDtomoYnobT9QzrcHrQj71d',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

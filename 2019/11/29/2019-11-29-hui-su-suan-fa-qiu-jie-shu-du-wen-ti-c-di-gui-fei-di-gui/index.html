@@ -260,7 +260,21 @@
                 </span>
             </span>
 
-          <br>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/11/29/2019-11-29-hui-su-suan-fa-qiu-jie-shu-du-wen-ti-c-di-gui-fei-di-gui/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/11/29/2019-11-29-hui-su-suan-fa-qiu-jie-shu-du-wen-ti-c-di-gui-fei-di-gui/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -458,12 +472,12 @@ int main()
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/11/22/2019-11-22-lan-qiao-bei-ji-xun-bi-ji/" rel="prev" title="蓝桥杯集训笔记">
-      <i class="fa fa-chevron-left"></i> 蓝桥杯集训笔记
+    <a href="/2019/11/29/2019-11-29-hui-su-fa-qiu-jie-mi-ji/" rel="prev" title="回溯法求解幂集">
+      <i class="fa fa-chevron-left"></i> 回溯法求解幂集
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/11/29/2019-11-29-hui-su-fa-qiu-jie-mi-ji/" rel="next" title="回溯法求解幂集">
-      回溯法求解幂集 <i class="fa fa-chevron-right"></i>
+    <a href="/2019/12/06/2019-12-06-common-easy-middle-hard/" rel="next" title="Common (Easy、Middle 、Hard)">
+      Common (Easy、Middle 、Hard) <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -477,6 +491,7 @@ int main()
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -668,7 +683,7 @@ int main()
 
 
 
-  <script src="/js/local-search.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script src="/js/local-search.js"></script>
 
 
 
@@ -686,6 +701,35 @@ int main()
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'ykMNaPlRQAthwgrFfHggAQ7f-gzGzoHsz',
+      appKey     : 'neDtomoYnobT9QzrcHrQj71d',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

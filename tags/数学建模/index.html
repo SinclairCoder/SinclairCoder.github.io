@@ -239,8 +239,8 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2019/09/16/2019-09-16-2019-shu-xue-jian-mo-sai-hou-gan-wu-yi-ci-ling-hun-yu-rou-ti-de-jiao-zhi-yi-ci-can-sai-zhong-shen-shou-yi/" itemprop="url">
-            <span itemprop="name">2019数学建模赛后感悟：一次灵魂与肉体的交织&&一次参赛终身收益</span>
+          <a class="post-title-link" href="/2019/09/16/2019-09-16-shu-xue-jian-mo-ji-xun-zhi-shi-da-gang/" itemprop="url">
+            <span itemprop="name">数学建模集训知识大纲</span>
           </a>
       </div>
 
@@ -259,8 +259,8 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2019/09/16/2019-09-16-shu-xue-jian-mo-ji-xun-zhi-shi-da-gang/" itemprop="url">
-            <span itemprop="name">数学建模集训知识大纲</span>
+          <a class="post-title-link" href="/2019/09/16/2019-09-16-2019-shu-xue-jian-mo-sai-hou-gan-wu-yi-ci-ling-hun-yu-rou-ti-de-jiao-zhi-yi-ci-can-sai-zhong-shen-shou-yi/" itemprop="url">
+            <span itemprop="name">2019数学建模赛后感悟：一次灵魂与肉体的交织&&一次参赛终身收益</span>
           </a>
       </div>
 
@@ -469,7 +469,7 @@
 
 
 
-  <script src="/js/local-search.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script src="/js/local-search.js"></script>
 
 
 
@@ -487,6 +487,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'ykMNaPlRQAthwgrFfHggAQ7f-gzGzoHsz',
+      appKey     : 'neDtomoYnobT9QzrcHrQj71d',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

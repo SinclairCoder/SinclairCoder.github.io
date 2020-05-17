@@ -262,7 +262,21 @@
                 </span>
             </span>
 
-          <br>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/11/19/2019-11-19-sqlserver-pei-zhi-guan-li-qi-da-kai-sqlserver-fu-wu-yuan-cheng-guo-cheng-diao-yong-shi-bai-wen-ti/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/11/19/2019-11-19-sqlserver-pei-zhi-guan-li-qi-da-kai-sqlserver-fu-wu-yuan-cheng-guo-cheng-diao-yong-shi-bai-wen-ti/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -334,12 +348,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/11/19/2019-11-19-pta-shan-chu-zi-fu-chuan-zhong-de-zi-chuan/" rel="prev" title="PTA-删除字符串中的子串">
-      <i class="fa fa-chevron-left"></i> PTA-删除字符串中的子串
+    <a href="/2019/11/15/2019-11-15-pta-shuo-fan-hua-jia-qiang-ban/" rel="prev" title="PTA-说反话-加强版">
+      <i class="fa fa-chevron-left"></i> PTA-说反话-加强版
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/11/22/2019-11-22-huang-jin-lian-fen-shu-bigdecimal-de-shi-yong/" rel="next" title="黄金连分数--BigDecimal的使用">
-      黄金连分数--BigDecimal的使用 <i class="fa fa-chevron-right"></i>
+    <a href="/2019/11/19/2019-11-19-pta-shan-chu-zi-fu-chuan-zhong-de-zi-chuan/" rel="next" title="PTA-删除字符串中的子串">
+      PTA-删除字符串中的子串 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -353,6 +367,7 @@
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -544,7 +559,7 @@
 
 
 
-  <script src="/js/local-search.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script src="/js/local-search.js"></script>
 
 
 
@@ -562,6 +577,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'ykMNaPlRQAthwgrFfHggAQ7f-gzGzoHsz',
+      appKey     : 'neDtomoYnobT9QzrcHrQj71d',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

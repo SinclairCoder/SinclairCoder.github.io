@@ -238,8 +238,8 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2020/01/20/2020-01-20-pta-peng-you-quan-bing-cha-ji/" itemprop="url">
-            <span itemprop="name">PTA朋友圈(并查集)</span>
+          <a class="post-title-link" href="/2020/01/20/2020-01-20-pta-lie-chu-lian-tong-ji-dfs-bfs/" itemprop="url">
+            <span itemprop="name">PTA列出连通集(DFS+BFS)</span>
           </a>
       </div>
 
@@ -258,8 +258,8 @@
       </div>
 
       <div class="post-title">
-          <a class="post-title-link" href="/2020/01/20/2020-01-20-pta-lie-chu-lian-tong-ji-dfs-bfs/" itemprop="url">
-            <span itemprop="name">PTA列出连通集(DFS+BFS)</span>
+          <a class="post-title-link" href="/2020/01/20/2020-01-20-pta-peng-you-quan-bing-cha-ji/" itemprop="url">
+            <span itemprop="name">PTA朋友圈(并查集)</span>
           </a>
       </div>
 
@@ -669,7 +669,7 @@
 
 
 
-  <script src="/js/local-search.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script src="/js/local-search.js"></script>
 
 
 
@@ -687,6 +687,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'ykMNaPlRQAthwgrFfHggAQ7f-gzGzoHsz',
+      appKey     : 'neDtomoYnobT9QzrcHrQj71d',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

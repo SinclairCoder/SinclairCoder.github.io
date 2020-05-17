@@ -258,7 +258,21 @@
                 </span>
             </span>
 
-          <br>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/11/19/2019-11-19-pta-shan-chu-zi-fu-chuan-zhong-de-zi-chuan/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/11/19/2019-11-19-pta-shan-chu-zi-fu-chuan-zhong-de-zi-chuan/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -338,13 +352,13 @@ int main(){
       <div class="popular-posts-title"><a href="\2020\01\20\2020-01-20-pta-lie-chu-lian-tong-ji-dfs-bfs\" rel="bookmark">PTA列出连通集(DFS+BFS)</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\01\19\2020-1-19-pta-xiao-zi-bei-bfs\" rel="bookmark">PTA小字辈（BFS）</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\2020\01\19\2020-01-19-pta-han-mi-er-dun-hui-lu\" rel="bookmark">PTA汉密尔顿回路</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\01\19\2020-01-19-pta-lie-chu-xie-jie-dian-bfs\" rel="bookmark">PTA列出叶结点(BFS)</a></div>
+      <div class="popular-posts-title"><a href="\2020\01\19\2020-1-19-pta-xiao-zi-bei-bfs\" rel="bookmark">PTA小字辈（BFS）</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\01\19\2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji\" rel="bookmark">PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）</a></div>
     </li>
   </ul>
 
@@ -381,12 +395,12 @@ int main(){
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/11/15/2019-11-15-pta-shuo-fan-hua-jia-qiang-ban/" rel="prev" title="PTA-说反话-加强版">
-      <i class="fa fa-chevron-left"></i> PTA-说反话-加强版
+    <a href="/2019/11/19/2019-11-19-sqlserver-pei-zhi-guan-li-qi-da-kai-sqlserver-fu-wu-yuan-cheng-guo-cheng-diao-yong-shi-bai-wen-ti/" rel="prev" title="SQLServer配置管理器打开SQLServer服务&&远程过程调用失败问题">
+      <i class="fa fa-chevron-left"></i> SQLServer配置管理器打开SQLServer服务&&远程过程调用失败问题
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/11/19/2019-11-19-sqlserver-pei-zhi-guan-li-qi-da-kai-sqlserver-fu-wu-yuan-cheng-guo-cheng-diao-yong-shi-bai-wen-ti/" rel="next" title="SQLServer配置管理器打开SQLServer服务&&远程过程调用失败问题">
-      SQLServer配置管理器打开SQLServer服务&&远程过程调用失败问题 <i class="fa fa-chevron-right"></i>
+    <a href="/2019/11/22/2019-11-22-huang-jin-lian-fen-shu-bigdecimal-de-shi-yong/" rel="next" title="黄金连分数--BigDecimal的使用">
+      黄金连分数--BigDecimal的使用 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -400,6 +414,7 @@ int main(){
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -591,7 +606,7 @@ int main(){
 
 
 
-  <script src="/js/local-search.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script src="/js/local-search.js"></script>
 
 
 
@@ -609,6 +624,35 @@ int main(){
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'ykMNaPlRQAthwgrFfHggAQ7f-gzGzoHsz',
+      appKey     : 'neDtomoYnobT9QzrcHrQj71d',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

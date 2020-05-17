@@ -258,7 +258,21 @@
                 </span>
             </span>
 
-          <br>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/01/18/2020-01-18-pta-da-yin-xue-sheng-xuan-ke-qing-dan-ha-xi-biao/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/01/18/2020-01-18-pta-da-yin-xue-sheng-xuan-ke-qing-dan-ha-xi-biao/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -359,13 +373,13 @@ int main(){
       <div class="popular-posts-title"><a href="\2020\01\20\2020-01-20-pta-lie-chu-lian-tong-ji-dfs-bfs\" rel="bookmark">PTA列出连通集(DFS+BFS)</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\01\19\2020-1-19-pta-xiao-zi-bei-bfs\" rel="bookmark">PTA小字辈（BFS）</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\2020\01\19\2020-01-19-pta-han-mi-er-dun-hui-lu\" rel="bookmark">PTA汉密尔顿回路</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\2020\01\19\2020-01-19-pta-lie-chu-xie-jie-dian-bfs\" rel="bookmark">PTA列出叶结点(BFS)</a></div>
+      <div class="popular-posts-title"><a href="\2020\01\19\2020-1-19-pta-xiao-zi-bei-bfs\" rel="bookmark">PTA小字辈（BFS）</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\2020\01\19\2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji\" rel="bookmark">PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）</a></div>
     </li>
   </ul>
 
@@ -422,6 +436,7 @@ int main(){
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -613,7 +628,7 @@ int main(){
 
 
 
-  <script src="/js/local-search.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script src="/js/local-search.js"></script>
 
 
 
@@ -631,6 +646,35 @@ int main(){
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'ykMNaPlRQAthwgrFfHggAQ7f-gzGzoHsz',
+      appKey     : 'neDtomoYnobT9QzrcHrQj71d',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

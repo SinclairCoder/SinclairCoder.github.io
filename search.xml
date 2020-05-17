@@ -417,6 +417,77 @@ int main(){
       </tags>
   </entry>
   <entry>
+    <title>PTA汉密尔顿回路</title>
+    <url>/2020/01/19/2020-01-19-pta-han-mi-er-dun-hui-lu/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>著名的“汉密尔顿（Hamilton）回路问题”是要找一个能遍历图中所有顶点的简单回路（即每个顶点只访问 1 次）。本题就要求你判断任一给定的回路是否汉密尔顿回路。</p>
+<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>首先第一行给出两个正整数：无向图中顶点数 N（2&lt;N≤200）和边数 M。随后 M 行，每行给出一条边的两个端点，格式为“顶点1 顶点2”，其中顶点从 1 到N 编号。再下一行给出一个正整数 K，是待检验的回路的条数。随后 K 行，每行给出一条待检回路，格式为：<br>$n\quad V<em>1\quad V_2⋯ V</em>​n$</p>
+<p>其中 n 是回路中的顶点数，$V_i$是路径上的顶点编号。</p>
+<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>对每条待检回路，如果是汉密尔顿回路，就在一行中输出”YES”，否则输出”NO”。</p>
+<h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><blockquote>
+<p>6 10<br>6 2<br>3 4<br>1 5<br>2 5<br>3 1<br>4 1<br>1 6<br>6 3<br>1 2<br>4 5<br>6<br>7 5 1 4 3 6 2 5<br>6 5 1 4 3 6 2<br>9 6 2 1 6 3 4 5 2 6<br>4 1 2 5 1<br>7 6 1 3 4 5 2 6<br>7 6 1 2 5 4 3 1</p>
+</blockquote>
+<h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote>
+<p>YES<br>NO<br>NO<br>NO<br>YES<br>NO</p>
+</blockquote>
+<p><br><br>思路：<br>将边用数组存储起来，判断回路里两条边之前是否连通并且除出发点外其余点只出现一次。如果给定的回路里点的个数不等于n+1，直接NO<br><br></p>
+<pre><code class="lang-cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;vector&gt;
+#include&lt;algorithm&gt;
+#include&lt;stack&gt;
+#include&lt;queue&gt;
+#include&lt;map&gt;
+#include&lt;list&gt;
+#include&lt;set&gt;
+#include&lt;cmath&gt;
+using namespace std;
+typedef long long ll;
+#define N 205
+int edge[N][N];
+int main(){
+    int n,m,x,y;
+    cin &gt;&gt; n &gt;&gt; m;
+    memset(edge,0,sizeof(edge));
+    for(int i=0;i&lt;m;i++){
+        cin &gt;&gt; x &gt;&gt; y;
+        edge[x][y] = 1;
+        edge[y][x] = 1;
+    }
+    int t,vis[n+1];
+    memset(vis,0,sizeof(vis));
+    cin &gt;&gt; t;
+    while(t--){
+        int cnt,pre,flag=1,start;
+        cin &gt;&gt; cnt;
+        cin &gt;&gt; start; vis[start]=1;pre = start;
+
+        for(int j=1;j&lt;cnt;j++){
+            cin &gt;&gt; x;
+            if(!edge[pre][x]) flag = 0;
+            // 判定条件要注意
+            if(vis[x]&amp;&amp;(j&lt;cnt-1||x!=start)) flag = 0;
+//            if(vis[x]&amp;&amp;x!=start||!edge[pre][x]) flag = 0;
+            vis[x]=1;
+            pre = x;
+        }
+        if(cnt!=n+1) flag = 0;
+        if(flag) cout&lt;&lt; &quot;YES&quot; &lt;&lt; endl;
+        else cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl;
+        memset(vis,0,sizeof(vis));
+    } 
+    return 0;
+}
+</code></pre>
+]]></content>
+      <categories>
+        <category>PTA</category>
+      </categories>
+      <tags>
+        <tag>PTA</tag>
+        <tag>Hamilton回路</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PTA小字辈（BFS）</title>
     <url>/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本题给定一个庞大家族的家谱，要请你给出最小一辈的名单。</p>
@@ -498,19 +569,27 @@ int main(){
       </tags>
   </entry>
   <entry>
-    <title>PTA汉密尔顿回路</title>
-    <url>/2020/01/19/2020-01-19-pta-han-mi-er-dun-hui-lu/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>著名的“汉密尔顿（Hamilton）回路问题”是要找一个能遍历图中所有顶点的简单回路（即每个顶点只访问 1 次）。本题就要求你判断任一给定的回路是否汉密尔顿回路。</p>
-<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>首先第一行给出两个正整数：无向图中顶点数 N（2&lt;N≤200）和边数 M。随后 M 行，每行给出一条边的两个端点，格式为“顶点1 顶点2”，其中顶点从 1 到N 编号。再下一行给出一个正整数 K，是待检验的回路的条数。随后 K 行，每行给出一条待检回路，格式为：<br>$n\quad V<em>1\quad V_2⋯ V</em>​n$</p>
-<p>其中 n 是回路中的顶点数，$V_i$是路径上的顶点编号。</p>
-<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>对每条待检回路，如果是汉密尔顿回路，就在一行中输出”YES”，否则输出”NO”。</p>
-<h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><blockquote>
-<p>6 10<br>6 2<br>3 4<br>1 5<br>2 5<br>3 1<br>4 1<br>1 6<br>6 3<br>1 2<br>4 5<br>6<br>7 5 1 4 3 6 2 5<br>6 5 1 4 3 6 2<br>9 6 2 1 6 3 4 5 2 6<br>4 1 2 5 1<br>7 6 1 3 4 5 2 6<br>7 6 1 2 5 4 3 1</p>
+    <title>PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）</title>
+    <url>/2020/01/19/2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>哥尼斯堡是位于普累格河上的一座城市，它包含两个岛屿及连接它们的七座桥，<br>可否走过这样的七座桥，而且每桥只走过一次？瑞士数学家欧拉(Leonhard Euler，1707—1783)最终解决了这个问题，并由此创立了拓扑学。<br>这个问题如今可以描述为判断欧拉回路是否存在的问题。欧拉回路是指不令笔离开纸面，可画过图中每条边仅一次，且可以回到起点的一条回路。现给定一个无向图，问是否存在欧拉回路？</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入第一行给出两个正整数，分别是节点数N (1≤N≤1000)和边数M；随后的M行对应M条边，每行给出一对正整数，分别是该条边直接连通的两个节点的编号（节点从1到N编号）。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>若欧拉回路存在则输出1，否则输出0。</p>
+<h2 id="输入样例1"><a href="#输入样例1" class="headerlink" title="输入样例1:"></a>输入样例1:</h2><blockquote>
+<p>6 10<br>1 2<br>2 3<br>3 1<br>4 5<br>5 6<br>6 4<br>1 4<br>1 6<br>3 4<br>3 6    </p>
+<h2 id="输出样例1"><a href="#输出样例1" class="headerlink" title="输出样例1:"></a>输出样例1:</h2><p>1</p>
 </blockquote>
-<h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote>
-<p>YES<br>NO<br>NO<br>NO<br>YES<br>NO</p>
+<h2 id="输入样例2"><a href="#输入样例2" class="headerlink" title="输入样例2:"></a>输入样例2:</h2><blockquote>
+<p>5 8<br>1 2<br>1 3<br>2 3<br>2 4<br>2 5<br>5 3<br>5 4<br>3 4</p>
 </blockquote>
-<p><br><br>思路：<br>将边用数组存储起来，判断回路里两条边之前是否连通并且除出发点外其余点只出现一次。如果给定的回路里点的个数不等于n+1，直接NO<br><br></p>
+<h2 id="输出样例2"><a href="#输出样例2" class="headerlink" title="输出样例2:"></a>输出样例2:</h2><blockquote>
+<p>0</p>
+</blockquote>
+<p><br><br>思路：<br><br>如果欧拉通路的起点与终点一样，则成为欧拉回路， 连通的多重图具有欧拉回路当且仅当它的每个顶点都有偶数度<br>则欧拉回路的条件：</p>
+<ul>
+<li>图是连通的，没有孤立节点</li>
+<li>无向图的每个节点的度数都是偶数度，有向图每个节点的入度等于出度</li>
+</ul>
+<p>使用并查集统计连通分量个数，使用degree数组奇偶数判断是否全为偶数。<br><br></p>
 <pre><code class="lang-cpp">#include&lt;iostream&gt;
 #include&lt;cstring&gt;
 #include&lt;vector&gt;
@@ -523,39 +602,39 @@ int main(){
 #include&lt;cmath&gt;
 using namespace std;
 typedef long long ll;
-#define N 205
-int edge[N][N];
+int fa[1005];
+int father(int x){
+    if(fa[x]==x) return x;
+    return fa[x] = father(fa[x]);
+} 
 int main(){
     int n,m,x,y;
     cin &gt;&gt; n &gt;&gt; m;
-    memset(edge,0,sizeof(edge));
+    int degree[n+1];
+    for(int i=1;i&lt;=n;i++)  fa[i] = i;
+    memset(degree,0,sizeof(degree));
     for(int i=0;i&lt;m;i++){
         cin &gt;&gt; x &gt;&gt; y;
-        edge[x][y] = 1;
-        edge[y][x] = 1;
-    }
-    int t,vis[n+1];
-    memset(vis,0,sizeof(vis));
-    cin &gt;&gt; t;
-    while(t--){
-        int cnt,pre,flag=1,start;
-        cin &gt;&gt; cnt;
-        cin &gt;&gt; start; vis[start]=1;pre = start;
-
-        for(int j=1;j&lt;cnt;j++){
-            cin &gt;&gt; x;
-            if(!edge[pre][x]) flag = 0;
-            // 判定条件要注意
-            if(vis[x]&amp;&amp;(j&lt;cnt-1||x!=start)) flag = 0;
-//            if(vis[x]&amp;&amp;x!=start||!edge[pre][x]) flag = 0;
-            vis[x]=1;
-            pre = x;
+        int rootx = father(x),rooty = father(y);
+        if(rootx!=rooty){
+            fa[rooty] = rootx;
         }
-        if(cnt!=n+1) flag = 0;
-        if(flag) cout&lt;&lt; &quot;YES&quot; &lt;&lt; endl;
-        else cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl;
-        memset(vis,0,sizeof(vis));
+        // fa[father(y)] = father(x);  这样写竟然会超时！！！！
+        // 不要问我咋知道的
+        degree[x]++;
+        degree[y]++;
+    }
+    int exist=1,root = fa[1],connectcnt = 0;
+    for(int i=1;i&lt;=n;i++){
+        if(fa[i]==i) connectcnt++;
+    }
+    if(connectcnt&gt;1) exist = 0;
+    for(int i=1;i&lt;=n;i++){
+        if(degree[i]%2){
+            exist = 0;break;
+        }
     } 
+    cout &lt;&lt; exist &lt;&lt; endl;    
     return 0;
 }
 </code></pre>
@@ -565,7 +644,8 @@ int main(){
       </categories>
       <tags>
         <tag>PTA</tag>
-        <tag>Hamilton回路</tag>
+        <tag>并查集</tag>
+        <tag>欧拉回路</tag>
       </tags>
   </entry>
   <entry>
@@ -658,86 +738,6 @@ int main(){
       <tags>
         <tag>PTA</tag>
         <tag>BFS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）</title>
-    <url>/2020/01/19/2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>哥尼斯堡是位于普累格河上的一座城市，它包含两个岛屿及连接它们的七座桥，<br>可否走过这样的七座桥，而且每桥只走过一次？瑞士数学家欧拉(Leonhard Euler，1707—1783)最终解决了这个问题，并由此创立了拓扑学。<br>这个问题如今可以描述为判断欧拉回路是否存在的问题。欧拉回路是指不令笔离开纸面，可画过图中每条边仅一次，且可以回到起点的一条回路。现给定一个无向图，问是否存在欧拉回路？</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入第一行给出两个正整数，分别是节点数N (1≤N≤1000)和边数M；随后的M行对应M条边，每行给出一对正整数，分别是该条边直接连通的两个节点的编号（节点从1到N编号）。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>若欧拉回路存在则输出1，否则输出0。</p>
-<h2 id="输入样例1"><a href="#输入样例1" class="headerlink" title="输入样例1:"></a>输入样例1:</h2><blockquote>
-<p>6 10<br>1 2<br>2 3<br>3 1<br>4 5<br>5 6<br>6 4<br>1 4<br>1 6<br>3 4<br>3 6    </p>
-<h2 id="输出样例1"><a href="#输出样例1" class="headerlink" title="输出样例1:"></a>输出样例1:</h2><p>1</p>
-</blockquote>
-<h2 id="输入样例2"><a href="#输入样例2" class="headerlink" title="输入样例2:"></a>输入样例2:</h2><blockquote>
-<p>5 8<br>1 2<br>1 3<br>2 3<br>2 4<br>2 5<br>5 3<br>5 4<br>3 4</p>
-</blockquote>
-<h2 id="输出样例2"><a href="#输出样例2" class="headerlink" title="输出样例2:"></a>输出样例2:</h2><blockquote>
-<p>0</p>
-</blockquote>
-<p><br><br>思路：<br><br>如果欧拉通路的起点与终点一样，则成为欧拉回路， 连通的多重图具有欧拉回路当且仅当它的每个顶点都有偶数度<br>则欧拉回路的条件：</p>
-<ul>
-<li>图是连通的，没有孤立节点</li>
-<li>无向图的每个节点的度数都是偶数度，有向图每个节点的入度等于出度</li>
-</ul>
-<p>使用并查集统计连通分量个数，使用degree数组奇偶数判断是否全为偶数。<br><br></p>
-<pre><code class="lang-cpp">#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-#include&lt;vector&gt;
-#include&lt;algorithm&gt;
-#include&lt;stack&gt;
-#include&lt;queue&gt;
-#include&lt;map&gt;
-#include&lt;list&gt;
-#include&lt;set&gt;
-#include&lt;cmath&gt;
-using namespace std;
-typedef long long ll;
-int fa[1005];
-int father(int x){
-    if(fa[x]==x) return x;
-    return fa[x] = father(fa[x]);
-} 
-int main(){
-    int n,m,x,y;
-    cin &gt;&gt; n &gt;&gt; m;
-    int degree[n+1];
-    for(int i=1;i&lt;=n;i++)  fa[i] = i;
-    memset(degree,0,sizeof(degree));
-    for(int i=0;i&lt;m;i++){
-        cin &gt;&gt; x &gt;&gt; y;
-        int rootx = father(x),rooty = father(y);
-        if(rootx!=rooty){
-            fa[rooty] = rootx;
-        }
-        // fa[father(y)] = father(x);  这样写竟然会超时！！！！
-        // 不要问我咋知道的
-        degree[x]++;
-        degree[y]++;
-    }
-    int exist=1,root = fa[1],connectcnt = 0;
-    for(int i=1;i&lt;=n;i++){
-        if(fa[i]==i) connectcnt++;
-    }
-    if(connectcnt&gt;1) exist = 0;
-    for(int i=1;i&lt;=n;i++){
-        if(degree[i]%2){
-            exist = 0;break;
-        }
-    } 
-    cout &lt;&lt; exist &lt;&lt; endl;    
-    return 0;
-}
-</code></pre>
-]]></content>
-      <categories>
-        <category>PTA</category>
-      </categories>
-      <tags>
-        <tag>PTA</tag>
-        <tag>欧拉回路</tag>
-        <tag>并查集</tag>
       </tags>
   </entry>
   <entry>
@@ -1894,123 +1894,6 @@ int main(){
       </tags>
   </entry>
   <entry>
-    <title>回溯法求解幂集</title>
-    <url>/2019/11/29/2019-11-29-hui-su-fa-qiu-jie-mi-ji/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="回溯—使用解向量"><a href="#回溯—使用解向量" class="headerlink" title="回溯—使用解向量"></a>回溯—使用解向量</h2><p>使用一个大小为n的数组x，来标记解向量，在每次迭代过程重要要么选择当前值，要么不选择</p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-
-void print(int a[], int x[], int n){
-    cout &lt;&lt; &quot;{&quot;;
-    for(int i=0;i&lt;n;i++){
-        if(x[i]) printf(&quot;%d &quot;,a[i]);
-    }
-    cout &lt;&lt; &quot;}&quot; &lt;&lt; endl;
-    cout &lt;&lt; endl;
-}
-void dfs(int a[], int x[], int n, int i){
-    if(i&gt;=n) {
-        print(a,x,n);return ;
-    }
-    else{
-        x[i] = 0; dfs(a,x,n,i+1);
-        x[i] = 1; dfs(a,x,n,i+1);
-    }
-}
-int main(){
-    int n;
-    cin &gt;&gt; n;
-    int a[n];
-    for(int i=0;i&lt;n;i++)
-        cin &gt;&gt; a[i];
-    int x[n];
-    memset(x,0,sizeof(x));
-    dfs(a,x,n,0);
-    return 0;
-}
-</code></pre>
-<h2 id="回溯法—使用容器存放结果"><a href="#回溯法—使用容器存放结果" class="headerlink" title="回溯法—使用容器存放结果"></a>回溯法—使用容器存放结果</h2><p>不去采用标准的解向量，而是用一个边长数组vector去存放解。</p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-#define rep(i,m,n) for(int i=m;i&lt;n;i++)
-#define pb push_back
-
-int res = 0;
-void print(vector&lt;int&gt; v){
-    rep(i,0,v.size()){
-        cout &lt;&lt; v[i] &lt;&lt; &quot; &quot;;
-    }
-    cout &lt;&lt; endl;
-}
-void dfs(int a[], int n, int i, vector&lt;int&gt; path){
-    if(i&gt;=n){
-        print(path);
-        res++; // 统计个数 
-        return ;
-    }
-    else {
-        dfs(a,n,i+1,path);
-        path.pb(a[i]);
-        dfs(a,n,i+1,path);
-    }
-}
-int main(){
-    int n;
-    cin &gt;&gt; n;
-    int a[n];
-    rep(i,0,n)
-        cin &gt;&gt; a[i];
-    vector&lt;int&gt; path;
-    dfs(a,n,0,path);
-    cout &lt;&lt; &quot;Total : &quot; &lt;&lt; res &lt;&lt; endl; 
-    return 0;
-}
-</code></pre>
-<h2 id="枚举法—使用二进位对应解空间"><a href="#枚举法—使用二进位对应解空间" class="headerlink" title="枚举法—使用二进位对应解空间"></a>枚举法—使用二进位对应解空间</h2><p>用二进制位来对应解</p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-
-#define rep(i,m,n) for(int i=m;i&lt;n;i++)
-#define pb push_back
-
-int res = 0;
-void print(int a[],int n,int x){
-    int j = 0; // 也可令j变为n,只是会调整输出顺序 
-    cout &lt;&lt; &quot;{&quot;;
-    while(x){
-        if(x&amp;1) {
-            cout &lt;&lt; a[j];
-            if(x&gt;=2) cout &lt;&lt; &quot; &quot;; // 输出格式控制 
-        }
-        x &gt;&gt;= 1;j++;
-    }
-    cout &lt;&lt; &quot;}&quot;;
-    cout &lt;&lt; endl;
-    res++;
-}
-
-int main(){
-    int n;
-    cin &gt;&gt; n;
-    int a[n];
-    rep(i,0,n)
-        cin &gt;&gt; a[i];
-    rep(i,0,1&lt;&lt;n){
-        print(a,n,i);
-    }
-    cout &lt;&lt; &quot;Total：&quot; &lt;&lt; res ; 
-}
-</code></pre>
-]]></content>
-      <categories>
-        <category>数据结构与算法训练</category>
-      </categories>
-      <tags>
-        <tag>幂集问题</tag>
-        <tag>回溯法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>回溯算法求解数独问题(C++ 递归/非递归)</title>
     <url>/2019/11/29/2019-11-29-hui-su-suan-fa-qiu-jie-shu-du-wen-ti-c-di-gui-fei-di-gui/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://img-blog.csdnimg.cn/20191129202756865.png" alt="数独求解"><br>如何使用求解上述数独?</p>
@@ -2145,6 +2028,123 @@ int main()
       <tags>
         <tag>回溯法</tag>
         <tag>数独</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>回溯法求解幂集</title>
+    <url>/2019/11/29/2019-11-29-hui-su-fa-qiu-jie-mi-ji/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="回溯—使用解向量"><a href="#回溯—使用解向量" class="headerlink" title="回溯—使用解向量"></a>回溯—使用解向量</h2><p>使用一个大小为n的数组x，来标记解向量，在每次迭代过程重要要么选择当前值，要么不选择</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+void print(int a[], int x[], int n){
+    cout &lt;&lt; &quot;{&quot;;
+    for(int i=0;i&lt;n;i++){
+        if(x[i]) printf(&quot;%d &quot;,a[i]);
+    }
+    cout &lt;&lt; &quot;}&quot; &lt;&lt; endl;
+    cout &lt;&lt; endl;
+}
+void dfs(int a[], int x[], int n, int i){
+    if(i&gt;=n) {
+        print(a,x,n);return ;
+    }
+    else{
+        x[i] = 0; dfs(a,x,n,i+1);
+        x[i] = 1; dfs(a,x,n,i+1);
+    }
+}
+int main(){
+    int n;
+    cin &gt;&gt; n;
+    int a[n];
+    for(int i=0;i&lt;n;i++)
+        cin &gt;&gt; a[i];
+    int x[n];
+    memset(x,0,sizeof(x));
+    dfs(a,x,n,0);
+    return 0;
+}
+</code></pre>
+<h2 id="回溯法—使用容器存放结果"><a href="#回溯法—使用容器存放结果" class="headerlink" title="回溯法—使用容器存放结果"></a>回溯法—使用容器存放结果</h2><p>不去采用标准的解向量，而是用一个边长数组vector去存放解。</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+#define rep(i,m,n) for(int i=m;i&lt;n;i++)
+#define pb push_back
+
+int res = 0;
+void print(vector&lt;int&gt; v){
+    rep(i,0,v.size()){
+        cout &lt;&lt; v[i] &lt;&lt; &quot; &quot;;
+    }
+    cout &lt;&lt; endl;
+}
+void dfs(int a[], int n, int i, vector&lt;int&gt; path){
+    if(i&gt;=n){
+        print(path);
+        res++; // 统计个数 
+        return ;
+    }
+    else {
+        dfs(a,n,i+1,path);
+        path.pb(a[i]);
+        dfs(a,n,i+1,path);
+    }
+}
+int main(){
+    int n;
+    cin &gt;&gt; n;
+    int a[n];
+    rep(i,0,n)
+        cin &gt;&gt; a[i];
+    vector&lt;int&gt; path;
+    dfs(a,n,0,path);
+    cout &lt;&lt; &quot;Total : &quot; &lt;&lt; res &lt;&lt; endl; 
+    return 0;
+}
+</code></pre>
+<h2 id="枚举法—使用二进位对应解空间"><a href="#枚举法—使用二进位对应解空间" class="headerlink" title="枚举法—使用二进位对应解空间"></a>枚举法—使用二进位对应解空间</h2><p>用二进制位来对应解</p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+
+#define rep(i,m,n) for(int i=m;i&lt;n;i++)
+#define pb push_back
+
+int res = 0;
+void print(int a[],int n,int x){
+    int j = 0; // 也可令j变为n,只是会调整输出顺序 
+    cout &lt;&lt; &quot;{&quot;;
+    while(x){
+        if(x&amp;1) {
+            cout &lt;&lt; a[j];
+            if(x&gt;=2) cout &lt;&lt; &quot; &quot;; // 输出格式控制 
+        }
+        x &gt;&gt;= 1;j++;
+    }
+    cout &lt;&lt; &quot;}&quot;;
+    cout &lt;&lt; endl;
+    res++;
+}
+
+int main(){
+    int n;
+    cin &gt;&gt; n;
+    int a[n];
+    rep(i,0,n)
+        cin &gt;&gt; a[i];
+    rep(i,0,1&lt;&lt;n){
+        print(a,n,i);
+    }
+    cout &lt;&lt; &quot;Total：&quot; &lt;&lt; res ; 
+}
+</code></pre>
+]]></content>
+      <categories>
+        <category>数据结构与算法训练</category>
+      </categories>
+      <tags>
+        <tag>幂集问题</tag>
+        <tag>回溯法</tag>
       </tags>
   </entry>
   <entry>
@@ -2475,54 +2475,6 @@ int main(){
       </tags>
   </entry>
   <entry>
-    <title>PTA九宫格输入法</title>
-    <url>/2019/11/08/2019-11-08-jiu-gong-ge-shu-ru-fa/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>假设有九宫格输入法键盘布局如下：</p>
-<blockquote>
-<p>[ 1,.?! ] [ 2ABC ] [ 3DEF  ]<br> [ 4GHI  ] [ 5JKL ] [ 6MNO  ]<br> [ 7PQRS ] [ 8TUV ] [ 9WXYZ ]<br>           [ 0空  ]</p>
-</blockquote>
-<p>注意：中括号[ ]仅为了表示键盘的分隔，不是输入字符。每个中括号中，位于首位的数字字符即是键盘的按键，按一下即可输入该数字字符。多次按同一个键，则输入的字符依次循环轮流，例如按两次3，则输入D；按5次7，则输入S；按6次2，则输入A。按键0的输入组合是0和空格字符，即按两次0输入空格。</p>
-<p>你需要对于给定的按键组合，给出该组合对应的文本。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入在一行中给出数个字符的按键组合（例如 999 表示按3次9），每个字符的按键组合之间用空格间隔，最后一个输入法组合之后以换行结束。输入数据至少包括一个字符的按键组合，且输入总长度不超过500个字符。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>在一行中输出该按键组合对应的文本。</p>
-<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h2><blockquote>
-<p>22 5555 22 666 00 88 888 7777 4444 666 44</p>
-</blockquote>
-<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例:"></a>输出样例:</h2><blockquote>
-<p>ALAN TURING</p>
-</blockquote>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-#include&lt;cmath&gt;
-#include&lt;algorithm&gt;
-using namespace std;
-
-#define rep(i,m,n) for(int i=m;i&lt;n;i++)
-#define rep1(i,m,n) for(int i=m;i&gt;=n;i--)
-
-int main()
-{
-    string s[10];
-    s[1]=&quot;1,.?!&quot;;s[2]=&quot;2ABC&quot;;s[3]=&quot;3DEF&quot;;s[4]=&quot;4GHI&quot;;s[5]=&quot;5JKL&quot;;
-    s[6]=&quot;6MNO&quot;;s[7]=&quot;7PQRS&quot;;s[8]=&quot;8TUV&quot;;s[9]=&quot;9WXYZ&quot;;s[0]=&quot;0 &quot;;
-    char tmp[100];
-    while(cin&gt;&gt;tmp&amp;&amp;tmp[0]!=&#39;\n&#39;){
-        int index = strlen(tmp)%s[tmp[0]-&#39;0&#39;].length();
-        if(index==0) cout &lt;&lt; s[tmp[0]-&#39;0&#39;][s[tmp[0]-&#39;0&#39;].length()-1];
-        else cout &lt;&lt; s[tmp[0]-&#39;0&#39;][index-1];
-    }
-    return 0;
-}
-</code></pre>
-]]></content>
-      <categories>
-        <category>PTA</category>
-      </categories>
-      <tags>
-        <tag>PTA</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>PTA福到了</title>
     <url>/2019/11/08/2019-11-08-fu-dao-liao/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>“福”字倒着贴，寓意“福到”。不论到底算不算民俗，本题且请你编写程序，把各种汉字倒过来输出。这里要处理的每个汉字是由一个 N × N 的网格组成的，网格中的元素或者为字符 @ 或者为空格。而倒过来的汉字所用的字符由裁判指定。</p>
@@ -2575,6 +2527,54 @@ int main()
         rep1(j,n-1,0)
             if(s[i][j]==&#39;@&#39;) cout &lt;&lt; c ; else cout &lt;&lt; &quot; &quot;;
         cout &lt;&lt; endl; 
+    }
+    return 0;
+}
+</code></pre>
+]]></content>
+      <categories>
+        <category>PTA</category>
+      </categories>
+      <tags>
+        <tag>PTA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PTA九宫格输入法</title>
+    <url>/2019/11/08/2019-11-08-jiu-gong-ge-shu-ru-fa/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>假设有九宫格输入法键盘布局如下：</p>
+<blockquote>
+<p>[ 1,.?! ] [ 2ABC ] [ 3DEF  ]<br> [ 4GHI  ] [ 5JKL ] [ 6MNO  ]<br> [ 7PQRS ] [ 8TUV ] [ 9WXYZ ]<br>           [ 0空  ]</p>
+</blockquote>
+<p>注意：中括号[ ]仅为了表示键盘的分隔，不是输入字符。每个中括号中，位于首位的数字字符即是键盘的按键，按一下即可输入该数字字符。多次按同一个键，则输入的字符依次循环轮流，例如按两次3，则输入D；按5次7，则输入S；按6次2，则输入A。按键0的输入组合是0和空格字符，即按两次0输入空格。</p>
+<p>你需要对于给定的按键组合，给出该组合对应的文本。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入在一行中给出数个字符的按键组合（例如 999 表示按3次9），每个字符的按键组合之间用空格间隔，最后一个输入法组合之后以换行结束。输入数据至少包括一个字符的按键组合，且输入总长度不超过500个字符。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>在一行中输出该按键组合对应的文本。</p>
+<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h2><blockquote>
+<p>22 5555 22 666 00 88 888 7777 4444 666 44</p>
+</blockquote>
+<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例:"></a>输出样例:</h2><blockquote>
+<p>ALAN TURING</p>
+</blockquote>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;cmath&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+
+#define rep(i,m,n) for(int i=m;i&lt;n;i++)
+#define rep1(i,m,n) for(int i=m;i&gt;=n;i--)
+
+int main()
+{
+    string s[10];
+    s[1]=&quot;1,.?!&quot;;s[2]=&quot;2ABC&quot;;s[3]=&quot;3DEF&quot;;s[4]=&quot;4GHI&quot;;s[5]=&quot;5JKL&quot;;
+    s[6]=&quot;6MNO&quot;;s[7]=&quot;7PQRS&quot;;s[8]=&quot;8TUV&quot;;s[9]=&quot;9WXYZ&quot;;s[0]=&quot;0 &quot;;
+    char tmp[100];
+    while(cin&gt;&gt;tmp&amp;&amp;tmp[0]!=&#39;\n&#39;){
+        int index = strlen(tmp)%s[tmp[0]-&#39;0&#39;].length();
+        if(index==0) cout &lt;&lt; s[tmp[0]-&#39;0&#39;][s[tmp[0]-&#39;0&#39;].length()-1];
+        else cout &lt;&lt; s[tmp[0]-&#39;0&#39;][index-1];
     }
     return 0;
 }
@@ -2946,6 +2946,29 @@ int main(){
       </tags>
   </entry>
   <entry>
+    <title>格雷码</title>
+    <url>/2019/10/27/2019-10-27-ge-lei-ma/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>偶然间发现了一个很好的方法，详见<span class="exturl" data-url="aHR0cHM6Ly9jcC1hbGdvcml0aG1zLmNvbS9hbGdlYnJhL2dyYXktY29kZS5odG1s">Gray code<i class="fa fa-external-link-alt"></i></span></p>
+<p>下面是一个生成以start开始的格雷码的板子，n为二进制位的个数。</p>
+<pre><code class="lang-cpp">vector&lt;int&gt; getGray(int n, int start) {
+        vector&lt;int&gt; res; 
+        for(int i=0;i&lt; 1&lt;&lt;n;i++){
+            res.push_back(start^i^i&gt;&gt;1);
+        }
+        return res;
+
+    }
+</code></pre>
+]]></content>
+      <categories>
+        <category>数据结构与算法训练</category>
+      </categories>
+      <tags>
+        <tag>位运算</tag>
+        <tag>格雷码</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCodeWeeklyContest-160</title>
     <url>/2019/10/27/2019-10-27-leetcodeweeklycontest-160/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="题目传送门"><a href="#题目传送门" class="headerlink" title="题目传送门"></a><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vY29udGVzdC93ZWVrbHktY29udGVzdC0xNjAvcHJvYmxlbXMvZmluZC1wb3NpdGl2ZS1pbnRlZ2VyLXNvbHV0aW9uLWZvci1hLWdpdmVuLWVxdWF0aW9uLw==">题目传送门<i class="fa fa-external-link-alt"></i></span></h2><h2 id="找出给定方程的正整数解"><a href="#找出给定方程的正整数解" class="headerlink" title="找出给定方程的正整数解"></a>找出给定方程的正整数解</h2><p>签到题的新包装，我没有玩过的船新版本。</p>
@@ -3131,29 +3154,6 @@ public:
       </categories>
       <tags>
         <tag>leetcode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>格雷码</title>
-    <url>/2019/10/27/2019-10-27-ge-lei-ma/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>偶然间发现了一个很好的方法，详见<span class="exturl" data-url="aHR0cHM6Ly9jcC1hbGdvcml0aG1zLmNvbS9hbGdlYnJhL2dyYXktY29kZS5odG1s">Gray code<i class="fa fa-external-link-alt"></i></span></p>
-<p>下面是一个生成以start开始的格雷码的板子，n为二进制位的个数。</p>
-<pre><code class="lang-cpp">vector&lt;int&gt; getGray(int n, int start) {
-        vector&lt;int&gt; res; 
-        for(int i=0;i&lt; 1&lt;&lt;n;i++){
-            res.push_back(start^i^i&gt;&gt;1);
-        }
-        return res;
-
-    }
-</code></pre>
-]]></content>
-      <categories>
-        <category>数据结构与算法训练</category>
-      </categories>
-      <tags>
-        <tag>位运算</tag>
-        <tag>格雷码</tag>
       </tags>
   </entry>
   <entry>
@@ -3858,36 +3858,6 @@ public:
       </tags>
   </entry>
   <entry>
-    <title>修改Jupyter Notebook的默认存储路径</title>
-    <url>/2019/10/02/2019-10-2-xiu-gai-jupyter-notebook-de-mo-ren-cun-chu-lu-jing/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>最近在复现数据分析，发现JupyterNotebook默认存储路径在C盘 /user/.jupyter里面<br>想改一下默认存储路径。</p>
-<h2 id="step1"><a href="#step1" class="headerlink" title="step1"></a>step1</h2><p>进入Anaconda安装路径，一般来说都是 <em>*</em>/Anaconda3/Scripts，比如我的就是在 E:\Python\Anaconda\INSTALL\Scripts这个路径下，在cmd中将路径转到该路径下，这样替换代码如下，其中路径替换成自己的。</p>
-<pre><code class="lang-bash">&gt;&gt; cd E:\Python\Anaconda\INSTALL\Scripts
-&gt;&gt; e:
-</code></pre>
-<h2 id="step2"><a href="#step2" class="headerlink" title="step2"></a>step2</h2><p>在cmd中输入命令：</p>
-<pre><code class="lang-bash">jupyter notebook --generate-config
-</code></pre>
-<p>然后就会在C盘用户路径（例如我的路径是：C:\Users\三寸旧城七寸执念\.jupyter）下生成jupyter_notebook_config.py文件，使用文本编辑器（VS Code等）打开该文件。</p>
-<h2 id="step3"><a href="#step3" class="headerlink" title="step3"></a>step3</h2><p>定位到第246行</p>
-<pre><code class="lang-bash">#c.NotebookApp.notebook_dir = &#39;&#39;
-</code></pre>
-<p>替换为</p>
-<pre><code class="lang-bash">c.NotebookApp.notebook_dir = &#39;E:/CodeCache/JupyterNotebook&#39;
-</code></pre>
-<h2 id="step4"><a href="#step4" class="headerlink" title="step4"></a>step4</h2><p>右击JupyterNotebook的快捷方式点击属性，将目标那一栏里的%USERPROFILE%删掉，应该就可以了。</p>
-<p>重启Jupyter Notebook。</p>
-<p>另外，需要给Jupyter NoteBook 换主题，换字体，字号，以及代码自动补全<br>可参考<br><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0plcnJ5X3h6ai9hcnRpY2xlL2RldGFpbHMvODk5MzExNjU=">使用 Jupyter Themes 修改 Jupyter Notebook 的主题、字体、字号<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2F6OTk5Ni9hcnRpY2xlL2RldGFpbHMvODg2MjEwMjgjXzI0">Jupyter Notebook 更换主题、设置字体(jupyterthemes的使用)、代码自动补全、变更工作目录（默认目录）<i class="fa fa-external-link-alt"></i></span></p>
-<p>其实个人觉得貌似也没有好看的字体，传说中的Consolas字体貌似也不支持，主题换来换去其实还不如最初的默认的。其实个人觉得比较有用的还是代码补全。<br>另外，需要注意里面的命令行是在 Anaconda Prompt输入的，而非cmd。</p>
-]]></content>
-      <categories>
-        <category>Python3</category>
-      </categories>
-      <tags>
-        <tag>JupyterNotebook</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCodeWeeklyContest-156</title>
     <url>/2019/10/02/2019-10-2-leetcodeweeklycontest-156/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vY29udGVzdC93ZWVrbHktY29udGVzdC0xNTYv">题目传送<i class="fa fa-external-link-alt"></i></span><br>写题解就像写博客一样真的有好处，尽管会多花点时间。</p>
@@ -4055,6 +4025,36 @@ string removeDuplicates(string s, int k) {
       </categories>
       <tags>
         <tag>leetcode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>修改Jupyter Notebook的默认存储路径</title>
+    <url>/2019/10/02/2019-10-2-xiu-gai-jupyter-notebook-de-mo-ren-cun-chu-lu-jing/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>最近在复现数据分析，发现JupyterNotebook默认存储路径在C盘 /user/.jupyter里面<br>想改一下默认存储路径。</p>
+<h2 id="step1"><a href="#step1" class="headerlink" title="step1"></a>step1</h2><p>进入Anaconda安装路径，一般来说都是 <em>*</em>/Anaconda3/Scripts，比如我的就是在 E:\Python\Anaconda\INSTALL\Scripts这个路径下，在cmd中将路径转到该路径下，这样替换代码如下，其中路径替换成自己的。</p>
+<pre><code class="lang-bash">&gt;&gt; cd E:\Python\Anaconda\INSTALL\Scripts
+&gt;&gt; e:
+</code></pre>
+<h2 id="step2"><a href="#step2" class="headerlink" title="step2"></a>step2</h2><p>在cmd中输入命令：</p>
+<pre><code class="lang-bash">jupyter notebook --generate-config
+</code></pre>
+<p>然后就会在C盘用户路径（例如我的路径是：C:\Users\三寸旧城七寸执念\.jupyter）下生成jupyter_notebook_config.py文件，使用文本编辑器（VS Code等）打开该文件。</p>
+<h2 id="step3"><a href="#step3" class="headerlink" title="step3"></a>step3</h2><p>定位到第246行</p>
+<pre><code class="lang-bash">#c.NotebookApp.notebook_dir = &#39;&#39;
+</code></pre>
+<p>替换为</p>
+<pre><code class="lang-bash">c.NotebookApp.notebook_dir = &#39;E:/CodeCache/JupyterNotebook&#39;
+</code></pre>
+<h2 id="step4"><a href="#step4" class="headerlink" title="step4"></a>step4</h2><p>右击JupyterNotebook的快捷方式点击属性，将目标那一栏里的%USERPROFILE%删掉，应该就可以了。</p>
+<p>重启Jupyter Notebook。</p>
+<p>另外，需要给Jupyter NoteBook 换主题，换字体，字号，以及代码自动补全<br>可参考<br><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0plcnJ5X3h6ai9hcnRpY2xlL2RldGFpbHMvODk5MzExNjU=">使用 Jupyter Themes 修改 Jupyter Notebook 的主题、字体、字号<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2F6OTk5Ni9hcnRpY2xlL2RldGFpbHMvODg2MjEwMjgjXzI0">Jupyter Notebook 更换主题、设置字体(jupyterthemes的使用)、代码自动补全、变更工作目录（默认目录）<i class="fa fa-external-link-alt"></i></span></p>
+<p>其实个人觉得貌似也没有好看的字体，传说中的Consolas字体貌似也不支持，主题换来换去其实还不如最初的默认的。其实个人觉得比较有用的还是代码补全。<br>另外，需要注意里面的命令行是在 Anaconda Prompt输入的，而非cmd。</p>
+]]></content>
+      <categories>
+        <category>Python3</category>
+      </categories>
+      <tags>
+        <tag>JupyterNotebook</tag>
       </tags>
   </entry>
   <entry>
@@ -4404,26 +4404,6 @@ int main()
       </tags>
   </entry>
   <entry>
-    <title>联想Y7000装Ubuntu双系统路上的坑</title>
-    <url>/2019/09/22/2019-09-22-lian-xiang-y7000-zhuang-ubuntu-shuang-xi-tong-lu-shang-de-keng/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>三言两语道不尽心酸，一句两句说不尽心酸</strong><br>一个Ubuntu装了2天，装的无比心酸<br><br>一直报ACPI错误，后来加上nomodeset才搞定<br><br>后来专门搜了一下联想Y7000装Ubuntu的教程<br><br>才知道这是联想显卡的问题。<br><br>而且最好装Ubuntu 16.04.5<br></p>
-<p>下面是一些参考文章：<br><br><span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9lYjQwOGJmZGQ4NzM=">关于在联想Y7000上安装ubuntu和win10双系统的卡死坑<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMxNzA3Mjc1L2FydGljbGUvZGV0YWlscy84MjcwOTEzMw==">y7000安装ubuntu和一些小tips<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0Rpc2NvdmVyaGZ1Yi9hcnRpY2xlL2RldGFpbHMvNzk3MTkyMDg=">ubuntu 添加中文拼音输入法<i class="fa fa-external-link-alt"></i></span></p>
-<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dhbmdndWNoYW8vYXJ0aWNsZS9kZXRhaWxzLzgyMTUxMzcy">Ubuntu16.04系统查看已安装的python版本，及其配置<i class="fa fa-external-link-alt"></i></span></p>
-<p>其实装上Ubuntu之后，还有很多事情要做，很多环境要配，显卡要修改，就不一一列出了，主要是前面进入开机界面太艰难了，写篇博客记录下。</p>
-<hr>
-<p>2019年9月30日更新</p>
-<p>windows休眠，没有彻底关闭<br><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2F3YXdmd2Z3L2FydGljbGUvZGV0YWlscy80NjQzNDE2Mw==">Ubuntu 无法访问windows下的磁盘的解决方法<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hhbmRva2luZy9hcnRpY2xlL2RldGFpbHMvNzc1MzAyMzg=">Ubuntu系统打不开windows磁盘文件<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCodeWeeklyContest-155</title>
     <url>/2019/09/22/2019-09-22-leetcodeweeklycontest-155/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
@@ -4637,96 +4617,23 @@ int main()
       </tags>
   </entry>
   <entry>
-    <title>2019数学建模赛后感悟：一次灵魂与肉体的交织&amp;&amp;一次参赛终身收益</title>
-    <url>/2019/09/16/2019-09-16-2019-shu-xue-jian-mo-sai-hou-gan-wu-yi-ci-ling-hun-yu-rou-ti-de-jiao-zhi-yi-ci-can-sai-zhong-shen-shou-yi/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
-<p>一年一度的全国大学生数学建模比赛（CUMCM）已接近尾声…</p>
-</blockquote>
-<p><span class="exturl" data-url="aHR0cHM6Ly9zaW5jbGFpcmNvZGVyLnRvcC8yMDE5LzA5LzE2LzIwMTktMDktMTYtJUU2JTk1JUIwJUU1JUFEJUE2JUU1JUJCJUJBJUU2JUE4JUExJUU5JTlCJTg2JUU4JUFFJUFEJUU3JTlGJUE1JUU4JUFGJTg2JUU3JTgyJUI5Lw==">SinclairWang 个人博客同步更新，欢迎关注<i class="fa fa-external-link-alt"></i></span><br>相信每个参赛者都会有自己的感悟<br>一句恰如其分的描述：<strong>一次灵魂与肉体的交织</strong>。<br>下面是自己的一点感悟与思考。</p>
-<h2 id="赛前"><a href="#赛前" class="headerlink" title="赛前"></a>赛前</h2><ul>
-<li>最初听说，大概是在一年前，决定参加比赛是在今年5月份，暑假有两个选择，要么参加8月份的建模集训，要么实验室打杂，综合考虑了一下，看到培训大纲上的东西，可能对日后专业方向走向有益，遂放弃了锻炼编码能力的时间，毅然决定参加去参加集训。</li>
-<li>集训8月1日份开始，9月5日结束，9月12日比赛开始，9月15日比赛结束。</li>
-<li>一个多月的集训，每天上午8点半到12点，可能下午还要加课，一个老师讲一个专题3天，理学院的老师轮流来，每人一个模块，每三天一个专题，智能计算、统计分析、数值计算、图与网络、模拟仿真、分类与聚类、组合优化、图像处理、历年赛题与优秀论文讲评。</li>
-<li>老师们每天讲课，一个上午动辄上百页PPT，所以这一个月的日常就是上午上课，下午看老师讲的PPT、理解原理和复现程序。CUMCM涉及层面广而多，虽说深度欠缺，但是对于本科生来说，掌握这些知识，也是不易。</li>
-<li>集训的过程，也曾想过放弃，不是畏难，而是有一段时间觉得自己做的可能没有自己想象中的有意义，正如本专业同学那句话 <strong>“或许当初没有选择数学建模，这一个月的时间，可能已经足够可以在专业上走的很远了…”</strong></li>
-<li>我也认同，可是大家还是选择坚持了下来，一直坚持到了最后。</li>
-</ul>
+    <title>联想Y7000装Ubuntu双系统路上的坑</title>
+    <url>/2019/09/22/2019-09-22-lian-xiang-y7000-zhuang-ubuntu-shuang-xi-tong-lu-shang-de-keng/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>三言两语道不尽心酸，一句两句说不尽心酸</strong><br>一个Ubuntu装了2天，装的无比心酸<br><br>一直报ACPI错误，后来加上nomodeset才搞定<br><br>后来专门搜了一下联想Y7000装Ubuntu的教程<br><br>才知道这是联想显卡的问题。<br><br>而且最好装Ubuntu 16.04.5<br></p>
+<p>下面是一些参考文章：<br><br><span class="exturl" data-url="aHR0cHM6Ly93d3cuamlhbnNodS5jb20vcC9lYjQwOGJmZGQ4NzM=">关于在联想Y7000上安装ubuntu和win10双系统的卡死坑<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMxNzA3Mjc1L2FydGljbGUvZGV0YWlscy84MjcwOTEzMw==">y7000安装ubuntu和一些小tips<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0Rpc2NvdmVyaGZ1Yi9hcnRpY2xlL2RldGFpbHMvNzk3MTkyMDg=">ubuntu 添加中文拼音输入法<i class="fa fa-external-link-alt"></i></span></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dhbmdndWNoYW8vYXJ0aWNsZS9kZXRhaWxzLzgyMTUxMzcy">Ubuntu16.04系统查看已安装的python版本，及其配置<i class="fa fa-external-link-alt"></i></span></p>
+<p>其实装上Ubuntu之后，还有很多事情要做，很多环境要配，显卡要修改，就不一一列出了，主要是前面进入开机界面太艰难了，写篇博客记录下。</p>
 <hr>
-<p> 一场集训下来，我也学到了很多东西，虽不知不觉，却也潜移默化，老师们讲的n个专题，不敢说全部掌握了，但可以说学了个大概，而且学的知识对日后专业方向走向<strong>极其有益</strong>，虽然理论深度掌握不够，但也相当于在自己的方向相关领域，在自己的学习进程上写了一句<em>HelloWorld</em>，其实集训之前本来想着老师们每讲一个专题，就跟着写一篇Blog，事实上，集训时每天的知识都消化不了，更不要说写博客了，这件事仔细想想，也并非完全不能做到，只是决心不够。虽然专题博客没跟上，但是将老师讲的专题总结成思维导图，形成数学建模集训的整个知识框架，这是不难做到的，思维导图是用xmind做的，用markdown文本导出，我放到了博客上，总结了一下建模期间的博客，不算这篇的话，还有一篇关于的图像处理的,当初看图像处理的时候觉得很有意思,就没忍住写了一篇。</p>
-<ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvMTAwODkxNzU3">数学建模集训知识大纲<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvMTAwNjY1NzYx">基于奇异值分解的图像压缩<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-<hr>
-<p>除此之外,我也从队友身上学到了很多,我们队人员组成是2<em>计算机专业(一个SE，一个CS)+数学专业。我从队友身上看到了高效,其实一直很想写一篇关于效率与时间管理的文章,不过时间安排上没提上日程,一个人只有把效率提上去,才能做到自己想做的。之前知乎上有篇高赞文章,是讲<em>*人是怎么废掉的</em></em>,没想到其中有一条是瞎忙,除了没方向之外,更重要的是低效率,忙了一天不知道在忙什么,忙了点啥,就好比泡图书馆学习,一泡就是一天,到了晚上应该正确评估白天的效率如何,而不应该单纯陷在因为短暂的长时间学习而产生的自我感动上,只有走出了这个误区才能有所进步。经此,我也有了新的认知。另外,我也认识到了学习方式的不足,也有专业大环境的原因,认真专注听课反倒成为了一个大难题,另外,上课认真听课,下课才能用更少的时间去复习,节省出更多的时间去做自己想做的事情。</p>
-<hr>
-<h2 id="赛中"><a href="#赛中" class="headerlink" title="赛中"></a>赛中</h2><blockquote>
-<p><strong>9月12日</strong></p>
-<p>进驻机房,晚上6点钟放题目,一开始略卡。<br>下载到题目之后,A、B、C任选一题。<br>读题： </p>
-<ul>
-<li>A题精确计算 有一定的专业知识背景，否则题意不好理解 </li>
-<li>B题 物理题目？果断放弃</li>
-<li>C题 开放性题目 只有大概思路，具体思路没有 估计找数据会劝退一拨人</li>
-</ul>
-</blockquote>
-<p>综合评估，我的答案是选C，队友讨论了一晚上A题，但是我给不出说服他们选C题的东西。<br>没过多久，我找到了数据。<br>但是模型没具体思路。<br>晚上11点半回寝室休息</p>
-<p>第二天一早队友们想选C题，其实我内心有点欣喜~<br>然后就开始了建模…<br>建模全靠队友，其中有个神奇的男人，中午小憩都能想到idea，上趟厕所模型都能被改进，回来说“我知道了…应该这样做…”。<br>太神奇了…<br>赛期说好的写论文的队友，最后却在编程，说好了写程序的队友，比赛的时候却开始写起了论文，只有我始终打杂，凭实力打杂。</p>
-<ul>
-<li>“我要的折线图你画了没？”</li>
-<li>“我需要你画个直方图。”</li>
-<li>“决策树画好了没？”</li>
-<li>“给你说个思路，你看能实现吗？#$#%#^*@#”</li>
-<li>“数据处理好了吗？”</li>
-<li>“打点的图发我了没？”</li>
-<li>“附录整理好没？”</li>
-<li>“支撑材料打包了没？”</li>
-</ul>
-<p>终于我成了全队无可替代的凭实力打杂的选手！</p>
-<p>到了最后一天，进度有点慢，14日晚上觉得得通宵了，一夜爆肝，那一晚仿佛大家都没回去，都在通宵做模型，计算，一双双熬红的双眼，其实熬夜或许不是最难的，最难的是建不出模，算不出来。<strong>那晚的月亮格外美，格外的圆。</strong></p>
-<p>那晚队友们几乎都没怎么睡，我凌晨5点撑不住了，睡到了7点多。</p>
-<p>起来，洗把脸，下楼吃了东西，队友们赶进度顾不上了…</p>
-<p>然后就开始了最刺激压力最大的一天</p>
-<p>题目只做了一半，四问只做了两问，晚上8点就要截止了。</p>
-<p>到了中午重新改思路，我编程计算，队友们将思路写到论文，完善前面的部分。</p>
-<p>高压下编程或许是最考验编程能力的…</p>
-<p>到了下午5点半初稿还没出来,还有很多格式要调整，公式要编辑….</p>
-<p>晚上7点40多交了初稿…</p>
-<p>没过多久就到8点了，就剩下最后一次交的机会了…</p>
-<p>终于能略微喘口气了</p>
-<p>但是，还有一次机会，不能放弃</p>
-<p>于是，接着完善，修改摘要，修改正文…</p>
-<p>终于9点39分交上了这最后一次…</p>
-<p>如释重负…</p>
-<p>三个人都笑了…</p>
-<p>欣喜若狂~</p>
-<p>这一天没吃饭，没水喝，压力大，睡眠不足</p>
-<p>但是还是撑了下来，队内也没有发生矛盾，互相理解，合作愉快。</p>
-<p>最后一起等到了10点，把参赛作品交了上去</p>
-<p>然后离开了机房，嘴上都说着“我再也不想听到’数学建模‘这四个字”…</p>
-<blockquote>
-<p>虽然数学建模门槛低，有人说这不是数学建模，是面向写作和美术的建模，最终看的是论文。但是我还是觉得我参加数学建模是一个无比正确的决定，无论结果如何，它教会了很多东西，我学了很多数学知识，也掌握了很多能力，比如快速学习的能力，随便甩给你个200多页PPT，两天内就能看完，让我更加专注，变得更加有毅力和耐心去学习，比赛教给我团队协作的重要性，一个人可以走的很快，但一群人能走的更远，你终究能走多远，可能不只是跟你自己有关系，还跟你身边的人有关系，别人会影响你，会改变你。我觉得或许自己跟顶尖名校的同龄人的差距或许不只是软硬件实力配置的差距，而是身边有没有一群这样的一群人：大家有着共同的想法，热衷眼前的事情，能全身心的投入，走在一起去实现这个想法的路上。这是我思考了很久得出的结论，也是从数学建模中收获的，尽管这有些难以置信。比赛的时候，我看到一群人通宵建模，尽管很累但都还在撑着，就像何凯文说的那样，“你有多久没有认真过了？”<br>感悟喷涌，能写出来的寥寥数语总归显得苍白无力，只要经历过的全身心投入的人总归会懂得。</p>
-<hr>
-</blockquote>
-<h2 id="赛后"><a href="#赛后" class="headerlink" title="赛后"></a>赛后</h2><p>好好休息了一下</p>
-<p>还了借的参考书籍</p>
-<p>今天周一，投入到了新的学习征程中，仿佛又是个崭新的开始。</p>
-<p>哦，对了我还写了一篇参赛感悟，正如你所看到的…</p>
-<h2 id="后来"><a href="#后来" class="headerlink" title="后来"></a>后来</h2><hr>
-<p>2019年9月25日更<br>被抽中答辩，心中自是欣喜万分，同样，无形的压力扑面而来。</p>
-<hr>
-<p>2019年9月28日更<br>答辩结束，无论结果如何，石头落地了，尽人事，听天命，一切终于结束了。</p>
-<p>准备答辩的过程中，听说了一句话叫做</p>
-<blockquote>
-<p>一次参赛，终身收益</p>
-</blockquote>
-<p>后来才知道这是建模组委会的口号，也越发觉得这句话真的很贴切，参赛经历和比赛的魅力或许已经远远超过了奖项本身了，无论是心智，还是毅力，还是个人能力，都得到了很好的锻炼，参赛期间高压下编程、高压下写作和高压下的团队合作对每个参赛选手都是一次很好的磨练。另外，我觉得答辩期间的压力也是不亚于竞赛期间的，压力反而更大，从准备到答辩结束，需要自己重新审视自己的作品，正确认识作品的缺点，勇于承认或许这才是最重要的。<br><br>另外，参加一次省级甚至是国家级别的学术答辩，无论结果如何，这都是很好的锻炼。<br>此时，一个累的打字都快打不动了的蒟蒻，还在拖着疲惫的身躯码着自己的切身体会，一般来说，能写出来的文字总归苍白无力。<br><br>用两句话结个尾吧，给2019CUMCM画上个句号。<br><br><strong>星光不负赶路人，时光不负有心人。</strong><br><strong>一次参赛，终身收益。</strong></p>
+<p>2019年9月30日更新</p>
+<p>windows休眠，没有彻底关闭<br><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2F3YXdmd2Z3L2FydGljbGUvZGV0YWlscy80NjQzNDE2Mw==">Ubuntu 无法访问windows下的磁盘的解决方法<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hhbmRva2luZy9hcnRpY2xlL2RldGFpbHMvNzc1MzAyMzg=">Ubuntu系统打不开windows磁盘文件<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <categories>
-        <category>感悟</category>
+        <category>Linux</category>
       </categories>
       <tags>
-        <tag>竞赛感悟</tag>
-        <tag>数学建模</tag>
+        <tag>Ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -5238,6 +5145,99 @@ int main()
         <category>数学建模</category>
       </categories>
       <tags>
+        <tag>数学建模</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2019数学建模赛后感悟：一次灵魂与肉体的交织&amp;&amp;一次参赛终身收益</title>
+    <url>/2019/09/16/2019-09-16-2019-shu-xue-jian-mo-sai-hou-gan-wu-yi-ci-ling-hun-yu-rou-ti-de-jiao-zhi-yi-ci-can-sai-zhong-shen-shou-yi/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
+<p>一年一度的全国大学生数学建模比赛（CUMCM）已接近尾声…</p>
+</blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly9zaW5jbGFpcmNvZGVyLnRvcC8yMDE5LzA5LzE2LzIwMTktMDktMTYtJUU2JTk1JUIwJUU1JUFEJUE2JUU1JUJCJUJBJUU2JUE4JUExJUU5JTlCJTg2JUU4JUFFJUFEJUU3JTlGJUE1JUU4JUFGJTg2JUU3JTgyJUI5Lw==">SinclairWang 个人博客同步更新，欢迎关注<i class="fa fa-external-link-alt"></i></span><br>相信每个参赛者都会有自己的感悟<br>一句恰如其分的描述：<strong>一次灵魂与肉体的交织</strong>。<br>下面是自己的一点感悟与思考。</p>
+<h2 id="赛前"><a href="#赛前" class="headerlink" title="赛前"></a>赛前</h2><ul>
+<li>最初听说，大概是在一年前，决定参加比赛是在今年5月份，暑假有两个选择，要么参加8月份的建模集训，要么实验室打杂，综合考虑了一下，看到培训大纲上的东西，可能对日后专业方向走向有益，遂放弃了锻炼编码能力的时间，毅然决定参加去参加集训。</li>
+<li>集训8月1日份开始，9月5日结束，9月12日比赛开始，9月15日比赛结束。</li>
+<li>一个多月的集训，每天上午8点半到12点，可能下午还要加课，一个老师讲一个专题3天，理学院的老师轮流来，每人一个模块，每三天一个专题，智能计算、统计分析、数值计算、图与网络、模拟仿真、分类与聚类、组合优化、图像处理、历年赛题与优秀论文讲评。</li>
+<li>老师们每天讲课，一个上午动辄上百页PPT，所以这一个月的日常就是上午上课，下午看老师讲的PPT、理解原理和复现程序。CUMCM涉及层面广而多，虽说深度欠缺，但是对于本科生来说，掌握这些知识，也是不易。</li>
+<li>集训的过程，也曾想过放弃，不是畏难，而是有一段时间觉得自己做的可能没有自己想象中的有意义，正如本专业同学那句话 <strong>“或许当初没有选择数学建模，这一个月的时间，可能已经足够可以在专业上走的很远了…”</strong></li>
+<li>我也认同，可是大家还是选择坚持了下来，一直坚持到了最后。</li>
+</ul>
+<hr>
+<p> 一场集训下来，我也学到了很多东西，虽不知不觉，却也潜移默化，老师们讲的n个专题，不敢说全部掌握了，但可以说学了个大概，而且学的知识对日后专业方向走向<strong>极其有益</strong>，虽然理论深度掌握不够，但也相当于在自己的方向相关领域，在自己的学习进程上写了一句<em>HelloWorld</em>，其实集训之前本来想着老师们每讲一个专题，就跟着写一篇Blog，事实上，集训时每天的知识都消化不了，更不要说写博客了，这件事仔细想想，也并非完全不能做到，只是决心不够。虽然专题博客没跟上，但是将老师讲的专题总结成思维导图，形成数学建模集训的整个知识框架，这是不难做到的，思维导图是用xmind做的，用markdown文本导出，我放到了博客上，总结了一下建模期间的博客，不算这篇的话，还有一篇关于的图像处理的,当初看图像处理的时候觉得很有意思,就没忍住写了一篇。</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvMTAwODkxNzU3">数学建模集训知识大纲<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvMTAwNjY1NzYx">基于奇异值分解的图像压缩<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<hr>
+<p>除此之外,我也从队友身上学到了很多,我们队人员组成是2<em>计算机专业(一个SE，一个CS)+数学专业。我从队友身上看到了高效,其实一直很想写一篇关于效率与时间管理的文章,不过时间安排上没提上日程,一个人只有把效率提上去,才能做到自己想做的。之前知乎上有篇高赞文章,是讲<em>*人是怎么废掉的</em></em>,没想到其中有一条是瞎忙,除了没方向之外,更重要的是低效率,忙了一天不知道在忙什么,忙了点啥,就好比泡图书馆学习,一泡就是一天,到了晚上应该正确评估白天的效率如何,而不应该单纯陷在因为短暂的长时间学习而产生的自我感动上,只有走出了这个误区才能有所进步。经此,我也有了新的认知。另外,我也认识到了学习方式的不足,也有专业大环境的原因,认真专注听课反倒成为了一个大难题,另外,上课认真听课,下课才能用更少的时间去复习,节省出更多的时间去做自己想做的事情。</p>
+<hr>
+<h2 id="赛中"><a href="#赛中" class="headerlink" title="赛中"></a>赛中</h2><blockquote>
+<p><strong>9月12日</strong></p>
+<p>进驻机房,晚上6点钟放题目,一开始略卡。<br>下载到题目之后,A、B、C任选一题。<br>读题： </p>
+<ul>
+<li>A题精确计算 有一定的专业知识背景，否则题意不好理解 </li>
+<li>B题 物理题目？果断放弃</li>
+<li>C题 开放性题目 只有大概思路，具体思路没有 估计找数据会劝退一拨人</li>
+</ul>
+</blockquote>
+<p>综合评估，我的答案是选C，队友讨论了一晚上A题，但是我给不出说服他们选C题的东西。<br>没过多久，我找到了数据。<br>但是模型没具体思路。<br>晚上11点半回寝室休息</p>
+<p>第二天一早队友们想选C题，其实我内心有点欣喜~<br>然后就开始了建模…<br>建模全靠队友，其中有个神奇的男人，中午小憩都能想到idea，上趟厕所模型都能被改进，回来说“我知道了…应该这样做…”。<br>太神奇了…<br>赛期说好的写论文的队友，最后却在编程，说好了写程序的队友，比赛的时候却开始写起了论文，只有我始终打杂，凭实力打杂。</p>
+<ul>
+<li>“我要的折线图你画了没？”</li>
+<li>“我需要你画个直方图。”</li>
+<li>“决策树画好了没？”</li>
+<li>“给你说个思路，你看能实现吗？#$#%#^*@#”</li>
+<li>“数据处理好了吗？”</li>
+<li>“打点的图发我了没？”</li>
+<li>“附录整理好没？”</li>
+<li>“支撑材料打包了没？”</li>
+</ul>
+<p>终于我成了全队无可替代的凭实力打杂的选手！</p>
+<p>到了最后一天，进度有点慢，14日晚上觉得得通宵了，一夜爆肝，那一晚仿佛大家都没回去，都在通宵做模型，计算，一双双熬红的双眼，其实熬夜或许不是最难的，最难的是建不出模，算不出来。<strong>那晚的月亮格外美，格外的圆。</strong></p>
+<p>那晚队友们几乎都没怎么睡，我凌晨5点撑不住了，睡到了7点多。</p>
+<p>起来，洗把脸，下楼吃了东西，队友们赶进度顾不上了…</p>
+<p>然后就开始了最刺激压力最大的一天</p>
+<p>题目只做了一半，四问只做了两问，晚上8点就要截止了。</p>
+<p>到了中午重新改思路，我编程计算，队友们将思路写到论文，完善前面的部分。</p>
+<p>高压下编程或许是最考验编程能力的…</p>
+<p>到了下午5点半初稿还没出来,还有很多格式要调整，公式要编辑….</p>
+<p>晚上7点40多交了初稿…</p>
+<p>没过多久就到8点了，就剩下最后一次交的机会了…</p>
+<p>终于能略微喘口气了</p>
+<p>但是，还有一次机会，不能放弃</p>
+<p>于是，接着完善，修改摘要，修改正文…</p>
+<p>终于9点39分交上了这最后一次…</p>
+<p>如释重负…</p>
+<p>三个人都笑了…</p>
+<p>欣喜若狂~</p>
+<p>这一天没吃饭，没水喝，压力大，睡眠不足</p>
+<p>但是还是撑了下来，队内也没有发生矛盾，互相理解，合作愉快。</p>
+<p>最后一起等到了10点，把参赛作品交了上去</p>
+<p>然后离开了机房，嘴上都说着“我再也不想听到’数学建模‘这四个字”…</p>
+<blockquote>
+<p>虽然数学建模门槛低，有人说这不是数学建模，是面向写作和美术的建模，最终看的是论文。但是我还是觉得我参加数学建模是一个无比正确的决定，无论结果如何，它教会了很多东西，我学了很多数学知识，也掌握了很多能力，比如快速学习的能力，随便甩给你个200多页PPT，两天内就能看完，让我更加专注，变得更加有毅力和耐心去学习，比赛教给我团队协作的重要性，一个人可以走的很快，但一群人能走的更远，你终究能走多远，可能不只是跟你自己有关系，还跟你身边的人有关系，别人会影响你，会改变你。我觉得或许自己跟顶尖名校的同龄人的差距或许不只是软硬件实力配置的差距，而是身边有没有一群这样的一群人：大家有着共同的想法，热衷眼前的事情，能全身心的投入，走在一起去实现这个想法的路上。这是我思考了很久得出的结论，也是从数学建模中收获的，尽管这有些难以置信。比赛的时候，我看到一群人通宵建模，尽管很累但都还在撑着，就像何凯文说的那样，“你有多久没有认真过了？”<br>感悟喷涌，能写出来的寥寥数语总归显得苍白无力，只要经历过的全身心投入的人总归会懂得。</p>
+<hr>
+</blockquote>
+<h2 id="赛后"><a href="#赛后" class="headerlink" title="赛后"></a>赛后</h2><p>好好休息了一下</p>
+<p>还了借的参考书籍</p>
+<p>今天周一，投入到了新的学习征程中，仿佛又是个崭新的开始。</p>
+<p>哦，对了我还写了一篇参赛感悟，正如你所看到的…</p>
+<h2 id="后来"><a href="#后来" class="headerlink" title="后来"></a>后来</h2><hr>
+<p>2019年9月25日更<br>被抽中答辩，心中自是欣喜万分，同样，无形的压力扑面而来。</p>
+<hr>
+<p>2019年9月28日更<br>答辩结束，无论结果如何，石头落地了，尽人事，听天命，一切终于结束了。</p>
+<p>准备答辩的过程中，听说了一句话叫做</p>
+<blockquote>
+<p>一次参赛，终身收益</p>
+</blockquote>
+<p>后来才知道这是建模组委会的口号，也越发觉得这句话真的很贴切，参赛经历和比赛的魅力或许已经远远超过了奖项本身了，无论是心智，还是毅力，还是个人能力，都得到了很好的锻炼，参赛期间高压下编程、高压下写作和高压下的团队合作对每个参赛选手都是一次很好的磨练。另外，我觉得答辩期间的压力也是不亚于竞赛期间的，压力反而更大，从准备到答辩结束，需要自己重新审视自己的作品，正确认识作品的缺点，勇于承认或许这才是最重要的。<br><br>另外，参加一次省级甚至是国家级别的学术答辩，无论结果如何，这都是很好的锻炼。<br>此时，一个累的打字都快打不动了的蒟蒻，还在拖着疲惫的身躯码着自己的切身体会，一般来说，能写出来的文字总归苍白无力。<br><br>用两句话结个尾吧，给2019CUMCM画上个句号。<br><br><strong>星光不负赶路人，时光不负有心人。</strong><br><strong>一次参赛，终身收益。</strong></p>
+]]></content>
+      <categories>
+        <category>感悟</category>
+      </categories>
+      <tags>
+        <tag>竞赛感悟</tag>
         <tag>数学建模</tag>
       </tags>
   </entry>
@@ -7587,63 +7587,6 @@ int main()
       </tags>
   </entry>
   <entry>
-    <title>HDU2097Sky数</title>
-    <url>/2019/01/09/2019-01-09-hdu-2097sky-shu/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Sky数"><a href="#Sky数" class="headerlink" title="Sky数"></a>Sky数</h1><blockquote>
-<p>My life didn’t please me, so I created my life.<br>我的生活不曾取悦于我，所以我创造了自己的生活               ———-Coco Chanel</p>
-</blockquote>
-<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><blockquote>
-<p>Sky从小喜欢奇特的东西，而且天生对数字特别敏感，一次偶然的机会，他发现了一个有趣的四位数2992，这个数它的十进制数表示，其四位数字之和为2+9+9+2=22，它的十六进制数BB0，其四位数字之和也为22，同时它的十二进制数表示1894，其四位数字之和也为22，啊哈，真是巧啊。Sky非常喜欢这种四位数，由于他的发现，所以这里我们命名其为Sky数。但是要判断这样的数还是有点麻烦啊，那么现在请你帮忙来判断任何一个十进制的四位数，是不是Sky数吧。</p>
-</blockquote>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><blockquote>
-<p>输入含有一些四位正整数，如果为0，则输入结束。</p>
-</blockquote>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><blockquote>
-<p>若n为Sky数，则输出“#n is a Sky Number.”，否则输出“#n is not a Sky Number.”。<br>每个结果占一行。注意：#n表示所读入的n值。</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><blockquote>
-<p>2992<br>1234<br>0</p>
-</blockquote>
-<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><blockquote>
-<p>2992 is a Sky Number.<br>1234 is not a Sky Number.</p>
-</blockquote>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><blockquote>
-<p>输入一个四位整数，需要将其进制转换，而在进制转换的过程中又可以实现四位数各位相加，看似需要将数据转换成十六进制、十二进制（输入的便是十进制），实则，只需一个进制转换求和函数就可以实现，不妨设转换为n进制，在转换的过程中便可实现求和，先对n求模，再整除n，最后判断和是否相等即可。</p>
-</blockquote>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code class="lang-c">#include &lt;iostream&gt;
-using namespace std;
-int DBC(int a,int n) //将数字a转化为n进制，将其每位相加求和 
-{
-    int sum=0;
-    while(a)
-    { sum += a%n;  a /= n; }
-    return sum; 
-}
-int main() 
-{
-    int a,b,sum=0;
-    while(cin &gt;&gt; a &amp;&amp; a!=0)
-    {
-        b=a;
-        //个人认为，这里只要三者相等即可，不一定为22
-
-        if((DBC(b,10)==DBC(b,16)) &amp;&amp; (DBC(b,10)==DBC(b,12))) 
-            cout&lt;&lt; a &lt;&lt; &quot; is a Sky Number.&quot; &lt;&lt; endl;
-        else cout&lt;&lt; a &lt;&lt; &quot; is not a Sky Number.&quot; &lt;&lt; endl;
-    }
-   return 0;
-}
-</code></pre>
-]]></content>
-      <categories>
-        <category>数据结构与算法训练</category>
-      </categories>
-      <tags>
-        <tag>数据结构与算法训练</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>欧几里得算法</title>
     <url>/2019/01/09/2019-01-09-ou-ji-li-de-suan-fa/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="欧几里得算法求最大公约数"><a href="#欧几里得算法求最大公约数" class="headerlink" title="欧几里得算法求最大公约数"></a>欧几里得算法求最大公约数</h2><blockquote>
@@ -7700,6 +7643,63 @@ int lcm(int gcd,int m,int n)
       </categories>
       <tags>
         <tag>数论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HDU2097Sky数</title>
+    <url>/2019/01/09/2019-01-09-hdu-2097sky-shu/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Sky数"><a href="#Sky数" class="headerlink" title="Sky数"></a>Sky数</h1><blockquote>
+<p>My life didn’t please me, so I created my life.<br>我的生活不曾取悦于我，所以我创造了自己的生活               ———-Coco Chanel</p>
+</blockquote>
+<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><blockquote>
+<p>Sky从小喜欢奇特的东西，而且天生对数字特别敏感，一次偶然的机会，他发现了一个有趣的四位数2992，这个数它的十进制数表示，其四位数字之和为2+9+9+2=22，它的十六进制数BB0，其四位数字之和也为22，同时它的十二进制数表示1894，其四位数字之和也为22，啊哈，真是巧啊。Sky非常喜欢这种四位数，由于他的发现，所以这里我们命名其为Sky数。但是要判断这样的数还是有点麻烦啊，那么现在请你帮忙来判断任何一个十进制的四位数，是不是Sky数吧。</p>
+</blockquote>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><blockquote>
+<p>输入含有一些四位正整数，如果为0，则输入结束。</p>
+</blockquote>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><blockquote>
+<p>若n为Sky数，则输出“#n is a Sky Number.”，否则输出“#n is not a Sky Number.”。<br>每个结果占一行。注意：#n表示所读入的n值。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><blockquote>
+<p>2992<br>1234<br>0</p>
+</blockquote>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><blockquote>
+<p>2992 is a Sky Number.<br>1234 is not a Sky Number.</p>
+</blockquote>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><blockquote>
+<p>输入一个四位整数，需要将其进制转换，而在进制转换的过程中又可以实现四位数各位相加，看似需要将数据转换成十六进制、十二进制（输入的便是十进制），实则，只需一个进制转换求和函数就可以实现，不妨设转换为n进制，在转换的过程中便可实现求和，先对n求模，再整除n，最后判断和是否相等即可。</p>
+</blockquote>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code class="lang-c">#include &lt;iostream&gt;
+using namespace std;
+int DBC(int a,int n) //将数字a转化为n进制，将其每位相加求和 
+{
+    int sum=0;
+    while(a)
+    { sum += a%n;  a /= n; }
+    return sum; 
+}
+int main() 
+{
+    int a,b,sum=0;
+    while(cin &gt;&gt; a &amp;&amp; a!=0)
+    {
+        b=a;
+        //个人认为，这里只要三者相等即可，不一定为22
+
+        if((DBC(b,10)==DBC(b,16)) &amp;&amp; (DBC(b,10)==DBC(b,12))) 
+            cout&lt;&lt; a &lt;&lt; &quot; is a Sky Number.&quot; &lt;&lt; endl;
+        else cout&lt;&lt; a &lt;&lt; &quot; is not a Sky Number.&quot; &lt;&lt; endl;
+    }
+   return 0;
+}
+</code></pre>
+]]></content>
+      <categories>
+        <category>数据结构与算法训练</category>
+      </categories>
+      <tags>
+        <tag>数据结构与算法训练</tag>
       </tags>
   </entry>
 </search>

@@ -279,6 +279,26 @@
       </div>
 
       <div class="post-title">
+          <a class="post-title-link" href="/2020/01/19/2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji/" itemprop="url">
+            <span itemprop="name">PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）</span>
+          </a>
+      </div>
+
+    </header>
+  </article>
+
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2020-01-19T00:00:00+08:00"
+              content="2020-01-19">
+          01-19
+        </time>
+      </div>
+
+      <div class="post-title">
           <a class="post-title-link" href="/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/" itemprop="url">
             <span itemprop="name">PTA小字辈（BFS）</span>
           </a>
@@ -321,26 +341,6 @@
       <div class="post-title">
           <a class="post-title-link" href="/2020/01/19/2020-01-19-pta-lie-chu-xie-jie-dian-bfs/" itemprop="url">
             <span itemprop="name">PTA列出叶结点(BFS)</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-19T00:00:00+08:00"
-              content="2020-01-19">
-          01-19
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/01/19/2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji/" itemprop="url">
-            <span itemprop="name">PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）</span>
           </a>
       </div>
 
@@ -632,7 +632,7 @@
 
 
 
-  <script src="/js/local-search.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script src="/js/local-search.js"></script>
 
 
 
@@ -650,6 +650,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'ykMNaPlRQAthwgrFfHggAQ7f-gzGzoHsz',
+      appKey     : 'neDtomoYnobT9QzrcHrQj71d',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

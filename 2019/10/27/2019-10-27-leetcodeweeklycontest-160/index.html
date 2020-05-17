@@ -258,7 +258,21 @@
                 </span>
             </span>
 
-          <br>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/10/27/2019-10-27-leetcodeweeklycontest-160/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/10/27/2019-10-27-leetcodeweeklycontest-160/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -519,12 +533,12 @@ public:
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/10/27/2019-10-27-ge-lei-ma/" rel="prev" title="格雷码">
-      <i class="fa fa-chevron-left"></i> 格雷码
+    <a href="/2019/10/25/2019-10-25-xian-xing-shai/" rel="prev" title="线性筛">
+      <i class="fa fa-chevron-left"></i> 线性筛
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/11/01/2019-11-1-pta-zi-fu-chuan-zhuan-huan-cheng-shi-jin-zhi-zheng-shu/" rel="next" title="PTA字符串转换成十进制整数">
-      PTA字符串转换成十进制整数 <i class="fa fa-chevron-right"></i>
+    <a href="/2019/10/27/2019-10-27-ge-lei-ma/" rel="next" title="格雷码">
+      格雷码 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -538,6 +552,7 @@ public:
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -729,7 +744,7 @@ public:
 
 
 
-  <script src="/js/local-search.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script src="/js/local-search.js"></script>
 
 
 
@@ -747,6 +762,35 @@ public:
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'ykMNaPlRQAthwgrFfHggAQ7f-gzGzoHsz',
+      appKey     : 'neDtomoYnobT9QzrcHrQj71d',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

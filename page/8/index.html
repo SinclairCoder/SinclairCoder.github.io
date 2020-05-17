@@ -214,7 +214,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2019/01/09/2019-01-09-ou-ji-li-de-suan-fa/">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2019/01/09/2019-01-09-hdu-2097sky-shu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -228,7 +228,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2019/01/09/2019-01-09-ou-ji-li-de-suan-fa/" class="post-title-link" itemprop="url">欧几里得算法</a>
+            <a href="/2019/01/09/2019-01-09-hdu-2097sky-shu/" class="post-title-link" itemprop="url">HDU2097Sky数</a>
         </h2>
 
         <div class="post-meta">
@@ -245,7 +245,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-21 20:21:42" itemprop="dateModified" datetime="2020-01-21T20:21:42+08:00">2020-01-21</time>
+                <time title="Modified: 2020-01-21 20:25:28" itemprop="dateModified" datetime="2020-01-21T20:25:28+08:00">2020-01-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -253,17 +253,31 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数论/" itemprop="url" rel="index"><span itemprop="name">数论</span></a>
+                  <a href="/categories/数据结构与算法训练/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法训练</span></a>
                 </span>
             </span>
 
-          <br>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/01/09/2019-01-09-hdu-2097sky-shu/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/01/09/2019-01-09-hdu-2097sky-shu/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="Symbols count in article">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.3k</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -282,18 +296,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="欧几里得算法求最大公约数"><a href="#欧几里得算法求最大公约数" class="headerlink" title="欧几里得算法求最大公约数"></a>欧几里得算法求最大公约数</h2><blockquote>
-<p>Sometimes your whole life boils down to one insane move.<br>        人这一辈子，有时就得靠一次疯狂的举动才能扭转乾坤。<br>                                                                 —————————《阿凡达》</p>
+          <h1 id="Sky数"><a href="#Sky数" class="headerlink" title="Sky数"></a>Sky数</h1><blockquote>
+<p>My life didn’t please me, so I created my life.<br>我的生活不曾取悦于我，所以我创造了自己的生活               ———-Coco Chanel</p>
 </blockquote>
-<p>@[toc]</p>
-<h2 id="一、介绍欧几里得"><a href="#一、介绍欧几里得" class="headerlink" title="一、介绍欧几里得"></a>一、介绍欧几里得</h2><hr>
-<p>&emsp;&emsp;像所有博客一样，出于尊重，介绍一下这位伟大的数学家欧几里得。</p>
-<p>&emsp;&emsp;欧几里得，古希腊人，数学家，主要成就：数学巨著《几何原本》、欧几里得算法、完全数。</p>
-<p>&emsp;&emsp;在柏拉图学派晚期导师普罗克洛斯（约410～485）的《几何学发展概要》中，就记载着这样一则故事，说的是数学在欧几里得的推动下，逐渐成为人们生活中的一个时髦话题(这与当今社会截然相反)，以至于当时亚里山大国王托勒密一世也想赶这一时髦，学点儿几何学。</p>
-<p>&emsp;&emsp;虽然这位国王见多识广，但欧氏几何却令他学的很吃力。于是，他问欧几里得“学习几何学有没有什么捷径可走？”，欧几里得笑道：“抱歉，陛下!学习数学和学习一切科学一样，是没有什么捷径可走的。学习数学，人人都得独立思考，就像种庄稼一样，不耕耘是不会有收获的。在这一方面，国王和普通老百姓是一样的。” 从此,“在几何学里,没有专为国王铺设的大道。”这句话成为千古传诵的学习箴言。<br>&emsp;&emsp;总之呢，任何事情都是这样，哪有这么多得捷径可走，天才往往都是天天积累成才。</p>
+<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><blockquote>
+<p>Sky从小喜欢奇特的东西，而且天生对数字特别敏感，一次偶然的机会，他发现了一个有趣的四位数2992，这个数它的十进制数表示，其四位数字之和为2+9+9+2=22，它的十六进制数BB0，其四位数字之和也为22，同时它的十二进制数表示1894，其四位数字之和也为22，啊哈，真是巧啊。Sky非常喜欢这种四位数，由于他的发现，所以这里我们命名其为Sky数。但是要判断这样的数还是有点麻烦啊，那么现在请你帮忙来判断任何一个十进制的四位数，是不是Sky数吧。</p>
+</blockquote>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><blockquote>
+<p>输入含有一些四位正整数，如果为0，则输入结束。</p>
+</blockquote>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><blockquote>
+<p>若n为Sky数，则输出“#n is a Sky Number.”，否则输出“#n is not a Sky Number.”。<br>每个结果占一行。注意：#n表示所读入的n值。</p>
+</blockquote>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/01/09/2019-01-09-ou-ji-li-de-suan-fa/#more" rel="contents">
+              <a class="btn" href="/2019/01/09/2019-01-09-hdu-2097sky-shu/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -513,7 +530,7 @@
 
 
 
-  <script src="/js/local-search.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script src="/js/local-search.js"></script>
 
 
 
@@ -531,6 +548,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'ykMNaPlRQAthwgrFfHggAQ7f-gzGzoHsz',
+      appKey     : 'neDtomoYnobT9QzrcHrQj71d',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>
