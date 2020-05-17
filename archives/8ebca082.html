@@ -24,18 +24,18 @@
     var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="数学建模的思想几道题目  熊怪吃核桃—二进制的使用 切面条余数的使用余数运算对于加法、减法和乘法封闭，常用于循环队列等使用，也可以利用余数的性质大幅度简化编码常用场合：递推法，倒推法有很多经典的题目，比如猴子吃桃..猜字母（待补..）  统计某种运算的结果末尾0的个数统计因子中能被2和5整除的个数分别为n1,n2 result = min(n1,n2)毕达哥拉斯定理（勾股定理）可以直接利用$x^2">
+  <meta name="description" content="数学建模的思想几道题目  熊怪吃核桃—二进制的使用 切面条">
 <meta name="keywords" content="蓝桥杯">
 <meta property="og:type" content="article">
 <meta property="og:title" content="蓝桥杯集训笔记">
 <meta property="og:url" content="https://sinclaircoder.gitee.io/archives/8ebca082.html">
 <meta property="og:site_name" content="SinclairのBlog">
-<meta property="og:description" content="数学建模的思想几道题目  熊怪吃核桃—二进制的使用 切面条余数的使用余数运算对于加法、减法和乘法封闭，常用于循环队列等使用，也可以利用余数的性质大幅度简化编码常用场合：递推法，倒推法有很多经典的题目，比如猴子吃桃..猜字母（待补..）  统计某种运算的结果末尾0的个数统计因子中能被2和5整除的个数分别为n1,n2 result = min(n1,n2)毕达哥拉斯定理（勾股定理）可以直接利用$x^2">
+<meta property="og:description" content="数学建模的思想几道题目  熊怪吃核桃—二进制的使用 切面条">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-05-17T16:41:40.138Z">
+<meta property="og:updated_time" content="2020-05-17T17:46:18.659Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="蓝桥杯集训笔记">
-<meta name="twitter:description" content="数学建模的思想几道题目  熊怪吃核桃—二进制的使用 切面条余数的使用余数运算对于加法、减法和乘法封闭，常用于循环队列等使用，也可以利用余数的性质大幅度简化编码常用场合：递推法，倒推法有很多经典的题目，比如猴子吃桃..猜字母（待补..）  统计某种运算的结果末尾0的个数统计因子中能被2和5整除的个数分别为n1,n2 result = min(n1,n2)毕达哥拉斯定理（勾股定理）可以直接利用$x^2">
+<meta name="twitter:description" content="数学建模的思想几道题目  熊怪吃核桃—二进制的使用 切面条">
 
 <link rel="canonical" href="https://sinclaircoder.gitee.io/archives/8ebca082.html">
 
@@ -246,7 +246,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:40" itemprop="dateModified" datetime="2020-05-18T00:41:40+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 01:46:18" itemprop="dateModified" datetime="2020-05-18T01:46:18+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -285,7 +285,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>845</span>
+              <span>847</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -307,8 +307,10 @@
         <h2 id="数学建模的思想"><a href="#数学建模的思想" class="headerlink" title="数学建模的思想"></a>数学建模的思想</h2><p>几道题目</p>
 <ul>
 <li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvMTAzMjAzMzE4">熊怪吃核桃—二进制的使用<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvMTAzMjA0MTk4">切面条<i class="fa fa-external-link-alt"></i></span><h3 id="余数的使用"><a href="#余数的使用" class="headerlink" title="余数的使用"></a>余数的使用</h3>余数运算对于加法、减法和乘法封闭，常用于循环队列等使用，也可以利用余数的性质大幅度简化编码<br>常用场合：递推法，倒推法<br>有很多经典的题目，比如猴子吃桃..<br>猜字母（待补..）</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvMTAzMjA0MTk4">切面条<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
+<a id="more"></a>
+<h3 id="余数的使用"><a href="#余数的使用" class="headerlink" title="余数的使用"></a>余数的使用</h3><p>余数运算对于加法、减法和乘法封闭，常用于循环队列等使用，也可以利用余数的性质大幅度简化编码<br>常用场合：递推法，倒推法<br>有很多经典的题目，比如猴子吃桃..<br>猜字母（待补..）</p>
 <h3 id="统计某种运算的结果末尾0的个数"><a href="#统计某种运算的结果末尾0的个数" class="headerlink" title="统计某种运算的结果末尾0的个数"></a>统计某种运算的结果末尾0的个数</h3><p>统计因子中能被2和5整除的个数分别为n1,n2</p>
 <script type="math/tex; mode=display">result = min(n1,n2)</script><h3 id="毕达哥拉斯定理（勾股定理）"><a href="#毕达哥拉斯定理（勾股定理）" class="headerlink" title="毕达哥拉斯定理（勾股定理）"></a>毕达哥拉斯定理（勾股定理）</h3><p>可以直接利用$x^2+y^2=z^2$在正整数域构造基础解系</p>
 <script type="math/tex; mode=display">\begin{cases}x=2k+1\\y=2k^2+2k\\ z = 2k^2+2k+1 \\ k = 1,2,3,... \end{cases}</script><p>另一种解系：</p>
@@ -350,9 +352,6 @@
       <div class="popular-posts-title"><a href="\archives\f8453555.html" rel="bookmark">2019蓝桥杯校内选拔赛题解</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\archives\7bffbf73.html" rel="bookmark">黄金连分数--BigDecimal的使用</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\archives\257addcb.html" rel="bookmark">熊怪吃核桃--二进制的使用</a></div>
     </li>
     <li class="popular-posts-item">
@@ -360,6 +359,9 @@
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\archives\6a744e70.html" rel="bookmark">大数乘法 java BigInteger的使用</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\archives\7bffbf73.html" rel="bookmark">黄金连分数--BigDecimal的使用</a></div>
     </li>
   </ul>
 
@@ -413,12 +415,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/archives/6a744e70.html" rel="prev" title="大数乘法 java BigInteger的使用">
-      <i class="fa fa-chevron-left"></i> 大数乘法 java BigInteger的使用
+    <a href="/archives/b0be8873.html" rel="prev" title="SQLServer配置管理器打开SQLServer服务&&远程过程调用失败问题">
+      <i class="fa fa-chevron-left"></i> SQLServer配置管理器打开SQLServer服务&&远程过程调用失败问题
     </a></div>
       <div class="post-nav-item">
-    <a href="/archives/7bffbf73.html" rel="next" title="黄金连分数--BigDecimal的使用">
-      黄金连分数--BigDecimal的使用 <i class="fa fa-chevron-right"></i>
+    <a href="/archives/6c292947.html" rel="next" title="切面条">
+      切面条 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

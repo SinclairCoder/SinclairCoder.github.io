@@ -1333,7 +1333,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #570eba;
+  background: #465b63;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2727,6 +2727,25 @@ mjx-container + br {
 }
 .back-to-top.back-to-top-on {
   margin-top: 16px;
+}
+body {
+  background: url("/images/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+.content-wrap {
+  opacity: 0.9;
+}
+.sidebar {
+  opacity: 0.9;
+}
+.header-inner {
+  background: rgba(255,255,255,0.9);
+}
+.popup {
+  opacity: 0.9;
 }
 .moon-menu,
 .moon-menu-bg,

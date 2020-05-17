@@ -214,6 +214,115 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/4a790494.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/archives/4a790494.html" class="post-title-link" itemprop="url">PTA列车调度</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-01-17 00:00:00" itemprop="dateCreated datePublished" datetime="2020-01-17T00:00:00+08:00">2020-01-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-18 00:41:40" itemprop="dateModified" datetime="2020-05-18T00:41:40+08:00">2020-05-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PTA/" itemprop="url" rel="index"><span itemprop="name">PTA</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/archives/4a790494.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/4a790494.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>965</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>1 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>两端分别是一条入口（Entrance）轨道和一条出口（Exit）轨道，它们之间有N条平行的轨道。每趟列车从入口可以选择任意一条轨道进入，最后从出口离开。在图中有9趟列车，在入口处按照{8，4，2，5，3，9，1，6，7}的顺序排队等待进入。如果要求它们必须按序号递减的顺序从出口离开，则至少需要多少条平行铁轨用于调度？</p>
+<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>输入第一行给出一个整数N ($2 ≤ N ≤10^5$​​ )，下一行给出从1到N的整数序号的一个重排列。数字间以空格分隔。</p>
+<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>在一行中输出可以将输入的列车按序号递减的顺序调离所需要的最少的铁轨条数。</p>
+<h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><blockquote>
+<p>9<br>8 4 2 5 3 9 1 6 7</p>
+<h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><p>4</p>
+</blockquote>
+<p>样例解释：<br>样例中的四条轨道如下：<br>第一条：2 4 8<br>第二条：1 3 5<br>第三条：6 9<br>第四条：7<br>利用stl中的set自动排序的特性，每次查找大于当前值的数，如果有就用当前值替换，没有就插入，最后集合的大小便为结果。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 1000002</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n,num;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; s;</span><br><span class="line">    <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;::iterator it;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; num;</span><br><span class="line">        it = s.upper_bound(num);</span><br><span class="line">		<span class="keyword">if</span>(it!=s.end())&#123;</span><br><span class="line">			s.erase(it);</span><br><span class="line">		&#125;</span><br><span class="line">		s.insert(num);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s.size();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/cafc282e.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -245,7 +354,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:40" itemprop="dateModified" datetime="2020-05-18T00:41:40+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 01:47:09" itemprop="dateModified" datetime="2020-05-18T01:47:09+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -296,128 +405,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>算术表达式有前缀表示法、中缀表示法和后缀表示法等形式。前缀表达式指二元运算符位于两个运算数之前，例如2+3<em>(7-4)+8/4的前缀表达式是：+ + 2 </em> 3 - 7 4 / 8 4。请设计程序计算前缀表达式的结果值。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入在一行内给出不超过30个字符的前缀表达式，只包含+、-、*、/以及运算数，不同对象（运算数、运算符号）之间以空格分隔。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>输出前缀表达式的运算结果，保留小数点后1位，或错误信息ERROR。</p>
-<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h2><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ + <span class="number">2</span> * <span class="number">3</span> - <span class="number">7</span> <span class="number">4</span> / <span class="number">8</span> <span class="number">4</span></span><br></pre></td></tr></table></figure>
-<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例:"></a>输出样例:</h2><p>13.0</p>
-<h2 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h2><p>参考：<span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vS2VlcFovcC8xMTU2MzQxMy5odG1s">【表达式转换 (25 分)】<i class="fa fa-external-link-alt"></i></span><br>上面这篇文章写的很清楚，思路很清晰<br>当栈为空或者栈顶运算符的优先级小于当前二元运算符的优先级时，将该二元运算符导入。<br>倘若栈顶运算符的优先级大于或等于当前二元运算符的优先级，又分为以下两种情况，1.若栈顶运算符为（ 符号，则直接将该运算符插入即可； 2.若栈顶运算符不是（ 符号，则优先输出栈内的元素,直到碰到（ 符号或者栈为空，然后将当前二元运算符插入。</p>
-<h2 id="实现一"><a href="#实现一" class="headerlink" title="实现一"></a>实现一</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 205</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> s;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">	<span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; st;</span><br><span class="line">	<span class="built_in">map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt; mp;</span><br><span class="line">	mp[<span class="string">'+'</span>]=<span class="number">1</span>;mp[<span class="string">'-'</span>]=<span class="number">1</span>;</span><br><span class="line">	mp[<span class="string">'*'</span>]=<span class="number">2</span>;mp[<span class="string">'/'</span>]=<span class="number">2</span>;</span><br><span class="line">	mp[<span class="string">'('</span>]=<span class="number">3</span>;mp[<span class="string">')'</span>]=<span class="number">3</span>;</span><br><span class="line">	<span class="keyword">int</span> len = s.length(),first = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>((i==<span class="number">0</span>||i&amp;s[i<span class="number">-1</span>]==<span class="string">'('</span>)&amp;&amp;(s[i]==<span class="string">'+'</span>||s[i]==<span class="string">'-'</span>))&#123;</span><br><span class="line">			<span class="keyword">if</span>(!first) <span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">			<span class="comment">// 正负号处理 </span></span><br><span class="line">			<span class="keyword">if</span>(s[i]==<span class="string">'-'</span>) <span class="built_in">cout</span> &lt;&lt; <span class="string">"-"</span>;</span><br><span class="line">			<span class="keyword">while</span>(i+<span class="number">1</span>&lt;len&amp;&amp;s[i+<span class="number">1</span>]&gt;=<span class="string">'0'</span>&amp;&amp;s[i+<span class="number">1</span>]&lt;=<span class="string">'9'</span>||s[i+<span class="number">1</span>]==<span class="string">'.'</span>)&#123;</span><br><span class="line">				i++;</span><br><span class="line">				<span class="built_in">cout</span> &lt;&lt; s[i];</span><br><span class="line">			&#125;</span><br><span class="line">			first = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(s[i]&gt;=<span class="string">'0'</span>&amp;&amp;s[i]&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(!first) <span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%c"</span>,s[i]);</span><br><span class="line">			<span class="keyword">while</span>(i+<span class="number">1</span>&lt;len&amp;&amp;s[i+<span class="number">1</span>]&gt;=<span class="string">'0'</span>&amp;&amp;s[i+<span class="number">1</span>]&lt;=<span class="string">'9'</span>||s[i+<span class="number">1</span>]==<span class="string">'.'</span>)&#123;</span><br><span class="line">				i++;</span><br><span class="line">				<span class="built_in">cout</span> &lt;&lt; s[i];</span><br><span class="line">			&#125;</span><br><span class="line">			first = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">')'</span>) &#123;</span><br><span class="line">			<span class="keyword">while</span>(!st.empty()&amp;&amp;st.top()!=<span class="string">'('</span>)&#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">" %c"</span>,st.top());</span><br><span class="line">				st.pop();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(st.top()==<span class="string">'('</span>) st.pop();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(st.empty()||mp[s[i]]&gt;mp[st.top()])&#123;</span><br><span class="line">			st.push(s[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">while</span>(!st.empty()&amp;&amp;st.top()!=<span class="string">'('</span>)&#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">" %c"</span>,st.top());</span><br><span class="line">				st.pop();</span><br><span class="line">			&#125;</span><br><span class="line">			st.push(s[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(!st.empty())&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">" %c"</span>,st.top());</span><br><span class="line">		st.pop();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="思路二"><a href="#思路二" class="headerlink" title="思路二"></a>思路二</h2><p>前缀表达式求值步骤：</p>
-<ul>
-<li>从右向左扫描表达式</li>
-<li>遇到数字压入栈中</li>
-<li>遇到运算符，弹出栈顶两个数，并进行计算，将结果入栈</li>
-<li>重复上述2、3步骤，直到表达式最左端，最后的值即为表达式结果</li>
-</ul>
-<h2 id="实现二"><a href="#实现二" class="headerlink" title="实现二"></a>实现二</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 1000002</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> s;</span><br><span class="line">	getline(<span class="built_in">cin</span>,s);</span><br><span class="line">	<span class="built_in">stack</span>&lt;<span class="keyword">double</span>&gt; st;</span><br><span class="line">	<span class="keyword">int</span> len = s.length();</span><br><span class="line">	<span class="keyword">double</span> num1,num2,cnt=<span class="number">10</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=len<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">		<span class="keyword">if</span>(s[i]==<span class="string">' '</span>) <span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(s[i]&gt;=<span class="string">'0'</span>&amp;&amp;s[i]&lt;=<span class="string">'9'</span>||s[i]==<span class="string">'.'</span>)&#123;</span><br><span class="line">			<span class="keyword">double</span> tmp = s[i]-<span class="string">'0'</span>;</span><br><span class="line">			<span class="keyword">while</span>(i&gt;=<span class="number">1</span>&amp;&amp;(s[i<span class="number">-1</span>]&gt;=<span class="string">'0'</span>&amp;&amp;s[i<span class="number">-1</span>]&lt;=<span class="string">'9'</span>||s[i<span class="number">-1</span>]==<span class="string">'.'</span>||s[i<span class="number">-1</span>]==<span class="string">'-'</span>||s[i<span class="number">-1</span>]==<span class="string">'+'</span>))&#123;</span><br><span class="line">				i--;</span><br><span class="line">				<span class="keyword">if</span>(s[i]&gt;=<span class="string">'0'</span>&amp;&amp;s[i]&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">						tmp += (s[i]-<span class="string">'0'</span>)*cnt;	</span><br><span class="line">						cnt *= <span class="number">10.0</span>;</span><br><span class="line">				&#125;<span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">'.'</span>)&#123;</span><br><span class="line">					tmp /= cnt;</span><br><span class="line">					cnt = <span class="number">1</span>;</span><br><span class="line">				&#125;<span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">'-'</span>)&#123;</span><br><span class="line">					tmp = <span class="number">-1</span>*tmp;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			st.push(tmp);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			num1 = st.top();st.pop();</span><br><span class="line">			num2 = st.top();st.pop();</span><br><span class="line">			<span class="keyword">switch</span>(s[i])&#123;</span><br><span class="line">				<span class="keyword">case</span> <span class="string">'+'</span>: num1 += num2;<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">case</span> <span class="string">'-'</span>: num1 -= num2;<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">case</span> <span class="string">'*'</span>: num1 *= num2;<span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">case</span> <span class="string">'/'</span>: <span class="keyword">if</span>(num2==<span class="number">0</span>)&#123;<span class="built_in">cout</span> &lt;&lt; <span class="string">"ERROR"</span> &lt;&lt; <span class="built_in">endl</span>;<span class="built_in">exit</span>(<span class="number">0</span>);&#125;</span><br><span class="line">						  <span class="keyword">else</span> num1 /= num2;<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			st.push(num1);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;	</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%.1lf"</span>,st.top());</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/703a7422.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="SinclairWang">
-      <meta itemprop="description" content="算法 | NLP | MachineLearning">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SinclairのBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/703a7422.html" class="post-title-link" itemprop="url">《大数据智能》阅读笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-01-15 00:00:00" itemprop="dateCreated datePublished" datetime="2020-01-15T00:00:00+08:00">2020-01-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 01:36:55" itemprop="dateModified" datetime="2020-05-18T01:36:55+08:00">2020-05-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/阅读笔记/" itemprop="url" rel="index"><span itemprop="name">阅读笔记</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/archives/703a7422.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/archives/703a7422.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>4.3k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>4 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>博观而约取，厚积而薄发。                            　　　　　　　　　　——-苏轼</p>
-</blockquote>
-<p>尽管书的名字是《大数据智能》，实则内容则是互联网时代的机器学习和自然语言处理技术的综述。对于nlper，读一读受益匪浅。抑或是仅仅当科普读物一读，也未尝不可。</p>
+          <p>算术表达式有前缀表示法、中缀表示法和后缀表示法等形式。前缀表达式指二元运算符位于两个运算数之前，例如2+3<em>(7-4)+8/4的前缀表达式是：+ + 2 </em> 3 - 7 4 / 8 4。请设计程序计算前缀表达式的结果值。<br>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/archives/703a7422.html#more" rel="contents">
+              <a class="btn" href="/archives/cafc282e.html#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -1142,7 +1133,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:40" itemprop="dateModified" datetime="2020-05-18T00:41:40+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 01:46:18" itemprop="dateModified" datetime="2020-05-18T01:46:18+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1174,7 +1165,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>845</span>
+              <span>847</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -1195,38 +1186,17 @@
       
           <h2 id="数学建模的思想"><a href="#数学建模的思想" class="headerlink" title="数学建模的思想"></a>数学建模的思想</h2><p>几道题目</p>
 <ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvMTAzMjAzMzE4">熊怪吃核桃—二进制的使用<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvMTAzMjA0MTk4">切面条<i class="fa fa-external-link-alt"></i></span><h3 id="余数的使用"><a href="#余数的使用" class="headerlink" title="余数的使用"></a>余数的使用</h3>余数运算对于加法、减法和乘法封闭，常用于循环队列等使用，也可以利用余数的性质大幅度简化编码<br>常用场合：递推法，倒推法<br>有很多经典的题目，比如猴子吃桃..<br>猜字母（待补..）</li>
+<li><a href="https://blog.csdn.net/SinclairWang/article/details/103203318" target="_blank" rel="noopener">熊怪吃核桃—二进制的使用</a></li>
+<li><a href="https://blog.csdn.net/SinclairWang/article/details/103204198" target="_blank" rel="noopener">切面条</a></li>
 </ul>
-<h3 id="统计某种运算的结果末尾0的个数"><a href="#统计某种运算的结果末尾0的个数" class="headerlink" title="统计某种运算的结果末尾0的个数"></a>统计某种运算的结果末尾0的个数</h3><p>统计因子中能被2和5整除的个数分别为n1,n2</p>
-<script type="math/tex; mode=display">result = min(n1,n2)</script><h3 id="毕达哥拉斯定理（勾股定理）"><a href="#毕达哥拉斯定理（勾股定理）" class="headerlink" title="毕达哥拉斯定理（勾股定理）"></a>毕达哥拉斯定理（勾股定理）</h3><p>可以直接利用$x^2+y^2=z^2$在正整数域构造基础解系</p>
-<script type="math/tex; mode=display">\begin{cases}x=2k+1\\y=2k^2+2k\\ z = 2k^2+2k+1 \\ k = 1,2,3,... \end{cases}</script><p>另一种解系：</p>
-<script type="math/tex; mode=display">\begin{cases}x=st\\y=\frac{t^2-s^2}{2}\\ z =\frac{t^2+s^2}{2} \\ s =1,3,5,7.. \\ gcd(t,s)=1 \end{cases}</script><h2 id="超长位数的处理"><a href="#超长位数的处理" class="headerlink" title="超长位数的处理"></a>超长位数的处理</h2><ul>
-<li>存储方式：字符串、整数数组（甚至采用整型数组紧缩存放，即数组中一个元素存放多位，输出的时候使用printf(“%nd”,x[i]);</li>
-<li>存储格式：把低位放在前，高位放在后面，符号位和小数位单独处理，可使用标志变量</li>
-<li><p>运算方式</p>
-<ul>
-<li>C/C++使用数组模拟进行加减乘除，及时取余进位操作，小心溢出</li>
-<li>java 中里面提供了两个类BigInteger，BigDecimal分别对应大整数、高精度小数的处理 。</li>
-<li><strong>tips：尽管是C/C++选手，假如遇到了大数运算的题目，又刚好是个填空题，不妨简单学下Java里面的这个两个类，甚至Date类（日期计算），求结果多快好省，何乐而不为？</strong></li>
-</ul>
-</li>
-</ul>
-<p>两个往年题目练习一下BigInteger，BigDecimal的使用</p>
-<ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvMTAzMTkxNDY4">大数乘法 java BigInteger的使用<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvMTAzMjAyODUx">黄金连分数—BigDecimal的使用<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-<h2 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h2><p>对应2019省赛A组题目RSA解密<br>涉及的知识点如下</p>
-<ul>
-<li>逆元</li>
-<li>欧拉函数</li>
-<li>快速幂</li>
-<li>素数筛</li>
-<li>扩展欧几里得算法</li>
-</ul>
-<p>（待补..）</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/archives/8ebca082.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1245,7 +1215,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/7bffbf73.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/257addcb.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1259,7 +1229,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/archives/7bffbf73.html" class="post-title-link" itemprop="url">黄金连分数--BigDecimal的使用</a>
+            <a href="/archives/257addcb.html" class="post-title-link" itemprop="url">熊怪吃核桃--二进制的使用</a>
         </h2>
 
         <div class="post-meta">
@@ -1297,8 +1267,8 @@
       </span>
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/archives/7bffbf73.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/archives/7bffbf73.html" itemprop="commentCount"></span>
+    <a title="valine" href="/archives/257addcb.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/257addcb.html" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1308,7 +1278,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.5k</span>
+              <span>583</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -1327,21 +1297,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>一道2013蓝桥杯省赛试题</p>
-<p><strong>黄金连分数</strong></p>
+          <p>一道2015年蓝桥杯省赛试题<br><strong>熊怪吃核桃</strong></p>
 <ul>
-<li>黄金分割数是0.61803是一个无理数，…</li>
-<li>写出精确到小数点后100位精度的黄金分割数</li>
+<li>森林里有一只熊怪，很爱吃核桃。</li>
+<li>不过它有个习惯，每次都把找到的核桃分成相等的两份，吃掉一份，留一份。</li>
+<li>如果不能等分，熊怪就会扔掉一个核桃再分。</li>
+<li>第二天再继续这个过程，直到最后剩一个核桃了，直接丢掉。</li>
+<li>有一天，熊怪发现了1543个核桃，请问，它在吃这些核桃的过程中，一共要丢掉多少个核桃。</li>
 </ul>
-<script type="math/tex; mode=display">\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+}}}}}}</script><p>当然黄金分割数是$\frac{\sqrt5-1}{2}$,可以直接算，但是Windows下的计算器的求解只能到小数点之后32位</p>
-<p><img src="https://img-blog.csdnimg.cn/20191122163245826.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="windows下计算器计算结果"></p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>当然这是一道填空题，只需要结果，假如你懂一点点java，又刚好知道BigDecimal这个类，那你就可以打开桌面的Eclipse轻松求解这个题目。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"><span class="keyword">import</span> java.math.BigInteger;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BigDecimalLearning</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		BigDecimal res = <span class="keyword">new</span> BigDecimal(<span class="number">1</span>); <span class="comment">// 没有 new BigDecimal(BigDecimal.ONE); 这种构造方法</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">100</span>;i++) &#123;</span><br><span class="line">			res = res.add(BigDecimal.ONE);</span><br><span class="line">			res = BigDecimal.ONE.divide(res,<span class="number">105</span>,BigDecimal.ROUND_HALF_UP);</span><br><span class="line">		&#125;</span><br><span class="line">		String str = res.toString().substring(<span class="number">2</span>, <span class="number">102</span>);</span><br><span class="line">		System.out.println(str);</span><br><span class="line"><span class="comment">//		System.out.println(str.length());</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>结果：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">6180339887498948482045868343656381177203096998094118264936291294152016354093729191617385189497190563</span></span><br></pre></td></tr></table></figure>
-<p><br></p>
-<h2 id="简单介绍一下BigDecimal"><a href="#简单介绍一下BigDecimal" class="headerlink" title="简单介绍一下BigDecimal"></a>简单介绍一下BigDecimal</h2><p>Java在java.math包中提供了BigDecimal类，用来对超过16位有效位的数进行精确的运算。双精度浮点型变量double可以处理16位有效数。在实际应用中，需要对更大或者更小的数进行运算和处理。float和double只能用来做科学计算或者是工程计算，在商业计算中要用java.math.BigDecimal。<br>常用方法如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">BigDecimal b1 = <span class="keyword">new</span> BigDecimal(<span class="string">"20"</span>);</span><br><span class="line">BigDecimal b2 = <span class="keyword">new</span> BigDecimal(<span class="string">"30"</span>);</span><br><span class="line">b1.add(b2)          <span class="comment">//加法，求两个BigDecimal类型数据的和。</span></span><br><span class="line">b1.subtract(b2);     <span class="comment">//减法，求两个BigDecimal类型数据的差。</span></span><br><span class="line">b1.multiply(b2);     <span class="comment">//乘法，求两个BigDecimal类型数据的积。</span></span><br><span class="line">b1.remainder(b2);    <span class="comment">//求余数，求b1除以b2的余数。</span></span><br><span class="line">b1.max(b2);        <span class="comment">//最大数，求两个BigDecimal类型数据的最大值</span></span><br><span class="line">b1.min(b2);       <span class="comment">//最小数，求两个BigDecimal类型数据的最小值。</span></span><br><span class="line">bi.abs();      <span class="comment">//绝对值，求BigDecimal类型数据的绝对值。</span></span><br><span class="line">b1.negate();    <span class="comment">//相反数，求BigDecimal类型数据的相反数。</span></span><br></pre></td></tr></table></figure>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>思路就是每次判读一下是奇数还是偶数，奇数的话就减1然后除以2，偶数的话就直接除以2。用C/C++实现写起来其实很简单，其实还有一种更妙的思路，这个过程其实就是一个除2的过程，也就类似于十进制转二进制的过程，所以直接在Windows下利用计算器输入1543转成二进制，然后数一数二进制里面有几个1即可。</p>
+<ul>
+<li>1543对应的二进制是110 0000 0111，里面有5个1。</li>
+</ul>
+<p>顺便放一个代码实现吧</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n = <span class="number">1543</span>,cnt = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(n)&#123;</span><br><span class="line">		<span class="keyword">if</span>(n&amp;<span class="number">1</span>)&#123;</span><br><span class="line">			n--;cnt++;</span><br><span class="line">			n /= <span class="number">2</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> n /= <span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; cnt &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>

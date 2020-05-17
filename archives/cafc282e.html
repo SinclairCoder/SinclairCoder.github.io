@@ -24,18 +24,18 @@
     var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="算术表达式有前缀表示法、中缀表示法和后缀表示法等形式。前缀表达式指二元运算符位于两个运算数之前，例如2+3(7-4)+8/4的前缀表达式是：+ + 2  3 - 7 4 / 8 4。请设计程序计算前缀表达式的结果值。 输入格式:输入在一行内给出不超过30个字符的前缀表达式，只包含+、-、*、/以及运算数，不同对象（运算数、运算符号）之间以空格分隔。 输出格式:输出前缀表达式的运算结果，保留小数点后">
+  <meta name="description" content="算术表达式有前缀表示法、中缀表示法和后缀表示法等形式。前缀表达式指二元运算符位于两个运算数之前，例如2+3(7-4)+8/4的前缀表达式是：+ + 2  3 - 7 4 / 8 4。请设计程序计算前缀表达式的结果值。">
 <meta name="keywords" content="字符串,PTA,前缀表达式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PTA求前缀表达式的值">
 <meta property="og:url" content="https://sinclaircoder.gitee.io/archives/cafc282e.html">
 <meta property="og:site_name" content="SinclairのBlog">
-<meta property="og:description" content="算术表达式有前缀表示法、中缀表示法和后缀表示法等形式。前缀表达式指二元运算符位于两个运算数之前，例如2+3(7-4)+8/4的前缀表达式是：+ + 2  3 - 7 4 / 8 4。请设计程序计算前缀表达式的结果值。 输入格式:输入在一行内给出不超过30个字符的前缀表达式，只包含+、-、*、/以及运算数，不同对象（运算数、运算符号）之间以空格分隔。 输出格式:输出前缀表达式的运算结果，保留小数点后">
+<meta property="og:description" content="算术表达式有前缀表示法、中缀表示法和后缀表示法等形式。前缀表达式指二元运算符位于两个运算数之前，例如2+3(7-4)+8/4的前缀表达式是：+ + 2  3 - 7 4 / 8 4。请设计程序计算前缀表达式的结果值。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-05-17T16:41:40.186Z">
+<meta property="og:updated_time" content="2020-05-17T17:47:09.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PTA求前缀表达式的值">
-<meta name="twitter:description" content="算术表达式有前缀表示法、中缀表示法和后缀表示法等形式。前缀表达式指二元运算符位于两个运算数之前，例如2+3(7-4)+8/4的前缀表达式是：+ + 2  3 - 7 4 / 8 4。请设计程序计算前缀表达式的结果值。 输入格式:输入在一行内给出不超过30个字符的前缀表达式，只包含+、-、*、/以及运算数，不同对象（运算数、运算符号）之间以空格分隔。 输出格式:输出前缀表达式的运算结果，保留小数点后">
+<meta name="twitter:description" content="算术表达式有前缀表示法、中缀表示法和后缀表示法等形式。前缀表达式指二元运算符位于两个运算数之前，例如2+3(7-4)+8/4的前缀表达式是：+ + 2  3 - 7 4 / 8 4。请设计程序计算前缀表达式的结果值。">
 
 <link rel="canonical" href="https://sinclaircoder.gitee.io/archives/cafc282e.html">
 
@@ -246,7 +246,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:40" itemprop="dateModified" datetime="2020-05-18T00:41:40+08:00">2020-05-18</time>
+                <time title="Modified: 2020-05-18 01:47:09" itemprop="dateModified" datetime="2020-05-18T01:47:09+08:00">2020-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -304,7 +304,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>算术表达式有前缀表示法、中缀表示法和后缀表示法等形式。前缀表达式指二元运算符位于两个运算数之前，例如2+3<em>(7-4)+8/4的前缀表达式是：+ + 2 </em> 3 - 7 4 / 8 4。请设计程序计算前缀表达式的结果值。</p>
+        <p>算术表达式有前缀表示法、中缀表示法和后缀表示法等形式。前缀表达式指二元运算符位于两个运算数之前，例如2+3<em>(7-4)+8/4的前缀表达式是：+ + 2 </em> 3 - 7 4 / 8 4。请设计程序计算前缀表达式的结果值。<br><a id="more"></a></p>
 <h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入在一行内给出不超过30个字符的前缀表达式，只包含+、-、*、/以及运算数，不同对象（运算数、运算符号）之间以空格分隔。</p>
 <h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>输出前缀表达式的运算结果，保留小数点后1位，或错误信息ERROR。</p>
 <h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h2><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ + <span class="number">2</span> * <span class="number">3</span> - <span class="number">7</span> <span class="number">4</span> / <span class="number">8</span> <span class="number">4</span></span><br></pre></td></tr></table></figure>
@@ -334,13 +334,13 @@
       <div class="popular-posts-title"><a href="\archives\94382368.html" rel="bookmark">PTA字符串转换成十进制整数</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\archives\9c6e9d96.html" rel="bookmark">PTA朋友圈(并查集)</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\archives\4669f0d5.html" rel="bookmark">PTA列出连通集(DFS+BFS)</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\archives\f76e7172.html" rel="bookmark">PTA小字辈（BFS）</a></div>
+      <div class="popular-posts-title"><a href="\archives\9c6e9d96.html" rel="bookmark">PTA朋友圈(并查集)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\archives\f029cec1.html" rel="bookmark">PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）</a></div>
     </li>
   </ul>
 
