@@ -21,14 +21,14 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"sinclaircoder.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="整除的尾数 You have to live spherically - in many directions.Never lose your childish enthusiasm and things will come your way.人要活得精彩，各个领域都要勇于尝试，永远保持童真般的热情，一切就会得偿所愿。">
 <meta name="keywords" content="数据结构与算法训练">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDU2099整除的尾数">
-<meta property="og:url" content="https://sinclaircoder.gitee.io/archives/27f39fb2.html">
+<meta property="og:url" content="https://sinclaircoder.top/archives/27f39fb2.html">
 <meta property="og:site_name" content="SinclairのBlog">
 <meta property="og:description" content="整除的尾数 You have to live spherically - in many directions.Never lose your childish enthusiasm and things will come your way.人要活得精彩，各个领域都要勇于尝试，永远保持童真般的热情，一切就会得偿所愿。">
 <meta property="og:locale" content="en">
@@ -37,7 +37,7 @@
 <meta name="twitter:title" content="HDU2099整除的尾数">
 <meta name="twitter:description" content="整除的尾数 You have to live spherically - in many directions.Never lose your childish enthusiasm and things will come your way.人要活得精彩，各个领域都要勇于尝试，永远保持童真般的热情，一切就会得偿所愿。">
 
-<link rel="canonical" href="https://sinclaircoder.gitee.io/archives/27f39fb2.html">
+<link rel="canonical" href="https://sinclaircoder.top/archives/27f39fb2.html">
 
 
 <script id="page-configurations">
@@ -216,7 +216,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/27f39fb2.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/27f39fb2.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -285,7 +285,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.1k</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -325,29 +325,7 @@
 <h2 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h2><blockquote>
 <p>输入要判断是否为0，先将这个整数乘以100，然后利用0到99的穷举进行判断，输出时考虑到0的问题，用printf函数输出。</p>
 </blockquote>
-<h2 id="二、代码实现"><a href="#二、代码实现" class="headerlink" title="二、代码实现"></a>二、代码实现</h2><pre><code class="lang-javascript">#include &lt;iostream&gt;
-using namespace std;
-int main() 
-{
-    int a,b,count=0;
-    while(cin&gt;&gt; a &gt;&gt; b &amp;&amp; a!=0 &amp;&amp; b!=0)
-    {
-        a *= 100;
-        for(int i=0;i&lt;=99;i++)
-        {
-            if((a+i)%b == 0)
-            {
-                count++; // 计数，用于空格的输出
-                if(count==1) printf(&quot;%02d&quot;,i);  //输出空格的问题
-                else printf(&quot; %02d&quot;,i);
-            }
-        }
-        cout &lt;&lt; endl;
-        count=0;   //每一组整数的后两位判断完毕之后，count需清零，然后输出换行
-    }
-    return 0;
-}
-</code></pre>
+<h2 id="二、代码实现"><a href="#二、代码实现" class="headerlink" title="二、代码实现"></a>二、代码实现</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main() </span><br><span class="line">&#123;</span><br><span class="line">	int a,b,count=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(cin&gt;&gt; a &gt;&gt; b &amp;&amp; a!=<span class="number">0</span> &amp;&amp; b!=<span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		a *= <span class="number">100</span>;</span><br><span class="line">		<span class="keyword">for</span>(int i=<span class="number">0</span>;i&lt;=<span class="number">99</span>;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>((a+i)%b == <span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				count++; <span class="comment">// 计数，用于空格的输出</span></span><br><span class="line">				<span class="keyword">if</span>(count==<span class="number">1</span>) printf(<span class="string">"%02d"</span>,i);  <span class="comment">//输出空格的问题</span></span><br><span class="line">				<span class="keyword">else</span> printf(<span class="string">" %02d"</span>,i);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">		count=<span class="number">0</span>;   <span class="comment">//每一组整数的后两位判断完毕之后，count需清零，然后输出换行</span></span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -403,7 +381,7 @@ int main()
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://sinclaircoder.gitee.io/archives/27f39fb2.html" title="HDU2099整除的尾数">https://sinclaircoder.gitee.io/archives/27f39fb2.html</a>
+    <a href="https://sinclaircoder.top/archives/27f39fb2.html" title="HDU2099整除的尾数">https://sinclaircoder.top/archives/27f39fb2.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
@@ -424,8 +402,8 @@ int main()
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/archives/b511dfae.html" rel="prev" title="欧几里得算法">
-      <i class="fa fa-chevron-left"></i> 欧几里得算法
+    <a href="/archives/7ff00a22.html" rel="prev" title="HDU2097Sky数">
+      <i class="fa fa-chevron-left"></i> HDU2097Sky数
     </a></div>
       <div class="post-nav-item">
     <a href="/archives/3d010e31.html" rel="next" title="Java中关于日期的printf格式化输出">
@@ -572,12 +550,12 @@ int main()
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">157k</span>
+    <span title="Symbols count total">146k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:22</span>
+    <span title="Reading time total">2:13</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>

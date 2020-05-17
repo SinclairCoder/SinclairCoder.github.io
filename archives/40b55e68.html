@@ -21,14 +21,14 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"sinclaircoder.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="Problem Description 有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？  Input 输入数据由多个测试实例组成，每个测试实例占一行，包括一个整数n(0&amp;lt;n&amp;lt;55)，n的含义如题目中描述。n=0表示输入数据的结束，不做处理。  Output 对于每个测试实例，输出在第n年的时候母牛的数量">
 <meta name="keywords" content="数据结构与算法训练">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDU2018母牛的故事">
-<meta property="og:url" content="https://sinclaircoder.gitee.io/archives/40b55e68.html">
+<meta property="og:url" content="https://sinclaircoder.top/archives/40b55e68.html">
 <meta property="og:site_name" content="SinclairのBlog">
 <meta property="og:description" content="Problem Description 有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？  Input 输入数据由多个测试实例组成，每个测试实例占一行，包括一个整数n(0&amp;lt;n&amp;lt;55)，n的含义如题目中描述。n=0表示输入数据的结束，不做处理。  Output 对于每个测试实例，输出在第n年的时候母牛的数量">
 <meta property="og:locale" content="en">
@@ -37,7 +37,7 @@
 <meta name="twitter:title" content="HDU2018母牛的故事">
 <meta name="twitter:description" content="Problem Description 有一头母牛，它每年年初生一头小母牛。每头小母牛从第四个年头开始，每年年初也生一头小母牛。请编程实现在第n年的时候，共有多少头母牛？  Input 输入数据由多个测试实例组成，每个测试实例占一行，包括一个整数n(0&amp;lt;n&amp;lt;55)，n的含义如题目中描述。n=0表示输入数据的结束，不做处理。  Output 对于每个测试实例，输出在第n年的时候母牛的数量">
 
-<link rel="canonical" href="https://sinclaircoder.gitee.io/archives/40b55e68.html">
+<link rel="canonical" href="https://sinclaircoder.top/archives/40b55e68.html">
 
 
 <script id="page-configurations">
@@ -216,7 +216,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/40b55e68.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/40b55e68.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -285,7 +285,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.1k</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -419,41 +419,8 @@
 <blockquote>
 <p>f<sub>n</sub> = f<sub>n-1</sub>   + f<sub>n-3</sub> </p>
 </blockquote>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><pre><code class="lang-c">//解法1
-#include&lt;iostream&gt;
-using namespace std;
-int main() 
-{    
-    int n;
-    while(cin&gt;&gt;n&amp;&amp;n!=0)
-    {
-        int a[56];
-        a[0] = 1;a[1] = 2;a[2] = 3;a[3] = 4;
-        for(int i=4;i&lt;56;i++)
-            a[i] = a[i-1] + a[i-3];    
-        cout &lt;&lt; a[n-1] &lt;&lt; endl;    
-    } 
-     return 0;
-}
-</code></pre>
-<pre><code class="lang-c">//解法2—递归实现
-#include &lt;iostream&gt;
-using namespace std;
-int fun(int n)
-{
-    if(n&lt;5) return n;
-    else return fun(n-1)+fun(n-3);
-}
-int main() 
-{    
-    int n;
-    while(cin&gt;&gt;n&amp;&amp;n!=0)
-    {
-        cout &lt;&lt; fun(n) &lt;&lt; endl;
-    } 
-     return 0;
-}
-</code></pre>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//解法1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;	</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n&amp;&amp;n!=<span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> a[<span class="number">56</span>];</span><br><span class="line">		a[<span class="number">0</span>] = <span class="number">1</span>;a[<span class="number">1</span>] = <span class="number">2</span>;a[<span class="number">2</span>] = <span class="number">3</span>;a[<span class="number">3</span>] = <span class="number">4</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">4</span>;i&lt;<span class="number">56</span>;i++)</span><br><span class="line">			a[i] = a[i<span class="number">-1</span>] + a[i<span class="number">-3</span>];	</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; a[n<span class="number">-1</span>] &lt;&lt; <span class="built_in">endl</span>;	</span><br><span class="line">	&#125; </span><br><span class="line"> 	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//解法2—递归实现</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(n&lt;<span class="number">5</span>) <span class="keyword">return</span> n;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> fun(n<span class="number">-1</span>)+fun(n<span class="number">-3</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;	</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n&amp;&amp;n!=<span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; fun(n) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125; </span><br><span class="line"> 	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -509,7 +476,7 @@ int main()
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://sinclaircoder.gitee.io/archives/40b55e68.html" title="HDU2018母牛的故事">https://sinclaircoder.gitee.io/archives/40b55e68.html</a>
+    <a href="https://sinclaircoder.top/archives/40b55e68.html" title="HDU2018母牛的故事">https://sinclaircoder.top/archives/40b55e68.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
@@ -678,12 +645,12 @@ int main()
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">157k</span>
+    <span title="Symbols count total">146k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:22</span>
+    <span title="Reading time total">2:13</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>

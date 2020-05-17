@@ -21,14 +21,14 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"sinclaircoder.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="算法 | NLP | MachineLearning">
 <meta name="keywords" content="算法 | NLP | MachineLearning">
 <meta property="og:type" content="website">
 <meta property="og:title" content="SinclairのBlog">
-<meta property="og:url" content="https://sinclaircoder.gitee.io/page/4/index.html">
+<meta property="og:url" content="https://sinclaircoder.top/page/4/index.html">
 <meta property="og:site_name" content="SinclairのBlog">
 <meta property="og:description" content="算法 | NLP | MachineLearning">
 <meta property="og:locale" content="en">
@@ -36,7 +36,7 @@
 <meta name="twitter:title" content="SinclairのBlog">
 <meta name="twitter:description" content="算法 | NLP | MachineLearning">
 
-<link rel="canonical" href="https://sinclaircoder.gitee.io/page/4/">
+<link rel="canonical" href="https://sinclaircoder.top/page/4/">
 
 
 <script id="page-configurations">
@@ -214,7 +214,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/94382368.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/94382368.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -277,7 +277,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2k</span>
+              <span>1.9k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -307,72 +307,7 @@
 <h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><p>+-P-xf4+-1!#</p>
 <h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><p>-3905</p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>重点在字符串的清洗上，只保留第一个负号，保留数字和十六进制字符，其余洗掉。<br>然后进行进制转换</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">#include&lt;iostream&gt;
-#include&lt;cmath&gt;
-#include&lt;string.h&gt;
-#include&lt;vector&gt;
-#include&lt;algorithm&gt;
-using namespace std;
-typedef long long ll;
-
-#define For1(i,m,n) for(int i=m;i&lt;n;i++)
-#define For2(i,m,n) for(int i=m;i&gt;=n;i--)
-
-// 清洗输入的字符串
-vector&lt;char&gt; convert(string s){
-    vector&lt;char&gt; v;
-    int cnt = 0;
-    bool first = true;
-    For1(i,0,s.length()){
-        if(s[i]&gt;=&#39;0&#39;&amp;&amp;s[i]&lt;=&#39;9&#39;||s[i]&gt;=&#39;a&#39;&amp;&amp;s[i]&lt;=&#39;f&#39;||s[i]&gt;=&#39;A&#39;&amp;&amp;s[i]&lt;=&#39;F&#39;){
-            v.push_back(s[i]);
-        }
-        else if(s[i]==&#39;-&#39;&amp;&amp;first==true){
-            v.push_back(s[i]);
-            first = false;
-        }
-
-    }
-    return v;
-}
-// 进制转换
-ll convertres(vector&lt;char&gt; v){
-    ll res = 0,cnt=0;
-    For2(i,v.size()-1,0){
-        if(v[i]&gt;=&#39;0&#39;&amp;&amp;v[i]&lt;=&#39;9&#39;){
-            res += (v[i]-&#39;0&#39;)*pow(16,cnt);
-            cnt++;
-        }else if(v[i]&gt;=&#39;a&#39;&amp;&amp;v[i]&lt;=&#39;f&#39;){
-            res += (v[i]-&#39;a&#39;+10)*pow(16,cnt);
-            cnt++;
-        }
-        else if(v[i]&gt;=&#39;A&#39;&amp;&amp;v[i]&lt;=&#39;F&#39;){
-             res += (v[i]-&#39;A&#39;+10)*pow(16,cnt);
-             cnt++;
-        }
-        else ;
-    }
-    return res;
-}
-int main(){
-    bool postive = true;
-    string s;
-    cin &gt;&gt; s;
-    vector&lt;char&gt; v = convert(s);
-    if(v[0]==&#39;-&#39;) postive = false;
-
-    // print
-//    For1(i,0,v.size()){
-//        cout &lt;&lt; v[i];
-//    }
-//    cout &lt;&lt; endl;
-
-    ll res =  convertres(v);
-    if(!postive) res *= -1;
-    cout &lt;&lt; res &lt;&lt; endl;
-    return 0;
-}
-</code></pre>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> For1(i,m,n) for(int i=m;i&lt;n;i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> For2(i,m,n) for(int i=m;i&gt;=n;i--)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 清洗输入的字符串</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; convert(<span class="built_in">string</span> s)&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; v;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">bool</span> first = <span class="literal">true</span>;</span><br><span class="line">    For1(i,<span class="number">0</span>,s.length())&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]&gt;=<span class="string">'0'</span>&amp;&amp;s[i]&lt;=<span class="string">'9'</span>||s[i]&gt;=<span class="string">'a'</span>&amp;&amp;s[i]&lt;=<span class="string">'f'</span>||s[i]&gt;=<span class="string">'A'</span>&amp;&amp;s[i]&lt;=<span class="string">'F'</span>)&#123;</span><br><span class="line">        	v.push_back(s[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">'-'</span>&amp;&amp;first==<span class="literal">true</span>)&#123;</span><br><span class="line">			v.push_back(s[i]);</span><br><span class="line">			first = <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 进制转换</span></span><br><span class="line"><span class="function">ll <span class="title">convertres</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; v)</span></span>&#123;</span><br><span class="line">    ll res = <span class="number">0</span>,cnt=<span class="number">0</span>;</span><br><span class="line">    For2(i,v.size()<span class="number">-1</span>,<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(v[i]&gt;=<span class="string">'0'</span>&amp;&amp;v[i]&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">            res += (v[i]-<span class="string">'0'</span>)*<span class="built_in">pow</span>(<span class="number">16</span>,cnt);</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(v[i]&gt;=<span class="string">'a'</span>&amp;&amp;v[i]&lt;=<span class="string">'f'</span>)&#123;</span><br><span class="line">            res += (v[i]-<span class="string">'a'</span>+<span class="number">10</span>)*<span class="built_in">pow</span>(<span class="number">16</span>,cnt);</span><br><span class="line">            cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(v[i]&gt;=<span class="string">'A'</span>&amp;&amp;v[i]&lt;=<span class="string">'F'</span>)&#123;</span><br><span class="line">             res += (v[i]-<span class="string">'A'</span>+<span class="number">10</span>)*<span class="built_in">pow</span>(<span class="number">16</span>,cnt);</span><br><span class="line">             cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">bool</span> postive = <span class="literal">true</span>;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; s;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; v = convert(s);</span><br><span class="line">    <span class="keyword">if</span>(v[<span class="number">0</span>]==<span class="string">'-'</span>) postive = <span class="literal">false</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// print</span></span><br><span class="line"><span class="comment">//    For1(i,0,v.size())&#123;</span></span><br><span class="line"><span class="comment">//    	cout &lt;&lt; v[i];</span></span><br><span class="line"><span class="comment">//	&#125;</span></span><br><span class="line"><span class="comment">//	cout &lt;&lt; endl;</span></span><br><span class="line">	</span><br><span class="line">    ll res =  convertres(v);</span><br><span class="line">    <span class="keyword">if</span>(!postive) res *= <span class="number">-1</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -392,7 +327,7 @@ int main(){
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/6d90cd85.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/6d90cd85.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -455,7 +390,7 @@ int main(){
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>266</span>
+              <span>286</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -476,15 +411,7 @@ int main(){
       
           <p>偶然间发现了一个很好的方法，详见<span class="exturl" data-url="aHR0cHM6Ly9jcC1hbGdvcml0aG1zLmNvbS9hbGdlYnJhL2dyYXktY29kZS5odG1s">Gray code<i class="fa fa-external-link-alt"></i></span></p>
 <p>下面是一个生成以start开始的格雷码的板子，n为二进制位的个数。</p>
-<pre><code class="lang-cpp">vector&lt;int&gt; getGray(int n, int start) {
-        vector&lt;int&gt; res; 
-        for(int i=0;i&lt; 1&lt;&lt;n;i++){
-            res.push_back(start^i^i&gt;&gt;1);
-        }
-        return res;
-
-    }
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; getGray(<span class="keyword">int</span> n, <span class="keyword">int</span> start) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res; </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt; <span class="number">1</span>&lt;&lt;n;i++)&#123;</span><br><span class="line">            res.push_back(start^i^i&gt;&gt;<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -504,7 +431,7 @@ int main(){
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/268355af.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/268355af.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -567,7 +494,7 @@ int main(){
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>4.5k</span>
+              <span>4.8k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -587,26 +514,7 @@ int main(){
 
       
           <h2 id="题目传送门"><a href="#题目传送门" class="headerlink" title="题目传送门"></a><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vY29udGVzdC93ZWVrbHktY29udGVzdC0xNjAvcHJvYmxlbXMvZmluZC1wb3NpdGl2ZS1pbnRlZ2VyLXNvbHV0aW9uLWZvci1hLWdpdmVuLWVxdWF0aW9uLw==">题目传送门<i class="fa fa-external-link-alt"></i></span></h2><h2 id="找出给定方程的正整数解"><a href="#找出给定方程的正整数解" class="headerlink" title="找出给定方程的正整数解"></a>找出给定方程的正整数解</h2><p>签到题的新包装，我没有玩过的船新版本。</p>
-<pre><code class="lang-cpp">class Solution {
-public:
-    vector&lt;vector&lt;int&gt;&gt; findSolution(CustomFunction&amp; c, int z) {
-        vector&lt;vector&lt;int&gt;&gt; res;
-        for(int i=1;i&lt;=1000;i++){
-            for(int j=1;j&lt;=1000;j++){
-                if(c.f(i,j)&lt;z) continue;
-                else if(c.f(i,j)==z) {
-                    vector&lt;int&gt; v;
-                    v.push_back(i),v.push_back(j);
-                    res.push_back(v);
-                }
-                else break;
-
-            }
-        }
-        return res;
-    }
-};
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; findSolution(CustomFunction&amp; c, <span class="keyword">int</span> z) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">1000</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=<span class="number">1000</span>;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(c.f(i,j)&lt;z) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(c.f(i,j)==z) &#123;</span><br><span class="line">                    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line">                    v.push_back(i),v.push_back(j);</span><br><span class="line">                    res.push_back(v);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="循环码排列"><a href="#循环码排列" class="headerlink" title="循环码排列"></a>循环码排列</h2><p>给你两个整数 n 和 start。你的任务是返回任意 (0,1,2,,…,2^n-1) 的排列 p，并且满足：</p>
 <ul>
 <li>p[0] = start</li>
@@ -626,109 +534,12 @@ public:
 <li><span class="exturl" data-url="aHR0cHM6Ly9jcC1hbGdvcml0aG1zLmNvbS9hbGdlYnJhL2dyYXktY29kZS5odG1s">Gray code<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <p>其实就是格雷码。<br>使用位运算操作</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">vector&lt;int&gt; circularPermutation(int n, int start) {
-        vector&lt;int&gt; res; 
-        for(int i=0;i&lt; 1&lt;&lt;n;i++){
-            res.push_back(start^i^i&gt;&gt;1);
-        }
-        return res;
-
-    }
-</code></pre>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; circularPermutation(<span class="keyword">int</span> n, <span class="keyword">int</span> start) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res; </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt; <span class="number">1</span>&lt;&lt;n;i++)&#123;</span><br><span class="line">            res.push_back(start^i^i&gt;&gt;<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>比赛时找了个格雷码的板子，然后改了改，就过掉了…</p>
-<pre><code class="lang-cpp">class Solution {
-public:
-     vector&lt;int&gt; grayCode(int n){
-        vector&lt;int&gt; gray;
-        if (n &lt; 1) {
-            gray.push_back(0);
-            return gray;
-        }
-        int num = pow(2,n);
-        int graycode[n];
-        for (int i = 0; i &lt; num; i++) {
-            IntToBit(graycode, i, n);
-            BitToGray(graycode,n);
-            gray.push_back(GrayBitToInt(graycode, n));
-        }
-        return gray;
-    }
-
-    void IntToBit(int *code, int n, int bit){
-        int i = bit-1;
-        while (i &gt;= 0) {
-            code[i--] = n%2;
-            n/=2;
-        }
-    }
-
-    void BitToGray(int *code, int bit){
-        int temp[bit];
-        temp[0] = 0^code[0];
-        for (int i = 0; i &lt; bit-1; i++) {
-            temp[i+1] = code[i]^code[i+1];
-        }
-        for (int i = 0; i &lt; bit; i++) {
-            code[i] = temp[i];
-        }
-    }
-
-    int GrayBitToInt(int *code, int bit){
-        int number = 0;
-        for (int i = 0; i &lt; bit; i++) {
-            if (code[i] == 1) {
-                number += pow(2, bit-i-1);
-            }
-        }
-        return number;
-    }
-    vector&lt;int&gt; circularPermutation(int n, int start) {
-        vector&lt;int&gt; res,tmp;
-        tmp = grayCode(n);
-        int index,msize = pow(2,n);
-        for(int i=0;i&lt;msize;i++){
-            if(tmp[i]==start){
-                index = i;
-                break;
-            }
-        }
-        for(int i=index;i&lt;msize;i++){
-            res.push_back(tmp[i]);
-        }
-        for(int i=0;i&lt;index;i++){
-            res.push_back(tmp[i]);
-        }
-        return res;
-    }
-};
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">     <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; grayCode(<span class="keyword">int</span> n)&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; gray;</span><br><span class="line">        <span class="keyword">if</span> (n &lt; <span class="number">1</span>) &#123;</span><br><span class="line">            gray.push_back(<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">return</span> gray;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="built_in">pow</span>(<span class="number">2</span>,n);</span><br><span class="line">        <span class="keyword">int</span> graycode[n];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">            IntToBit(graycode, i, n);</span><br><span class="line">            BitToGray(graycode,n);</span><br><span class="line">            gray.push_back(GrayBitToInt(graycode, n));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> gray;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">IntToBit</span><span class="params">(<span class="keyword">int</span> *code, <span class="keyword">int</span> n, <span class="keyword">int</span> bit)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = bit<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            code[i--] = n%<span class="number">2</span>;</span><br><span class="line">            n/=<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">BitToGray</span><span class="params">(<span class="keyword">int</span> *code, <span class="keyword">int</span> bit)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp[bit];</span><br><span class="line">        temp[<span class="number">0</span>] = <span class="number">0</span>^code[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; bit<span class="number">-1</span>; i++) &#123;</span><br><span class="line">            temp[i+<span class="number">1</span>] = code[i]^code[i+<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; bit; i++) &#123;</span><br><span class="line">            code[i] = temp[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">GrayBitToInt</span><span class="params">(<span class="keyword">int</span> *code, <span class="keyword">int</span> bit)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> number = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; bit; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (code[i] == <span class="number">1</span>) &#123;</span><br><span class="line">                number += <span class="built_in">pow</span>(<span class="number">2</span>, bit-i<span class="number">-1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> number;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; circularPermutation(<span class="keyword">int</span> n, <span class="keyword">int</span> start) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res,tmp;</span><br><span class="line">        tmp = grayCode(n);</span><br><span class="line">        <span class="keyword">int</span> index,msize = <span class="built_in">pow</span>(<span class="number">2</span>,n);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;msize;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(tmp[i]==start)&#123;</span><br><span class="line">                index = i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=index;i&lt;msize;i++)&#123;</span><br><span class="line">            res.push_back(tmp[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;index;i++)&#123;</span><br><span class="line">            res.push_back(tmp[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="串联字符串的最大长度"><a href="#串联字符串的最大长度" class="headerlink" title="串联字符串的最大长度"></a>串联字符串的最大长度</h2><p>给定一个字符串数组 arr，字符串 s 是将 arr 某一子序列字符串连接所得的字符串，如果 s 中的每一个字符都只出现过一次，那么它就是一个可行解。<br>请返回所有可行解 s 中最长长度。</p>
 <h2 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h2><p>判定函数+DFS<br>判定函数：判定一个字符串是否有重复字母，打个大小为26的表即可。</p>
-<h2 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">class Solution {
-public:
-    int maxL = 0;
-    bool pend(string s1){
-        int ph[26]={0};
-        for(int i=0;i&lt;s1.length();i++){
-            if(ph[s1[i]-&#39;a&#39;]==1) return false;
-            ph[s1[i]-&#39;a&#39;]=1;
-        }
-        return true;
-    }
-    void dfs(vector&lt;string&gt; arr, int index, string str){
-        int len = str.length();
-        if(pend(str)) maxL = max(maxL,len);
-        if(index == arr.size()||!pend(str)) return ;
-        for(int i=index;i&lt;arr.size();i++){
-            dfs(arr,i+1,str+arr[i]);
-        }
-    }
-    int maxLength(vector&lt;string&gt;&amp; arr) {
-        dfs(arr,0,&quot;&quot;);
-        return maxL;
-    }
-};
-</code></pre>
+<h2 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> maxL = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">pend</span><span class="params">(<span class="built_in">string</span> s1)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ph[<span class="number">26</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s1.length();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(ph[s1[i]-<span class="string">'a'</span>]==<span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            ph[s1[i]-<span class="string">'a'</span>]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; arr, <span class="keyword">int</span> index, <span class="built_in">string</span> str)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = str.length();</span><br><span class="line">        <span class="keyword">if</span>(pend(str)) maxL = max(maxL,len);</span><br><span class="line">        <span class="keyword">if</span>(index == arr.size()||!pend(str)) <span class="keyword">return</span> ;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=index;i&lt;arr.size();i++)&#123;</span><br><span class="line">            dfs(arr,i+<span class="number">1</span>,str+arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxLength</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; arr)</span> </span>&#123;</span><br><span class="line">        dfs(arr,<span class="number">0</span>,<span class="string">""</span>);</span><br><span class="line">        <span class="keyword">return</span> maxL;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="铺瓷砖"><a href="#铺瓷砖" class="headerlink" title="铺瓷砖"></a>铺瓷砖</h2><p>你是一位施工队的工长，根据设计师的要求准备为一套设计风格独特的房子进行室内装修。<br>房子的客厅大小为 n x m，为保持极简的风格，需要使用尽可能少的 正方形 瓷砖来铺盖地面。<br>假设正方形瓷砖的规格不限，边长都是整数。<br>请你帮设计师计算一下，最少需要用到多少块方形瓷砖？</p>
 <h2 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h2><p>参考：</p>
 <ul>
@@ -736,32 +547,7 @@ public:
 <li><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL2F2NzM1Nzk3MDg/ZnJvbT1zZWFyY2gmYW1wO3NlaWQ9ODEwNzQ3Mzc2MzgyODc2MjEzMw==">B站视频讲解<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <p>基本上还是DFS，其实这个题很像经典的贪心题目，不过那个貌似是是个正方形，而且这个题有个特殊的点，就是当n\==11&amp;&amp;m\==13||n\==13&amp;&amp;m==11 这个时候的结果应该为6。剩下的就是先横切，看需要多少方形瓷砖，然后再纵切，看需要多少方形瓷砖，取横切和纵切的最小值，便是结果。</p>
-<h3 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
-public:
-    int dp[300][300]={0}; 
-    int solve(int n,int m){
-        if(n==m)
-            return 1;
-        if(dp[n][m])
-            return dp[n][m];
-        int res = 2e8;
-        for(int i=1;i&lt;=n/2;i++){
-            res = min(solve(i,m)+solve(n-i,m),res);
-        }
-        for(int j=1;j&lt;=m/2;j++){
-            res = min(solve(n,j)+solve(n,m-j),res);
-        }
-        dp[n][m] = res;
-        return res;
-    }
-    int tilingRectangle(int n, int m) {
-        if(n==11&amp;&amp;m==13||n==13&amp;&amp;m==11) return 6;
-        return solve(n,m);
-
-    }
-
-};
-</code></pre>
+<h3 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> dp[<span class="number">300</span>][<span class="number">300</span>]=&#123;<span class="number">0</span>&#125;; </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> m)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n==m)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(dp[n][m])</span><br><span class="line">            <span class="keyword">return</span> dp[n][m];</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">2e8</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n/<span class="number">2</span>;i++)&#123;</span><br><span class="line">            res = min(solve(i,m)+solve(n-i,m),res);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=m/<span class="number">2</span>;j++)&#123;</span><br><span class="line">            res = min(solve(n,j)+solve(n,m-j),res);</span><br><span class="line">        &#125;</span><br><span class="line">        dp[n][m] = res;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">tilingRectangle</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">11</span>&amp;&amp;m==<span class="number">13</span>||n==<span class="number">13</span>&amp;&amp;m==<span class="number">11</span>) <span class="keyword">return</span> <span class="number">6</span>;</span><br><span class="line">        <span class="keyword">return</span> solve(n,m);</span><br><span class="line">   </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><span class="exturl" data-url="aHR0cHM6Ly95LnFxLmNvbS9wb3J0YWwvcGxheWVyLmh0bWw=">你一人低头在路上… 多向往  多漫长<i class="fa fa-external-link-alt"></i></span></p>
 
       
@@ -782,7 +568,7 @@ public:
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/58cb2a56.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/58cb2a56.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -845,7 +631,7 @@ public:
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>760</span>
+              <span>671</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -864,37 +650,7 @@ public:
     <div class="post-body" itemprop="articleBody">
 
       
-          <pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
-using namespace std;
-const int MAX_N = 3e7+2;
-typedef long long ll;
-int v[MAX_N],prime[MAX_N];
-
-void primes(int n) {
-    memset(v,0,sizeof(v));
-    int m = 0;
-    for(int i=2;i&lt;=n;i++){
-        if(v[i]==0){   // i 是质数 
-            v[i] = i;
-            prime[++m] = i;
-        }
-
-        for(int j=1;j&lt;=m;j++){
-            if(prime[j]&gt;v[i]||prime[j]&gt;n/i) break;
-            // prime[j]是是合数i*prime[j]的最小质因子
-            v[i*prime[j]] = prime[j]; 
-        }     
-    } 
-// 打印1到n之间的素数
-//    for(int i=1;i&lt;=m;i++){   
-//        cout &lt;&lt; prime[i] &lt;&lt; endl;
-//    }
-// 打印1到n每个数的最小质因子
-//        for(int i=0;i&lt;=n;i++){  
-//        cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; v[i] &lt;&lt; endl;
-//    }
-}
-</code></pre>
+          <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAX_N = <span class="number">3e7</span>+<span class="number">2</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">int</span> v[MAX_N],prime[MAX_N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">primes</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">memset</span>(v,<span class="number">0</span>,<span class="keyword">sizeof</span>(v));</span><br><span class="line">	<span class="keyword">int</span> m = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(v[i]==<span class="number">0</span>)&#123;   <span class="comment">// i 是质数 </span></span><br><span class="line">			v[i] = i;</span><br><span class="line">			prime[++m] = i;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(prime[j]&gt;v[i]||prime[j]&gt;n/i) <span class="keyword">break</span>;</span><br><span class="line">			<span class="comment">// prime[j]是是合数i*prime[j]的最小质因子</span></span><br><span class="line">			v[i*prime[j]] = prime[j]; </span><br><span class="line">		&#125; 	</span><br><span class="line">	&#125; </span><br><span class="line"><span class="comment">// 打印1到n之间的素数</span></span><br><span class="line"><span class="comment">//	for(int i=1;i&lt;=m;i++)&#123;   </span></span><br><span class="line"><span class="comment">//		cout &lt;&lt; prime[i] &lt;&lt; endl;</span></span><br><span class="line"><span class="comment">//	&#125;</span></span><br><span class="line"><span class="comment">// 打印1到n每个数的最小质因子</span></span><br><span class="line"><span class="comment">//		for(int i=0;i&lt;=n;i++)&#123;  </span></span><br><span class="line"><span class="comment">//		cout &lt;&lt; i &lt;&lt; " " &lt;&lt; v[i] &lt;&lt; endl;</span></span><br><span class="line"><span class="comment">//	&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -914,7 +670,7 @@ void primes(int n) {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/b359837a.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/b359837a.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1016,277 +772,7 @@ void primes(int n) {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/7472bec8.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="SinclairWang">
-      <meta itemprop="description" content="算法 | NLP | MachineLearning">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SinclairのBlog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/archives/7472bec8.html" class="post-title-link" itemprop="url">LeetCodeWeeklyContest-159</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-10-21 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-21T00:00:00+08:00">2019-10-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-18 00:41:40" itemprop="dateModified" datetime="2020-05-18T00:41:40+08:00">2020-05-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine: </span>
-    
-    <a title="valine" href="/archives/7472bec8.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/archives/7472bec8.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="Symbols count in article">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>6.1k</span>
-            </span>
-            <span class="post-meta-item" title="Reading time">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>6 mins.</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>最近看了篇文章，文章里说 <strong>希望你身边能有个比你聪明五倍，但却比你还努力十倍的人。</strong><br>倍数虽然有些夸张，但是这个思想还是能get到的。</p>
-<h2 id="5230-缀点成线"><a href="#5230-缀点成线" class="headerlink" title="5230. 缀点成线"></a>5230. 缀点成线</h2><p>在一个 XY 坐标系中有一些点，我们用数组 coordinates 来分别记录它们的坐标，其中 coordinates[i] = [x, y] 表示横坐标为 x、纵坐标为 y 的点。</p>
-<p>请你来判断，这些点是否在该坐标系中属于同一条直线上，是则返回 <font color="#c7254e" face="Menlo, Monaco, Consolas, Courier New, monospace">true</font>，否则请返回 <font color="#c7254e" face="Menlo, Monaco, Consolas, Courier New, monospace">false</font>。</p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>根据前两个点构造直线，看后续的点是否在直线上。<br>直线方程为  $ax+by+c=0$，其中：$a=y_2-y_1$ $b=x_1-x_2$ $c=-ax_1-by_1$<br><strong>好处是不用考虑斜率，这是个方程的一般式。如果考虑斜率，还得分斜率是否为0。</strong></p>
-<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
-public:
-    bool checkStraightLine(vector&lt;vector&lt;int&gt;&gt;&amp; coordinates) {
-        vector&lt;int&gt; v1,v2,v3;
-        v1 = coordinates[0];
-        v2 = coordinates[1];
-        int a = v2[1]-v1[1];
-        int b = v1[0]-v2[0];
-        int c = -1*a*v1[0]-b*v1[1];
-        for(int i=1;i&lt;coordinates.size();i++){
-            v3 = coordinates[i];
-            if(a*v3[0]+b*v3[1]+c!=0) return false; 
-        }
-        return true;
-    }
-};
-</code></pre>
-<h2 id="删除子文件夹"><a href="#删除子文件夹" class="headerlink" title="删除子文件夹"></a>删除子文件夹</h2><p>你是一位系统管理员，手里有一份文件夹列表 folder，你的任务是要删除该列表中的所有 子文件夹，并以 任意顺序 返回剩下的文件夹。</p>
-<p>我们这样定义「子文件夹」：</p>
-<p>如果文件夹 folder[i] 位于另一个文件夹 folder[j] 下，那么 folder[i] 就是 folder[j] 的子文件夹。<br>文件夹的「路径」是由一个或多个按以下格式串联形成的字符串：</p>
-<p>/ 后跟一个或者多个小写英文字母。<br>例如，/leetcode 和 /leetcode/problems 都是有效的路径，而空字符串和 / 不是。</p>
-<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>写一个判别函数来判断是否为子路径</li>
-<li>将文件夹序列sort，此时字典序小的应该在前，长度小的也在前，故一般父路径也在前。</li>
-<li>设置一个标记数组，初始置0，如果该文件夹路径要被删除置1。</li>
-<li>扫描文件夹序列，两两对比，神奇的是不用二重循环就可以做到。</li>
-<li><p>将标记为0的push进vector，返回。</p>
-<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
-public:
-  // a.length &lt; b.length
-  bool isSubFolder(string a,string b) {
-      int n1 = a.length(),n2 = b.length();
-      if(n1&gt;n2) return false;
-      int i;
-      for(i=0;i&lt;n1;i++){
-          if(a[i]!=b[i]) return false;
-      }
-      if(b[i]!=&#39;/&#39;) return false;
-      return true;        
-  }
-  vector&lt;string&gt; removeSubfolders(vector&lt;string&gt;&amp; folder) {
-      sort(folder.begin(),folder.end());
-      int n = folder.size();
-      int pend[n]={0}; // delete 1
-      int j=0;
-      for(int i=1;i&lt;n;i++){
-          if(isSubFolder(folder[j],folder[i])){
-              pend[i] = 1;
-          }
-          else j = i;  // important
-      }
-      vector&lt;string&gt; res;
-      for(int i=0;i&lt;n;i++){
-          if(!pend[i]) res.push_back(folder[i]);
-      }
-
-      return res;
-
-  }
-};
-</code></pre>
-</li>
-</ul>
-<h2 id="替换子串得到平衡字符串"><a href="#替换子串得到平衡字符串" class="headerlink" title="替换子串得到平衡字符串"></a>替换子串得到平衡字符串</h2><p>有一个只含有 ‘Q’, ‘W’, ‘E’, ‘R’ 四种字符，且长度为 n 的字符串。<br>假如在该字符串中，这四个字符都恰好出现 n/4 次，那么它就是一个「平衡字符串」。<br>给你一个这样的字符串 s，请通过「替换子串」的方式，使原字符串 s 变成一个「平衡字符串」。<br>你可以用和「待替换子串」长度相同的 任何 其他字符串来完成替换。<br>请返回待替换子串的最小可能长度。<br>如果原字符串自身就是一个平衡字符串，则返回 0。</p>
-<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>参考：</p>
-<ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1vbW5TTy1DU0ZJcw=="> lee215 的视频讲解<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvcmVwbGFjZS10aGUtc3Vic3RyaW5nLWZvci1iYWxhbmNlZC1zdHJpbmcvZGlzY3Vzcy80MDg5NzgvSmF2YUMrK1B5dGhvbi1TbGlkaW5nLVdpbmRvdw==">[Java/C++/Python] Sliding Window<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-<p>我觉得题目需要重新阅读并理解一下，<strong>题目的意思是在给出的序列中找一个子串，只需要修改这个子串的字符就可以使得这个字符串变为平衡字符串，求这个子串的最小长度。</strong></p>
-<p>思路是lee215 这位大牛的，上面的参考一个是他的视频讲解，另一个是他写的题解。<br>下面写一下他的思路：<br>首先扫描一下字符串，把W、E、R、Q这四个字符的个数记录下来，使用<strong>滑动窗口</strong>的思想，从下标0开始，扫描字符串，只考虑滑动窗口以外的字符，不考虑滑动窗口内的字符，滑动窗口外的W、E、R、Q这四个字符的个数，如果字符个数小于等于n/4，则说明改滑动窗口所在的区间越正确，也即滑动窗口内的字符是多余的并需要被修改的，然后找到这个滑动窗口长度的最小值即可。</p>
-<p>当然这个算法是O(n)的，代码很简介，或许是全网最短，也或许最难懂。</p>
-<p>更多题解可以参考 leetcode英文社区下关于这道题的讨论。<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvcmVwbGFjZS10aGUtc3Vic3RyaW5nLWZvci1iYWxhbmNlZC1zdHJpbmcvZGlzY3Vzcy8/Y3VycmVudFBhZ2U9MSZhbXA7b3JkZXJCeT1ob3QmYW1wO3F1ZXJ5PQ==">1234. Replace the Substring for Balanced String<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
-public:
-    int balancedString(string s) {
-        // QWER count;
-        int n = s.length(),m=n/4,res=n,i=0;
-        map&lt;char,int&gt; count;
-        for(int j=0;j&lt;n;j++) 
-            count[s[j]]++;
-        for(int j=0;j&lt;n;j++){
-            count[s[j]]--;
-            while(i&lt;n&amp;&amp;count[&#39;Q&#39;]&lt;=m&amp;&amp;count[&#39;E&#39;]&lt;=m&amp;&amp;count[&#39;R&#39;]&lt;=m&amp;&amp;count[&#39;W&#39;]&lt;=m){
-                res = min(res,j-i+1);
-                count[s[i]]++;
-                i++;
-            }
-        }
-        return res;
-    }
-};
-</code></pre>
-<h2 id="规划兼职工作"><a href="#规划兼职工作" class="headerlink" title="规划兼职工作"></a>规划兼职工作</h2><p>你打算利用空闲时间来做兼职工作赚些零花钱。<br>这里有 n 份兼职工作，每份工作预计从 startTime[i] 开始到 endTime[i] 结束，报酬为 profit[i]。<br>给你一份兼职工作表，包含开始时间 startTime，结束时间 endTime 和预计报酬 profit 三个数组，请你计算并返回可以获得的最大报酬。<br>注意，时间上出现重叠的 2 份工作不能同时进行。<br>如果你选择的工作在时间 X 结束，那么你可以立刻进行在时间 X 开始的下一份工作。</p>
-<h3 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h3><p>参考：</p>
-<ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvbWF4aW11bS1wcm9maXQtaW4tam9iLXNjaGVkdWxpbmcvZGlzY3Vzcy80MDkwMDkvSmF2YUMrK1B5dGhvbi1EUC1Tb2x1dGlvbg==">[Java/C++/Python] DP Solution<i class="fa fa-external-link-alt"></i></span> </li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1vbW5TTy1DU0ZJcw=="> lee215 的视频讲解<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-<p>再开辟一块空间，把endTime[i],startTime[i],profit[i] 一起存放进去，按照结束时间排序。<br>然后进行动态规划，使用map，其中dp[i]表示从0到i时间段内的收益，i为结束时间，迭代过程是在dp中找到开始时间大于每次的startTime的结束时间的前一个，也就是小于startTime的最大的endTime,然后与当前的收益相加，最后map的最后一个就是答案。（其实这里有很多细节需要仔细钻研一下，比如之前就踩过的坑，涉及到了map的存储结构等)</p>
-<h3 id="实现一"><a href="#实现一" class="headerlink" title="实现一"></a>实现一</h3><pre><code class="lang-cpp">class Solution {
-public:
-    int jobScheduling(vector&lt;int&gt;&amp; startTime, vector&lt;int&gt;&amp; endTime, vector&lt;int&gt;&amp; profit) {
-        int n = endTime.size();
-        vector&lt;vector&lt;int&gt; &gt; jobs;
-        for(int i=0;i&lt;n;i++){
-            jobs.push_back({endTime[i],startTime[i],profit[i]});
-        }
-        sort(jobs.begin(),jobs.end());
-        map&lt;int,int&gt; dp;
-        dp[0] = 0;
-        for(auto job:jobs){
-            int cur = prev(dp.upper_bound(job[1]))-&gt;second + job[2];
-            if(cur &gt; dp.rbegin()-&gt;second)
-                dp[job[0]] = cur;
-        }
-        return dp.rbegin()-&gt;second;
-
-    }
-};
-</code></pre>
-<h2 id="思路二"><a href="#思路二" class="headerlink" title="思路二"></a>思路二</h2><p>参考：</p>
-<ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvbWF4aW11bS1wcm9maXQtaW4tam9iLXNjaGVkdWxpbmcvZGlzY3Vzcy80MDkwMzEvQysrLVNvcnQtYW5kLURQLU8lMjhObG9nTiUyOQ==">[C++]  Sort and DP, O(NlogN)<i class="fa fa-external-link-alt"></i></span><br><br>不去重新分配存储空间去存储starttime、endTime、profit，只需要新建一个索引数组，自定义排序规则，按照结束时间排序。然后还定义了一个匿名函数，返回在endTime在startTime[i]之前的索引。<br>然后就是动态规划，dp[i]表示在i时刻及以前所获得的最大收益，cur为当前时刻可以获得的收益。<br>dp[i] = max(dp[i-1],cur)，最后dp[n-1]便是答案。</li>
-</ul>
-<p>更多题解可以参考 leetcode英文社区下关于这道题的讨论。<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvbWF4aW11bS1wcm9maXQtaW4tam9iLXNjaGVkdWxpbmcvZGlzY3Vzcy8/Y3VycmVudFBhZ2U9MSZhbXA7b3JkZXJCeT1ob3QmYW1wO3F1ZXJ5PQ==">1235. Maximum Profit in Job Scheduling<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="实现二"><a href="#实现二" class="headerlink" title="实现二"></a>实现二</h3><pre><code class="lang-cpp">class Solution {
-public:
-    int jobScheduling(vector&lt;int&gt;&amp; startTime, vector&lt;int&gt;&amp; endTime, vector&lt;int&gt;&amp; profit) {
-        int n = startTime.size();
-        vector&lt;vector&lt;int&gt;&gt; jobs;
-        int index[n];
-        for(int i=0;i&lt;n;i++){
-            index[i]=i;
-        }
-        sort(index,index+n,[&amp;endTime](int i,int j){return endTime[i]&lt;endTime[j];});
-        auto lastestValidIndex = [&amp;startTime,&amp;endTime,&amp;index](int i){   // lambda
-            int start = startTime[index[i]];
-            int left = 0, right = i;
-            while(left&lt;right){
-                int mid = (left+right)&gt;&gt;1;
-                if(endTime[index[mid]]&lt;=start)
-                    left = mid+1; // +1
-                else right = mid;
-            }
-            return right==0?-1:right-1;
-        };
-        int dp[n]={0};
-        dp[0] = profit[index[0]];
-        for(int i=1;i&lt;n;i++){
-            int cur = profit[index[i]];
-            int last = lastestValidIndex(i);
-            if(last!=-1) cur +=dp[last];
-            dp[i] = max(dp[i-1],cur);
-        }        
-        return dp[n-1];
-
-    }
-};
-</code></pre>
-<p>被DP教育4小时。为伊消得人憔悴..<br>说实话还是leetcode英文社区那边大牛多，讨论也更多一些。</p>
-<p>今日份荐读：</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/87460515" target="_blank" rel="noopener">姚班学霸陈立杰：16岁保送清华，18岁拿下IOI世界冠军，现摘得FOCS 2019最佳学生论文<br>量子位</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/ab24332a.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/ab24332a.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1349,7 +835,7 @@ public:
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>797</span>
+              <span>636</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -1369,31 +855,7 @@ public:
 
       
           <p><strong>输入一行字符，分别统计出其中英文字母、空格、数字和其他字符的个数。</strong></p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-typedef long long ll;
-const int maxn = 2e5;
-# define mod(a,b) (a)%(b)
-int main(){
-
-    char ch;
-    int count[4]={0};
-    while(cin.get(ch)){
-        if(ch&gt;=&#39;a&#39;&amp;&amp;ch&lt;=&#39;z&#39;||ch&gt;=&#39;A&#39;&amp;&amp;ch&lt;=&#39;Z&#39;)
-            count[0]++;
-        else if(ch==&#39; &#39;)
-            count[1]++;
-        else if(ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;)
-            count[2]++;
-        else if(ch==&#39;\n&#39;) break;
-        else count[3]++;
-    }
-    cout &lt;&lt; count[0] &lt;&lt; &quot; &quot; &lt;&lt; count[2] &lt;&lt; &quot; &quot; &lt;&lt; count[1] &lt;&lt; &quot; &quot; &lt;&lt; count[3] ;
-
-
-    return 0;
-}
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">2e5</span>;</span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> mod(a,b) (a)%(b)</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">char</span> ch;</span><br><span class="line">	<span class="keyword">int</span> count[<span class="number">4</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span>.get(ch))&#123;</span><br><span class="line">		<span class="keyword">if</span>(ch&gt;=<span class="string">'a'</span>&amp;&amp;ch&lt;=<span class="string">'z'</span>||ch&gt;=<span class="string">'A'</span>&amp;&amp;ch&lt;=<span class="string">'Z'</span>)</span><br><span class="line">			count[<span class="number">0</span>]++;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(ch==<span class="string">' '</span>)</span><br><span class="line">			count[<span class="number">1</span>]++;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(ch&gt;=<span class="string">'0'</span>&amp;&amp;ch&lt;=<span class="string">'9'</span>)</span><br><span class="line">			count[<span class="number">2</span>]++;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(ch==<span class="string">'\n'</span>) <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">else</span> count[<span class="number">3</span>]++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; count[<span class="number">0</span>] &lt;&lt; <span class="string">" "</span> &lt;&lt; count[<span class="number">2</span>] &lt;&lt; <span class="string">" "</span> &lt;&lt; count[<span class="number">1</span>] &lt;&lt; <span class="string">" "</span> &lt;&lt; count[<span class="number">3</span>] ;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>题目虽然简单，注意点是统计空格需要用<strong>cin.get(ch)</strong>，输入时会在行末多输入一个回车，注意处理。</p>
 
       
@@ -1414,7 +876,155 @@ int main(){
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/47a1ed4f.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/7472bec8.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/archives/7472bec8.html" class="post-title-link" itemprop="url">LeetCodeWeeklyContest-159</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-21 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-21T00:00:00+08:00">2019-10-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-18 00:41:40" itemprop="dateModified" datetime="2020-05-18T00:41:40+08:00">2020-05-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/archives/7472bec8.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/archives/7472bec8.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>6.3k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>6 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近看了篇文章，文章里说 <strong>希望你身边能有个比你聪明五倍，但却比你还努力十倍的人。</strong><br>倍数虽然有些夸张，但是这个思想还是能get到的。</p>
+<h2 id="5230-缀点成线"><a href="#5230-缀点成线" class="headerlink" title="5230. 缀点成线"></a>5230. 缀点成线</h2><p>在一个 XY 坐标系中有一些点，我们用数组 coordinates 来分别记录它们的坐标，其中 coordinates[i] = [x, y] 表示横坐标为 x、纵坐标为 y 的点。</p>
+<p>请你来判断，这些点是否在该坐标系中属于同一条直线上，是则返回 <font color="#c7254e" face="Menlo, Monaco, Consolas, Courier New, monospace">true</font>，否则请返回 <font color="#c7254e" face="Menlo, Monaco, Consolas, Courier New, monospace">false</font>。</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>根据前两个点构造直线，看后续的点是否在直线上。<br>直线方程为  $ax+by+c=0$，其中：$a=y_2-y_1$ $b=x_1-x_2$ $c=-ax_1-by_1$<br><strong>好处是不用考虑斜率，这是个方程的一般式。如果考虑斜率，还得分斜率是否为0。</strong></p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">checkStraightLine</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; coordinates)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; v1,v2,v3;</span><br><span class="line">        v1 = coordinates[<span class="number">0</span>];</span><br><span class="line">        v2 = coordinates[<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span> a = v2[<span class="number">1</span>]-v1[<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span> b = v1[<span class="number">0</span>]-v2[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> c = <span class="number">-1</span>*a*v1[<span class="number">0</span>]-b*v1[<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;coordinates.size();i++)&#123;</span><br><span class="line">            v3 = coordinates[i];</span><br><span class="line">            <span class="keyword">if</span>(a*v3[<span class="number">0</span>]+b*v3[<span class="number">1</span>]+c!=<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="删除子文件夹"><a href="#删除子文件夹" class="headerlink" title="删除子文件夹"></a>删除子文件夹</h2><p>你是一位系统管理员，手里有一份文件夹列表 folder，你的任务是要删除该列表中的所有 子文件夹，并以 任意顺序 返回剩下的文件夹。</p>
+<p>我们这样定义「子文件夹」：</p>
+<p>如果文件夹 folder[i] 位于另一个文件夹 folder[j] 下，那么 folder[i] 就是 folder[j] 的子文件夹。<br>文件夹的「路径」是由一个或多个按以下格式串联形成的字符串：</p>
+<p>/ 后跟一个或者多个小写英文字母。<br>例如，/leetcode 和 /leetcode/problems 都是有效的路径，而空字符串和 / 不是。</p>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><ul>
+<li>写一个判别函数来判断是否为子路径</li>
+<li>将文件夹序列sort，此时字典序小的应该在前，长度小的也在前，故一般父路径也在前。</li>
+<li>设置一个标记数组，初始置0，如果该文件夹路径要被删除置1。</li>
+<li>扫描文件夹序列，两两对比，神奇的是不用二重循环就可以做到。</li>
+<li>将标记为0的push进vector，返回。<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// a.length &lt; b.length</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isSubFolder</span><span class="params">(<span class="built_in">string</span> a,<span class="built_in">string</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n1 = a.length(),n2 = b.length();</span><br><span class="line">        <span class="keyword">if</span>(n1&gt;n2) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n1;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i]!=b[i]) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(b[i]!=<span class="string">'/'</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; removeSubfolders(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; folder) &#123;</span><br><span class="line">        sort(folder.begin(),folder.end());</span><br><span class="line">        <span class="keyword">int</span> n = folder.size();</span><br><span class="line">        <span class="keyword">int</span> pend[n]=&#123;<span class="number">0</span>&#125;; <span class="comment">// delete 1</span></span><br><span class="line">        <span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(isSubFolder(folder[j],folder[i]))&#123;</span><br><span class="line">                pend[i] = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> j = i;  <span class="comment">// important</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!pend[i]) res.push_back(folder[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="替换子串得到平衡字符串"><a href="#替换子串得到平衡字符串" class="headerlink" title="替换子串得到平衡字符串"></a>替换子串得到平衡字符串</h2><p>有一个只含有 ‘Q’, ‘W’, ‘E’, ‘R’ 四种字符，且长度为 n 的字符串。<br>假如在该字符串中，这四个字符都恰好出现 n/4 次，那么它就是一个「平衡字符串」。<br>给你一个这样的字符串 s，请通过「替换子串」的方式，使原字符串 s 变成一个「平衡字符串」。<br>你可以用和「待替换子串」长度相同的 任何 其他字符串来完成替换。<br>请返回待替换子串的最小可能长度。<br>如果原字符串自身就是一个平衡字符串，则返回 0。</p>
+<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>参考：</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1vbW5TTy1DU0ZJcw=="> lee215 的视频讲解<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvcmVwbGFjZS10aGUtc3Vic3RyaW5nLWZvci1iYWxhbmNlZC1zdHJpbmcvZGlzY3Vzcy80MDg5NzgvSmF2YUMrK1B5dGhvbi1TbGlkaW5nLVdpbmRvdw==">[Java/C++/Python] Sliding Window<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<p>我觉得题目需要重新阅读并理解一下，<strong>题目的意思是在给出的序列中找一个子串，只需要修改这个子串的字符就可以使得这个字符串变为平衡字符串，求这个子串的最小长度。</strong></p>
+<p>思路是lee215 这位大牛的，上面的参考一个是他的视频讲解，另一个是他写的题解。<br>下面写一下他的思路：<br>首先扫描一下字符串，把W、E、R、Q这四个字符的个数记录下来，使用<strong>滑动窗口</strong>的思想，从下标0开始，扫描字符串，只考虑滑动窗口以外的字符，不考虑滑动窗口内的字符，滑动窗口外的W、E、R、Q这四个字符的个数，如果字符个数小于等于n/4，则说明改滑动窗口所在的区间越正确，也即滑动窗口内的字符是多余的并需要被修改的，然后找到这个滑动窗口长度的最小值即可。</p>
+<p>当然这个算法是O(n)的，代码很简介，或许是全网最短，也或许最难懂。</p>
+<p>更多题解可以参考 leetcode英文社区下关于这道题的讨论。<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvcmVwbGFjZS10aGUtc3Vic3RyaW5nLWZvci1iYWxhbmNlZC1zdHJpbmcvZGlzY3Vzcy8/Y3VycmVudFBhZ2U9MSZhbXA7b3JkZXJCeT1ob3QmYW1wO3F1ZXJ5PQ==">1234. Replace the Substring for Balanced String<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">balancedString</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// QWER count;</span></span><br><span class="line">        <span class="keyword">int</span> n = s.length(),m=n/<span class="number">4</span>,res=n,i=<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt; count;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++) </span><br><span class="line">            count[s[j]]++;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">            count[s[j]]--;</span><br><span class="line">            <span class="keyword">while</span>(i&lt;n&amp;&amp;count[<span class="string">'Q'</span>]&lt;=m&amp;&amp;count[<span class="string">'E'</span>]&lt;=m&amp;&amp;count[<span class="string">'R'</span>]&lt;=m&amp;&amp;count[<span class="string">'W'</span>]&lt;=m)&#123;</span><br><span class="line">                res = min(res,j-i+<span class="number">1</span>);</span><br><span class="line">                count[s[i]]++;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="规划兼职工作"><a href="#规划兼职工作" class="headerlink" title="规划兼职工作"></a>规划兼职工作</h2><p>你打算利用空闲时间来做兼职工作赚些零花钱。<br>这里有 n 份兼职工作，每份工作预计从 startTime[i] 开始到 endTime[i] 结束，报酬为 profit[i]。<br>给你一份兼职工作表，包含开始时间 startTime，结束时间 endTime 和预计报酬 profit 三个数组，请你计算并返回可以获得的最大报酬。<br>注意，时间上出现重叠的 2 份工作不能同时进行。<br>如果你选择的工作在时间 X 结束，那么你可以立刻进行在时间 X 开始的下一份工作。</p>
+<h3 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h3><p>参考：</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvbWF4aW11bS1wcm9maXQtaW4tam9iLXNjaGVkdWxpbmcvZGlzY3Vzcy80MDkwMDkvSmF2YUMrK1B5dGhvbi1EUC1Tb2x1dGlvbg==">[Java/C++/Python] DP Solution<i class="fa fa-external-link-alt"></i></span> </li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1vbW5TTy1DU0ZJcw=="> lee215 的视频讲解<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<p>再开辟一块空间，把endTime[i],startTime[i],profit[i] 一起存放进去，按照结束时间排序。<br>然后进行动态规划，使用map，其中dp[i]表示从0到i时间段内的收益，i为结束时间，迭代过程是在dp中找到开始时间大于每次的startTime的结束时间的前一个，也就是小于startTime的最大的endTime,然后与当前的收益相加，最后map的最后一个就是答案。（其实这里有很多细节需要仔细钻研一下，比如之前就踩过的坑，涉及到了map的存储结构等)</p>
+<h3 id="实现一"><a href="#实现一" class="headerlink" title="实现一"></a>实现一</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">jobScheduling</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; startTime, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; endTime, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; profit)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = endTime.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; jobs;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            jobs.push_back(&#123;endTime[i],startTime[i],profit[i]&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        sort(jobs.begin(),jobs.end());</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; dp;</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> job:jobs)&#123;</span><br><span class="line">            <span class="keyword">int</span> cur = prev(dp.upper_bound(job[<span class="number">1</span>]))-&gt;second + job[<span class="number">2</span>];</span><br><span class="line">            <span class="keyword">if</span>(cur &gt; dp.rbegin()-&gt;second)</span><br><span class="line">                dp[job[<span class="number">0</span>]] = cur;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp.rbegin()-&gt;second;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="思路二"><a href="#思路二" class="headerlink" title="思路二"></a>思路二</h2><p>参考：</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvbWF4aW11bS1wcm9maXQtaW4tam9iLXNjaGVkdWxpbmcvZGlzY3Vzcy80MDkwMzEvQysrLVNvcnQtYW5kLURQLU8lMjhObG9nTiUyOQ==">[C++]  Sort and DP, O(NlogN)<i class="fa fa-external-link-alt"></i></span><br><br>不去重新分配存储空间去存储starttime、endTime、profit，只需要新建一个索引数组，自定义排序规则，按照结束时间排序。然后还定义了一个匿名函数，返回在endTime在startTime[i]之前的索引。<br>然后就是动态规划，dp[i]表示在i时刻及以前所获得的最大收益，cur为当前时刻可以获得的收益。<br>dp[i] = max(dp[i-1],cur)，最后dp[n-1]便是答案。</li>
+</ul>
+<p>更多题解可以参考 leetcode英文社区下关于这道题的讨论。<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvbWF4aW11bS1wcm9maXQtaW4tam9iLXNjaGVkdWxpbmcvZGlzY3Vzcy8/Y3VycmVudFBhZ2U9MSZhbXA7b3JkZXJCeT1ob3QmYW1wO3F1ZXJ5PQ==">1235. Maximum Profit in Job Scheduling<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="实现二"><a href="#实现二" class="headerlink" title="实现二"></a>实现二</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">jobScheduling</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; startTime, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; endTime, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; profit)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = startTime.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; jobs;</span><br><span class="line">        <span class="keyword">int</span> index[n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            index[i]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(index,index+n,[&amp;endTime](<span class="keyword">int</span> i,<span class="keyword">int</span> j)&#123;<span class="keyword">return</span> endTime[i]&lt;endTime[j];&#125;);</span><br><span class="line">        <span class="keyword">auto</span> lastestValidIndex = [&amp;startTime,&amp;endTime,&amp;index](<span class="keyword">int</span> i)&#123;   <span class="comment">// lambda</span></span><br><span class="line">            <span class="keyword">int</span> start = startTime[index[i]];</span><br><span class="line">            <span class="keyword">int</span> left = <span class="number">0</span>, right = i;</span><br><span class="line">            <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">                <span class="keyword">int</span> mid = (left+right)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span>(endTime[index[mid]]&lt;=start)</span><br><span class="line">                    left = mid+<span class="number">1</span>; <span class="comment">// +1</span></span><br><span class="line">                <span class="keyword">else</span> right = mid;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> right==<span class="number">0</span>?<span class="number">-1</span>:right<span class="number">-1</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">int</span> dp[n]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">        dp[<span class="number">0</span>] = profit[index[<span class="number">0</span>]];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> cur = profit[index[i]];</span><br><span class="line">            <span class="keyword">int</span> last = lastestValidIndex(i);</span><br><span class="line">            <span class="keyword">if</span>(last!=<span class="number">-1</span>) cur +=dp[last];</span><br><span class="line">            dp[i] = max(dp[i<span class="number">-1</span>],cur);</span><br><span class="line">        &#125;        </span><br><span class="line">        <span class="keyword">return</span> dp[n<span class="number">-1</span>];</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>被DP教育4小时。为伊消得人憔悴..<br>说实话还是leetcode英文社区那边大牛多，讨论也更多一些。</p>
+<p>今日份荐读：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/87460515" target="_blank" rel="noopener">姚班学霸陈立杰：16岁保送清华，18岁拿下IOI世界冠军，现摘得FOCS 2019最佳学生论文<br>量子位</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/47a1ed4f.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1477,7 +1087,7 @@ int main(){
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1k</span>
+              <span>931</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -1498,32 +1108,7 @@ int main(){
       
           <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>求两个长度分别为m和n的字符串A、B的最长公共子序列。<br>A：a<sub>0</sub>a<sub>1</sub>a<sub>2</sub>…a<sub>m-1</sub><br>B：b<sub>0</sub>b<sub>1</sub>b<sub>2</sub>…b<sub>n-1</sub></p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>构造一个大小为(m+1)*(n+1)的二维数组dp<br>dp[i][j] 表示a<sub>0</sub>a<sub>1</sub>a<sub>2</sub>…a<sub>i-1</sub> 和 b<sub>0</sub>b<sub>1</sub>b<sub>2</sub>…b<sub>j-1</sub> 两个字符串的最大公共子序列</p>
-<h3 id="状态转移方程"><a href="#状态转移方程" class="headerlink" title="状态转移方程"></a>状态转移方程</h3><script type="math/tex; mode=display">dp[i][j]= \begin{cases}0  & \text {if  i=0 or j=0} \\ dp[i-1][j-1]+1   & \text{if a[i-1]=b[j-1] }   \\ max(dp[i-1][j],dp[i][j-1])  &\text{if a[i-1]!=b[j-1]}\end{cases}</script><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">int dp[MAXN][MAXN]={0};
-vector&lt;char&gt; subs;
-vector&lt;char&gt; longestCommonSubsequence(string s1, string s2) {
-    memset(dp,0,sizeof(dp));
-    int m = s1.length(),n = s2.length();
-    for(int i=1;i&lt;=m;i++){
-        for(int j=1;j&lt;=n;j++){
-            if(s1[i-1]==s2[j-1])
-                dp[i][j] = dp[i-1][j-1]+1;
-            else dp[i][j] = max(dp[i-1][j],dp[i][j-1]); 
-        }
-    }
-    int k = dp[m][n],i=m,j=n;
-    while(k&gt;0){
-        if(dp[i][j]==dp[i-1][j])
-            i--;
-        else if(dp[i][j]==dp[i][j-1])
-            j--;
-        else {
-             subs.push_back(s1[i-1]);
-            i--;j--;k--;
-        }
-    }
-    return subs;
-}
-</code></pre>
+<h3 id="状态转移方程"><a href="#状态转移方程" class="headerlink" title="状态转移方程"></a>状态转移方程</h3><script type="math/tex; mode=display">dp[i][j]= \begin{cases}0  & \text {if  i=0 or j=0} \\ dp[i-1][j-1]+1   & \text{if a[i-1]=b[j-1] }   \\ max(dp[i-1][j],dp[i][j-1])  &\text{if a[i-1]!=b[j-1]}\end{cases}</script><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> dp[MAXN][MAXN]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; subs;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; longestCommonSubsequence(<span class="built_in">string</span> s1, <span class="built_in">string</span> s2) &#123;</span><br><span class="line">    <span class="built_in">memset</span>(dp,<span class="number">0</span>,<span class="keyword">sizeof</span>(dp));</span><br><span class="line">    <span class="keyword">int</span> m = s1.length(),n = s2.length();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">    	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">    		<span class="keyword">if</span>(s1[i<span class="number">-1</span>]==s2[j<span class="number">-1</span>])</span><br><span class="line">    			dp[i][j] = dp[i<span class="number">-1</span>][j<span class="number">-1</span>]+<span class="number">1</span>;</span><br><span class="line">    		<span class="keyword">else</span> dp[i][j] = max(dp[i<span class="number">-1</span>][j],dp[i][j<span class="number">-1</span>]); </span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> k = dp[m][n],i=m,j=n;</span><br><span class="line">	<span class="keyword">while</span>(k&gt;<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(dp[i][j]==dp[i<span class="number">-1</span>][j])</span><br><span class="line">			i--;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(dp[i][j]==dp[i][j<span class="number">-1</span>])</span><br><span class="line">			j--;</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line"> 			subs.push_back(s1[i<span class="number">-1</span>]);</span><br><span class="line">			i--;j--;k--;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> subs;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>来道板子题试试：<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vcHJvYmxlbXMvbG9uZ2VzdC1jb21tb24tc3Vic2VxdWVuY2Uvc3VibWlzc2lvbnMv">1143. 最长公共子序列<i class="fa fa-external-link-alt"></i></span></p>
 
       
@@ -1544,7 +1129,7 @@ vector&lt;char&gt; longestCommonSubsequence(string s1, string s2) {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/3758e5e.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/3758e5e.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1607,7 +1192,7 @@ vector&lt;char&gt; longestCommonSubsequence(string s1, string s2) {
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>5.5k</span>
+              <span>5.7k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -1629,113 +1214,15 @@ vector&lt;char&gt; longestCommonSubsequence(string s1, string s2) {
           <p>戒骄戒躁，勇往直前。<br><br></p>
 <h2 id="传送门：第-158-场周赛"><a href="#传送门：第-158-场周赛" class="headerlink" title="传送门：第 158 场周赛"></a>传送门：<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vY29udGVzdC93ZWVrbHktY29udGVzdC0xNTg=">第 158 场周赛<i class="fa fa-external-link-alt"></i></span></h2><h2 id="分割平衡字符串"><a href="#分割平衡字符串" class="headerlink" title="分割平衡字符串"></a>分割平衡字符串</h2><p>在一个「平衡字符串」中，’L’ 和 ‘R’ 字符的数量是相同的。<br>给出一个平衡字符串 s，请你将它分割成尽可能多的平衡字符串。<br>返回可以通过分割得到的平衡字符串的最大数量。<br>输入：s = “RLRRLLRLRL”<br>输出：4<br>解释：s 可以分割为 “RL”, “RRLL”, “RL”, “RL”, 每个子字符串中都包含相同数量的 ‘L’ 和 ‘R’。</p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>用两个数组记录当前出现的R和L的次数，进行比对相等则cnt+1。</p>
-<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
-public:
-    int balancedStringSplit(string s) {
-        int n = s.length(),cnt=0;
-        int rcnt[n]={0},lcnt[n]={0};
-        for(int i=0;i&lt;s.length();i++){
-            rcnt[i]=(i==0?0:rcnt[i-1]);
-            lcnt[i]=(i==0?0:lcnt[i-1]);
-            if(s[i]==&#39;R&#39;)  rcnt[i]++;
-            if(s[i]==&#39;L&#39;)  lcnt[i]++;
-            if(lcnt[i]==rcnt[i]) cnt++; 
-        }
-        return cnt;
-    }
-};
-</code></pre>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">balancedStringSplit</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.length(),cnt=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> rcnt[n]=&#123;<span class="number">0</span>&#125;,lcnt[n]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">            rcnt[i]=(i==<span class="number">0</span>?<span class="number">0</span>:rcnt[i<span class="number">-1</span>]);</span><br><span class="line">            lcnt[i]=(i==<span class="number">0</span>?<span class="number">0</span>:lcnt[i<span class="number">-1</span>]);</span><br><span class="line">            <span class="keyword">if</span>(s[i]==<span class="string">'R'</span>)  rcnt[i]++;</span><br><span class="line">            <span class="keyword">if</span>(s[i]==<span class="string">'L'</span>)  lcnt[i]++;</span><br><span class="line">            <span class="keyword">if</span>(lcnt[i]==rcnt[i]) cnt++; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cnt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="可以攻击国王的皇后"><a href="#可以攻击国王的皇后" class="headerlink" title="可以攻击国王的皇后"></a>可以攻击国王的皇后</h2><p>在一个 8x8 的棋盘上，放置着若干「黑皇后」和一个「白国王」。<br>「黑皇后」在棋盘上的位置分布用整数坐标数组 queens 表示，「白国王」的坐标用数组 king 表示。<br>「黑皇后」的行棋规定是：横、直、斜都可以走，步数不受限制，但是，不能越子行棋。<br>请你返回可以直接攻击到「白国王」的所有「黑皇后」的坐标（任意顺序）。</p>
 <h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>第一反应想起了8皇后，基本上还是以国王为中心遍历8个方向，在一个方向碰到一个皇后，就立刻停止，push进result，然后遍历剩余的方向。<br>注意：vector数组的初始化。</p>
-<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
-public:
-    vector&lt;vector&lt;int&gt;&gt; queensAttacktheKing(vector&lt;vector&lt;int&gt;&gt;&amp; queens, vector&lt;int&gt;&amp; king) {
-        vector&lt;vector&lt;int&gt; &gt; res;
-        vector&lt;int&gt; tmp(queens[0].size()); // 要初始化 不然报 reference binding to null pointer of type ‘value_type’
-        vector&lt;vector&lt;int&gt; &gt;::iterator it;
-        int dx[8]={-1,0,1,-1,1,-1,0,1};
-        int dy[8]={-1,-1,-1,0,0,1,1,1};
-        for(int i=0;i&lt;8;i++){
-            tmp[0]=king[0],tmp[1]=king[1];
-            while(1){
-                tmp[0] = tmp[0]+dx[i];
-                tmp[1] = tmp[1]+dy[i];
-                if(tmp[0]&gt;=0&amp;&amp;tmp[0]&lt;8&amp;&amp;tmp[1]&gt;=0&amp;&amp;tmp[1]&lt;8){
-                    it = find(queens.begin(),queens.end(),tmp);  // 最近用find老是出错
-                    if(it!=queens.end()){
-                        res.push_back(tmp);
-                        break;
-                    }
-                }
-                else break;      
-            }                      
-        }
-        return res;
-
-    }
-};
-</code></pre>
+<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; queensAttacktheKing(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; queens, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; king) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; res;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp(queens[<span class="number">0</span>].size()); <span class="comment">// 要初始化 不然报 reference binding to null pointer of type ‘value_type’</span></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt;::iterator it;</span><br><span class="line">        <span class="keyword">int</span> dx[<span class="number">8</span>]=&#123;<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">int</span> dy[<span class="number">8</span>]=&#123;<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">8</span>;i++)&#123;</span><br><span class="line">            tmp[<span class="number">0</span>]=king[<span class="number">0</span>],tmp[<span class="number">1</span>]=king[<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">                tmp[<span class="number">0</span>] = tmp[<span class="number">0</span>]+dx[i];</span><br><span class="line">                tmp[<span class="number">1</span>] = tmp[<span class="number">1</span>]+dy[i];</span><br><span class="line">                <span class="keyword">if</span>(tmp[<span class="number">0</span>]&gt;=<span class="number">0</span>&amp;&amp;tmp[<span class="number">0</span>]&lt;<span class="number">8</span>&amp;&amp;tmp[<span class="number">1</span>]&gt;=<span class="number">0</span>&amp;&amp;tmp[<span class="number">1</span>]&lt;<span class="number">8</span>)&#123;</span><br><span class="line">                    it = find(queens.begin(),queens.end(),tmp);  <span class="comment">// 最近用find老是出错</span></span><br><span class="line">                    <span class="keyword">if</span>(it!=queens.end())&#123;</span><br><span class="line">                        res.push_back(tmp);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">break</span>;      </span><br><span class="line">            &#125;                      </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="掷骰子模拟"><a href="#掷骰子模拟" class="headerlink" title="掷骰子模拟"></a>掷骰子模拟</h2><p>有一个骰子模拟器会每次投掷的时候生成一个 1 到 6 的随机数。<br>不过我们在使用它时有个约束，就是使得投掷骰子时，连续 掷出数字 i 的次数不能超过 rollMax[i]（i 从 1 开始编号）。<br>现在，给你一个整数数组 rollMax 和一个整数 n，请你来计算掷 n 次骰子可得到的不同点数序列的数量。<br>假如两个序列中至少存在一个元素不同，就认为这两个序列是不同的。由于答案可能很大，所以请返回 模 10^9 + 7 之后的结果。</p>
 <h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><p>请参考<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvZGljZS1yb2xsLXNpbXVsYXRpb24vZGlzY3Vzcy80MDM3MzYvQ2hpbmVzZUMrKy0xMjIzLg=="> [Chinese/C++] 1223. 【动态规划】有限制的掷骰子（详解）<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="实现1"><a href="#实现1" class="headerlink" title="实现1"></a>实现1</h3><pre><code class="lang-cpp">class Solution{
-    vector&lt;int&gt; rollMax ;
-    typedef long long ll;
-    int dp[5005][6][16];
-    int mod = 1e9+7;
-    ll dfs(int num,int k,int n){
-        if(n==0) return 1;
-        if(dp[n][num][k]!=-1) return dp[n][num][k];
-
-        ll ans =0;
-        for(int i=0;i&lt;6;i++){
-            if(i!=num) ans += dfs(i,1,n-1);
-            else if(k&lt;rollMax[i])   // 注意不能等于,如果等于就不能加一了。
-                ans += dfs(num,k+1,n-1);
-            else ;
-        }
-        return dp[n][num][k]=ans%mod;
-    }
-
-public :
-    int  dieSimulator(int n, vector&lt;int&gt;&amp; rollMax) {
-        this-&gt;rollMax = rollMax;
-        memset(dp,-1,sizeof(dp));
-        return dfs(0,0,n)%mod;
-    }
-};
-</code></pre>
+<h3 id="实现1"><a href="#实现1" class="headerlink" title="实现1"></a>实现1</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>&#123;</span></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; rollMax ;</span><br><span class="line">    <span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line">    <span class="keyword">int</span> dp[<span class="number">5005</span>][<span class="number">6</span>][<span class="number">16</span>];</span><br><span class="line">    <span class="keyword">int</span> mod = <span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line">    <span class="function">ll <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> num,<span class="keyword">int</span> k,<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(dp[n][num][k]!=<span class="number">-1</span>) <span class="keyword">return</span> dp[n][num][k];</span><br><span class="line">        </span><br><span class="line">        ll ans =<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">6</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i!=num) ans += dfs(i,<span class="number">1</span>,n<span class="number">-1</span>);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(k&lt;rollMax[i])   <span class="comment">// 注意不能等于,如果等于就不能加一了。</span></span><br><span class="line">                ans += dfs(num,k+<span class="number">1</span>,n<span class="number">-1</span>);</span><br><span class="line">            <span class="keyword">else</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n][num][k]=ans%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">public</span> :</span><br><span class="line">    <span class="function"><span class="keyword">int</span>  <span class="title">dieSimulator</span><span class="params">(<span class="keyword">int</span> n, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; rollMax)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;rollMax = rollMax;</span><br><span class="line">        <span class="built_in">memset</span>(dp,<span class="number">-1</span>,<span class="keyword">sizeof</span>(dp));</span><br><span class="line">        <span class="keyword">return</span> dfs(<span class="number">0</span>,<span class="number">0</span>,n)%mod;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h3 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h3><p>用一个三维数组表示的话。v[k][i][j]表示第k轮扔出i点的骰子，并且这个点数已经连续出现j次时的序列的个数。<br> 如果下一轮的点数和这一轮最后的点数不同的时候：v[k+1][c][1] += v[k][i][j]<br>如果下一轮的点数和这一轮最后的点数相同并且依然不超过这个点最大的可连续限制的时候：v[k+1][i][j+1] += v[k][i][j]</p>
-<p>不过尝试实现了一下，一直显示结果为0，不清楚为什么。欢迎讨论。</p>
-<pre><code class="lang-cpp">class Solution {
-public:
-    typedef long long ll;
-    int  dieSimulator(int n, vector&lt;int&gt;&amp; rollMax) {
-        int mod = 1e9+7;
-        int dp[5002][8][16]={0};
-        for(int i=0;i&lt;6;i++){
-            dp[1][i][1]=1;
-        }
-        for(int k=2;k&lt;=n;k++){
-            for(int i=0;i&lt;6;i++){
-                for(int j=1;j&lt;k&amp;&amp;j&lt;16;j++){
-                    for(int c=0;c&lt;6;c++){
-                        if(c!=i) dp[k+1][c][1] = (dp[k+1][c][1]+dp[k][i][j])%mod;
-                        else if(j&lt;=rollMax[i]) dp[k+1][i][j+1] = (dp[k+1][i][j+1]+dp[k][i][j])%mod;
-                    }
-                }
-            }
-        }
-        ll res = 0;
-        for(int i=1;i&lt;6;i++){
-            for(int j=1;j&lt;n;j++){
-                res = (res+dp[n][i][j])%mod;
-            }
-        }
-        return res;
-
-    }
-};
-</code></pre>
+<p>不过尝试实现了一下，一直显示结果为0，不清楚为什么。欢迎讨论。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line">    <span class="function"><span class="keyword">int</span>  <span class="title">dieSimulator</span><span class="params">(<span class="keyword">int</span> n, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; rollMax)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> mod = <span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line">        <span class="keyword">int</span> dp[<span class="number">5002</span>][<span class="number">8</span>][<span class="number">16</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">6</span>;i++)&#123;</span><br><span class="line">            dp[<span class="number">1</span>][i][<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">2</span>;k&lt;=n;k++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">6</span>;i++)&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;k&amp;&amp;j&lt;<span class="number">16</span>;j++)&#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> c=<span class="number">0</span>;c&lt;<span class="number">6</span>;c++)&#123;</span><br><span class="line">                        <span class="keyword">if</span>(c!=i) dp[k+<span class="number">1</span>][c][<span class="number">1</span>] = (dp[k+<span class="number">1</span>][c][<span class="number">1</span>]+dp[k][i][j])%mod;</span><br><span class="line">                        <span class="keyword">else</span> <span class="keyword">if</span>(j&lt;=rollMax[i]) dp[k+<span class="number">1</span>][i][j+<span class="number">1</span>] = (dp[k+<span class="number">1</span>][i][j+<span class="number">1</span>]+dp[k][i][j])%mod;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ll res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">6</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;n;j++)&#123;</span><br><span class="line">                res = (res+dp[n][i][j])%mod;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <h2 id="最大相等频率"><a href="#最大相等频率" class="headerlink" title="最大相等频率"></a>最大相等频率</h2><p>给出一个正整数数组 nums，请你帮忙从该数组中找出能满足下面要求的 最长 前缀，并返回其长度：<br>从前缀中 删除一个 元素后，使得所剩下的每个数字的出现次数相同。<br>如果删除这个元素后没有剩余元素存在，仍可认为每个数字都具有相同的出现次数（也就是 0 次）。<br>举个例子<br>输入：nums = [2,2,1,1,5,3,3,5]<br>输出：7<br>解释：对于长度为 7 的子数组 [2,2,1,1,5,3,3]，如果我们从中删去 nums[4]=5，就可以得到[2,2,1,1,3,3]，里面每个数字都出现了两次。</p>
 <h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>参考题解：</p>
 <ul>
@@ -1750,26 +1237,7 @@ public:
 <li>所有数字相同，比如：[7,7,7,7,7]</li>
 </ol>
 <p><strong>对于情况1，4</strong>：1+freq[maxcnt-1]<em>(maxcnt-1)==i+1 其中i为nums的当前索引，等式的意义是 从索引等于0到索引等于i之间的元素个数相等。<br><strong>对于情况2</strong>：1+freq[maxcnt]</em>maxcnt ==i+1 等式意义同上。<br><strong>上述三种情况</strong> 所求结果即此时索引i加1（i&gt;=0&amp;&amp;i&lt;nums.size()）<br><strong>对于情况3</strong>：只需 maxcnt ==1，所求结果即为整个nums的长度。</p>
-<h3 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
-public:
-    int maxEqualFreq(vector&lt;int&gt;&amp; nums) {
-       vector&lt;int&gt; cnt(100003,0),freq(100003,0);
-        int maxcnt = 0,ans = 0;
-        for(int i=0;i&lt;nums.size();i++){
-            int num = nums[i];
-            cnt[num]++;
-
-            freq[cnt[num]]++;
-            maxcnt = max(maxcnt,cnt[num]);
-            // cout &lt;&lt; num &lt;&lt; &quot; &quot; &lt;&lt; cnt[num] &lt;&lt; &quot; &quot; &lt;&lt;  freq[cnt[num]] &lt;&lt; &quot; &quot; &lt;&lt; maxcnt &lt;&lt; endl; 
-            if(1+freq[maxcnt-1]*(maxcnt-1)==i+1||1+freq[maxcnt]*maxcnt==i+1) 
-                ans = i+1;         
-        }
-        if(maxcnt==1) ans = nums.size();
-        return ans;
-    }
-};
-</code></pre>
+<h3 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxEqualFreq</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">       <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; cnt(<span class="number">100003</span>,<span class="number">0</span>),freq(<span class="number">100003</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">int</span> maxcnt = <span class="number">0</span>,ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.size();i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> num = nums[i];</span><br><span class="line">            cnt[num]++;</span><br><span class="line">            </span><br><span class="line">            freq[cnt[num]]++;</span><br><span class="line">            maxcnt = max(maxcnt,cnt[num]);</span><br><span class="line">            <span class="comment">// cout &lt;&lt; num &lt;&lt; " " &lt;&lt; cnt[num] &lt;&lt; " " &lt;&lt;  freq[cnt[num]] &lt;&lt; " " &lt;&lt; maxcnt &lt;&lt; endl; </span></span><br><span class="line">            <span class="keyword">if</span>(<span class="number">1</span>+freq[maxcnt<span class="number">-1</span>]*(maxcnt<span class="number">-1</span>)==i+<span class="number">1</span>||<span class="number">1</span>+freq[maxcnt]*maxcnt==i+<span class="number">1</span>) </span><br><span class="line">                ans = i+<span class="number">1</span>;         </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(maxcnt==<span class="number">1</span>) ans = nums.size();</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>写这次的题解并没有想象中的欢快~</p>
 <p>所以动心忍性，曾益其所不能。</p>
 
@@ -1791,7 +1259,7 @@ public:
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/93ca93cf.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/93ca93cf.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -1854,14 +1322,14 @@ public:
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>6k</span>
+              <span>6.2k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>5 mins.</span>
+              <span>6 mins.</span>
             </span>
 
         </div>
@@ -1876,158 +1344,23 @@ public:
           <p>秋意寂寥，国庆假期归来，”百废待兴”。<br>路漫漫其修远兮，吾将上下而求索。</p>
 <h2 id="题目传送"><a href="#题目传送" class="headerlink" title="题目传送"></a><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vY29udGVzdC93ZWVrbHktY29udGVzdC0xNTcv">题目传送<i class="fa fa-external-link-alt"></i></span></h2><h2 id="玩筹码"><a href="#玩筹码" class="headerlink" title="玩筹码"></a>玩筹码</h2><p>数轴上放置了一些筹码，每个筹码的位置存在数组 chips 当中。<br>你可以对 任何筹码 执行下面两种操作之一（不限操作次数，0 次也可以）：<br>将第 i 个筹码向左或者右移动 2 个单位，代价为 0。<br>将第 i 个筹码向左或者右移动 1 个单位，代价为 1。<br>最开始的时候，同一位置上也可能放着两个或者更多的筹码。<br>返回将所有筹码移动到同一位置（任意位置）上所需要的最小代价。</p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>做的时候看了半天，不会写，后来发现题目理解错了，chips上存放的是筹码的位置，偶数位置跳到偶数位置代价为0，偶数位置跳到奇数位置代价为1，奇数位置跳到奇数位置代价为0，奇数位置跳到偶数位置代价为1，假设奇数位置的筹码数量为 evenN，偶数位置的筹码数量为 oldN，最小代价即为 min(evenN,oldN)</p>
-<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">int minCostToMoveChips(vector&lt;int&gt;&amp; chips) {
-        int even=0,odd=0;
-        for(int &amp;i:chips){
-            if(i%2==0) odd++;
-            else even++;
-        }
-        return min(even,odd);
-
-    }
-</code></pre>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">minCostToMoveChips</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; chips)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> even=<span class="number">0</span>,odd=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> &amp;i:chips)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i%<span class="number">2</span>==<span class="number">0</span>) odd++;</span><br><span class="line">            <span class="keyword">else</span> even++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> min(even,odd);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <h2 id="最长定差子序列"><a href="#最长定差子序列" class="headerlink" title="最长定差子序列"></a>最长定差子序列</h2><p>给你一个整数数组 arr 和一个整数 difference，请你找出 arr 中所有相邻元素之间的差等于给定 difference 的等差子序列，并返回其中最长的等差子序列的长度。<br>举个栗子<br>输入：arr = [1,5,7,8,5,3,4,2,1], difference = -2<br>输出：4<br>解释：最长的等差子序列是 [7,5,3,1]。</p>
 <h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>经典dp问题，不过我的dp确实不熟。<br>首先打个表dp，用arr[i]作为dp的索引，dp[j]表示到j为止存在的等差子序列长度的最大值。<br>状态转移方程如下：dp[arr[i]] = dp[arr[i]-d] + 1</p>
-<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">int longestSubsequence(vector&lt;int&gt;&amp; arr, int difference) {
-        map&lt;int,int&gt; dp;
-        int ans=0;
-        for(int i:arr){
-            dp[i] = dp[i-difference] + 1;
-            ans = max(dp[i],ans);
-        }
-        return ans;
-    }
-</code></pre>
+<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">longestSubsequence</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; arr, <span class="keyword">int</span> difference)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; dp;</span><br><span class="line">        <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i:arr)&#123;</span><br><span class="line">            dp[i] = dp[i-difference] + <span class="number">1</span>;</span><br><span class="line">            ans = max(dp[i],ans);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>没有冗长的代码，真的爱上了这种感觉，写起来真的既轻松又愉快。</p>
 <h2 id="黄金矿工"><a href="#黄金矿工" class="headerlink" title="黄金矿工"></a>黄金矿工</h2><p>你要开发一座金矿，地质勘测学家已经探明了这座金矿中的资源分布，并用大小为 m * n 的网格 grid 进行了标注。每个单元格中的整数就表示这一单元格中的黄金数量；如果该单元格是空的，那么就是 0。<br>为了使收益最大化，矿工需要按以下规则来开采黄金：<br>每当矿工进入一个单元，就会收集该单元格中的所有黄金。<br>矿工每次可以从当前位置向上下左右四个方向走。<br>每个单元格只能被开采（进入）一次。<br>不得开采（进入）黄金数目为 0 的单元格。<br>矿工可以从网格中 任意一个 有黄金的单元格出发或者是停止。</p>
-<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>DFS，其实这里面还是有很多问题要注意一下的，比如dfs函数里的参数tmp不能传引用，而value、visit要传引用，tmp是每次的中间值，每次与value进行比较，用两者的最大值去更新value。<br>另外，leetcode支持c++11，故此代码里用了很多新特性，比如类的属性定义时初始化，vector初始化等，如果要在Dev上跑的话，在文件首部加上下面这一行：</p>
-<pre><code class="lang-cpp">#pragma GCC diagnostic error &quot;-std=c++11&quot;
-</code></pre>
-<h3 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
-public:
-    int dx[4]={0,0,-1,1},dy[4]={-1,1,0,0};
-    void dfs(vector&lt;vector&lt;int&gt;&gt;&amp; grid, int x, int y, int tmp, int&amp; value, vector&lt;vector&lt;bool&gt;&gt;&amp; visit){  // tmp 不能加引用
-        if(grid[x][y]==0) return ;
-        value = max(value,tmp += grid[x][y]);
-        visit[x][y] = true;
-
-        for(int i=0;i&lt;4;i++){
-            int tmpx = x+dx[i],tmpy = y+dy[i];
-            if(tmpx&lt;0||tmpx&gt;=grid.size()||tmpy&lt;0||tmpy&gt;=grid[0].size()) continue; // 注意等号
-            if(grid[tmpx][tmpy]==0||visit[tmpx][tmpy]) continue;
-            dfs(grid,tmpx,tmpy,tmp,value,visit);
-        }
-        visit[x][y] = false;
-    }
-    int getMaximumGold(vector&lt;vector&lt;int&gt;&gt;&amp; grid) {
-        int m=grid.size(), n=grid[0].size(), result = 0;
-        // bool visit[m][n]={0};
-        vector&lt;vector&lt;bool&gt;&gt; visit(m,vector&lt;bool&gt;(n,false)); // init
-        for(int i=0;i&lt;m;i++){
-            for(int j=0;j&lt;n;j++){
-                if(grid[i][j]!=0){
-                    dfs(grid,i,j,0,result,visit);
-                }
-            }
-        }
-        return result;
-    }
-};
-</code></pre>
+<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>DFS，其实这里面还是有很多问题要注意一下的，比如dfs函数里的参数tmp不能传引用，而value、visit要传引用，tmp是每次的中间值，每次与value进行比较，用两者的最大值去更新value。<br>另外，leetcode支持c++11，故此代码里用了很多新特性，比如类的属性定义时初始化，vector初始化等，如果要在Dev上跑的话，在文件首部加上下面这一行：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC diagnostic <span class="meta-keyword">error</span> <span class="meta-string">"-std=c++11"</span></span></span><br></pre></td></tr></table></figure></p>
+<h3 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> dx[<span class="number">4</span>]=&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">1</span>&#125;,dy[<span class="number">4</span>]=&#123;<span class="number">-1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid, <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> tmp, <span class="keyword">int</span>&amp; value, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;&gt;&amp; visit)</span></span>&#123;  <span class="comment">// tmp 不能加引用</span></span><br><span class="line">        <span class="keyword">if</span>(grid[x][y]==<span class="number">0</span>) <span class="keyword">return</span> ;</span><br><span class="line">        value = max(value,tmp += grid[x][y]);</span><br><span class="line">        visit[x][y] = <span class="literal">true</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> tmpx = x+dx[i],tmpy = y+dy[i];</span><br><span class="line">            <span class="keyword">if</span>(tmpx&lt;<span class="number">0</span>||tmpx&gt;=grid.size()||tmpy&lt;<span class="number">0</span>||tmpy&gt;=grid[<span class="number">0</span>].size()) <span class="keyword">continue</span>; <span class="comment">// 注意等号</span></span><br><span class="line">            <span class="keyword">if</span>(grid[tmpx][tmpy]==<span class="number">0</span>||visit[tmpx][tmpy]) <span class="keyword">continue</span>;</span><br><span class="line">            dfs(grid,tmpx,tmpy,tmp,value,visit);</span><br><span class="line">        &#125;</span><br><span class="line">        visit[x][y] = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getMaximumGold</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m=grid.size(), n=grid[<span class="number">0</span>].size(), result = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// bool visit[m][n]=&#123;0&#125;;</span></span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;&gt; visit(m,<span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;(n,<span class="literal">false</span>)); <span class="comment">// init</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(grid[i][j]!=<span class="number">0</span>)&#123;</span><br><span class="line">                    dfs(grid,i,j,<span class="number">0</span>,result,visit);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="统计元音字母序列的数目"><a href="#统计元音字母序列的数目" class="headerlink" title="统计元音字母序列的数目"></a>统计元音字母序列的数目</h2><p>给你一个整数 n，请你帮忙统计一下我们可以按下述规则形成多少个长度为 n 的字符串：<br>字符串中的每个字符都应当是小写元音字母（’a’, ‘e’, ‘i’, ‘o’, ‘u’）<br>每个元音 ‘a’ 后面都只能跟着 ‘e’<br>每个元音 ‘e’ 后面只能跟着 ‘a’ 或者是 ‘i’<br>每个元音 ‘i’ 后面 不能 再跟着另一个 ‘i’<br>每个元音 ‘o’ 后面只能跟着 ‘i’ 或者是 ‘u’<br>每个元音 ‘u’ 后面只能跟着 ‘a’<br>由于答案可能会很大，所以请你返回 模 10^9 + 7 之后的结果。</p>
 <h2 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h2><p>其实就是一个状态转移方程？<br>用dp来记录a,e,i,o,u开头的固定长度的字符串对应的方案个数。<br>初始时dp[i]=1, 其中0&lt;=i&lt;5<br>进行n次循环的ndp状态数组用来记录此时对应的方案个数<br>最重要的是根据题目中的字符串相邻规则，找到状态转移方程。<br><strong>ndp[0] = dp[1];<br>ndp[1] = (dp[0]+dp[2])%mod;<br>ndp[2] = (dp[0]+dp[1]+dp[3]+dp[4])%mod;<br>ndp[3] = (dp[2]+dp[4])%mod;<br>ndp[4] = dp[0];</strong><br>具体实现看实现一，其中数据类型要用long long ，用int会爆掉。</p>
-<h2 id="实现一"><a href="#实现一" class="headerlink" title="实现一"></a>实现一</h2><pre><code class="lang-cpp">class Solution {
-public:
-    typedef long long ll;
-       const int mod = 1e9 + 7;
-    int countVowelPermutation(int n) {
-       ll dp[5]={1,1,1,1,1};
-        ll ndp[5]={0};
-        for(int i=1;i&lt;n;i++){
-            ndp[0] = dp[1];
-            ndp[1] = (dp[0]+dp[2])%mod;
-            ndp[2] = (dp[0]+dp[1]+dp[3]+dp[4])%mod;
-            ndp[3] = (dp[2]+dp[4])%mod;
-            ndp[4] = dp[0];
-            for(int j=0;j&lt;5;j++) dp[j] = ndp[j];
-        }
-        ll ans = 0;
-        for(int i=0;i&lt;5;i++) ans += dp[i];
-        return ans%mod;
-    }
-};
-</code></pre>
+<h2 id="实现一"><a href="#实现一" class="headerlink" title="实现一"></a>实现一</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line">   	<span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countVowelPermutation</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">       ll dp[<span class="number">5</span>]=&#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;;</span><br><span class="line">        ll ndp[<span class="number">5</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">            ndp[<span class="number">0</span>] = dp[<span class="number">1</span>];</span><br><span class="line">            ndp[<span class="number">1</span>] = (dp[<span class="number">0</span>]+dp[<span class="number">2</span>])%mod;</span><br><span class="line">            ndp[<span class="number">2</span>] = (dp[<span class="number">0</span>]+dp[<span class="number">1</span>]+dp[<span class="number">3</span>]+dp[<span class="number">4</span>])%mod;</span><br><span class="line">            ndp[<span class="number">3</span>] = (dp[<span class="number">2</span>]+dp[<span class="number">4</span>])%mod;</span><br><span class="line">            ndp[<span class="number">4</span>] = dp[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">5</span>;j++) dp[j] = ndp[j];</span><br><span class="line">        &#125;</span><br><span class="line">        ll ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++) ans += dp[i];</span><br><span class="line">        <span class="keyword">return</span> ans%mod;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="思路二"><a href="#思路二" class="headerlink" title="思路二"></a>思路二</h2><p>在力扣讨论区看到这样一句话</p>
 <blockquote>
 <p>这个题数据量再大一些就应该采用 矩阵来做运算，并可以通过矩阵快速幂来加速运算</p>
 </blockquote>
 <p>我的第一反应是根据题目中的字符串相邻规则构造一个邻接矩阵，这个时候离散数学就应该派上用场了，思考邻接矩阵的n次幂的意义为何？实际上，求长度为n的字符串实际上就是求邻接矩阵的n-1次幂，这里需要用到矩阵的幂运算，这个时候就可以使用矩阵的快速幂，网上找了个板子，改了改，没想到就过掉了。</p>
-<h2 id="实现二"><a href="#实现二" class="headerlink" title="实现二"></a>实现二</h2><pre><code class="lang-cpp">const int N=5;
-typedef long long ll;
-class Matrix{    //矩阵结构体 
-    public:
-    ll matrix[N][N];
-};
-class Solution {
-public:
-   const int mod = 1e9 + 7;
-    //初始化为单位矩阵 
-   void init(Matrix &amp;res){
-        memset(res.matrix,0,sizeof(res.matrix));
-        for(int i=0;i&lt;N;i++)
-            res.matrix[i][i]=1;
-    }
-    //矩阵乘法
-    Matrix multiplicative(Matrix a,Matrix b){
-        Matrix res;
-        memset(res.matrix,0,sizeof(res.matrix));
-        for(int i = 0 ; i &lt; N ; i++){
-            for(int j = 0 ; j &lt; N ; j++){
-                for(int k = 0 ; k &lt; N ; k++){
-                    res.matrix[i][j] += a.matrix[i][k]*b.matrix[k][j];
-                    res.matrix[i][j] %= mod;
-                }
-            }
-        }
-        return res;
-    }
-    //矩阵快速幂 
-    Matrix Pow(Matrix mx,ll m){
-        Matrix res,base=mx;
-        init(res);
-        while(m){
-            if(m&amp;1)
-            res=multiplicative(res,base);
-            base=multiplicative(base,base);
-            m&gt;&gt;=1;
-        }
-        return res;
-    }
-
-    int countVowelPermutation(int n) {
-        if(n==1) return 5;
-        const int MOD = 1e9+7;
-        Matrix mat;
-        memset(mat.matrix,0,sizeof(mat.matrix));
-        mat.matrix[0][1]=1;
-        mat.matrix[1][0]=1,mat.matrix[1][2]=1;
-        mat.matrix[2][0]=1,mat.matrix[2][1]=1,mat.matrix[2][3]=1,mat.matrix[2][4]=1;
-        mat.matrix[3][2]=1,mat.matrix[3][4]=1;
-        mat.matrix[4][0]=1;
-        Matrix result = Pow(mat,n-1);
-        int ans = 0;
-        for(int i=0;i&lt;N;i++){
-            for(int j=0;j&lt;N;j++){
-                ans += result.matrix[i][j];
-                ans = ans%MOD;  // 这里要取一次余，不然会爆范围
-                // cout &lt;&lt; result.matrix[i][j] &lt;&lt; &quot; &quot;;
-            }
-            cout &lt;&lt; endl;
-        }
-        return ans%MOD;    
-    }
-};
-</code></pre>
+<h2 id="实现二"><a href="#实现二" class="headerlink" title="实现二"></a>实现二</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">5</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Matrix</span>&#123;</span>	<span class="comment">//矩阵结构体 </span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    ll matrix[N][N];</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">   <span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line">    <span class="comment">//初始化为单位矩阵 </span></span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(Matrix &amp;res)</span></span>&#123;</span><br><span class="line">        <span class="built_in">memset</span>(res.matrix,<span class="number">0</span>,<span class="keyword">sizeof</span>(res.matrix));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++)</span><br><span class="line">            res.matrix[i][i]=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//矩阵乘法</span></span><br><span class="line">    <span class="function">Matrix <span class="title">multiplicative</span><span class="params">(Matrix a,Matrix b)</span></span>&#123;</span><br><span class="line">        Matrix res;</span><br><span class="line">        <span class="built_in">memset</span>(res.matrix,<span class="number">0</span>,<span class="keyword">sizeof</span>(res.matrix));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; N ; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span> ; j &lt; N ; j++)&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span> ; k &lt; N ; k++)&#123;</span><br><span class="line">                    res.matrix[i][j] += a.matrix[i][k]*b.matrix[k][j];</span><br><span class="line">                    res.matrix[i][j] %= mod;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//矩阵快速幂 </span></span><br><span class="line">    <span class="function">Matrix <span class="title">Pow</span><span class="params">(Matrix mx,ll m)</span></span>&#123;</span><br><span class="line">        Matrix res,base=mx;</span><br><span class="line">        init(res);</span><br><span class="line">        <span class="keyword">while</span>(m)&#123;</span><br><span class="line">            <span class="keyword">if</span>(m&amp;<span class="number">1</span>)</span><br><span class="line">            res=multiplicative(res,base);</span><br><span class="line">            base=multiplicative(base,base);</span><br><span class="line">            m&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">countVowelPermutation</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">if</span>(n==<span class="number">1</span>) <span class="keyword">return</span> <span class="number">5</span>;</span><br><span class="line">    	<span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line">        Matrix mat;</span><br><span class="line">        <span class="built_in">memset</span>(mat.matrix,<span class="number">0</span>,<span class="keyword">sizeof</span>(mat.matrix));</span><br><span class="line">        mat.matrix[<span class="number">0</span>][<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">        mat.matrix[<span class="number">1</span>][<span class="number">0</span>]=<span class="number">1</span>,mat.matrix[<span class="number">1</span>][<span class="number">2</span>]=<span class="number">1</span>;</span><br><span class="line">        mat.matrix[<span class="number">2</span>][<span class="number">0</span>]=<span class="number">1</span>,mat.matrix[<span class="number">2</span>][<span class="number">1</span>]=<span class="number">1</span>,mat.matrix[<span class="number">2</span>][<span class="number">3</span>]=<span class="number">1</span>,mat.matrix[<span class="number">2</span>][<span class="number">4</span>]=<span class="number">1</span>;</span><br><span class="line">        mat.matrix[<span class="number">3</span>][<span class="number">2</span>]=<span class="number">1</span>,mat.matrix[<span class="number">3</span>][<span class="number">4</span>]=<span class="number">1</span>;</span><br><span class="line">        mat.matrix[<span class="number">4</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">        Matrix result = Pow(mat,n<span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;N;j++)&#123;</span><br><span class="line">                ans += result.matrix[i][j];</span><br><span class="line">                ans = ans%MOD;  <span class="comment">// 这里要取一次余，不然会爆范围</span></span><br><span class="line">                <span class="comment">// cout &lt;&lt; result.matrix[i][j] &lt;&lt; " ";</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans%MOD;    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="感悟"><a href="#感悟" class="headerlink" title="感悟"></a>感悟</h2><p>每写一次周赛题解，都会去看很多大神的代码，学到很多东西，总觉得我的coding水平好像又进步了？ 坏了，是错觉…</p>
 
       
@@ -2181,12 +1514,12 @@ public:
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">157k</span>
+    <span title="Symbols count total">146k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:22</span>
+    <span title="Reading time total">2:13</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>

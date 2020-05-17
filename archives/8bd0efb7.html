@@ -21,14 +21,14 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"sinclaircoder.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="简介 软件模式 软件开发中的重复出现的问题的解决方案，可认为是设计经验，在讨论问题的解决方案时，一种可交流的词汇   设计模式 简言之，就是可重复使用的设计经验，主要还是为了达到优化设计的目的   软件开发中的几个模式 业务领域模式 分析模式 设计模式 Idioms模式   记录设计模式的四个要素 名称 问题 方案 效果   设计模式的起源 软件领域的设计模式起源于建筑学 建筑大师Alexande">
 <meta name="keywords" content="设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式(一)">
-<meta property="og:url" content="https://sinclaircoder.gitee.io/archives/8bd0efb7.html">
+<meta property="og:url" content="https://sinclaircoder.top/archives/8bd0efb7.html">
 <meta property="og:site_name" content="SinclairのBlog">
 <meta property="og:description" content="简介 软件模式 软件开发中的重复出现的问题的解决方案，可认为是设计经验，在讨论问题的解决方案时，一种可交流的词汇   设计模式 简言之，就是可重复使用的设计经验，主要还是为了达到优化设计的目的   软件开发中的几个模式 业务领域模式 分析模式 设计模式 Idioms模式   记录设计模式的四个要素 名称 问题 方案 效果   设计模式的起源 软件领域的设计模式起源于建筑学 建筑大师Alexande">
 <meta property="og:locale" content="en">
@@ -37,7 +37,7 @@
 <meta name="twitter:title" content="设计模式(一)">
 <meta name="twitter:description" content="简介 软件模式 软件开发中的重复出现的问题的解决方案，可认为是设计经验，在讨论问题的解决方案时，一种可交流的词汇   设计模式 简言之，就是可重复使用的设计经验，主要还是为了达到优化设计的目的   软件开发中的几个模式 业务领域模式 分析模式 设计模式 Idioms模式   记录设计模式的四个要素 名称 问题 方案 效果   设计模式的起源 软件领域的设计模式起源于建筑学 建筑大师Alexande">
 
-<link rel="canonical" href="https://sinclaircoder.gitee.io/archives/8bd0efb7.html">
+<link rel="canonical" href="https://sinclaircoder.top/archives/8bd0efb7.html">
 
 
 <script id="page-configurations">
@@ -216,7 +216,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/8bd0efb7.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/8bd0efb7.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -285,7 +285,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>3.4k</span>
+              <span>3.1k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -376,86 +376,13 @@
 </ul>
 </li>
 </ul>
-<pre><code class="lang-java">        // Com.java
-        public interface Com{
-            public abstract int sub(int x,int y);
-        }
-        // ComImp.java
-        class ComImp implements Com{
-            public int sub(int x,int y){
-                return x-y;
-            }
-        }
-        // Application.java
-        public class Application{
-            public static void main(String args[]){
-                Com com;
-                com = new ComImp();
-                int m = com.sub(8,2);
-                system.out.println(m);
-            }
-        }
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Com.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Com</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">int</span> <span class="title">sub</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ComImp.java</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ComImp</span> <span class="keyword">implements</span> <span class="title">Com</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sub</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x-y;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Application.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">        Com com;</span><br><span class="line">        com = <span class="keyword">new</span> ComImp();</span><br><span class="line">        <span class="keyword">int</span> m = com.sub(<span class="number">8</span>,<span class="number">2</span>);</span><br><span class="line">        system.out.println(m);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>所谓面向抽象编程，是指设计一个类的时候，不让该类面向具体的类，而是面向抽象类或接口，即所设计类中的重要数据是抽象类或接口声明的变量，而不是具体类声明的变量</p>
 <p>举个例子，计算一个柱体的体积。</p>
 </li>
 </ul>
-<pre><code class="lang-java">    // Geometry.java
-    public abstract class Geometry {
-        public abstract double getArea();
-    }
-    // Pillar.java
-    public class Pillar {
-        private  Geometry bottom; // 抽象类
-        private  double height;
-        Pillar(Geometry bottom,double height){
-            this.bottom = bottom;
-            this.height = height;
-        }
-        public double getVolume(){
-            return bottom.getArea()*height;  // bottom可以调用子类重写的getArea方法
-        }
-    }
-    // Circle.java
-    public class Circle extends Geometry {
-        private double r;
-        Circle(double r){
-            this.r = r;
-        }
-        @Override
-        public double getArea() {
-            return Math.PI*r*r;
-        }
-    }
-    // Rectangle.java
-    public class Rectangle extends Geometry {
-        private double a,b;
-
-        public Rectangle(double a, double b) {
-            this.a = a;
-            this.b = b;
-        }
-
-        @Override
-        public double getArea() {
-            return a*b;
-        }
-    }
-    // Application.java
-    public class Application {
-        public static void main(String[] args) {
-            Pillar pillar;
-            Geometry bottom;
-            bottom = new Rectangle(12,22);
-            pillar = new Pillar(bottom,58);
-            System.out.println(&quot;矩形底的体积为：&quot;+pillar.getVolume());
-            bottom = new Circle(10);
-            pillar = new Pillar(bottom,58);
-            System.out.println(&quot;圆形底的体积为：&quot;+pillar.getVolume());
-        }
-    }
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Geometry.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Geometry</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">double</span> <span class="title">getArea</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Pillar.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Pillar</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span>  Geometry bottom; <span class="comment">// 抽象类</span></span><br><span class="line">    <span class="keyword">private</span>  <span class="keyword">double</span> height;</span><br><span class="line">    Pillar(Geometry bottom,<span class="keyword">double</span> height)&#123;</span><br><span class="line">        <span class="keyword">this</span>.bottom = bottom;</span><br><span class="line">        <span class="keyword">this</span>.height = height;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getVolume</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> bottom.getArea()*height;  <span class="comment">// bottom可以调用子类重写的getArea方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Circle.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Circle</span> <span class="keyword">extends</span> <span class="title">Geometry</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> r;</span><br><span class="line">    Circle(<span class="keyword">double</span> r)&#123;</span><br><span class="line">        <span class="keyword">this</span>.r = r;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getArea</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Math.PI*r*r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Rectangle.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> <span class="keyword">extends</span> <span class="title">Geometry</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> a,b;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.a = a;</span><br><span class="line">        <span class="keyword">this</span>.b = b;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getArea</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a*b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Application.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Pillar pillar;</span><br><span class="line">        Geometry bottom;</span><br><span class="line">        bottom = <span class="keyword">new</span> Rectangle(<span class="number">12</span>,<span class="number">22</span>);</span><br><span class="line">        pillar = <span class="keyword">new</span> Pillar(bottom,<span class="number">58</span>);</span><br><span class="line">        System.out.println(<span class="string">"矩形底的体积为："</span>+pillar.getVolume());</span><br><span class="line">        bottom = <span class="keyword">new</span> Circle(<span class="number">10</span>);</span><br><span class="line">        pillar = <span class="keyword">new</span> Pillar(bottom,<span class="number">58</span>);</span><br><span class="line">        System.out.println(<span class="string">"圆形底的体积为："</span>+pillar.getVolume());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>开-闭原则</p>
 <ul>
@@ -522,7 +449,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://sinclaircoder.gitee.io/archives/8bd0efb7.html" title="设计模式(一)">https://sinclaircoder.gitee.io/archives/8bd0efb7.html</a>
+    <a href="https://sinclaircoder.top/archives/8bd0efb7.html" title="设计模式(一)">https://sinclaircoder.top/archives/8bd0efb7.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
@@ -547,8 +474,8 @@
       <i class="fa fa-chevron-left"></i> 蛮力法求解幂集问题
     </a></div>
       <div class="post-nav-item">
-    <a href="/archives/5656ce34.html" rel="next" title="修改Jupyter Notebook的默认存储路径">
-      修改Jupyter Notebook的默认存储路径 <i class="fa fa-chevron-right"></i>
+    <a href="/archives/e4cda359.html" rel="next" title="LeetCodeWeeklyContest-156">
+      LeetCodeWeeklyContest-156 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -691,12 +618,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">157k</span>
+    <span title="Symbols count total">146k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:22</span>
+    <span title="Reading time total">2:13</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>

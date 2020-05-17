@@ -21,23 +21,23 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"sinclaircoder.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="题目描述输入2个字符串S1和S2，要求删除字符串S1中出现的所有子串S2，即结果字符串中不能包含S2。 输入格式：输入在2行中分别给出不超过80个字符长度的、以回车结束的2个非空字符串，对应S1和S2。 输出格式：在一行中输出删除字符串S1中出现的所有子串S2后的结果字符串。 输入样例： Tomcat is a male ccatatcat  输出样例： Tom is a male   实现#in">
+  <meta name="description" content="题目描述输入2个字符串S1和S2，要求删除字符串S1中出现的所有子串S2，即结果字符串中不能包含S2。 输入格式：输入在2行中分别给出不超过80个字符长度的、以回车结束的2个非空字符串，对应S1和S2。 输出格式：在一行中输出删除字符串S1中出现的所有子串S2后的结果字符串。 输入样例： Tomcat is a male ccatatcat  输出样例： Tom is a male   实现123">
 <meta name="keywords" content="PTA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PTA-删除字符串中的子串">
-<meta property="og:url" content="https://sinclaircoder.gitee.io/archives/e8f904a2.html">
+<meta property="og:url" content="https://sinclaircoder.top/archives/e8f904a2.html">
 <meta property="og:site_name" content="SinclairのBlog">
-<meta property="og:description" content="题目描述输入2个字符串S1和S2，要求删除字符串S1中出现的所有子串S2，即结果字符串中不能包含S2。 输入格式：输入在2行中分别给出不超过80个字符长度的、以回车结束的2个非空字符串，对应S1和S2。 输出格式：在一行中输出删除字符串S1中出现的所有子串S2后的结果字符串。 输入样例： Tomcat is a male ccatatcat  输出样例： Tom is a male   实现#in">
+<meta property="og:description" content="题目描述输入2个字符串S1和S2，要求删除字符串S1中出现的所有子串S2，即结果字符串中不能包含S2。 输入格式：输入在2行中分别给出不超过80个字符长度的、以回车结束的2个非空字符串，对应S1和S2。 输出格式：在一行中输出删除字符串S1中出现的所有子串S2后的结果字符串。 输入样例： Tomcat is a male ccatatcat  输出样例： Tom is a male   实现123">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2020-05-17T16:41:40.134Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PTA-删除字符串中的子串">
-<meta name="twitter:description" content="题目描述输入2个字符串S1和S2，要求删除字符串S1中出现的所有子串S2，即结果字符串中不能包含S2。 输入格式：输入在2行中分别给出不超过80个字符长度的、以回车结束的2个非空字符串，对应S1和S2。 输出格式：在一行中输出删除字符串S1中出现的所有子串S2后的结果字符串。 输入样例： Tomcat is a male ccatatcat  输出样例： Tom is a male   实现#in">
+<meta name="twitter:description" content="题目描述输入2个字符串S1和S2，要求删除字符串S1中出现的所有子串S2，即结果字符串中不能包含S2。 输入格式：输入在2行中分别给出不超过80个字符长度的、以回车结束的2个非空字符串，对应S1和S2。 输出格式：在一行中输出删除字符串S1中出现的所有子串S2后的结果字符串。 输入样例： Tomcat is a male ccatatcat  输出样例： Tom is a male   实现123">
 
-<link rel="canonical" href="https://sinclaircoder.gitee.io/archives/e8f904a2.html">
+<link rel="canonical" href="https://sinclaircoder.top/archives/e8f904a2.html">
 
 
 <script id="page-configurations">
@@ -216,7 +216,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/e8f904a2.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/e8f904a2.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -285,7 +285,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>798</span>
+              <span>789</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -313,36 +313,7 @@
 <h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote>
 <p>Tom is a male </p>
 </blockquote>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-#include&lt;vector&gt;
-#include&lt;algorithm&gt;
-#include&lt;stack&gt;
-#include&lt;map&gt;
-#include&lt;cmath&gt;
-
-using namespace std;
-typedef long long ll; 
-#define rep(i,m,n) for(int i=m;i&lt;n;i++)
-#define rep1(i,m,n) for(int i=m;i&gt;=n;i--)
-#define pb push_back
-
-// 主要是练习一下 string里的find()函数和erase()函数的使用
-
-int main(){
-    string s;
-    getline(cin,s);
-    string del;
-    getline(cin,del);
-    unsigned int n = s.find(del,0);
-    while(n!=-1){
-        s.erase(n,del.length());
-        n = s.find(del,0);
-    }
-    cout &lt;&lt; s;
-    return 0;
-}
-</code></pre>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll; </span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,m,n) for(int i=m;i&lt;n;i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep1(i,m,n) for(int i=m;i&gt;=n;i--)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 主要是练习一下 string里的find()函数和erase()函数的使用</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> s;</span><br><span class="line">    getline(<span class="built_in">cin</span>,s);</span><br><span class="line">    <span class="built_in">string</span> del;</span><br><span class="line">    getline(<span class="built_in">cin</span>,del);</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> n = s.find(del,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">while</span>(n!=<span class="number">-1</span>)&#123;</span><br><span class="line">        s.erase(n,del.length());</span><br><span class="line">        n = s.find(del,<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; s;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -356,13 +327,13 @@ int main(){
       <div class="popular-posts-title"><a href="\archives\4a790494.html" rel="bookmark">PTA列车调度</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\archives\4669f0d5.html" rel="bookmark">PTA列出连通集(DFS+BFS)</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\archives\8ce6deb1.html" rel="bookmark">PTA汉密尔顿回路</a></div>
+      <div class="popular-posts-title"><a href="\archives\9c6e9d96.html" rel="bookmark">PTA朋友圈(并查集)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\archives\f029cec1.html" rel="bookmark">PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\archives\8ce6deb1.html" rel="bookmark">PTA汉密尔顿回路</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\archives\f76e7172.html" rel="bookmark">PTA小字辈（BFS）</a></div>
@@ -398,7 +369,7 @@ int main(){
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://sinclaircoder.gitee.io/archives/e8f904a2.html" title="PTA-删除字符串中的子串">https://sinclaircoder.gitee.io/archives/e8f904a2.html</a>
+    <a href="https://sinclaircoder.top/archives/e8f904a2.html" title="PTA-删除字符串中的子串">https://sinclaircoder.top/archives/e8f904a2.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
@@ -567,12 +538,12 @@ int main(){
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">157k</span>
+    <span title="Symbols count total">146k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:22</span>
+    <span title="Reading time total">2:13</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>

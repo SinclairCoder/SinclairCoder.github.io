@@ -21,14 +21,14 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"sinclaircoder.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="找个大数乘法的题目练习一下 BigInterger的使用  当两个比较大的整数相乘时，可能会出现数据溢出的情形。为避免溢出，可以采用字符串的方法来实现两个大数之间的乘法。具体来说，首先以字符串的形式输入两个整数，每个整数的长度不会超过8位，然后把它们相乘的结果存储在另一个字符串当中（长度不会超过16位），最后把这个字符串打印出来。例如，假设用户输入为：62773417和12345678，则输出结果">
-<meta name="keywords" content="BigInteger,蓝桥杯">
+<meta name="keywords" content="蓝桥杯,BigInteger">
 <meta property="og:type" content="article">
 <meta property="og:title" content="大数乘法 java BigInteger的使用">
-<meta property="og:url" content="https://sinclaircoder.gitee.io/archives/6a744e70.html">
+<meta property="og:url" content="https://sinclaircoder.top/archives/6a744e70.html">
 <meta property="og:site_name" content="SinclairのBlog">
 <meta property="og:description" content="找个大数乘法的题目练习一下 BigInterger的使用  当两个比较大的整数相乘时，可能会出现数据溢出的情形。为避免溢出，可以采用字符串的方法来实现两个大数之间的乘法。具体来说，首先以字符串的形式输入两个整数，每个整数的长度不会超过8位，然后把它们相乘的结果存储在另一个字符串当中（长度不会超过16位），最后把这个字符串打印出来。例如，假设用户输入为：62773417和12345678，则输出结果">
 <meta property="og:locale" content="en">
@@ -37,7 +37,7 @@
 <meta name="twitter:title" content="大数乘法 java BigInteger的使用">
 <meta name="twitter:description" content="找个大数乘法的题目练习一下 BigInterger的使用  当两个比较大的整数相乘时，可能会出现数据溢出的情形。为避免溢出，可以采用字符串的方法来实现两个大数之间的乘法。具体来说，首先以字符串的形式输入两个整数，每个整数的长度不会超过8位，然后把它们相乘的结果存储在另一个字符串当中（长度不会超过16位），最后把这个字符串打印出来。例如，假设用户输入为：62773417和12345678，则输出结果">
 
-<link rel="canonical" href="https://sinclaircoder.gitee.io/archives/6a744e70.html">
+<link rel="canonical" href="https://sinclaircoder.top/archives/6a744e70.html">
 
 
 <script id="page-configurations">
@@ -216,7 +216,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/6a744e70.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/6a744e70.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -285,7 +285,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>843</span>
+              <span>800</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -317,22 +317,7 @@
 <p>774980393241726</p>
 </blockquote>
 <p>代码实现</p>
-<pre><code class="lang-java">import java.math.BigInteger;
-import java.util.Scanner;
-
-public class Main {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        String str1 = input.next(),str2 = input.next();
-        BigInteger num1 = new BigInteger(str1);
-        BigInteger num2 = new BigInteger(str2);
-        BigInteger res = num1.multiply(num2);
-        System.out.println(res.toString());
-        input.close();
-    }
-
-}
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.BigInteger;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		String str1 = input.next(),str2 = input.next();</span><br><span class="line">		BigInteger num1 = <span class="keyword">new</span> BigInteger(str1);</span><br><span class="line">		BigInteger num2 = <span class="keyword">new</span> BigInteger(str2);</span><br><span class="line">		BigInteger res = num1.multiply(num2);</span><br><span class="line">		System.out.println(res.toString());</span><br><span class="line">		input.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>比C/C++实现起来爽很多。<br>一般来说BigInteger是使用String类型进行构造，传入两个个数字字符串，然后进行加减乘除。<br>java中并没有重载运算符这种操作，只能另外实现封装成新的函数。</p>
 <p>一些常用API请参考<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3N1eWViaXViaXUvYXJ0aWNsZS9kZXRhaWxzLzc4NTExNTU2">java基础-BigInteger的使用<i class="fa fa-external-link-alt"></i></span></p>
 
@@ -348,9 +333,6 @@ public class Main {
       <div class="popular-posts-title"><a href="\archives\f8453555.html" rel="bookmark">2019蓝桥杯校内选拔赛题解</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\archives\257addcb.html" rel="bookmark">熊怪吃核桃--二进制的使用</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\archives\8ebca082.html" rel="bookmark">蓝桥杯集训笔记</a></div>
     </li>
     <li class="popular-posts-item">
@@ -358,6 +340,9 @@ public class Main {
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\archives\7bffbf73.html" rel="bookmark">黄金连分数--BigDecimal的使用</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\archives\257addcb.html" rel="bookmark">熊怪吃核桃--二进制的使用</a></div>
     </li>
   </ul>
 
@@ -390,7 +375,7 @@ public class Main {
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://sinclaircoder.gitee.io/archives/6a744e70.html" title="大数乘法 java BigInteger的使用">https://sinclaircoder.gitee.io/archives/6a744e70.html</a>
+    <a href="https://sinclaircoder.top/archives/6a744e70.html" title="大数乘法 java BigInteger的使用">https://sinclaircoder.top/archives/6a744e70.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
@@ -402,8 +387,8 @@ public class Main {
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/BigInteger/" rel="tag"><i class="fa fa-tag"></i> BigInteger</a>
               <a href="/tags/蓝桥杯/" rel="tag"><i class="fa fa-tag"></i> 蓝桥杯</a>
+              <a href="/tags/BigInteger/" rel="tag"><i class="fa fa-tag"></i> BigInteger</a>
           </div>
 
         
@@ -412,12 +397,12 @@ public class Main {
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/archives/257addcb.html" rel="prev" title="熊怪吃核桃--二进制的使用">
-      <i class="fa fa-chevron-left"></i> 熊怪吃核桃--二进制的使用
+    <a href="/archives/b0be8873.html" rel="prev" title="SQLServer配置管理器打开SQLServer服务&&远程过程调用失败问题">
+      <i class="fa fa-chevron-left"></i> SQLServer配置管理器打开SQLServer服务&&远程过程调用失败问题
     </a></div>
       <div class="post-nav-item">
-    <a href="/archives/8ebca082.html" rel="next" title="蓝桥杯集训笔记">
-      蓝桥杯集训笔记 <i class="fa fa-chevron-right"></i>
+    <a href="/archives/7bffbf73.html" rel="next" title="黄金连分数--BigDecimal的使用">
+      黄金连分数--BigDecimal的使用 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -559,12 +544,12 @@ public class Main {
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">157k</span>
+    <span title="Symbols count total">146k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:22</span>
+    <span title="Reading time total">2:13</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>

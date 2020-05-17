@@ -21,14 +21,14 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"sinclaircoder.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="简单的线性回归以某产品的温度和产率关系为例，其中产率(y)是温度(x)的函数。请构建模型预测产品产率。     温度 产率     100 45   110 51   120 54   130 61   140 66   150 70   160 74   170 78   180 85   190 89     首先，我们可以先把数据可视化，画个散点图出来。根据散点图可知，数据基本上都在一条直线">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习之线性回归">
-<meta property="og:url" content="https://sinclaircoder.gitee.io/archives/67f167a0.html">
+<meta property="og:url" content="https://sinclaircoder.top/archives/67f167a0.html">
 <meta property="og:site_name" content="SinclairのBlog">
 <meta property="og:description" content="简单的线性回归以某产品的温度和产率关系为例，其中产率(y)是温度(x)的函数。请构建模型预测产品产率。     温度 产率     100 45   110 51   120 54   130 61   140 66   150 70   160 74   170 78   180 85   190 89     首先，我们可以先把数据可视化，画个散点图出来。根据散点图可知，数据基本上都在一条直线">
 <meta property="og:locale" content="en">
@@ -41,7 +41,7 @@
 <meta name="twitter:description" content="简单的线性回归以某产品的温度和产率关系为例，其中产率(y)是温度(x)的函数。请构建模型预测产品产率。     温度 产率     100 45   110 51   120 54   130 61   140 66   150 70   160 74   170 78   180 85   190 89     首先，我们可以先把数据可视化，画个散点图出来。根据散点图可知，数据基本上都在一条直线">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190816215147426.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="https://sinclaircoder.gitee.io/archives/67f167a0.html">
+<link rel="canonical" href="https://sinclaircoder.top/archives/67f167a0.html">
 
 
 <script id="page-configurations">
@@ -220,7 +220,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/67f167a0.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/67f167a0.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -289,7 +289,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.9k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -362,16 +362,7 @@
 </table>
 </div>
 <p>首先，我们可以先把数据可视化，画个散点图出来。<br><img src="https://img-blog.csdnimg.cn/20190816215147426.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="温度产率线性回归散点图"><br>根据散点图可知，数据基本上都在一条直线上，我们可以用一条直线去拟合。</p>
-<h2 id="正规方程求解"><a href="#正规方程求解" class="headerlink" title="正规方程求解"></a>正规方程求解</h2><script type="math/tex; mode=display">\theta=(X^TX)^{-1}X^TY</script><pre><code class="lang-matlab">function [ theta ] = linearReg( )
-% 线性回归正规方程求解
-% 用130、190作为测试集
-train = 8;
-X = [1 100;1  110;1  120;1  140;1  150;1  160;1  170;1  180;] 
-Y = [45; 51 ;54 ;66; 70; 74 ;78; 85];
-A = inv(X&#39;*X);
-theta = A*X&#39;*Y;
-end
-</code></pre>
+<h2 id="正规方程求解"><a href="#正规方程求解" class="headerlink" title="正规方程求解"></a>正规方程求解</h2><script type="math/tex; mode=display">\theta=(X^TX)^{-1}X^TY</script><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[ theta ]</span> = <span class="title">linearReg</span><span class="params">( )</span></span></span><br><span class="line"><span class="comment">% 线性回归正规方程求解</span></span><br><span class="line"><span class="comment">% 用130、190作为测试集</span></span><br><span class="line">train = <span class="number">8</span>;</span><br><span class="line">X = [<span class="number">1</span> <span class="number">100</span>;<span class="number">1</span>  <span class="number">110</span>;<span class="number">1</span>  <span class="number">120</span>;<span class="number">1</span>  <span class="number">140</span>;<span class="number">1</span>  <span class="number">150</span>;<span class="number">1</span>  <span class="number">160</span>;<span class="number">1</span>  <span class="number">170</span>;<span class="number">1</span>  <span class="number">180</span>;] </span><br><span class="line">Y = [<span class="number">45</span>; <span class="number">51</span> ;<span class="number">54</span> ;<span class="number">66</span>; <span class="number">70</span>; <span class="number">74</span> ;<span class="number">78</span>; <span class="number">85</span>];</span><br><span class="line">A = inv(X'*X);</span><br><span class="line">theta = A*X'*Y;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <p>解得：</p>
 <script type="math/tex; mode=display">\theta=\begin{pmatrix} -3.1507 \\  0.4851 \end{pmatrix}</script><p>散点图拟合情况如下：<br><img src="https://img-blog.csdnimg.cn/20190817145220145.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="正规方程求解"></p>
 <blockquote>
@@ -379,39 +370,9 @@ end
 </blockquote>
 <h2 id="梯度下降求解"><a href="#梯度下降求解" class="headerlink" title="梯度下降求解"></a>梯度下降求解</h2><p>假设函数：<script type="math/tex">h_\theta(x)=\theta_0+\theta_1x</script><br>代价函数：</p>
 <script type="math/tex; mode=display">J(\theta_0 ,\theta_1)= \frac{1} {2m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2</script><p>梯度下降：(同步更新)</p>
-<script type="math/tex; mode=display">temp_0 = \theta_0- \alpha \frac{\partial} {\partial \theta_0}J(\theta_0 ,\theta_1)</script><script type="math/tex; mode=display">temp_1 = \theta_1- \alpha \frac{\partial} {\partial \theta_1}J(\theta_0 ,\theta_1)</script><script type="math/tex; mode=display">\theta_0 = temp_0</script><script type="math/tex; mode=display">\theta_1 = temp_1</script><p>假设函数</p>
-<pre><code class="lang-matlab">function [ res ] = h_func(inputx,theta )
-% 预测函数
-res = theta(1)+theta(2)*inputx;
-end
-</code></pre>
-<p>代价函数</p>
-<pre><code class="lang-matlab">function [ jVal,gradient ] = costFunction2( theta )
-% jVal 为 代价值 gradient为梯度
-% cost function
-% 用130、190作为测试集
-x = [100 110 120  140  150  160  170  180] 
-y = [45 51 54 66 70 74 78 85];
-m = size(x,1);  % size(x) = [1 8] size(x,1) 表示获取x的行 
-hypothesis = h_func(x,theta); 
-delta = hypothesis - y; % 预测误差 向量
-jVal= sum(delta.^2);  % 损失函数
-gradient(1) = sum(delta)/m;
-gradient(2) = sum(delta.*x)/m;
-end
-</code></pre>
-<p>梯度下降</p>
-<pre><code class="lang-matlab">function [ optTheta,functionVal,exitFlag ] = Gradient_descent()
-% 梯度下降
-% fminunc 非线性优化
-% 找到min f(x) 的 x f(x)是一个返回值为标量的函数，x是一个向量或矩阵 
-% options 配置选项，&#39;GradObj&#39; &#39;on&#39;  表示使用自定义的梯度下降函数，&#39;MaxIter&#39;,1000 表示最大迭代次数
-options = optimset(&#39;GradObj&#39;,&#39;on&#39;,&#39;MaxIter&#39;,1000);
-% 需要返回的参数， 需要初始化
-initialTheta = zeros(2,1);
-[optTheta,functionVal,exitFlag] = fminunc(@costFunction2,initialTheta,options); 
-end
-</code></pre>
+<script type="math/tex; mode=display">temp_0 = \theta_0- \alpha \frac{\partial} {\partial \theta_0}J(\theta_0 ,\theta_1)</script><script type="math/tex; mode=display">temp_1 = \theta_1- \alpha \frac{\partial} {\partial \theta_1}J(\theta_0 ,\theta_1)</script><script type="math/tex; mode=display">\theta_0 = temp_0</script><script type="math/tex; mode=display">\theta_1 = temp_1</script><p>假设函数<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[ res ]</span> = <span class="title">h_func</span><span class="params">(inputx,theta )</span></span></span><br><span class="line"><span class="comment">% 预测函数</span></span><br><span class="line">res = theta(<span class="number">1</span>)+theta(<span class="number">2</span>)*inputx;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<p>代价函数<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[ jVal,gradient ]</span> = <span class="title">costFunction2</span><span class="params">( theta )</span></span></span><br><span class="line"><span class="comment">% jVal 为 代价值 gradient为梯度</span></span><br><span class="line"><span class="comment">% cost function</span></span><br><span class="line"><span class="comment">% 用130、190作为测试集</span></span><br><span class="line">x = [<span class="number">100</span> <span class="number">110</span> <span class="number">120</span>  <span class="number">140</span>  <span class="number">150</span>  <span class="number">160</span>  <span class="number">170</span>  <span class="number">180</span>] </span><br><span class="line">y = [<span class="number">45</span> <span class="number">51</span> <span class="number">54</span> <span class="number">66</span> <span class="number">70</span> <span class="number">74</span> <span class="number">78</span> <span class="number">85</span>];</span><br><span class="line">m = <span class="built_in">size</span>(x,<span class="number">1</span>);  <span class="comment">% size(x) = [1 8] size(x,1) 表示获取x的行 </span></span><br><span class="line">hypothesis = h_func(x,theta); </span><br><span class="line">delta = hypothesis - y; <span class="comment">% 预测误差 向量</span></span><br><span class="line">jVal= sum(delta.^<span class="number">2</span>);  <span class="comment">% 损失函数</span></span><br><span class="line">gradient(<span class="number">1</span>) = sum(delta)/m;</span><br><span class="line">gradient(<span class="number">2</span>) = sum(delta.*x)/m;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<p>梯度下降<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[ optTheta,functionVal,exitFlag ]</span> = <span class="title">Gradient_descent</span><span class="params">()</span></span></span><br><span class="line"><span class="comment">% 梯度下降</span></span><br><span class="line"><span class="comment">% fminunc 非线性优化</span></span><br><span class="line"><span class="comment">% 找到min f(x) 的 x f(x)是一个返回值为标量的函数，x是一个向量或矩阵 </span></span><br><span class="line"><span class="comment">% options 配置选项，'GradObj' 'on'  表示使用自定义的梯度下降函数，'MaxIter',1000 表示最大迭代次数</span></span><br><span class="line">options = optimset(<span class="string">'GradObj'</span>,<span class="string">'on'</span>,<span class="string">'MaxIter'</span>,<span class="number">1000</span>);</span><br><span class="line"><span class="comment">% 需要返回的参数， 需要初始化</span></span><br><span class="line">initialTheta = <span class="built_in">zeros</span>(<span class="number">2</span>,<span class="number">1</span>);</span><br><span class="line">[optTheta,functionVal,exitFlag] = fminunc(@costFunction2,initialTheta,options); </span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
 <p>运行结果：</p>
 <script type="math/tex; mode=display">optTheta = \begin{pmatrix} -3.1507 \\0.4851  \end{pmatrix}</script><script type="math/tex; mode=display">functionVal = 6.1996</script><p>可见利用正规方程和梯度下降求解出来的参数一样<br><img src="https://img-blog.csdnimg.cn/20190817154210865.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="梯度下降"><br>未完，待续…</p>
 
@@ -451,7 +412,7 @@ end
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://sinclaircoder.gitee.io/archives/67f167a0.html" title="机器学习之线性回归">https://sinclaircoder.gitee.io/archives/67f167a0.html</a>
+    <a href="https://sinclaircoder.top/archives/67f167a0.html" title="机器学习之线性回归">https://sinclaircoder.top/archives/67f167a0.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
@@ -620,12 +581,12 @@ end
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">157k</span>
+    <span title="Symbols count total">146k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:22</span>
+    <span title="Reading time total">2:13</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>

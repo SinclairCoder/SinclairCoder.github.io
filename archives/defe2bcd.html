@@ -21,14 +21,14 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"sinclaircoder.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="定义 图G由两个集合V和E组成，记为G=(V,E)，其中V是顶点的有限集合，记为V(G), E是连接V中两个不同顶点（顶点对）的边的有限集合，记为E(G)">
 <meta name="keywords" content="数据结构与算法训练,图算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构-图-基本运算">
-<meta property="og:url" content="https://sinclaircoder.gitee.io/archives/defe2bcd.html">
+<meta property="og:url" content="https://sinclaircoder.top/archives/defe2bcd.html">
 <meta property="og:site_name" content="SinclairのBlog">
 <meta property="og:description" content="定义 图G由两个集合V和E组成，记为G=(V,E)，其中V是顶点的有限集合，记为V(G), E是连接V中两个不同顶点（顶点对）的边的有限集合，记为E(G)">
 <meta property="og:locale" content="en">
@@ -39,7 +39,7 @@
 <meta name="twitter:description" content="定义 图G由两个集合V和E组成，记为G=(V,E)，其中V是顶点的有限集合，记为V(G), E是连接V中两个不同顶点（顶点对）的边的有限集合，记为E(G)">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190616164453437.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="https://sinclaircoder.gitee.io/archives/defe2bcd.html">
+<link rel="canonical" href="https://sinclaircoder.top/archives/defe2bcd.html">
 
 
 <script id="page-configurations">
@@ -218,7 +218,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/defe2bcd.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/defe2bcd.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -287,14 +287,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>5.6k</span>
+              <span>4.7k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>5 mins.</span>
+              <span>4 mins.</span>
             </span>
 
         </div>
@@ -315,250 +315,15 @@
 <li>十字链表</li>
 <li>邻接多重表</li>
 </ul>
-<h2 id="结构体定义"><a href="#结构体定义" class="headerlink" title="结构体定义"></a>结构体定义</h2><pre><code class="lang-c">#include&lt;iostream&gt;
-#include&lt;stdlib.h&gt;
-#include&lt;deque&gt;
-using namespace std;
-#define MAXV 100 
-#define INF 32767
-typedef struct {
-    int num; // 序号
-    int data;
-}VertexType; // 顶点类型
-
-typedef struct {
-    int edges[MAXV][MAXV]; // 邻接矩阵数组
-    int n,e; // 顶点数，边数
-    VertexType vertex[MAXV]; // 顶点
-}MatGraph;
-
-// 图的邻接表表示
-typedef struct ANode {    //边结点类型
-    int adjvex;             //该边邻接点编号 
-    struct ANode *nextarc;
-    int weight;
-}ArcNode;                
-
-typedef struct Vnode{   // 头结点类型
-    VertexType data;  // 顶点信息
-    int count;     // 增加数据域：存放顶点入度
-    ArcNode *firstarc;
-}VNode;
-typedef struct {
-    VNode adjlist[MAXV];
-    int n;
-    int e;
-}AdjGraph;  // 用一个头节点数组构造的图
-</code></pre>
-<h2 id="邻接表创建图"><a href="#邻接表创建图" class="headerlink" title="邻接表创建图"></a>邻接表创建图</h2><pre><code class="lang-c">// 用邻接表创建图 
-void CreateAdj(AdjGraph *&amp;G,int A[MAXV][MAXV], int n, int e)
-{
-    int i,j;
-    ArcNode* p;
-    G = (AdjGraph*)malloc(sizeof(AdjGraph));
-    for(i=0;i&lt;n;i++)
-        G-&gt;adjlist[i].firstarc = NULL;
-    for(i=0;i&lt;n;i++)
-        for(j=n-1;j&gt;=0;j--)
-        {
-            if(A[i][j] !=0&amp;&amp;A[i][j]!=INF)
-            {
-                p = (ArcNode*)malloc(sizeof(ArcNode));
-                p-&gt;adjvex = j;
-                p-&gt;weight = A[i][j];
-                p-&gt;nextarc = G-&gt;adjlist[i].firstarc;
-                G-&gt;adjlist[i].firstarc = p;         
-            }    
-        }
-    G-&gt;n = n , G-&gt;e = e;
-}
-</code></pre>
-<h2 id="输出图G"><a href="#输出图G" class="headerlink" title="输出图G"></a>输出图G</h2><pre><code class="lang-c">//  输出图G
-void DispAdj(AdjGraph *G)
-{
-    int i;
-    ArcNode *p;
-    for(i=0;i&lt;G-&gt;n;i++)
-    {
-        p = G-&gt;adjlist[i].firstarc;
-        printf(&quot;%3d:&quot;,i);
-        while(p!=NULL)
-        {
-            printf(&quot;%3d[%d]-&gt;&quot;,p-&gt;adjvex,p-&gt;weight);
-            p = p-&gt;nextarc;
-        }
-        cout &lt;&lt; &quot;^\n&quot;;
-    }
-}
-</code></pre>
-<h2 id="销毁图"><a href="#销毁图" class="headerlink" title="销毁图"></a>销毁图</h2><pre><code class="lang-c">// 销毁图
-void DestroyAdj(AdjGraph *&amp;G)
-{
-    int i;
-    ArcNode *pre, *p;
-    for(i=0;i&lt;G-&gt;n;i++)
-    {
-        pre = G-&gt;adjlist[i].firstarc;
-        if(pre!=NULL)
-        {
-            p = pre-&gt;nextarc;
-            while(p!=NULL)
-            {
-                free(pre);
-                pre = p;
-                p = p-&gt;nextarc;
-            }    
-            free(pre);
-        }    
-    }
-    free(G);    
-}
-</code></pre>
-<h2 id="邻接矩阵与邻接表的相互转化"><a href="#邻接矩阵与邻接表的相互转化" class="headerlink" title="邻接矩阵与邻接表的相互转化"></a>邻接矩阵与邻接表的相互转化</h2><pre><code class="lang-c">// 邻接矩阵转邻接表  复杂度：O(n^2) 
-void MatToList(MatGraph g, AdjGraph *&amp;G)
-{
-    int i,j;
-    ArcNode *p;
-    G = (AdjGraph*)malloc(sizeof(AdjGraph));
-    for(i=0;i&lt;G-&gt;n;i++)
-        G-&gt;adjlist[i].firstarc = NULL;
-    for(i=0;i&lt;g.n;i++)
-        for(j=g.n-1;j&gt;=0;j--)
-            if(g.edges[i][j]!=0&amp;&amp;g.edges[i][j]!=INF)
-            {
-                p = (ArcNode*)malloc(sizeof(ArcNode));
-                p-&gt;adjvex = j;
-                p-&gt;weight = g.edges[i][j];
-                p-&gt;nextarc = G-&gt;adjlist[i].firstarc;
-                G-&gt;adjlist[i].firstarc = p;
-            }
-    G-&gt;n = g.n;
-    G-&gt;e = g.e; 
-} 
-
-// 邻接表转邻接矩阵  复杂度 O(n+e) 
-void ListToMat(AdjGraph *G, MatGraph &amp;g)
-{
-    int i;
-    ArcNode *p;
-    for(i=0;i&lt;G-&gt;n;i++)
-    {
-        p = G-&gt;adjlist[i].firstarc;
-        while(p!=NULL)
-        {
-            g.edges[i][p-&gt;adjvex] = p-&gt;weight;
-            p = p-&gt;nextarc;    
-        } 
-    }
-
-    g.n = G-&gt;n;
-    g.e = G-&gt;e;
-
-}
-</code></pre>
-<h2 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h2><h3 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h3><pre><code class="lang-c">
-int visited[MAXV]={0};  
-
-// 深度优先搜索 DFS  O(n+e) 
-void DFS(AdjGraph *G,int v)  // 遍历连通图
-{
-    ArcNode *p;
-    visited[v] = 1;
-    printf(&quot;%2d&quot;,v); 
-    p = G-&gt;adjlist[v].firstarc;
-    while(p!=NULL)
-    {
-        if(visited[p-&gt;adjvex] == 0)
-            DFS(G,p-&gt;adjvex);
-        p = p-&gt;nextarc;
-    } 
-}
-
-void DFS1(AdjGraph *G)  // 遍历非连通图
-{
-    for(int i=0;i&lt;G-&gt;n;i++)
-        if(visited[i]==0) DFS(G,i);    
-}
-</code></pre>
-<h3 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h3><pre><code class="lang-c">
-// 广度优先搜索  O(n^2)
-void BFS(AdjGraph *&amp;G, int v)  // 遍历连通图 
-{
-    int w;
-    ArcNode *p;
-    int visited[MAXV] ={0};
-    visited[v] = 1;
-    printf(&quot;%2d&quot;,v);
-    deque&lt;int&gt; de;
-    de.push_back(v);
-    while(!de.empty())
-    {
-        w = *de.begin();
-        de.pop_front();
-        p = G-&gt;adjlist[w].firstarc;
-        while(p!=NULL){
-            if(visited[p-&gt;adjvex] == 0)
-            {
-                printf(&quot;%2d&quot;,p-&gt;adjvex);
-                visited[p-&gt;adjvex] = 1;
-                de.push_back(p-&gt;adjvex);
-            }
-            p = p-&gt;nextarc;
-        }
-    }
-    cout &lt;&lt; endl;
-} 
-
-void BFS1(AdjGraph *G)  // 遍历非连通图
-{
-    for(int i=0;i&lt;G-&gt;n;i++)
-        if(visited[i]==0) BFS(G,i);    
-}
-</code></pre>
-<h2 id="判断图是否连通"><a href="#判断图是否连通" class="headerlink" title="判断图是否连通"></a>判断图是否连通</h2><pre><code class="lang-c">bool Connect(AdjGraph *G)
-{
-    int i;
-    bool flag = true;
-    for(int i=0;i&lt;G-&gt;n;i++)
-        visited[i] = 0;
-    DFS(G,0);
-    for(int i=0;i&lt;G-&gt;n;i++)
-        if(visited[i]==0)
-        {
-            flag = false;
-            break;
-        }
-
-    return flag;    
-}
-</code></pre>
-<h2 id="主函数调用测试"><a href="#主函数调用测试" class="headerlink" title="主函数调用测试"></a>主函数调用测试</h2><pre><code class="lang-c">int main()
-{
-    int A[MAXV][MAXV] = { 
-                    {0,28,INF,INF,INF,10,INF},
-                    {26,0,16,INF,INF,INF,14},
-                    {INF,16,0,12,INF,INF,INF},
-                    {INF,INF,12,0,22,INF,18},
-                    {INF,INF,INF,22,0,25,24},
-                    {10,INF,INF,INF,25,0,INF},
-                    {INF,14,INF,18,24,INF,0} 
-                    };
-    AdjGraph *G;
-    int n = 7,e = 18; 
-    CreateAdj(G,A,n,e);
-    DispAdj(G);
-    cout &lt;&lt; &quot;广度优先搜索产生的序列为： &quot;; 
-    BFS(G,0);
-    cout &lt;&lt; &quot;深度优先搜索产生的序列为： &quot;; 
-    DFS(G,0);
-    cout &lt;&lt; endl;
-    //cout &lt;&lt; &quot;图G是否连通： &quot;;
-    //printf(&quot; %d&quot;,Connect(G));
-    DestroyAdj(G);
-
-    return 0;
- }
-</code></pre>
+<h2 id="结构体定义"><a href="#结构体定义" class="headerlink" title="结构体定义"></a>结构体定义</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXV 100 </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 32767</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> num; <span class="comment">// 序号</span></span><br><span class="line">	<span class="keyword">int</span> data;</span><br><span class="line">&#125;VertexType; <span class="comment">// 顶点类型</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> edges[MAXV][MAXV]; <span class="comment">// 邻接矩阵数组</span></span><br><span class="line">	<span class="keyword">int</span> n,e; <span class="comment">// 顶点数，边数</span></span><br><span class="line">	VertexType vertex[MAXV]; <span class="comment">// 顶点</span></span><br><span class="line">&#125;MatGraph;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 图的邻接表表示</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">ANode</span> &#123;</span>    <span class="comment">//边结点类型</span></span><br><span class="line">	<span class="keyword">int</span> adjvex;             <span class="comment">//该边邻接点编号 </span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">ANode</span> *<span class="title">nextarc</span>;</span></span><br><span class="line">	<span class="keyword">int</span> weight;</span><br><span class="line">&#125;ArcNode;                </span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Vnode</span>&#123;</span>   <span class="comment">// 头结点类型</span></span><br><span class="line">	VertexType data;  <span class="comment">// 顶点信息</span></span><br><span class="line">	<span class="keyword">int</span> count;     <span class="comment">// 增加数据域：存放顶点入度</span></span><br><span class="line">	ArcNode *firstarc;</span><br><span class="line">&#125;VNode;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">	VNode adjlist[MAXV];</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">int</span> e;</span><br><span class="line">&#125;AdjGraph;  <span class="comment">// 用一个头节点数组构造的图</span></span><br></pre></td></tr></table></figure>
+<h2 id="邻接表创建图"><a href="#邻接表创建图" class="headerlink" title="邻接表创建图"></a>邻接表创建图</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用邻接表创建图 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CreateAdj</span><span class="params">(AdjGraph *&amp;G,<span class="keyword">int</span> A[MAXV][MAXV], <span class="keyword">int</span> n, <span class="keyword">int</span> e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,j;</span><br><span class="line">	ArcNode* p;</span><br><span class="line">	G = (AdjGraph*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(AdjGraph));</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">		G-&gt;adjlist[i].firstarc = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">		<span class="keyword">for</span>(j=n<span class="number">-1</span>;j&gt;=<span class="number">0</span>;j--)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(A[i][j] !=<span class="number">0</span>&amp;&amp;A[i][j]!=INF)</span><br><span class="line">			&#123;</span><br><span class="line">				p = (ArcNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(ArcNode));</span><br><span class="line">				p-&gt;adjvex = j;</span><br><span class="line">				p-&gt;weight = A[i][j];</span><br><span class="line">				p-&gt;nextarc = G-&gt;adjlist[i].firstarc;</span><br><span class="line">				G-&gt;adjlist[i].firstarc = p;		 </span><br><span class="line">			&#125;	</span><br><span class="line">		&#125;</span><br><span class="line">	G-&gt;n = n , G-&gt;e = e;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="输出图G"><a href="#输出图G" class="headerlink" title="输出图G"></a>输出图G</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  输出图G</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DispAdj</span><span class="params">(AdjGraph *G)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	ArcNode *p;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;G-&gt;n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		p = G-&gt;adjlist[i].firstarc;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%3d:"</span>,i);</span><br><span class="line">		<span class="keyword">while</span>(p!=<span class="literal">NULL</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%3d[%d]-&gt;"</span>,p-&gt;adjvex,p-&gt;weight);</span><br><span class="line">			p = p-&gt;nextarc;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"^\n"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="销毁图"><a href="#销毁图" class="headerlink" title="销毁图"></a>销毁图</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 销毁图</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DestroyAdj</span><span class="params">(AdjGraph *&amp;G)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	ArcNode *pre, *p;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;G-&gt;n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		pre = G-&gt;adjlist[i].firstarc;</span><br><span class="line">		<span class="keyword">if</span>(pre!=<span class="literal">NULL</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			p = pre-&gt;nextarc;</span><br><span class="line">			<span class="keyword">while</span>(p!=<span class="literal">NULL</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">free</span>(pre);</span><br><span class="line">				pre = p;</span><br><span class="line">				p = p-&gt;nextarc;</span><br><span class="line">			&#125;	</span><br><span class="line">			<span class="built_in">free</span>(pre);</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">free</span>(G);	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="邻接矩阵与邻接表的相互转化"><a href="#邻接矩阵与邻接表的相互转化" class="headerlink" title="邻接矩阵与邻接表的相互转化"></a>邻接矩阵与邻接表的相互转化</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 邻接矩阵转邻接表  复杂度：O(n^2) </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MatToList</span><span class="params">(MatGraph g, AdjGraph *&amp;G)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,j;</span><br><span class="line">	ArcNode *p;</span><br><span class="line">	G = (AdjGraph*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(AdjGraph));</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;G-&gt;n;i++)</span><br><span class="line">		G-&gt;adjlist[i].firstarc = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;g.n;i++)</span><br><span class="line">		<span class="keyword">for</span>(j=g.n<span class="number">-1</span>;j&gt;=<span class="number">0</span>;j--)</span><br><span class="line">			<span class="keyword">if</span>(g.edges[i][j]!=<span class="number">0</span>&amp;&amp;g.edges[i][j]!=INF)</span><br><span class="line">			&#123;</span><br><span class="line">				p = (ArcNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(ArcNode));</span><br><span class="line">				p-&gt;adjvex = j;</span><br><span class="line">				p-&gt;weight = g.edges[i][j];</span><br><span class="line">				p-&gt;nextarc = G-&gt;adjlist[i].firstarc;</span><br><span class="line">				G-&gt;adjlist[i].firstarc = p;</span><br><span class="line">			&#125;</span><br><span class="line">	G-&gt;n = g.n;</span><br><span class="line">	G-&gt;e = g.e; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 邻接表转邻接矩阵  复杂度 O(n+e) </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ListToMat</span><span class="params">(AdjGraph *G, MatGraph &amp;g)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	ArcNode *p;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;G-&gt;n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		p = G-&gt;adjlist[i].firstarc;</span><br><span class="line">		<span class="keyword">while</span>(p!=<span class="literal">NULL</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			g.edges[i][p-&gt;adjvex] = p-&gt;weight;</span><br><span class="line">			p = p-&gt;nextarc;	</span><br><span class="line">		&#125; </span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	g.n = G-&gt;n;</span><br><span class="line">	g.e = G-&gt;e;</span><br><span class="line">		</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h2><h3 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">int</span> visited[MAXV]=&#123;<span class="number">0</span>&#125;;  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 深度优先搜索 DFS  O(n+e) </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(AdjGraph *G,<span class="keyword">int</span> v)</span>  <span class="comment">// 遍历连通图</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ArcNode *p;</span><br><span class="line">	visited[v] = <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%2d"</span>,v); </span><br><span class="line">	p = G-&gt;adjlist[v].firstarc;</span><br><span class="line">	<span class="keyword">while</span>(p!=<span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(visited[p-&gt;adjvex] == <span class="number">0</span>)</span><br><span class="line">			DFS(G,p-&gt;adjvex);</span><br><span class="line">		p = p-&gt;nextarc;</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS1</span><span class="params">(AdjGraph *G)</span>  <span class="comment">// 遍历非连通图</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;G-&gt;n;i++)</span><br><span class="line">		<span class="keyword">if</span>(visited[i]==<span class="number">0</span>) DFS(G,i);	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 广度优先搜索  O(n^2)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS</span><span class="params">(AdjGraph *&amp;G, <span class="keyword">int</span> v)</span>  <span class="comment">// 遍历连通图 </span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> w;</span><br><span class="line">	ArcNode *p;</span><br><span class="line">	<span class="keyword">int</span> visited[MAXV] =&#123;<span class="number">0</span>&#125;;</span><br><span class="line">	visited[v] = <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%2d"</span>,v);</span><br><span class="line">	<span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; de;</span><br><span class="line">	de.push_back(v);</span><br><span class="line">	<span class="keyword">while</span>(!de.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		w = *de.begin();</span><br><span class="line">		de.pop_front();</span><br><span class="line">		p = G-&gt;adjlist[w].firstarc;</span><br><span class="line">		<span class="keyword">while</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(visited[p-&gt;adjvex] == <span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"%2d"</span>,p-&gt;adjvex);</span><br><span class="line">				visited[p-&gt;adjvex] = <span class="number">1</span>;</span><br><span class="line">				de.push_back(p-&gt;adjvex);</span><br><span class="line">			&#125;</span><br><span class="line">			p = p-&gt;nextarc;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS1</span><span class="params">(AdjGraph *G)</span>  <span class="comment">// 遍历非连通图</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;G-&gt;n;i++)</span><br><span class="line">		<span class="keyword">if</span>(visited[i]==<span class="number">0</span>) BFS(G,i);	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="判断图是否连通"><a href="#判断图是否连通" class="headerlink" title="判断图是否连通"></a>判断图是否连通</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Connect</span><span class="params">(AdjGraph *G)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">bool</span> flag = <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;G-&gt;n;i++)</span><br><span class="line">		visited[i] = <span class="number">0</span>;</span><br><span class="line">	DFS(G,<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;G-&gt;n;i++)</span><br><span class="line">		<span class="keyword">if</span>(visited[i]==<span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			flag = <span class="literal">false</span>;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">			</span><br><span class="line">	<span class="keyword">return</span> flag;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="主函数调用测试"><a href="#主函数调用测试" class="headerlink" title="主函数调用测试"></a>主函数调用测试</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> A[MAXV][MAXV] = &#123; </span><br><span class="line">					&#123;<span class="number">0</span>,<span class="number">28</span>,INF,INF,INF,<span class="number">10</span>,INF&#125;,</span><br><span class="line">					&#123;<span class="number">26</span>,<span class="number">0</span>,<span class="number">16</span>,INF,INF,INF,<span class="number">14</span>&#125;,</span><br><span class="line">					&#123;INF,<span class="number">16</span>,<span class="number">0</span>,<span class="number">12</span>,INF,INF,INF&#125;,</span><br><span class="line">					&#123;INF,INF,<span class="number">12</span>,<span class="number">0</span>,<span class="number">22</span>,INF,<span class="number">18</span>&#125;,</span><br><span class="line">					&#123;INF,INF,INF,<span class="number">22</span>,<span class="number">0</span>,<span class="number">25</span>,<span class="number">24</span>&#125;,</span><br><span class="line">					&#123;<span class="number">10</span>,INF,INF,INF,<span class="number">25</span>,<span class="number">0</span>,INF&#125;,</span><br><span class="line">					&#123;INF,<span class="number">14</span>,INF,<span class="number">18</span>,<span class="number">24</span>,INF,<span class="number">0</span>&#125; </span><br><span class="line">					&#125;;</span><br><span class="line">	AdjGraph *G;</span><br><span class="line">	<span class="keyword">int</span> n = <span class="number">7</span>,e = <span class="number">18</span>; </span><br><span class="line">	CreateAdj(G,A,n,e);</span><br><span class="line">	DispAdj(G);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"广度优先搜索产生的序列为： "</span>; </span><br><span class="line">	BFS(G,<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"深度优先搜索产生的序列为： "</span>; </span><br><span class="line">	DFS(G,<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="comment">//cout &lt;&lt; "图G是否连通： ";</span></span><br><span class="line">	<span class="comment">//printf(" %d",Connect(G));</span></span><br><span class="line">	DestroyAdj(G);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 <h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><img src="https://img-blog.csdnimg.cn/20190616164453437.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="图的基本运算"></p>
 <p>P.S：马上考试了，我还在写博客，但我觉得这才是正确的复习方式，hahahha太真实了…….</p>
 
@@ -616,7 +381,7 @@ void BFS1(AdjGraph *G)  // 遍历非连通图
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://sinclaircoder.gitee.io/archives/defe2bcd.html" title="数据结构-图-基本运算">https://sinclaircoder.gitee.io/archives/defe2bcd.html</a>
+    <a href="https://sinclaircoder.top/archives/defe2bcd.html" title="数据结构-图-基本运算">https://sinclaircoder.top/archives/defe2bcd.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
@@ -786,12 +551,12 @@ void BFS1(AdjGraph *G)  // 遍历非连通图
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">157k</span>
+    <span title="Symbols count total">146k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:22</span>
+    <span title="Reading time total">2:13</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>

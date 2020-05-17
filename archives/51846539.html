@@ -21,14 +21,14 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"sinclaircoder.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="希望你还有诗和远方。   传送门： 第 161 场周赛交换字符使得字符串相同有两个长度相同的字符串 s1 和 s2，且它们其中 只含有 字符 “x” 和 “y”，你需要通过「交换字符」的方式使这两个字符串相同。每次「交换字符」的时候，你都可以在两个字符串中各选一个字符进行交换。交换只能发生在两个不同的字符串之间，绝对不能发生在同一个字符串内部。也就是说，我们可以交换 s1[i] 和 s2[j]，但">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCodeWeeklyContest-161">
-<meta property="og:url" content="https://sinclaircoder.gitee.io/archives/51846539.html">
+<meta property="og:url" content="https://sinclaircoder.top/archives/51846539.html">
 <meta property="og:site_name" content="SinclairのBlog">
 <meta property="og:description" content="希望你还有诗和远方。   传送门： 第 161 场周赛交换字符使得字符串相同有两个长度相同的字符串 s1 和 s2，且它们其中 只含有 字符 “x” 和 “y”，你需要通过「交换字符」的方式使这两个字符串相同。每次「交换字符」的时候，你都可以在两个字符串中各选一个字符进行交换。交换只能发生在两个不同的字符串之间，绝对不能发生在同一个字符串内部。也就是说，我们可以交换 s1[i] 和 s2[j]，但">
 <meta property="og:locale" content="en">
@@ -37,7 +37,7 @@
 <meta name="twitter:title" content="LeetCodeWeeklyContest-161">
 <meta name="twitter:description" content="希望你还有诗和远方。   传送门： 第 161 场周赛交换字符使得字符串相同有两个长度相同的字符串 s1 和 s2，且它们其中 只含有 字符 “x” 和 “y”，你需要通过「交换字符」的方式使这两个字符串相同。每次「交换字符」的时候，你都可以在两个字符串中各选一个字符进行交换。交换只能发生在两个不同的字符串之间，绝对不能发生在同一个字符串内部。也就是说，我们可以交换 s1[i] 和 s2[j]，但">
 
-<link rel="canonical" href="https://sinclaircoder.gitee.io/archives/51846539.html">
+<link rel="canonical" href="https://sinclaircoder.top/archives/51846539.html">
 
 
 <script id="page-configurations">
@@ -216,7 +216,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/51846539.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/51846539.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -285,7 +285,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.6k</span>
+              <span>2.7k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -320,55 +320,13 @@
 <li>x%2就是对应s1 = “xy”, s2 = “yx”组合的个数</li>
 <li>result = x/2+y/2+(x%2)*2</li>
 </ul>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">#define rep(i,m,n) for(int i=m;i&lt;n;i++)
-#define pb push_back
-class Solution {
-public:
-    int minimumSwap(string s1, string s2) {
-        vector&lt;char&gt; ans;
-        rep(i,0,s1.length()){
-            if(s1[i]!=s2[i])
-                ans.pb(s1[i]);
-        }
-        int x=0,y=0;
-        rep(i,0,ans.size()){
-            if(ans[i]==&#39;x&#39;)
-                x++;
-            else if(ans[i]==&#39;y&#39;)
-                y++;
-            cout &lt;&lt; ans[i];
-        }
-        if((x+y)%2) return -1;
-        else return x/2+y/2+(x%2)*2;
-
-    }
-};
-</code></pre>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,m,n) for(int i=m;i&lt;n;i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minimumSwap</span><span class="params">(<span class="built_in">string</span> s1, <span class="built_in">string</span> s2)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt; ans;</span><br><span class="line">        rep(i,<span class="number">0</span>,s1.length())&#123;</span><br><span class="line">            <span class="keyword">if</span>(s1[i]!=s2[i])</span><br><span class="line">                ans.pb(s1[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> x=<span class="number">0</span>,y=<span class="number">0</span>;</span><br><span class="line">        rep(i,<span class="number">0</span>,ans.size())&#123;</span><br><span class="line">            <span class="keyword">if</span>(ans[i]==<span class="string">'x'</span>)</span><br><span class="line">                x++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(ans[i]==<span class="string">'y'</span>)</span><br><span class="line">                y++;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; ans[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>((x+y)%<span class="number">2</span>) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> x/<span class="number">2</span>+y/<span class="number">2</span>+(x%<span class="number">2</span>)*<span class="number">2</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="统计「优美子数组」"><a href="#统计「优美子数组」" class="headerlink" title="统计「优美子数组」"></a>统计「优美子数组」</h2><p>给你一个整数数组 nums 和一个整数 k。<br>如果某个子数组中恰好有 k 个奇数数字，我们就认为这个子数组是「优美子数组」。<br>请返回这个数组中「优美子数组」的数目。<br>示例：</p>
 <blockquote>
 <p>输入：nums = [1,1,2,1,1], k = 3<br>输出：2<br>解释：包含 3 个奇数的子数组是 [1,1,2,1] 和 [1,2,1,1] 。</p>
 </blockquote>
 <h2 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h2><p>暴力会超时。<br>主要还是做一个数组，统计从第一个元素开始到现在奇数的个数。然后使用upper_bound 和 lower_bound<br>更多解法请参考：<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS5jb20vcHJvYmxlbXMvY291bnQtbnVtYmVyLW9mLW5pY2Utc3ViYXJyYXlzL2Rpc2N1c3MvP2N1cnJlbnRQYWdlPTEmYW1wO29yZGVyQnk9aG90JmFtcDtxdWVyeT0=">1248. Count Number of Nice Subarrays<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">#define rep(i,m,n) for(int i=m;i&lt;n;i++)
-class Solution {
-public:
-    int numberOfSubarrays(vector&lt;int&gt;&amp; nums, int k) {
-        int res = 0;
-        int cnt[50005];
-        memset(cnt,0,sizeof(cnt));
-        rep(i,0,nums.size()){
-            if(nums[i]%2){
-                cnt[i+1] = cnt[i]+1; 
-            }
-            else cnt[i+1] = cnt[i];
-        }  
-        rep(i,1,nums.size()+1){
-            res += upper_bound(cnt+1,cnt+nums.size()+1,cnt[i-1]+k) - lower_bound(cnt+1,cnt+nums.size()+1,cnt[i-1]+k);
-        }
-        return res;
-    }
-};
-</code></pre>
+<h2 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,m,n) for(int i=m;i&lt;n;i++)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numberOfSubarrays</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> cnt[<span class="number">50005</span>];</span><br><span class="line">        <span class="built_in">memset</span>(cnt,<span class="number">0</span>,<span class="keyword">sizeof</span>(cnt));</span><br><span class="line">        rep(i,<span class="number">0</span>,nums.size())&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i]%<span class="number">2</span>)&#123;</span><br><span class="line">                cnt[i+<span class="number">1</span>] = cnt[i]+<span class="number">1</span>; </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> cnt[i+<span class="number">1</span>] = cnt[i];</span><br><span class="line">        &#125;  </span><br><span class="line">        rep(i,<span class="number">1</span>,nums.size()+<span class="number">1</span>)&#123;</span><br><span class="line">            res += upper_bound(cnt+<span class="number">1</span>,cnt+nums.size()+<span class="number">1</span>,cnt[i<span class="number">-1</span>]+k) - lower_bound(cnt+<span class="number">1</span>,cnt+nums.size()+<span class="number">1</span>,cnt[i<span class="number">-1</span>]+k);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>不过发现这种解法虽然运行没有问题，但是自己手动拿纸推的时候貌似样例过不去。<br>upper_bound 找的是范围内第一个大于x的位置<br> lower_bound找的是范围内第一个大于等于x的位置<br><strong>nums = [2,2,2,1,2,2,1,2,2,2], k = 2</strong>这个样例</p>
 <div class="table-container">
 <table>
@@ -450,54 +408,13 @@ public:
 <li>可以被写作 AB（A 连接 B）的字符串，其中 A 和 B 都是有效「括号字符串」</li>
 <li>可以被写作 (A) 的字符串，其中 A 是一个有效的「括号字符串」<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3>一开始的想法是用栈来做，可是无法记录该删去的字符的下标，想用stack<pair<char,int> &gt;来做，不知道为甚麽，好像是指针有问题。<br>其实用数组模拟就可以，第一遍先正向扫描，统计和记录‘)’，删去多余的‘)’，记录多余的’(‘的个数cnt<br>，然后此时可能’(‘的个数刚好和‘)’的个数配对，也可能有多的，此时需要再逆向扫描一遍字符串，然后去掉多余的前cnt个字符<h3 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h3></pair<char,int></li>
 </ul>
-<pre><code class="lang-cpp">#define rep(i,m,n) for(int i=m;i&lt;n;i++)
-#define rep1(i,m,n) for(int i=m;i&gt;=n;i--)
-class Solution {
-public:
-    string minRemoveToMakeValid(string s) {
-       int cnt = 0;
-        string res=&quot;&quot;;
-        rep(i,0,s.length()){
-            if(s[i]==&#39;(&#39;)
-                cnt++,res+=s[i];
-            else if(s[i]==&#39;)&#39;){
-                if(cnt) cnt--,res+=s[i];
-            }
-            else res += s[i];
-        }   
-        string rres = &quot;&quot;;
-        rep1(i,res.length()-1,0){
-            if(cnt&amp;&amp;res[i]==&#39;(&#39;)
-                cnt--;
-            else rres += res[i];
-        }
-        reverse(rres.begin(),rres.end());
-        return rres;
-
-    }
-};
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i,m,n) for(int i=m;i&lt;n;i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep1(i,m,n) for(int i=m;i&gt;=n;i--)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">minRemoveToMakeValid</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">string</span> res=<span class="string">""</span>;</span><br><span class="line">        rep(i,<span class="number">0</span>,s.length())&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i]==<span class="string">'('</span>)</span><br><span class="line">                cnt++,res+=s[i];</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">')'</span>)&#123;</span><br><span class="line">        	    <span class="keyword">if</span>(cnt) cnt--,res+=s[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> res += s[i];</span><br><span class="line">        &#125;   </span><br><span class="line">        <span class="built_in">string</span> rres = <span class="string">""</span>;</span><br><span class="line">        rep1(i,res.length()<span class="number">-1</span>,<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(cnt&amp;&amp;res[i]==<span class="string">'('</span>)</span><br><span class="line">                cnt--;</span><br><span class="line">            <span class="keyword">else</span> rres += res[i];</span><br><span class="line">        &#125;</span><br><span class="line">        reverse(rres.begin(),rres.end());</span><br><span class="line">        <span class="keyword">return</span> rres;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="检查「好数组」"><a href="#检查「好数组」" class="headerlink" title="检查「好数组」"></a>检查「好数组」</h2><p>给你一个正整数数组 nums，你需要从中任选一些子集，然后将子集中每一个数乘以一个 任意整数，并求出他们的和。<br>假如该和结果为 1，那么原数组就是一个「好数组」，则返回 True；否则请返回 False。<br>示例：</p>
 <blockquote>
 <p>输入：nums = [12,5,7,23]<br>输出：true<br>解释：挑选数字 5 和 7。<br>5<em>3 + 7</em>(-2) = 1</p>
 </blockquote>
 <h3 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h3><p>虽然写题目的时候一眼就看出是欧几里得算法，只要数组里面存在若干个数互质即为好数组，也即gcd(a,b,c…)=1，后来越写越复杂，实现思路跑偏了…</p>
-<h3 id="实现-3"><a href="#实现-3" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
-public:
-    int gcd(int m,int n){
-        return n ? gcd(n,m%n): m; 
-    }
-    bool isGoodArray(vector&lt;int&gt;&amp; nums) {
-        int res = nums[0];
-        for(int a:nums){
-            res = gcd(res,a);
-        }
-        if(res==1) return true;
-        else  return false;
-    }
-};
-</code></pre>
-
+<h3 id="实现-3"><a href="#实现-3" class="headerlink" title="实现"></a>实现</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> m,<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	    <span class="keyword">return</span> n ? gcd(n,m%n): m; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isGoodArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> a:nums)&#123;</span><br><span class="line">            res = gcd(res,a);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(res==<span class="number">1</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span>  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -552,7 +469,7 @@ public:
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://sinclaircoder.gitee.io/archives/51846539.html" title="LeetCodeWeeklyContest-161">https://sinclaircoder.gitee.io/archives/51846539.html</a>
+    <a href="https://sinclaircoder.top/archives/51846539.html" title="LeetCodeWeeklyContest-161">https://sinclaircoder.top/archives/51846539.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
@@ -721,12 +638,12 @@ public:
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">157k</span>
+    <span title="Symbols count total">146k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:22</span>
+    <span title="Reading time total">2:13</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>

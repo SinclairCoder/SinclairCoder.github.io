@@ -21,25 +21,25 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"sinclaircoder.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="@[toc]之前还写过一篇关于DFS的题解入门学习文章，详情见DFS入门学习 深度优先搜索的应用头文件声明即图的基本运算，详情见数据结构-图-基本运算 #include&amp;quot;Graph.cpp&amp;quot;  顶点u到顶点v是否有简单路径">
+  <meta name="description" content="@[toc]之前还写过一篇关于DFS的题解入门学习文章，详情见DFS入门学习 深度优先搜索的应用头文件声明即图的基本运算，详情见数据结构-图-基本运算 1#include&quot;Graph.cpp&quot; 顶点u到顶点v是否有简单路径">
 <meta name="keywords" content="数据结构与算法训练,图算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构-图-深度优先搜索的应用">
-<meta property="og:url" content="https://sinclaircoder.gitee.io/archives/a72f9f18.html">
+<meta property="og:url" content="https://sinclaircoder.top/archives/a72f9f18.html">
 <meta property="og:site_name" content="SinclairのBlog">
-<meta property="og:description" content="@[toc]之前还写过一篇关于DFS的题解入门学习文章，详情见DFS入门学习 深度优先搜索的应用头文件声明即图的基本运算，详情见数据结构-图-基本运算 #include&amp;quot;Graph.cpp&amp;quot;  顶点u到顶点v是否有简单路径">
+<meta property="og:description" content="@[toc]之前还写过一篇关于DFS的题解入门学习文章，详情见DFS入门学习 深度优先搜索的应用头文件声明即图的基本运算，详情见数据结构-图-基本运算 1#include&quot;Graph.cpp&quot; 顶点u到顶点v是否有简单路径">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190617001056832.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70">
 <meta property="og:updated_time" content="2020-05-17T16:41:39.926Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构-图-深度优先搜索的应用">
-<meta name="twitter:description" content="@[toc]之前还写过一篇关于DFS的题解入门学习文章，详情见DFS入门学习 深度优先搜索的应用头文件声明即图的基本运算，详情见数据结构-图-基本运算 #include&amp;quot;Graph.cpp&amp;quot;  顶点u到顶点v是否有简单路径">
+<meta name="twitter:description" content="@[toc]之前还写过一篇关于DFS的题解入门学习文章，详情见DFS入门学习 深度优先搜索的应用头文件声明即图的基本运算，详情见数据结构-图-基本运算 1#include&quot;Graph.cpp&quot; 顶点u到顶点v是否有简单路径">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190617001056832.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="https://sinclaircoder.gitee.io/archives/a72f9f18.html">
+<link rel="canonical" href="https://sinclaircoder.top/archives/a72f9f18.html">
 
 
 <script id="page-configurations">
@@ -218,7 +218,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/a72f9f18.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/a72f9f18.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -287,7 +287,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>3.4k</span>
+              <span>2.9k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -308,155 +308,13 @@
       
         <p>@[toc]<br>之前还写过一篇关于DFS的题解入门学习文章，详情见<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvOTAzNDY5MDA=">DFS入门学习<i class="fa fa-external-link-alt"></i></span></p>
 <h1 id="深度优先搜索的应用"><a href="#深度优先搜索的应用" class="headerlink" title="深度优先搜索的应用"></a>深度优先搜索的应用</h1><h2 id="头文件声明"><a href="#头文件声明" class="headerlink" title="头文件声明"></a>头文件声明</h2><p>即图的基本运算，详情见<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZy9hcnRpY2xlL2RldGFpbHMvOTI0MDc0OTM=">数据结构-图-基本运算<i class="fa fa-external-link-alt"></i></span></p>
-<pre><code class="lang-c">#include&quot;Graph.cpp&quot;
-</code></pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">"Graph.cpp"</span></span></span><br></pre></td></tr></table></figure>
 <h2 id="顶点u到顶点v是否有简单路径"><a href="#顶点u到顶点v是否有简单路径" class="headerlink" title="顶点u到顶点v是否有简单路径"></a>顶点u到顶点v是否有简单路径</h2><a id="more"></a>
-<pre><code class="lang-c">/*
- 顶点u到顶点v是否有简单路径，has表示是否存在 
- 典型的DFS 
-*/
-void ExistPath(AdjGraph *G,int u, int v, bool &amp;has)
-{
-    int w;
-    ArcNode *p;
-    visited[u] = 1; 
-    if(u == v)  // 出口 
-    {
-        has = true;
-        return ;
-    }
-    p = G-&gt;adjlist[u].firstarc;
-    while(p!=NULL)
-    {
-        w = p-&gt;adjvex;
-        if(visited[w] == 0)
-            ExistPath(G,w,v,has);
-        p = p-&gt;nextarc; 
-    }
-}
-</code></pre>
-<h2 id="输出图G中从定点u到v的一条简单路径"><a href="#输出图G中从定点u到v的一条简单路径" class="headerlink" title="输出图G中从定点u到v的一条简单路径"></a>输出图G中从定点u到v的一条简单路径</h2><pre><code class="lang-c">/*
-    输出图G中从定点u到v的一条简单路径
-    典型的DFS 
-*/ 
-void FindPath(AdjGraph *G, int u, int v,int path[], int d)
-{
-    // d 为路径长度 初始为-1
-    int w;
-    ArcNode *p;
-    visited[u] = 1;
-    d++;
-    path[d] = u; 
-    if(u==v)  // 出口 
-    {
-        for(int i=0;i&lt;=d;i++)
-            printf(&quot;%2d&quot;,path[i]);    
-        cout &lt;&lt; endl;
-        return ; 
-    }    
-    p = G-&gt;adjlist[u].firstarc;
-    while(p!=NULL)
-    {
-        w = p-&gt;adjvex;
-        if(visited[w]==0)
-            FindPath(G,w,v,path,d);
-        p = p-&gt;nextarc; 
-    } 
-}
-</code></pre>
-<h2 id="输出图G中从定点u到v的所有简单路径"><a href="#输出图G中从定点u到v的所有简单路径" class="headerlink" title="输出图G中从定点u到v的所有简单路径"></a>输出图G中从定点u到v的所有简单路径</h2><pre><code class="lang-c">/*
-    输出图G中从定点u到v的所有简单路径
-    典型的DFS 需要额外写一个恢复 
-*/ 
-void FindAllPath(AdjGraph *G, int u, int v,int path[], int d)
-{
-    int w;
-    ArcNode *p;
-    visited[u] = 1;
-    d++;
-    path[d] = u;
-    if(u == v &amp;&amp; d&gt;=0) // 出口 
-    {
-        for(int i=0;i&lt;=d;i++)
-            printf(&quot;%2d&quot;,path[i]);
-        cout &lt;&lt; endl;    
-    } 
-    p = G-&gt;adjlist[u].firstarc;
-    while(p!=NULL)
-    {
-        w = p-&gt;adjvex;
-        if(visited[w]==0)
-            FindAllPath(G,w,v,path,d);
-        p = p-&gt;nextarc;
-    }
-    visited[u] = 0; // 恢复，该顶点可重复使用 
-}
-</code></pre>
-<h2 id="求图G中所有从顶点u到v的长度为l的简单路径"><a href="#求图G中所有从顶点u到v的长度为l的简单路径" class="headerlink" title="求图G中所有从顶点u到v的长度为l的简单路径"></a>求图G中所有从顶点u到v的长度为l的简单路径</h2><pre><code class="lang-c">/*
-    求图G中所有从顶点u到v的长度为l的简单路径
-    典型DFS 
-*/
-void  PathlenAll(AdjGraph *G, int u, int v, int l, int path[], int d)
-{
-    int w;
-    ArcNode *p;
-    visited[u] = 1;
-    d++;
-    path[d] = u;
-    if(u == v&amp;&amp; d==l)
-    {
-        printf(&quot; &quot;);
-        for(int i=0;i&lt;=d;i++)
-            printf(&quot;%2d&quot;,path[i]);
-        cout &lt;&lt; endl;
-    }
-    p = G-&gt;adjlist[u].firstarc;
-    while(p!=NULL)
-    {
-         w = p-&gt;adjvex;
-        if(visited[w]==0)
-            PathlenAll(G,w,v,l,path,d);
-        p = p-&gt;nextarc;    
-    }
-    visited[u] = 0;  // 恢复 
-}
-</code></pre>
-<h2 id="主函数测试"><a href="#主函数测试" class="headerlink" title="主函数测试"></a>主函数测试</h2><pre><code class="lang-c">int main()
-{
-    int path[MAXV];
-    int u=1,v=4,l=3;
-    int n=5,e =8;
-    int A[MAXV][MAXV]={{0,1,0,1,1},{1,0,1,1,0},{0,1,0,1,1},{1,1,1,0,1},{1,0,1,1,0}};
-
-    AdjGraph *G;
-    CreateAdj(G,A,n,e);
-    for(int i=0;i&lt;n;i++)
-        visited[i] = 0;
-    cout &lt;&lt; &quot;图G的邻接表：&quot;;
-    DispAdj(G);
-    cout &lt;&lt; &quot;顶点1到4之间是否有简单路径：&quot;;
-    bool has;
-    ExistPath(G,1,4,has);
-    cout &lt;&lt; has &lt;&lt; endl;
-    memset(visited,0,sizeof(visited));
-    cout &lt;&lt; &quot;输出一条顶点1到4之间的简单路径：&quot;;
-    FindPath(G,1,4,path,-1);
-    cout &lt;&lt; endl;
-    memset(visited,0,sizeof(visited));
-    cout &lt;&lt; &quot;输出所有顶点1到4之间的简单路径：&quot; &lt;&lt; endl;
-    memset(path,-1,sizeof(path));
-    FindAllPath(G,1,4,path,-1); 
-    cout &lt;&lt; &quot;输出所有顶点1到4之间长度为4的简单路径：&quot; &lt;&lt; endl;
-    memset(visited,0,sizeof(visited));
-    memset(path,-1,sizeof(path));
-    PathlenAll(G,1,4,4,path,-1);
-    cout &lt;&lt; &quot;输出所有顶点1到4之间长度为3的简单路径：&quot; &lt;&lt; endl;
-    memset(visited,0,sizeof(visited));
-    memset(path,-1,sizeof(path));
-    PathlenAll(G,1,4,3,path,-1);
-    return 0;
- }
-</code></pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> 顶点u到顶点v是否有简单路径，has表示是否存在 </span></span><br><span class="line"><span class="comment"> 典型的DFS </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ExistPath</span><span class="params">(AdjGraph *G,<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">bool</span> &amp;has)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> w;</span><br><span class="line">	ArcNode *p;</span><br><span class="line">	visited[u] = <span class="number">1</span>; </span><br><span class="line">	<span class="keyword">if</span>(u == v)  <span class="comment">// 出口 </span></span><br><span class="line">	&#123;</span><br><span class="line">		has = <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">return</span> ;</span><br><span class="line">	&#125;</span><br><span class="line">	p = G-&gt;adjlist[u].firstarc;</span><br><span class="line">	<span class="keyword">while</span>(p!=<span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		w = p-&gt;adjvex;</span><br><span class="line">		<span class="keyword">if</span>(visited[w] == <span class="number">0</span>)</span><br><span class="line">			ExistPath(G,w,v,has);</span><br><span class="line">		p = p-&gt;nextarc; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="输出图G中从定点u到v的一条简单路径"><a href="#输出图G中从定点u到v的一条简单路径" class="headerlink" title="输出图G中从定点u到v的一条简单路径"></a>输出图G中从定点u到v的一条简单路径</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	输出图G中从定点u到v的一条简单路径</span></span><br><span class="line"><span class="comment">	典型的DFS </span></span><br><span class="line"><span class="comment">*/</span> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FindPath</span><span class="params">(AdjGraph *G, <span class="keyword">int</span> u, <span class="keyword">int</span> v,<span class="keyword">int</span> path[], <span class="keyword">int</span> d)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">// d 为路径长度 初始为-1</span></span><br><span class="line">	<span class="keyword">int</span> w;</span><br><span class="line">	ArcNode *p;</span><br><span class="line">	visited[u] = <span class="number">1</span>;</span><br><span class="line">	d++;</span><br><span class="line">	path[d] = u; </span><br><span class="line">	<span class="keyword">if</span>(u==v)  <span class="comment">// 出口 </span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=d;i++)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%2d"</span>,path[i]);	</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> ; </span><br><span class="line">	&#125;	</span><br><span class="line">	p = G-&gt;adjlist[u].firstarc;</span><br><span class="line">	<span class="keyword">while</span>(p!=<span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		w = p-&gt;adjvex;</span><br><span class="line">		<span class="keyword">if</span>(visited[w]==<span class="number">0</span>)</span><br><span class="line">			FindPath(G,w,v,path,d);</span><br><span class="line">		p = p-&gt;nextarc; </span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="输出图G中从定点u到v的所有简单路径"><a href="#输出图G中从定点u到v的所有简单路径" class="headerlink" title="输出图G中从定点u到v的所有简单路径"></a>输出图G中从定点u到v的所有简单路径</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	输出图G中从定点u到v的所有简单路径</span></span><br><span class="line"><span class="comment">	典型的DFS 需要额外写一个恢复 </span></span><br><span class="line"><span class="comment">*/</span> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FindAllPath</span><span class="params">(AdjGraph *G, <span class="keyword">int</span> u, <span class="keyword">int</span> v,<span class="keyword">int</span> path[], <span class="keyword">int</span> d)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> w;</span><br><span class="line">	ArcNode *p;</span><br><span class="line">	visited[u] = <span class="number">1</span>;</span><br><span class="line">	d++;</span><br><span class="line">	path[d] = u;</span><br><span class="line">	<span class="keyword">if</span>(u == v &amp;&amp; d&gt;=<span class="number">0</span>) <span class="comment">// 出口 </span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=d;i++)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%2d"</span>,path[i]);</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;	</span><br><span class="line">	&#125; </span><br><span class="line">	p = G-&gt;adjlist[u].firstarc;</span><br><span class="line">	<span class="keyword">while</span>(p!=<span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		w = p-&gt;adjvex;</span><br><span class="line">		<span class="keyword">if</span>(visited[w]==<span class="number">0</span>)</span><br><span class="line">			FindAllPath(G,w,v,path,d);</span><br><span class="line">		p = p-&gt;nextarc;</span><br><span class="line">	&#125;</span><br><span class="line">	visited[u] = <span class="number">0</span>; <span class="comment">// 恢复，该顶点可重复使用 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="求图G中所有从顶点u到v的长度为l的简单路径"><a href="#求图G中所有从顶点u到v的长度为l的简单路径" class="headerlink" title="求图G中所有从顶点u到v的长度为l的简单路径"></a>求图G中所有从顶点u到v的长度为l的简单路径</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	求图G中所有从顶点u到v的长度为l的简单路径</span></span><br><span class="line"><span class="comment">	典型DFS </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span>  <span class="title">PathlenAll</span><span class="params">(AdjGraph *G, <span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> l, <span class="keyword">int</span> path[], <span class="keyword">int</span> d)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> w;</span><br><span class="line">	ArcNode *p;</span><br><span class="line">	visited[u] = <span class="number">1</span>;</span><br><span class="line">	d++;</span><br><span class="line">	path[d] = u;</span><br><span class="line">	<span class="keyword">if</span>(u == v&amp;&amp; d==l)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=d;i++)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%2d"</span>,path[i]);</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	p = G-&gt;adjlist[u].firstarc;</span><br><span class="line">	<span class="keyword">while</span>(p!=<span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">	 	w = p-&gt;adjvex;</span><br><span class="line">		<span class="keyword">if</span>(visited[w]==<span class="number">0</span>)</span><br><span class="line">			PathlenAll(G,w,v,l,path,d);</span><br><span class="line">		p = p-&gt;nextarc;	</span><br><span class="line">	&#125;</span><br><span class="line">	visited[u] = <span class="number">0</span>;  <span class="comment">// 恢复 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="主函数测试"><a href="#主函数测试" class="headerlink" title="主函数测试"></a>主函数测试</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> path[MAXV];</span><br><span class="line">	<span class="keyword">int</span> u=<span class="number">1</span>,v=<span class="number">4</span>,l=<span class="number">3</span>;</span><br><span class="line">	<span class="keyword">int</span> n=<span class="number">5</span>,e =<span class="number">8</span>;</span><br><span class="line">	<span class="keyword">int</span> A[MAXV][MAXV]=&#123;&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>&#125;,&#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>&#125;,&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>&#125;,&#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>&#125;,&#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>&#125;&#125;;</span><br><span class="line">	</span><br><span class="line">	AdjGraph *G;</span><br><span class="line">	CreateAdj(G,A,n,e);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">		visited[i] = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"图G的邻接表："</span>;</span><br><span class="line">	DispAdj(G);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"顶点1到4之间是否有简单路径："</span>;</span><br><span class="line">	<span class="keyword">bool</span> has;</span><br><span class="line">	ExistPath(G,<span class="number">1</span>,<span class="number">4</span>,has);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; has &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">memset</span>(visited,<span class="number">0</span>,<span class="keyword">sizeof</span>(visited));</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"输出一条顶点1到4之间的简单路径："</span>;</span><br><span class="line">	FindPath(G,<span class="number">1</span>,<span class="number">4</span>,path,<span class="number">-1</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">memset</span>(visited,<span class="number">0</span>,<span class="keyword">sizeof</span>(visited));</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"输出所有顶点1到4之间的简单路径："</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">memset</span>(path,<span class="number">-1</span>,<span class="keyword">sizeof</span>(path));</span><br><span class="line">	FindAllPath(G,<span class="number">1</span>,<span class="number">4</span>,path,<span class="number">-1</span>); </span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"输出所有顶点1到4之间长度为4的简单路径："</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">memset</span>(visited,<span class="number">0</span>,<span class="keyword">sizeof</span>(visited));</span><br><span class="line">	<span class="built_in">memset</span>(path,<span class="number">-1</span>,<span class="keyword">sizeof</span>(path));</span><br><span class="line">	PathlenAll(G,<span class="number">1</span>,<span class="number">4</span>,<span class="number">4</span>,path,<span class="number">-1</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"输出所有顶点1到4之间长度为3的简单路径："</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">memset</span>(visited,<span class="number">0</span>,<span class="keyword">sizeof</span>(visited));</span><br><span class="line">	<span class="built_in">memset</span>(path,<span class="number">-1</span>,<span class="keyword">sizeof</span>(path));</span><br><span class="line">	PathlenAll(G,<span class="number">1</span>,<span class="number">4</span>,<span class="number">3</span>,path,<span class="number">-1</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 <h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p><img src="https://img-blog.csdnimg.cn/20190617001056832.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="DFS应用"></p>
 <p>写于2019/6/17 00:37  坚持很酷~</p>
 
@@ -514,7 +372,7 @@ void  PathlenAll(AdjGraph *G, int u, int v, int l, int path[], int d)
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://sinclaircoder.gitee.io/archives/a72f9f18.html" title="数据结构-图-深度优先搜索的应用">https://sinclaircoder.gitee.io/archives/a72f9f18.html</a>
+    <a href="https://sinclaircoder.top/archives/a72f9f18.html" title="数据结构-图-深度优先搜索的应用">https://sinclaircoder.top/archives/a72f9f18.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
@@ -684,12 +542,12 @@ void  PathlenAll(AdjGraph *G, int u, int v, int l, int path[], int d)
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">157k</span>
+    <span title="Symbols count total">146k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:22</span>
+    <span title="Reading time total">2:13</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>

@@ -21,14 +21,14 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"sinclaircoder.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="一道题 Easy Version题目描述$求区间 [l, r] 内是 a 或 b 的倍数的数的个数。$ Input$第一行一个正整数 T, 代表测试的组数。$$之后 T 行，每行四个正整数 a, b, l, r, 以空格分隔，意义如题面所述。$$1≤T≤100$$1≤a,b≤10^5$$1≤l≤r≤10^5$ Output$对于每组测试，一行内输出一个整数表示答案。$ Sample Input 3">
 <meta name="keywords" content="组合数学,暴力">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Common (Easy、Middle 、Hard)">
-<meta property="og:url" content="https://sinclaircoder.gitee.io/archives/b5adc785.html">
+<meta property="og:url" content="https://sinclaircoder.top/archives/b5adc785.html">
 <meta property="og:site_name" content="SinclairのBlog">
 <meta property="og:description" content="一道题 Easy Version题目描述$求区间 [l, r] 内是 a 或 b 的倍数的数的个数。$ Input$第一行一个正整数 T, 代表测试的组数。$$之后 T 行，每行四个正整数 a, b, l, r, 以空格分隔，意义如题面所述。$$1≤T≤100$$1≤a,b≤10^5$$1≤l≤r≤10^5$ Output$对于每组测试，一行内输出一个整数表示答案。$ Sample Input 3">
 <meta property="og:locale" content="en">
@@ -37,7 +37,7 @@
 <meta name="twitter:title" content="Common (Easy、Middle 、Hard)">
 <meta name="twitter:description" content="一道题 Easy Version题目描述$求区间 [l, r] 内是 a 或 b 的倍数的数的个数。$ Input$第一行一个正整数 T, 代表测试的组数。$$之后 T 行，每行四个正整数 a, b, l, r, 以空格分隔，意义如题面所述。$$1≤T≤100$$1≤a,b≤10^5$$1≤l≤r≤10^5$ Output$对于每组测试，一行内输出一个整数表示答案。$ Sample Input 3">
 
-<link rel="canonical" href="https://sinclaircoder.gitee.io/archives/b5adc785.html">
+<link rel="canonical" href="https://sinclaircoder.top/archives/b5adc785.html">
 
 
 <script id="page-configurations">
@@ -216,7 +216,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/b5adc785.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/b5adc785.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -285,7 +285,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.8k</span>
+              <span>1.7k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -314,76 +314,9 @@
 <h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><blockquote>
 <p>67<br>33<br>20</p>
 </blockquote>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-int main(){
-
-    int l,r,a,b;
-    int n;
-    cin &gt;&gt; n;
-    while(n--){
-        cin &gt;&gt; a &gt;&gt; b;
-        cin &gt;&gt; l &gt;&gt; r;
-        int res = 0;
-        for(int i=l;i&lt;=r;i++){
-            if(i%a==0||i%b==0) res ++;
-        }
-        cout &lt;&lt; res &lt;&lt; endl;    
-    }
-    return 0;
-}
-</code></pre>
-<h1 id="Middle-Version"><a href="#Middle-Version" class="headerlink" title="Middle Version"></a>Middle Version</h1><p>数据范围改变<br>$1≤T≤100$<br>$1≤a,b≤10^9$<br>$1≤l≤r≤10^9$<br>需要优化</p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-
-using namespace std;
-typedef long long ll;
-
-ll gcd(ll a,ll b) { return !b?a:gcd(b,a%b);}
-ll lcm(ll a,ll b){ return a/gcd(a,b)*b;}
-int main(){
-    int n;
-    cin &gt;&gt; n;
-    while(n--){
-        ll a,b,l,r;
-        cin &gt;&gt; a &gt;&gt; b;
-        cin &gt;&gt; l &gt;&gt; r;
-        ll res = 0;
-        ll t = lcm(a,b);
-        res += r/a+r/b-r/t-(l/a+l/b-l/t);
-        if(l%a==0||l%b==0){
-            res ++;    
-        }
-        cout &lt;&lt; res &lt;&lt; endl;    
-    }
-    return 0;
-}
-</code></pre>
-<h2 id="Hard-Version"><a href="#Hard-Version" class="headerlink" title="Hard Version"></a>Hard Version</h2><p>$区间[l,r]内, 是a或b倍数的数的和是多少?$<br>$1≤a,b≤10^9$<br>$1≤l≤r≤10^9$</p>
-<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
-
-using namespace std;
-typedef long long ll;
-
-ll gcd(ll a,ll b) { return !b?a:gcd(b,a%b);}
-ll lcm(ll a,ll b){ return a/gcd(a,b)*b;}
-
-int main(){
-
-        ll a,b,l,r;
-        cin &gt;&gt; a &gt;&gt; b;
-        cin &gt;&gt; l &gt;&gt; r;
-        ll res = 0;
-        ll t = lcm(a,b);
-        ll c1 = r/a,c2 = r/b,c3 = r/t;
-        ll c4 = (l-1)/a,c5 = (l-1)/b,c6 = (l-1)/t;
-        res += (a+c1*a)*c1/2+(b+c2*b)*c2/2-(t+c3*t)*c3/2;
-        res -= (a+c4*a)*c4/2+(b+c5*b)*c5/2-(t+c6*t)*c6/2;
-        cout &lt;&lt; res &lt;&lt; endl;    
-
-    return 0;
-}
-</code></pre>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> l,r,a,b;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">while</span>(n--)&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; l &gt;&gt; r;</span><br><span class="line">		<span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=l;i&lt;=r;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(i%a==<span class="number">0</span>||i%b==<span class="number">0</span>) res ++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="built_in">endl</span>;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Middle-Version"><a href="#Middle-Version" class="headerlink" title="Middle Version"></a>Middle Version</h1><p>数据范围改变<br>$1≤T≤100$<br>$1≤a,b≤10^9$<br>$1≤l≤r≤10^9$<br>需要优化<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">gcd</span><span class="params">(ll a,ll b)</span> </span>&#123; <span class="keyword">return</span> !b?a:gcd(b,a%b);&#125;</span><br><span class="line"><span class="function">ll <span class="title">lcm</span><span class="params">(ll a,ll b)</span></span>&#123; <span class="keyword">return</span> a/gcd(a,b)*b;&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">while</span>(n--)&#123;</span><br><span class="line">		ll a,b,l,r;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; l &gt;&gt; r;</span><br><span class="line">		ll res = <span class="number">0</span>;</span><br><span class="line">		ll t = lcm(a,b);</span><br><span class="line">		res += r/a+r/b-r/t-(l/a+l/b-l/t);</span><br><span class="line">		<span class="keyword">if</span>(l%a==<span class="number">0</span>||l%b==<span class="number">0</span>)&#123;</span><br><span class="line">			res ++;	</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="built_in">endl</span>;	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Hard-Version"><a href="#Hard-Version" class="headerlink" title="Hard Version"></a>Hard Version</h2><p>$区间[l,r]内, 是a或b倍数的数的和是多少?$<br>$1≤a,b≤10^9$<br>$1≤l≤r≤10^9$<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">gcd</span><span class="params">(ll a,ll b)</span> </span>&#123; <span class="keyword">return</span> !b?a:gcd(b,a%b);&#125;</span><br><span class="line"><span class="function">ll <span class="title">lcm</span><span class="params">(ll a,ll b)</span></span>&#123; <span class="keyword">return</span> a/gcd(a,b)*b;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">		ll a,b,l,r;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; l &gt;&gt; r;</span><br><span class="line">		ll res = <span class="number">0</span>;</span><br><span class="line">		ll t = lcm(a,b);</span><br><span class="line">		ll c1 = r/a,c2 = r/b,c3 = r/t;</span><br><span class="line">		ll c4 = (l<span class="number">-1</span>)/a,c5 = (l<span class="number">-1</span>)/b,c6 = (l<span class="number">-1</span>)/t;</span><br><span class="line">		res += (a+c1*a)*c1/<span class="number">2</span>+(b+c2*b)*c2/<span class="number">2</span>-(t+c3*t)*c3/<span class="number">2</span>;</span><br><span class="line">		res -= (a+c4*a)*c4/<span class="number">2</span>+(b+c5*b)*c5/<span class="number">2</span>-(t+c6*t)*c6/<span class="number">2</span>;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="built_in">endl</span>;	</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
     </div>
 
@@ -421,7 +354,7 @@ int main(){
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://sinclaircoder.gitee.io/archives/b5adc785.html" title="Common (Easy、Middle 、Hard)">https://sinclaircoder.gitee.io/archives/b5adc785.html</a>
+    <a href="https://sinclaircoder.top/archives/b5adc785.html" title="Common (Easy、Middle 、Hard)">https://sinclaircoder.top/archives/b5adc785.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
@@ -591,12 +524,12 @@ int main(){
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">157k</span>
+    <span title="Symbols count total">146k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:22</span>
+    <span title="Reading time total">2:13</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>

@@ -21,14 +21,14 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"sinclaircoder.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="假设全校有最多40000名学生和最多2500门课程。现给出每门课的选课学生名单，要求输出每个前来查询的学生的选课清单。 输入格式:输入的第一行是两个正整数：N（≤40000），为前来查询课表的学生总数；K（≤2500），为总课程数。此后顺序给出课程1到K的选课学生名单。格式为：对每一门课，首先在一行中输出课程编号（简单起见，课程从1到K编号）和选课学生总数（之间用空格分隔），之后在第二行给出学生名">
 <meta name="keywords" content="PTA,哈希表">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PTA打印学生选课清单(哈希表)">
-<meta property="og:url" content="https://sinclaircoder.gitee.io/archives/9e567f89.html">
+<meta property="og:url" content="https://sinclaircoder.top/archives/9e567f89.html">
 <meta property="og:site_name" content="SinclairのBlog">
 <meta property="og:description" content="假设全校有最多40000名学生和最多2500门课程。现给出每门课的选课学生名单，要求输出每个前来查询的学生的选课清单。 输入格式:输入的第一行是两个正整数：N（≤40000），为前来查询课表的学生总数；K（≤2500），为总课程数。此后顺序给出课程1到K的选课学生名单。格式为：对每一门课，首先在一行中输出课程编号（简单起见，课程从1到K编号）和选课学生总数（之间用空格分隔），之后在第二行给出学生名">
 <meta property="og:locale" content="en">
@@ -37,7 +37,7 @@
 <meta name="twitter:title" content="PTA打印学生选课清单(哈希表)">
 <meta name="twitter:description" content="假设全校有最多40000名学生和最多2500门课程。现给出每门课的选课学生名单，要求输出每个前来查询的学生的选课清单。 输入格式:输入的第一行是两个正整数：N（≤40000），为前来查询课表的学生总数；K（≤2500），为总课程数。此后顺序给出课程1到K的选课学生名单。格式为：对每一门课，首先在一行中输出课程编号（简单起见，课程从1到K编号）和选课学生总数（之间用空格分隔），之后在第二行给出学生名">
 
-<link rel="canonical" href="https://sinclaircoder.gitee.io/archives/9e567f89.html">
+<link rel="canonical" href="https://sinclaircoder.top/archives/9e567f89.html">
 
 
 <script id="page-configurations">
@@ -216,7 +216,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/9e567f89.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/9e567f89.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -285,7 +285,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.1k</span>
+              <span>1.9k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -314,57 +314,7 @@
 <p>ZOE1 2 4 5<br>ANN0 3 1 2 5<br>BOB5 5 1 2 3 4 5<br>JOE4 1 2<br>JAY9 4 1 2 4 5<br>FRA8 3 2 4 5<br>DON2 2 4 5<br>AMY7 1 5<br>KAT3 3 2 4 5<br>LOR6 4 1 2 4 5</p>
 </blockquote>
 <p><br><br>思路：<br>哈希表的应用，根据名字生成索引，然后将课程号记录。不过要注意，需要使用scanf输入，不能使用cin，否则会超时。</p>
-<pre><code class="lang-cpp">#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-#include&lt;vector&gt;
-#include&lt;algorithm&gt;
-#include&lt;stack&gt;
-#include&lt;queue&gt;
-#include&lt;map&gt;
-#include&lt;list&gt;
-#include&lt;set&gt;
-#include&lt;cmath&gt;
-using namespace std;
-typedef long long ll;
-
-#define N 102
-int hashfun(char s[5]){
-    return (s[3]-&#39;0&#39;)+(s[2]-&#39;A&#39;)*10+(s[1]-&#39;A&#39;)*260+(s[0]-&#39;A&#39;)*26*260;
-}
-vector&lt;int&gt; course[26*26*26*11];
-int main(){
-    int n,k,index,cnt;
-    cin &gt;&gt; n &gt;&gt; k;
-    char name[5];
-
-    for(int i=0;i&lt;k;i++){
-        scanf(&quot;%d%d&quot;,&amp;index,&amp;cnt);
-//        cin &gt;&gt; index &gt;&gt; cnt;
-        for(int j=0;j&lt;cnt;j++){
-            scanf(&quot;%s&quot;,name);
-//            cin &gt;&gt; name;
-            int h = hashfun(name);
-            course[h].push_back(index);
-        }
-    }
-    for(int i=0;i&lt;n;i++){
-        scanf(&quot;%s&quot;,name);
-//        cin &gt;&gt; name;
-        int h = hashfun(name);
-        cout &lt;&lt; name &lt;&lt; &quot; &quot; &lt;&lt; course[h].size();
-        if(course[h].size()) {
-            // 谁能想到还要排序.. 
-            sort(course[h].begin(),course[h].end());
-            for(int j=0;j&lt;course[h].size();j++){
-                cout &lt;&lt; &quot; &quot; &lt;&lt; course[h][j];
-            }
-        }
-        cout &lt;&lt; endl;
-    }
-    return 0;
-}
-</code></pre>
-
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 102</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hashfun</span><span class="params">(<span class="keyword">char</span> s[<span class="number">5</span>])</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (s[<span class="number">3</span>]-<span class="string">'0'</span>)+(s[<span class="number">2</span>]-<span class="string">'A'</span>)*<span class="number">10</span>+(s[<span class="number">1</span>]-<span class="string">'A'</span>)*<span class="number">260</span>+(s[<span class="number">0</span>]-<span class="string">'A'</span>)*<span class="number">26</span>*<span class="number">260</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; course[<span class="number">26</span>*<span class="number">26</span>*<span class="number">26</span>*<span class="number">11</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n,k,index,cnt;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; k;</span><br><span class="line">	<span class="keyword">char</span> name[<span class="number">5</span>];</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;index,&amp;cnt);</span><br><span class="line"><span class="comment">//		cin &gt;&gt; index &gt;&gt; cnt;</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;cnt;j++)&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%s"</span>,name);</span><br><span class="line"><span class="comment">//			cin &gt;&gt; name;</span></span><br><span class="line">			<span class="keyword">int</span> h = hashfun(name);</span><br><span class="line">			course[h].push_back(index);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s"</span>,name);</span><br><span class="line"><span class="comment">//		cin &gt;&gt; name;</span></span><br><span class="line">		<span class="keyword">int</span> h = hashfun(name);</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; name &lt;&lt; <span class="string">" "</span> &lt;&lt; course[h].size();</span><br><span class="line">		<span class="keyword">if</span>(course[h].size()) &#123;</span><br><span class="line">			<span class="comment">// 谁能想到还要排序.. </span></span><br><span class="line">			sort(course[h].begin(),course[h].end());</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;course[h].size();j++)&#123;</span><br><span class="line">				<span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span> &lt;&lt; course[h][j];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -377,13 +327,13 @@ int main(){
       <div class="popular-posts-title"><a href="\archives\cafc282e.html" rel="bookmark">PTA求前缀表达式的值</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\archives\4669f0d5.html" rel="bookmark">PTA列出连通集(DFS+BFS)</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="\archives\8ce6deb1.html" rel="bookmark">PTA汉密尔顿回路</a></div>
+      <div class="popular-posts-title"><a href="\archives\9c6e9d96.html" rel="bookmark">PTA朋友圈(并查集)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\archives\f029cec1.html" rel="bookmark">PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="\archives\8ce6deb1.html" rel="bookmark">PTA汉密尔顿回路</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="\archives\f76e7172.html" rel="bookmark">PTA小字辈（BFS）</a></div>
@@ -419,7 +369,7 @@ int main(){
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://sinclaircoder.gitee.io/archives/9e567f89.html" title="PTA打印学生选课清单(哈希表)">https://sinclaircoder.gitee.io/archives/9e567f89.html</a>
+    <a href="https://sinclaircoder.top/archives/9e567f89.html" title="PTA打印学生选课清单(哈希表)">https://sinclaircoder.top/archives/9e567f89.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
@@ -589,12 +539,12 @@ int main(){
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">157k</span>
+    <span title="Symbols count total">146k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:22</span>
+    <span title="Reading time total">2:13</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>

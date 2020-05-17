@@ -21,14 +21,14 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"sinclaircoder.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="HDU2032 还记得中学时候学过的杨辉三角吗？具体的定义这里不再描述，你可以参考以下的图形：11 11 2 11 3 3 11 4 6 4 11 5 10 10 5 1  即元素值等于肩上的两个元素之和，每行第一个跟最后一个都为１。">
 <meta name="keywords" content="数据结构与算法训练,HDU">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDU2032之杨辉三角的多种解法">
-<meta property="og:url" content="https://sinclaircoder.gitee.io/archives/bbec1744.html">
+<meta property="og:url" content="https://sinclaircoder.top/archives/bbec1744.html">
 <meta property="og:site_name" content="SinclairのBlog">
 <meta property="og:description" content="HDU2032 还记得中学时候学过的杨辉三角吗？具体的定义这里不再描述，你可以参考以下的图形：11 11 2 11 3 3 11 4 6 4 11 5 10 10 5 1  即元素值等于肩上的两个元素之和，每行第一个跟最后一个都为１。">
 <meta property="og:locale" content="en">
@@ -37,7 +37,7 @@
 <meta name="twitter:title" content="HDU2032之杨辉三角的多种解法">
 <meta name="twitter:description" content="HDU2032 还记得中学时候学过的杨辉三角吗？具体的定义这里不再描述，你可以参考以下的图形：11 11 2 11 3 3 11 4 6 4 11 5 10 10 5 1  即元素值等于肩上的两个元素之和，每行第一个跟最后一个都为１。">
 
-<link rel="canonical" href="https://sinclaircoder.gitee.io/archives/bbec1744.html">
+<link rel="canonical" href="https://sinclaircoder.top/archives/bbec1744.html">
 
 
 <script id="page-configurations">
@@ -216,7 +216,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/bbec1744.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/bbec1744.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -285,7 +285,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>2.3k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -309,114 +309,7 @@
 </blockquote>
 <p>即元素值等于肩上的两个元素之和，每行第一个跟最后一个都为１。</p>
 <a id="more"></a>
-<pre><code class="lang-java">//解法１、二维数组
-int main() 
-{
-    int n,a[30][30]={0};
-    while(cin&gt;&gt; n)
-    {
-        for(int i=0;i&lt;n;i++)
-        {
-            a[i][0]=1;a[i][i]=1;
-        }
-        for(int i=0;i&lt;n;i++)
-        {
-            for(int j=0;j&lt;=i;j++)
-            {
-                if(j&gt;0)
-                    a[i][j] = a[i-1][j] + a[i-1][j-1];
-                cout &lt;&lt; a[i][j];
-                if(j&lt;i) cout &lt;&lt; &quot; &quot;;
-            }
-            cout &lt;&lt; endl;
-        }
-        cout &lt;&lt; endl;
-    }
-     return 0;
-}
-
-//解法2、一维数组
-int main() 
-{
-    int n;    
-    while(cin&gt;&gt;n)
-    {
-        int a[40]={0},b[40]={0}; //此处会涉及到初始化问题，故须放到while循环里面
-        a[1]=1;b[1]=1;
-        for(int i=1;i&lt;=n;i++) // 此处索引从1开始
-        {
-            for(int j=1;j&lt;=i;j++)
-            {
-                a[j]=b[j]+b[j-1];     
-            }
-            for(int j=1;j&lt;=i;j++)
-            {
-                b[j] = a[j] ; 
-                cout&lt;&lt; b[j] ;
-                if(j&lt;i) cout &lt;&lt; &quot; &quot;;
-            }    
-            cout &lt;&lt; endl;
-        }
-        cout &lt;&lt; endl;
-
-    }
-     return 0;
-}
-
-//解法3、多项式　杨辉三角中每一行的值为C（ｎ－１，ｍ），其中n为行数，m为列数索引
-int fun(int n,int m)
-{
-    int s1=1,j=1;
-    for(int i=n;i&gt;n-m;i--)
-    {
-        s1 =s1*i/j;
-        j++;
-    }
-    return s1;
-}
-int main() 
-{
-    int n;
-    while(cin&gt;&gt; n)
-    {
-        for(int i=0;i&lt;n;i++)
-        {
-            for(int j=0;j&lt;=i;j++)
-            {
-                cout &lt;&lt; fun(i,j);
-                if(j&lt;i)cout &lt;&lt; &quot; &quot;;
-            }
-            cout &lt;&lt; endl;
-        } 
-        cout &lt;&lt; endl;
-    }
-     return 0;
-}
-
-// 解法4、递推法，发现规律
-int main() 
-{
-    int n;    
-    while(cin&gt;&gt;n)
-    {
-        for(int i=1;i&lt;=n;i++)
-        {
-            int b=1;
-            for(int j=1;j&lt;=i;j++)
-            {
-                cout &lt;&lt; b;
-                b = b*(i-j)/j;  // 下一个元素值=上一个*(行数-列数)/列数 
-                if(j&lt;i) cout &lt;&lt; &quot; &quot;;
-
-            }
-            cout &lt;&lt; endl;
-        }
-        cout &lt;&lt; endl;
-
-    }
-     return 0;
-}
-</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//解法１、二维数组</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n,a[<span class="number">30</span>][<span class="number">30</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="keyword">while</span>(cin&gt;&gt; n)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			a[i][<span class="number">0</span>]=<span class="number">1</span>;a[i][i]=<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=i;j++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(j&gt;<span class="number">0</span>)</span><br><span class="line">					a[i][j] = a[i-<span class="number">1</span>][j] + a[i-<span class="number">1</span>][j-<span class="number">1</span>];</span><br><span class="line">				cout &lt;&lt; a[i][j];</span><br><span class="line">				<span class="keyword">if</span>(j&lt;i) cout &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			cout &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line"> 	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//解法2、一维数组</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;	</span><br><span class="line">	<span class="keyword">while</span>(cin&gt;&gt;n)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> a[<span class="number">40</span>]=&#123;<span class="number">0</span>&#125;,b[<span class="number">40</span>]=&#123;<span class="number">0</span>&#125;; <span class="comment">//此处会涉及到初始化问题，故须放到while循环里面</span></span><br><span class="line">		a[<span class="number">1</span>]=<span class="number">1</span>;b[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) <span class="comment">// 此处索引从1开始</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=i;j++)</span><br><span class="line">			&#123;</span><br><span class="line">				a[j]=b[j]+b[j-<span class="number">1</span>]; 	</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=i;j++)</span><br><span class="line">			&#123;</span><br><span class="line">				b[j] = a[j] ; </span><br><span class="line">				cout&lt;&lt; b[j] ;</span><br><span class="line">				<span class="keyword">if</span>(j&lt;i) cout &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">			&#125;	</span><br><span class="line">			cout &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"> 	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//解法3、多项式　杨辉三角中每一行的值为C（ｎ－１，ｍ），其中n为行数，m为列数索引</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> s1=<span class="number">1</span>,j=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=n;i&gt;n-m;i--)</span><br><span class="line">	&#123;</span><br><span class="line">		s1 =s1*i/j;</span><br><span class="line">		j++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> s1;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">while</span>(cin&gt;&gt; n)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=i;j++)</span><br><span class="line">			&#123;</span><br><span class="line">				cout &lt;&lt; fun(i,j);</span><br><span class="line">				<span class="keyword">if</span>(j&lt;i)cout &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			cout &lt;&lt; endl;</span><br><span class="line">		&#125; </span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line"> 	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解法4、递推法，发现规律</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;	</span><br><span class="line">	<span class="keyword">while</span>(cin&gt;&gt;n)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> b=<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=i;j++)</span><br><span class="line">			&#123;</span><br><span class="line">				cout &lt;&lt; b;</span><br><span class="line">				b = b*(i-j)/j;  <span class="comment">// 下一个元素值=上一个*(行数-列数)/列数 </span></span><br><span class="line">				<span class="keyword">if</span>(j&lt;i) cout &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">			</span><br><span class="line">			&#125;</span><br><span class="line">			cout &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"> 	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>本该大一学会的，现在才学会，我干了什么？我究竟用时间换来了什么？</p>
 </blockquote>
@@ -475,7 +368,7 @@ int main()
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://sinclaircoder.gitee.io/archives/bbec1744.html" title="HDU2032之杨辉三角的多种解法">https://sinclaircoder.gitee.io/archives/bbec1744.html</a>
+    <a href="https://sinclaircoder.top/archives/bbec1744.html" title="HDU2032之杨辉三角的多种解法">https://sinclaircoder.top/archives/bbec1744.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
@@ -645,12 +538,12 @@ int main()
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">157k</span>
+    <span title="Symbols count total">146k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:22</span>
+    <span title="Reading time total">2:13</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>

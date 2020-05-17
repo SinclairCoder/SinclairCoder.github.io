@@ -21,14 +21,14 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"sinclaircoder.gitee.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"sinclaircoder.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"QF2NZ3KOZ1","apiKey":"f44f1fe6a3468b9a5c4d5441002c3a08","indexName":"blog_index","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="理论：矩阵的奇异值分解变换是一种正交变换，它可以将矩阵对角化定理：设A是一个秩为$r$的$m*n$矩阵,则存在正交矩阵$U$和$V$,使得 U^TAV= \begin{bmatrix} \Sigma &amp; 0 \\ 0 &amp; 0 \\ \end{bmatrix}其中$\Sigma=diag{\sigma_1,\sigma_2,\sigma_3,….,\sigma_r}$，这里$\sigma_1&amp;gt;">
 <meta name="keywords" content="图像处理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于奇异值分解的图像压缩">
-<meta property="og:url" content="https://sinclaircoder.gitee.io/archives/d5030815.html">
+<meta property="og:url" content="https://sinclaircoder.top/archives/d5030815.html">
 <meta property="og:site_name" content="SinclairのBlog">
 <meta property="og:description" content="理论：矩阵的奇异值分解变换是一种正交变换，它可以将矩阵对角化定理：设A是一个秩为$r$的$m*n$矩阵,则存在正交矩阵$U$和$V$,使得 U^TAV= \begin{bmatrix} \Sigma &amp; 0 \\ 0 &amp; 0 \\ \end{bmatrix}其中$\Sigma=diag{\sigma_1,\sigma_2,\sigma_3,….,\sigma_r}$，这里$\sigma_1&amp;gt;">
 <meta property="og:locale" content="en">
@@ -42,7 +42,7 @@
 <meta name="twitter:description" content="理论：矩阵的奇异值分解变换是一种正交变换，它可以将矩阵对角化定理：设A是一个秩为$r$的$m*n$矩阵,则存在正交矩阵$U$和$V$,使得 U^TAV= \begin{bmatrix} \Sigma &amp; 0 \\ 0 &amp; 0 \\ \end{bmatrix}其中$\Sigma=diag{\sigma_1,\sigma_2,\sigma_3,….,\sigma_r}$，这里$\sigma_1&amp;gt;">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190909163243876.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="https://sinclaircoder.gitee.io/archives/d5030815.html">
+<link rel="canonical" href="https://sinclaircoder.top/archives/d5030815.html">
 
 
 <script id="page-configurations">
@@ -221,7 +221,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/archives/d5030815.html">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/archives/d5030815.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -290,14 +290,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.7k</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
+              <span>1 mins.</span>
             </span>
 
         </div>
@@ -322,40 +322,7 @@
 <li>打印图像（保存）</li>
 <li>修改k的值，重复以上步骤</li>
 </ul>
-<h2 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h2><pre><code class="lang-matlab">% 通过奇异值分解 进行图像压缩
-clc;clear;
-I = imread(&#39;figure1.jpg&#39;);  % rgb图像为274KB
-[m,n,h] = size(I);
-% Igray = rgb2gray(I);
-% imwrite(Igray,&#39;figure1grayByrgb2gray.png&#39;,&#39;png&#39;) % 灰度图像为993KB，文件变大了好几倍
-% 参考别人的博客，手写将rgb图像变成灰度图像
-for i=1:m
-    for j=1:n
-    Igray(i,j)=0.299*I(i,j,1)+0.587*I(i,j,2)+0.114*I(i,j,3);
-    end
-end
-imwrite(Igray,&#39;figure1grayBymyself.png&#39;,&#39;png&#39;) 
-k = 20;
-Igray = double(Igray);
-[U,S,V] = svd(Igray);
-S = diag(S); % 变成列向量
-Smax = max(S);
-Smin = min(S);
-S1 = S;
-S1(k:end)=0;  %保留前ｋ个
-% S1 = diag(S1);  % 考虑不周到
-if m&gt;=n  % 对于非方图形
-    S1 = [diag(S1);zeros(m-n,n)]; 
-else S1 = [diag(S1),zeros(m,n-m)]; 
-end
-g = U*S1*V&#39;; % S1的奇异值分解
-g = uint8(g);
-compressration = n^2/(k*(2*n+1));
-subplot(1,2,1),imshow(mat2gray(Igray)),title(&#39;soure&#39;);
-subplot(1,2,2),imshow(g),title([&#39;k =&#39;,num2str(k),&#39;  compress ratio =&#39;,num2str(compressration)]);
-imwrite(g,&#39;figure1Compress20.png&#39;,&#39;png&#39;)
-figure,plot(S,&#39;.&#39;,&#39;Color&#39;,&#39;k&#39;); % 画出奇异值对应的点
-</code></pre>
+<h2 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 通过奇异值分解 进行图像压缩</span></span><br><span class="line">clc;clear;</span><br><span class="line">I = imread(<span class="string">'figure1.jpg'</span>);  <span class="comment">% rgb图像为274KB</span></span><br><span class="line">[m,n,h] = <span class="built_in">size</span>(I);</span><br><span class="line"><span class="comment">% Igray = rgb2gray(I);</span></span><br><span class="line"><span class="comment">% imwrite(Igray,'figure1grayByrgb2gray.png','png') % 灰度图像为993KB，文件变大了好几倍</span></span><br><span class="line"><span class="comment">% 参考别人的博客，手写将rgb图像变成灰度图像</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:m</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span>=<span class="number">1</span>:n</span><br><span class="line">    Igray(<span class="built_in">i</span>,<span class="built_in">j</span>)=<span class="number">0.299</span>*I(<span class="built_in">i</span>,<span class="built_in">j</span>,<span class="number">1</span>)+<span class="number">0.587</span>*I(<span class="built_in">i</span>,<span class="built_in">j</span>,<span class="number">2</span>)+<span class="number">0.114</span>*I(<span class="built_in">i</span>,<span class="built_in">j</span>,<span class="number">3</span>);</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">imwrite(Igray,<span class="string">'figure1grayBymyself.png'</span>,<span class="string">'png'</span>) </span><br><span class="line">k = <span class="number">20</span>;</span><br><span class="line">Igray = double(Igray);</span><br><span class="line">[U,S,V] = svd(Igray);</span><br><span class="line">S = <span class="built_in">diag</span>(S); <span class="comment">% 变成列向量</span></span><br><span class="line">Smax = <span class="built_in">max</span>(S);</span><br><span class="line">Smin = <span class="built_in">min</span>(S);</span><br><span class="line">S1 = S;</span><br><span class="line">S1(k:<span class="keyword">end</span>)=<span class="number">0</span>;  <span class="comment">%保留前ｋ个</span></span><br><span class="line"><span class="comment">% S1 = diag(S1);  % 考虑不周到</span></span><br><span class="line"><span class="keyword">if</span> m&gt;=n  <span class="comment">% 对于非方图形</span></span><br><span class="line">    S1 = [<span class="built_in">diag</span>(S1);<span class="built_in">zeros</span>(m-n,n)]; </span><br><span class="line"><span class="keyword">else</span> S1 = [<span class="built_in">diag</span>(S1),<span class="built_in">zeros</span>(m,n-m)]; </span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">g = U*S1*V'; <span class="comment">% S1的奇异值分解</span></span><br><span class="line">g = uint8(g);</span><br><span class="line">compressration = n^<span class="number">2</span>/(k*(<span class="number">2</span>*n+<span class="number">1</span>));</span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>),imshow(mat2gray(Igray)),title(<span class="string">'soure'</span>);</span><br><span class="line">subplot(<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>),imshow(g),title([<span class="string">'k ='</span>,num2str(k),<span class="string">'  compress ratio ='</span>,num2str(compressration)]);</span><br><span class="line">imwrite(g,<span class="string">'figure1Compress20.png'</span>,<span class="string">'png'</span>)</span><br><span class="line"><span class="built_in">figure</span>,<span class="built_in">plot</span>(S,<span class="string">'.'</span>,<span class="string">'Color'</span>,<span class="string">'k'</span>); <span class="comment">% 画出奇异值对应的点</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>原RGB图像：</li>
 </ul>
@@ -410,7 +377,7 @@ figure,plot(S,&#39;.&#39;,&#39;Color&#39;,&#39;k&#39;); % 画出奇异值对应�
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
-    <a href="https://sinclaircoder.gitee.io/archives/d5030815.html" title="基于奇异值分解的图像压缩">https://sinclaircoder.gitee.io/archives/d5030815.html</a>
+    <a href="https://sinclaircoder.top/archives/d5030815.html" title="基于奇异值分解的图像压缩">https://sinclaircoder.top/archives/d5030815.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
@@ -435,8 +402,8 @@ figure,plot(S,&#39;.&#39;,&#39;Color&#39;,&#39;k&#39;); % 画出奇异值对应�
       <i class="fa fa-chevron-left"></i> 软件体系结构笔记
     </a></div>
       <div class="post-nav-item">
-    <a href="/archives/421bb123.html" rel="next" title="2019数学建模赛后感悟：一次灵魂与肉体的交织&&一次参赛终身收益">
-      2019数学建模赛后感悟：一次灵魂与肉体的交织&&一次参赛终身收益 <i class="fa fa-chevron-right"></i>
+    <a href="/archives/9f300a99.html" rel="next" title="数学建模集训知识大纲">
+      数学建模集训知识大纲 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -579,12 +546,12 @@ figure,plot(S,&#39;.&#39;,&#39;Color&#39;,&#39;k&#39;); % 画出奇异值对应�
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">157k</span>
+    <span title="Symbols count total">146k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:22</span>
+    <span title="Reading time total">2:13</span>
 </div>
   <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly9waXNjZXMudGhlbWUtbmV4dC5vcmc=">NexT.Pisces</span>
   </div>
