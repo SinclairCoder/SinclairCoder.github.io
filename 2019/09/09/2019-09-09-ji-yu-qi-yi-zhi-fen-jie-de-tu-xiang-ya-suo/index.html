@@ -1,351 +1,378 @@
-<!DOCTYPE HTML>
-<html lang="en">
+<!DOCTYPE html>
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="基于奇异值分解的图像压缩, 算法 | NLP | MachineLearning">
-    <meta name="description" content="理论：矩阵的奇异值分解变换是一种正交变换，它可以将矩阵对角化定理：设A是一个秩为$r$的$m*n$矩阵,则存在正交矩阵$U$和$V$,使得
-U^TAV= \begin{bmatrix} \Sigma &amp; 0 \\ 0 &amp; 0 \\ \end">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>基于奇异值分解的图像压缩 | SinclairのBlog</title>
-    <link rel="icon" type="image/jpeg" href="/favicon.jpg">
-
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
-    
-    <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-    
-</head>
 
 
-<body>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="nav-wrapper head-container">
-            <div class="brand-logo">
-                <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="/medias/logo.jpg" class="logo-img" alt="LOGO">
-                    
-                    <span class="logo-span">SinclairのBlog</span>
-                </a>
-            </div>
-            
 
-<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
-<ul class="right nav-menu">
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/" class="waves-effect waves-light">
-      
-      <i class="fas fa-home" style="zoom: 0.6;"></i>
-      
-      <span>Index</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>Tags</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>Categories</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/archives" class="waves-effect waves-light">
-      
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
-      
-      <span>Archives</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>About</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>Contact</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
-      
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
-      
-      <span>Friends</span>
-    </a>
-    
-  </li>
-  
-  <li>
-    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
-    </a>
-  </li>
-</ul>
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+  <meta name="google-site-verification" content="6gsiR4JSQJ1xnCBNFsuQ1EI3jqGUDIhRNhqoCvRSC_Y">
+  <meta name="baidu-site-verification" content="FwKLmibScs">
 
-<div id="mobile-nav" class="side-nav sidenav">
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
 
-    <div class="mobile-head bg-color">
-        
-        <img src="/medias/logo.jpg" class="logo-img circle responsive-img">
-        
-        <div class="logo-name">SinclairのBlog</div>
-        <div class="logo-desc">
-            
-            算法 | NLP | MachineLearning | undergraduate
-            
-        </div>
-    </div>
 
-    
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2">
 
-    <ul class="menu-list mobile-menu-list">
-        
-        <li class="m-nav-item">
-	  
-		<a href="/" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-home"></i>
-			
-			Index
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			Tags
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			Categories
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/archives" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-archive"></i>
-			
-			Archives
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			About
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			Contact
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			Friends
-		</a>
-          
-        </li>
-        
-        
-    </ul>
-</div>
 
-        </div>
-
-        
-    </nav>
-
-</header>
-
-    
-<script src="/libs/cryptojs/crypto-js.min.js"></script>
-<script>
-    (function() {
-        let pwd = '';
-        if (pwd && pwd.length > 0) {
-            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
-                alert('密码错误，将返回主页！');
-                location.href = '/';
-            }
-        }
-    })();
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: 'QF2NZ3KOZ1',
+      apiKey: 'f44f1fe6a3468b9a5c4d5441002c3a08',
+      indexName: 'blog_index',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
 </script>
 
+  <meta name="description" content="理论：矩阵的奇异值分解变换是一种正交变换，它可以将矩阵对角化定理：设A是一个秩为$r$的$m*n$矩阵,则存在正交矩阵$U$和$V$,使得 U^TAV= \begin{bmatrix} \Sigma &amp; 0 \\ 0 &amp; 0 \\ \end{bmatrix}其中$\Sigma=diag{\sigma_1,\sigma_2,\sigma_3,….,\sigma_r}$，这里$\sigma_1&amp;gt;">
+<meta name="keywords" content="图像处理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于奇异值分解的图像压缩">
+<meta property="og:url" content="https://sinclaircoder.top/2019/09/09/2019-09-09-ji-yu-qi-yi-zhi-fen-jie-de-tu-xiang-ya-suo/index.html">
+<meta property="og:site_name" content="SinclairのBlog">
+<meta property="og:description" content="理论：矩阵的奇异值分解变换是一种正交变换，它可以将矩阵对角化定理：设A是一个秩为$r$的$m*n$矩阵,则存在正交矩阵$U$和$V$,使得 U^TAV= \begin{bmatrix} \Sigma &amp; 0 \\ 0 &amp; 0 \\ \end{bmatrix}其中$\Sigma=diag{\sigma_1,\sigma_2,\sigma_3,….,\sigma_r}$，这里$\sigma_1&amp;gt;">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190909163243876.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019090916334072.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190909163642173.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190909163802967.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2020-01-21T13:05:57.120Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于奇异值分解的图像压缩">
+<meta name="twitter:description" content="理论：矩阵的奇异值分解变换是一种正交变换，它可以将矩阵对角化定理：设A是一个秩为$r$的$m*n$矩阵,则存在正交矩阵$U$和$V$,使得 U^TAV= \begin{bmatrix} \Sigma &amp; 0 \\ 0 &amp; 0 \\ \end{bmatrix}其中$\Sigma=diag{\sigma_1,\sigma_2,\sigma_3,….,\sigma_r}$，这里$\sigma_1&amp;gt;">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190909163243876.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70">
+  <link rel="alternate" href="/atom.xml" title="SinclairのBlog" type="application/atom+xml">
+  <link rel="canonical" href="https://sinclaircoder.top/2019/09/09/2019-09-09-ji-yu-qi-yi-zhi-fen-jie-de-tu-xiang-ya-suo/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>基于奇异值分解的图像压缩 | SinclairのBlog</title>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135806349-1"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-135806349-1');
+    }
+  </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ad3c73a898b555b5658e0609e7dd9dc6";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
-    <div class="container" style="right: 0px;left: 0px;">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <h1 class="description center-align post-title">基于奇异值分解的图像压缩</h1>
-                </div>
-            </div>
-        </div>
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SinclairのBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+        <p class="site-subtitle">为而不争</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-sitemap">
+      
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+      </li>
+    
+  </ul>
+
+    
+
+    <div class="site-search">
+      
+  <div class="algolia-popup popup search-popup">
+  <div class="algolia-search">
+    <div class="algolia-search-input-icon">
+      <i class="fa fa-search"></i>
+    </div>
+    <div class="algolia-search-input" id="algolia-search-input"></div>
+  </div>
+
+  <div class="algolia-results">
+    <div id="algolia-stats"></div>
+    <div id="algolia-hits"></div>
+    <div id="algolia-pagination" class="algolia-pagination"></div>
+  </div>
+
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
 </div>
 
 
 
-
-<main class="container content">
+    </div>
+</nav>
+</div>
+    </header>
 
     
-    <!-- 文章内容详情 -->
-<div id="artDetail">
-    <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                    <div class="article-tag">
-                        
-                            <a href="/tags/图像处理/">
-                                <span class="chip bg-color">图像处理</span>
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/图像处理/" class="post-category">
-                                图像处理
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
 
-            <div class="post-info">
-                
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-09-09
-                </div>
-                
 
-                
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2020-01-21
-                </div>
-                
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content page-post-detail">
+            
 
-                
-                <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    610
-                </div>
-                
+  <div id="posts" class="posts-expand">
+    
 
-                
-                <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    2 Min
-                </div>
-                
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/09/09/2019-09-09-ji-yu-qi-yi-zhi-fen-jie-de-tu-xiang-ya-suo/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">基于奇异值分解的图像压缩
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
-            </div>
+              
+
+              <time title="Created: 2019-09-09 00:00:00" itemprop="dateCreated datePublished" datetime="2019-09-09T00:00:00+08:00">2019-09-09</time>
+            </span>
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">1.5k</span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">1 mins.</span>
+            </span>
+          
 
         </div>
-        <hr class="clearfix">
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <h2 id="理论："><a href="#理论：" class="headerlink" title="理论："></a>理论：</h2><p>矩阵的奇异值分解变换是一种正交变换，它可以将矩阵对角化<br>定理：<br>设A是一个秩为$r$的$m*n$矩阵,则存在正交矩阵$U$和$V$,使得</p>
-<script type="math/tex; mode=display">U^TAV= \begin{bmatrix} \Sigma & 0 \\ 0 & 0 \\ \end{bmatrix}</script><p>其中$\Sigma=diag\{\sigma_1,\sigma_2,\sigma_3,….,\sigma_r\}$，这里$\sigma_1&gt;=\sigma_2&gt;=\sigma_3….&gt;=\sigma_r$，<br>$\sigma_1^2….\sigma_r^2$是矩阵$A^TA$对应的特征值。<br>称<script type="math/tex">A=U \begin{bmatrix} \Sigma & 0 \\ 0 & 0 \\ \end{bmatrix}V^T</script>A的奇异值分解，$\sigma_i(i=1,…r)$称为A的奇异值</p>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="理论："><a href="#理论：" class="headerlink" title="理论："></a>理论：</h2><p>矩阵的奇异值分解变换是一种正交变换，它可以将矩阵对角化<br>定理：<br>设A是一个秩为$r$的$m*n$矩阵,则存在正交矩阵$U$和$V$,使得</p>
+<script type="math/tex; mode=display">U^TAV= \begin{bmatrix} \Sigma & 0 \\ 0 & 0 \\ \end{bmatrix}</script><p>其中$\Sigma=diag{\sigma_1,\sigma_2,\sigma_3,….,\sigma_r}$，这里$\sigma_1&gt;=\sigma_2&gt;=\sigma_3….&gt;=\sigma_r$，<br>$\sigma_1^2….\sigma_r^2$是矩阵$A^TA$对应的特征值。<br>称<script type="math/tex">A=U \begin{bmatrix} \Sigma & 0 \\ 0 & 0 \\ \end{bmatrix}V^T</script>A的奇异值分解，$\sigma_i(i=1,…r)$称为A的奇异值</p>
 <p>根据自己的理解，压缩的思路就是先进行奇异值分解，将前k大个特征值保留下来，其余的变为0，然后进行逆变换，起到基本替代原来奇异值矩阵的作用，从而实现图像的压缩，压缩率也会随k的变化而变化，诚然，k越大，压缩率越小。</p>
 <h2 id="实现步骤："><a href="#实现步骤：" class="headerlink" title="实现步骤："></a>实现步骤：</h2><ul>
 <li>读取RGB图像</li>
@@ -409,900 +436,548 @@ figure,plot(S,&#39;.&#39;,&#39;Color&#39;,&#39;k&#39;); % 画出奇异值对应�
 <p>可以调节k的值得到不同的压缩率</p>
 <h2 id="参考博客："><a href="#参考博客：" class="headerlink" title="参考博客："></a>参考博客：</h2><p><a href="https://blog.csdn.net/chaolei3/article/details/75716422" target="_blank" rel="noopener">RGB图像转为灰度图像原理</a><br><a href="https://www.cnblogs.com/zhangjiansheng/p/6925722.html" target="_blank" rel="noopener">RGB转灰度的几种算法</a><br><a href="https://blog.csdn.net/bluecol/article/details/45971423#commentsedit" target="_blank" rel="noopener">图像压缩（SVD方法）</a></p>
 
-            </div>
-            <hr/>
-
-            
-
-    <div class="reprint" id="reprint-statement">
-        
-            <div class="reprint__author">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-user">
-                        Author:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="https://sinclaircoder.top" rel="external nofollow noreferrer">SinclairWang</a>
-                </span>
-            </div>
-            <div class="reprint__type">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-link">
-                        Link:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="https://sinclaircoder.top/2019/09/09/2019-09-09-ji-yu-qi-yi-zhi-fen-jie-de-tu-xiang-ya-suo/">https://sinclaircoder.top/2019/09/09/2019-09-09-ji-yu-qi-yi-zhi-fen-jie-de-tu-xiang-ya-suo/</a>
-                </span>
-            </div>
-            <div class="reprint__notice">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-copyright">
-                        Reprint policy:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    All articles in this blog are used except for special statements
-                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    reprint polocy. If reproduced, please indicate source
-                    <a href="https://sinclaircoder.top" target="_blank">SinclairWang</a>
-                    !
-                </span>
-            </div>
-        
     </div>
-
-    <script async defer>
-      document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
-        M.toast({html: toastHTML})
-      });
-
-      function navToReprintStatement() {
-        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }
-    </script>
+      
 
 
-
-            <div class="tag_share" style="display: block;">
-                <div class="post-meta__tag-list" style="display: inline-block;">
-                    
-                        <div class="article-tag">
-                            
-                                <a href="/tags/图像处理/">
-                                    <span class="chip bg-color">图像处理</span>
-                                </a>
-                            
-                        </div>
-                    
-                </div>
-                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-
-<div id="article-share">
     
     
-    <div class="social-share" data-sites="google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/libs/share/js/social-share.min.js"></script>
     
 
     
+    <div>
+      <div>
+  
+    <div style="text-align:center;color:#bfbfbf;font-size:16px;">
+      <span>-------- 本文结束 </span>
+      <i class="fa fa-paw"></i>
+      <span> 感谢阅读 --------</span>
+    </div>
+  
+</div>
+    </div>
+  
+    
+      <div>
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="SinclairWang WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="SinclairWang Alipay">
+        <p>Alipay</p>
+      </div>
 
+  </div>
 </div>
 
-                </div>
-            </div>
-            
-                <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
+      </div>
+      <div>
+        
 
-    #reward .reward-link {
-        font-size: 1.4rem;
-        line-height: 38px;
-    }
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>SinclairWang</li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://sinclaircoder.top/2019/09/09/2019-09-09-ji-yu-qi-yi-zhi-fen-jie-de-tu-xiang-ya-suo/" title="基于奇异值分解的图像压缩">https://sinclaircoder.top/2019/09/09/2019-09-09-ji-yu-qi-yi-zhi-fen-jie-de-tu-xiang-ya-suo/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.</li>
+</ul>
 
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
+      </div>
 
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .close:hover {
-        color: #ef5350;
-        transform: scale(1.3);
-        -moz-transform:scale(1.3);
-        -webkit-transform:scale(1.3);
-        -o-transform:scale(1.3);
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-content ul {
-        padding-left: 0 !important;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        background-color: #ccc;
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff !important;
-        background-color: #22AB38 !important;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff !important;
-        background-color: #019FE8 !important;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechatpay.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
+    <footer class="post-footer">
+          
+        
+        <div class="post-tags">
+            <a href="/tags/图像处理/" rel="tag"><i class="fa fa-tags"></i> 图像处理</a>
+          
         </div>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+              <a href="/2019/09/02/2019-09-02-ruan-jian-ti-xi-jie-gou-bi-ji/" rel="next" title="软件体系结构笔记">
+                <i class="fa fa-chevron-left"></i> 软件体系结构笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+              <a href="/2019/09/16/2019-09-16-shu-xue-jian-mo-ji-xun-zhi-shi-da-gang/" rel="prev" title="数学建模集训知识大纲">
+                数学建模集训知识大纲 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">SinclairWang</p>
+  <div class="site-description motion-element" itemprop="description">算法 | NLP | MachineLearning | undergraduate</div>
 </div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-            
-        </div>
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-        <style>
-    .valine-card {
-        margin: 1.5rem auto;
-    }
-
-    .valine-card .card-content {
-        padding: 20px 20px 5px 20px;
-    }
-
-    #vcomments textarea {
-        box-sizing: border-box;
-        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
-    }
-
-    #vcomments p {
-        margin: 2px 2px 10px;
-        font-size: 1.05rem;
-        line-height: 1.78rem;
-    }
-
-    #vcomments blockquote p {
-        text-indent: 0.2rem;
-    }
-
-    #vcomments a {
-        padding: 0 2px;
-        color: #4cbf30;
-        font-weight: 500;
-        text-decoration: none;
-    }
-
-    #vcomments img {
-        max-width: 100%;
-        height: auto;
-        cursor: pointer;
-    }
-
-    #vcomments ol li {
-        list-style-type: decimal;
-    }
-
-    #vcomments ol,
-    ul {
-        display: block;
-        padding-left: 2em;
-        word-spacing: 0.05rem;
-    }
-
-    #vcomments ul li,
-    ol li {
-        display: list-item;
-        line-height: 1.8rem;
-        font-size: 1rem;
-    }
-
-    #vcomments ul li {
-        list-style-type: disc;
-    }
-
-    #vcomments ul ul li {
-        list-style-type: circle;
-    }
-
-    #vcomments table, th, td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    #vcomments table, th, td {
-        border: 0;
-    }
-
-    table tr:nth-child(2n), thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments h1 {
-        font-size: 1.85rem;
-        font-weight: bold;
-        line-height: 2.2rem;
-    }
-
-    #vcomments h2 {
-        font-size: 1.65rem;
-        font-weight: bold;
-        line-height: 1.9rem;
-    }
-
-    #vcomments h3 {
-        font-size: 1.45rem;
-        font-weight: bold;
-        line-height: 1.7rem;
-    }
-
-    #vcomments h4 {
-        font-size: 1.25rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    #vcomments h5 {
-        font-size: 1.1rem;
-        font-weight: bold;
-        line-height: 1.4rem;
-    }
-
-    #vcomments h6 {
-        font-size: 1rem;
-        line-height: 1.3rem;
-    }
-
-    #vcomments p {
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
-
-    #vcomments hr {
-        margin: 12px 0;
-        border: 0;
-        border-top: 1px solid #ccc;
-    }
-
-    #vcomments blockquote {
-        margin: 15px 0;
-        border-left: 5px solid #42b983;
-        padding: 1rem 0.8rem 0.3rem 0.8rem;
-        color: #666;
-        background-color: rgba(66, 185, 131, .1);
-    }
-
-    #vcomments pre {
-        font-family: monospace, monospace;
-        padding: 1.2em;
-        margin: .5em 0;
-        background: #272822;
-        overflow: auto;
-        border-radius: 0.3em;
-        tab-size: 4;
-    }
-
-    #vcomments code {
-        font-family: monospace, monospace;
-        padding: 1px 3px;
-        font-size: 0.92rem;
-        color: #e96900;
-        background-color: #f8f8f8;
-        border-radius: 2px;
-    }
-
-    #vcomments pre code {
-        font-family: monospace, monospace;
-        padding: 0;
-        color: #e8eaf6;
-        background-color: #272822;
-    }
-
-    #vcomments pre[class*="language-"] {
-        padding: 1.2em;
-        margin: .5em 0;
-    }
-
-    #vcomments code[class*="language-"],
-    pre[class*="language-"] {
-        color: #e8eaf6;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-
-    #vcomments b,
-    strong {
-        font-weight: bold;
-    }
-
-    #vcomments dfn {
-        font-style: italic;
-    }
-
-    #vcomments small {
-        font-size: 85%;
-    }
-
-    #vcomments cite {
-        font-style: normal;
-    }
-
-    #vcomments mark {
-        background-color: #fcf8e3;
-        padding: .2em;
-    }
-
-    #vcomments table, th, td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    table tr:nth-child(2n), thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-</style>
-
-<div class="card valine-card" data-aos="fade-up">
-    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评论</span>
-    </div>
-    <div id="vcomments" class="card-content" style="display: grid">
-    </div>
-</div>
-
-<script src="/libs/valine/av-min.js"></script>
-<script src="/libs/valine/Valine.min.js"></script>
-<script>
-    new Valine({
-        el: '#vcomments',
-        appId: 'ykMNaPlRQAthwgrFfHggAQ7f-gzGzoHsz',
-        appKey: 'neDtomoYnobT9QzrcHrQj71d',
-        notify: 'true' === 'true',
-        verify: 'false' === 'true',
-        visitor: 'true' === 'true',
-        avatar: 'mm',
-        pageSize: '10',
-        lang: 'en',
-        placeholder: 'Just go go'
-    });
-</script>
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
-            <div class="card">
-                <a href="/2019/09/16/2019-09-16-2019-shu-xue-jian-mo-sai-hou-gan-wu-yi-ci-ling-hun-yu-rou-ti-de-jiao-zhi-yi-ci-can-sai-zhong-shen-shou-yi/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="2019数学建模赛后感悟：一次灵魂与肉体的交织&&一次参赛终身收益">
-                        
-                        <span class="card-title">2019数学建模赛后感悟：一次灵魂与肉体的交织&&一次参赛终身收益</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-一年一度的全国大学生数学建模比赛（CUMCM）已接近尾声…
-
-SinclairWang 个人博客同步更新，欢迎关注相信每个参赛者都会有自己的感悟一句恰如其分的描述：一次灵魂与肉体的交织。下面是自己的一点感悟与思考。
-赛前
-最初听说，大概是
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-09-16
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/感悟/" class="post-category">
-                                    感悟
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/竞赛感悟/">
-                        <span class="chip bg-color">竞赛感悟</span>
-                    </a>
-                    
-                    <a href="/tags/数学建模/">
-                        <span class="chip bg-color">数学建模</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
         
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/09/02/2019-09-02-ruan-jian-ti-xi-jie-gou-bi-ji/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="软件体系结构笔记">
-                        
-                        <span class="card-title">软件体系结构笔记</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-传说中的软件体系结构与设计模式课程中的软件体系结构部分就结束了，好短，6个学时，匆匆掠过，走马观花，根据老师讲的内容写了份笔记，日后慢慢补充…
-
-概念
-具有一定形式的结构化元素，即构件的集合
-处理构件：处理函数
-数据构件：存储数据 （Ja
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-09-02
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/软件工程/" class="post-category">
-                                    软件工程
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/软件体系结构/">
-                        <span class="chip bg-color">软件体系结构</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
         
-    </div>
-</article>
-
-</div>
-
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('120')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + 'From: SinclairのBlog<br />'
-            + 'Author: SinclairWang<br />'
-            + 'Link: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
-
-
-<!-- 代码块功能依赖 -->
-<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
-
-<!-- 代码语言 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
-
-<!-- 代码块复制 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
-
-<!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
-
-
-<!-- 代码块折行 -->
-
-<style type="text/css">
-code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
-</style>
-
-
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
     
-
-</main>
-
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
-
-    <footer class="page-footer bg-color">
-    <div class="container row center-align" style="margin-bottom: 0px !important;">
-        <div class="col s12 m8 l8 copy-right">
-            Copyright&nbsp;&copy;
-            <span id="year">2019</span>
-            <a href="https://sinclaircoder.top" target="_blank">SinclairWang</a>
-            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
-            <br>
-            
-            
-            
-            
-            
-            
-            <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
-            </span>
-            
-            
-            <span id="busuanzi_container_site_uv">
-                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
-            </span>
-            
-            <br>
-            
-            <br>
-            
-            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
-                <a href="http://www.beian.miit.gov.cn/" target="_blank">冀ICP备20002885号</a>
-            </span>
-            
-        </div>
-        <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/SinclairCoder" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
     </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="https://github.com/SinclairCoder" title="GitHub &rarr; https://github.com/SinclairCoder" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="mailto:sinclaircoder@163.com" title="E-Mail &rarr; mailto:sinclaircoder@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="https://blog.csdn.net/SinclairWang" title="CSDN &rarr; https://blog.csdn.net/SinclairWang" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i></a>
+      </span>
+    
+  </div>
 
 
-
-    <a href="mailto:sinclaircoder@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-
-
-
-
-
-
-    <a href="https://www.zhihu.com/people/san-cun-jiu-cheng-qi-cun-zhi-nian-29# https://www.zhihu.com/xxx" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/san-cun-jiu-cheng-qi-cun-zhi-nian-29# https://www.zhihu.com/xxx" data-position="top" data-delay="50">
-        <i class="fab fa-zhihu1">知</i>
-    </a>
-
-
- 
-    <a href="https://blog.csdn.net/SinclairWang" class="tooltipped" target="_blank" data-tooltip="关注我的CSDN: https://blog.csdn.net/SinclairWang" data-position="top" data-delay="50"> 
-    <i class="fab fa-csdn">C</i> 
-    </a> 
-
-
-
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
-
-</div>
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
     </div>
-</footer>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.liuchuo.net/" title="https://www.liuchuo.net/" rel="noopener" target="_blank">liuchuo</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://feisky.xyz/machine-learning/basic.html" title="https://feisky.xyz/machine-learning/basic.html" rel="noopener" target="_blank">AI NOTE</a>
+        </li>
+      
+    </ul>
+  </div>
 
-<div class="progress-bar"></div>
-
-
-    <!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
-                   class="search-input">
         </div>
-        <div id="searchResult"></div>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#理论："><span class="nav-text">理论：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现步骤："><span class="nav-text">实现步骤：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现："><span class="nav-text">实现：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考博客："><span class="nav-text">参考博客：</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+        
+
     </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2019 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SinclairWang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">121k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:50</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a></div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
 </div>
 
-<script src="/js/search.js"></script>
-<script type="text/javascript">
-$(function () {
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
-});
-</script>
-    <!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-</div>
 
 
-    <script src="/libs/materialize/materialize.min.js"></script>
-    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="/libs/aos/aos.js"></script>
-    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="/js/matery.js"></script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135806349-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-    gtag('config', 'UA-135806349-1');
-</script>
 
 
-    <!-- Baidu Analytics -->
 
-<script>
-    var _hmt = _hmt || [];
-    (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?ad3c73a898b555b5658e0609e7dd9dc6";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
 
-    <!-- Baidu Push -->
 
-<script>
-    (function () {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
-            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-        }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
-    })();
-</script>
-
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
-    
-    
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-    
-
-    
-        <script src="//code.tidio.co/u61uushntplpeuutujp42qmi0lj20uxa.js"></script>
-        <script> 
-            $(document).ready(function () {
-                setInterval(change_Tidio, 50);  
-                function change_Tidio() { 
-                    var tidio=$("#tidio-chat iframe");
-                    if(tidio.css("display")=="block"&& $(window).width()>977 ){
-                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"85px":"20px";   
-                        document.getElementById("tidio-chat-iframe").style.right="-15px";   
-                        document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
-                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                    } 
-                    else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
-                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;   
-                        document.getElementById("tidio-chat-iframe").style.right="-15px"; 
-                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                    }
-                    else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
-                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;   
-                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                    }
-                    if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
-                        document.getElementById("tidio-chat-iframe").style.zIndex="998";
-                    }
-                } 
-            }); 
-        </script>
-    
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+      </div>
 
     
 
-    
-    <script type="text/javascript" color="0,0,255"
-        pointColor="0,0,255" opacity='0.7'
-        zIndex="-1" count="99"
-        src="/libs/background/canvas-nest.js"></script>
-    
+  </div>
 
-    
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-    
-    
-    
-    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-    
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+
+  <script src="/js/schemes/muse.js?v=7.3.0"></script>
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+<script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+
+
+<script src="/js/algolia-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+  <script src="//code.tidio.co/u61uushntplpeuutujp42qmi0lj20uxa.js"></script>
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+   
+
+
+
+
+  <script async src="//code.tidio.co/u61uushntplpeuutujp42qmi0lj20uxa.js"></script>
+
+   
+  <script src="//code.tidio.co/u61uushntplpeuutujp42qmi0lj20uxa.js"></script>
+
+   
+<link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+<script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+
+
+<script src="/js/algolia-search.js?v=7.3.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
 
 </body>
-
 </html>

@@ -1,1155 +1,2560 @@
-<!DOCTYPE HTML>
-<html lang="en">
+<!DOCTYPE html>
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="算法 | NLP | MachineLearning">
-    <meta name="description" content="SinclairのBlog">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>SinclairのBlog</title>
-    <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
-    
-    <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-    
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+  <meta name="google-site-verification" content="6gsiR4JSQJ1xnCBNFsuQ1EI3jqGUDIhRNhqoCvRSC_Y">
+  <meta name="baidu-site-verification" content="FwKLmibScs">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: 'QF2NZ3KOZ1',
+      apiKey: 'f44f1fe6a3468b9a5c4d5441002c3a08',
+      indexName: 'blog_index',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="算法 | NLP | MachineLearning | undergraduate">
+<meta name="keywords" content="算法 | NLP | MachineLearning">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SinclairのBlog">
+<meta property="og:url" content="https://sinclaircoder.top/page/4/index.html">
+<meta property="og:site_name" content="SinclairのBlog">
+<meta property="og:description" content="算法 | NLP | MachineLearning | undergraduate">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SinclairのBlog">
+<meta name="twitter:description" content="算法 | NLP | MachineLearning | undergraduate">
+  <link rel="alternate" href="/atom.xml" title="SinclairのBlog" type="application/atom+xml">
+  <link rel="canonical" href="https://sinclaircoder.top/page/4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>SinclairのBlog</title>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135806349-1"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-135806349-1');
+    }
+  </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ad3c73a898b555b5658e0609e7dd9dc6";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
-<body>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="nav-wrapper head-container">
-            <div class="brand-logo">
-                <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="/medias/logo.jpg" class="logo-img" alt="LOGO">
-                    
-                    <span class="logo-span">SinclairのBlog</span>
-                </a>
-            </div>
-            
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left">
+    <div class="headband"></div>
 
-<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
-<ul class="right nav-menu">
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/" class="waves-effect waves-light">
-      
-      <i class="fas fa-home" style="zoom: 0.6;"></i>
-      
-      <span>Index</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>Tags</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>Categories</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/archives" class="waves-effect waves-light">
-      
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
-      
-      <span>Archives</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>About</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>Contact</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
-      
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
-      
-      <span>Friends</span>
-    </a>
-    
-  </li>
-  
-  <li>
-    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
-    </a>
-  </li>
-</ul>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
 
-<div id="mobile-nav" class="side-nav sidenav">
-
-    <div class="mobile-head bg-color">
-        
-        <img src="/medias/logo.jpg" class="logo-img circle responsive-img">
-        
-        <div class="logo-name">SinclairのBlog</div>
-        <div class="logo-desc">
-            
-            算法 | NLP | MachineLearning | undergraduate
-            
-        </div>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SinclairのBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+        <p class="site-subtitle">为而不争</p>
+      
+  </div>
 
-    
-
-    <ul class="menu-list mobile-menu-list">
-        
-        <li class="m-nav-item">
-	  
-		<a href="/" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-home"></i>
-			
-			Index
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			Tags
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			Categories
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/archives" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-archive"></i>
-			
-			Archives
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			About
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			Contact
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			Friends
-		</a>
-          
-        </li>
-        
-        
-    </ul>
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
-        </div>
 
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
         
-    </nav>
+        <li class="menu-item menu-item-home">
+      
+    
 
-</header>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-sitemap">
+      
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+      </li>
+    
+  </ul>
 
     
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
+
+    <div class="site-search">
+      
+  <div class="algolia-popup popup search-popup">
+  <div class="algolia-search">
+    <div class="algolia-search-input-icon">
+      <i class="fa fa-search"></i>
+    </div>
+    <div class="algolia-search-input" id="algolia-search-input"></div>
+  </div>
+
+  <div class="algolia-results">
+    <div id="algolia-stats"></div>
+    <div id="algolia-hits"></div>
+    <div id="algolia-pagination" class="algolia-pagination"></div>
+  </div>
+
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+
+
+
+    </div>
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content page-home">
+            
+  <section id="posts" class="posts-expand">
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/11/01/2019-11-1-pta-zi-fu-chuan-zhuan-huan-cheng-shi-jin-zhi-zheng-shu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
                 
-                为而不争
                 
-            </div>
-
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: ['一钩足以明天下 何况清辉满十分.','Done is better than perfect.'],
-                        startDelay: 300,
-                        typeSpeed: 300,
-                        loop: true,
-                        backSpeed: 150,
-                        showCursor: false
-                    });
-                </script>
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(/medias/banner/' + (new Date().getHours())%7 + '.jpg)');
-</script>
-
-
-    </div>
-</div>
-
-
-<main class="content">
-
-    
-    <div id="indexCard" class="index-card">
-        <div class="container ">
-            <div class="card">
-                <div class="card-content">
-                    
-
-                    
-                        
-
-<link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<div class="music-player">
-    
-    <div class="row">
-        <div class="col l8 offset-l2 m10 offset-m1 s12">
-            <div id="aplayer" class="music"></div>
-        </div>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script>
-$(function () {
-    new APlayer({
-        container: document.getElementById('aplayer'),
-        fixed: 'false' === 'true',
-        autoplay: 'false' === 'true',
-        theme: '#42b983',
-        loop: 'all',
-        order: 'random',
-        preload: 'auto',
-        volume: Number('0.5'),
-        listFolded: 'false' === 'true',
-        listMaxHeight: '10',
-        audio: eval([{"name":"那女孩对我说","artist":"戴羽彤","url":"http://music.163.com/song/media/outer/url?id=1396568325.mp3","cover":"https://cn.bing.com/th?id=OIP.kiLw-v0q2PijuwPRLOPgfQHaJQ&pid=Api&rs=1"},{"name":"光年之外","artist":"邓紫棋","url":"http://mp32.9ku.com/upload/2017/04/26/861243.m4a","cover":"https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D500/sign=60b1cfbacc5c1038207ecec28210931c/91ef76c6a7efce1b14f7076aa551f3deb58f65b6.jpg"},{"name":"不再犹豫 (Live)+体面 (Live)","artist":"于文文","url":"http://music.163.com/song/media/outer/url?id=1407757605.mp3","cover":"https://tse3-mm.cn.bing.net/th/id/OIP.zqB7IpOMTOmqubbzcVNUfQAAAA?w=212&h=212&c=7&o=5&dpr=1.25&pid=1.7"},{"name":"何为永恒","artist":"胡夏","url":"http://music.163.com/song/media/outer/url?id=1348548038.mp3","cover":"http://pic.qingting.fm/channel/2019/03/18/85c54729e9a890f5d97c9c6af2001d1b.jpg!200"},{"name":"梦幻诛仙","artist":"张碧晨","url":"http://music.163.com/song/media/outer/url?id=438456232.mp3","cover":"http://img5.iqilu.com/c/u/2016/1101/1477975989160.jpg"},{"name":"萧琴合奏","artist":"许昊珂","url":"http://music.163.com/song/media/outer/url?id=1351449586.mp3","cover":"http://pic.qingting.fm/channel/2019/03/18/85c54729e9a890f5d97c9c6af2001d1b.jpg!200"},{"name":"慢慢喜欢你","artist":"莫文蔚","url":"http://music.163.com/song/media/outer/url?id=541687281.mp3","cover":"http://imge.kugou.com/stdmusic/20180524/20180524001021751841.jpg"},{"name":"大雨将至","artist":"徐佳莹","url":"http://music.163.com/song/media/outer/url?id=29774430.mp3","cover":"https://cn.bing.com/th?id=OIP.xH0Jw0bAPnqGcN0tUalPAwHaG9&pid=Api&rs=1"}])
-    });
-});
-</script>
-                    
-
-                    
-
-                    
-                    <div id="recommend-sections" class="recommend">
-                        
-
-
-
-
-
-<div class="title"><i class="far fa-thumbs-up"></i>&nbsp;&nbsp;Recommended Posts</div>
-
-<div class="row">
-
-    
-    
-    <div class="col s12 m6" >
-        <div class="post-card" style="background-image: url('/medias/featureimages/6.jpg')">
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                        
-                            <a href="/categories/数论/" class="category">数论</a>
-                        
-                    
-                </div>
-                <a href="/2019/10/22/2019-10-22-pei-shu-ding-li-kuo-zhan-ou-ji-li-de-suan-fa/">
-                    <h3 class="post-title">裴蜀定理&&扩展欧几里得算法</h3>
-                </a>
-                <p class="post-description">
-                    
-                        裴蜀定理也就是Bezout定理，对于任意整数a,b，存在一对整数x,y，满足$ax+by=gcd(a,b)$。在数论中，裴蜀定理是一个关于最
-                    
-                </p>
-                <a href="/2019/10/22/2019-10-22-pei-shu-ding-li-kuo-zhan-ou-ji-li-de-suan-fa/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)" target="_blank">
-                    <i class="icon far fa-eye fa-fw"></i>Read more
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="col s12 m6" >
-        <div class="post-card" style="background-image: url('/medias/featureimages/4.jpg')">
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                        
-                            <a href="/categories/软件工程/" class="category">软件工程</a>
-                        
-                    
-                </div>
-                <a href="/2019/09/02/2019-09-02-ruan-jian-ti-xi-jie-gou-bi-ji/">
-                    <h3 class="post-title">软件体系结构笔记</h3>
-                </a>
-                <p class="post-description">
-                    
-                        
-传说中的软件体系结构与设计模式课程中的软件体系结构部分就结束了，好短，6个学时，匆匆掠过，走马观花，根据老师讲的内容写了份笔记，日后慢慢补
-                    
-                </p>
-                <a href="/2019/09/02/2019-09-02-ruan-jian-ti-xi-jie-gou-bi-ji/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)" target="_blank">
-                    <i class="icon far fa-eye fa-fw"></i>Read more
-                </a>
-            </div>
-        </div>
-    </div>
-    
-
-</div>
-
-
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-    
-
-    
-
-    
-
-    <!-- 所有文章卡片 -->
-    <article id="articles" class="container articles">
-        <div class="row article-row">
+                <a href="/2019/11/01/2019-11-1-pta-zi-fu-chuan-zhuan-huan-cheng-shi-jin-zhi-zheng-shu/" class="post-title-link" itemprop="url">PTA字符串转换成十进制整数</a>
+              
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/11/01/2019-11-1-pta-zi-fu-chuan-zhuan-huan-cheng-shi-jin-zhi-zheng-shu/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="PTA字符串转换成十进制整数">
-                            
-                            <span class="card-title">PTA字符串转换成十进制整数</span>
-                        </div>
-                    </a>
+          </h1>
+        
 
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-初闻不知曲中意，再闻已是曲中人
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
 
-去年此时正被这套PTA题目折磨，一年之后再写这些题目，记忆尤新，经历的酸楚自然是值得的。
+              
+                
+              
 
-题目描述输入一个以#结束的字符串，本题要求滤去所有的非十六进制字符（不分大小写），组成一个新的表示十六进制数字的
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-11-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/数据结构与算法训练/" class="post-category">
-                                    数据结构与算法训练
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
+              <time title="Created: 2019-11-01 00:00:00" itemprop="dateCreated datePublished" datetime="2019-11-01T00:00:00+08:00">2019-11-01</time>
+            </span>
+          
 
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/PTA/">
-                            <span class="chip bg-color">PTA</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">1.6k</span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">1 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <blockquote>
+<p>初闻不知曲中意，再闻已是曲中人</p>
+</blockquote>
+<p>去年此时正被这套PTA题目折磨，一年之后再写这些题目，记忆尤新，经历的酸楚自然是值得的。</p>
+<p><br></p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>输入一个以#结束的字符串，本题要求滤去所有的非十六进制字符（不分大小写），组成一个新的表示十六进制数字的字符串，然后将其转换为十进制数后输出。如果在第一个十六进制字符之前存在字符“-”，则代表该数是负数。</p>
+<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>输入在一行中给出一个以#结束的非空字符串。</p>
+<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>在一行中输出转换后的十进制数。题目保证输出在长整型范围内。</p>
+<h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><p>+-P-xf4+-1!#</p>
+<h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><p>-3905</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>重点在字符串的清洗上，只保留第一个负号，保留数字和十六进制字符，其余洗掉。<br>然后进行进制转换</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">#include&lt;iostream&gt;
+#include&lt;cmath&gt;
+#include&lt;string.h&gt;
+#include&lt;vector&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+typedef long long ll;
+
+#define For1(i,m,n) for(int i=m;i&lt;n;i++)
+#define For2(i,m,n) for(int i=m;i&gt;=n;i--)
+
+// 清洗输入的字符串
+vector&lt;char&gt; convert(string s){
+    vector&lt;char&gt; v;
+    int cnt = 0;
+    bool first = true;
+    For1(i,0,s.length()){
+        if(s[i]&gt;=&#39;0&#39;&amp;&amp;s[i]&lt;=&#39;9&#39;||s[i]&gt;=&#39;a&#39;&amp;&amp;s[i]&lt;=&#39;f&#39;||s[i]&gt;=&#39;A&#39;&amp;&amp;s[i]&lt;=&#39;F&#39;){
+            v.push_back(s[i]);
+        }
+        else if(s[i]==&#39;-&#39;&amp;&amp;first==true){
+            v.push_back(s[i]);
+            first = false;
+        }
+
+    }
+    return v;
+}
+// 进制转换
+ll convertres(vector&lt;char&gt; v){
+    ll res = 0,cnt=0;
+    For2(i,v.size()-1,0){
+        if(v[i]&gt;=&#39;0&#39;&amp;&amp;v[i]&lt;=&#39;9&#39;){
+            res += (v[i]-&#39;0&#39;)*pow(16,cnt);
+            cnt++;
+        }else if(v[i]&gt;=&#39;a&#39;&amp;&amp;v[i]&lt;=&#39;f&#39;){
+            res += (v[i]-&#39;a&#39;+10)*pow(16,cnt);
+            cnt++;
+        }
+        else if(v[i]&gt;=&#39;A&#39;&amp;&amp;v[i]&lt;=&#39;F&#39;){
+             res += (v[i]-&#39;A&#39;+10)*pow(16,cnt);
+             cnt++;
+        }
+        else ;
+    }
+    return res;
+}
+int main(){
+    bool postive = true;
+    string s;
+    cin &gt;&gt; s;
+    vector&lt;char&gt; v = convert(s);
+    if(v[0]==&#39;-&#39;) postive = false;
+
+    // print
+//    For1(i,0,v.size()){
+//        cout &lt;&lt; v[i];
+//    }
+//    cout &lt;&lt; endl;
+
+    ll res =  convertres(v);
+    if(!postive) res *= -1;
+    cout &lt;&lt; res &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/10/27/2019-10-27-leetcodeweeklycontest-160/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/10/27/2019-10-27-leetcodeweeklycontest-160/" class="post-title-link" itemprop="url">LeetCodeWeeklyContest-160</a>
+              
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/10/27/2019-10-27-leetcodeweeklycontest-160/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="LeetCodeWeeklyContest-160">
-                            
-                            <span class="card-title">LeetCodeWeeklyContest-160</span>
-                        </div>
-                    </a>
+          </h1>
+        
 
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                题目传送门找出给定方程的正整数解签到题的新包装，我没有玩过的船新版本。
-class Solution {
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-10-27 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-27T00:00:00+08:00">2019-10-27</time>
+            </span>
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">3.1k</span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">3 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h2 id="题目传送门"><a href="#题目传送门" class="headerlink" title="题目传送门"></a><a href="https://leetcode-cn.com/contest/weekly-contest-160/problems/find-positive-integer-solution-for-a-given-equation/" target="_blank" rel="noopener">题目传送门</a></h2><h2 id="找出给定方程的正整数解"><a href="#找出给定方程的正整数解" class="headerlink" title="找出给定方程的正整数解"></a>找出给定方程的正整数解</h2><p>签到题的新包装，我没有玩过的船新版本。</p>
+<pre><code class="lang-cpp">class Solution {
 public:
-    vector&lt;vector&lt;int&gt;&gt; findSolution(CustomFunc
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/leetcode/" class="post-category">
-                                    leetcode
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
+    vector&lt;vector&lt;int&gt;&gt; findSolution(CustomFunction&amp; c, int z) {
+        vector&lt;vector&lt;int&gt;&gt; res;
+        for(int i=1;i&lt;=1000;i++){
+            for(int j=1;j&lt;=1000;j++){
+                if(c.f(i,j)&lt;z) continue;
+                else if(c.f(i,j)==z) {
+                    vector&lt;int&gt; v;
+                    v.push_back(i),v.push_back(j);
+                    res.push_back(v);
+                }
+                else break;
 
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/leetcode/">
-                            <span class="chip bg-color">leetcode</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
+            }
+        }
+        return res;
+    }
+};
+</code></pre>
+<h2 id="循环码排列"><a href="#循环码排列" class="headerlink" title="循环码排列"></a>循环码排列</h2><p>给你两个整数 n 和 start。你的任务是返回任意 (0,1,2,,…,2^n-1) 的排列 p，并且满足：</p>
+<ul>
+<li>p[0] = start</li>
+<li>p[i] 和 p[i+1] 的二进制表示形式只有一位不同</li>
+<li>p[0] 和 p[2^n -1] 的二进制表示形式也只有一位不同</li>
+</ul>
+<p>举个例子：</p>
+<ul>
+<li>输入：n = 2, start = 3</li>
+<li>输出：[3,2,0,1]</li>
+<li>解释：这个排列的二进制表示是 (11,10,00,01)</li>
+<li>所有的相邻元素都有一位是不同的，另一个有效的排列是 [3,1,0,2]</li>
+</ul>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>参考：</p>
+<ul>
+<li><a href="https://leetcode.com/problems/circular-permutation-in-binary-representation/discuss/414203/JavaC++Python-4-line-Gray-Code" target="_blank" rel="noopener">[Java/C++/Python] 4-line Gray Code</a></li>
+<li><a href="https://cp-algorithms.com/algebra/gray-code.html" target="_blank" rel="noopener">Gray code</a></li>
+</ul>
+<p>其实就是格雷码。<br>使用位运算操作</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">vector&lt;int&gt; circularPermutation(int n, int start) {
+        vector&lt;int&gt; res; 
+        for(int i=0;i&lt; 1&lt;&lt;n;i++){
+            res.push_back(start^i^i&gt;&gt;1);
+        }
+        return res;
+
+    }
+</code></pre>
+<p>比赛时找了个格雷码的板子，然后改了改，就过掉了…</p>
+<pre><code class="lang-cpp">class Solution {
+public:
+     vector&lt;int&gt; grayCode(int n){
+        vector&lt;int&gt; gray;
+        if (n &lt; 1) {
+            gray.push_back(0);
+            return gray;
+        }
+        int num = pow(2,n);
+        int graycode[n];
+        for (int i = 0; i &lt; num; i++) {
+            IntToBit(graycode, i, n);
+            BitToGray(graycode,n);
+            gray.push_back(GrayBitToInt(graycode, n));
+        }
+        return gray;
+    }
+
+    void IntToBit(int *code, int n, int bit){
+        int i = bit-1;
+        while (i &gt;= 0) {
+            code[i--] = n%2;
+            n/=2;
+        }
+    }
+
+    void BitToGray(int *code, int bit){
+        int temp[bit];
+        temp[0] = 0^code[0];
+        for (int i = 0; i &lt; bit-1; i++) {
+            temp[i+1] = code[i]^code[i+1];
+        }
+        for (int i = 0; i &lt; bit; i++) {
+            code[i] = temp[i];
+        }
+    }
+
+    int GrayBitToInt(int *code, int bit){
+        int number = 0;
+        for (int i = 0; i &lt; bit; i++) {
+            if (code[i] == 1) {
+                number += pow(2, bit-i-1);
+            }
+        }
+        return number;
+    }
+    vector&lt;int&gt; circularPermutation(int n, int start) {
+        vector&lt;int&gt; res,tmp;
+        tmp = grayCode(n);
+        int index,msize = pow(2,n);
+        for(int i=0;i&lt;msize;i++){
+            if(tmp[i]==start){
+                index = i;
+                break;
+            }
+        }
+        for(int i=index;i&lt;msize;i++){
+            res.push_back(tmp[i]);
+        }
+        for(int i=0;i&lt;index;i++){
+            res.push_back(tmp[i]);
+        }
+        return res;
+    }
+};
+</code></pre>
+<h2 id="串联字符串的最大长度"><a href="#串联字符串的最大长度" class="headerlink" title="串联字符串的最大长度"></a>串联字符串的最大长度</h2><p>给定一个字符串数组 arr，字符串 s 是将 arr 某一子序列字符串连接所得的字符串，如果 s 中的每一个字符都只出现过一次，那么它就是一个可行解。<br>请返回所有可行解 s 中最长长度。</p>
+<h2 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h2><p>判定函数+DFS<br>判定函数：判定一个字符串是否有重复字母，打个大小为26的表即可。</p>
+<h2 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">class Solution {
+public:
+    int maxL = 0;
+    bool pend(string s1){
+        int ph[26]={0};
+        for(int i=0;i&lt;s1.length();i++){
+            if(ph[s1[i]-&#39;a&#39;]==1) return false;
+            ph[s1[i]-&#39;a&#39;]=1;
+        }
+        return true;
+    }
+    void dfs(vector&lt;string&gt; arr, int index, string str){
+        int len = str.length();
+        if(pend(str)) maxL = max(maxL,len);
+        if(index == arr.size()||!pend(str)) return ;
+        for(int i=index;i&lt;arr.size();i++){
+            dfs(arr,i+1,str+arr[i]);
+        }
+    }
+    int maxLength(vector&lt;string&gt;&amp; arr) {
+        dfs(arr,0,&quot;&quot;);
+        return maxL;
+    }
+};
+</code></pre>
+<h2 id="铺瓷砖"><a href="#铺瓷砖" class="headerlink" title="铺瓷砖"></a>铺瓷砖</h2><p>你是一位施工队的工长，根据设计师的要求准备为一套设计风格独特的房子进行室内装修。<br>房子的客厅大小为 n x m，为保持极简的风格，需要使用尽可能少的 正方形 瓷砖来铺盖地面。<br>假设正方形瓷砖的规格不限，边长都是整数。<br>请你帮设计师计算一下，最少需要用到多少块方形瓷砖？</p>
+<h2 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h2><p>参考：</p>
+<ul>
+<li><a href="https://www.geeksforgeeks.org/paper-cut-minimum-number-squares-set-2/" target="_blank" rel="noopener">Paper Cut into Minimum Number of Squares | Set 2</a></li>
+<li><a href="https://www.bilibili.com/video/av73579708?from=search&amp;seid=8107473763828762133" target="_blank" rel="noopener">B站视频讲解</a></li>
+</ul>
+<p>基本上还是DFS，其实这个题很像经典的贪心题目，不过那个貌似是是个正方形，而且这个题有个特殊的点，就是当n\==11&amp;&amp;m\==13||n\==13&amp;&amp;m==11 这个时候的结果应该为6。剩下的就是先横切，看需要多少方形瓷砖，然后再纵切，看需要多少方形瓷砖，取横切和纵切的最小值，便是结果。</p>
+<h3 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
+public:
+    int dp[300][300]={0}; 
+    int solve(int n,int m){
+        if(n==m)
+            return 1;
+        if(dp[n][m])
+            return dp[n][m];
+        int res = 2e8;
+        for(int i=1;i&lt;=n/2;i++){
+            res = min(solve(i,m)+solve(n-i,m),res);
+        }
+        for(int j=1;j&lt;=m/2;j++){
+            res = min(solve(n,j)+solve(n,m-j),res);
+        }
+        dp[n][m] = res;
+        return res;
+    }
+    int tilingRectangle(int n, int m) {
+        if(n==11&amp;&amp;m==13||n==13&amp;&amp;m==11) return 6;
+        return solve(n,m);
+
+    }
+
+};
+</code></pre>
+<p><a href="https://y.qq.com/portal/player.html" target="_blank" rel="noopener">你一人低头在路上… 多向往  多漫长</a></p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/10/27/2019-10-27-ge-lei-ma/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/10/27/2019-10-27-ge-lei-ma/" class="post-title-link" itemprop="url">格雷码</a>
+              
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/10/27/2019-10-27-ge-lei-ma/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="格雷码">
-                            
-                            <span class="card-title">格雷码</span>
-                        </div>
-                    </a>
+          </h1>
+        
 
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                偶然间发现了一个很好的方法，详见Gray code
-下面是一个生成以start开始的格雷码的板子，n为二进制位的个数。
-vector&lt;int&gt; getGray(int n, int start) {
-        vector
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-27
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/数据结构与算法训练/" class="post-category">
-                                    数据结构与算法训练
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
 
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/位运算/">
-                            <span class="chip bg-color">位运算</span>
-                        </a>
-                        
-                        <a href="/tags/格雷码/">
-                            <span class="chip bg-color">格雷码</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
+              
+                
+              
+
+              <time title="Created: 2019-10-27 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-27T00:00:00+08:00">2019-10-27</time>
+            </span>
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">196</span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">1 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <p>偶然间发现了一个很好的方法，详见<a href="https://cp-algorithms.com/algebra/gray-code.html" target="_blank" rel="noopener">Gray code</a></p>
+<p>下面是一个生成以start开始的格雷码的板子，n为二进制位的个数。</p>
+<pre><code class="lang-cpp">vector&lt;int&gt; getGray(int n, int start) {
+        vector&lt;int&gt; res; 
+        for(int i=0;i&lt; 1&lt;&lt;n;i++){
+            res.push_back(start^i^i&gt;&gt;1);
+        }
+        return res;
+
+    }
+</code></pre>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/10/25/2019-10-25-xian-xing-shai/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/10/25/2019-10-25-xian-xing-shai/" class="post-title-link" itemprop="url">线性筛</a>
+              
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/10/25/2019-10-25-xian-xing-shai/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="线性筛">
-                            
-                            <span class="card-title">线性筛</span>
-                        </div>
-                    </a>
+          </h1>
+        
 
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                #include &lt;bits/stdc++.h&gt;
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-10-25 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-25T00:00:00+08:00">2019-10-25</time>
+            </span>
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">523</span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">1 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <pre><code class="lang-cpp">#include &lt;bits/stdc++.h&gt;
 using namespace std;
 const int MAX_N = 3e7+2;
 typedef long long ll;
-int v[MAX_N],prime[MA
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-25
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/数论/" class="post-category">
-                                    数论
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
+int v[MAX_N],prime[MAX_N];
 
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/数论/">
-                            <span class="chip bg-color">数论</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
+void primes(int n) {
+    memset(v,0,sizeof(v));
+    int m = 0;
+    for(int i=2;i&lt;=n;i++){
+        if(v[i]==0){   // i 是质数 
+            v[i] = i;
+            prime[++m] = i;
+        }
+
+        for(int j=1;j&lt;=m;j++){
+            if(prime[j]&gt;v[i]||prime[j]&gt;n/i) break;
+            // prime[j]是是合数i*prime[j]的最小质因子
+            v[i*prime[j]] = prime[j]; 
+        }     
+    } 
+// 打印1到n之间的素数
+//    for(int i=1;i&lt;=m;i++){   
+//        cout &lt;&lt; prime[i] &lt;&lt; endl;
+//    }
+// 打印1到n每个数的最小质因子
+//        for(int i=0;i&lt;=n;i++){  
+//        cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; v[i] &lt;&lt; endl;
+//    }
+}
+</code></pre>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/10/22/2019-10-22-fei-ma-xiao-ding-li/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/10/22/2019-10-22-fei-ma-xiao-ding-li/" class="post-title-link" itemprop="url">费马小定理</a>
+              
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/10/22/2019-10-22-fei-ma-xiao-ding-li/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="费马小定理">
-                            
-                            <span class="card-title">费马小定理</span>
-                        </div>
-                    </a>
+          </h1>
+        
 
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                若p是质数，则对于任意整数a，有$a^p \equiv a  (mod \, p)$
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
 
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-22
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/数论/" class="post-category">
-                                    数论
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
+              
+                
+              
 
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/数论/">
-                            <span class="chip bg-color">数论</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
+              <time title="Created: 2019-10-22 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-22T00:00:00+08:00">2019-10-22</time>
+            </span>
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">36</span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">1 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <p>若p是质数，则对于任意整数a，有$a^p \equiv a  (mod \, p)$</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/10/21/2019-10-21-leetcodeweeklycontest-159/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/10/21/2019-10-21-leetcodeweeklycontest-159/" class="post-title-link" itemprop="url">LeetCodeWeeklyContest-159</a>
+              
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/10/21/2019-10-21-leetcodeweeklycontest-159/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="LeetCodeWeeklyContest-159">
-                            
-                            <span class="card-title">LeetCodeWeeklyContest-159</span>
-                        </div>
-                    </a>
+          </h1>
+        
 
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                最近看了篇文章，文章里说 希望你身边能有个比你聪明五倍，但却比你还努力十倍的人。倍数虽然有些夸张，但是这个思想还是能get到的。
-5230. 缀点成线在一个 XY 坐标系中有一些点，我们用数组 coordinates 来分别记录它们的坐标，
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/leetcode/" class="post-category">
-                                    leetcode
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
 
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/leetcode/">
-                            <span class="chip bg-color">leetcode</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
+              
+                
+              
+
+              <time title="Created: 2019-10-21 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-21T00:00:00+08:00">2019-10-21</time>
+            </span>
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">4.8k</span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">4 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <p>最近看了篇文章，文章里说 <strong>希望你身边能有个比你聪明五倍，但却比你还努力十倍的人。</strong><br>倍数虽然有些夸张，但是这个思想还是能get到的。</p>
+<h2 id="5230-缀点成线"><a href="#5230-缀点成线" class="headerlink" title="5230. 缀点成线"></a>5230. 缀点成线</h2><p>在一个 XY 坐标系中有一些点，我们用数组 coordinates 来分别记录它们的坐标，其中 coordinates[i] = [x, y] 表示横坐标为 x、纵坐标为 y 的点。</p>
+<p>请你来判断，这些点是否在该坐标系中属于同一条直线上，是则返回 <font color="#c7254e" face="Menlo, Monaco, Consolas, Courier New, monospace">true</font>，否则请返回 <font color="#c7254e" face="Menlo, Monaco, Consolas, Courier New, monospace">false</font>。</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>根据前两个点构造直线，看后续的点是否在直线上。<br>直线方程为  $ax+by+c=0$，其中：$a=y_2-y_1$ $b=x_1-x_2$ $c=-ax_1-by_1$<br><strong>好处是不用考虑斜率，这是个方程的一般式。如果考虑斜率，还得分斜率是否为0。</strong></p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
+public:
+    bool checkStraightLine(vector&lt;vector&lt;int&gt;&gt;&amp; coordinates) {
+        vector&lt;int&gt; v1,v2,v3;
+        v1 = coordinates[0];
+        v2 = coordinates[1];
+        int a = v2[1]-v1[1];
+        int b = v1[0]-v2[0];
+        int c = -1*a*v1[0]-b*v1[1];
+        for(int i=1;i&lt;coordinates.size();i++){
+            v3 = coordinates[i];
+            if(a*v3[0]+b*v3[1]+c!=0) return false; 
+        }
+        return true;
+    }
+};
+</code></pre>
+<h2 id="删除子文件夹"><a href="#删除子文件夹" class="headerlink" title="删除子文件夹"></a>删除子文件夹</h2><p>你是一位系统管理员，手里有一份文件夹列表 folder，你的任务是要删除该列表中的所有 子文件夹，并以 任意顺序 返回剩下的文件夹。</p>
+<p>我们这样定义「子文件夹」：</p>
+<p>如果文件夹 folder[i] 位于另一个文件夹 folder[j] 下，那么 folder[i] 就是 folder[j] 的子文件夹。<br>文件夹的「路径」是由一个或多个按以下格式串联形成的字符串：</p>
+<p>/ 后跟一个或者多个小写英文字母。<br>例如，/leetcode 和 /leetcode/problems 都是有效的路径，而空字符串和 / 不是。</p>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><ul>
+<li>写一个判别函数来判断是否为子路径</li>
+<li>将文件夹序列sort，此时字典序小的应该在前，长度小的也在前，故一般父路径也在前。</li>
+<li>设置一个标记数组，初始置0，如果该文件夹路径要被删除置1。</li>
+<li>扫描文件夹序列，两两对比，神奇的是不用二重循环就可以做到。</li>
+<li><p>将标记为0的push进vector，返回。</p>
+<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
+public:
+  // a.length &lt; b.length
+  bool isSubFolder(string a,string b) {
+      int n1 = a.length(),n2 = b.length();
+      if(n1&gt;n2) return false;
+      int i;
+      for(i=0;i&lt;n1;i++){
+          if(a[i]!=b[i]) return false;
+      }
+      if(b[i]!=&#39;/&#39;) return false;
+      return true;        
+  }
+  vector&lt;string&gt; removeSubfolders(vector&lt;string&gt;&amp; folder) {
+      sort(folder.begin(),folder.end());
+      int n = folder.size();
+      int pend[n]={0}; // delete 1
+      int j=0;
+      for(int i=1;i&lt;n;i++){
+          if(isSubFolder(folder[j],folder[i])){
+              pend[i] = 1;
+          }
+          else j = i;  // important
+      }
+      vector&lt;string&gt; res;
+      for(int i=0;i&lt;n;i++){
+          if(!pend[i]) res.push_back(folder[i]);
+      }
+
+      return res;
+
+  }
+};
+</code></pre>
+</li>
+</ul>
+<h2 id="替换子串得到平衡字符串"><a href="#替换子串得到平衡字符串" class="headerlink" title="替换子串得到平衡字符串"></a>替换子串得到平衡字符串</h2><p>有一个只含有 ‘Q’, ‘W’, ‘E’, ‘R’ 四种字符，且长度为 n 的字符串。<br>假如在该字符串中，这四个字符都恰好出现 n/4 次，那么它就是一个「平衡字符串」。<br>给你一个这样的字符串 s，请通过「替换子串」的方式，使原字符串 s 变成一个「平衡字符串」。<br>你可以用和「待替换子串」长度相同的 任何 其他字符串来完成替换。<br>请返回待替换子串的最小可能长度。<br>如果原字符串自身就是一个平衡字符串，则返回 0。</p>
+<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>参考：</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=omnSO-CSFIs" target="_blank" rel="noopener"> lee215 的视频讲解</a></li>
+<li><a href="https://leetcode.com/problems/replace-the-substring-for-balanced-string/discuss/408978/JavaC++Python-Sliding-Window" target="_blank" rel="noopener">[Java/C++/Python] Sliding Window</a></li>
+</ul>
+<p>我觉得题目需要重新阅读并理解一下，<strong>题目的意思是在给出的序列中找一个子串，只需要修改这个子串的字符就可以使得这个字符串变为平衡字符串，求这个子串的最小长度。</strong></p>
+<p>思路是lee215 这位大牛的，上面的参考一个是他的视频讲解，另一个是他写的题解。<br>下面写一下他的思路：<br>首先扫描一下字符串，把W、E、R、Q这四个字符的个数记录下来，使用<strong>滑动窗口</strong>的思想，从下标0开始，扫描字符串，只考虑滑动窗口以外的字符，不考虑滑动窗口内的字符，滑动窗口外的W、E、R、Q这四个字符的个数，如果字符个数小于等于n/4，则说明改滑动窗口所在的区间越正确，也即滑动窗口内的字符是多余的并需要被修改的，然后找到这个滑动窗口长度的最小值即可。</p>
+<p>当然这个算法是O(n)的，代码很简介，或许是全网最短，也或许最难懂。</p>
+<p>更多题解可以参考 leetcode英文社区下关于这道题的讨论。<a href="https://leetcode.com/problems/replace-the-substring-for-balanced-string/discuss/?currentPage=1&amp;orderBy=hot&amp;query=" target="_blank" rel="noopener">1234. Replace the Substring for Balanced String</a></p>
+<h3 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
+public:
+    int balancedString(string s) {
+        // QWER count;
+        int n = s.length(),m=n/4,res=n,i=0;
+        map&lt;char,int&gt; count;
+        for(int j=0;j&lt;n;j++) 
+            count[s[j]]++;
+        for(int j=0;j&lt;n;j++){
+            count[s[j]]--;
+            while(i&lt;n&amp;&amp;count[&#39;Q&#39;]&lt;=m&amp;&amp;count[&#39;E&#39;]&lt;=m&amp;&amp;count[&#39;R&#39;]&lt;=m&amp;&amp;count[&#39;W&#39;]&lt;=m){
+                res = min(res,j-i+1);
+                count[s[i]]++;
+                i++;
+            }
+        }
+        return res;
+    }
+};
+</code></pre>
+<h2 id="规划兼职工作"><a href="#规划兼职工作" class="headerlink" title="规划兼职工作"></a>规划兼职工作</h2><p>你打算利用空闲时间来做兼职工作赚些零花钱。<br>这里有 n 份兼职工作，每份工作预计从 startTime[i] 开始到 endTime[i] 结束，报酬为 profit[i]。<br>给你一份兼职工作表，包含开始时间 startTime，结束时间 endTime 和预计报酬 profit 三个数组，请你计算并返回可以获得的最大报酬。<br>注意，时间上出现重叠的 2 份工作不能同时进行。<br>如果你选择的工作在时间 X 结束，那么你可以立刻进行在时间 X 开始的下一份工作。</p>
+<h3 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h3><p>参考：</p>
+<ul>
+<li><a href="https://leetcode.com/problems/maximum-profit-in-job-scheduling/discuss/409009/JavaC++Python-DP-Solution" target="_blank" rel="noopener">[Java/C++/Python] DP Solution</a> </li>
+<li><a href="https://www.youtube.com/watch?v=omnSO-CSFIs" target="_blank" rel="noopener"> lee215 的视频讲解</a></li>
+</ul>
+<p>再开辟一块空间，把endTime[i],startTime[i],profit[i] 一起存放进去，按照结束时间排序。<br>然后进行动态规划，使用map，其中dp[i]表示从0到i时间段内的收益，i为结束时间，迭代过程是在dp中找到开始时间大于每次的startTime的结束时间的前一个，也就是小于startTime的最大的endTime,然后与当前的收益相加，最后map的最后一个就是答案。（其实这里有很多细节需要仔细钻研一下，比如之前就踩过的坑，涉及到了map的存储结构等)</p>
+<h3 id="实现一"><a href="#实现一" class="headerlink" title="实现一"></a>实现一</h3><pre><code class="lang-cpp">class Solution {
+public:
+    int jobScheduling(vector&lt;int&gt;&amp; startTime, vector&lt;int&gt;&amp; endTime, vector&lt;int&gt;&amp; profit) {
+        int n = endTime.size();
+        vector&lt;vector&lt;int&gt; &gt; jobs;
+        for(int i=0;i&lt;n;i++){
+            jobs.push_back({endTime[i],startTime[i],profit[i]});
+        }
+        sort(jobs.begin(),jobs.end());
+        map&lt;int,int&gt; dp;
+        dp[0] = 0;
+        for(auto job:jobs){
+            int cur = prev(dp.upper_bound(job[1]))-&gt;second + job[2];
+            if(cur &gt; dp.rbegin()-&gt;second)
+                dp[job[0]] = cur;
+        }
+        return dp.rbegin()-&gt;second;
+
+    }
+};
+</code></pre>
+<h2 id="思路二"><a href="#思路二" class="headerlink" title="思路二"></a>思路二</h2><p>参考：</p>
+<ul>
+<li><a href="https://leetcode.com/problems/maximum-profit-in-job-scheduling/discuss/409031/C++-Sort-and-DP-O%28NlogN%29" target="_blank" rel="noopener">[C++]  Sort and DP, O(NlogN)</a><br><br>不去重新分配存储空间去存储starttime、endTime、profit，只需要新建一个索引数组，自定义排序规则，按照结束时间排序。然后还定义了一个匿名函数，返回在endTime在startTime[i]之前的索引。<br>然后就是动态规划，dp[i]表示在i时刻及以前所获得的最大收益，cur为当前时刻可以获得的收益。<br>dp[i] = max(dp[i-1],cur)，最后dp[n-1]便是答案。</li>
+</ul>
+<p>更多题解可以参考 leetcode英文社区下关于这道题的讨论。<a href="https://leetcode.com/problems/maximum-profit-in-job-scheduling/discuss/?currentPage=1&amp;orderBy=hot&amp;query=" target="_blank" rel="noopener">1235. Maximum Profit in Job Scheduling</a></p>
+<h3 id="实现二"><a href="#实现二" class="headerlink" title="实现二"></a>实现二</h3><pre><code class="lang-cpp">class Solution {
+public:
+    int jobScheduling(vector&lt;int&gt;&amp; startTime, vector&lt;int&gt;&amp; endTime, vector&lt;int&gt;&amp; profit) {
+        int n = startTime.size();
+        vector&lt;vector&lt;int&gt;&gt; jobs;
+        int index[n];
+        for(int i=0;i&lt;n;i++){
+            index[i]=i;
+        }
+        sort(index,index+n,[&amp;endTime](int i,int j){return endTime[i]&lt;endTime[j];});
+        auto lastestValidIndex = [&amp;startTime,&amp;endTime,&amp;index](int i){   // lambda
+            int start = startTime[index[i]];
+            int left = 0, right = i;
+            while(left&lt;right){
+                int mid = (left+right)&gt;&gt;1;
+                if(endTime[index[mid]]&lt;=start)
+                    left = mid+1; // +1
+                else right = mid;
+            }
+            return right==0?-1:right-1;
+        };
+        int dp[n]={0};
+        dp[0] = profit[index[0]];
+        for(int i=1;i&lt;n;i++){
+            int cur = profit[index[i]];
+            int last = lastestValidIndex(i);
+            if(last!=-1) cur +=dp[last];
+            dp[i] = max(dp[i-1],cur);
+        }        
+        return dp[n-1];
+
+    }
+};
+</code></pre>
+<p>被DP教育4小时。为伊消得人憔悴..<br>说实话还是leetcode英文社区那边大牛多，讨论也更多一些。</p>
+<p>今日份荐读：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/87460515" target="_blank" rel="noopener">姚班学霸陈立杰：16岁保送清华，18岁拿下IOI世界冠军，现摘得FOCS 2019最佳学生论文<br>量子位</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/10/21/2019-10-21-tong-ji-zi-fu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/10/21/2019-10-21-tong-ji-zi-fu/" class="post-title-link" itemprop="url">统计字符</a>
+              
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/10/21/2019-10-21-tong-ji-zi-fu/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="统计字符">
-                            
-                            <span class="card-title">统计字符</span>
-                        </div>
-                    </a>
+          </h1>
+        
 
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                输入一行字符，分别统计出其中英文字母、空格、数字和其他字符的个数。
-#include&lt;bits/stdc++.h&gt;
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-10-21 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-21T00:00:00+08:00">2019-10-21</time>
+            </span>
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">630</span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">1 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <p><strong>输入一行字符，分别统计出其中英文字母、空格、数字和其他字符的个数。</strong></p>
+<pre><code class="lang-cpp">#include&lt;bits/stdc++.h&gt;
 using namespace std;
 typedef long long ll;
-const int max
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/数据结构与算法训练/" class="post-category">
-                                    数据结构与算法训练
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
+const int maxn = 2e5;
+# define mod(a,b) (a)%(b)
+int main(){
 
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/字符串/">
-                            <span class="chip bg-color">字符串</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/10/17/2019-10-17-zui-chang-gong-gong-zi-xu-lie-longestcommonsubsequence/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="最长公共子序列(LongestCommonSubsequence)">
-                            
-                            <span class="card-title">最长公共子序列(LongestCommonSubsequence)</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                问题描述求两个长度分别为m和n的字符串A、B的最长公共子序列。A：a0a1a2…am-1B：b0b1b2…bn-1
-思路构造一个大小为(m+1)*(n+1)的二维数组dpdp[i][j] 表示a0a1a2…ai-1 和 b0b1b2…bj-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/动态规划/" class="post-category">
-                                    动态规划
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/最长公共子序列/">
-                            <span class="chip bg-color">最长公共子序列</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/10/13/2019-10-13-leetcodeweeklycontest-158/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="LeetCodeWeeklyContest-158">
-                            
-                            <span class="card-title">LeetCodeWeeklyContest-158</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                戒骄戒躁，勇往直前。
-传送门：第 158 场周赛分割平衡字符串在一个「平衡字符串」中，’L’ 和 ‘R’ 字符的数量是相同的。给出一个平衡字符串 s，请你将它分割成尽可能多的平衡字符串。返回可以通过分割得到的平衡字符串的最大数量。输入：s 
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-13
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/leetcode/" class="post-category">
-                                    leetcode
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/leetcode/">
-                            <span class="chip bg-color">leetcode</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/10/07/2019-10-7-leetcodeweeklycontest-157/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="LeetCodeWeeklyContest-157">
-                            
-                            <span class="card-title">LeetCodeWeeklyContest-157</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                秋意寂寥，国庆假期归来，”百废待兴”。路漫漫其修远兮，吾将上下而求索。
-题目传送玩筹码数轴上放置了一些筹码，每个筹码的位置存在数组 chips 当中。你可以对 任何筹码 执行下面两种操作之一（不限操作次数，0 次也可以）：将第 i 个筹码向
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-10-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/leetcode/" class="post-category">
-                                    leetcode
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/leetcode/">
-                            <span class="chip bg-color">leetcode</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-        </div>
-    </article>
-
-</main>
+    char ch;
+    int count[4]={0};
+    while(cin.get(ch)){
+        if(ch&gt;=&#39;a&#39;&amp;&amp;ch&lt;=&#39;z&#39;||ch&gt;=&#39;A&#39;&amp;&amp;ch&lt;=&#39;Z&#39;)
+            count[0]++;
+        else if(ch==&#39; &#39;)
+            count[1]++;
+        else if(ch&gt;=&#39;0&#39;&amp;&amp;ch&lt;=&#39;9&#39;)
+            count[2]++;
+        else if(ch==&#39;\n&#39;) break;
+        else count[3]++;
+    }
+    cout &lt;&lt; count[0] &lt;&lt; &quot; &quot; &lt;&lt; count[2] &lt;&lt; &quot; &quot; &lt;&lt; count[1] &lt;&lt; &quot; &quot; &lt;&lt; count[3] ;
 
 
-<div class="container paging">
-    <div class="row">
-        <div class="col s6 m4 l4">
-            
-            <a href="/page/3/"
-               class="left btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fas fa-angle-left"></i>
-            </a>
-            
-        </div>
-        <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">4 / 8</div>
-        </div>
-        <div class="col s6 m4 l4">
-            
-            <a href="/page/5/"
-               class="right btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fas fa-angle-right"></i>
-            </a>
-            
-        </div>
+    return 0;
+}
+</code></pre>
+<p>题目虽然简单，注意点是统计空格需要用<strong>cin.get(ch)</strong>，输入时会在行末多输入一个回车，注意处理。</p>
+
+          
+        
+      
     </div>
-</div>
 
+    
+    
+    
 
+    
+    
 
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
-    <footer class="page-footer bg-color">
-    <div class="container row center-align" style="margin-bottom: 0px !important;">
-        <div class="col s12 m8 l8 copy-right">
-            Copyright&nbsp;&copy;
-            <span id="year">2019</span>
-            <a href="https://sinclaircoder.top" target="_blank">SinclairWang</a>
-            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
-            <br>
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/10/17/2019-10-17-zui-chang-gong-gong-zi-xu-lie-longestcommonsubsequence/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/10/17/2019-10-17-zui-chang-gong-gong-zi-xu-lie-longestcommonsubsequence/" class="post-title-link" itemprop="url">最长公共子序列(LongestCommonSubsequence)</a>
+              
             
-            
-            
-            
-            
-            
-            <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-10-17 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-17T00:00:00+08:00">2019-10-17</time>
             </span>
-            
-            
-            <span id="busuanzi_container_site_uv">
-                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">748</span>
             </span>
-            
-            <br>
-            
-            <br>
-            
-            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
-                <a href="http://www.beian.miit.gov.cn/" target="_blank">冀ICP备20002885号</a>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">1 mins.</span>
             </span>
-            
+          
+
         </div>
-        <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/SinclairCoder" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
+      </header>
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
+      
+          
+            <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>求两个长度分别为m和n的字符串A、B的最长公共子序列。<br>A：a<sub>0</sub>a<sub>1</sub>a<sub>2</sub>…a<sub>m-1</sub><br>B：b<sub>0</sub>b<sub>1</sub>b<sub>2</sub>…b<sub>n-1</sub></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>构造一个大小为(m+1)*(n+1)的二维数组dp<br>dp[i][j] 表示a<sub>0</sub>a<sub>1</sub>a<sub>2</sub>…a<sub>i-1</sub> 和 b<sub>0</sub>b<sub>1</sub>b<sub>2</sub>…b<sub>j-1</sub> 两个字符串的最大公共子序列</p>
+<h3 id="状态转移方程"><a href="#状态转移方程" class="headerlink" title="状态转移方程"></a>状态转移方程</h3><script type="math/tex; mode=display">dp[i][j]= \begin{cases}0  & \text {if  i=0 or j=0} \\ dp[i-1][j-1]+1   & \text{if a[i-1]=b[j-1] }   \\ max(dp[i-1][j],dp[i][j-1])  &\text{if a[i-1]!=b[j-1]}\end{cases}</script><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">int dp[MAXN][MAXN]={0};
+vector&lt;char&gt; subs;
+vector&lt;char&gt; longestCommonSubsequence(string s1, string s2) {
+    memset(dp,0,sizeof(dp));
+    int m = s1.length(),n = s2.length();
+    for(int i=1;i&lt;=m;i++){
+        for(int j=1;j&lt;=n;j++){
+            if(s1[i-1]==s2[j-1])
+                dp[i][j] = dp[i-1][j-1]+1;
+            else dp[i][j] = max(dp[i-1][j],dp[i][j-1]); 
+        }
+    }
+    int k = dp[m][n],i=m,j=n;
+    while(k&gt;0){
+        if(dp[i][j]==dp[i-1][j])
+            i--;
+        else if(dp[i][j]==dp[i][j-1])
+            j--;
+        else {
+             subs.push_back(s1[i-1]);
+            i--;j--;k--;
+        }
+    }
+    return subs;
+}
+</code></pre>
+<p>来道板子题试试：<a href="https://leetcode-cn.com/problems/longest-common-subsequence/submissions/" target="_blank" rel="noopener">1143. 最长公共子序列</a></p>
 
-    <a href="mailto:sinclaircoder@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-
-
-
-
-
-
-    <a href="https://www.zhihu.com/people/san-cun-jiu-cheng-qi-cun-zhi-nian-29# https://www.zhihu.com/xxx" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/san-cun-jiu-cheng-qi-cun-zhi-nian-29# https://www.zhihu.com/xxx" data-position="top" data-delay="50">
-        <i class="fab fa-zhihu1">知</i>
-    </a>
-
-
- 
-    <a href="https://blog.csdn.net/SinclairWang" class="tooltipped" target="_blank" data-tooltip="关注我的CSDN: https://blog.csdn.net/SinclairWang" data-position="top" data-delay="50"> 
-    <i class="fab fa-csdn">C</i> 
-    </a> 
-
-
-
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
-
-</div>
+          
+        
+      
     </div>
-</footer>
 
-<div class="progress-bar"></div>
+    
+    
+    
 
+    
+    
 
-    <!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
-                   class="search-input">
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/10/13/2019-10-13-leetcodeweeklycontest-158/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/10/13/2019-10-13-leetcodeweeklycontest-158/" class="post-title-link" itemprop="url">LeetCodeWeeklyContest-158</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-10-13 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-13T00:00:00+08:00">2019-10-13</time>
+            </span>
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">4.1k</span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">4 mins.</span>
+            </span>
+          
+
         </div>
-        <div id="searchResult"></div>
-    </div>
-</div>
+      </header>
 
-<script src="/js/search.js"></script>
-<script type="text/javascript">
-$(function () {
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
-});
-</script>
-    <!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-</div>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
+      
+          
+            <p>戒骄戒躁，勇往直前。<br><br></p>
+<h2 id="传送门：第-158-场周赛"><a href="#传送门：第-158-场周赛" class="headerlink" title="传送门：第 158 场周赛"></a>传送门：<a href="https://leetcode-cn.com/contest/weekly-contest-158" target="_blank" rel="noopener">第 158 场周赛</a></h2><h2 id="分割平衡字符串"><a href="#分割平衡字符串" class="headerlink" title="分割平衡字符串"></a>分割平衡字符串</h2><p>在一个「平衡字符串」中，’L’ 和 ‘R’ 字符的数量是相同的。<br>给出一个平衡字符串 s，请你将它分割成尽可能多的平衡字符串。<br>返回可以通过分割得到的平衡字符串的最大数量。<br>输入：s = “RLRRLLRLRL”<br>输出：4<br>解释：s 可以分割为 “RL”, “RRLL”, “RL”, “RL”, 每个子字符串中都包含相同数量的 ‘L’ 和 ‘R’。</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>用两个数组记录当前出现的R和L的次数，进行比对相等则cnt+1。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
+public:
+    int balancedStringSplit(string s) {
+        int n = s.length(),cnt=0;
+        int rcnt[n]={0},lcnt[n]={0};
+        for(int i=0;i&lt;s.length();i++){
+            rcnt[i]=(i==0?0:rcnt[i-1]);
+            lcnt[i]=(i==0?0:lcnt[i-1]);
+            if(s[i]==&#39;R&#39;)  rcnt[i]++;
+            if(s[i]==&#39;L&#39;)  lcnt[i]++;
+            if(lcnt[i]==rcnt[i]) cnt++; 
+        }
+        return cnt;
+    }
+};
+</code></pre>
+<h2 id="可以攻击国王的皇后"><a href="#可以攻击国王的皇后" class="headerlink" title="可以攻击国王的皇后"></a>可以攻击国王的皇后</h2><p>在一个 8x8 的棋盘上，放置着若干「黑皇后」和一个「白国王」。<br>「黑皇后」在棋盘上的位置分布用整数坐标数组 queens 表示，「白国王」的坐标用数组 king 表示。<br>「黑皇后」的行棋规定是：横、直、斜都可以走，步数不受限制，但是，不能越子行棋。<br>请你返回可以直接攻击到「白国王」的所有「黑皇后」的坐标（任意顺序）。</p>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>第一反应想起了8皇后，基本上还是以国王为中心遍历8个方向，在一个方向碰到一个皇后，就立刻停止，push进result，然后遍历剩余的方向。<br>注意：vector数组的初始化。</p>
+<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
+public:
+    vector&lt;vector&lt;int&gt;&gt; queensAttacktheKing(vector&lt;vector&lt;int&gt;&gt;&amp; queens, vector&lt;int&gt;&amp; king) {
+        vector&lt;vector&lt;int&gt; &gt; res;
+        vector&lt;int&gt; tmp(queens[0].size()); // 要初始化 不然报 reference binding to null pointer of type ‘value_type’
+        vector&lt;vector&lt;int&gt; &gt;::iterator it;
+        int dx[8]={-1,0,1,-1,1,-1,0,1};
+        int dy[8]={-1,-1,-1,0,0,1,1,1};
+        for(int i=0;i&lt;8;i++){
+            tmp[0]=king[0],tmp[1]=king[1];
+            while(1){
+                tmp[0] = tmp[0]+dx[i];
+                tmp[1] = tmp[1]+dy[i];
+                if(tmp[0]&gt;=0&amp;&amp;tmp[0]&lt;8&amp;&amp;tmp[1]&gt;=0&amp;&amp;tmp[1]&lt;8){
+                    it = find(queens.begin(),queens.end(),tmp);  // 最近用find老是出错
+                    if(it!=queens.end()){
+                        res.push_back(tmp);
+                        break;
+                    }
+                }
+                else break;      
+            }                      
+        }
+        return res;
 
-    <script src="/libs/materialize/materialize.min.js"></script>
-    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="/libs/aos/aos.js"></script>
-    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="/js/matery.js"></script>
+    }
+};
+</code></pre>
+<h2 id="掷骰子模拟"><a href="#掷骰子模拟" class="headerlink" title="掷骰子模拟"></a>掷骰子模拟</h2><p>有一个骰子模拟器会每次投掷的时候生成一个 1 到 6 的随机数。<br>不过我们在使用它时有个约束，就是使得投掷骰子时，连续 掷出数字 i 的次数不能超过 rollMax[i]（i 从 1 开始编号）。<br>现在，给你一个整数数组 rollMax 和一个整数 n，请你来计算掷 n 次骰子可得到的不同点数序列的数量。<br>假如两个序列中至少存在一个元素不同，就认为这两个序列是不同的。由于答案可能很大，所以请返回 模 10^9 + 7 之后的结果。</p>
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><p>请参考<a href="https://leetcode.com/problems/dice-roll-simulation/discuss/403736/ChineseC++-1223." target="_blank" rel="noopener"> [Chinese/C++] 1223. 【动态规划】有限制的掷骰子（详解）</a></p>
+<h3 id="实现1"><a href="#实现1" class="headerlink" title="实现1"></a>实现1</h3><pre><code class="lang-cpp">class Solution{
+    vector&lt;int&gt; rollMax ;
+    typedef long long ll;
+    int dp[5005][6][16];
+    int mod = 1e9+7;
+    ll dfs(int num,int k,int n){
+        if(n==0) return 1;
+        if(dp[n][num][k]!=-1) return dp[n][num][k];
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135806349-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-        dataLayer.push(arguments);
+        ll ans =0;
+        for(int i=0;i&lt;6;i++){
+            if(i!=num) ans += dfs(i,1,n-1);
+            else if(k&lt;rollMax[i])   // 注意不能等于,如果等于就不能加一了。
+                ans += dfs(num,k+1,n-1);
+            else ;
+        }
+        return dp[n][num][k]=ans%mod;
     }
 
-    gtag('js', new Date());
-    gtag('config', 'UA-135806349-1');
-</script>
-
-
-    <!-- Baidu Analytics -->
-
-<script>
-    var _hmt = _hmt || [];
-    (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?ad3c73a898b555b5658e0609e7dd9dc6";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-
-    <!-- Baidu Push -->
-
-<script>
-    (function () {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
-            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+public :
+    int  dieSimulator(int n, vector&lt;int&gt;&amp; rollMax) {
+        this-&gt;rollMax = rollMax;
+        memset(dp,-1,sizeof(dp));
+        return dfs(0,0,n)%mod;
+    }
+};
+</code></pre>
+<h3 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h3><p>用一个三维数组表示的话。v[k][i][j]表示第k轮扔出i点的骰子，并且这个点数已经连续出现j次时的序列的个数。<br> 如果下一轮的点数和这一轮最后的点数不同的时候：v[k+1][c][1] += v[k][i][j]<br>如果下一轮的点数和这一轮最后的点数相同并且依然不超过这个点最大的可连续限制的时候：v[k+1][i][j+1] += v[k][i][j]</p>
+<p>不过尝试实现了一下，一直显示结果为0，不清楚为什么。欢迎讨论。</p>
+<pre><code class="lang-cpp">class Solution {
+public:
+    typedef long long ll;
+    int  dieSimulator(int n, vector&lt;int&gt;&amp; rollMax) {
+        int mod = 1e9+7;
+        int dp[5002][8][16]={0};
+        for(int i=0;i&lt;6;i++){
+            dp[1][i][1]=1;
         }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
-    })();
-</script>
-
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
-    
-    
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-    
-
-    
-        <script src="//code.tidio.co/u61uushntplpeuutujp42qmi0lj20uxa.js"></script>
-        <script> 
-            $(document).ready(function () {
-                setInterval(change_Tidio, 50);  
-                function change_Tidio() { 
-                    var tidio=$("#tidio-chat iframe");
-                    if(tidio.css("display")=="block"&& $(window).width()>977 ){
-                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"85px":"20px";   
-                        document.getElementById("tidio-chat-iframe").style.right="-15px";   
-                        document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
-                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                    } 
-                    else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
-                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;   
-                        document.getElementById("tidio-chat-iframe").style.right="-15px"; 
-                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+        for(int k=2;k&lt;=n;k++){
+            for(int i=0;i&lt;6;i++){
+                for(int j=1;j&lt;k&amp;&amp;j&lt;16;j++){
+                    for(int c=0;c&lt;6;c++){
+                        if(c!=i) dp[k+1][c][1] = (dp[k+1][c][1]+dp[k][i][j])%mod;
+                        else if(j&lt;=rollMax[i]) dp[k+1][i][j+1] = (dp[k+1][i][j+1]+dp[k][i][j])%mod;
                     }
-                    else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
-                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;   
-                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                    }
-                    if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
-                        document.getElementById("tidio-chat-iframe").style.zIndex="998";
-                    }
-                } 
-            }); 
-        </script>
+                }
+            }
+        }
+        ll res = 0;
+        for(int i=1;i&lt;6;i++){
+            for(int j=1;j&lt;n;j++){
+                res = (res+dp[n][i][j])%mod;
+            }
+        }
+        return res;
+
+    }
+};
+</code></pre>
+<h2 id="最大相等频率"><a href="#最大相等频率" class="headerlink" title="最大相等频率"></a>最大相等频率</h2><p>给出一个正整数数组 nums，请你帮忙从该数组中找出能满足下面要求的 最长 前缀，并返回其长度：<br>从前缀中 删除一个 元素后，使得所剩下的每个数字的出现次数相同。<br>如果删除这个元素后没有剩余元素存在，仍可认为每个数字都具有相同的出现次数（也就是 0 次）。<br>举个例子<br>输入：nums = [2,2,1,1,5,3,3,5]<br>输出：7<br>解释：对于长度为 7 的子数组 [2,2,1,1,5,3,3]，如果我们从中删去 nums[4]=5，就可以得到[2,2,1,1,3,3]，里面每个数字都出现了两次。</p>
+<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>参考题解：</p>
+<ul>
+<li><a href="https://leetcode.com/problems/maximum-equal-frequency/discuss/403779/ChineseC++-.-O%28N%29" target="_blank" rel="noopener">Chinese/C++ ] 1224. 【统计】最大相等频率，详解，O(N)</a></li>
+<li><a href="https://leetcode.com/problems/maximum-equal-frequency/discuss/403678/C++O%28n%29consider-for-four-situations" target="_blank" rel="noopener">C++,O(n),consider for four situations</a></li>
+</ul>
+<p>打两次表，cnt表是用来记录每种数字出现的次数，freq表记录每个次数出现的频率，其中需要考虑四种情况。</p>
+<ol>
+<li>只有频率为A或B的序列，其中A=B+1，比如：[7,7,7,8,8,9,9] 其中A=3，B=2</li>
+<li>只有频率为A或B的序列，其中A=1，B!=1 比如：[6,7,7,7,8,8,8,9,9,9] 其中A=1,B=3</li>
+<li>每个数字只出现1次 比如：[7,8,9] </li>
+<li>所有数字相同，比如：[7,7,7,7,7]</li>
+</ol>
+<p><strong>对于情况1，4</strong>：1+freq[maxcnt-1]<em>(maxcnt-1)==i+1 其中i为nums的当前索引，等式的意义是 从索引等于0到索引等于i之间的元素个数相等。<br><strong>对于情况2</strong>：1+freq[maxcnt]</em>maxcnt ==i+1 等式意义同上。<br><strong>上述三种情况</strong> 所求结果即此时索引i加1（i&gt;=0&amp;&amp;i&lt;nums.size()）<br><strong>对于情况3</strong>：只需 maxcnt ==1，所求结果即为整个nums的长度。</p>
+<h3 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
+public:
+    int maxEqualFreq(vector&lt;int&gt;&amp; nums) {
+       vector&lt;int&gt; cnt(100003,0),freq(100003,0);
+        int maxcnt = 0,ans = 0;
+        for(int i=0;i&lt;nums.size();i++){
+            int num = nums[i];
+            cnt[num]++;
+
+            freq[cnt[num]]++;
+            maxcnt = max(maxcnt,cnt[num]);
+            // cout &lt;&lt; num &lt;&lt; &quot; &quot; &lt;&lt; cnt[num] &lt;&lt; &quot; &quot; &lt;&lt;  freq[cnt[num]] &lt;&lt; &quot; &quot; &lt;&lt; maxcnt &lt;&lt; endl; 
+            if(1+freq[maxcnt-1]*(maxcnt-1)==i+1||1+freq[maxcnt]*maxcnt==i+1) 
+                ans = i+1;         
+        }
+        if(maxcnt==1) ans = nums.size();
+        return ans;
+    }
+};
+</code></pre>
+<p>写这次的题解并没有想象中的欢快~</p>
+<p>所以动心忍性，曾益其所不能。</p>
+
+          
+        
+      
+    </div>
+
+    
+    
     
 
     
-
-    
-    <script type="text/javascript" color="0,0,255"
-        pointColor="0,0,255" opacity='0.7'
-        zIndex="-1" count="99"
-        src="/libs/background/canvas-nest.js"></script>
     
 
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
     
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/10/07/2019-10-7-leetcodeweeklycontest-157/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/10/07/2019-10-7-leetcodeweeklycontest-157/" class="post-title-link" itemprop="url">LeetCodeWeeklyContest-157</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-10-07 00:00:00" itemprop="dateCreated datePublished" datetime="2019-10-07T00:00:00+08:00">2019-10-07</time>
+            </span>
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">4.5k</span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">4 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
 
     
     
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <p>秋意寂寥，国庆假期归来，”百废待兴”。<br>路漫漫其修远兮，吾将上下而求索。</p>
+<h2 id="题目传送"><a href="#题目传送" class="headerlink" title="题目传送"></a><a href="https://leetcode-cn.com/contest/weekly-contest-157/" target="_blank" rel="noopener">题目传送</a></h2><h2 id="玩筹码"><a href="#玩筹码" class="headerlink" title="玩筹码"></a>玩筹码</h2><p>数轴上放置了一些筹码，每个筹码的位置存在数组 chips 当中。<br>你可以对 任何筹码 执行下面两种操作之一（不限操作次数，0 次也可以）：<br>将第 i 个筹码向左或者右移动 2 个单位，代价为 0。<br>将第 i 个筹码向左或者右移动 1 个单位，代价为 1。<br>最开始的时候，同一位置上也可能放着两个或者更多的筹码。<br>返回将所有筹码移动到同一位置（任意位置）上所需要的最小代价。</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>做的时候看了半天，不会写，后来发现题目理解错了，chips上存放的是筹码的位置，偶数位置跳到偶数位置代价为0，偶数位置跳到奇数位置代价为1，奇数位置跳到奇数位置代价为0，奇数位置跳到偶数位置代价为1，假设奇数位置的筹码数量为 evenN，偶数位置的筹码数量为 oldN，最小代价即为 min(evenN,oldN)</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">int minCostToMoveChips(vector&lt;int&gt;&amp; chips) {
+        int even=0,odd=0;
+        for(int &amp;i:chips){
+            if(i%2==0) odd++;
+            else even++;
+        }
+        return min(even,odd);
+
+    }
+</code></pre>
+<h2 id="最长定差子序列"><a href="#最长定差子序列" class="headerlink" title="最长定差子序列"></a>最长定差子序列</h2><p>给你一个整数数组 arr 和一个整数 difference，请你找出 arr 中所有相邻元素之间的差等于给定 difference 的等差子序列，并返回其中最长的等差子序列的长度。<br>举个栗子<br>输入：arr = [1,5,7,8,5,3,4,2,1], difference = -2<br>输出：4<br>解释：最长的等差子序列是 [7,5,3,1]。</p>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>经典dp问题，不过我的dp确实不熟。<br>首先打个表dp，用arr[i]作为dp的索引，dp[j]表示到j为止存在的等差子序列长度的最大值。<br>状态转移方程如下：dp[arr[i]] = dp[arr[i]-d] + 1</p>
+<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">int longestSubsequence(vector&lt;int&gt;&amp; arr, int difference) {
+        map&lt;int,int&gt; dp;
+        int ans=0;
+        for(int i:arr){
+            dp[i] = dp[i-difference] + 1;
+            ans = max(dp[i],ans);
+        }
+        return ans;
+    }
+</code></pre>
+<p>没有冗长的代码，真的爱上了这种感觉，写起来真的既轻松又愉快。</p>
+<h2 id="黄金矿工"><a href="#黄金矿工" class="headerlink" title="黄金矿工"></a>黄金矿工</h2><p>你要开发一座金矿，地质勘测学家已经探明了这座金矿中的资源分布，并用大小为 m * n 的网格 grid 进行了标注。每个单元格中的整数就表示这一单元格中的黄金数量；如果该单元格是空的，那么就是 0。<br>为了使收益最大化，矿工需要按以下规则来开采黄金：<br>每当矿工进入一个单元，就会收集该单元格中的所有黄金。<br>矿工每次可以从当前位置向上下左右四个方向走。<br>每个单元格只能被开采（进入）一次。<br>不得开采（进入）黄金数目为 0 的单元格。<br>矿工可以从网格中 任意一个 有黄金的单元格出发或者是停止。</p>
+<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>DFS，其实这里面还是有很多问题要注意一下的，比如dfs函数里的参数tmp不能传引用，而value、visit要传引用，tmp是每次的中间值，每次与value进行比较，用两者的最大值去更新value。<br>另外，leetcode支持c++11，故此代码里用了很多新特性，比如类的属性定义时初始化，vector初始化等，如果要在Dev上跑的话，在文件首部加上下面这一行：</p>
+<pre><code class="lang-cpp">#pragma GCC diagnostic error &quot;-std=c++11&quot;
+</code></pre>
+<h3 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h3><pre><code class="lang-cpp">class Solution {
+public:
+    int dx[4]={0,0,-1,1},dy[4]={-1,1,0,0};
+    void dfs(vector&lt;vector&lt;int&gt;&gt;&amp; grid, int x, int y, int tmp, int&amp; value, vector&lt;vector&lt;bool&gt;&gt;&amp; visit){  // tmp 不能加引用
+        if(grid[x][y]==0) return ;
+        value = max(value,tmp += grid[x][y]);
+        visit[x][y] = true;
+
+        for(int i=0;i&lt;4;i++){
+            int tmpx = x+dx[i],tmpy = y+dy[i];
+            if(tmpx&lt;0||tmpx&gt;=grid.size()||tmpy&lt;0||tmpy&gt;=grid[0].size()) continue; // 注意等号
+            if(grid[tmpx][tmpy]==0||visit[tmpx][tmpy]) continue;
+            dfs(grid,tmpx,tmpy,tmp,value,visit);
+        }
+        visit[x][y] = false;
+    }
+    int getMaximumGold(vector&lt;vector&lt;int&gt;&gt;&amp; grid) {
+        int m=grid.size(), n=grid[0].size(), result = 0;
+        // bool visit[m][n]={0};
+        vector&lt;vector&lt;bool&gt;&gt; visit(m,vector&lt;bool&gt;(n,false)); // init
+        for(int i=0;i&lt;m;i++){
+            for(int j=0;j&lt;n;j++){
+                if(grid[i][j]!=0){
+                    dfs(grid,i,j,0,result,visit);
+                }
+            }
+        }
+        return result;
+    }
+};
+</code></pre>
+<h2 id="统计元音字母序列的数目"><a href="#统计元音字母序列的数目" class="headerlink" title="统计元音字母序列的数目"></a>统计元音字母序列的数目</h2><p>给你一个整数 n，请你帮忙统计一下我们可以按下述规则形成多少个长度为 n 的字符串：<br>字符串中的每个字符都应当是小写元音字母（’a’, ‘e’, ‘i’, ‘o’, ‘u’）<br>每个元音 ‘a’ 后面都只能跟着 ‘e’<br>每个元音 ‘e’ 后面只能跟着 ‘a’ 或者是 ‘i’<br>每个元音 ‘i’ 后面 不能 再跟着另一个 ‘i’<br>每个元音 ‘o’ 后面只能跟着 ‘i’ 或者是 ‘u’<br>每个元音 ‘u’ 后面只能跟着 ‘a’<br>由于答案可能会很大，所以请你返回 模 10^9 + 7 之后的结果。</p>
+<h2 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h2><p>其实就是一个状态转移方程？<br>用dp来记录a,e,i,o,u开头的固定长度的字符串对应的方案个数。<br>初始时dp[i]=1, 其中0&lt;=i&lt;5<br>进行n次循环的ndp状态数组用来记录此时对应的方案个数<br>最重要的是根据题目中的字符串相邻规则，找到状态转移方程。<br><strong>ndp[0] = dp[1];<br>ndp[1] = (dp[0]+dp[2])%mod;<br>ndp[2] = (dp[0]+dp[1]+dp[3]+dp[4])%mod;<br>ndp[3] = (dp[2]+dp[4])%mod;<br>ndp[4] = dp[0];</strong><br>具体实现看实现一，其中数据类型要用long long ，用int会爆掉。</p>
+<h2 id="实现一"><a href="#实现一" class="headerlink" title="实现一"></a>实现一</h2><pre><code class="lang-cpp">class Solution {
+public:
+    typedef long long ll;
+       const int mod = 1e9 + 7;
+    int countVowelPermutation(int n) {
+       ll dp[5]={1,1,1,1,1};
+        ll ndp[5]={0};
+        for(int i=1;i&lt;n;i++){
+            ndp[0] = dp[1];
+            ndp[1] = (dp[0]+dp[2])%mod;
+            ndp[2] = (dp[0]+dp[1]+dp[3]+dp[4])%mod;
+            ndp[3] = (dp[2]+dp[4])%mod;
+            ndp[4] = dp[0];
+            for(int j=0;j&lt;5;j++) dp[j] = ndp[j];
+        }
+        ll ans = 0;
+        for(int i=0;i&lt;5;i++) ans += dp[i];
+        return ans%mod;
+    }
+};
+</code></pre>
+<h2 id="思路二"><a href="#思路二" class="headerlink" title="思路二"></a>思路二</h2><p>在力扣讨论区看到这样一句话</p>
+<blockquote>
+<p>这个题数据量再大一些就应该采用 矩阵来做运算，并可以通过矩阵快速幂来加速运算</p>
+</blockquote>
+<p>我的第一反应是根据题目中的字符串相邻规则构造一个邻接矩阵，这个时候离散数学就应该派上用场了，思考邻接矩阵的n次幂的意义为何？实际上，求长度为n的字符串实际上就是求邻接矩阵的n-1次幂，这里需要用到矩阵的幂运算，这个时候就可以使用矩阵的快速幂，网上找了个板子，改了改，没想到就过掉了。</p>
+<h2 id="实现二"><a href="#实现二" class="headerlink" title="实现二"></a>实现二</h2><pre><code class="lang-cpp">const int N=5;
+typedef long long ll;
+class Matrix{    //矩阵结构体 
+    public:
+    ll matrix[N][N];
+};
+class Solution {
+public:
+   const int mod = 1e9 + 7;
+    //初始化为单位矩阵 
+   void init(Matrix &amp;res){
+        memset(res.matrix,0,sizeof(res.matrix));
+        for(int i=0;i&lt;N;i++)
+            res.matrix[i][i]=1;
+    }
+    //矩阵乘法
+    Matrix multiplicative(Matrix a,Matrix b){
+        Matrix res;
+        memset(res.matrix,0,sizeof(res.matrix));
+        for(int i = 0 ; i &lt; N ; i++){
+            for(int j = 0 ; j &lt; N ; j++){
+                for(int k = 0 ; k &lt; N ; k++){
+                    res.matrix[i][j] += a.matrix[i][k]*b.matrix[k][j];
+                    res.matrix[i][j] %= mod;
+                }
+            }
+        }
+        return res;
+    }
+    //矩阵快速幂 
+    Matrix Pow(Matrix mx,ll m){
+        Matrix res,base=mx;
+        init(res);
+        while(m){
+            if(m&amp;1)
+            res=multiplicative(res,base);
+            base=multiplicative(base,base);
+            m&gt;&gt;=1;
+        }
+        return res;
+    }
+
+    int countVowelPermutation(int n) {
+        if(n==1) return 5;
+        const int MOD = 1e9+7;
+        Matrix mat;
+        memset(mat.matrix,0,sizeof(mat.matrix));
+        mat.matrix[0][1]=1;
+        mat.matrix[1][0]=1,mat.matrix[1][2]=1;
+        mat.matrix[2][0]=1,mat.matrix[2][1]=1,mat.matrix[2][3]=1,mat.matrix[2][4]=1;
+        mat.matrix[3][2]=1,mat.matrix[3][4]=1;
+        mat.matrix[4][0]=1;
+        Matrix result = Pow(mat,n-1);
+        int ans = 0;
+        for(int i=0;i&lt;N;i++){
+            for(int j=0;j&lt;N;j++){
+                ans += result.matrix[i][j];
+                ans = ans%MOD;  // 这里要取一次余，不然会爆范围
+                // cout &lt;&lt; result.matrix[i][j] &lt;&lt; &quot; &quot;;
+            }
+            cout &lt;&lt; endl;
+        }
+        return ans%MOD;    
+    }
+};
+</code></pre>
+<h2 id="感悟"><a href="#感悟" class="headerlink" title="感悟"></a>感悟</h2><p>每写一次周赛题解，都会去看很多大神的代码，学到很多东西，总觉得我的coding水平好像又进步了？ 坏了，是错觉…</p>
+
+          
+        
+      
+    </div>
+
+    
+    
     
 
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">SinclairWang</p>
+  <div class="site-description motion-element" itemprop="description">算法 | NLP | MachineLearning | undergraduate</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="https://github.com/SinclairCoder" title="GitHub &rarr; https://github.com/SinclairCoder" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="mailto:sinclaircoder@163.com" title="E-Mail &rarr; mailto:sinclaircoder@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="https://blog.csdn.net/SinclairWang" title="CSDN &rarr; https://blog.csdn.net/SinclairWang" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i></a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.liuchuo.net/" title="https://www.liuchuo.net/" rel="noopener" target="_blank">liuchuo</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://feisky.xyz/machine-learning/basic.html" title="https://feisky.xyz/machine-learning/basic.html" rel="noopener" target="_blank">AI NOTE</a>
+        </li>
+      
+    </ul>
+  </div>
+
+        </div>
+      </div>
+
+        
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2019 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SinclairWang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">121k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:50</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a></div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+      </div>
+
+    
+
+  </div>
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+
+  <script src="/js/schemes/muse.js?v=7.3.0"></script>
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+<script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+
+
+<script src="/js/algolia-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+  <script src="//code.tidio.co/u61uushntplpeuutujp42qmi0lj20uxa.js"></script>
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+   
+
+
+
+
+  <script async src="//code.tidio.co/u61uushntplpeuutujp42qmi0lj20uxa.js"></script>
+
+   
+  <script src="//code.tidio.co/u61uushntplpeuutujp42qmi0lj20uxa.js"></script>
+
+   
+<link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+<script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+
+
+<script src="/js/algolia-search.js?v=7.3.0"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+  
 </body>
-
 </html>

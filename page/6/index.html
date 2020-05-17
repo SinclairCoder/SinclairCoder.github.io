@@ -1,1223 +1,2132 @@
-<!DOCTYPE HTML>
-<html lang="en">
+<!DOCTYPE html>
 
 
-<head><meta name="generator" content="Hexo 3.9.0">
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="算法 | NLP | MachineLearning">
-    <meta name="description" content="SinclairのBlog">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>SinclairのBlog</title>
-    <link rel="icon" type="image/jpeg" href="/favicon.jpg">
 
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
-    
-    <script src="/libs/jquery/jquery.min.js"></script>
-    <!-- <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-    
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+  <meta name="google-site-verification" content="6gsiR4JSQJ1xnCBNFsuQ1EI3jqGUDIhRNhqoCvRSC_Y">
+  <meta name="baidu-site-verification" content="FwKLmibScs">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: true,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      applicationID: 'QF2NZ3KOZ1',
+      apiKey: 'f44f1fe6a3468b9a5c4d5441002c3a08',
+      indexName: 'blog_index',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="算法 | NLP | MachineLearning | undergraduate">
+<meta name="keywords" content="算法 | NLP | MachineLearning">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SinclairのBlog">
+<meta property="og:url" content="https://sinclaircoder.top/page/6/index.html">
+<meta property="og:site_name" content="SinclairのBlog">
+<meta property="og:description" content="算法 | NLP | MachineLearning | undergraduate">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SinclairのBlog">
+<meta name="twitter:description" content="算法 | NLP | MachineLearning | undergraduate">
+  <link rel="alternate" href="/atom.xml" title="SinclairのBlog" type="application/atom+xml">
+  <link rel="canonical" href="https://sinclaircoder.top/page/6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>SinclairのBlog</title>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135806349-1"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-135806349-1');
+    }
+  </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?ad3c73a898b555b5658e0609e7dd9dc6";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
-<body>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="nav-wrapper head-container">
-            <div class="brand-logo">
-                <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="/medias/logo.jpg" class="logo-img" alt="LOGO">
-                    
-                    <span class="logo-span">SinclairのBlog</span>
-                </a>
-            </div>
-            
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left">
+    <div class="headband"></div>
 
-<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
-<ul class="right nav-menu">
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/" class="waves-effect waves-light">
-      
-      <i class="fas fa-home" style="zoom: 0.6;"></i>
-      
-      <span>Index</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>Tags</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>Categories</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/archives" class="waves-effect waves-light">
-      
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
-      
-      <span>Archives</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>About</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>Contact</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
-      
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
-      
-      <span>Friends</span>
-    </a>
-    
-  </li>
-  
-  <li>
-    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
-    </a>
-  </li>
-</ul>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
 
-<div id="mobile-nav" class="side-nav sidenav">
-
-    <div class="mobile-head bg-color">
-        
-        <img src="/medias/logo.jpg" class="logo-img circle responsive-img">
-        
-        <div class="logo-name">SinclairのBlog</div>
-        <div class="logo-desc">
-            
-            算法 | NLP | MachineLearning | undergraduate
-            
-        </div>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SinclairのBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+        <p class="site-subtitle">为而不争</p>
+      
+  </div>
 
-    
-
-    <ul class="menu-list mobile-menu-list">
-        
-        <li class="m-nav-item">
-	  
-		<a href="/" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-home"></i>
-			
-			Index
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			Tags
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			Categories
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/archives" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-archive"></i>
-			
-			Archives
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			About
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			Contact
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			Friends
-		</a>
-          
-        </li>
-        
-        
-    </ul>
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
-        </div>
 
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
         
-    </nav>
+        <li class="menu-item menu-item-home">
+      
+    
 
-</header>
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-sitemap">
+      
+    
+
+    <a href="/sitemap.xml" rel="section"><i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+      </li>
+    
+  </ul>
 
     
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
+
+    <div class="site-search">
+      
+  <div class="algolia-popup popup search-popup">
+  <div class="algolia-search">
+    <div class="algolia-search-input-icon">
+      <i class="fa fa-search"></i>
+    </div>
+    <div class="algolia-search-input" id="algolia-search-input"></div>
+  </div>
+
+  <div class="algolia-results">
+    <div id="algolia-stats"></div>
+    <div id="algolia-hits"></div>
+    <div id="algolia-pagination" class="algolia-pagination"></div>
+  </div>
+
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+
+
+
+    </div>
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content page-home">
+            
+  <section id="posts" class="posts-expand">
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/08/17/2019-08-17-ji-qi-xue-xi-zhi-xian-xing-hui-gui/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
                 
-                为而不争
                 
-            </div>
+                <a href="/2019/08/17/2019-08-17-ji-qi-xue-xi-zhi-xian-xing-hui-gui/" class="post-title-link" itemprop="url">机器学习之线性回归</a>
+              
+            
+          </h1>
+        
 
-            <div class="description center-align">
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
                 
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: ['一钩足以明天下 何况清辉满十分.','Done is better than perfect.'],
-                        startDelay: 300,
-                        typeSpeed: 300,
-                        loop: true,
-                        backSpeed: 150,
-                        showCursor: false
-                    });
-                </script>
-                
-            </div>
-        </div>
-    </div>
-</div>
+              
 
-
-<script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(/medias/banner/' + (new Date().getHours())%7 + '.jpg)');
-</script>
-
-
-    </div>
-</div>
-
-
-<main class="content">
-
-    
-    <div id="indexCard" class="index-card">
-        <div class="container ">
-            <div class="card">
-                <div class="card-content">
-                    
-
-                    
-                        
-
-<link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<div class="music-player">
-    
-    <div class="row">
-        <div class="col l8 offset-l2 m10 offset-m1 s12">
-            <div id="aplayer" class="music"></div>
-        </div>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script>
-$(function () {
-    new APlayer({
-        container: document.getElementById('aplayer'),
-        fixed: 'false' === 'true',
-        autoplay: 'false' === 'true',
-        theme: '#42b983',
-        loop: 'all',
-        order: 'random',
-        preload: 'auto',
-        volume: Number('0.5'),
-        listFolded: 'false' === 'true',
-        listMaxHeight: '10',
-        audio: eval([{"name":"那女孩对我说","artist":"戴羽彤","url":"http://music.163.com/song/media/outer/url?id=1396568325.mp3","cover":"https://cn.bing.com/th?id=OIP.kiLw-v0q2PijuwPRLOPgfQHaJQ&pid=Api&rs=1"},{"name":"光年之外","artist":"邓紫棋","url":"http://mp32.9ku.com/upload/2017/04/26/861243.m4a","cover":"https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/s%3D500/sign=60b1cfbacc5c1038207ecec28210931c/91ef76c6a7efce1b14f7076aa551f3deb58f65b6.jpg"},{"name":"不再犹豫 (Live)+体面 (Live)","artist":"于文文","url":"http://music.163.com/song/media/outer/url?id=1407757605.mp3","cover":"https://tse3-mm.cn.bing.net/th/id/OIP.zqB7IpOMTOmqubbzcVNUfQAAAA?w=212&h=212&c=7&o=5&dpr=1.25&pid=1.7"},{"name":"何为永恒","artist":"胡夏","url":"http://music.163.com/song/media/outer/url?id=1348548038.mp3","cover":"http://pic.qingting.fm/channel/2019/03/18/85c54729e9a890f5d97c9c6af2001d1b.jpg!200"},{"name":"梦幻诛仙","artist":"张碧晨","url":"http://music.163.com/song/media/outer/url?id=438456232.mp3","cover":"http://img5.iqilu.com/c/u/2016/1101/1477975989160.jpg"},{"name":"萧琴合奏","artist":"许昊珂","url":"http://music.163.com/song/media/outer/url?id=1351449586.mp3","cover":"http://pic.qingting.fm/channel/2019/03/18/85c54729e9a890f5d97c9c6af2001d1b.jpg!200"},{"name":"慢慢喜欢你","artist":"莫文蔚","url":"http://music.163.com/song/media/outer/url?id=541687281.mp3","cover":"http://imge.kugou.com/stdmusic/20180524/20180524001021751841.jpg"},{"name":"大雨将至","artist":"徐佳莹","url":"http://music.163.com/song/media/outer/url?id=29774430.mp3","cover":"https://cn.bing.com/th?id=OIP.xH0Jw0bAPnqGcN0tUalPAwHaG9&pid=Api&rs=1"}])
-    });
-});
-</script>
-                    
-
-                    
-
-                    
-                    <div id="recommend-sections" class="recommend">
-                        
-
-
-
-
-
-<div class="title"><i class="far fa-thumbs-up"></i>&nbsp;&nbsp;Recommended Posts</div>
-
-<div class="row">
-
-    
-    
-    <div class="col s12 m6" >
-        <div class="post-card" style="background-image: url('/medias/featureimages/6.jpg')">
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                        
-                            <a href="/categories/数论/" class="category">数论</a>
-                        
-                    
-                </div>
-                <a href="/2019/10/22/2019-10-22-pei-shu-ding-li-kuo-zhan-ou-ji-li-de-suan-fa/">
-                    <h3 class="post-title">裴蜀定理&&扩展欧几里得算法</h3>
-                </a>
-                <p class="post-description">
-                    
-                        裴蜀定理也就是Bezout定理，对于任意整数a,b，存在一对整数x,y，满足$ax+by=gcd(a,b)$。在数论中，裴蜀定理是一个关于最
-                    
-                </p>
-                <a href="/2019/10/22/2019-10-22-pei-shu-ding-li-kuo-zhan-ou-ji-li-de-suan-fa/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #FF5E3A 0%, #FF2A68 100%)" target="_blank">
-                    <i class="icon far fa-eye fa-fw"></i>Read more
-                </a>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="col s12 m6" >
-        <div class="post-card" style="background-image: url('/medias/featureimages/4.jpg')">
-            <div class="post-body">
-                <div class="post-categories">
-                    
-                        
-                            <a href="/categories/软件工程/" class="category">软件工程</a>
-                        
-                    
-                </div>
-                <a href="/2019/09/02/2019-09-02-ruan-jian-ti-xi-jie-gou-bi-ji/">
-                    <h3 class="post-title">软件体系结构笔记</h3>
-                </a>
-                <p class="post-description">
-                    
-                        
-传说中的软件体系结构与设计模式课程中的软件体系结构部分就结束了，好短，6个学时，匆匆掠过，走马观花，根据老师讲的内容写了份笔记，日后慢慢补
-                    
-                </p>
-                <a href="/2019/09/02/2019-09-02-ruan-jian-ti-xi-jie-gou-bi-ji/" class="read-more btn waves-effect waves-light" style="background: linear-gradient(to right, #EF4DB6 0%, #C643FC 100%)" target="_blank">
-                    <i class="icon far fa-eye fa-fw"></i>Read more
-                </a>
-            </div>
-        </div>
-    </div>
-    
-
-</div>
-
-
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-    
-
-    
-
-    
-
-    <!-- 所有文章卡片 -->
-    <article id="articles" class="container articles">
-        <div class="row article-row">
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/08/17/2019-08-17-ji-qi-xue-xi-zhi-xian-xing-hui-gui/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/27.jpg" class="responsive-img" alt="机器学习之线性回归">
-                            
-                            <span class="card-title">机器学习之线性回归</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                简单的线性回归以某产品的温度和产率关系为例，其中产率(y)是温度(x)的函数。请构建模型预测产品产率。
-
-
-
-
-温度
-产率
-
-
-
-
-100
-45
-
-
-110
-51
-
-
-120
-54
-
-
-130
-61
-
-
-140
-66
-
-
-150
-70
-
-
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/机器学习/" class="post-category">
-                                    机器学习
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/机器学习/">
-                            <span class="chip bg-color">机器学习</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/08/12/2019-08-12-bei-bao-ru-men/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="0/1背包入门">
-                            
-                            <span class="card-title">0/1背包入门</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                问题描述有n个重量分别为w1 、 w2 、w3、w4···wn的物品，编号1~n，它们的价值为v1 、 v2 、v3、v4···vn。现有一容量为W的背包，求尽可能的把背包装满并使价值最大
-下面不妨以ｎ＝４　Ｗ＝６为例
-
-
-
-
-物品编号
-重
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-08-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/动态规划/" class="post-category">
-                                    动态规划
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/数据结构与算法训练/">
-                            <span class="chip bg-color">数据结构与算法训练</span>
-                        </a>
-                        
-                        <a href="/tags/动态规划/">
-                            <span class="chip bg-color">动态规划</span>
-                        </a>
-                        
-                        <a href="/tags/0-1背包/">
-                            <span class="chip bg-color">0/1背包</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/07/17/2019-07-17-yi-xian-pa-chong-gong-cheng-shi-ji-shi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="一线爬虫爬虫工程师纪实">
-                            
-                            <span class="card-title">一线爬虫爬虫工程师纪实</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                最近遇到了反爬虫
-在CSDN上逛到了一篇很不错的博文Java 那些你不知道的爬虫反爬虫套路
-一篇一线爬虫工程师的纪实~
-==注：侵删==
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-07-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/工程项目/" class="post-category">
-                                    工程项目
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/爬虫/">
-                            <span class="chip bg-color">爬虫</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/07/14/2019-07-14-tomcat-8080-duan-kou-bei-zhan-yong/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Tomcat 8080端口被占用">
-                            
-                            <span class="card-title">Tomcat 8080端口被占用</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                最近在学习Spring Boot ，新建项目运行的时候出现了Tomcat 8080端口被占用的问题描述如下：
-解决方法1.管理员身份打开cmd窗口2.使用命令 netstat -ano  查看当前端口信息
-3.找到对应端口PID ，输入指令
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-07-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                SinclairWang
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Tomcat/">
-                            <span class="chip bg-color">Tomcat</span>
-                        </a>
-                        
-                        <a href="/tags/SpringBoot/">
-                            <span class="chip bg-color">SpringBoot</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/06/24/2019-06-24-javascript-de-prototype-shu-xing/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="JavaScript的prototype属性">
-                            
-                            <span class="card-title">JavaScript的prototype属性</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                今天写js代码的时候，看别的用prototype看的我云里雾里的，了解了一下：
-
-prototype 是函数的属性，它的本质是函数的原型对象
-
-可以以此执行一下如下代码，体会一下。
-&lt;script&gt;
-var ob = { };/
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-06-24
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/javascript/" class="post-category">
-                                    javascript
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/javascript/">
-                            <span class="chip bg-color">javascript</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/06/17/2019-06-17-shu-ju-jie-gou-tu-shen-du-you-xian-sou-suo-de-ying-yong/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/24.jpg" class="responsive-img" alt="数据结构-图-深度优先搜索的应用">
-                            
-                            <span class="card-title">数据结构-图-深度优先搜索的应用</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                @[toc]之前还写过一篇关于DFS的题解入门学习文章，详情见DFS入门学习
-深度优先搜索的应用头文件声明即图的基本运算，详情见数据结构-图-基本运算
-#include&quot;Graph.cpp&quot;
-
-顶点u到顶点v是否有简单路
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-06-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/数据结构与算法训练/" class="post-category">
-                                    数据结构与算法训练
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/数据结构与算法训练/">
-                            <span class="chip bg-color">数据结构与算法训练</span>
-                        </a>
-                        
-                        <a href="/tags/图算法/">
-                            <span class="chip bg-color">图算法</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/06/16/2019-06-16-shu-ju-jie-gou-tu-ji-ben-yun-suan/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="数据结构-图-基本运算">
-                            
-                            <span class="card-title">数据结构-图-基本运算</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                定义
-图G由两个集合V和E组成，记为G=(V,E)，其中V是顶点的有限集合，记为V(G), E是连接V中两个不同顶点（顶点对）的边的有限集合，记为E(G)
-
-存储结构
-邻接矩阵
-邻接表
-十字链表
-邻接多重表
-
-结构体定义#include&l
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-06-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/数据结构与算法训练/" class="post-category">
-                                    数据结构与算法训练
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/数据结构与算法训练/">
-                            <span class="chip bg-color">数据结构与算法训练</span>
-                        </a>
-                        
-                        <a href="/tags/图算法/">
-                            <span class="chip bg-color">图算法</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/06/12/2019-06-12-shu-ju-jie-gou-cha-zhao-er-cha-sou-suo-shu/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="数据结构-查找-二叉搜索树">
-                            
-                            <span class="card-title">数据结构-查找-二叉搜索树</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                二叉排序树（Binary Search Tree ，BST）又称二叉排序树，其定义为二叉排序树，或空树，或者是满足以下性质的二叉树：
-
-1.若根节点的左子树非空，则左子树上所有节点关键字小于根节点关键字；2.若根节点的右子树非空，则右子树上
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-06-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/数据结构与算法训练/" class="post-category">
-                                    数据结构与算法训练
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/数据结构与算法训练/">
-                            <span class="chip bg-color">数据结构与算法训练</span>
-                        </a>
-                        
-                        <a href="/tags/图算法/">
-                            <span class="chip bg-color">图算法</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/05/28/2019-05-28-2019-di-shi-jie-lan-qiao-bei-cb-zu-guo-sai-xin-de/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/27.jpg" class="responsive-img" alt="2019第十届蓝桥杯CB组国赛心得">
-                            
-                            <span class="card-title">2019第十届蓝桥杯CB组国赛心得</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                一年一度的传说中的“暴力”杯又过去了，今年是第一次参加蓝桥杯省赛跟国赛，今天刚从北京回来，觉得应该写点东西，觉得不能再叫蓝桥杯暴力杯了当然大佬觉得还是暴力还请忽略，要改名了，今年难度有点大，首先题目数量变成了 10个，分值设置相对均匀5~2
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-05-28
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/感悟/" class="post-category">
-                                    感悟
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/竞赛感悟/">
-                            <span class="chip bg-color">竞赛感悟</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/05/23/2019-05-23-zui-miao-bu-guo-wei-yun-suan/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="最妙不过位运算">
-                            
-                            <span class="card-title">最妙不过位运算</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-先来占个坑，以后慢慢补充。
-一道蓝桥杯2018B组国赛题目
-格雷码补全代码的题目格雷码是以n位的二进制来表示数。 与普通的二进制表示不同的是，它要求相邻两个数字只能有1个数位不同。 首尾两个数字也要求只有1位之差。有很多算法来生成格雷码。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-05-23
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/数据结构与算法训练/" class="post-category">
-                                    数据结构与算法训练
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/数据结构与算法训练/">
-                            <span class="chip bg-color">数据结构与算法训练</span>
-                        </a>
-                        
-                        <a href="/tags/位运算/">
-                            <span class="chip bg-color">位运算</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-        </div>
-    </article>
-
-</main>
-
-
-<div class="container paging">
-    <div class="row">
-        <div class="col s6 m4 l4">
-            
-            <a href="/page/5/"
-               class="left btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fas fa-angle-left"></i>
-            </a>
-            
-        </div>
-        <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">6 / 8</div>
-        </div>
-        <div class="col s6 m4 l4">
-            
-            <a href="/page/7/"
-               class="right btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fas fa-angle-right"></i>
-            </a>
-            
-        </div>
-    </div>
-</div>
-
-
-
-
-    <footer class="page-footer bg-color">
-    <div class="container row center-align" style="margin-bottom: 0px !important;">
-        <div class="col s12 m8 l8 copy-right">
-            Copyright&nbsp;&copy;
-            <span id="year">2019</span>
-            <a href="https://sinclaircoder.top" target="_blank">SinclairWang</a>
-            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
-            <br>
-            
-            
-            
-            
-            
-            
-            <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
+              <time title="Created: 2019-08-17 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-17T00:00:00+08:00">2019-08-17</time>
             </span>
-            
-            
-            <span id="busuanzi_container_site_uv">
-                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">1.6k</span>
             </span>
-            
-            <br>
-            
-            <br>
-            
-            <span id="icp"><img src="/medias/icp.png" style="vertical-align: text-bottom;" />
-                <a href="http://www.beian.miit.gov.cn/" target="_blank">冀ICP备20002885号</a>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">1 mins.</span>
             </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h1 id="简单的线性回归"><a href="#简单的线性回归" class="headerlink" title="简单的线性回归"></a>简单的线性回归</h1><p>以某产品的温度和产率关系为例，其中产率(y)是温度(x)的函数。请构建模型预测产品产率。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>温度</th>
+<th>产率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100</td>
+<td>45</td>
+</tr>
+<tr>
+<td>110</td>
+<td>51</td>
+</tr>
+<tr>
+<td>120</td>
+<td>54</td>
+</tr>
+<tr>
+<td>130</td>
+<td>61</td>
+</tr>
+<tr>
+<td>140</td>
+<td>66</td>
+</tr>
+<tr>
+<td>150</td>
+<td>70</td>
+</tr>
+<tr>
+<td>160</td>
+<td>74</td>
+</tr>
+<tr>
+<td>170</td>
+<td>78</td>
+</tr>
+<tr>
+<td>180</td>
+<td>85</td>
+</tr>
+<tr>
+<td>190</td>
+<td>89</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>首先，我们可以先把数据可视化，画个散点图出来。<br><img src="https://img-blog.csdnimg.cn/20190816215147426.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="温度产率线性回归散点图"><br>根据散点图可知，数据基本上都在一条直线上，我们可以用一条直线去拟合。</p>
+<h2 id="正规方程求解"><a href="#正规方程求解" class="headerlink" title="正规方程求解"></a>正规方程求解</h2><script type="math/tex; mode=display">\theta=(X^TX)^{-1}X^TY</script><pre><code class="lang-matlab">function [ theta ] = linearReg( )
+% 线性回归正规方程求解
+% 用130、190作为测试集
+train = 8;
+X = [1 100;1  110;1  120;1  140;1  150;1  160;1  170;1  180;] 
+Y = [45; 51 ;54 ;66; 70; 74 ;78; 85];
+A = inv(X&#39;*X);
+theta = A*X&#39;*Y;
+end
+</code></pre>
+<p>解得：</p>
+<script type="math/tex; mode=display">\theta=\begin{pmatrix} -3.1507 \\  0.4851 \end{pmatrix}</script><p>散点图拟合情况如下：<br><img src="https://img-blog.csdnimg.cn/20190817145220145.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="正规方程求解"></p>
+<blockquote>
+<p>看起来拟合效果还不错</p>
+</blockquote>
+<h2 id="梯度下降求解"><a href="#梯度下降求解" class="headerlink" title="梯度下降求解"></a>梯度下降求解</h2><p>假设函数：<script type="math/tex">h_\theta(x)=\theta_0+\theta_1x</script><br>代价函数：</p>
+<script type="math/tex; mode=display">J(\theta_0 ,\theta_1)= \frac{1} {2m}\sum_{i=1}^m(h_\theta(x^{(i)})-y^{(i)})^2</script><p>梯度下降：(同步更新)</p>
+<script type="math/tex; mode=display">temp_0 = \theta_0- \alpha \frac{\partial} {\partial \theta_0}J(\theta_0 ,\theta_1)</script><script type="math/tex; mode=display">temp_1 = \theta_1- \alpha \frac{\partial} {\partial \theta_1}J(\theta_0 ,\theta_1)</script><script type="math/tex; mode=display">\theta_0 = temp_0</script><script type="math/tex; mode=display">\theta_1 = temp_1</script><p>假设函数</p>
+<pre><code class="lang-matlab">function [ res ] = h_func(inputx,theta )
+% 预测函数
+res = theta(1)+theta(2)*inputx;
+end
+</code></pre>
+<p>代价函数</p>
+<pre><code class="lang-matlab">function [ jVal,gradient ] = costFunction2( theta )
+% jVal 为 代价值 gradient为梯度
+% cost function
+% 用130、190作为测试集
+x = [100 110 120  140  150  160  170  180] 
+y = [45 51 54 66 70 74 78 85];
+m = size(x,1);  % size(x) = [1 8] size(x,1) 表示获取x的行 
+hypothesis = h_func(x,theta); 
+delta = hypothesis - y; % 预测误差 向量
+jVal= sum(delta.^2);  % 损失函数
+gradient(1) = sum(delta)/m;
+gradient(2) = sum(delta.*x)/m;
+end
+</code></pre>
+<p>梯度下降</p>
+<pre><code class="lang-matlab">function [ optTheta,functionVal,exitFlag ] = Gradient_descent()
+% 梯度下降
+% fminunc 非线性优化
+% 找到min f(x) 的 x f(x)是一个返回值为标量的函数，x是一个向量或矩阵 
+% options 配置选项，&#39;GradObj&#39; &#39;on&#39;  表示使用自定义的梯度下降函数，&#39;MaxIter&#39;,1000 表示最大迭代次数
+options = optimset(&#39;GradObj&#39;,&#39;on&#39;,&#39;MaxIter&#39;,1000);
+% 需要返回的参数， 需要初始化
+initialTheta = zeros(2,1);
+[optTheta,functionVal,exitFlag] = fminunc(@costFunction2,initialTheta,options); 
+end
+</code></pre>
+<p>运行结果：</p>
+<script type="math/tex; mode=display">optTheta = \begin{pmatrix} -3.1507 \\0.4851  \end{pmatrix}</script><script type="math/tex; mode=display">functionVal = 6.1996</script><p>可见利用正规方程和梯度下降求解出来的参数一样<br><img src="https://img-blog.csdnimg.cn/20190817154210865.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NpbmNsYWlyV2FuZw==,size_16,color_FFFFFF,t_70" alt="梯度下降"><br>未完，待续…</p>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/08/12/2019-08-12-bei-bao-ru-men/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/08/12/2019-08-12-bei-bao-ru-men/" class="post-title-link" itemprop="url">0/1背包入门</a>
+              
             
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-08-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-12T00:00:00+08:00">2019-08-12</time>
+            </span>
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">2.9k</span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">3 mins.</span>
+            </span>
+          
+
         </div>
-        <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/SinclairCoder" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
+      </header>
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
-
-    <a href="mailto:sinclaircoder@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-
-
-
-
-
-
-    <a href="https://www.zhihu.com/people/san-cun-jiu-cheng-qi-cun-zhi-nian-29# https://www.zhihu.com/xxx" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/san-cun-jiu-cheng-qi-cun-zhi-nian-29# https://www.zhihu.com/xxx" data-position="top" data-delay="50">
-        <i class="fab fa-zhihu1">知</i>
-    </a>
-
-
- 
-    <a href="https://blog.csdn.net/SinclairWang" class="tooltipped" target="_blank" data-tooltip="关注我的CSDN: https://blog.csdn.net/SinclairWang" data-position="top" data-delay="50"> 
-    <i class="fab fa-csdn">C</i> 
-    </a> 
-
-
-
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
-
+      
+          
+            <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>有n个重量分别为w<sub>1</sub> 、 w<sub>2</sub> 、w<sub>3</sub>、w<sub>4</sub>···w<sub>n</sub>的物品，编号1~n，它们的价值为v<sub>1</sub> 、 v<sub>2</sub> 、v<sub>3</sub>、v<sub>4</sub>···v<sub>n</sub>。现有一容量为W的背包，求尽可能的把背包装满并使价值最大</p>
+<p>下面不妨以ｎ＝４　Ｗ＝６为例</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>物品编号</th>
+<th>重量</th>
+<th>价值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>5</td>
+<td>4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
 </div>
-    </div>
-</footer>
+<h2 id="蛮力法—求幂集搜索"><a href="#蛮力法—求幂集搜索" class="headerlink" title="蛮力法—求幂集搜索"></a>蛮力法—求幂集搜索</h2><blockquote>
+<p>思路大概是用蛮力法找出n的所有幂集,然后遍历一遍,找到最优解</p>
+<p><strong>复杂度为O(2<sup>n</sup>)</strong></p>
+</blockquote>
+<pre><code class="lang-cpp">#include&lt;iostream&gt;
+#include&lt;vector&gt;
+#include&lt;stdio.h&gt;
+#include&lt;map&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+/**
+    求解简单0/1背包问题
+    2019-8-12 
+*/
+vector&lt;vector&lt;int&gt; &gt; ps;
+void PSet(int n)  // 求1-n的幂集 
+{
+    vector&lt;vector&lt;int&gt; &gt; ps1;  // 子幂集 
+    vector&lt;vector&lt;int&gt; &gt;::iterator it;
+    vector&lt;int&gt; s;
+    ps.push_back(s);    // 添加空集合元素
+    for(int i=1;i&lt;=n;i++)
+    {
+        ps1 = ps;
+        for(it=ps1.begin();it!=ps1.end();it++)
+            (*it).push_back(i);
+        for(it=ps1.begin();it!=ps1.end();it++)
+            ps.push_back(*it);    
+    } 
+} 
 
-<div class="progress-bar"></div>
-
-
-    <!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
-            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
-                   class="search-input">
-        </div>
-        <div id="searchResult"></div>
-    </div>
-</div>
-
-<script src="/js/search.js"></script>
-<script type="text/javascript">
-$(function () {
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
-});
-</script>
-    <!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-</div>
-
-
-    <script src="/libs/materialize/materialize.min.js"></script>
-    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="/libs/aos/aos.js"></script>
-    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="/js/matery.js"></script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135806349-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-    gtag('config', 'UA-135806349-1');
-</script>
-
-
-    <!-- Baidu Analytics -->
-
-<script>
-    var _hmt = _hmt || [];
-    (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?ad3c73a898b555b5658e0609e7dd9dc6";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-
-    <!-- Baidu Push -->
-
-<script>
-    (function () {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
-            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+void Knap(int w[],int v[], int W)
+{
+    int count = 0;
+    int sumw,sumv;
+    int maxi,maxsumw=0,maxsumv=0;
+    vector&lt;vector&lt;int&gt; &gt;::iterator it;
+    vector&lt;int&gt;::iterator sit;
+    printf(&quot; 序号   选中物品     总重量    总价值     能否装入\n&quot;);
+    for(it=ps.begin();it!=ps.end();it++)
+    {
+        printf(&quot; %d\t&quot;,count++);
+        sumw=sumv=0;
+        printf(&quot; {&quot;);
+        for(sit=(*it).begin();sit!=(*it).end();sit++)
+        {
+            printf(&quot;%d &quot;,*sit);
+            sumw += w[*sit-1];  
+            sumv += v[*sit-1];
+        } 
+        printf(&quot;}\t\t%d\t%d &quot;,sumw,sumv);
+        if(sumw&lt;=W)
+        {
+            printf(&quot;能\n&quot;);
+            if(sumv&gt;maxsumv)
+            {
+                maxsumw = sumw;
+                maxsumv = sumv;
+                maxi = count-1;    
+            } 
         }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
-    })();
-</script>
+        else cout &lt;&lt; &quot;否\n&quot;;
+        //    count++;
+    }
+    printf(&quot;最佳方案为：&quot;);
+    printf(&quot;选中物品&quot;);
+    printf(&quot;{ &quot;);
+    for(sit=ps[maxi].begin();sit!=ps[maxi].end();sit++)
+        printf(&quot;%d &quot;,*sit);
+    printf(&quot;},&quot;);
+    printf(&quot;总重量：%d,总价值：%d\n&quot;,maxsumw,maxsumv);      
+}
+int main() 
+{
+    int n = 4, W = 6;
+    int w[] = {5,3,2,1};
+    int v[] = {4,4,3,1};
+    PSet(n);
+    printf(&quot;0/1背包解决方案\n&quot;,n);
+    Knap(w,v,W);
+    return 0;
+}
+</code></pre>
+<h2 id="队列式分支界限法"><a href="#队列式分支界限法" class="headerlink" title="队列式分支界限法"></a>队列式分支界限法</h2><pre><code class="lang-cpp">#include&lt;iostream&gt;
+#include&lt;queue&gt;
+using namespace std;
+#define MAXV 20
+int maxv = -9999; 
+int bestx[20]; // 存放最优解，全局变量
+int total = 1;
+struct NodeType{
+    int num;  // 结点编号 
+    int i;    // 当前结点在搜索空间中的层次 
+    int w;    // 当前结点的总权重 
+    int v;    // 当前结点的总价值 
+    int x[MAXV];  // 当前结点包含的解向量 
+    double ub; // 上界 
+}; 
+int n =5,W = 6;
+    int w[] = {0,5,3,2,1};
+    int v[] = {0,4,4,3,1};
+void bound(NodeType &amp;e){  // 计算分支结点e的上界 
+    int i=e.i+1;
+    int sumw = e.w;
+    double sumv = e.v; 
+    while((sumw+w[i]&lt;=W)&amp;&amp; i&lt;=n){
+        sumw += w[i];
+        sumv += v[i];
+        i++;
+    }
+    if(i&lt;=n)
+        e.ub = sumv+(W-sumw)*v[i]/w[i];
+    else e.ub = sumv; 
+} 
+
+void EnQueue(NodeType e,queue&lt;NodeType&gt; &amp;qu)
+{
+    if(e.i==n)
+    {
+        if(e.v&gt;maxv)
+        {
+            maxv = e.v;
+            for(int j=1;j&lt;=n;j++)
+                bestx[j] = e.x[j];
+        }
+    }
+    else qu.push(e);
+}
+void bfs()
+{
+    int j;
+    NodeType e,e1,e2;
+    queue&lt;NodeType&gt; qu;
+    e.i = 0;
+    e.w = 0;
+    e.v = 0;
+    e.num = total++;
+    for(j=1;j&lt;=n;j++)
+        e.x[j] = 0;
+    bound(e);
+    qu.push(e);
+    while(!qu.empty())
+    {
+        e = qu.front();
+        qu.pop();
+        if(e.w+w[e.i+1]&lt;=W)  // 剪枝：检查左孩子结点
+        {
+            e1.num = total++;
+            e1.i = e.i+1;
+            e1.w = e.w+w[e1.i];
+            e1.v = e.v+v[e1.i];
+            for(j=1;j&lt;=n;j++)
+                e1.x[j] = e.x[j];
+            e1.x[e1.i] = 1;
+            bound(e1);
+            EnQueue(e1,qu); 
+        } 
+        e2.num = total++;
+        e2.i = e.i+1;
+        e2.w = e.w; 
+        e2.v = e.v;
+        for(j=2;j&lt;=n;j++)
+            e2.x[j] = e.x[j];
+        e2.x[e2.i]= 0;
+        bound(e2);
+        if(e2.ub&gt;maxv)
+            EnQueue(e2,qu); 
+    }
+}
+int main()
+{
+
+    bfs();
+    printf(&quot;分支界限法求解0/1背包问题：\n X=[&quot;);
+    for(int i=1;i&lt;=n;i++)
+        printf(&quot;%2d&quot;,bestx[i]);
+    printf(&quot;],装入总价值为%d\n&quot;,maxv); 
+    return 0;
+}
+</code></pre>
+<p>未完待续~~</p>
+<p>参考: 李春葆 .算法设计与分析(第二版)</p>
+
+          
+        
+      
+    </div>
 
     
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
-    
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-    
-
-    
-        <script src="//code.tidio.co/u61uushntplpeuutujp42qmi0lj20uxa.js"></script>
-        <script> 
-            $(document).ready(function () {
-                setInterval(change_Tidio, 50);  
-                function change_Tidio() { 
-                    var tidio=$("#tidio-chat iframe");
-                    if(tidio.css("display")=="block"&& $(window).width()>977 ){
-                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"85px":"20px";   
-                        document.getElementById("tidio-chat-iframe").style.right="-15px";   
-                        document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
-                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                    } 
-                    else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
-                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;   
-                        document.getElementById("tidio-chat-iframe").style.right="-15px"; 
-                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                    }
-                    else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
-                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;   
-                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
-                    }
-                    if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
-                        document.getElementById("tidio-chat-iframe").style.zIndex="998";
-                    }
-                } 
-            }); 
-        </script>
-    
-
-    
-
-    
-    <script type="text/javascript" color="0,0,255"
-        pointColor="0,0,255" opacity='0.7'
-        zIndex="-1" count="99"
-        src="/libs/background/canvas-nest.js"></script>
-    
-
     
 
     
     
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/07/17/2019-07-17-yi-xian-pa-chong-gong-cheng-shi-ji-shi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/17/2019-07-17-yi-xian-pa-chong-gong-cheng-shi-ji-shi/" class="post-title-link" itemprop="url">一线爬虫爬虫工程师纪实</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-17 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-17T00:00:00+08:00">2019-07-17</time>
+            </span>
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">64</span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">1 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近遇到了反爬虫<br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/07/17/2019-07-17-yi-xian-pa-chong-gong-cheng-shi-ji-shi/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
     
 
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/07/14/2019-07-14-tomcat-8080-duan-kou-bei-zhan-yong/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/14/2019-07-14-tomcat-8080-duan-kou-bei-zhan-yong/" class="post-title-link" itemprop="url">Tomcat 8080端口被占用</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-14 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-14T00:00:00+08:00">2019-07-14</time>
+            </span>
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">126</span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">1 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近在学习Spring Boot ，新建项目运行的时候出现了Tomcat 8080端口被占用的问题<br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/07/14/2019-07-14-tomcat-8080-duan-kou-bei-zhan-yong/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/06/24/2019-06-24-javascript-de-prototype-shu-xing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/24/2019-06-24-javascript-de-prototype-shu-xing/" class="post-title-link" itemprop="url">JavaScript的prototype属性</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-24 00:00:00" itemprop="dateCreated datePublished" datetime="2019-06-24T00:00:00+08:00">2019-06-24</time>
+            </span>
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">746</span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">1 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天写js代码的时候，看别的用prototype看的我云里雾里的，了解了一下：</p>
+<blockquote>
+<p>prototype 是函数的属性，它的本质是函数的原型对象</p>
+</blockquote>
+<p>可以以此执行一下如下代码，体会一下。<br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/06/24/2019-06-24-javascript-de-prototype-shu-xing/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/06/17/2019-06-17-shu-ju-jie-gou-tu-shen-du-you-xian-sou-suo-de-ying-yong/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/17/2019-06-17-shu-ju-jie-gou-tu-shen-du-you-xian-sou-suo-de-ying-yong/" class="post-title-link" itemprop="url">数据结构-图-深度优先搜索的应用</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-17 00:00:00" itemprop="dateCreated datePublished" datetime="2019-06-17T00:00:00+08:00">2019-06-17</time>
+            </span>
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">2.5k</span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">2 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>@[toc]<br>之前还写过一篇关于DFS的题解入门学习文章，详情见<a href="https://blog.csdn.net/SinclairWang/article/details/90346900" target="_blank" rel="noopener">DFS入门学习</a></p>
+<h1 id="深度优先搜索的应用"><a href="#深度优先搜索的应用" class="headerlink" title="深度优先搜索的应用"></a>深度优先搜索的应用</h1><h2 id="头文件声明"><a href="#头文件声明" class="headerlink" title="头文件声明"></a>头文件声明</h2><p>即图的基本运算，详情见<a href="https://blog.csdn.net/SinclairWang/article/details/92407493" target="_blank" rel="noopener">数据结构-图-基本运算</a></p>
+<pre><code class="lang-c">#include&quot;Graph.cpp&quot;
+</code></pre>
+<h2 id="顶点u到顶点v是否有简单路径"><a href="#顶点u到顶点v是否有简单路径" class="headerlink" title="顶点u到顶点v是否有简单路径"></a>顶点u到顶点v是否有简单路径</h2>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/06/17/2019-06-17-shu-ju-jie-gou-tu-shen-du-you-xian-sou-suo-de-ying-yong/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/06/16/2019-06-16-shu-ju-jie-gou-tu-ji-ben-yun-suan/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/16/2019-06-16-shu-ju-jie-gou-tu-ji-ben-yun-suan/" class="post-title-link" itemprop="url">数据结构-图-基本运算</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-16 00:00:00" itemprop="dateCreated datePublished" datetime="2019-06-16T00:00:00+08:00">2019-06-16</time>
+            </span>
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">3.7k</span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">3 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
+<p>图G由两个集合V和E组成，记为G=(V,E)，其中V是顶点的有限集合，记为V(G), E是连接V中两个不同顶点（顶点对）的边的有限集合，记为E(G)<br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/06/16/2019-06-16-shu-ju-jie-gou-tu-ji-ben-yun-suan/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/06/12/2019-06-12-shu-ju-jie-gou-cha-zhao-er-cha-sou-suo-shu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/12/2019-06-12-shu-ju-jie-gou-cha-zhao-er-cha-sou-suo-shu/" class="post-title-link" itemprop="url">数据结构-查找-二叉搜索树</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-06-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-06-12T00:00:00+08:00">2019-06-12</time>
+            </span>
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">2.5k</span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">2 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>二叉排序树</strong>（Binary Search Tree ，BST）又称<strong>二叉排序树</strong>，其定义为二叉排序树，或空树，或者是满足以下性质的二叉树：</p>
+<blockquote>
+<p>1.若根节点的左子树非空，则左子树上所有节点关键字小于根节点关键字；<br>2.若根节点的右子树非空，则右子树上所有节点关键字大于根节点关键字；<br>3.根节点的左右子树本身又是一棵二叉排序树。</p>
+</blockquote>
+<p>即在二叉树的基础上添加了结点值的约束。</p>
+<p>以下是二叉搜索树的实现。<br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/06/12/2019-06-12-shu-ju-jie-gou-cha-zhao-er-cha-sou-suo-shu/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/05/28/2019-05-28-2019-di-shi-jie-lan-qiao-bei-cb-zu-guo-sai-xin-de/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/28/2019-05-28-2019-di-shi-jie-lan-qiao-bei-cb-zu-guo-sai-xin-de/" class="post-title-link" itemprop="url">2019第十届蓝桥杯CB组国赛心得</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-28 00:00:00" itemprop="dateCreated datePublished" datetime="2019-05-28T00:00:00+08:00">2019-05-28</time>
+            </span>
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">2.2k</span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">2 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="/images/2019年5月蓝桥sky.jpg" alt="北京故宫博物馆口"><br>一年一度的传说中的“暴力”杯又过去了，今年是第一次参加蓝桥杯省赛跟国赛，今天刚从北京回来，觉得应该写点东西，觉得不能再叫蓝桥杯暴力杯了<del>当然大佬觉得还是暴力还请忽略</del>，要改名了，今年难度有点大，首先题目数量变成了 10个，分值设置相对均匀5~25分的样子，之前分数梯度很大，然后难度也加了些，具体多少我也不是很清楚，我做去年第九届跟前年第十届的题目的时候也是很多也都不会做，有人下午比赛比了一半就溜出来了，觉得比CCPC还难，好吧，我还没参加过。我是C/C++B组，当时大概开始2小时左右我也想溜了，题目看到结尾了，好几个不会做的，看别人吃起了面包，觉得可能会分心，就没吃只是喝了口水，然后开始继续写，坚持到了最后，最后还是空了3个题目，大概两个大题，一个填空题，考完心凉了一半，下午6点考完，出来合了个影，既然比赛不顺利，那就玩耍的愉快吧，然后就开始了流浪北京，北京印象的日子。<br><strong>欢迎大家收看一年一集的《北京印象》，总共三集，当前是第一集。</strong><br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/28/2019-05-28-2019-di-shi-jie-lan-qiao-bei-cb-zu-guo-sai-xin-de/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/05/23/2019-05-23-zui-miao-bu-guo-wei-yun-suan/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/23/2019-05-23-zui-miao-bu-guo-wei-yun-suan/" class="post-title-link" itemprop="url">最妙不过位运算</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-23 00:00:00" itemprop="dateCreated datePublished" datetime="2019-05-23T00:00:00+08:00">2019-05-23</time>
+            </span>
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">670</span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">1 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>先来占个坑，以后慢慢补充。</p>
+<p>一道蓝桥杯2018B组国赛题目</p>
+<h2 id="格雷码"><a href="#格雷码" class="headerlink" title="格雷码"></a>格雷码</h2><p>补全代码的题目<br>格雷码是以n位的二进制来表示数。 与普通的二进制表示不同的是，它要求相邻两个数字只能有1个数位不同。 首尾两个数字也要求只有1位之差。有很多算法来生成格雷码。以下是较常见的一种： 从编码全0开始生成。 当产生第奇数个数时，只把当前数字最末位改变（0变1，1变0） 当产生第偶数个数时，先找到最右边的一个1，把它左边的数字改变。 用这个规则产生的4位格雷码序列<br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/23/2019-05-23-zui-miao-bu-guo-wei-yun-suan/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">SinclairWang</p>
+  <div class="site-description motion-element" itemprop="description">算法 | NLP | MachineLearning | undergraduate</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">categories</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="https://github.com/SinclairCoder" title="GitHub &rarr; https://github.com/SinclairCoder" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="mailto:sinclaircoder@163.com" title="E-Mail &rarr; mailto:sinclaircoder@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="https://blog.csdn.net/SinclairWang" title="CSDN &rarr; https://blog.csdn.net/SinclairWang" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i></a>
+      </span>
+    
+  </div>
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <i class="fa  fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.liuchuo.net/" title="https://www.liuchuo.net/" rel="noopener" target="_blank">liuchuo</a>
+        </li>
+      
+        <li class="links-of-blogroll-item">
+          <a href="https://feisky.xyz/machine-learning/basic.html" title="https://feisky.xyz/machine-learning/basic.html" rel="noopener" target="_blank">AI NOTE</a>
+        </li>
+      
+    </ul>
+  </div>
+
+        </div>
+      </div>
+
+        
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2019 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SinclairWang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">121k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">1:50</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a></div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a></div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Total Visitors">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Total Views">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+      </div>
+
+    
+
+  </div>
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+
+  <script src="/js/schemes/muse.js?v=7.3.0"></script>
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+<script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+
+
+<script src="/js/algolia-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+  <script src="//code.tidio.co/u61uushntplpeuutujp42qmi0lj20uxa.js"></script>
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+   
+
+
+
+
+  <script async src="//code.tidio.co/u61uushntplpeuutujp42qmi0lj20uxa.js"></script>
+
+   
+  <script src="//code.tidio.co/u61uushntplpeuutujp42qmi0lj20uxa.js"></script>
+
+   
+<link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+<script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+
+
+<script src="/js/algolia-search.js?v=7.3.0"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+  
 </body>
-
 </html>
