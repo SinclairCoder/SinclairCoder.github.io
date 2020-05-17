@@ -254,77 +254,6 @@ y = x_1-(a/b)*y_1
       </tags>
   </entry>
   <entry>
-    <title>PTA朋友圈(并查集)</title>
-    <url>/2020/01/20/2020-01-20-pta-peng-you-quan-bing-cha-ji/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>某学校有N个学生，形成M个俱乐部。每个俱乐部里的学生有着一定相似的兴趣爱好，形成一个朋友圈。一个学生可以同时属于若干个不同的俱乐部。根据“我的朋友的朋友也是我的朋友”这个推论可以得出，如果A和B是朋友，且B和C是朋友，则A和C也是朋友。请编写程序计算最大朋友圈中有多少人。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入的第一行包含两个正整数N（≤30000）和M（≤1000），分别代表学校的学生总数和俱乐部的个数。后面的M行每行按以下格式给出1个俱乐部的信息，其中学生从1~N编号：</p>
-<p>第i个俱乐部的人数Mi（空格）学生1（空格）学生2 … 学生Mi</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>输出给出一个整数，表示在最大朋友圈中有多少人。</p>
-<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h2><blockquote>
-<p>7 4<br>3 1 2 3<br>2 1 4<br>3 5 6 7<br>1 6</p>
-</blockquote>
-<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例:"></a>输出样例:</h2><blockquote>
-<p>4</p>
-</blockquote>
-<pre><code class="lang-cpp">#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-#include&lt;vector&gt;
-#include&lt;algorithm&gt;
-#include&lt;stack&gt;
-#include&lt;queue&gt;
-#include&lt;map&gt;
-#include&lt;list&gt;
-#include&lt;set&gt;
-#include&lt;cmath&gt;
-using namespace std;
-typedef long long ll;
-#define N 30005
-int fa[N],num[N];
-int find(int x){
-    if(x==fa[x]) return x;
-    return fa[x] = find(fa[x]);
-}
-void Union(int x,int y){
-    int rootx = find(x),rooty = find(y);
-    if(rootx!=rooty){
-        fa[rooty] = rootx;
-        num[rootx] += num[rooty];
-    }
-}
-int main(){
-    int n,m;
-    cin &gt;&gt; n &gt;&gt; m;
-    for(int i=1;i&lt;=n;i++) {
-        fa[i] = i;num[i]=1;
-    }
-
-    for(int i=0;i&lt;m;i++){
-        int cnt,root,x;
-        cin &gt;&gt; cnt;
-        cin &gt;&gt; root;    
-        for(int j=1;j&lt;cnt;j++) {
-            cin &gt;&gt; x;
-            Union(root,x);
-        }
-    }
-    int res=1;
-    for(int i=1;i&lt;=n;i++){
-        res = max(res,num[fa[i]]);
-    }
-    cout &lt;&lt; res &lt;&lt; endl;
-    return 0;
-}
-</code></pre>
-]]></content>
-      <categories>
-        <category>PTA</category>
-      </categories>
-      <tags>
-        <tag>PTA</tag>
-        <tag>并查集</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>PTA列出连通集(DFS+BFS)</title>
     <url>/2020/01/20/2020-01-20-pta-lie-chu-lian-tong-ji-dfs-bfs/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>给定一个有N个顶点和E条边的无向图，请用DFS和BFS分别列出其所有的连通集。假设顶点从0到N−1编号。进行搜索时，假设我们总是从编号最小的顶点出发，按编号递增的顺序访问邻接点。</p>
@@ -417,6 +346,77 @@ int main(){
       </tags>
   </entry>
   <entry>
+    <title>PTA朋友圈(并查集)</title>
+    <url>/2020/01/20/2020-01-20-pta-peng-you-quan-bing-cha-ji/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>某学校有N个学生，形成M个俱乐部。每个俱乐部里的学生有着一定相似的兴趣爱好，形成一个朋友圈。一个学生可以同时属于若干个不同的俱乐部。根据“我的朋友的朋友也是我的朋友”这个推论可以得出，如果A和B是朋友，且B和C是朋友，则A和C也是朋友。请编写程序计算最大朋友圈中有多少人。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入的第一行包含两个正整数N（≤30000）和M（≤1000），分别代表学校的学生总数和俱乐部的个数。后面的M行每行按以下格式给出1个俱乐部的信息，其中学生从1~N编号：</p>
+<p>第i个俱乐部的人数Mi（空格）学生1（空格）学生2 … 学生Mi</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>输出给出一个整数，表示在最大朋友圈中有多少人。</p>
+<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h2><blockquote>
+<p>7 4<br>3 1 2 3<br>2 1 4<br>3 5 6 7<br>1 6</p>
+</blockquote>
+<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例:"></a>输出样例:</h2><blockquote>
+<p>4</p>
+</blockquote>
+<pre><code class="lang-cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;vector&gt;
+#include&lt;algorithm&gt;
+#include&lt;stack&gt;
+#include&lt;queue&gt;
+#include&lt;map&gt;
+#include&lt;list&gt;
+#include&lt;set&gt;
+#include&lt;cmath&gt;
+using namespace std;
+typedef long long ll;
+#define N 30005
+int fa[N],num[N];
+int find(int x){
+    if(x==fa[x]) return x;
+    return fa[x] = find(fa[x]);
+}
+void Union(int x,int y){
+    int rootx = find(x),rooty = find(y);
+    if(rootx!=rooty){
+        fa[rooty] = rootx;
+        num[rootx] += num[rooty];
+    }
+}
+int main(){
+    int n,m;
+    cin &gt;&gt; n &gt;&gt; m;
+    for(int i=1;i&lt;=n;i++) {
+        fa[i] = i;num[i]=1;
+    }
+
+    for(int i=0;i&lt;m;i++){
+        int cnt,root,x;
+        cin &gt;&gt; cnt;
+        cin &gt;&gt; root;    
+        for(int j=1;j&lt;cnt;j++) {
+            cin &gt;&gt; x;
+            Union(root,x);
+        }
+    }
+    int res=1;
+    for(int i=1;i&lt;=n;i++){
+        res = max(res,num[fa[i]]);
+    }
+    cout &lt;&lt; res &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+]]></content>
+      <categories>
+        <category>PTA</category>
+      </categories>
+      <tags>
+        <tag>PTA</tag>
+        <tag>并查集</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PTA哥尼斯堡的“七桥问题”（欧拉回路+并查集）</title>
     <url>/2020/01/19/2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>哥尼斯堡是位于普累格河上的一座城市，它包含两个岛屿及连接它们的七座桥，<br>可否走过这样的七座桥，而且每桥只走过一次？瑞士数学家欧拉(Leonhard Euler，1707—1783)最终解决了这个问题，并由此创立了拓扑学。<br>这个问题如今可以描述为判断欧拉回路是否存在的问题。欧拉回路是指不令笔离开纸面，可画过图中每条边仅一次，且可以回到起点的一条回路。现给定一个无向图，问是否存在欧拉回路？</p>
@@ -492,8 +492,8 @@ int main(){
       </categories>
       <tags>
         <tag>PTA</tag>
-        <tag>并查集</tag>
         <tag>欧拉回路</tag>
+        <tag>并查集</tag>
       </tags>
   </entry>
   <entry>
@@ -565,6 +565,87 @@ int main(){
       <tags>
         <tag>PTA</tag>
         <tag>Hamilton回路</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PTA小字辈（BFS）</title>
+    <url>/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本题给定一个庞大家族的家谱，要请你给出最小一辈的名单。</p>
+<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>输入在第一行给出家族人口总数 N（不超过 100 000 的正整数） —— 简单起见，我们把家族成员从 1 到 N 编号。随后第二行给出 N 个编号，其中第 i 个编号对应第 i 位成员的父/母。家谱中辈分最高的老祖宗对应的父/母编号为 -1。一行中的数字间以空格分隔。</p>
+<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>首先输出最小的辈分（老祖宗的辈分为 1，以下逐级递增）。然后在第二行按递增顺序输出辈分最小的成员的编号。编号间以一个空格分隔，行首尾不得有多余空格。</p>
+<h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><blockquote>
+<p>9<br>2 6 5 5 -1 5 6 4 7</p>
+</blockquote>
+<h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote>
+<p>4<br>1 9</p>
+</blockquote>
+<p>其实主要是存储的数据结构的设计。<br><br></p>
+<pre><code class="lang-cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;vector&gt;
+#include&lt;algorithm&gt;
+#include&lt;stack&gt;
+#include&lt;queue&gt;
+#include&lt;map&gt;
+#include&lt;list&gt;
+#include&lt;set&gt;
+#include&lt;cmath&gt;
+using namespace std;
+typedef long long ll;
+struct node{
+    int father;
+    vector&lt;int&gt; child;
+}family[100005];
+queue&lt;int&gt; qu;
+vector&lt;int&gt; level;
+int maxh = 1;
+void bfs(int root){
+    qu.push(root);
+    level[root] = 1;
+    while(qu.size()){
+        int index = qu.front();
+        qu.pop();
+        vector&lt;int&gt; tmp = family[index].child;
+        for(int i=0;i&lt;tmp.size();i++){
+            level[tmp[i]] = level[index]+1;
+            maxh = max(level[tmp[i]],maxh);
+            qu.push(family[index].child[i]); 
+        }
+    }
+}
+int main(){
+    int n,x,root;
+    cin &gt;&gt; n;
+    level.resize(n+1);
+    for(int i=1;i&lt;=n;i++){
+        cin &gt;&gt; family[i].father;
+        if(family[i].father==-1) root = i;
+        else {
+            family[family[i].father].child.push_back(i);
+        }
+    }
+    bfs(root);
+    cout &lt;&lt; maxh &lt;&lt; endl;
+    int first = 1;
+    for(int i=1;i&lt;=n;i++){
+        if(level[i]==maxh){
+            if(first) {
+                cout &lt;&lt; i ; first = 0;
+            }
+            else cout &lt;&lt; &quot; &quot; &lt;&lt; i ; 
+        }
+
+    }
+    return 0;
+}
+</code></pre>
+]]></content>
+      <categories>
+        <category>PTA</category>
+      </categories>
+      <tags>
+        <tag>PTA</tag>
+        <tag>BFS</tag>
       </tags>
   </entry>
   <entry>
@@ -646,87 +727,6 @@ int main(){
     cout &lt;&lt; res[0];
     for(int i=1;i&lt;top;i++){
         cout &lt;&lt; &quot; &quot; &lt;&lt; res[i];
-    }
-    return 0;
-}
-</code></pre>
-]]></content>
-      <categories>
-        <category>PTA</category>
-      </categories>
-      <tags>
-        <tag>PTA</tag>
-        <tag>BFS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PTA小字辈（BFS）</title>
-    <url>/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本题给定一个庞大家族的家谱，要请你给出最小一辈的名单。</p>
-<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>输入在第一行给出家族人口总数 N（不超过 100 000 的正整数） —— 简单起见，我们把家族成员从 1 到 N 编号。随后第二行给出 N 个编号，其中第 i 个编号对应第 i 位成员的父/母。家谱中辈分最高的老祖宗对应的父/母编号为 -1。一行中的数字间以空格分隔。</p>
-<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>首先输出最小的辈分（老祖宗的辈分为 1，以下逐级递增）。然后在第二行按递增顺序输出辈分最小的成员的编号。编号间以一个空格分隔，行首尾不得有多余空格。</p>
-<h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><blockquote>
-<p>9<br>2 6 5 5 -1 5 6 4 7</p>
-</blockquote>
-<h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote>
-<p>4<br>1 9</p>
-</blockquote>
-<p>其实主要是存储的数据结构的设计。<br><br></p>
-<pre><code class="lang-cpp">#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-#include&lt;vector&gt;
-#include&lt;algorithm&gt;
-#include&lt;stack&gt;
-#include&lt;queue&gt;
-#include&lt;map&gt;
-#include&lt;list&gt;
-#include&lt;set&gt;
-#include&lt;cmath&gt;
-using namespace std;
-typedef long long ll;
-struct node{
-    int father;
-    vector&lt;int&gt; child;
-}family[100005];
-queue&lt;int&gt; qu;
-vector&lt;int&gt; level;
-int maxh = 1;
-void bfs(int root){
-    qu.push(root);
-    level[root] = 1;
-    while(qu.size()){
-        int index = qu.front();
-        qu.pop();
-        vector&lt;int&gt; tmp = family[index].child;
-        for(int i=0;i&lt;tmp.size();i++){
-            level[tmp[i]] = level[index]+1;
-            maxh = max(level[tmp[i]],maxh);
-            qu.push(family[index].child[i]); 
-        }
-    }
-}
-int main(){
-    int n,x,root;
-    cin &gt;&gt; n;
-    level.resize(n+1);
-    for(int i=1;i&lt;=n;i++){
-        cin &gt;&gt; family[i].father;
-        if(family[i].father==-1) root = i;
-        else {
-            family[family[i].father].child.push_back(i);
-        }
-    }
-    bfs(root);
-    cout &lt;&lt; maxh &lt;&lt; endl;
-    int first = 1;
-    for(int i=1;i&lt;=n;i++){
-        if(level[i]==maxh){
-            if(first) {
-                cout &lt;&lt; i ; first = 0;
-            }
-            else cout &lt;&lt; &quot; &quot; &lt;&lt; i ; 
-        }
-
     }
     return 0;
 }
@@ -2148,49 +2148,6 @@ int main(){
       </tags>
   </entry>
   <entry>
-    <title>大数乘法 java BigInteger的使用</title>
-    <url>/2019/11/22/2019-11-22-da-shu-cheng-fa-java-biginteger-de-shi-yong/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>找个大数乘法的题目练习一下 BigInterger的使用</p>
-<blockquote>
-<p>当两个比较大的整数相乘时，可能会出现数据溢出的情形。为避免溢出，可以采用字符串的方法来实现两个大数之间的乘法。具体来说，首先以字符串的形式输入两个整数，每个整数的长度不会超过8位，然后把它们相乘的结果存储在另一个字符串当中（长度不会超过16位），最后把这个字符串打印出来。例如，假设用户输入为：62773417和12345678，则输出结果为：774980393241726.</p>
-</blockquote>
-<p>输入：</p>
-<blockquote>
-<p>62773417 12345678</p>
-</blockquote>
-<p>输出：</p>
-<blockquote>
-<p>774980393241726</p>
-</blockquote>
-<p>代码实现</p>
-<pre><code class="lang-java">import java.math.BigInteger;
-import java.util.Scanner;
-
-public class Main {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        String str1 = input.next(),str2 = input.next();
-        BigInteger num1 = new BigInteger(str1);
-        BigInteger num2 = new BigInteger(str2);
-        BigInteger res = num1.multiply(num2);
-        System.out.println(res.toString());
-        input.close();
-    }
-
-}
-</code></pre>
-<p>比C/C++实现起来爽很多。<br>一般来说BigInteger是使用String类型进行构造，传入两个个数字字符串，然后进行加减乘除。<br>java中并没有重载运算符这种操作，只能另外实现封装成新的函数。</p>
-<p>一些常用API请参考<a href="https://blog.csdn.net/suyebiubiu/article/details/78511556" target="_blank" rel="noopener">java基础-BigInteger的使用</a></p>
-]]></content>
-      <categories>
-        <category>蓝桥杯</category>
-      </categories>
-      <tags>
-        <tag>蓝桥杯</tag>
-        <tag>BigInteger</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>蓝桥杯集训笔记</title>
     <url>/2019/11/22/2019-11-22-lan-qiao-bei-ji-xun-bi-ji/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="数学建模的思想"><a href="#数学建模的思想" class="headerlink" title="数学建模的思想"></a>数学建模的思想</h2><p>几道题目</p>
@@ -2232,6 +2189,49 @@ public class Main {
       </categories>
       <tags>
         <tag>蓝桥杯</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大数乘法 java BigInteger的使用</title>
+    <url>/2019/11/22/2019-11-22-da-shu-cheng-fa-java-biginteger-de-shi-yong/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>找个大数乘法的题目练习一下 BigInterger的使用</p>
+<blockquote>
+<p>当两个比较大的整数相乘时，可能会出现数据溢出的情形。为避免溢出，可以采用字符串的方法来实现两个大数之间的乘法。具体来说，首先以字符串的形式输入两个整数，每个整数的长度不会超过8位，然后把它们相乘的结果存储在另一个字符串当中（长度不会超过16位），最后把这个字符串打印出来。例如，假设用户输入为：62773417和12345678，则输出结果为：774980393241726.</p>
+</blockquote>
+<p>输入：</p>
+<blockquote>
+<p>62773417 12345678</p>
+</blockquote>
+<p>输出：</p>
+<blockquote>
+<p>774980393241726</p>
+</blockquote>
+<p>代码实现</p>
+<pre><code class="lang-java">import java.math.BigInteger;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String str1 = input.next(),str2 = input.next();
+        BigInteger num1 = new BigInteger(str1);
+        BigInteger num2 = new BigInteger(str2);
+        BigInteger res = num1.multiply(num2);
+        System.out.println(res.toString());
+        input.close();
+    }
+
+}
+</code></pre>
+<p>比C/C++实现起来爽很多。<br>一般来说BigInteger是使用String类型进行构造，传入两个个数字字符串，然后进行加减乘除。<br>java中并没有重载运算符这种操作，只能另外实现封装成新的函数。</p>
+<p>一些常用API请参考<a href="https://blog.csdn.net/suyebiubiu/article/details/78511556" target="_blank" rel="noopener">java基础-BigInteger的使用</a></p>
+]]></content>
+      <categories>
+        <category>蓝桥杯</category>
+      </categories>
+      <tags>
+        <tag>蓝桥杯</tag>
+        <tag>BigInteger</tag>
       </tags>
   </entry>
   <entry>
@@ -2289,19 +2289,6 @@ b1.negate();    //相反数，求BigDecimal类型数据的相反数。
       </tags>
   </entry>
   <entry>
-    <title>切面条</title>
-    <url>/2019/11/22/2019-11-22-qie-mian-tiao/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一道2014蓝桥杯省赛试题<br><strong>切面条</strong><br> 一根高筋拉面，中间切一刀，可以得到2根面条。<br>    如果先对折1次，中间切一刀，可以得到3根面条。<br>    如果连续对折2次，中间切一刀，可以得到5根面条。<br>    那么，连续对折10次，中间切一刀，会得到多少面条呢？  </p>
-<p>不切的话，一根面条原本有两个端点<br>对折0次，中间切一刀，会产生1个端点，一共3个端点，会产生2根面条<br>对折1次，中间切一刀，会产生2个端点，一共4个端点，会产生3根面条<br>对折2次，中间切一刀，会产生4个端点，一共6个端点，会产生5根面条<br>对折3次，中间切一刀，会产生8个端点，一共10个端点，会产生9根面条<br>…<br>…<br>假设对折n次，则中间切一刀，会产生$2^n$个端点，加上原来的两个，一共$2^n+2$个端点，会产生$2^n+2-1$根面条，也即产生的面条数等于端点数减一。<br>即<script type="math/tex">result = 2^n+1</script><br>（证明略..）<br>当n=10时，result = 1025</p>
-]]></content>
-      <categories>
-        <category>蓝桥杯</category>
-      </categories>
-      <tags>
-        <tag>蓝桥杯</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>熊怪吃核桃--二进制的使用</title>
     <url>/2019/11/22/2019-11-22-xiong-guai-chi-he-tao-er-jin-zhi-de-shi-yong/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一道2015年蓝桥杯省赛试题<br><strong>熊怪吃核桃</strong></p>
@@ -2338,6 +2325,19 @@ int main(){
       </categories>
       <tags>
         <tag>位运算</tag>
+        <tag>蓝桥杯</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>切面条</title>
+    <url>/2019/11/22/2019-11-22-qie-mian-tiao/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一道2014蓝桥杯省赛试题<br><strong>切面条</strong><br> 一根高筋拉面，中间切一刀，可以得到2根面条。<br>    如果先对折1次，中间切一刀，可以得到3根面条。<br>    如果连续对折2次，中间切一刀，可以得到5根面条。<br>    那么，连续对折10次，中间切一刀，会得到多少面条呢？  </p>
+<p>不切的话，一根面条原本有两个端点<br>对折0次，中间切一刀，会产生1个端点，一共3个端点，会产生2根面条<br>对折1次，中间切一刀，会产生2个端点，一共4个端点，会产生3根面条<br>对折2次，中间切一刀，会产生4个端点，一共6个端点，会产生5根面条<br>对折3次，中间切一刀，会产生8个端点，一共10个端点，会产生9根面条<br>…<br>…<br>假设对折n次，则中间切一刀，会产生$2^n$个端点，加上原来的两个，一共$2^n+2$个端点，会产生$2^n+2-1$根面条，也即产生的面条数等于端点数减一。<br>即<script type="math/tex">result = 2^n+1</script><br>（证明略..）<br>当n=10时，result = 1025</p>
+]]></content>
+      <categories>
+        <category>蓝桥杯</category>
+      </categories>
+      <tags>
         <tag>蓝桥杯</tag>
       </tags>
   </entry>
@@ -2475,54 +2475,6 @@ int main(){
       </tags>
   </entry>
   <entry>
-    <title>PTA九宫格输入法</title>
-    <url>/2019/11/08/2019-11-08-jiu-gong-ge-shu-ru-fa/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>假设有九宫格输入法键盘布局如下：</p>
-<blockquote>
-<p>[ 1,.?! ] [ 2ABC ] [ 3DEF  ]<br> [ 4GHI  ] [ 5JKL ] [ 6MNO  ]<br> [ 7PQRS ] [ 8TUV ] [ 9WXYZ ]<br>           [ 0空  ]</p>
-</blockquote>
-<p>注意：中括号[ ]仅为了表示键盘的分隔，不是输入字符。每个中括号中，位于首位的数字字符即是键盘的按键，按一下即可输入该数字字符。多次按同一个键，则输入的字符依次循环轮流，例如按两次3，则输入D；按5次7，则输入S；按6次2，则输入A。按键0的输入组合是0和空格字符，即按两次0输入空格。</p>
-<p>你需要对于给定的按键组合，给出该组合对应的文本。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入在一行中给出数个字符的按键组合（例如 999 表示按3次9），每个字符的按键组合之间用空格间隔，最后一个输入法组合之后以换行结束。输入数据至少包括一个字符的按键组合，且输入总长度不超过500个字符。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>在一行中输出该按键组合对应的文本。</p>
-<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h2><blockquote>
-<p>22 5555 22 666 00 88 888 7777 4444 666 44</p>
-</blockquote>
-<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例:"></a>输出样例:</h2><blockquote>
-<p>ALAN TURING</p>
-</blockquote>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-#include&lt;cmath&gt;
-#include&lt;algorithm&gt;
-using namespace std;
-
-#define rep(i,m,n) for(int i=m;i&lt;n;i++)
-#define rep1(i,m,n) for(int i=m;i&gt;=n;i--)
-
-int main()
-{
-    string s[10];
-    s[1]=&quot;1,.?!&quot;;s[2]=&quot;2ABC&quot;;s[3]=&quot;3DEF&quot;;s[4]=&quot;4GHI&quot;;s[5]=&quot;5JKL&quot;;
-    s[6]=&quot;6MNO&quot;;s[7]=&quot;7PQRS&quot;;s[8]=&quot;8TUV&quot;;s[9]=&quot;9WXYZ&quot;;s[0]=&quot;0 &quot;;
-    char tmp[100];
-    while(cin&gt;&gt;tmp&amp;&amp;tmp[0]!=&#39;\n&#39;){
-        int index = strlen(tmp)%s[tmp[0]-&#39;0&#39;].length();
-        if(index==0) cout &lt;&lt; s[tmp[0]-&#39;0&#39;][s[tmp[0]-&#39;0&#39;].length()-1];
-        else cout &lt;&lt; s[tmp[0]-&#39;0&#39;][index-1];
-    }
-    return 0;
-}
-</code></pre>
-]]></content>
-      <categories>
-        <category>PTA</category>
-      </categories>
-      <tags>
-        <tag>PTA</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>PTA福到了</title>
     <url>/2019/11/08/2019-11-08-fu-dao-liao/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>“福”字倒着贴，寓意“福到”。不论到底算不算民俗，本题且请你编写程序，把各种汉字倒过来输出。这里要处理的每个汉字是由一个 N × N 的网格组成的，网格中的元素或者为字符 @ 或者为空格。而倒过来的汉字所用的字符由裁判指定。</p>
@@ -2575,6 +2527,54 @@ int main()
         rep1(j,n-1,0)
             if(s[i][j]==&#39;@&#39;) cout &lt;&lt; c ; else cout &lt;&lt; &quot; &quot;;
         cout &lt;&lt; endl; 
+    }
+    return 0;
+}
+</code></pre>
+]]></content>
+      <categories>
+        <category>PTA</category>
+      </categories>
+      <tags>
+        <tag>PTA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PTA九宫格输入法</title>
+    <url>/2019/11/08/2019-11-08-jiu-gong-ge-shu-ru-fa/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>假设有九宫格输入法键盘布局如下：</p>
+<blockquote>
+<p>[ 1,.?! ] [ 2ABC ] [ 3DEF  ]<br> [ 4GHI  ] [ 5JKL ] [ 6MNO  ]<br> [ 7PQRS ] [ 8TUV ] [ 9WXYZ ]<br>           [ 0空  ]</p>
+</blockquote>
+<p>注意：中括号[ ]仅为了表示键盘的分隔，不是输入字符。每个中括号中，位于首位的数字字符即是键盘的按键，按一下即可输入该数字字符。多次按同一个键，则输入的字符依次循环轮流，例如按两次3，则输入D；按5次7，则输入S；按6次2，则输入A。按键0的输入组合是0和空格字符，即按两次0输入空格。</p>
+<p>你需要对于给定的按键组合，给出该组合对应的文本。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入在一行中给出数个字符的按键组合（例如 999 表示按3次9），每个字符的按键组合之间用空格间隔，最后一个输入法组合之后以换行结束。输入数据至少包括一个字符的按键组合，且输入总长度不超过500个字符。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>在一行中输出该按键组合对应的文本。</p>
+<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h2><blockquote>
+<p>22 5555 22 666 00 88 888 7777 4444 666 44</p>
+</blockquote>
+<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例:"></a>输出样例:</h2><blockquote>
+<p>ALAN TURING</p>
+</blockquote>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code class="lang-cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;cmath&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+
+#define rep(i,m,n) for(int i=m;i&lt;n;i++)
+#define rep1(i,m,n) for(int i=m;i&gt;=n;i--)
+
+int main()
+{
+    string s[10];
+    s[1]=&quot;1,.?!&quot;;s[2]=&quot;2ABC&quot;;s[3]=&quot;3DEF&quot;;s[4]=&quot;4GHI&quot;;s[5]=&quot;5JKL&quot;;
+    s[6]=&quot;6MNO&quot;;s[7]=&quot;7PQRS&quot;;s[8]=&quot;8TUV&quot;;s[9]=&quot;9WXYZ&quot;;s[0]=&quot;0 &quot;;
+    char tmp[100];
+    while(cin&gt;&gt;tmp&amp;&amp;tmp[0]!=&#39;\n&#39;){
+        int index = strlen(tmp)%s[tmp[0]-&#39;0&#39;].length();
+        if(index==0) cout &lt;&lt; s[tmp[0]-&#39;0&#39;][s[tmp[0]-&#39;0&#39;].length()-1];
+        else cout &lt;&lt; s[tmp[0]-&#39;0&#39;][index-1];
     }
     return 0;
 }
@@ -4410,7 +4410,7 @@ int main()
 <p>操千曲而晓声,观千剑而后识器           —— 《文心雕龙》</p>
 </blockquote>
 <p>力扣的周赛自闭了，好久没写了，丢掉的改捡了。</p>
-<h2 id="题目传送"><a href="#题目传送" class="headerlink" title="题目传送"></a><a href="https://leetcode-cn.com/contest/weekly-contest-155/" target="_blank" rel="noopener">题目传送</a></h2><p><strong><a href="https://sinclaircoder.top/2019/09/22/20190922-LeetCodeWeeklyContest-155/">个人博客同步更新</a></strong></p>
+<h2 id="题目传送"><a href="#题目传送" class="headerlink" title="题目传送"></a><a href="https://leetcode-cn.com/contest/weekly-contest-155/" target="_blank" rel="noopener">题目传送</a></h2><p><strong><a href="https://sinclaircoder.top/2019/09/22/20190922-LeetCodeWeeklyContest-155/" target="_blank" rel="noopener">个人博客同步更新</a></strong></p>
 <h2 id="Problem1-最小绝对差"><a href="#Problem1-最小绝对差" class="headerlink" title="Problem1 最小绝对差"></a>Problem1 最小绝对差</h2><ul>
 <li>难度：Easy<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><blockquote>
 <p>给你个整数数组 arr，其中每个元素都 不相同。<br>请你找到所有具有最小绝对差的元素对，并且按升序的顺序返回。</p>
@@ -5154,7 +5154,7 @@ int main()
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
 <p>一年一度的全国大学生数学建模比赛（CUMCM）已接近尾声…</p>
 </blockquote>
-<p><a href="https://sinclaircoder.top/2019/09/16/2019-09-16-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%9B%86%E8%AE%AD%E7%9F%A5%E8%AF%86%E7%82%B9/">SinclairWang 个人博客同步更新，欢迎关注</a><br>相信每个参赛者都会有自己的感悟<br>一句恰如其分的描述：<strong>一次灵魂与肉体的交织</strong>。<br>下面是自己的一点感悟与思考。</p>
+<p><a href="https://sinclaircoder.top/2019/09/16/2019-09-16-%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%9B%86%E8%AE%AD%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">SinclairWang 个人博客同步更新，欢迎关注</a><br>相信每个参赛者都会有自己的感悟<br>一句恰如其分的描述：<strong>一次灵魂与肉体的交织</strong>。<br>下面是自己的一点感悟与思考。</p>
 <h2 id="赛前"><a href="#赛前" class="headerlink" title="赛前"></a>赛前</h2><ul>
 <li>最初听说，大概是在一年前，决定参加比赛是在今年5月份，暑假有两个选择，要么参加8月份的建模集训，要么实验室打杂，综合考虑了一下，看到培训大纲上的东西，可能对日后专业方向走向有益，遂放弃了锻炼编码能力的时间，毅然决定参加去参加集训。</li>
 <li>集训8月1日份开始，9月5日结束，9月12日比赛开始，9月15日比赛结束。</li>
@@ -7090,7 +7090,7 @@ int main()
     <title>第一次参加蓝桥杯(第十届)感怀</title>
     <url>/2019/03/24/2019-03-24-di-yi-ci-can-jia-lan-qiao-bei-di-shi-jie-gan-huai/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote>
-<p>四个小时，十道题目，花了学院300块大洋  \捂脸<br><a id="more"></a><br>这是我第一次参加规模还差不多的程序设计比赛，蓝桥杯，当然一些大牛高校的王牌选手是不稀罕参加的，网上风评称其为“暴力杯”，说根本用不到什么算法技巧，只要会点数学，全程暴力求解就ok，比赛之前看了很多关于蓝桥杯的经验贴，其中出现频率最高的词汇是暴力求解，后来慢慢的训练的做题目的时候，才知道什么是真正的暴力求解，所谓暴力求解，并非无脑不假思索的就直接暴力枚举，而是要经过若干逻辑判断之后，进行求解，相比于十分精巧的算法技巧来说，是暴力了些。比赛的前一天，也就是昨天，我还在看蓝桥杯必考的快排、DFS、贪心….结果必考的没考，没考快排，考了DFS，一道迷宫题目，当时看了看，因为深搜不熟练，觉得做这道题目的话，做半天可能也做不出来，白浪费时间干脆直接跳过，这道题是填空题，15分，下了考场之后，群里有人说这是一道华为的面试题目，好吧。<br>同样是参加蓝桥杯，车上有18级的、17级的还有16级的，我是17级但是今年是第一次参加蓝桥杯，我大一这时候，听老师的话自己的笔记本还没买…经过我的亲身经历证明，对于计算机专业来说，这是万万不行的，我大一一年一直停留在C，C还没精通，而别人大一就学完了C、C++、数据结构甚至更多，而我大一的时间都去哪儿了，我用我的时间换来了什么？都是值得思考的问题，终于我在大一的暑假反应过来，励志大二上学完数据结构，可是大二上课多，再加上自己的惰性，这个历史性的任务终究还是没完成。大二上参加的学院老师讲的蓝桥杯培训课，去是每次都去了，可是也仅仅是听了听，自己也没有下去动手，导致编码能力太差，到现在，我发现18级的很多学生的编码能力已经比我强了…当然这种事情也说不好，毕竟起跑线不同<del>我又在给自己找借口，菜就是原罪</del>。<br>等到了大二上期末考试考完之后，留校做课设，那个时候我开始准备蓝桥杯，从数论开始学起，没学多少放寒假了，打算寒假训练自己的编码能力，顺便学学数据结构的，结果学习的重心不知不觉跑到了JAVA上。我就是这样一步一步的鸽掉我的算法训练的…<br>到了大二下学期，正儿八经的自我反思过后，决心要努力学习训练算法，没事就刷题，周末时间抱着电脑图书馆刷各大OJ上的题目，看别人说，先来刷个杭电OJ 100题<a href="http://acm.hdu.edu.cn/listproblem.php?vol=11" target="_blank" rel="noopener">水题100道</a>。然而我到现在也只是异常费劲的写了35道，前几天学习算法知识，做题目，越做越绝望，看一道不会，看一道不会，然后去网上找解题报告看，学习别人的思路，看别人的做法，我立誓要学好算法，去参加各种程序设计比赛，让日后的每一天都不会像现在一样窘迫。<br>昨天周六，比赛前一天，我在图书馆看了一天的往年题目，也思考了很多，思考我努力学习算法到底是为了什么？为了参加比赛？为了拿奖？用拿来的奖来证明自己？用拿来的奖来争取推免资格？我想了又想，我最初就是为了拿到推免资格来参加比赛，一直心急的去参加各种比赛，以前参加的全国大学生数学竞赛、全国大学英语竞赛，每次都是匆匆上阵，每次都是落荒而逃，每次都是说下次一定再去努力。那便是我的2018年的写照。参加程序设计比赛是为了拿奖，而不是出于对编程的热爱，一直以来，觉得自己一个很大的缺点，就是太过于急功近利，我没有别人的聪明才智，也没有别人的超高效率，更没有比别人很强的能力，却总想着去用做一件事的时间来做两件事，有时候会面对两个比赛，别人可能会有所取舍，而我却总想着我能做到，然后急功近利的去报了两个比赛的名，然后最后可能一个比赛的作品都提交不上。如今2019了，不能再鸽了，不能再中途放弃了，包括写博客，这是我2019年开始写的，<a href="https://sinclaircoder.top">我的博客</a>搭建好了, 2019年要去更加努力、更加自律、更加脚踏实地、不能再去做思想上的巨人而行动上的侏儒了，今天的蓝桥杯落下帷幕，下周的高校天梯赛，由于种种原因，参赛名单里没我，正好我可以重新训练，学习我要今年3月份完成的数据结构教程学习，还要补作业，写一个带界面的迷宫算法，算是个小课设。接下来的希望就是我能进阶决赛，去首都走一趟。能不能进决赛，下周比赛结果就出来了。最近的一个比赛可能就是中国高校微信小程序比赛，要准备参赛了。总要做出点东西来，才不枉自己对一步步接近梦想时内心的汹涌与澎湃。另外，自己的暑假也被安排上了，前20天去导师实验室跟着做项目学习<del>假如我啥都不会做，那我扫地好了</del>后面的一个月参加数学建模培训，参赛，另外把去年失之交臂的数竞再来一遍，不到长城非好汉，人啊，总是失去了才知道珍惜，当我重新再拿到机会时我想我会倍加珍惜…<br>再来谈谈今天的蓝桥杯，今天去的赛点是一个民办大学，一下车觉得这所学校未免也有点太高端，比我的学校好太多，这建筑、这校园、这高楼，真想来这里读大学，当然这是参赛之前的想法，当我参加完比赛之后，我的认知发生了变化<del>你懂的</del>，与更好的校园设施（宽敞的校园、气派的大门，高端的大楼）相比，我还是更喜欢学习氛围、学术氛围更加浓厚的学校，尽管它的校门可能不是那么气派。</p>
+<p>四个小时，十道题目，花了学院300块大洋  \捂脸<br><a id="more"></a><br>这是我第一次参加规模还差不多的程序设计比赛，蓝桥杯，当然一些大牛高校的王牌选手是不稀罕参加的，网上风评称其为“暴力杯”，说根本用不到什么算法技巧，只要会点数学，全程暴力求解就ok，比赛之前看了很多关于蓝桥杯的经验贴，其中出现频率最高的词汇是暴力求解，后来慢慢的训练的做题目的时候，才知道什么是真正的暴力求解，所谓暴力求解，并非无脑不假思索的就直接暴力枚举，而是要经过若干逻辑判断之后，进行求解，相比于十分精巧的算法技巧来说，是暴力了些。比赛的前一天，也就是昨天，我还在看蓝桥杯必考的快排、DFS、贪心….结果必考的没考，没考快排，考了DFS，一道迷宫题目，当时看了看，因为深搜不熟练，觉得做这道题目的话，做半天可能也做不出来，白浪费时间干脆直接跳过，这道题是填空题，15分，下了考场之后，群里有人说这是一道华为的面试题目，好吧。<br>同样是参加蓝桥杯，车上有18级的、17级的还有16级的，我是17级但是今年是第一次参加蓝桥杯，我大一这时候，听老师的话自己的笔记本还没买…经过我的亲身经历证明，对于计算机专业来说，这是万万不行的，我大一一年一直停留在C，C还没精通，而别人大一就学完了C、C++、数据结构甚至更多，而我大一的时间都去哪儿了，我用我的时间换来了什么？都是值得思考的问题，终于我在大一的暑假反应过来，励志大二上学完数据结构，可是大二上课多，再加上自己的惰性，这个历史性的任务终究还是没完成。大二上参加的学院老师讲的蓝桥杯培训课，去是每次都去了，可是也仅仅是听了听，自己也没有下去动手，导致编码能力太差，到现在，我发现18级的很多学生的编码能力已经比我强了…当然这种事情也说不好，毕竟起跑线不同<del>我又在给自己找借口，菜就是原罪</del>。<br>等到了大二上期末考试考完之后，留校做课设，那个时候我开始准备蓝桥杯，从数论开始学起，没学多少放寒假了，打算寒假训练自己的编码能力，顺便学学数据结构的，结果学习的重心不知不觉跑到了JAVA上。我就是这样一步一步的鸽掉我的算法训练的…<br>到了大二下学期，正儿八经的自我反思过后，决心要努力学习训练算法，没事就刷题，周末时间抱着电脑图书馆刷各大OJ上的题目，看别人说，先来刷个杭电OJ 100题<a href="http://acm.hdu.edu.cn/listproblem.php?vol=11" target="_blank" rel="noopener">水题100道</a>。然而我到现在也只是异常费劲的写了35道，前几天学习算法知识，做题目，越做越绝望，看一道不会，看一道不会，然后去网上找解题报告看，学习别人的思路，看别人的做法，我立誓要学好算法，去参加各种程序设计比赛，让日后的每一天都不会像现在一样窘迫。<br>昨天周六，比赛前一天，我在图书馆看了一天的往年题目，也思考了很多，思考我努力学习算法到底是为了什么？为了参加比赛？为了拿奖？用拿来的奖来证明自己？用拿来的奖来争取推免资格？我想了又想，我最初就是为了拿到推免资格来参加比赛，一直心急的去参加各种比赛，以前参加的全国大学生数学竞赛、全国大学英语竞赛，每次都是匆匆上阵，每次都是落荒而逃，每次都是说下次一定再去努力。那便是我的2018年的写照。参加程序设计比赛是为了拿奖，而不是出于对编程的热爱，一直以来，觉得自己一个很大的缺点，就是太过于急功近利，我没有别人的聪明才智，也没有别人的超高效率，更没有比别人很强的能力，却总想着去用做一件事的时间来做两件事，有时候会面对两个比赛，别人可能会有所取舍，而我却总想着我能做到，然后急功近利的去报了两个比赛的名，然后最后可能一个比赛的作品都提交不上。如今2019了，不能再鸽了，不能再中途放弃了，包括写博客，这是我2019年开始写的，<a href="https://sinclaircoder.top" target="_blank" rel="noopener">我的博客</a>搭建好了, 2019年要去更加努力、更加自律、更加脚踏实地、不能再去做思想上的巨人而行动上的侏儒了，今天的蓝桥杯落下帷幕，下周的高校天梯赛，由于种种原因，参赛名单里没我，正好我可以重新训练，学习我要今年3月份完成的数据结构教程学习，还要补作业，写一个带界面的迷宫算法，算是个小课设。接下来的希望就是我能进阶决赛，去首都走一趟。能不能进决赛，下周比赛结果就出来了。最近的一个比赛可能就是中国高校微信小程序比赛，要准备参赛了。总要做出点东西来，才不枉自己对一步步接近梦想时内心的汹涌与澎湃。另外，自己的暑假也被安排上了，前20天去导师实验室跟着做项目学习<del>假如我啥都不会做，那我扫地好了</del>后面的一个月参加数学建模培训，参赛，另外把去年失之交臂的数竞再来一遍，不到长城非好汉，人啊，总是失去了才知道珍惜，当我重新再拿到机会时我想我会倍加珍惜…<br>再来谈谈今天的蓝桥杯，今天去的赛点是一个民办大学，一下车觉得这所学校未免也有点太高端，比我的学校好太多，这建筑、这校园、这高楼，真想来这里读大学，当然这是参赛之前的想法，当我参加完比赛之后，我的认知发生了变化<del>你懂的</del>，与更好的校园设施（宽敞的校园、气派的大门，高端的大楼）相比，我还是更喜欢学习氛围、学术氛围更加浓厚的学校，尽管它的校门可能不是那么气派。</p>
 </blockquote>
 <hr>
 <p>更于2019年3月28日<br>初赛结果出来了，省一，要准备国赛了…</p>
@@ -7591,61 +7591,6 @@ int lcm(int gcd,int m,int n)
       </tags>
   </entry>
   <entry>
-    <title>HDU2099整除的尾数</title>
-    <url>/2019/01/09/2019-01-09-hdu2099-zheng-chu-de-wei-shu/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="整除的尾数"><a href="#整除的尾数" class="headerlink" title="整除的尾数"></a>整除的尾数</h1><blockquote>
-<p>You have to live spherically - in many directions.<br>Never lose your childish enthusiasm and things will come your way.<br>人要活得精彩，各个领域都要勇于尝试，永远保持童真般的热情，一切就会得偿所愿。<br>                                                          ——《托斯卡尼艳阳下》</p>
-</blockquote>
-<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><blockquote>
-<p>一个整数，只知道前几位，不知道末二位，被另一个整数除尽了，那么该数的末二位该是什么呢？    </p>
-</blockquote>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><blockquote>
-<p>输入数据有若干组，每组数据包含二个整数a，b（0&lt;a&lt;10000, 10&lt;b&lt;100），若遇到0 0则处理结束。</p>
-</blockquote>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><blockquote>
-<p>对应每组数据，将满足条件的所有尾数在一行内输出，格式见样本输出。<br>同组数据的输出，其每个尾数之间空一格，行末没有空格。<br><a id="more"></a></p>
-</blockquote>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><blockquote>
-<p>200 40<br>1992 95<br>0 0</p>
-</blockquote>
-<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><blockquote>
-<p>00 40 80<br>15</p>
-</blockquote>
-<h2 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h2><blockquote>
-<p>输入要判断是否为0，先将这个整数乘以100，然后利用0到99的穷举进行判断，输出时考虑到0的问题，用printf函数输出。</p>
-</blockquote>
-<h2 id="二、代码实现"><a href="#二、代码实现" class="headerlink" title="二、代码实现"></a>二、代码实现</h2><pre><code class="lang-javascript">#include &lt;iostream&gt;
-using namespace std;
-int main() 
-{
-    int a,b,count=0;
-    while(cin&gt;&gt; a &gt;&gt; b &amp;&amp; a!=0 &amp;&amp; b!=0)
-    {
-        a *= 100;
-        for(int i=0;i&lt;=99;i++)
-        {
-            if((a+i)%b == 0)
-            {
-                count++; // 计数，用于空格的输出
-                if(count==1) printf(&quot;%02d&quot;,i);  //输出空格的问题
-                else printf(&quot; %02d&quot;,i);
-            }
-        }
-        cout &lt;&lt; endl;
-        count=0;   //每一组整数的后两位判断完毕之后，count需清零，然后输出换行
-    }
-    return 0;
-}
-</code></pre>
-]]></content>
-      <categories>
-        <category>数据结构与算法训练</category>
-      </categories>
-      <tags>
-        <tag>数据结构与算法训练</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>HDU2097Sky数</title>
     <url>/2019/01/09/2019-01-09-hdu-2097sky-shu/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Sky数"><a href="#Sky数" class="headerlink" title="Sky数"></a>Sky数</h1><blockquote>
@@ -7692,6 +7637,61 @@ int main()
         else cout&lt;&lt; a &lt;&lt; &quot; is not a Sky Number.&quot; &lt;&lt; endl;
     }
    return 0;
+}
+</code></pre>
+]]></content>
+      <categories>
+        <category>数据结构与算法训练</category>
+      </categories>
+      <tags>
+        <tag>数据结构与算法训练</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HDU2099整除的尾数</title>
+    <url>/2019/01/09/2019-01-09-hdu2099-zheng-chu-de-wei-shu/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="整除的尾数"><a href="#整除的尾数" class="headerlink" title="整除的尾数"></a>整除的尾数</h1><blockquote>
+<p>You have to live spherically - in many directions.<br>Never lose your childish enthusiasm and things will come your way.<br>人要活得精彩，各个领域都要勇于尝试，永远保持童真般的热情，一切就会得偿所愿。<br>                                                          ——《托斯卡尼艳阳下》</p>
+</blockquote>
+<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><blockquote>
+<p>一个整数，只知道前几位，不知道末二位，被另一个整数除尽了，那么该数的末二位该是什么呢？    </p>
+</blockquote>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><blockquote>
+<p>输入数据有若干组，每组数据包含二个整数a，b（0&lt;a&lt;10000, 10&lt;b&lt;100），若遇到0 0则处理结束。</p>
+</blockquote>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><blockquote>
+<p>对应每组数据，将满足条件的所有尾数在一行内输出，格式见样本输出。<br>同组数据的输出，其每个尾数之间空一格，行末没有空格。<br><a id="more"></a></p>
+</blockquote>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><blockquote>
+<p>200 40<br>1992 95<br>0 0</p>
+</blockquote>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><blockquote>
+<p>00 40 80<br>15</p>
+</blockquote>
+<h2 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h2><blockquote>
+<p>输入要判断是否为0，先将这个整数乘以100，然后利用0到99的穷举进行判断，输出时考虑到0的问题，用printf函数输出。</p>
+</blockquote>
+<h2 id="二、代码实现"><a href="#二、代码实现" class="headerlink" title="二、代码实现"></a>二、代码实现</h2><pre><code class="lang-javascript">#include &lt;iostream&gt;
+using namespace std;
+int main() 
+{
+    int a,b,count=0;
+    while(cin&gt;&gt; a &gt;&gt; b &amp;&amp; a!=0 &amp;&amp; b!=0)
+    {
+        a *= 100;
+        for(int i=0;i&lt;=99;i++)
+        {
+            if((a+i)%b == 0)
+            {
+                count++; // 计数，用于空格的输出
+                if(count==1) printf(&quot;%02d&quot;,i);  //输出空格的问题
+                else printf(&quot; %02d&quot;,i);
+            }
+        }
+        cout &lt;&lt; endl;
+        count=0;   //每一组整数的后两位判断完毕之后，count需清零，然后输出换行
+    }
+    return 0;
 }
 </code></pre>
 ]]></content>

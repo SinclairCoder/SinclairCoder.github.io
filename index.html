@@ -64,7 +64,7 @@
 <meta name="keywords" content="算法 | NLP | MachineLearning">
 <meta property="og:type" content="website">
 <meta property="og:title" content="SinclairのBlog">
-<meta property="og:url" content="https://sinclaircoder.top/index.html">
+<meta property="og:url" content="https://sinclaircoder.gitee.io/index.html">
 <meta property="og:site_name" content="SinclairのBlog">
 <meta property="og:description" content="算法 | NLP | MachineLearning | undergraduate">
 <meta property="og:locale" content="en">
@@ -72,7 +72,7 @@
 <meta name="twitter:title" content="SinclairのBlog">
 <meta name="twitter:description" content="算法 | NLP | MachineLearning | undergraduate">
   <link rel="alternate" href="/atom.xml" title="SinclairのBlog" type="application/atom+xml">
-  <link rel="canonical" href="https://sinclaircoder.top/">
+  <link rel="canonical" href="https://sinclaircoder.gitee.io/">
 
 
 <script id="page-configurations">
@@ -295,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/10/22/2019-10-22-pei-shu-ding-li-kuo-zhan-ou-ji-li-de-suan-fa/">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2019/10/22/2019-10-22-pei-shu-ding-li-kuo-zhan-ou-ji-li-de-suan-fa/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SinclairWang">
@@ -428,7 +428,7 @@ y = x_1-(a/b)*y_1
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2019/09/02/2019-09-02-ruan-jian-ti-xi-jie-gou-bi-ji/">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2019/09/02/2019-09-02-ruan-jian-ti-xi-jie-gou-bi-ji/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SinclairWang">
@@ -730,168 +730,7 @@ y = x_1-(a/b)*y_1
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2020/01/20/2020-01-20-pta-peng-you-quan-bing-cha-ji/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SinclairWang">
-      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SinclairのBlog">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2020/01/20/2020-01-20-pta-peng-you-quan-bing-cha-ji/" class="post-title-link" itemprop="url">PTA朋友圈(并查集)</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2020-01-20 00:00:00" itemprop="dateCreated datePublished" datetime="2020-01-20T00:00:00+08:00">2020-01-20</time>
-            </span>
-          
-
-          <br>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span title="Symbols count in article">1.1k</span>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span title="Reading time">1 mins.</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <p>某学校有N个学生，形成M个俱乐部。每个俱乐部里的学生有着一定相似的兴趣爱好，形成一个朋友圈。一个学生可以同时属于若干个不同的俱乐部。根据“我的朋友的朋友也是我的朋友”这个推论可以得出，如果A和B是朋友，且B和C是朋友，则A和C也是朋友。请编写程序计算最大朋友圈中有多少人。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入的第一行包含两个正整数N（≤30000）和M（≤1000），分别代表学校的学生总数和俱乐部的个数。后面的M行每行按以下格式给出1个俱乐部的信息，其中学生从1~N编号：</p>
-<p>第i个俱乐部的人数Mi（空格）学生1（空格）学生2 … 学生Mi</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>输出给出一个整数，表示在最大朋友圈中有多少人。</p>
-<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h2><blockquote>
-<p>7 4<br>3 1 2 3<br>2 1 4<br>3 5 6 7<br>1 6</p>
-</blockquote>
-<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例:"></a>输出样例:</h2><blockquote>
-<p>4</p>
-</blockquote>
-<pre><code class="lang-cpp">#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-#include&lt;vector&gt;
-#include&lt;algorithm&gt;
-#include&lt;stack&gt;
-#include&lt;queue&gt;
-#include&lt;map&gt;
-#include&lt;list&gt;
-#include&lt;set&gt;
-#include&lt;cmath&gt;
-using namespace std;
-typedef long long ll;
-#define N 30005
-int fa[N],num[N];
-int find(int x){
-    if(x==fa[x]) return x;
-    return fa[x] = find(fa[x]);
-}
-void Union(int x,int y){
-    int rootx = find(x),rooty = find(y);
-    if(rootx!=rooty){
-        fa[rooty] = rootx;
-        num[rootx] += num[rooty];
-    }
-}
-int main(){
-    int n,m;
-    cin &gt;&gt; n &gt;&gt; m;
-    for(int i=1;i&lt;=n;i++) {
-        fa[i] = i;num[i]=1;
-    }
-
-    for(int i=0;i&lt;m;i++){
-        int cnt,root,x;
-        cin &gt;&gt; cnt;
-        cin &gt;&gt; root;    
-        for(int j=1;j&lt;cnt;j++) {
-            cin &gt;&gt; x;
-            Union(root,x);
-        }
-    }
-    int res=1;
-    for(int i=1;i&lt;=n;i++){
-        res = max(res,num[fa[i]]);
-    }
-    cout &lt;&lt; res &lt;&lt; endl;
-    return 0;
-}
-</code></pre>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2020/01/20/2020-01-20-pta-lie-chu-lian-tong-ji-dfs-bfs/">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2020/01/20/2020-01-20-pta-lie-chu-lian-tong-ji-dfs-bfs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SinclairWang">
@@ -1072,7 +911,168 @@ int main(){
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2020/01/19/2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji/">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2020/01/20/2020-01-20-pta-peng-you-quan-bing-cha-ji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/01/20/2020-01-20-pta-peng-you-quan-bing-cha-ji/" class="post-title-link" itemprop="url">PTA朋友圈(并查集)</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2020-01-20 00:00:00" itemprop="dateCreated datePublished" datetime="2020-01-20T00:00:00+08:00">2020-01-20</time>
+            </span>
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">1.1k</span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">1 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <p>某学校有N个学生，形成M个俱乐部。每个俱乐部里的学生有着一定相似的兴趣爱好，形成一个朋友圈。一个学生可以同时属于若干个不同的俱乐部。根据“我的朋友的朋友也是我的朋友”这个推论可以得出，如果A和B是朋友，且B和C是朋友，则A和C也是朋友。请编写程序计算最大朋友圈中有多少人。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式:"></a>输入格式:</h2><p>输入的第一行包含两个正整数N（≤30000）和M（≤1000），分别代表学校的学生总数和俱乐部的个数。后面的M行每行按以下格式给出1个俱乐部的信息，其中学生从1~N编号：</p>
+<p>第i个俱乐部的人数Mi（空格）学生1（空格）学生2 … 学生Mi</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式:"></a>输出格式:</h2><p>输出给出一个整数，表示在最大朋友圈中有多少人。</p>
+<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例:"></a>输入样例:</h2><blockquote>
+<p>7 4<br>3 1 2 3<br>2 1 4<br>3 5 6 7<br>1 6</p>
+</blockquote>
+<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例:"></a>输出样例:</h2><blockquote>
+<p>4</p>
+</blockquote>
+<pre><code class="lang-cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;vector&gt;
+#include&lt;algorithm&gt;
+#include&lt;stack&gt;
+#include&lt;queue&gt;
+#include&lt;map&gt;
+#include&lt;list&gt;
+#include&lt;set&gt;
+#include&lt;cmath&gt;
+using namespace std;
+typedef long long ll;
+#define N 30005
+int fa[N],num[N];
+int find(int x){
+    if(x==fa[x]) return x;
+    return fa[x] = find(fa[x]);
+}
+void Union(int x,int y){
+    int rootx = find(x),rooty = find(y);
+    if(rootx!=rooty){
+        fa[rooty] = rootx;
+        num[rootx] += num[rooty];
+    }
+}
+int main(){
+    int n,m;
+    cin &gt;&gt; n &gt;&gt; m;
+    for(int i=1;i&lt;=n;i++) {
+        fa[i] = i;num[i]=1;
+    }
+
+    for(int i=0;i&lt;m;i++){
+        int cnt,root,x;
+        cin &gt;&gt; cnt;
+        cin &gt;&gt; root;    
+        for(int j=1;j&lt;cnt;j++) {
+            cin &gt;&gt; x;
+            Union(root,x);
+        }
+    }
+    int res=1;
+    for(int i=1;i&lt;=n;i++){
+        res = max(res,num[fa[i]]);
+    }
+    cout &lt;&lt; res &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2020/01/19/2020-01-19-pta-ge-ni-si-bao-de-qi-qiao-wen-ti-ou-la-hui-lu-bing-cha-ji/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SinclairWang">
@@ -1241,7 +1241,7 @@ int main(){
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2020/01/19/2020-01-19-pta-han-mi-er-dun-hui-lu/">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2020/01/19/2020-01-19-pta-han-mi-er-dun-hui-lu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SinclairWang">
@@ -1402,7 +1402,178 @@ int main(){
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2020/01/19/2020-01-19-pta-lie-chu-xie-jie-dian-bfs/">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SinclairWang">
+      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SinclairのBlog">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/" class="post-title-link" itemprop="url">PTA小字辈（BFS）</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2020-01-19 00:00:00" itemprop="dateCreated datePublished" datetime="2020-01-19T00:00:00+08:00">2020-01-19</time>
+            </span>
+          
+
+          <br>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              
+              <span title="Symbols count in article">1.3k</span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              
+              <span title="Reading time">1 mins.</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <p>本题给定一个庞大家族的家谱，要请你给出最小一辈的名单。</p>
+<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>输入在第一行给出家族人口总数 N（不超过 100 000 的正整数） —— 简单起见，我们把家族成员从 1 到 N 编号。随后第二行给出 N 个编号，其中第 i 个编号对应第 i 位成员的父/母。家谱中辈分最高的老祖宗对应的父/母编号为 -1。一行中的数字间以空格分隔。</p>
+<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>首先输出最小的辈分（老祖宗的辈分为 1，以下逐级递增）。然后在第二行按递增顺序输出辈分最小的成员的编号。编号间以一个空格分隔，行首尾不得有多余空格。</p>
+<h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><blockquote>
+<p>9<br>2 6 5 5 -1 5 6 4 7</p>
+</blockquote>
+<h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote>
+<p>4<br>1 9</p>
+</blockquote>
+<p>其实主要是存储的数据结构的设计。<br><br></p>
+<pre><code class="lang-cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;vector&gt;
+#include&lt;algorithm&gt;
+#include&lt;stack&gt;
+#include&lt;queue&gt;
+#include&lt;map&gt;
+#include&lt;list&gt;
+#include&lt;set&gt;
+#include&lt;cmath&gt;
+using namespace std;
+typedef long long ll;
+struct node{
+    int father;
+    vector&lt;int&gt; child;
+}family[100005];
+queue&lt;int&gt; qu;
+vector&lt;int&gt; level;
+int maxh = 1;
+void bfs(int root){
+    qu.push(root);
+    level[root] = 1;
+    while(qu.size()){
+        int index = qu.front();
+        qu.pop();
+        vector&lt;int&gt; tmp = family[index].child;
+        for(int i=0;i&lt;tmp.size();i++){
+            level[tmp[i]] = level[index]+1;
+            maxh = max(level[tmp[i]],maxh);
+            qu.push(family[index].child[i]); 
+        }
+    }
+}
+int main(){
+    int n,x,root;
+    cin &gt;&gt; n;
+    level.resize(n+1);
+    for(int i=1;i&lt;=n;i++){
+        cin &gt;&gt; family[i].father;
+        if(family[i].father==-1) root = i;
+        else {
+            family[family[i].father].child.push_back(i);
+        }
+    }
+    bfs(root);
+    cout &lt;&lt; maxh &lt;&lt; endl;
+    int first = 1;
+    for(int i=1;i&lt;=n;i++){
+        if(level[i]==maxh){
+            if(first) {
+                cout &lt;&lt; i ; first = 0;
+            }
+            else cout &lt;&lt; &quot; &quot; &lt;&lt; i ; 
+        }
+
+    }
+    return 0;
+}
+</code></pre>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2020/01/19/2020-01-19-pta-lie-chu-xie-jie-dian-bfs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SinclairWang">
@@ -1584,178 +1755,7 @@ int main(){
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="SinclairWang">
-      <meta itemprop="description" content="算法 | NLP | MachineLearning | undergraduate">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="SinclairのBlog">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2020/01/19/2020-1-19-pta-xiao-zi-bei-bfs/" class="post-title-link" itemprop="url">PTA小字辈（BFS）</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2020-01-19 00:00:00" itemprop="dateCreated datePublished" datetime="2020-01-19T00:00:00+08:00">2020-01-19</time>
-            </span>
-          
-
-          <br>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Symbols count in article: </span>
-              
-              <span title="Symbols count in article">1.3k</span>
-            </span>
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Reading time &asymp;</span>
-              
-              <span title="Reading time">1 mins.</span>
-            </span>
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-            <p>本题给定一个庞大家族的家谱，要请你给出最小一辈的名单。</p>
-<h2 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h2><p>输入在第一行给出家族人口总数 N（不超过 100 000 的正整数） —— 简单起见，我们把家族成员从 1 到 N 编号。随后第二行给出 N 个编号，其中第 i 个编号对应第 i 位成员的父/母。家谱中辈分最高的老祖宗对应的父/母编号为 -1。一行中的数字间以空格分隔。</p>
-<h2 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h2><p>首先输出最小的辈分（老祖宗的辈分为 1，以下逐级递增）。然后在第二行按递增顺序输出辈分最小的成员的编号。编号间以一个空格分隔，行首尾不得有多余空格。</p>
-<h2 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h2><blockquote>
-<p>9<br>2 6 5 5 -1 5 6 4 7</p>
-</blockquote>
-<h2 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h2><blockquote>
-<p>4<br>1 9</p>
-</blockquote>
-<p>其实主要是存储的数据结构的设计。<br><br></p>
-<pre><code class="lang-cpp">#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-#include&lt;vector&gt;
-#include&lt;algorithm&gt;
-#include&lt;stack&gt;
-#include&lt;queue&gt;
-#include&lt;map&gt;
-#include&lt;list&gt;
-#include&lt;set&gt;
-#include&lt;cmath&gt;
-using namespace std;
-typedef long long ll;
-struct node{
-    int father;
-    vector&lt;int&gt; child;
-}family[100005];
-queue&lt;int&gt; qu;
-vector&lt;int&gt; level;
-int maxh = 1;
-void bfs(int root){
-    qu.push(root);
-    level[root] = 1;
-    while(qu.size()){
-        int index = qu.front();
-        qu.pop();
-        vector&lt;int&gt; tmp = family[index].child;
-        for(int i=0;i&lt;tmp.size();i++){
-            level[tmp[i]] = level[index]+1;
-            maxh = max(level[tmp[i]],maxh);
-            qu.push(family[index].child[i]); 
-        }
-    }
-}
-int main(){
-    int n,x,root;
-    cin &gt;&gt; n;
-    level.resize(n+1);
-    for(int i=1;i&lt;=n;i++){
-        cin &gt;&gt; family[i].father;
-        if(family[i].father==-1) root = i;
-        else {
-            family[family[i].father].child.push_back(i);
-        }
-    }
-    bfs(root);
-    cout &lt;&lt; maxh &lt;&lt; endl;
-    int first = 1;
-    for(int i=1;i&lt;=n;i++){
-        if(level[i]==maxh){
-            if(first) {
-                cout &lt;&lt; i ; first = 0;
-            }
-            else cout &lt;&lt; &quot; &quot; &lt;&lt; i ; 
-        }
-
-    }
-    return 0;
-}
-</code></pre>
-
-          
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2020/01/18/2020-01-18-pta-da-yin-xue-sheng-xuan-ke-qing-dan-ha-xi-biao/">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2020/01/18/2020-01-18-pta-da-yin-xue-sheng-xuan-ke-qing-dan-ha-xi-biao/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SinclairWang">
@@ -1917,7 +1917,7 @@ int main(){
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.top/2020/01/17/2020-01-17-pta-lie-che-diao-du/">
+    <link itemprop="mainEntityOfPage" href="https://sinclaircoder.gitee.io/2020/01/17/2020-01-17-pta-lie-che-diao-du/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SinclairWang">
